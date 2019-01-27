@@ -127,7 +127,7 @@ public class ServiceNsUsageItemProvider extends ItemProviderAdapter implements I
                         getString( "_UI_PropertyDescriptor_description", "_UI_ServiceNsUsage_release_feature",
                                 "_UI_ServiceNsUsage_type" ),
                         NsdPackage.Literals.SERVICE_NS_USAGE__RELEASE, true, false, false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -159,7 +159,7 @@ public class ServiceNsUsageItemProvider extends ItemProviderAdapter implements I
                         getString( "_UI_PropertyDescriptor_description", "_UI_ServiceNsUsage_version_feature",
                                 "_UI_ServiceNsUsage_type" ),
                         NsdPackage.Literals.SERVICE_NS_USAGE__VERSION, true, false, false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**

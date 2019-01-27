@@ -4100,44 +4100,6 @@ public interface NsdPackage extends EPackage {
     int LICENSE_KIND_OBJECT = 60;
 
     /**
-     * The meta object id for the '<em>NS Release</em>' data type.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getNSRelease()
-     * @generated
-     */
-    int NS_RELEASE = 61;
-
-    /**
-     * The meta object id for the '<em>NS Release Object</em>' data type.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see java.lang.Short
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getNSReleaseObject()
-     * @generated
-     */
-    int NS_RELEASE_OBJECT = 62;
-
-    /**
-     * The meta object id for the '<em>NS Version</em>' data type.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getNSVersion()
-     * @generated
-     */
-    int NS_VERSION = 63;
-
-    /**
-     * The meta object id for the '<em>NS Version Object</em>' data type.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see java.lang.Integer
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getNSVersionObject()
-     * @generated
-     */
-    int NS_VERSION_OBJECT = 64;
-
-    /**
      * The meta object id for the '<em>Pub Stage Object</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4145,7 +4107,7 @@ public interface NsdPackage extends EPackage {
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getPubStageObject()
      * @generated
      */
-    int PUB_STAGE_OBJECT = 65;
+    int PUB_STAGE_OBJECT = 61;
 
     /**
      * The meta object id for the '<em>Undefined Attribute Type Kind Object</em>' data type.
@@ -4155,7 +4117,7 @@ public interface NsdPackage extends EPackage {
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getUndefinedAttributeTypeKindObject()
      * @generated
      */
-    int UNDEFINED_ATTRIBUTE_TYPE_KIND_OBJECT = 66;
+    int UNDEFINED_ATTRIBUTE_TYPE_KIND_OBJECT = 62;
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType <em>Applies To Type</em>}'.
@@ -7168,58 +7130,6 @@ public interface NsdPackage extends EPackage {
     EDataType getLicenseKindObject();
 
     /**
-     * Returns the meta object for data type '<em>NS Release</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Release of a namespace (number between 1 and 255), distinguishing between releases of a same namespace version and revision.
-     * <!-- end-model-doc -->
-     * @return the meta object for data type '<em>NS Release</em>'.
-     * @model instanceClass="short"
-     *        extendedMetaData="name='tNSRelease' baseType='http://www.eclipse.org/emf/2003/XMLType#unsignedByte' minExclusive='0'"
-     * @generated
-     */
-    EDataType getNSRelease();
-
-    /**
-     * Returns the meta object for data type '{@link java.lang.Short <em>NS Release Object</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for data type '<em>NS Release Object</em>'.
-     * @see java.lang.Short
-     * @model instanceClass="java.lang.Short"
-     *        extendedMetaData="name='tNSRelease:Object' baseType='tNSRelease'"
-     * @generated
-     */
-    EDataType getNSReleaseObject();
-
-    /**
-     * Returns the meta object for data type '<em>NS Version</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Version of a namespace (a year between 2002 and 2099).
-     * <!-- end-model-doc -->
-     * @return the meta object for data type '<em>NS Version</em>'.
-     * @model instanceClass="int"
-     *        extendedMetaData="name='tNSVersion' baseType='http://www.eclipse.org/emf/2003/XMLType#unsignedShort' minInclusive='2002' maxInclusive='2099'"
-     * @generated
-     */
-    EDataType getNSVersion();
-
-    /**
-     * Returns the meta object for data type '{@link java.lang.Integer <em>NS Version Object</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for data type '<em>NS Version Object</em>'.
-     * @see java.lang.Integer
-     * @model instanceClass="java.lang.Integer"
-     *        extendedMetaData="name='tNSVersion:Object' baseType='tNSVersion'"
-     * @generated
-     */
-    EDataType getNSVersionObject();
-
-    /**
      * Returns the meta object for data type '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage <em>Pub Stage Object</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -9617,44 +9527,6 @@ public interface NsdPackage extends EPackage {
          * @generated
          */
         EDataType LICENSE_KIND_OBJECT = eINSTANCE.getLicenseKindObject();
-
-        /**
-         * The meta object literal for the '<em>NS Release</em>' data type.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getNSRelease()
-         * @generated
-         */
-        EDataType NS_RELEASE = eINSTANCE.getNSRelease();
-
-        /**
-         * The meta object literal for the '<em>NS Release Object</em>' data type.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see java.lang.Short
-         * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getNSReleaseObject()
-         * @generated
-         */
-        EDataType NS_RELEASE_OBJECT = eINSTANCE.getNSReleaseObject();
-
-        /**
-         * The meta object literal for the '<em>NS Version</em>' data type.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getNSVersion()
-         * @generated
-         */
-        EDataType NS_VERSION = eINSTANCE.getNSVersion();
-
-        /**
-         * The meta object literal for the '<em>NS Version Object</em>' data type.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see java.lang.Integer
-         * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getNSVersionObject()
-         * @generated
-         */
-        EDataType NS_VERSION_OBJECT = eINSTANCE.getNSVersionObject();
 
         /**
          * The meta object literal for the '<em>Pub Stage Object</em>' data type.

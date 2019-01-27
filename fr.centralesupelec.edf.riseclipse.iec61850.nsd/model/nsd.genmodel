@@ -105,10 +105,6 @@
     <genDataTypes ecoreDataType="nsd.ecore#//CBKindObject"/>
     <genDataTypes ecoreDataType="nsd.ecore#//DefinedAttributeTypeKindObject"/>
     <genDataTypes ecoreDataType="nsd.ecore#//LicenseKindObject"/>
-    <genDataTypes ecoreDataType="nsd.ecore#//NSRelease"/>
-    <genDataTypes ecoreDataType="nsd.ecore#//NSReleaseObject"/>
-    <genDataTypes ecoreDataType="nsd.ecore#//NSVersion"/>
-    <genDataTypes ecoreDataType="nsd.ecore#//NSVersionObject"/>
     <genDataTypes ecoreDataType="nsd.ecore#//PubStageObject"/>
     <genDataTypes ecoreDataType="nsd.ecore#//UndefinedAttributeTypeKindObject"/>
     <genClasses ecoreClass="nsd.ecore#//AppliesToType">

@@ -531,34 +531,6 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType nsReleaseEDataType = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EDataType nsReleaseObjectEDataType = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EDataType nsVersionEDataType = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EDataType nsVersionObjectEDataType = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     private EDataType pubStageObjectEDataType = null;
 
     /**
@@ -3428,46 +3400,6 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getNSRelease() {
-        return nsReleaseEDataType;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EDataType getNSReleaseObject() {
-        return nsReleaseObjectEDataType;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EDataType getNSVersion() {
-        return nsVersionEDataType;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EDataType getNSVersionObject() {
-        return nsVersionObjectEDataType;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public EDataType getPubStageObject() {
         return pubStageObjectEDataType;
     }
@@ -3843,10 +3775,6 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         cbKindObjectEDataType = createEDataType( CB_KIND_OBJECT );
         definedAttributeTypeKindObjectEDataType = createEDataType( DEFINED_ATTRIBUTE_TYPE_KIND_OBJECT );
         licenseKindObjectEDataType = createEDataType( LICENSE_KIND_OBJECT );
-        nsReleaseEDataType = createEDataType( NS_RELEASE );
-        nsReleaseObjectEDataType = createEDataType( NS_RELEASE_OBJECT );
-        nsVersionEDataType = createEDataType( NS_VERSION );
-        nsVersionObjectEDataType = createEDataType( NS_VERSION_OBJECT );
         pubStageObjectEDataType = createEDataType( PUB_STAGE_OBJECT );
         undefinedAttributeTypeKindObjectEDataType = createEDataType( UNDEFINED_ATTRIBUTE_TYPE_KIND_OBJECT );
     }
@@ -3912,13 +3840,15 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getAppliesToType_PublicationStage(), this.getPubStage(), "publicationStage", "IS", 0, 1,
                 AppliesToType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getAppliesToType_Release(), this.getNSRelease(), "release", "1", 0, 1, AppliesToType.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getAppliesToType_Release(), ecorePackage.getEIntegerObject(), "release", "1", 0, 1,
+                AppliesToType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
         initEAttribute( getAppliesToType_Revision(), ecorePackage.getEString(), "revision", "A", 0, 1,
                 AppliesToType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getAppliesToType_Version(), this.getNSVersion(), "version", null, 1, 1, AppliesToType.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getAppliesToType_Version(), ecorePackage.getEIntegerObject(), "version", null, 1, 1,
+                AppliesToType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
 
         initEClass( dependsOnTypeEClass, DependsOnType.class, "DependsOnType", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
@@ -3928,13 +3858,15 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getDependsOnType_PublicationStage(), this.getPubStage(), "publicationStage", "IS", 0, 1,
                 DependsOnType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getDependsOnType_Release(), this.getNSRelease(), "release", "1", 0, 1, DependsOnType.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getDependsOnType_Release(), ecorePackage.getEIntegerObject(), "release", "1", 0, 1,
+                DependsOnType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
         initEAttribute( getDependsOnType_Revision(), ecorePackage.getEString(), "revision", "A", 0, 1,
                 DependsOnType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getDependsOnType_Version(), this.getNSVersion(), "version", null, 1, 1, DependsOnType.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getDependsOnType_Version(), ecorePackage.getEIntegerObject(), "version", null, 1, 1,
+                DependsOnType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
 
         initEClass( documentRootEClass, DocumentRoot.class, "DocumentRoot", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
@@ -4071,15 +4003,15 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getChanges_Date(), theXMLTypePackage.getDate(), "date", null, 0, 1, Changes.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
-        initEAttribute( getChanges_Release(), this.getNSRelease(), "release", "1", 0, 1, Changes.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getChanges_Release(), ecorePackage.getEIntegerObject(), "release", "1", 0, 1, Changes.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getChanges_Revision(), ecorePackage.getEString(), "revision", "A", 0, 1, Changes.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getChanges_Tissues(), ecorePackage.getEString(), "tissues", null, 0, 1, Changes.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
-        initEAttribute( getChanges_Version(), this.getNSVersion(), "version", null, 1, 1, Changes.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getChanges_Version(), ecorePackage.getEIntegerObject(), "version", null, 1, 1, Changes.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass( constructedAttributeEClass, ConstructedAttribute.class, "ConstructedAttribute", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
@@ -4348,7 +4280,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getNS_PublicationStage(), this.getPubStage(), "publicationStage", "IS", 0, 1,
                 fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getNS_Release(), this.getNSRelease(), "release", "1", 0, 1,
+        initEAttribute( getNS_Release(), ecorePackage.getEIntegerObject(), "release", "1", 0, 1,
                 fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getNS_Revision(), ecorePackage.getEString(), "revision", "A", 0, 1,
@@ -4360,7 +4292,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getNS_UmlVersion(), ecorePackage.getEString(), "umlVersion", null, 0, 1,
                 fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getNS_Version(), this.getNSVersion(), "version", null, 1, 1,
+        initEAttribute( getNS_Version(), ecorePackage.getEIntegerObject(), "version", null, 1, 1,
                 fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
@@ -4375,8 +4307,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 IS_ORDERED );
         initEAttribute( getNSDoc_PublicationStage(), this.getPubStage(), "publicationStage", "IS", 0, 1, NSDoc.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getNSDoc_Release(), this.getNSRelease(), "release", "1", 0, 1, NSDoc.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getNSDoc_Release(), ecorePackage.getEIntegerObject(), "release", "1", 0, 1, NSDoc.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getNSDoc_Revision(), ecorePackage.getEString(), "revision", "A", 0, 1, NSDoc.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getNSDoc_UmlDate(), theXMLTypePackage.getDateTime(), "umlDate", null, 0, 1, NSDoc.class,
@@ -4385,8 +4317,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getNSDoc_UmlVersion(), ecorePackage.getEString(), "umlVersion", null, 0, 1, NSDoc.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
-        initEAttribute( getNSDoc_Version(), this.getNSVersion(), "version", null, 1, 1, NSDoc.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getNSDoc_Version(), ecorePackage.getEIntegerObject(), "version", null, 1, 1, NSDoc.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass( presenceConditionEClass, PresenceCondition.class, "PresenceCondition", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
@@ -4501,7 +4433,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getServiceNS_PublicationStage(), this.getPubStage(), "publicationStage", "IS", 0, 1,
                 ServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getServiceNS_Release(), this.getNSRelease(), "release", "1", 0, 1, ServiceNS.class,
+        initEAttribute( getServiceNS_Release(), ecorePackage.getEIntegerObject(), "release", "1", 0, 1, ServiceNS.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getServiceNS_Revision(), ecorePackage.getEString(), "revision", "A", 0, 1, ServiceNS.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
@@ -4511,8 +4443,9 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getServiceNS_UmlVersion(), ecorePackage.getEString(), "umlVersion", null, 0, 1, ServiceNS.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
-        initEAttribute( getServiceNS_Version(), this.getNSVersion(), "version", null, 1, 1, ServiceNS.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getServiceNS_Version(), ecorePackage.getEIntegerObject(), "version", null, 1, 1,
+                ServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
 
         initEClass( serviceNsUsageEClass, ServiceNsUsage.class, "ServiceNsUsage", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
@@ -4525,13 +4458,15 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getServiceNsUsage_PublicationStage(), this.getPubStage(), "publicationStage", "IS", 0, 1,
                 ServiceNsUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getServiceNsUsage_Release(), this.getNSRelease(), "release", "1", 0, 1, ServiceNsUsage.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getServiceNsUsage_Release(), ecorePackage.getEIntegerObject(), "release", "1", 0, 1,
+                ServiceNsUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
         initEAttribute( getServiceNsUsage_Revision(), ecorePackage.getEString(), "revision", "A", 0, 1,
                 ServiceNsUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getServiceNsUsage_Version(), this.getNSVersion(), "version", null, 1, 1, ServiceNsUsage.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getServiceNsUsage_Version(), ecorePackage.getEIntegerObject(), "version", null, 1, 1,
+                ServiceNsUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
 
         initEClass( serviceParameterEClass, ServiceParameter.class, "ServiceParameter", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
@@ -4771,12 +4706,6 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 "DefinedAttributeTypeKindObject", IS_SERIALIZABLE, IS_GENERATED_INSTANCE_CLASS );
         initEDataType( licenseKindObjectEDataType, LicenseKind.class, "LicenseKindObject", IS_SERIALIZABLE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( nsReleaseEDataType, short.class, "NSRelease", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( nsReleaseObjectEDataType, Short.class, "NSReleaseObject", IS_SERIALIZABLE,
-                !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( nsVersionEDataType, int.class, "NSVersion", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( nsVersionObjectEDataType, Integer.class, "NSVersionObject", IS_SERIALIZABLE,
-                !IS_GENERATED_INSTANCE_CLASS );
         initEDataType( pubStageObjectEDataType, PubStage.class, "PubStageObject", IS_SERIALIZABLE,
                 IS_GENERATED_INSTANCE_CLASS );
         initEDataType( undefinedAttributeTypeKindObjectEDataType, UndefinedAttributeTypeKind.class,
@@ -5056,16 +4985,6 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         addAnnotation( getNSDoc_UmlDate(), source, new String[] { "kind", "attribute", "name", "umlDate" } );
         addAnnotation( getNSDoc_UmlVersion(), source, new String[] { "kind", "attribute", "name", "umlVersion" } );
         addAnnotation( getNSDoc_Version(), source, new String[] { "kind", "attribute", "name", "version" } );
-        addAnnotation( nsReleaseEDataType, source, new String[] { "name", "tNSRelease", "baseType",
-                "http://www.eclipse.org/emf/2003/XMLType#unsignedByte", "minExclusive", "0" } );
-        addAnnotation( nsReleaseObjectEDataType, source,
-                new String[] { "name", "tNSRelease:Object", "baseType", "tNSRelease" } );
-        addAnnotation( nsVersionEDataType, source,
-                new String[] { "name", "tNSVersion", "baseType",
-                        "http://www.eclipse.org/emf/2003/XMLType#unsignedShort", "minInclusive", "2002", "maxInclusive",
-                        "2099" } );
-        addAnnotation( nsVersionObjectEDataType, source,
-                new String[] { "name", "tNSVersion:Object", "baseType", "tNSVersion" } );
         addAnnotation( presenceConditionEClass, source,
                 new String[] { "name", "tPresenceCondition", "kind", "empty" } );
         addAnnotation( getPresenceCondition_Argument(), source,

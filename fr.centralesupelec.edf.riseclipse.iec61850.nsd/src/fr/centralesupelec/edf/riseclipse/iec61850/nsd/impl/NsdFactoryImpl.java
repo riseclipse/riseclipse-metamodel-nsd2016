@@ -34,9 +34,6 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import org.eclipse.emf.ecore.util.Diagnostician;
 
-import org.eclipse.emf.ecore.xml.type.XMLTypeFactory;
-import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Factory</b>.
@@ -214,14 +211,6 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
             return createDefinedAttributeTypeKindObjectFromString( eDataType, initialValue );
         case NsdPackage.LICENSE_KIND_OBJECT:
             return createLicenseKindObjectFromString( eDataType, initialValue );
-        case NsdPackage.NS_RELEASE:
-            return createNSReleaseFromString( eDataType, initialValue );
-        case NsdPackage.NS_RELEASE_OBJECT:
-            return createNSReleaseObjectFromString( eDataType, initialValue );
-        case NsdPackage.NS_VERSION:
-            return createNSVersionFromString( eDataType, initialValue );
-        case NsdPackage.NS_VERSION_OBJECT:
-            return createNSVersionObjectFromString( eDataType, initialValue );
         case NsdPackage.PUB_STAGE_OBJECT:
             return createPubStageObjectFromString( eDataType, initialValue );
         case NsdPackage.UNDEFINED_ATTRIBUTE_TYPE_KIND_OBJECT:
@@ -262,14 +251,6 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
             return convertDefinedAttributeTypeKindObjectToString( eDataType, instanceValue );
         case NsdPackage.LICENSE_KIND_OBJECT:
             return convertLicenseKindObjectToString( eDataType, instanceValue );
-        case NsdPackage.NS_RELEASE:
-            return convertNSReleaseToString( eDataType, instanceValue );
-        case NsdPackage.NS_RELEASE_OBJECT:
-            return convertNSReleaseObjectToString( eDataType, instanceValue );
-        case NsdPackage.NS_VERSION:
-            return convertNSVersionToString( eDataType, instanceValue );
-        case NsdPackage.NS_VERSION_OBJECT:
-            return convertNSVersionObjectToString( eDataType, instanceValue );
         case NsdPackage.PUB_STAGE_OBJECT:
             return convertPubStageObjectToString( eDataType, instanceValue );
         case NsdPackage.UNDEFINED_ATTRIBUTE_TYPE_KIND_OBJECT:
@@ -1085,80 +1066,6 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      */
     public String convertLicenseKindObjectToString( EDataType eDataType, Object instanceValue ) {
         return convertLicenseKindToString( NsdPackage.Literals.LICENSE_KIND, instanceValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public Short createNSReleaseFromString( EDataType eDataType, String initialValue ) {
-        return ( Short ) XMLTypeFactory.eINSTANCE.createFromString( XMLTypePackage.Literals.UNSIGNED_BYTE,
-                initialValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String convertNSReleaseToString( EDataType eDataType, Object instanceValue ) {
-        return XMLTypeFactory.eINSTANCE.convertToString( XMLTypePackage.Literals.UNSIGNED_BYTE, instanceValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public Short createNSReleaseObjectFromString( EDataType eDataType, String initialValue ) {
-        return createNSReleaseFromString( NsdPackage.Literals.NS_RELEASE, initialValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String convertNSReleaseObjectToString( EDataType eDataType, Object instanceValue ) {
-        return convertNSReleaseToString( NsdPackage.Literals.NS_RELEASE, instanceValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public Integer createNSVersionFromString( EDataType eDataType, String initialValue ) {
-        return ( Integer ) XMLTypeFactory.eINSTANCE.createFromString( XMLTypePackage.Literals.UNSIGNED_SHORT,
-                initialValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String convertNSVersionToString( EDataType eDataType, Object instanceValue ) {
-        return XMLTypeFactory.eINSTANCE.convertToString( XMLTypePackage.Literals.UNSIGNED_SHORT, instanceValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public Integer createNSVersionObjectFromString( EDataType eDataType, String initialValue ) {
-        return createNSVersionFromString( NsdPackage.Literals.NS_VERSION, initialValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String convertNSVersionObjectToString( EDataType eDataType, Object instanceValue ) {
-        return convertNSVersionToString( NsdPackage.Literals.NS_VERSION, instanceValue );
     }
 
     /**

@@ -137,7 +137,7 @@ public class ServiceNSItemProvider extends CopyrightedItemProvider {
                         getString( "_UI_PropertyDescriptor_description", "_UI_ServiceNS_release_feature",
                                 "_UI_ServiceNS_type" ),
                         NsdPackage.Literals.SERVICE_NS__RELEASE, true, false, false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -201,7 +201,7 @@ public class ServiceNSItemProvider extends CopyrightedItemProvider {
                         getString( "_UI_PropertyDescriptor_description", "_UI_ServiceNS_version_feature",
                                 "_UI_ServiceNS_type" ),
                         NsdPackage.Literals.SERVICE_NS__VERSION, true, false, false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**

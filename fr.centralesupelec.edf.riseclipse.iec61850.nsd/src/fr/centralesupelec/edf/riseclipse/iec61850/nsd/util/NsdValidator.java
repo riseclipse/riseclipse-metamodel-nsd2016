@@ -32,7 +32,6 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.EObjectValidator;
-import org.eclipse.emf.ecore.xml.type.util.XMLTypeValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -77,14 +76,6 @@ public class NsdValidator extends EObjectValidator {
     protected static final int DIAGNOSTIC_CODE_COUNT = GENERATED_DIAGNOSTIC_CODE_COUNT;
 
     /**
-     * The cached base package validator.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected XMLTypeValidator xmlTypeValidator;
-
-    /**
      * Creates an instance of the switch.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -92,7 +83,6 @@ public class NsdValidator extends EObjectValidator {
      */
     public NsdValidator() {
         super();
-        xmlTypeValidator = XMLTypeValidator.INSTANCE;
     }
 
     /**
@@ -238,14 +228,6 @@ public class NsdValidator extends EObjectValidator {
             return validateDefinedAttributeTypeKindObject( ( DefinedAttributeTypeKind ) value, diagnostics, context );
         case NsdPackage.LICENSE_KIND_OBJECT:
             return validateLicenseKindObject( ( LicenseKind ) value, diagnostics, context );
-        case NsdPackage.NS_RELEASE:
-            return validateNSRelease( ( Short ) value, diagnostics, context );
-        case NsdPackage.NS_RELEASE_OBJECT:
-            return validateNSReleaseObject( ( Short ) value, diagnostics, context );
-        case NsdPackage.NS_VERSION:
-            return validateNSVersion( ( Integer ) value, diagnostics, context );
-        case NsdPackage.NS_VERSION_OBJECT:
-            return validateNSVersionObject( ( Integer ) value, diagnostics, context );
         case NsdPackage.PUB_STAGE_OBJECT:
             return validatePubStageObject( ( PubStage ) value, diagnostics, context );
         case NsdPackage.UNDEFINED_ATTRIBUTE_TYPE_KIND_OBJECT:
@@ -891,118 +873,6 @@ public class NsdValidator extends EObjectValidator {
     public boolean validateLicenseKindObject( LicenseKind licenseKindObject, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
         return true;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateNSRelease( short nsRelease, DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        boolean result = validateNSRelease_Min( nsRelease, diagnostics, context );
-        if( result || diagnostics != null )
-            result &= xmlTypeValidator.validateUnsignedByte_Max( nsRelease, diagnostics, context );
-        return result;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @see #validateNSRelease_Min
-     */
-    public static final short NS_RELEASE__MIN__VALUE = 0;
-
-    /**
-     * Validates the Min constraint of '<em>NS Release</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateNSRelease_Min( short nsRelease, DiagnosticChain diagnostics,
-            Map< Object, Object > context ) {
-        boolean result = nsRelease > NS_RELEASE__MIN__VALUE;
-        if( !result && diagnostics != null ) reportMinViolation( NsdPackage.Literals.NS_RELEASE, nsRelease,
-                NS_RELEASE__MIN__VALUE, false, diagnostics, context );
-        return result;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateNSReleaseObject( Short nsReleaseObject, DiagnosticChain diagnostics,
-            Map< Object, Object > context ) {
-        boolean result = validateNSRelease_Min( nsReleaseObject, diagnostics, context );
-        if( result || diagnostics != null )
-            result &= xmlTypeValidator.validateUnsignedByte_Max( nsReleaseObject, diagnostics, context );
-        return result;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateNSVersion( int nsVersion, DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        boolean result = validateNSVersion_Min( nsVersion, diagnostics, context );
-        if( result || diagnostics != null ) result &= validateNSVersion_Max( nsVersion, diagnostics, context );
-        return result;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @see #validateNSVersion_Min
-     */
-    public static final int NS_VERSION__MIN__VALUE = 2002;
-
-    /**
-     * Validates the Min constraint of '<em>NS Version</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateNSVersion_Min( int nsVersion, DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        boolean result = nsVersion >= NS_VERSION__MIN__VALUE;
-        if( !result && diagnostics != null ) reportMinViolation( NsdPackage.Literals.NS_VERSION, nsVersion,
-                NS_VERSION__MIN__VALUE, true, diagnostics, context );
-        return result;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @see #validateNSVersion_Max
-     */
-    public static final int NS_VERSION__MAX__VALUE = 2099;
-
-    /**
-     * Validates the Max constraint of '<em>NS Version</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateNSVersion_Max( int nsVersion, DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        boolean result = nsVersion <= NS_VERSION__MAX__VALUE;
-        if( !result && diagnostics != null ) reportMaxViolation( NsdPackage.Literals.NS_VERSION, nsVersion,
-                NS_VERSION__MAX__VALUE, true, diagnostics, context );
-        return result;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateNSVersionObject( Integer nsVersionObject, DiagnosticChain diagnostics,
-            Map< Object, Object > context ) {
-        boolean result = validateNSVersion_Min( nsVersionObject, diagnostics, context );
-        if( result || diagnostics != null ) result &= validateNSVersion_Max( nsVersionObject, diagnostics, context );
-        return result;
     }
 
     /**

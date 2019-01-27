@@ -105,7 +105,7 @@ public class AppliesToTypeImpl extends MinimalEObjectImpl.Container implements A
      * @generated
      * @ordered
      */
-    protected static final short RELEASE_EDEFAULT = 1;
+    protected static final Integer RELEASE_EDEFAULT = new Integer( 1 );
 
     /**
      * The cached value of the '{@link #getRelease() <em>Release</em>}' attribute.
@@ -115,7 +115,7 @@ public class AppliesToTypeImpl extends MinimalEObjectImpl.Container implements A
      * @generated
      * @ordered
      */
-    protected short release = RELEASE_EDEFAULT;
+    protected Integer release = RELEASE_EDEFAULT;
 
     /**
      * This is true if the Release attribute has been set.
@@ -163,7 +163,7 @@ public class AppliesToTypeImpl extends MinimalEObjectImpl.Container implements A
      * @generated
      * @ordered
      */
-    protected static final int VERSION_EDEFAULT = 0;
+    protected static final Integer VERSION_EDEFAULT = null;
 
     /**
      * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
@@ -173,7 +173,7 @@ public class AppliesToTypeImpl extends MinimalEObjectImpl.Container implements A
      * @generated
      * @ordered
      */
-    protected int version = VERSION_EDEFAULT;
+    protected Integer version = VERSION_EDEFAULT;
 
     /**
      * This is true if the Version attribute has been set.
@@ -284,7 +284,7 @@ public class AppliesToTypeImpl extends MinimalEObjectImpl.Container implements A
      * @generated
      */
     @Override
-    public short getRelease() {
+    public Integer getRelease() {
         return release;
     }
 
@@ -294,8 +294,8 @@ public class AppliesToTypeImpl extends MinimalEObjectImpl.Container implements A
      * @generated
      */
     @Override
-    public void setRelease( short newRelease ) {
-        short oldRelease = release;
+    public void setRelease( Integer newRelease ) {
+        Integer oldRelease = release;
         release = newRelease;
         boolean oldReleaseESet = releaseESet;
         releaseESet = true;
@@ -310,7 +310,7 @@ public class AppliesToTypeImpl extends MinimalEObjectImpl.Container implements A
      */
     @Override
     public void unsetRelease() {
-        short oldRelease = release;
+        Integer oldRelease = release;
         boolean oldReleaseESet = releaseESet;
         release = RELEASE_EDEFAULT;
         releaseESet = false;
@@ -384,7 +384,7 @@ public class AppliesToTypeImpl extends MinimalEObjectImpl.Container implements A
      * @generated
      */
     @Override
-    public int getVersion() {
+    public Integer getVersion() {
         return version;
     }
 
@@ -394,8 +394,8 @@ public class AppliesToTypeImpl extends MinimalEObjectImpl.Container implements A
      * @generated
      */
     @Override
-    public void setVersion( int newVersion ) {
-        int oldVersion = version;
+    public void setVersion( Integer newVersion ) {
+        Integer oldVersion = version;
         version = newVersion;
         boolean oldVersionESet = versionESet;
         versionESet = true;
@@ -410,7 +410,7 @@ public class AppliesToTypeImpl extends MinimalEObjectImpl.Container implements A
      */
     @Override
     public void unsetVersion() {
-        int oldVersion = version;
+        Integer oldVersion = version;
         boolean oldVersionESet = versionESet;
         version = VERSION_EDEFAULT;
         versionESet = false;
@@ -465,7 +465,7 @@ public class AppliesToTypeImpl extends MinimalEObjectImpl.Container implements A
             setPublicationStage( ( PubStage ) newValue );
             return;
         case NsdPackage.APPLIES_TO_TYPE__RELEASE:
-            setRelease( ( Short ) newValue );
+            setRelease( ( Integer ) newValue );
             return;
         case NsdPackage.APPLIES_TO_TYPE__REVISION:
             setRevision( ( String ) newValue );

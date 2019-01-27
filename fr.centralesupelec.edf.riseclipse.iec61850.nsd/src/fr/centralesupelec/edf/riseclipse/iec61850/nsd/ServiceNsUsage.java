@@ -159,13 +159,13 @@ public interface ServiceNsUsage extends EObject {
      * @return the value of the '<em>Release</em>' attribute.
      * @see #isSetRelease()
      * @see #unsetRelease()
-     * @see #setRelease(short)
+     * @see #setRelease(Integer)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceNsUsage_Release()
-     * @model default="1" unsettable="true" dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSRelease"
+     * @model default="1" unsettable="true"
      *        extendedMetaData="kind='attribute' name='release'"
      * @generated
      */
-    short getRelease();
+    Integer getRelease();
 
     /**
      * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getRelease <em>Release</em>}' attribute.
@@ -177,7 +177,7 @@ public interface ServiceNsUsage extends EObject {
      * @see #getRelease()
      * @generated
      */
-    void setRelease( short value );
+    void setRelease( Integer value );
 
     /**
      * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getRelease <em>Release</em>}' attribute.
@@ -185,7 +185,7 @@ public interface ServiceNsUsage extends EObject {
      * <!-- end-user-doc -->
      * @see #isSetRelease()
      * @see #getRelease()
-     * @see #setRelease(short)
+     * @see #setRelease(Integer)
      * @generated
      */
     void unsetRelease();
@@ -197,7 +197,7 @@ public interface ServiceNsUsage extends EObject {
      * @return whether the value of the '<em>Release</em>' attribute is set.
      * @see #unsetRelease()
      * @see #getRelease()
-     * @see #setRelease(short)
+     * @see #setRelease(Integer)
      * @generated
      */
     boolean isSetRelease();
@@ -266,13 +266,13 @@ public interface ServiceNsUsage extends EObject {
      * @return the value of the '<em>Version</em>' attribute.
      * @see #isSetVersion()
      * @see #unsetVersion()
-     * @see #setVersion(int)
+     * @see #setVersion(Integer)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceNsUsage_Version()
-     * @model unsettable="true" dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSVersion" required="true"
+     * @model unsettable="true" required="true"
      *        extendedMetaData="kind='attribute' name='version'"
      * @generated
      */
-    int getVersion();
+    Integer getVersion();
 
     /**
      * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getVersion <em>Version</em>}' attribute.
@@ -284,7 +284,7 @@ public interface ServiceNsUsage extends EObject {
      * @see #getVersion()
      * @generated
      */
-    void setVersion( int value );
+    void setVersion( Integer value );
 
     /**
      * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getVersion <em>Version</em>}' attribute.
@@ -292,7 +292,7 @@ public interface ServiceNsUsage extends EObject {
      * <!-- end-user-doc -->
      * @see #isSetVersion()
      * @see #getVersion()
-     * @see #setVersion(int)
+     * @see #setVersion(Integer)
      * @generated
      */
     void unsetVersion();
@@ -304,7 +304,7 @@ public interface ServiceNsUsage extends EObject {
      * @return whether the value of the '<em>Version</em>' attribute is set.
      * @see #unsetVersion()
      * @see #getVersion()
-     * @see #setVersion(int)
+     * @see #setVersion(Integer)
      * @generated
      */
     boolean isSetVersion();

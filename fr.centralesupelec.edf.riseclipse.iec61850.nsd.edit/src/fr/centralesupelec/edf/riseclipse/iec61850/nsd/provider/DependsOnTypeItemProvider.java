@@ -124,7 +124,7 @@ public class DependsOnTypeItemProvider extends ItemProviderAdapter implements IE
                         getString( "_UI_PropertyDescriptor_description", "_UI_DependsOnType_release_feature",
                                 "_UI_DependsOnType_type" ),
                         NsdPackage.Literals.DEPENDS_ON_TYPE__RELEASE, true, false, false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -156,7 +156,7 @@ public class DependsOnTypeItemProvider extends ItemProviderAdapter implements IE
                         getString( "_UI_PropertyDescriptor_description", "_UI_DependsOnType_version_feature",
                                 "_UI_DependsOnType_type" ),
                         NsdPackage.Literals.DEPENDS_ON_TYPE__VERSION, true, false, false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**

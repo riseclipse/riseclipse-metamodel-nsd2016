@@ -133,8 +133,8 @@ public class NSItemProvider extends CopyrightedItemProvider {
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
                         getResourceLocator(), getString( "_UI_NS_release_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_NS_release_feature", "_UI_NS_type" ),
-                        NsdPackage.Literals.NS__RELEASE, true, false, false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.NS__RELEASE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null, null ) );
     }
 
     /**
@@ -193,8 +193,8 @@ public class NSItemProvider extends CopyrightedItemProvider {
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
                         getResourceLocator(), getString( "_UI_NS_version_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_NS_version_feature", "_UI_NS_type" ),
-                        NsdPackage.Literals.NS__VERSION, true, false, false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.NS__VERSION, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null, null ) );
     }
 
     /**
