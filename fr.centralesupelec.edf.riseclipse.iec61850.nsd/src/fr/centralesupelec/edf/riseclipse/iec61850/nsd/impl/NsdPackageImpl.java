@@ -53,6 +53,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.License;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LicenseKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDObjectWithVersionAndRelease;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Notice;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
@@ -454,6 +455,13 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    private EClass nsdObjectWithVersionAndReleaseEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     private EEnum acsiServicesKindEEnum = null;
 
     /**
@@ -650,28 +658,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getAppliesToType_Release() {
-        return ( EAttribute ) appliesToTypeEClass.getEStructuralFeatures().get( 2 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public EAttribute getAppliesToType_Revision() {
-        return ( EAttribute ) appliesToTypeEClass.getEStructuralFeatures().get( 3 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EAttribute getAppliesToType_Version() {
-        return ( EAttribute ) appliesToTypeEClass.getEStructuralFeatures().get( 4 );
+        return ( EAttribute ) appliesToTypeEClass.getEStructuralFeatures().get( 2 );
     }
 
     /**
@@ -710,28 +698,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getDependsOnType_Release() {
-        return ( EAttribute ) dependsOnTypeEClass.getEStructuralFeatures().get( 2 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public EAttribute getDependsOnType_Revision() {
-        return ( EAttribute ) dependsOnTypeEClass.getEStructuralFeatures().get( 3 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EAttribute getDependsOnType_Version() {
-        return ( EAttribute ) dependsOnTypeEClass.getEStructuralFeatures().get( 4 );
+        return ( EAttribute ) dependsOnTypeEClass.getEStructuralFeatures().get( 2 );
     }
 
     /**
@@ -1210,7 +1178,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getChanges_Release() {
+    public EAttribute getChanges_Revision() {
         return ( EAttribute ) changesEClass.getEStructuralFeatures().get( 2 );
     }
 
@@ -1220,28 +1188,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getChanges_Revision() {
-        return ( EAttribute ) changesEClass.getEStructuralFeatures().get( 3 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public EAttribute getChanges_Tissues() {
-        return ( EAttribute ) changesEClass.getEStructuralFeatures().get( 4 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EAttribute getChanges_Version() {
-        return ( EAttribute ) changesEClass.getEStructuralFeatures().get( 5 );
+        return ( EAttribute ) changesEClass.getEStructuralFeatures().get( 3 );
     }
 
     /**
@@ -2190,7 +2138,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getNS_Release() {
+    public EAttribute getNS_Revision() {
         return ( EAttribute ) nsEClass.getEStructuralFeatures().get( 13 );
     }
 
@@ -2200,7 +2148,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getNS_Revision() {
+    public EAttribute getNS_UmlDate() {
         return ( EAttribute ) nsEClass.getEStructuralFeatures().get( 14 );
     }
 
@@ -2210,28 +2158,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getNS_UmlDate() {
-        return ( EAttribute ) nsEClass.getEStructuralFeatures().get( 15 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public EAttribute getNS_UmlVersion() {
-        return ( EAttribute ) nsEClass.getEStructuralFeatures().get( 16 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EAttribute getNS_Version() {
-        return ( EAttribute ) nsEClass.getEStructuralFeatures().get( 17 );
+        return ( EAttribute ) nsEClass.getEStructuralFeatures().get( 15 );
     }
 
     /**
@@ -2290,7 +2218,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getNSDoc_Release() {
+    public EAttribute getNSDoc_Revision() {
         return ( EAttribute ) nsDocEClass.getEStructuralFeatures().get( 4 );
     }
 
@@ -2300,7 +2228,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getNSDoc_Revision() {
+    public EAttribute getNSDoc_UmlDate() {
         return ( EAttribute ) nsDocEClass.getEStructuralFeatures().get( 5 );
     }
 
@@ -2310,28 +2238,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getNSDoc_UmlDate() {
-        return ( EAttribute ) nsDocEClass.getEStructuralFeatures().get( 6 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public EAttribute getNSDoc_UmlVersion() {
-        return ( EAttribute ) nsDocEClass.getEStructuralFeatures().get( 7 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EAttribute getNSDoc_Version() {
-        return ( EAttribute ) nsDocEClass.getEStructuralFeatures().get( 8 );
+        return ( EAttribute ) nsDocEClass.getEStructuralFeatures().get( 6 );
     }
 
     /**
@@ -2720,7 +2628,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getServiceNS_Release() {
+    public EAttribute getServiceNS_Revision() {
         return ( EAttribute ) serviceNSEClass.getEStructuralFeatures().get( 10 );
     }
 
@@ -2730,7 +2638,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getServiceNS_Revision() {
+    public EAttribute getServiceNS_UmlDate() {
         return ( EAttribute ) serviceNSEClass.getEStructuralFeatures().get( 11 );
     }
 
@@ -2740,28 +2648,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getServiceNS_UmlDate() {
-        return ( EAttribute ) serviceNSEClass.getEStructuralFeatures().get( 12 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public EAttribute getServiceNS_UmlVersion() {
-        return ( EAttribute ) serviceNSEClass.getEStructuralFeatures().get( 13 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EAttribute getServiceNS_Version() {
-        return ( EAttribute ) serviceNSEClass.getEStructuralFeatures().get( 14 );
+        return ( EAttribute ) serviceNSEClass.getEStructuralFeatures().get( 12 );
     }
 
     /**
@@ -2810,28 +2698,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getServiceNsUsage_Release() {
-        return ( EAttribute ) serviceNsUsageEClass.getEStructuralFeatures().get( 3 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public EAttribute getServiceNsUsage_Revision() {
-        return ( EAttribute ) serviceNsUsageEClass.getEStructuralFeatures().get( 4 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EAttribute getServiceNsUsage_Version() {
-        return ( EAttribute ) serviceNsUsageEClass.getEStructuralFeatures().get( 5 );
+        return ( EAttribute ) serviceNsUsageEClass.getEStructuralFeatures().get( 3 );
     }
 
     /**
@@ -3290,6 +3158,36 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EClass getNSDObjectWithVersionAndRelease() {
+        return nsdObjectWithVersionAndReleaseEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EAttribute getNSDObjectWithVersionAndRelease_Release() {
+        return ( EAttribute ) nsdObjectWithVersionAndReleaseEClass.getEStructuralFeatures().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EAttribute getNSDObjectWithVersionAndRelease_Version() {
+        return ( EAttribute ) nsdObjectWithVersionAndReleaseEClass.getEStructuralFeatures().get( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EEnum getACSIServicesKind() {
         return acsiServicesKindEEnum;
     }
@@ -3446,16 +3344,12 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         appliesToTypeEClass = createEClass( APPLIES_TO_TYPE );
         createEAttribute( appliesToTypeEClass, APPLIES_TO_TYPE__ID );
         createEAttribute( appliesToTypeEClass, APPLIES_TO_TYPE__PUBLICATION_STAGE );
-        createEAttribute( appliesToTypeEClass, APPLIES_TO_TYPE__RELEASE );
         createEAttribute( appliesToTypeEClass, APPLIES_TO_TYPE__REVISION );
-        createEAttribute( appliesToTypeEClass, APPLIES_TO_TYPE__VERSION );
 
         dependsOnTypeEClass = createEClass( DEPENDS_ON_TYPE );
         createEAttribute( dependsOnTypeEClass, DEPENDS_ON_TYPE__ID );
         createEAttribute( dependsOnTypeEClass, DEPENDS_ON_TYPE__PUBLICATION_STAGE );
-        createEAttribute( dependsOnTypeEClass, DEPENDS_ON_TYPE__RELEASE );
         createEAttribute( dependsOnTypeEClass, DEPENDS_ON_TYPE__REVISION );
-        createEAttribute( dependsOnTypeEClass, DEPENDS_ON_TYPE__VERSION );
 
         documentRootEClass = createEClass( DOCUMENT_ROOT );
         createEAttribute( documentRootEClass, DOCUMENT_ROOT__MIXED );
@@ -3516,10 +3410,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         changesEClass = createEClass( CHANGES );
         createEAttribute( changesEClass, CHANGES__CHANGES_ID );
         createEAttribute( changesEClass, CHANGES__DATE );
-        createEAttribute( changesEClass, CHANGES__RELEASE );
         createEAttribute( changesEClass, CHANGES__REVISION );
         createEAttribute( changesEClass, CHANGES__TISSUES );
-        createEAttribute( changesEClass, CHANGES__VERSION );
 
         constructedAttributeEClass = createEClass( CONSTRUCTED_ATTRIBUTE );
         createEReference( constructedAttributeEClass, CONSTRUCTED_ATTRIBUTE__SUB_DATA_ATTRIBUTE );
@@ -3633,22 +3525,18 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEAttribute( nsEClass, NS__DESC_ID );
         createEAttribute( nsEClass, NS__ID );
         createEAttribute( nsEClass, NS__PUBLICATION_STAGE );
-        createEAttribute( nsEClass, NS__RELEASE );
         createEAttribute( nsEClass, NS__REVISION );
         createEAttribute( nsEClass, NS__UML_DATE );
         createEAttribute( nsEClass, NS__UML_VERSION );
-        createEAttribute( nsEClass, NS__VERSION );
 
         nsDocEClass = createEClass( NS_DOC );
         createEReference( nsDocEClass, NS_DOC__DOC );
         createEAttribute( nsDocEClass, NS_DOC__ID );
         createEAttribute( nsDocEClass, NS_DOC__LANG );
         createEAttribute( nsDocEClass, NS_DOC__PUBLICATION_STAGE );
-        createEAttribute( nsDocEClass, NS_DOC__RELEASE );
         createEAttribute( nsDocEClass, NS_DOC__REVISION );
         createEAttribute( nsDocEClass, NS_DOC__UML_DATE );
         createEAttribute( nsDocEClass, NS_DOC__UML_VERSION );
-        createEAttribute( nsDocEClass, NS_DOC__VERSION );
 
         presenceConditionEClass = createEClass( PRESENCE_CONDITION );
         createEAttribute( presenceConditionEClass, PRESENCE_CONDITION__ARGUMENT );
@@ -3696,19 +3584,15 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEAttribute( serviceNSEClass, SERVICE_NS__DESC_ID );
         createEAttribute( serviceNSEClass, SERVICE_NS__ID );
         createEAttribute( serviceNSEClass, SERVICE_NS__PUBLICATION_STAGE );
-        createEAttribute( serviceNSEClass, SERVICE_NS__RELEASE );
         createEAttribute( serviceNSEClass, SERVICE_NS__REVISION );
         createEAttribute( serviceNSEClass, SERVICE_NS__UML_DATE );
         createEAttribute( serviceNSEClass, SERVICE_NS__UML_VERSION );
-        createEAttribute( serviceNSEClass, SERVICE_NS__VERSION );
 
         serviceNsUsageEClass = createEClass( SERVICE_NS_USAGE );
         createEReference( serviceNsUsageEClass, SERVICE_NS_USAGE__APPLIES_TO );
         createEAttribute( serviceNsUsageEClass, SERVICE_NS_USAGE__ID );
         createEAttribute( serviceNsUsageEClass, SERVICE_NS_USAGE__PUBLICATION_STAGE );
-        createEAttribute( serviceNsUsageEClass, SERVICE_NS_USAGE__RELEASE );
         createEAttribute( serviceNsUsageEClass, SERVICE_NS_USAGE__REVISION );
-        createEAttribute( serviceNsUsageEClass, SERVICE_NS_USAGE__VERSION );
 
         serviceParameterEClass = createEClass( SERVICE_PARAMETER );
         createEAttribute( serviceParameterEClass, SERVICE_PARAMETER__DEFAULT_VALUE );
@@ -3761,6 +3645,10 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         titledClassEClass = createEClass( TITLED_CLASS );
         createEAttribute( titledClassEClass, TITLED_CLASS__TITLE_ID );
 
+        nsdObjectWithVersionAndReleaseEClass = createEClass( NSD_OBJECT_WITH_VERSION_AND_RELEASE );
+        createEAttribute( nsdObjectWithVersionAndReleaseEClass, NSD_OBJECT_WITH_VERSION_AND_RELEASE__RELEASE );
+        createEAttribute( nsdObjectWithVersionAndReleaseEClass, NSD_OBJECT_WITH_VERSION_AND_RELEASE__VERSION );
+
         // Create enums
         acsiServicesKindEEnum = createEEnum( ACSI_SERVICES_KIND );
         cbKindEEnum = createEEnum( CB_KIND );
@@ -3811,10 +3699,13 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         // Set bounds for type parameters
 
         // Add supertypes to classes
+        appliesToTypeEClass.getESuperTypes().add( this.getNSDObjectWithVersionAndRelease() );
+        dependsOnTypeEClass.getESuperTypes().add( this.getNSDObjectWithVersionAndRelease() );
         abstractLNClassEClass.getESuperTypes().add( this.getAnyLNClass() );
         anyLNClassEClass.getESuperTypes().add( this.getTitledClass() );
         applicableServiceNSEClass.getESuperTypes().add( this.getCopyrighted() );
         cdcEClass.getESuperTypes().add( this.getTitledClass() );
+        changesEClass.getESuperTypes().add( this.getNSDObjectWithVersionAndRelease() );
         constructedAttributeEClass.getESuperTypes().add( this.getTitledClass() );
         dataAttributeEClass.getESuperTypes().add( this.getDocumentedClass() );
         dataObjectEClass.getESuperTypes().add( this.getDocumentedClass() );
@@ -3822,10 +3713,14 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         literalEClass.getESuperTypes().add( this.getDocumentedClass() );
         lnClassEClass.getESuperTypes().add( this.getAnyLNClass() );
         nsEClass.getESuperTypes().add( this.getCopyrighted() );
+        nsEClass.getESuperTypes().add( this.getNSDObjectWithVersionAndRelease() );
         nsDocEClass.getESuperTypes().add( this.getCopyrighted() );
+        nsDocEClass.getESuperTypes().add( this.getNSDObjectWithVersionAndRelease() );
         serviceConstructedAttributeEClass.getESuperTypes().add( this.getConstructedAttribute() );
         serviceDataAttributeEClass.getESuperTypes().add( this.getDocumentedClass() );
         serviceNSEClass.getESuperTypes().add( this.getCopyrighted() );
+        serviceNSEClass.getESuperTypes().add( this.getNSDObjectWithVersionAndRelease() );
+        serviceNsUsageEClass.getESuperTypes().add( this.getNSDObjectWithVersionAndRelease() );
         serviceParameterEClass.getESuperTypes().add( this.getDocumentedClass() );
         subDataAttributeEClass.getESuperTypes().add( this.getDocumentedClass() );
         subDataObjectEClass.getESuperTypes().add( this.getDocumentedClass() );
@@ -3840,13 +3735,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getAppliesToType_PublicationStage(), this.getPubStage(), "publicationStage", "IS", 0, 1,
                 AppliesToType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getAppliesToType_Release(), ecorePackage.getEIntegerObject(), "release", "1", 0, 1,
-                AppliesToType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
         initEAttribute( getAppliesToType_Revision(), ecorePackage.getEString(), "revision", "A", 0, 1,
-                AppliesToType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getAppliesToType_Version(), ecorePackage.getEIntegerObject(), "version", null, 1, 1,
                 AppliesToType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
 
@@ -3858,13 +3747,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getDependsOnType_PublicationStage(), this.getPubStage(), "publicationStage", "IS", 0, 1,
                 DependsOnType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getDependsOnType_Release(), ecorePackage.getEIntegerObject(), "release", "1", 0, 1,
-                DependsOnType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
         initEAttribute( getDependsOnType_Revision(), ecorePackage.getEString(), "revision", "A", 0, 1,
-                DependsOnType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getDependsOnType_Version(), ecorePackage.getEIntegerObject(), "version", null, 1, 1,
                 DependsOnType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
 
@@ -4003,15 +3886,11 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getChanges_Date(), theXMLTypePackage.getDate(), "date", null, 0, 1, Changes.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
-        initEAttribute( getChanges_Release(), ecorePackage.getEIntegerObject(), "release", "1", 0, 1, Changes.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getChanges_Revision(), ecorePackage.getEString(), "revision", "A", 0, 1, Changes.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getChanges_Tissues(), ecorePackage.getEString(), "tissues", null, 0, 1, Changes.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
-        initEAttribute( getChanges_Version(), ecorePackage.getEIntegerObject(), "version", null, 1, 1, Changes.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass( constructedAttributeEClass, ConstructedAttribute.class, "ConstructedAttribute", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
@@ -4280,9 +4159,6 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getNS_PublicationStage(), this.getPubStage(), "publicationStage", "IS", 0, 1,
                 fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getNS_Release(), ecorePackage.getEIntegerObject(), "release", "1", 0, 1,
-                fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getNS_Revision(), ecorePackage.getEString(), "revision", "A", 0, 1,
                 fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
@@ -4292,9 +4168,6 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getNS_UmlVersion(), ecorePackage.getEString(), "umlVersion", null, 0, 1,
                 fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getNS_Version(), ecorePackage.getEIntegerObject(), "version", null, 1, 1,
-                fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass( nsDocEClass, NSDoc.class, "NSDoc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEReference( getNSDoc_Doc(), this.getDoc(), null, "doc", null, 1, -1, NSDoc.class, !IS_TRANSIENT,
@@ -4307,8 +4180,6 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 IS_ORDERED );
         initEAttribute( getNSDoc_PublicationStage(), this.getPubStage(), "publicationStage", "IS", 0, 1, NSDoc.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getNSDoc_Release(), ecorePackage.getEIntegerObject(), "release", "1", 0, 1, NSDoc.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getNSDoc_Revision(), ecorePackage.getEString(), "revision", "A", 0, 1, NSDoc.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getNSDoc_UmlDate(), theXMLTypePackage.getDateTime(), "umlDate", null, 0, 1, NSDoc.class,
@@ -4317,8 +4188,6 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getNSDoc_UmlVersion(), ecorePackage.getEString(), "umlVersion", null, 0, 1, NSDoc.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
-        initEAttribute( getNSDoc_Version(), ecorePackage.getEIntegerObject(), "version", null, 1, 1, NSDoc.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass( presenceConditionEClass, PresenceCondition.class, "PresenceCondition", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
@@ -4433,8 +4302,6 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getServiceNS_PublicationStage(), this.getPubStage(), "publicationStage", "IS", 0, 1,
                 ServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getServiceNS_Release(), ecorePackage.getEIntegerObject(), "release", "1", 0, 1, ServiceNS.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getServiceNS_Revision(), ecorePackage.getEString(), "revision", "A", 0, 1, ServiceNS.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getServiceNS_UmlDate(), theXMLTypePackage.getDateTime(), "umlDate", null, 0, 1, ServiceNS.class,
@@ -4443,9 +4310,6 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getServiceNS_UmlVersion(), ecorePackage.getEString(), "umlVersion", null, 0, 1, ServiceNS.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
-        initEAttribute( getServiceNS_Version(), ecorePackage.getEIntegerObject(), "version", null, 1, 1,
-                ServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
 
         initEClass( serviceNsUsageEClass, ServiceNsUsage.class, "ServiceNsUsage", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
@@ -4458,13 +4322,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getServiceNsUsage_PublicationStage(), this.getPubStage(), "publicationStage", "IS", 0, 1,
                 ServiceNsUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getServiceNsUsage_Release(), ecorePackage.getEIntegerObject(), "release", "1", 0, 1,
-                ServiceNsUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
         initEAttribute( getServiceNsUsage_Revision(), ecorePackage.getEString(), "revision", "A", 0, 1,
-                ServiceNsUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getServiceNsUsage_Version(), ecorePackage.getEIntegerObject(), "version", null, 1, 1,
                 ServiceNsUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
 
@@ -4603,6 +4461,15 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
 
+        initEClass( nsdObjectWithVersionAndReleaseEClass, NSDObjectWithVersionAndRelease.class,
+                "NSDObjectWithVersionAndRelease", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute( getNSDObjectWithVersionAndRelease_Release(), ecorePackage.getEIntegerObject(), "release", "1",
+                0, 1, NSDObjectWithVersionAndRelease.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE,
+                !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getNSDObjectWithVersionAndRelease_Version(), ecorePackage.getEIntegerObject(), "version", null,
+                1, 1, NSDObjectWithVersionAndRelease.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE,
+                !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
         // Initialize enums and add enum literals
         initEEnum( acsiServicesKindEEnum, ACSIServicesKind.class, "ACSIServicesKind" );
         addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.ASSOCIATE );
@@ -4731,16 +4598,12 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         addAnnotation( getAppliesToType_Id(), source, new String[] { "kind", "attribute", "name", "id" } );
         addAnnotation( getAppliesToType_PublicationStage(), source,
                 new String[] { "kind", "attribute", "name", "publicationStage" } );
-        addAnnotation( getAppliesToType_Release(), source, new String[] { "kind", "attribute", "name", "release" } );
         addAnnotation( getAppliesToType_Revision(), source, new String[] { "kind", "attribute", "name", "revision" } );
-        addAnnotation( getAppliesToType_Version(), source, new String[] { "kind", "attribute", "name", "version" } );
         addAnnotation( dependsOnTypeEClass, source, new String[] { "name", "DependsOn_._type", "kind", "empty" } );
         addAnnotation( getDependsOnType_Id(), source, new String[] { "kind", "attribute", "name", "id" } );
         addAnnotation( getDependsOnType_PublicationStage(), source,
                 new String[] { "kind", "attribute", "name", "publicationStage" } );
-        addAnnotation( getDependsOnType_Release(), source, new String[] { "kind", "attribute", "name", "release" } );
         addAnnotation( getDependsOnType_Revision(), source, new String[] { "kind", "attribute", "name", "revision" } );
-        addAnnotation( getDependsOnType_Version(), source, new String[] { "kind", "attribute", "name", "version" } );
         addAnnotation( documentRootEClass, source, new String[] { "name", "", "kind", "mixed" } );
         addAnnotation( getDocumentRoot_Mixed(), source, new String[] { "kind", "elementWildcard", "name", ":mixed" } );
         addAnnotation( getDocumentRoot_XMLNSPrefixMap(), source,
@@ -4819,10 +4682,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         addAnnotation( changesEClass, source, new String[] { "name", "tChanges", "kind", "empty" } );
         addAnnotation( getChanges_ChangesID(), source, new String[] { "kind", "attribute", "name", "changesID" } );
         addAnnotation( getChanges_Date(), source, new String[] { "kind", "attribute", "name", "date" } );
-        addAnnotation( getChanges_Release(), source, new String[] { "kind", "attribute", "name", "release" } );
         addAnnotation( getChanges_Revision(), source, new String[] { "kind", "attribute", "name", "revision" } );
         addAnnotation( getChanges_Tissues(), source, new String[] { "kind", "attribute", "name", "tissues" } );
-        addAnnotation( getChanges_Version(), source, new String[] { "kind", "attribute", "name", "version" } );
         addAnnotation( constructedAttributeEClass, source,
                 new String[] { "name", "tConstructedAttribute", "kind", "elementOnly" } );
         addAnnotation( getConstructedAttribute_SubDataAttribute(), source,
@@ -4968,11 +4829,9 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         addAnnotation( getNS_Id(), source, new String[] { "kind", "attribute", "name", "id" } );
         addAnnotation( getNS_PublicationStage(), source,
                 new String[] { "kind", "attribute", "name", "publicationStage" } );
-        addAnnotation( getNS_Release(), source, new String[] { "kind", "attribute", "name", "release" } );
         addAnnotation( getNS_Revision(), source, new String[] { "kind", "attribute", "name", "revision" } );
         addAnnotation( getNS_UmlDate(), source, new String[] { "kind", "attribute", "name", "umlDate" } );
         addAnnotation( getNS_UmlVersion(), source, new String[] { "kind", "attribute", "name", "umlVersion" } );
-        addAnnotation( getNS_Version(), source, new String[] { "kind", "attribute", "name", "version" } );
         addAnnotation( nsDocEClass, source, new String[] { "name", "tNSDoc", "kind", "elementOnly" } );
         addAnnotation( getNSDoc_Doc(), source,
                 new String[] { "kind", "element", "name", "Doc", "namespace", "##targetNamespace" } );
@@ -4980,11 +4839,9 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         addAnnotation( getNSDoc_Lang(), source, new String[] { "kind", "attribute", "name", "lang" } );
         addAnnotation( getNSDoc_PublicationStage(), source,
                 new String[] { "kind", "attribute", "name", "publicationStage" } );
-        addAnnotation( getNSDoc_Release(), source, new String[] { "kind", "attribute", "name", "release" } );
         addAnnotation( getNSDoc_Revision(), source, new String[] { "kind", "attribute", "name", "revision" } );
         addAnnotation( getNSDoc_UmlDate(), source, new String[] { "kind", "attribute", "name", "umlDate" } );
         addAnnotation( getNSDoc_UmlVersion(), source, new String[] { "kind", "attribute", "name", "umlVersion" } );
-        addAnnotation( getNSDoc_Version(), source, new String[] { "kind", "attribute", "name", "version" } );
         addAnnotation( presenceConditionEClass, source,
                 new String[] { "name", "tPresenceCondition", "kind", "empty" } );
         addAnnotation( getPresenceCondition_Argument(), source,
@@ -5052,11 +4909,9 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         addAnnotation( getServiceNS_Id(), source, new String[] { "kind", "attribute", "name", "id" } );
         addAnnotation( getServiceNS_PublicationStage(), source,
                 new String[] { "kind", "attribute", "name", "publicationStage" } );
-        addAnnotation( getServiceNS_Release(), source, new String[] { "kind", "attribute", "name", "release" } );
         addAnnotation( getServiceNS_Revision(), source, new String[] { "kind", "attribute", "name", "revision" } );
         addAnnotation( getServiceNS_UmlDate(), source, new String[] { "kind", "attribute", "name", "umlDate" } );
         addAnnotation( getServiceNS_UmlVersion(), source, new String[] { "kind", "attribute", "name", "umlVersion" } );
-        addAnnotation( getServiceNS_Version(), source, new String[] { "kind", "attribute", "name", "version" } );
         addAnnotation( serviceNsUsageEClass, source,
                 new String[] { "name", "tServiceNsUsage", "kind", "elementOnly" } );
         addAnnotation( getServiceNsUsage_AppliesTo(), source,
@@ -5064,9 +4919,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         addAnnotation( getServiceNsUsage_Id(), source, new String[] { "kind", "attribute", "name", "id" } );
         addAnnotation( getServiceNsUsage_PublicationStage(), source,
                 new String[] { "kind", "attribute", "name", "publicationStage" } );
-        addAnnotation( getServiceNsUsage_Release(), source, new String[] { "kind", "attribute", "name", "release" } );
         addAnnotation( getServiceNsUsage_Revision(), source, new String[] { "kind", "attribute", "name", "revision" } );
-        addAnnotation( getServiceNsUsage_Version(), source, new String[] { "kind", "attribute", "name", "version" } );
         addAnnotation( serviceParameterEClass, source, new String[] { "name", "tServiceParameter", "kind", "empty" } );
         addAnnotation( getServiceParameter_DefaultValue(), source,
                 new String[] { "kind", "attribute", "name", "defaultValue" } );
@@ -5143,6 +4996,10 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 new String[] { "name", "tUndefinedAttributeTypeKind" } );
         addAnnotation( undefinedAttributeTypeKindObjectEDataType, source, new String[] { "name",
                 "tUndefinedAttributeTypeKind:Object", "baseType", "tUndefinedAttributeTypeKind" } );
+        addAnnotation( getNSDObjectWithVersionAndRelease_Release(), source,
+                new String[] { "kind", "attribute", "name", "release" } );
+        addAnnotation( getNSDObjectWithVersionAndRelease_Version(), source,
+                new String[] { "kind", "attribute", "name", "version" } );
     }
 
 } //NsdPackageImpl

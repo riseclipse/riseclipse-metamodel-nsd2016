@@ -35,8 +35,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -51,14 +49,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getAppliesTo <em>Applies To</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getId <em>Id</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getPublicationStage <em>Publication Stage</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getRelease <em>Release</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getRevision <em>Revision</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getVersion <em>Version</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ServiceNsUsageImpl extends MinimalEObjectImpl.Container implements ServiceNsUsage {
+public class ServiceNsUsageImpl extends NSDObjectWithVersionAndReleaseImpl implements ServiceNsUsage {
     /**
      * The cached value of the '{@link #getAppliesTo() <em>Applies To</em>}' containment reference list.
      * <!-- begin-user-doc -->
@@ -119,35 +115,6 @@ public class ServiceNsUsageImpl extends MinimalEObjectImpl.Container implements 
     protected boolean publicationStageESet;
 
     /**
-     * The default value of the '{@link #getRelease() <em>Release</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getRelease()
-     * @generated
-     * @ordered
-     */
-    protected static final Integer RELEASE_EDEFAULT = new Integer( 1 );
-
-    /**
-     * The cached value of the '{@link #getRelease() <em>Release</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getRelease()
-     * @generated
-     * @ordered
-     */
-    protected Integer release = RELEASE_EDEFAULT;
-
-    /**
-     * This is true if the Release attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean releaseESet;
-
-    /**
      * The default value of the '{@link #getRevision() <em>Revision</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -175,35 +142,6 @@ public class ServiceNsUsageImpl extends MinimalEObjectImpl.Container implements 
      * @ordered
      */
     protected boolean revisionESet;
-
-    /**
-     * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getVersion()
-     * @generated
-     * @ordered
-     */
-    protected static final Integer VERSION_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getVersion()
-     * @generated
-     * @ordered
-     */
-    protected Integer version = VERSION_EDEFAULT;
-
-    /**
-     * This is true if the Version attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean versionESet;
 
     /**
      * <!-- begin-user-doc -->
@@ -319,56 +257,6 @@ public class ServiceNsUsageImpl extends MinimalEObjectImpl.Container implements 
      * @generated
      */
     @Override
-    public Integer getRelease() {
-        return release;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setRelease( Integer newRelease ) {
-        Integer oldRelease = release;
-        release = newRelease;
-        boolean oldReleaseESet = releaseESet;
-        releaseESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.SERVICE_NS_USAGE__RELEASE, oldRelease, release, !oldReleaseESet ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void unsetRelease() {
-        Integer oldRelease = release;
-        boolean oldReleaseESet = releaseESet;
-        release = RELEASE_EDEFAULT;
-        releaseESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.SERVICE_NS_USAGE__RELEASE, oldRelease, RELEASE_EDEFAULT, oldReleaseESet ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean isSetRelease() {
-        return releaseESet;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public String getRevision() {
         return revision;
     }
@@ -419,56 +307,6 @@ public class ServiceNsUsageImpl extends MinimalEObjectImpl.Container implements 
      * @generated
      */
     @Override
-    public Integer getVersion() {
-        return version;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setVersion( Integer newVersion ) {
-        Integer oldVersion = version;
-        version = newVersion;
-        boolean oldVersionESet = versionESet;
-        versionESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.SERVICE_NS_USAGE__VERSION, oldVersion, version, !oldVersionESet ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void unsetVersion() {
-        Integer oldVersion = version;
-        boolean oldVersionESet = versionESet;
-        version = VERSION_EDEFAULT;
-        versionESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.SERVICE_NS_USAGE__VERSION, oldVersion, VERSION_EDEFAULT, oldVersionESet ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean isSetVersion() {
-        return versionESet;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.SERVICE_NS_USAGE__APPLIES_TO:
@@ -491,12 +329,8 @@ public class ServiceNsUsageImpl extends MinimalEObjectImpl.Container implements 
             return getId();
         case NsdPackage.SERVICE_NS_USAGE__PUBLICATION_STAGE:
             return getPublicationStage();
-        case NsdPackage.SERVICE_NS_USAGE__RELEASE:
-            return getRelease();
         case NsdPackage.SERVICE_NS_USAGE__REVISION:
             return getRevision();
-        case NsdPackage.SERVICE_NS_USAGE__VERSION:
-            return getVersion();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -520,14 +354,8 @@ public class ServiceNsUsageImpl extends MinimalEObjectImpl.Container implements 
         case NsdPackage.SERVICE_NS_USAGE__PUBLICATION_STAGE:
             setPublicationStage( ( PubStage ) newValue );
             return;
-        case NsdPackage.SERVICE_NS_USAGE__RELEASE:
-            setRelease( ( Integer ) newValue );
-            return;
         case NsdPackage.SERVICE_NS_USAGE__REVISION:
             setRevision( ( String ) newValue );
-            return;
-        case NsdPackage.SERVICE_NS_USAGE__VERSION:
-            setVersion( ( Integer ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -550,14 +378,8 @@ public class ServiceNsUsageImpl extends MinimalEObjectImpl.Container implements 
         case NsdPackage.SERVICE_NS_USAGE__PUBLICATION_STAGE:
             unsetPublicationStage();
             return;
-        case NsdPackage.SERVICE_NS_USAGE__RELEASE:
-            unsetRelease();
-            return;
         case NsdPackage.SERVICE_NS_USAGE__REVISION:
             unsetRevision();
-            return;
-        case NsdPackage.SERVICE_NS_USAGE__VERSION:
-            unsetVersion();
             return;
         }
         super.eUnset( featureID );
@@ -577,12 +399,8 @@ public class ServiceNsUsageImpl extends MinimalEObjectImpl.Container implements 
             return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals( id );
         case NsdPackage.SERVICE_NS_USAGE__PUBLICATION_STAGE:
             return isSetPublicationStage();
-        case NsdPackage.SERVICE_NS_USAGE__RELEASE:
-            return isSetRelease();
         case NsdPackage.SERVICE_NS_USAGE__REVISION:
             return isSetRevision();
-        case NsdPackage.SERVICE_NS_USAGE__VERSION:
-            return isSetVersion();
         }
         return super.eIsSet( featureID );
     }
@@ -604,19 +422,9 @@ public class ServiceNsUsageImpl extends MinimalEObjectImpl.Container implements 
             result.append( publicationStage );
         else
             result.append( "<unset>" );
-        result.append( ", release: " );
-        if( releaseESet )
-            result.append( release );
-        else
-            result.append( "<unset>" );
         result.append( ", revision: " );
         if( revisionESet )
             result.append( revision );
-        else
-            result.append( "<unset>" );
-        result.append( ", version: " );
-        if( versionESet )
-            result.append( version );
         else
             result.append( "<unset>" );
         result.append( ')' );

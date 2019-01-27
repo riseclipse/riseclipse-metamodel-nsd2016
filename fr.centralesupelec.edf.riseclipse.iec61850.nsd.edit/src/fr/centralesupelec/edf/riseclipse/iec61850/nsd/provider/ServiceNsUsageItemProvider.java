@@ -28,20 +28,11 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -50,8 +41,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ServiceNsUsageItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ServiceNsUsageItemProvider extends NSDObjectWithVersionAndReleaseItemProvider {
     /**
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
@@ -75,9 +65,7 @@ public class ServiceNsUsageItemProvider extends ItemProviderAdapter implements I
 
             addIdPropertyDescriptor( object );
             addPublicationStagePropertyDescriptor( object );
-            addReleasePropertyDescriptor( object );
             addRevisionPropertyDescriptor( object );
-            addVersionPropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -115,22 +103,6 @@ public class ServiceNsUsageItemProvider extends ItemProviderAdapter implements I
     }
 
     /**
-     * This adds a property descriptor for the Release feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addReleasePropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add(
-                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_ServiceNsUsage_release_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_ServiceNsUsage_release_feature",
-                                "_UI_ServiceNsUsage_type" ),
-                        NsdPackage.Literals.SERVICE_NS_USAGE__RELEASE, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
-    }
-
-    /**
      * This adds a property descriptor for the Revision feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -143,22 +115,6 @@ public class ServiceNsUsageItemProvider extends ItemProviderAdapter implements I
                         getString( "_UI_PropertyDescriptor_description", "_UI_ServiceNsUsage_revision_feature",
                                 "_UI_ServiceNsUsage_type" ),
                         NsdPackage.Literals.SERVICE_NS_USAGE__REVISION, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
-    }
-
-    /**
-     * This adds a property descriptor for the Version feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addVersionPropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add(
-                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_ServiceNsUsage_version_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_ServiceNsUsage_version_feature",
-                                "_UI_ServiceNsUsage_type" ),
-                        NsdPackage.Literals.SERVICE_NS_USAGE__VERSION, true, false, false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
@@ -230,9 +186,7 @@ public class ServiceNsUsageItemProvider extends ItemProviderAdapter implements I
         switch( notification.getFeatureID( ServiceNsUsage.class ) ) {
         case NsdPackage.SERVICE_NS_USAGE__ID:
         case NsdPackage.SERVICE_NS_USAGE__PUBLICATION_STAGE:
-        case NsdPackage.SERVICE_NS_USAGE__RELEASE:
         case NsdPackage.SERVICE_NS_USAGE__REVISION:
-        case NsdPackage.SERVICE_NS_USAGE__VERSION:
             fireNotifyChanged( new ViewerNotification( notification, notification.getNotifier(), false, true ) );
             return;
         case NsdPackage.SERVICE_NS_USAGE__APPLIES_TO:
@@ -255,17 +209,6 @@ public class ServiceNsUsageItemProvider extends ItemProviderAdapter implements I
 
         newChildDescriptors.add( createChildParameter( NsdPackage.Literals.SERVICE_NS_USAGE__APPLIES_TO,
                 NsdFactory.eINSTANCE.createAppliesToType() ) );
-    }
-
-    /**
-     * Return the resource locator for this item provider's resources.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public ResourceLocator getResourceLocator() {
-        return NSDEditPlugin.INSTANCE;
     }
 
 }

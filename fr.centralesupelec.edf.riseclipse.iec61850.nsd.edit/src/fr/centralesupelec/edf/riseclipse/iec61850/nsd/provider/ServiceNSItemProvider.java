@@ -64,14 +64,14 @@ public class ServiceNSItemProvider extends CopyrightedItemProvider {
         if( itemPropertyDescriptors == null ) {
             super.getPropertyDescriptors( object );
 
+            addReleasePropertyDescriptor( object );
+            addVersionPropertyDescriptor( object );
             addDescIDPropertyDescriptor( object );
             addIdPropertyDescriptor( object );
             addPublicationStagePropertyDescriptor( object );
-            addReleasePropertyDescriptor( object );
             addRevisionPropertyDescriptor( object );
             addUmlDatePropertyDescriptor( object );
             addUmlVersionPropertyDescriptor( object );
-            addVersionPropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -131,13 +131,13 @@ public class ServiceNSItemProvider extends CopyrightedItemProvider {
      * @generated
      */
     protected void addReleasePropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add(
-                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_ServiceNS_release_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_ServiceNS_release_feature",
-                                "_UI_ServiceNS_type" ),
-                        NsdPackage.Literals.SERVICE_NS__RELEASE, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add( createItemPropertyDescriptor(
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
+                getString( "_UI_NSDObjectWithVersionAndRelease_release_feature" ),
+                getString( "_UI_PropertyDescriptor_description", "_UI_NSDObjectWithVersionAndRelease_release_feature",
+                        "_UI_NSDObjectWithVersionAndRelease_type" ),
+                NsdPackage.Literals.NSD_OBJECT_WITH_VERSION_AND_RELEASE__RELEASE, true, false, false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -195,13 +195,13 @@ public class ServiceNSItemProvider extends CopyrightedItemProvider {
      * @generated
      */
     protected void addVersionPropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add(
-                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_ServiceNS_version_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_ServiceNS_version_feature",
-                                "_UI_ServiceNS_type" ),
-                        NsdPackage.Literals.SERVICE_NS__VERSION, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add( createItemPropertyDescriptor(
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
+                getString( "_UI_NSDObjectWithVersionAndRelease_version_feature" ),
+                getString( "_UI_PropertyDescriptor_description", "_UI_NSDObjectWithVersionAndRelease_version_feature",
+                        "_UI_NSDObjectWithVersionAndRelease_type" ),
+                NsdPackage.Literals.NSD_OBJECT_WITH_VERSION_AND_RELEASE__VERSION, true, false, false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -276,14 +276,14 @@ public class ServiceNSItemProvider extends CopyrightedItemProvider {
         updateChildren( notification );
 
         switch( notification.getFeatureID( ServiceNS.class ) ) {
+        case NsdPackage.SERVICE_NS__RELEASE:
+        case NsdPackage.SERVICE_NS__VERSION:
         case NsdPackage.SERVICE_NS__DESC_ID:
         case NsdPackage.SERVICE_NS__ID:
         case NsdPackage.SERVICE_NS__PUBLICATION_STAGE:
-        case NsdPackage.SERVICE_NS__RELEASE:
         case NsdPackage.SERVICE_NS__REVISION:
         case NsdPackage.SERVICE_NS__UML_DATE:
         case NsdPackage.SERVICE_NS__UML_VERSION:
-        case NsdPackage.SERVICE_NS__VERSION:
             fireNotifyChanged( new ViewerNotification( notification, notification.getNotifier(), false, true ) );
             return;
         case NsdPackage.SERVICE_NS__CHANGES:

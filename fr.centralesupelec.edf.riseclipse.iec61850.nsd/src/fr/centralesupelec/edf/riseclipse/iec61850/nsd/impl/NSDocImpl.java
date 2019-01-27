@@ -20,6 +20,7 @@
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDObjectWithVersionAndRelease;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage;
@@ -49,20 +50,78 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getRelease <em>Release</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getDoc <em>Doc</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getId <em>Id</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getLang <em>Lang</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getPublicationStage <em>Publication Stage</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getRelease <em>Release</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getRevision <em>Revision</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getUmlDate <em>Uml Date</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getUmlVersion <em>Uml Version</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getVersion <em>Version</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class NSDocImpl extends CopyrightedImpl implements NSDoc {
+    /**
+     * The default value of the '{@link #getRelease() <em>Release</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRelease()
+     * @generated
+     * @ordered
+     */
+    protected static final Integer RELEASE_EDEFAULT = new Integer( 1 );
+
+    /**
+     * The cached value of the '{@link #getRelease() <em>Release</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRelease()
+     * @generated
+     * @ordered
+     */
+    protected Integer release = RELEASE_EDEFAULT;
+
+    /**
+     * This is true if the Release attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean releaseESet;
+
+    /**
+     * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getVersion()
+     * @generated
+     * @ordered
+     */
+    protected static final Integer VERSION_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getVersion()
+     * @generated
+     * @ordered
+     */
+    protected Integer version = VERSION_EDEFAULT;
+
+    /**
+     * This is true if the Version attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean versionESet;
+
     /**
      * The cached value of the '{@link #getDoc() <em>Doc</em>}' containment reference list.
      * <!-- begin-user-doc -->
@@ -143,35 +202,6 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
     protected boolean publicationStageESet;
 
     /**
-     * The default value of the '{@link #getRelease() <em>Release</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getRelease()
-     * @generated
-     * @ordered
-     */
-    protected static final Integer RELEASE_EDEFAULT = new Integer( 1 );
-
-    /**
-     * The cached value of the '{@link #getRelease() <em>Release</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getRelease()
-     * @generated
-     * @ordered
-     */
-    protected Integer release = RELEASE_EDEFAULT;
-
-    /**
-     * This is true if the Release attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean releaseESet;
-
-    /**
      * The default value of the '{@link #getRevision() <em>Revision</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -239,35 +269,6 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
      * @ordered
      */
     protected String umlVersion = UML_VERSION_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getVersion()
-     * @generated
-     * @ordered
-     */
-    protected static final Integer VERSION_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getVersion()
-     * @generated
-     * @ordered
-     */
-    protected Integer version = VERSION_EDEFAULT;
-
-    /**
-     * This is true if the Version attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean versionESet;
 
     /**
      * <!-- begin-user-doc -->
@@ -617,6 +618,10 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
     @Override
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
+        case NsdPackage.NS_DOC__RELEASE:
+            return getRelease();
+        case NsdPackage.NS_DOC__VERSION:
+            return getVersion();
         case NsdPackage.NS_DOC__DOC:
             return getDoc();
         case NsdPackage.NS_DOC__ID:
@@ -625,16 +630,12 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
             return getLang();
         case NsdPackage.NS_DOC__PUBLICATION_STAGE:
             return getPublicationStage();
-        case NsdPackage.NS_DOC__RELEASE:
-            return getRelease();
         case NsdPackage.NS_DOC__REVISION:
             return getRevision();
         case NsdPackage.NS_DOC__UML_DATE:
             return getUmlDate();
         case NsdPackage.NS_DOC__UML_VERSION:
             return getUmlVersion();
-        case NsdPackage.NS_DOC__VERSION:
-            return getVersion();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -648,6 +649,12 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
     @Override
     public void eSet( int featureID, Object newValue ) {
         switch( featureID ) {
+        case NsdPackage.NS_DOC__RELEASE:
+            setRelease( ( Integer ) newValue );
+            return;
+        case NsdPackage.NS_DOC__VERSION:
+            setVersion( ( Integer ) newValue );
+            return;
         case NsdPackage.NS_DOC__DOC:
             getDoc().clear();
             getDoc().addAll( ( Collection< ? extends Doc > ) newValue );
@@ -661,9 +668,6 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         case NsdPackage.NS_DOC__PUBLICATION_STAGE:
             setPublicationStage( ( PubStage ) newValue );
             return;
-        case NsdPackage.NS_DOC__RELEASE:
-            setRelease( ( Integer ) newValue );
-            return;
         case NsdPackage.NS_DOC__REVISION:
             setRevision( ( String ) newValue );
             return;
@@ -672,9 +676,6 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
             return;
         case NsdPackage.NS_DOC__UML_VERSION:
             setUmlVersion( ( String ) newValue );
-            return;
-        case NsdPackage.NS_DOC__VERSION:
-            setVersion( ( Integer ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -688,6 +689,12 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
     @Override
     public void eUnset( int featureID ) {
         switch( featureID ) {
+        case NsdPackage.NS_DOC__RELEASE:
+            unsetRelease();
+            return;
+        case NsdPackage.NS_DOC__VERSION:
+            unsetVersion();
+            return;
         case NsdPackage.NS_DOC__DOC:
             getDoc().clear();
             return;
@@ -700,9 +707,6 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         case NsdPackage.NS_DOC__PUBLICATION_STAGE:
             unsetPublicationStage();
             return;
-        case NsdPackage.NS_DOC__RELEASE:
-            unsetRelease();
-            return;
         case NsdPackage.NS_DOC__REVISION:
             unsetRevision();
             return;
@@ -711,9 +715,6 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
             return;
         case NsdPackage.NS_DOC__UML_VERSION:
             setUmlVersion( UML_VERSION_EDEFAULT );
-            return;
-        case NsdPackage.NS_DOC__VERSION:
-            unsetVersion();
             return;
         }
         super.eUnset( featureID );
@@ -727,6 +728,10 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
     @Override
     public boolean eIsSet( int featureID ) {
         switch( featureID ) {
+        case NsdPackage.NS_DOC__RELEASE:
+            return isSetRelease();
+        case NsdPackage.NS_DOC__VERSION:
+            return isSetVersion();
         case NsdPackage.NS_DOC__DOC:
             return doc != null && !doc.isEmpty();
         case NsdPackage.NS_DOC__ID:
@@ -735,18 +740,54 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
             return LANG_EDEFAULT == null ? lang != null : !LANG_EDEFAULT.equals( lang );
         case NsdPackage.NS_DOC__PUBLICATION_STAGE:
             return isSetPublicationStage();
-        case NsdPackage.NS_DOC__RELEASE:
-            return isSetRelease();
         case NsdPackage.NS_DOC__REVISION:
             return isSetRevision();
         case NsdPackage.NS_DOC__UML_DATE:
             return UML_DATE_EDEFAULT == null ? umlDate != null : !UML_DATE_EDEFAULT.equals( umlDate );
         case NsdPackage.NS_DOC__UML_VERSION:
             return UML_VERSION_EDEFAULT == null ? umlVersion != null : !UML_VERSION_EDEFAULT.equals( umlVersion );
-        case NsdPackage.NS_DOC__VERSION:
-            return isSetVersion();
         }
         return super.eIsSet( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public int eBaseStructuralFeatureID( int derivedFeatureID, Class< ? > baseClass ) {
+        if( baseClass == NSDObjectWithVersionAndRelease.class ) {
+            switch( derivedFeatureID ) {
+            case NsdPackage.NS_DOC__RELEASE:
+                return NsdPackage.NSD_OBJECT_WITH_VERSION_AND_RELEASE__RELEASE;
+            case NsdPackage.NS_DOC__VERSION:
+                return NsdPackage.NSD_OBJECT_WITH_VERSION_AND_RELEASE__VERSION;
+            default:
+                return -1;
+            }
+        }
+        return super.eBaseStructuralFeatureID( derivedFeatureID, baseClass );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public int eDerivedStructuralFeatureID( int baseFeatureID, Class< ? > baseClass ) {
+        if( baseClass == NSDObjectWithVersionAndRelease.class ) {
+            switch( baseFeatureID ) {
+            case NsdPackage.NSD_OBJECT_WITH_VERSION_AND_RELEASE__RELEASE:
+                return NsdPackage.NS_DOC__RELEASE;
+            case NsdPackage.NSD_OBJECT_WITH_VERSION_AND_RELEASE__VERSION:
+                return NsdPackage.NS_DOC__VERSION;
+            default:
+                return -1;
+            }
+        }
+        return super.eDerivedStructuralFeatureID( baseFeatureID, baseClass );
     }
 
     /**
@@ -759,18 +800,23 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         if( eIsProxy() ) return super.toString();
 
         StringBuilder result = new StringBuilder( super.toString() );
-        result.append( " (id: " );
+        result.append( " (release: " );
+        if( releaseESet )
+            result.append( release );
+        else
+            result.append( "<unset>" );
+        result.append( ", version: " );
+        if( versionESet )
+            result.append( version );
+        else
+            result.append( "<unset>" );
+        result.append( ", id: " );
         result.append( id );
         result.append( ", lang: " );
         result.append( lang );
         result.append( ", publicationStage: " );
         if( publicationStageESet )
             result.append( publicationStage );
-        else
-            result.append( "<unset>" );
-        result.append( ", release: " );
-        if( releaseESet )
-            result.append( release );
         else
             result.append( "<unset>" );
         result.append( ", revision: " );
@@ -782,11 +828,6 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         result.append( umlDate );
         result.append( ", umlVersion: " );
         result.append( umlVersion );
-        result.append( ", version: " );
-        if( versionESet )
-            result.append( version );
-        else
-            result.append( "<unset>" );
         result.append( ')' );
         return result.toString();
     }

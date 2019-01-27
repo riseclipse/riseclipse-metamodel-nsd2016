@@ -27,18 +27,9 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -47,8 +38,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ChangesItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ChangesItemProvider extends NSDObjectWithVersionAndReleaseItemProvider {
     /**
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
@@ -72,10 +62,8 @@ public class ChangesItemProvider extends ItemProviderAdapter implements IEditing
 
             addChangesIDPropertyDescriptor( object );
             addDatePropertyDescriptor( object );
-            addReleasePropertyDescriptor( object );
             addRevisionPropertyDescriptor( object );
             addTissuesPropertyDescriptor( object );
-            addVersionPropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -113,22 +101,6 @@ public class ChangesItemProvider extends ItemProviderAdapter implements IEditing
     }
 
     /**
-     * This adds a property descriptor for the Release feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addReleasePropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add(
-                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_Changes_release_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_Changes_release_feature",
-                                "_UI_Changes_type" ),
-                        NsdPackage.Literals.CHANGES__RELEASE, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
-    }
-
-    /**
      * This adds a property descriptor for the Revision feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -161,22 +133,6 @@ public class ChangesItemProvider extends ItemProviderAdapter implements IEditing
     }
 
     /**
-     * This adds a property descriptor for the Version feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addVersionPropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add(
-                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_Changes_version_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_Changes_version_feature",
-                                "_UI_Changes_type" ),
-                        NsdPackage.Literals.CHANGES__VERSION, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
-    }
-
-    /**
      * This returns Changes.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -195,7 +151,8 @@ public class ChangesItemProvider extends ItemProviderAdapter implements IEditing
      */
     @Override
     public String getText( Object object ) {
-        String label = ( ( Changes ) object ).getChangesID();
+        Integer labelValue = ( ( Changes ) object ).getRelease();
+        String label = labelValue == null ? null : labelValue.toString();
         return label == null || label.length() == 0 ? getString( "_UI_Changes_type" )
                 : getString( "_UI_Changes_type" ) + " " + label;
     }
@@ -214,10 +171,8 @@ public class ChangesItemProvider extends ItemProviderAdapter implements IEditing
         switch( notification.getFeatureID( Changes.class ) ) {
         case NsdPackage.CHANGES__CHANGES_ID:
         case NsdPackage.CHANGES__DATE:
-        case NsdPackage.CHANGES__RELEASE:
         case NsdPackage.CHANGES__REVISION:
         case NsdPackage.CHANGES__TISSUES:
-        case NsdPackage.CHANGES__VERSION:
             fireNotifyChanged( new ViewerNotification( notification, notification.getNotifier(), false, true ) );
             return;
         }
@@ -234,17 +189,6 @@ public class ChangesItemProvider extends ItemProviderAdapter implements IEditing
     @Override
     protected void collectNewChildDescriptors( Collection< Object > newChildDescriptors, Object object ) {
         super.collectNewChildDescriptors( newChildDescriptors, object );
-    }
-
-    /**
-     * Return the resource locator for this item provider's resources.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public ResourceLocator getResourceLocator() {
-        return NSDEditPlugin.INSTANCE;
     }
 
 }

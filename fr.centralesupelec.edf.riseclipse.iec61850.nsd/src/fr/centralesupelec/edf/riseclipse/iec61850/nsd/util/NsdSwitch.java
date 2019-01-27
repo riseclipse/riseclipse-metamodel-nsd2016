@@ -86,12 +86,14 @@ public class NsdSwitch< T > extends Switch< T > {
         case NsdPackage.APPLIES_TO_TYPE: {
             AppliesToType appliesToType = ( AppliesToType ) theEObject;
             T result = caseAppliesToType( appliesToType );
+            if( result == null ) result = caseNSDObjectWithVersionAndRelease( appliesToType );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
         case NsdPackage.DEPENDS_ON_TYPE: {
             DependsOnType dependsOnType = ( DependsOnType ) theEObject;
             T result = caseDependsOnType( dependsOnType );
+            if( result == null ) result = caseNSDObjectWithVersionAndRelease( dependsOnType );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
@@ -178,6 +180,7 @@ public class NsdSwitch< T > extends Switch< T > {
         case NsdPackage.CHANGES: {
             Changes changes = ( Changes ) theEObject;
             T result = caseChanges( changes );
+            if( result == null ) result = caseNSDObjectWithVersionAndRelease( changes );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
@@ -303,6 +306,7 @@ public class NsdSwitch< T > extends Switch< T > {
             NS ns = ( NS ) theEObject;
             T result = caseNS( ns );
             if( result == null ) result = caseCopyrighted( ns );
+            if( result == null ) result = caseNSDObjectWithVersionAndRelease( ns );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
@@ -310,6 +314,7 @@ public class NsdSwitch< T > extends Switch< T > {
             NSDoc nsDoc = ( NSDoc ) theEObject;
             T result = caseNSDoc( nsDoc );
             if( result == null ) result = caseCopyrighted( nsDoc );
+            if( result == null ) result = caseNSDObjectWithVersionAndRelease( nsDoc );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
@@ -363,12 +368,14 @@ public class NsdSwitch< T > extends Switch< T > {
             ServiceNS serviceNS = ( ServiceNS ) theEObject;
             T result = caseServiceNS( serviceNS );
             if( result == null ) result = caseCopyrighted( serviceNS );
+            if( result == null ) result = caseNSDObjectWithVersionAndRelease( serviceNS );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
         case NsdPackage.SERVICE_NS_USAGE: {
             ServiceNsUsage serviceNsUsage = ( ServiceNsUsage ) theEObject;
             T result = caseServiceNsUsage( serviceNsUsage );
+            if( result == null ) result = caseNSDObjectWithVersionAndRelease( serviceNsUsage );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
@@ -409,6 +416,12 @@ public class NsdSwitch< T > extends Switch< T > {
             TitledClass titledClass = ( TitledClass ) theEObject;
             T result = caseTitledClass( titledClass );
             if( result == null ) result = caseDocumentedClass( titledClass );
+            if( result == null ) result = defaultCase( theEObject );
+            return result;
+        }
+        case NsdPackage.NSD_OBJECT_WITH_VERSION_AND_RELEASE: {
+            NSDObjectWithVersionAndRelease nsdObjectWithVersionAndRelease = ( NSDObjectWithVersionAndRelease ) theEObject;
+            T result = caseNSDObjectWithVersionAndRelease( nsdObjectWithVersionAndRelease );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
@@ -1164,6 +1177,21 @@ public class NsdSwitch< T > extends Switch< T > {
      * @generated
      */
     public T caseTitledClass( TitledClass object ) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>NSD Object With Version And Release</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>NSD Object With Version And Release</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseNSDObjectWithVersionAndRelease( NSDObjectWithVersionAndRelease object ) {
         return null;
     }
 

@@ -206,6 +206,9 @@ public class NsdValidator extends EObjectValidator {
             return validateSubDataObject( ( SubDataObject ) value, diagnostics, context );
         case NsdPackage.TITLED_CLASS:
             return validateTitledClass( ( TitledClass ) value, diagnostics, context );
+        case NsdPackage.NSD_OBJECT_WITH_VERSION_AND_RELEASE:
+            return validateNSDObjectWithVersionAndRelease( ( NSDObjectWithVersionAndRelease ) value, diagnostics,
+                    context );
         case NsdPackage.ACSI_SERVICES_KIND:
             return validateACSIServicesKind( ( ACSIServicesKind ) value, diagnostics, context );
         case NsdPackage.CB_KIND:
@@ -726,6 +729,17 @@ public class NsdValidator extends EObjectValidator {
     public boolean validateTitledClass( TitledClass titledClass, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
         return validate_EveryDefaultConstraint( titledClass, diagnostics, context );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateNSDObjectWithVersionAndRelease(
+            NSDObjectWithVersionAndRelease nsdObjectWithVersionAndRelease, DiagnosticChain diagnostics,
+            Map< Object, Object > context ) {
+        return validate_EveryDefaultConstraint( nsdObjectWithVersionAndRelease, diagnostics, context );
     }
 
     /**

@@ -44,18 +44,16 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS#getDescID <em>Desc ID</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS#getId <em>Id</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS#getPublicationStage <em>Publication Stage</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS#getRelease <em>Release</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS#getRevision <em>Revision</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS#getUmlDate <em>Uml Date</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS#getUmlVersion <em>Uml Version</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS#getVersion <em>Version</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceNS()
  * @model extendedMetaData="name='tServiceNS' kind='elementOnly'"
  * @generated
  */
-public interface ServiceNS extends Copyrighted {
+public interface ServiceNS extends Copyrighted, NSDObjectWithVersionAndRelease {
     /**
      * Returns the value of the '<em><b>Changes</b></em>' containment reference.
      * <!-- begin-user-doc -->
@@ -347,60 +345,6 @@ public interface ServiceNS extends Copyrighted {
     boolean isSetPublicationStage();
 
     /**
-     * Returns the value of the '<em><b>Release</b></em>' attribute.
-     * The default value is <code>"1"</code>.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Release of the namespace version and revision, by default 1.
-     * <!-- end-model-doc -->
-     * @return the value of the '<em>Release</em>' attribute.
-     * @see #isSetRelease()
-     * @see #unsetRelease()
-     * @see #setRelease(Integer)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceNS_Release()
-     * @model default="1" unsettable="true"
-     *        extendedMetaData="kind='attribute' name='release'"
-     * @generated
-     */
-    Integer getRelease();
-
-    /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS#getRelease <em>Release</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Release</em>' attribute.
-     * @see #isSetRelease()
-     * @see #unsetRelease()
-     * @see #getRelease()
-     * @generated
-     */
-    void setRelease( Integer value );
-
-    /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS#getRelease <em>Release</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isSetRelease()
-     * @see #getRelease()
-     * @see #setRelease(Integer)
-     * @generated
-     */
-    void unsetRelease();
-
-    /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS#getRelease <em>Release</em>}' attribute is set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Release</em>' attribute is set.
-     * @see #unsetRelease()
-     * @see #getRelease()
-     * @see #setRelease(Integer)
-     * @generated
-     */
-    boolean isSetRelease();
-
-    /**
      * Returns the value of the '<em><b>Revision</b></em>' attribute.
      * The default value is <code>"A"</code>.
      * <!-- begin-user-doc -->
@@ -505,58 +449,5 @@ public interface ServiceNS extends Copyrighted {
      * @generated
      */
     void setUmlVersion( String value );
-
-    /**
-     * Returns the value of the '<em><b>Version</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Version (year) of the namespace.
-     * <!-- end-model-doc -->
-     * @return the value of the '<em>Version</em>' attribute.
-     * @see #isSetVersion()
-     * @see #unsetVersion()
-     * @see #setVersion(Integer)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceNS_Version()
-     * @model unsettable="true" required="true"
-     *        extendedMetaData="kind='attribute' name='version'"
-     * @generated
-     */
-    Integer getVersion();
-
-    /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS#getVersion <em>Version</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Version</em>' attribute.
-     * @see #isSetVersion()
-     * @see #unsetVersion()
-     * @see #getVersion()
-     * @generated
-     */
-    void setVersion( Integer value );
-
-    /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS#getVersion <em>Version</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isSetVersion()
-     * @see #getVersion()
-     * @see #setVersion(Integer)
-     * @generated
-     */
-    void unsetVersion();
-
-    /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS#getVersion <em>Version</em>}' attribute is set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Version</em>' attribute is set.
-     * @see #unsetVersion()
-     * @see #getVersion()
-     * @see #setVersion(Integer)
-     * @generated
-     */
-    boolean isSetVersion();
 
 } // ServiceNS

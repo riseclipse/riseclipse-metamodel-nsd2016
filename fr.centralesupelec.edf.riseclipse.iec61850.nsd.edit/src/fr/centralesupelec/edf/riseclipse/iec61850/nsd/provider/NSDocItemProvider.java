@@ -64,14 +64,14 @@ public class NSDocItemProvider extends CopyrightedItemProvider {
         if( itemPropertyDescriptors == null ) {
             super.getPropertyDescriptors( object );
 
+            addReleasePropertyDescriptor( object );
+            addVersionPropertyDescriptor( object );
             addIdPropertyDescriptor( object );
             addLangPropertyDescriptor( object );
             addPublicationStagePropertyDescriptor( object );
-            addReleasePropertyDescriptor( object );
             addRevisionPropertyDescriptor( object );
             addUmlDatePropertyDescriptor( object );
             addUmlVersionPropertyDescriptor( object );
-            addVersionPropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -129,13 +129,13 @@ public class NSDocItemProvider extends CopyrightedItemProvider {
      * @generated
      */
     protected void addReleasePropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add(
-                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_NSDoc_release_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_NSDoc_release_feature",
-                                "_UI_NSDoc_type" ),
-                        NsdPackage.Literals.NS_DOC__RELEASE, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add( createItemPropertyDescriptor(
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
+                getString( "_UI_NSDObjectWithVersionAndRelease_release_feature" ),
+                getString( "_UI_PropertyDescriptor_description", "_UI_NSDObjectWithVersionAndRelease_release_feature",
+                        "_UI_NSDObjectWithVersionAndRelease_type" ),
+                NsdPackage.Literals.NSD_OBJECT_WITH_VERSION_AND_RELEASE__RELEASE, true, false, false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -193,13 +193,13 @@ public class NSDocItemProvider extends CopyrightedItemProvider {
      * @generated
      */
     protected void addVersionPropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add(
-                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_NSDoc_version_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_NSDoc_version_feature",
-                                "_UI_NSDoc_type" ),
-                        NsdPackage.Literals.NS_DOC__VERSION, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add( createItemPropertyDescriptor(
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
+                getString( "_UI_NSDObjectWithVersionAndRelease_version_feature" ),
+                getString( "_UI_PropertyDescriptor_description", "_UI_NSDObjectWithVersionAndRelease_version_feature",
+                        "_UI_NSDObjectWithVersionAndRelease_type" ),
+                NsdPackage.Literals.NSD_OBJECT_WITH_VERSION_AND_RELEASE__VERSION, true, false, false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -268,14 +268,14 @@ public class NSDocItemProvider extends CopyrightedItemProvider {
         updateChildren( notification );
 
         switch( notification.getFeatureID( NSDoc.class ) ) {
+        case NsdPackage.NS_DOC__RELEASE:
+        case NsdPackage.NS_DOC__VERSION:
         case NsdPackage.NS_DOC__ID:
         case NsdPackage.NS_DOC__LANG:
         case NsdPackage.NS_DOC__PUBLICATION_STAGE:
-        case NsdPackage.NS_DOC__RELEASE:
         case NsdPackage.NS_DOC__REVISION:
         case NsdPackage.NS_DOC__UML_DATE:
         case NsdPackage.NS_DOC__UML_VERSION:
-        case NsdPackage.NS_DOC__VERSION:
             fireNotifyChanged( new ViewerNotification( notification, notification.getNotifier(), false, true ) );
             return;
         case NsdPackage.NS_DOC__DOC:

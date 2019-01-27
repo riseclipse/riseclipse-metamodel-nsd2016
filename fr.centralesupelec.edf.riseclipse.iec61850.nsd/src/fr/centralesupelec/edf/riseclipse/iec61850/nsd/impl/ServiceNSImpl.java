@@ -22,6 +22,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDObjectWithVersionAndRelease;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage;
@@ -48,6 +49,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getRelease <em>Release</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getChanges <em>Changes</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getFunctionalConstraints <em>Functional Constraints</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getPresenceConditions <em>Presence Conditions</em>}</li>
@@ -58,16 +61,72 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getDescID <em>Desc ID</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getId <em>Id</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getPublicationStage <em>Publication Stage</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getRelease <em>Release</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getRevision <em>Revision</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getUmlDate <em>Uml Date</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getUmlVersion <em>Uml Version</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getVersion <em>Version</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
+    /**
+     * The default value of the '{@link #getRelease() <em>Release</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRelease()
+     * @generated
+     * @ordered
+     */
+    protected static final Integer RELEASE_EDEFAULT = new Integer( 1 );
+
+    /**
+     * The cached value of the '{@link #getRelease() <em>Release</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRelease()
+     * @generated
+     * @ordered
+     */
+    protected Integer release = RELEASE_EDEFAULT;
+
+    /**
+     * This is true if the Release attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean releaseESet;
+
+    /**
+     * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getVersion()
+     * @generated
+     * @ordered
+     */
+    protected static final Integer VERSION_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getVersion()
+     * @generated
+     * @ordered
+     */
+    protected Integer version = VERSION_EDEFAULT;
+
+    /**
+     * This is true if the Version attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean versionESet;
+
     /**
      * The cached value of the '{@link #getChanges() <em>Changes</em>}' containment reference.
      * <!-- begin-user-doc -->
@@ -208,35 +267,6 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
     protected boolean publicationStageESet;
 
     /**
-     * The default value of the '{@link #getRelease() <em>Release</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getRelease()
-     * @generated
-     * @ordered
-     */
-    protected static final Integer RELEASE_EDEFAULT = new Integer( 1 );
-
-    /**
-     * The cached value of the '{@link #getRelease() <em>Release</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getRelease()
-     * @generated
-     * @ordered
-     */
-    protected Integer release = RELEASE_EDEFAULT;
-
-    /**
-     * This is true if the Release attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean releaseESet;
-
-    /**
      * The default value of the '{@link #getRevision() <em>Revision</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -304,35 +334,6 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
      * @ordered
      */
     protected String umlVersion = UML_VERSION_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getVersion()
-     * @generated
-     * @ordered
-     */
-    protected static final Integer VERSION_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getVersion()
-     * @generated
-     * @ordered
-     */
-    protected Integer version = VERSION_EDEFAULT;
-
-    /**
-     * This is true if the Version attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean versionESet;
 
     /**
      * <!-- begin-user-doc -->
@@ -1038,6 +1039,10 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
     @Override
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
+        case NsdPackage.SERVICE_NS__RELEASE:
+            return getRelease();
+        case NsdPackage.SERVICE_NS__VERSION:
+            return getVersion();
         case NsdPackage.SERVICE_NS__CHANGES:
             return getChanges();
         case NsdPackage.SERVICE_NS__FUNCTIONAL_CONSTRAINTS:
@@ -1058,16 +1063,12 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
             return getId();
         case NsdPackage.SERVICE_NS__PUBLICATION_STAGE:
             return getPublicationStage();
-        case NsdPackage.SERVICE_NS__RELEASE:
-            return getRelease();
         case NsdPackage.SERVICE_NS__REVISION:
             return getRevision();
         case NsdPackage.SERVICE_NS__UML_DATE:
             return getUmlDate();
         case NsdPackage.SERVICE_NS__UML_VERSION:
             return getUmlVersion();
-        case NsdPackage.SERVICE_NS__VERSION:
-            return getVersion();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -1080,6 +1081,12 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
     @Override
     public void eSet( int featureID, Object newValue ) {
         switch( featureID ) {
+        case NsdPackage.SERVICE_NS__RELEASE:
+            setRelease( ( Integer ) newValue );
+            return;
+        case NsdPackage.SERVICE_NS__VERSION:
+            setVersion( ( Integer ) newValue );
+            return;
         case NsdPackage.SERVICE_NS__CHANGES:
             setChanges( ( Changes ) newValue );
             return;
@@ -1110,9 +1117,6 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         case NsdPackage.SERVICE_NS__PUBLICATION_STAGE:
             setPublicationStage( ( PubStage ) newValue );
             return;
-        case NsdPackage.SERVICE_NS__RELEASE:
-            setRelease( ( Integer ) newValue );
-            return;
         case NsdPackage.SERVICE_NS__REVISION:
             setRevision( ( String ) newValue );
             return;
@@ -1121,9 +1125,6 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
             return;
         case NsdPackage.SERVICE_NS__UML_VERSION:
             setUmlVersion( ( String ) newValue );
-            return;
-        case NsdPackage.SERVICE_NS__VERSION:
-            setVersion( ( Integer ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -1137,6 +1138,12 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
     @Override
     public void eUnset( int featureID ) {
         switch( featureID ) {
+        case NsdPackage.SERVICE_NS__RELEASE:
+            unsetRelease();
+            return;
+        case NsdPackage.SERVICE_NS__VERSION:
+            unsetVersion();
+            return;
         case NsdPackage.SERVICE_NS__CHANGES:
             setChanges( ( Changes ) null );
             return;
@@ -1167,9 +1174,6 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         case NsdPackage.SERVICE_NS__PUBLICATION_STAGE:
             unsetPublicationStage();
             return;
-        case NsdPackage.SERVICE_NS__RELEASE:
-            unsetRelease();
-            return;
         case NsdPackage.SERVICE_NS__REVISION:
             unsetRevision();
             return;
@@ -1178,9 +1182,6 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
             return;
         case NsdPackage.SERVICE_NS__UML_VERSION:
             setUmlVersion( UML_VERSION_EDEFAULT );
-            return;
-        case NsdPackage.SERVICE_NS__VERSION:
-            unsetVersion();
             return;
         }
         super.eUnset( featureID );
@@ -1194,6 +1195,10 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
     @Override
     public boolean eIsSet( int featureID ) {
         switch( featureID ) {
+        case NsdPackage.SERVICE_NS__RELEASE:
+            return isSetRelease();
+        case NsdPackage.SERVICE_NS__VERSION:
+            return isSetVersion();
         case NsdPackage.SERVICE_NS__CHANGES:
             return changes != null;
         case NsdPackage.SERVICE_NS__FUNCTIONAL_CONSTRAINTS:
@@ -1214,18 +1219,54 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
             return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals( id );
         case NsdPackage.SERVICE_NS__PUBLICATION_STAGE:
             return isSetPublicationStage();
-        case NsdPackage.SERVICE_NS__RELEASE:
-            return isSetRelease();
         case NsdPackage.SERVICE_NS__REVISION:
             return isSetRevision();
         case NsdPackage.SERVICE_NS__UML_DATE:
             return UML_DATE_EDEFAULT == null ? umlDate != null : !UML_DATE_EDEFAULT.equals( umlDate );
         case NsdPackage.SERVICE_NS__UML_VERSION:
             return UML_VERSION_EDEFAULT == null ? umlVersion != null : !UML_VERSION_EDEFAULT.equals( umlVersion );
-        case NsdPackage.SERVICE_NS__VERSION:
-            return isSetVersion();
         }
         return super.eIsSet( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public int eBaseStructuralFeatureID( int derivedFeatureID, Class< ? > baseClass ) {
+        if( baseClass == NSDObjectWithVersionAndRelease.class ) {
+            switch( derivedFeatureID ) {
+            case NsdPackage.SERVICE_NS__RELEASE:
+                return NsdPackage.NSD_OBJECT_WITH_VERSION_AND_RELEASE__RELEASE;
+            case NsdPackage.SERVICE_NS__VERSION:
+                return NsdPackage.NSD_OBJECT_WITH_VERSION_AND_RELEASE__VERSION;
+            default:
+                return -1;
+            }
+        }
+        return super.eBaseStructuralFeatureID( derivedFeatureID, baseClass );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public int eDerivedStructuralFeatureID( int baseFeatureID, Class< ? > baseClass ) {
+        if( baseClass == NSDObjectWithVersionAndRelease.class ) {
+            switch( baseFeatureID ) {
+            case NsdPackage.NSD_OBJECT_WITH_VERSION_AND_RELEASE__RELEASE:
+                return NsdPackage.SERVICE_NS__RELEASE;
+            case NsdPackage.NSD_OBJECT_WITH_VERSION_AND_RELEASE__VERSION:
+                return NsdPackage.SERVICE_NS__VERSION;
+            default:
+                return -1;
+            }
+        }
+        return super.eDerivedStructuralFeatureID( baseFeatureID, baseClass );
     }
 
     /**
@@ -1238,18 +1279,23 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         if( eIsProxy() ) return super.toString();
 
         StringBuilder result = new StringBuilder( super.toString() );
-        result.append( " (descID: " );
+        result.append( " (release: " );
+        if( releaseESet )
+            result.append( release );
+        else
+            result.append( "<unset>" );
+        result.append( ", version: " );
+        if( versionESet )
+            result.append( version );
+        else
+            result.append( "<unset>" );
+        result.append( ", descID: " );
         result.append( descID );
         result.append( ", id: " );
         result.append( id );
         result.append( ", publicationStage: " );
         if( publicationStageESet )
             result.append( publicationStage );
-        else
-            result.append( "<unset>" );
-        result.append( ", release: " );
-        if( releaseESet )
-            result.append( release );
         else
             result.append( "<unset>" );
         result.append( ", revision: " );
@@ -1261,11 +1307,6 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         result.append( umlDate );
         result.append( ", umlVersion: " );
         result.append( umlVersion );
-        result.append( ", version: " );
-        if( versionESet )
-            result.append( version );
-        else
-            result.append( "<unset>" );
         result.append( ')' );
         return result.toString();
     }

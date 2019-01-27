@@ -29,7 +29,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,15 +40,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ChangesImpl#getChangesID <em>Changes ID</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ChangesImpl#getDate <em>Date</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ChangesImpl#getRelease <em>Release</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ChangesImpl#getRevision <em>Revision</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ChangesImpl#getTissues <em>Tissues</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ChangesImpl#getVersion <em>Version</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ChangesImpl extends MinimalEObjectImpl.Container implements Changes {
+public class ChangesImpl extends NSDObjectWithVersionAndReleaseImpl implements Changes {
     /**
      * The default value of the '{@link #getChangesID() <em>Changes ID</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -89,35 +86,6 @@ public class ChangesImpl extends MinimalEObjectImpl.Container implements Changes
      * @ordered
      */
     protected XMLGregorianCalendar date = DATE_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getRelease() <em>Release</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getRelease()
-     * @generated
-     * @ordered
-     */
-    protected static final Integer RELEASE_EDEFAULT = new Integer( 1 );
-
-    /**
-     * The cached value of the '{@link #getRelease() <em>Release</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getRelease()
-     * @generated
-     * @ordered
-     */
-    protected Integer release = RELEASE_EDEFAULT;
-
-    /**
-     * This is true if the Release attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean releaseESet;
 
     /**
      * The default value of the '{@link #getRevision() <em>Revision</em>}' attribute.
@@ -167,35 +135,6 @@ public class ChangesImpl extends MinimalEObjectImpl.Container implements Changes
      * @ordered
      */
     protected String tissues = TISSUES_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getVersion()
-     * @generated
-     * @ordered
-     */
-    protected static final Integer VERSION_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getVersion()
-     * @generated
-     * @ordered
-     */
-    protected Integer version = VERSION_EDEFAULT;
-
-    /**
-     * This is true if the Version attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean versionESet;
 
     /**
      * <!-- begin-user-doc -->
@@ -260,56 +199,6 @@ public class ChangesImpl extends MinimalEObjectImpl.Container implements Changes
         date = newDate;
         if( eNotificationRequired() )
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CHANGES__DATE, oldDate, date ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Integer getRelease() {
-        return release;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setRelease( Integer newRelease ) {
-        Integer oldRelease = release;
-        release = newRelease;
-        boolean oldReleaseESet = releaseESet;
-        releaseESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.CHANGES__RELEASE, oldRelease, release, !oldReleaseESet ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void unsetRelease() {
-        Integer oldRelease = release;
-        boolean oldReleaseESet = releaseESet;
-        release = RELEASE_EDEFAULT;
-        releaseESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.CHANGES__RELEASE, oldRelease, RELEASE_EDEFAULT, oldReleaseESet ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean isSetRelease() {
-        return releaseESet;
     }
 
     /**
@@ -391,70 +280,16 @@ public class ChangesImpl extends MinimalEObjectImpl.Container implements Changes
      * @generated
      */
     @Override
-    public Integer getVersion() {
-        return version;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setVersion( Integer newVersion ) {
-        Integer oldVersion = version;
-        version = newVersion;
-        boolean oldVersionESet = versionESet;
-        versionESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.CHANGES__VERSION, oldVersion, version, !oldVersionESet ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void unsetVersion() {
-        Integer oldVersion = version;
-        boolean oldVersionESet = versionESet;
-        version = VERSION_EDEFAULT;
-        versionESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.CHANGES__VERSION, oldVersion, VERSION_EDEFAULT, oldVersionESet ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean isSetVersion() {
-        return versionESet;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
         case NsdPackage.CHANGES__CHANGES_ID:
             return getChangesID();
         case NsdPackage.CHANGES__DATE:
             return getDate();
-        case NsdPackage.CHANGES__RELEASE:
-            return getRelease();
         case NsdPackage.CHANGES__REVISION:
             return getRevision();
         case NsdPackage.CHANGES__TISSUES:
             return getTissues();
-        case NsdPackage.CHANGES__VERSION:
-            return getVersion();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -473,17 +308,11 @@ public class ChangesImpl extends MinimalEObjectImpl.Container implements Changes
         case NsdPackage.CHANGES__DATE:
             setDate( ( XMLGregorianCalendar ) newValue );
             return;
-        case NsdPackage.CHANGES__RELEASE:
-            setRelease( ( Integer ) newValue );
-            return;
         case NsdPackage.CHANGES__REVISION:
             setRevision( ( String ) newValue );
             return;
         case NsdPackage.CHANGES__TISSUES:
             setTissues( ( String ) newValue );
-            return;
-        case NsdPackage.CHANGES__VERSION:
-            setVersion( ( Integer ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -503,17 +332,11 @@ public class ChangesImpl extends MinimalEObjectImpl.Container implements Changes
         case NsdPackage.CHANGES__DATE:
             setDate( DATE_EDEFAULT );
             return;
-        case NsdPackage.CHANGES__RELEASE:
-            unsetRelease();
-            return;
         case NsdPackage.CHANGES__REVISION:
             unsetRevision();
             return;
         case NsdPackage.CHANGES__TISSUES:
             setTissues( TISSUES_EDEFAULT );
-            return;
-        case NsdPackage.CHANGES__VERSION:
-            unsetVersion();
             return;
         }
         super.eUnset( featureID );
@@ -531,14 +354,10 @@ public class ChangesImpl extends MinimalEObjectImpl.Container implements Changes
             return CHANGES_ID_EDEFAULT == null ? changesID != null : !CHANGES_ID_EDEFAULT.equals( changesID );
         case NsdPackage.CHANGES__DATE:
             return DATE_EDEFAULT == null ? date != null : !DATE_EDEFAULT.equals( date );
-        case NsdPackage.CHANGES__RELEASE:
-            return isSetRelease();
         case NsdPackage.CHANGES__REVISION:
             return isSetRevision();
         case NsdPackage.CHANGES__TISSUES:
             return TISSUES_EDEFAULT == null ? tissues != null : !TISSUES_EDEFAULT.equals( tissues );
-        case NsdPackage.CHANGES__VERSION:
-            return isSetVersion();
         }
         return super.eIsSet( featureID );
     }
@@ -557,11 +376,6 @@ public class ChangesImpl extends MinimalEObjectImpl.Container implements Changes
         result.append( changesID );
         result.append( ", date: " );
         result.append( date );
-        result.append( ", release: " );
-        if( releaseESet )
-            result.append( release );
-        else
-            result.append( "<unset>" );
         result.append( ", revision: " );
         if( revisionESet )
             result.append( revision );
@@ -569,11 +383,6 @@ public class ChangesImpl extends MinimalEObjectImpl.Container implements Changes
             result.append( "<unset>" );
         result.append( ", tissues: " );
         result.append( tissues );
-        result.append( ", version: " );
-        if( versionESet )
-            result.append( version );
-        else
-            result.append( "<unset>" );
         result.append( ')' );
         return result.toString();
     }
