@@ -70,7 +70,7 @@ public interface ConstructedAttribute extends TitledClass {
      * @return the value of the '<em>Name</em>' attribute.
      * @see #setName(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getConstructedAttribute_Name()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.Iec61850Name" required="true"
+     * @model required="true"
      *        extendedMetaData="kind='attribute' name='name'"
      * @generated
      */

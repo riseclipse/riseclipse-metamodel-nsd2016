@@ -108,7 +108,7 @@ public interface Doc extends EObject {
      * @return the value of the '<em>Id</em>' attribute.
      * @see #setId(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDoc_Id()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocID" required="true"
+     * @model required="true"
      *        extendedMetaData="kind='attribute' name='id'"
      * @generated
      */

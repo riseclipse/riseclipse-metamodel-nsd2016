@@ -104,7 +104,7 @@ public interface Literal extends DocumentedClass {
      * @return the value of the '<em>Name</em>' attribute.
      * @see #setName(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getLiteral_Name()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.LiteralName" required="true"
+     * @model required="true"
      *        extendedMetaData="kind='attribute' name='name'"
      * @generated
      */

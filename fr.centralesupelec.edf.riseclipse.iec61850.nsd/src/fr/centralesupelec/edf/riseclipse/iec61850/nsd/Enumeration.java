@@ -71,8 +71,7 @@ public interface Enumeration extends TitledClass {
      * @return the value of the '<em>Inherited From</em>' attribute.
      * @see #setInheritedFrom(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getEnumeration_InheritedFrom()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.Iec61850Name"
-     *        extendedMetaData="kind='attribute' name='inheritedFrom'"
+     * @model extendedMetaData="kind='attribute' name='inheritedFrom'"
      * @generated
      */
     String getInheritedFrom();
@@ -97,7 +96,7 @@ public interface Enumeration extends TitledClass {
      * @return the value of the '<em>Name</em>' attribute.
      * @see #setName(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getEnumeration_Name()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.Iec61850Name" required="true"
+     * @model required="true"
      *        extendedMetaData="kind='attribute' name='name'"
      * @generated
      */

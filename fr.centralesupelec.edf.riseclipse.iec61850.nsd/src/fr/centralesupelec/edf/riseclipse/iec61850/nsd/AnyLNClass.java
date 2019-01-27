@@ -70,8 +70,7 @@ public interface AnyLNClass extends TitledClass {
      * @return the value of the '<em>Base</em>' attribute.
      * @see #setBase(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAnyLNClass_Base()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClassName"
-     *        extendedMetaData="kind='attribute' name='base'"
+     * @model extendedMetaData="kind='attribute' name='base'"
      * @generated
      */
     String getBase();

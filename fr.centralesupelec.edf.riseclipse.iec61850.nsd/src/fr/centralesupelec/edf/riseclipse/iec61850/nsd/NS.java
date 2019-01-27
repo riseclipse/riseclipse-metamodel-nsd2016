@@ -329,8 +329,7 @@ public interface NS extends Copyrighted {
      * @return the value of the '<em>Desc ID</em>' attribute.
      * @see #setDescID(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNS_DescID()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocID"
-     *        extendedMetaData="kind='attribute' name='descID'"
+     * @model extendedMetaData="kind='attribute' name='descID'"
      * @generated
      */
     String getDescID();
@@ -355,7 +354,7 @@ public interface NS extends Copyrighted {
      * @return the value of the '<em>Id</em>' attribute.
      * @see #setId(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNS_Id()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSIdentifier" required="true"
+     * @model required="true"
      *        extendedMetaData="kind='attribute' name='id'"
      * @generated
      */
@@ -495,7 +494,7 @@ public interface NS extends Copyrighted {
      * @see #unsetRevision()
      * @see #setRevision(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNS_Revision()
-     * @model default="A" unsettable="true" dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSRevision"
+     * @model default="A" unsettable="true"
      *        extendedMetaData="kind='attribute' name='revision'"
      * @generated
      */
@@ -573,8 +572,7 @@ public interface NS extends Copyrighted {
      * @return the value of the '<em>Uml Version</em>' attribute.
      * @see #setUmlVersion(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNS_UmlVersion()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.UMLVersion"
-     *        extendedMetaData="kind='attribute' name='umlVersion'"
+     * @model extendedMetaData="kind='attribute' name='umlVersion'"
      * @generated
      */
     String getUmlVersion();

@@ -100,36 +100,16 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="nsd.ecore#//UndefinedAttributeTypeKind">
       <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//UndefinedAttributeTypeKind/undefined"/>
     </genEnums>
-    <genDataTypes ecoreDataType="nsd.ecore#//AbbreviationName"/>
-    <genDataTypes ecoreDataType="nsd.ecore#//AbstractLNClassName"/>
     <genDataTypes ecoreDataType="nsd.ecore#//ACSIServicesKindObject"/>
-    <genDataTypes ecoreDataType="nsd.ecore#//AttributeName"/>
     <genDataTypes ecoreDataType="nsd.ecore#//AttributeTypeKind"/>
-    <genDataTypes ecoreDataType="nsd.ecore#//BasicTypeName"/>
     <genDataTypes ecoreDataType="nsd.ecore#//CBKindObject"/>
-    <genDataTypes ecoreDataType="nsd.ecore#//CDCName"/>
-    <genDataTypes ecoreDataType="nsd.ecore#//DataObjectName"/>
     <genDataTypes ecoreDataType="nsd.ecore#//DefinedAttributeTypeKindObject"/>
-    <genDataTypes ecoreDataType="nsd.ecore#//DocID"/>
-    <genDataTypes ecoreDataType="nsd.ecore#//EmptyString"/>
-    <genDataTypes ecoreDataType="nsd.ecore#//FCAbbreviation"/>
-    <genDataTypes ecoreDataType="nsd.ecore#//Iec61850Name"/>
-    <genDataTypes ecoreDataType="nsd.ecore#//Iec61850NameString"/>
-    <genDataTypes ecoreDataType="nsd.ecore#//issuesType"/>
     <genDataTypes ecoreDataType="nsd.ecore#//LicenseKindObject"/>
-    <genDataTypes ecoreDataType="nsd.ecore#//LiteralName"/>
-    <genDataTypes ecoreDataType="nsd.ecore#//LNClassName"/>
-    <genDataTypes ecoreDataType="nsd.ecore#//NSIdentifier"/>
     <genDataTypes ecoreDataType="nsd.ecore#//NSRelease"/>
     <genDataTypes ecoreDataType="nsd.ecore#//NSReleaseObject"/>
-    <genDataTypes ecoreDataType="nsd.ecore#//NSRevision"/>
     <genDataTypes ecoreDataType="nsd.ecore#//NSVersion"/>
     <genDataTypes ecoreDataType="nsd.ecore#//NSVersionObject"/>
-    <genDataTypes ecoreDataType="nsd.ecore#//PresenceConditionArgument"/>
-    <genDataTypes ecoreDataType="nsd.ecore#//PresenceConditionName"/>
     <genDataTypes ecoreDataType="nsd.ecore#//PubStageObject"/>
-    <genDataTypes ecoreDataType="nsd.ecore#//SubDataObjectName"/>
-    <genDataTypes ecoreDataType="nsd.ecore#//UMLVersion"/>
     <genDataTypes ecoreDataType="nsd.ecore#//UndefinedAttributeTypeKindObject"/>
     <genClasses ecoreClass="nsd.ecore#//AppliesToType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AppliesToType/id"/>

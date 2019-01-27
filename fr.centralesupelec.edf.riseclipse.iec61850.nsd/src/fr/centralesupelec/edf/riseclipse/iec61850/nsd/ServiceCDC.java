@@ -72,7 +72,7 @@ public interface ServiceCDC extends EObject {
      * @return the value of the '<em>Cdc</em>' attribute.
      * @see #setCdc(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceCDC_Cdc()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCName" required="true"
+     * @model required="true"
      *        extendedMetaData="kind='attribute' name='cdc'"
      * @generated
      */

@@ -53,8 +53,7 @@ public interface Abbreviation extends EObject {
      * @return the value of the '<em>Desc ID</em>' attribute.
      * @see #setDescID(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAbbreviation_DescID()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocID"
-     *        extendedMetaData="kind='attribute' name='descID'"
+     * @model extendedMetaData="kind='attribute' name='descID'"
      * @generated
      */
     String getDescID();
@@ -79,7 +78,7 @@ public interface Abbreviation extends EObject {
      * @return the value of the '<em>Name</em>' attribute.
      * @see #setName(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAbbreviation_Name()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbbreviationName" required="true"
+     * @model required="true"
      *        extendedMetaData="kind='attribute' name='name'"
      * @generated
      */

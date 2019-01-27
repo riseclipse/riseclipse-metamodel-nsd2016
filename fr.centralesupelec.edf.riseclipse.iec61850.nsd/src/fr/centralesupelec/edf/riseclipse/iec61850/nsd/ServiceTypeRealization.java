@@ -60,7 +60,7 @@ public interface ServiceTypeRealization extends EObject {
      * @return the value of the '<em>Fc</em>' attribute.
      * @see #setFc(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceTypeRealization_Fc()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.FCAbbreviation" required="true"
+     * @model required="true"
      *        extendedMetaData="kind='attribute' name='fc'"
      * @generated
      */
@@ -86,7 +86,7 @@ public interface ServiceTypeRealization extends EObject {
      * @return the value of the '<em>Name</em>' attribute.
      * @see #setName(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceTypeRealization_Name()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.AttributeName" required="true"
+     * @model required="true"
      *        extendedMetaData="kind='attribute' name='name'"
      * @generated
      */
@@ -115,7 +115,7 @@ public interface ServiceTypeRealization extends EObject {
      * @see #unsetPresCond()
      * @see #setPresCond(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceTypeRealization_PresCond()
-     * @model default="M" unsettable="true" dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditionName"
+     * @model default="M" unsettable="true"
      *        extendedMetaData="kind='attribute' name='presCond'"
      * @generated
      */
@@ -166,8 +166,7 @@ public interface ServiceTypeRealization extends EObject {
      * @return the value of the '<em>Pres Cond Args</em>' attribute.
      * @see #setPresCondArgs(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceTypeRealization_PresCondArgs()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditionArgument"
-     *        extendedMetaData="kind='attribute' name='presCondArgs'"
+     * @model extendedMetaData="kind='attribute' name='presCondArgs'"
      * @generated
      */
     String getPresCondArgs();
@@ -192,8 +191,7 @@ public interface ServiceTypeRealization extends EObject {
      * @return the value of the '<em>Pres Cond Args ID</em>' attribute.
      * @see #setPresCondArgsID(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceTypeRealization_PresCondArgsID()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocID"
-     *        extendedMetaData="kind='attribute' name='presCondArgsID'"
+     * @model extendedMetaData="kind='attribute' name='presCondArgsID'"
      * @generated
      */
     String getPresCondArgsID();
@@ -218,8 +216,7 @@ public interface ServiceTypeRealization extends EObject {
      * @return the value of the '<em>Type</em>' attribute.
      * @see #setType(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceTypeRealization_Type()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.Iec61850Name"
-     *        extendedMetaData="kind='attribute' name='type'"
+     * @model extendedMetaData="kind='attribute' name='type'"
      * @generated
      */
     String getType();

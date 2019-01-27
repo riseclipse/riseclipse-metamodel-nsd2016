@@ -55,8 +55,7 @@ public interface PresenceCondition extends EObject {
      * @return the value of the '<em>Argument</em>' attribute.
      * @see #setArgument(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getPresenceCondition_Argument()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditionArgument"
-     *        extendedMetaData="kind='attribute' name='argument'"
+     * @model extendedMetaData="kind='attribute' name='argument'"
      * @generated
      */
     String getArgument();
@@ -81,8 +80,7 @@ public interface PresenceCondition extends EObject {
      * @return the value of the '<em>Desc ID</em>' attribute.
      * @see #setDescID(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getPresenceCondition_DescID()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocID"
-     *        extendedMetaData="kind='attribute' name='descID'"
+     * @model extendedMetaData="kind='attribute' name='descID'"
      * @generated
      */
     String getDescID();
@@ -107,7 +105,7 @@ public interface PresenceCondition extends EObject {
      * @return the value of the '<em>Name</em>' attribute.
      * @see #setName(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getPresenceCondition_Name()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditionName" required="true"
+     * @model required="true"
      *        extendedMetaData="kind='attribute' name='name'"
      * @generated
      */
@@ -133,8 +131,7 @@ public interface PresenceCondition extends EObject {
      * @return the value of the '<em>Title ID</em>' attribute.
      * @see #setTitleID(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getPresenceCondition_TitleID()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocID"
-     *        extendedMetaData="kind='attribute' name='titleID'"
+     * @model extendedMetaData="kind='attribute' name='titleID'"
      * @generated
      */
     String getTitleID();

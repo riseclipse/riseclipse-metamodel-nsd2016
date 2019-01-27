@@ -496,28 +496,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType abbreviationNameEDataType = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EDataType abstractLNClassNameEDataType = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     private EDataType acsiServicesKindObjectEDataType = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EDataType attributeNameEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -531,28 +510,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType basicTypeNameEDataType = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     private EDataType cbKindObjectEDataType = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EDataType cdcNameEDataType = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EDataType dataObjectNameEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -566,70 +524,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType docIDEDataType = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EDataType emptyStringEDataType = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EDataType fcAbbreviationEDataType = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EDataType iec61850NameEDataType = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EDataType iec61850NameStringEDataType = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EDataType issuesTypeEDataType = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     private EDataType licenseKindObjectEDataType = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EDataType literalNameEDataType = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EDataType lnClassNameEDataType = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EDataType nsIdentifierEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -650,13 +545,6 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType nsRevisionEDataType = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     private EDataType nsVersionEDataType = null;
 
     /**
@@ -671,35 +559,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType presenceConditionArgumentEDataType = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EDataType presenceConditionNameEDataType = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     private EDataType pubStageObjectEDataType = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EDataType subDataObjectNameEDataType = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EDataType umlVersionEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -3518,38 +3378,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getAbbreviationName() {
-        return abbreviationNameEDataType;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EDataType getAbstractLNClassName() {
-        return abstractLNClassNameEDataType;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public EDataType getACSIServicesKindObject() {
         return acsiServicesKindObjectEDataType;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EDataType getAttributeName() {
-        return attributeNameEDataType;
     }
 
     /**
@@ -3568,38 +3398,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getBasicTypeName() {
-        return basicTypeNameEDataType;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public EDataType getCBKindObject() {
         return cbKindObjectEDataType;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EDataType getCDCName() {
-        return cdcNameEDataType;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EDataType getDataObjectName() {
-        return dataObjectNameEDataType;
     }
 
     /**
@@ -3618,98 +3418,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getDocID() {
-        return docIDEDataType;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EDataType getEmptyString() {
-        return emptyStringEDataType;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EDataType getFCAbbreviation() {
-        return fcAbbreviationEDataType;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EDataType getIec61850Name() {
-        return iec61850NameEDataType;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EDataType getIec61850NameString() {
-        return iec61850NameStringEDataType;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EDataType getissuesType() {
-        return issuesTypeEDataType;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public EDataType getLicenseKindObject() {
         return licenseKindObjectEDataType;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EDataType getLiteralName() {
-        return literalNameEDataType;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EDataType getLNClassName() {
-        return lnClassNameEDataType;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EDataType getNSIdentifier() {
-        return nsIdentifierEDataType;
     }
 
     /**
@@ -3738,16 +3448,6 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getNSRevision() {
-        return nsRevisionEDataType;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public EDataType getNSVersion() {
         return nsVersionEDataType;
     }
@@ -3768,48 +3468,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getPresenceConditionArgument() {
-        return presenceConditionArgumentEDataType;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EDataType getPresenceConditionName() {
-        return presenceConditionNameEDataType;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public EDataType getPubStageObject() {
         return pubStageObjectEDataType;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EDataType getSubDataObjectName() {
-        return subDataObjectNameEDataType;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EDataType getUMLVersion() {
-        return umlVersionEDataType;
     }
 
     /**
@@ -4178,36 +3838,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         undefinedAttributeTypeKindEEnum = createEEnum( UNDEFINED_ATTRIBUTE_TYPE_KIND );
 
         // Create data types
-        abbreviationNameEDataType = createEDataType( ABBREVIATION_NAME );
-        abstractLNClassNameEDataType = createEDataType( ABSTRACT_LN_CLASS_NAME );
         acsiServicesKindObjectEDataType = createEDataType( ACSI_SERVICES_KIND_OBJECT );
-        attributeNameEDataType = createEDataType( ATTRIBUTE_NAME );
         attributeTypeKindEDataType = createEDataType( ATTRIBUTE_TYPE_KIND );
-        basicTypeNameEDataType = createEDataType( BASIC_TYPE_NAME );
         cbKindObjectEDataType = createEDataType( CB_KIND_OBJECT );
-        cdcNameEDataType = createEDataType( CDC_NAME );
-        dataObjectNameEDataType = createEDataType( DATA_OBJECT_NAME );
         definedAttributeTypeKindObjectEDataType = createEDataType( DEFINED_ATTRIBUTE_TYPE_KIND_OBJECT );
-        docIDEDataType = createEDataType( DOC_ID );
-        emptyStringEDataType = createEDataType( EMPTY_STRING );
-        fcAbbreviationEDataType = createEDataType( FC_ABBREVIATION );
-        iec61850NameEDataType = createEDataType( IEC61850_NAME );
-        iec61850NameStringEDataType = createEDataType( IEC61850_NAME_STRING );
-        issuesTypeEDataType = createEDataType( ISSUES_TYPE );
         licenseKindObjectEDataType = createEDataType( LICENSE_KIND_OBJECT );
-        literalNameEDataType = createEDataType( LITERAL_NAME );
-        lnClassNameEDataType = createEDataType( LN_CLASS_NAME );
-        nsIdentifierEDataType = createEDataType( NS_IDENTIFIER );
         nsReleaseEDataType = createEDataType( NS_RELEASE );
         nsReleaseObjectEDataType = createEDataType( NS_RELEASE_OBJECT );
-        nsRevisionEDataType = createEDataType( NS_REVISION );
         nsVersionEDataType = createEDataType( NS_VERSION );
         nsVersionObjectEDataType = createEDataType( NS_VERSION_OBJECT );
-        presenceConditionArgumentEDataType = createEDataType( PRESENCE_CONDITION_ARGUMENT );
-        presenceConditionNameEDataType = createEDataType( PRESENCE_CONDITION_NAME );
         pubStageObjectEDataType = createEDataType( PUB_STAGE_OBJECT );
-        subDataObjectNameEDataType = createEDataType( SUB_DATA_OBJECT_NAME );
-        umlVersionEDataType = createEDataType( UML_VERSION );
         undefinedAttributeTypeKindObjectEDataType = createEDataType( UNDEFINED_ATTRIBUTE_TYPE_KIND_OBJECT );
     }
 
@@ -4266,7 +3906,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         // Initialize classes, features, and operations; add parameters
         initEClass( appliesToTypeEClass, AppliesToType.class, "AppliesToType", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getAppliesToType_Id(), this.getNSIdentifier(), "id", null, 1, 1, AppliesToType.class,
+        initEAttribute( getAppliesToType_Id(), ecorePackage.getEString(), "id", null, 1, 1, AppliesToType.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
         initEAttribute( getAppliesToType_PublicationStage(), this.getPubStage(), "publicationStage", "IS", 0, 1,
@@ -4274,14 +3914,15 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getAppliesToType_Release(), this.getNSRelease(), "release", "1", 0, 1, AppliesToType.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getAppliesToType_Revision(), this.getNSRevision(), "revision", "A", 0, 1, AppliesToType.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getAppliesToType_Revision(), ecorePackage.getEString(), "revision", "A", 0, 1,
+                AppliesToType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
         initEAttribute( getAppliesToType_Version(), this.getNSVersion(), "version", null, 1, 1, AppliesToType.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass( dependsOnTypeEClass, DependsOnType.class, "DependsOnType", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getDependsOnType_Id(), this.getNSIdentifier(), "id", null, 1, 1, DependsOnType.class,
+        initEAttribute( getDependsOnType_Id(), ecorePackage.getEString(), "id", null, 1, 1, DependsOnType.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
         initEAttribute( getDependsOnType_PublicationStage(), this.getPubStage(), "publicationStage", "IS", 0, 1,
@@ -4289,8 +3930,9 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getDependsOnType_Release(), this.getNSRelease(), "release", "1", 0, 1, DependsOnType.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getDependsOnType_Revision(), this.getNSRevision(), "revision", "A", 0, 1, DependsOnType.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getDependsOnType_Revision(), ecorePackage.getEString(), "revision", "A", 0, 1,
+                DependsOnType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
         initEAttribute( getDependsOnType_Version(), this.getNSVersion(), "version", null, 1, 1, DependsOnType.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
@@ -4327,10 +3969,10 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
 
         initEClass( abbreviationEClass, Abbreviation.class, "Abbreviation", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getAbbreviation_DescID(), this.getDocID(), "descID", null, 0, 1, Abbreviation.class,
+        initEAttribute( getAbbreviation_DescID(), ecorePackage.getEString(), "descID", null, 0, 1, Abbreviation.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
-        initEAttribute( getAbbreviation_Name(), this.getAbbreviationName(), "name", null, 1, 1, Abbreviation.class,
+        initEAttribute( getAbbreviation_Name(), ecorePackage.getEString(), "name", null, 1, 1, Abbreviation.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
 
@@ -4342,16 +3984,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
 
         initEClass( abstractLNClassEClass, AbstractLNClass.class, "AbstractLNClass", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getAbstractLNClass_Name(), this.getAbstractLNClassName(), "name", null, 1, 1,
-                AbstractLNClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getAbstractLNClass_Name(), ecorePackage.getEString(), "name", null, 1, 1, AbstractLNClass.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+                IS_ORDERED );
 
         initEClass( anyLNClassEClass, AnyLNClass.class, "AnyLNClass", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
         initEReference( getAnyLNClass_DataObject(), this.getDataObject(), null, "dataObject", null, 0, -1,
                 AnyLNClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getAnyLNClass_Base(), this.getAbstractLNClassName(), "base", null, 0, 1, AnyLNClass.class,
+        initEAttribute( getAnyLNClass_Base(), ecorePackage.getEString(), "base", null, 0, 1, AnyLNClass.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
 
@@ -4378,9 +4020,10 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
 
         initEClass( basicTypeEClass, BasicType.class, "BasicType", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getBasicType_DescID(), this.getDocID(), "descID", null, 0, 1, BasicType.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getBasicType_Name(), this.getBasicTypeName(), "name", null, 1, 1, BasicType.class,
+        initEAttribute( getBasicType_DescID(), ecorePackage.getEString(), "descID", null, 0, 1, BasicType.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+                IS_ORDERED );
+        initEAttribute( getBasicType_Name(), ecorePackage.getEString(), "name", null, 1, 1, BasicType.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
 
@@ -4404,7 +4047,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getCDC_EnumParameterized(), theXMLTypePackage.getBoolean(), "enumParameterized", "false", 0, 1,
                 fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getCDC_Name(), this.getCDCName(), "name", null, 1, 1,
+        initEAttribute( getCDC_Name(), ecorePackage.getEString(), "name", null, 1, 1,
                 fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getCDC_Statistics(), theXMLTypePackage.getBoolean(), "statistics", "false", 0, 1,
@@ -4422,17 +4065,19 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass( changesEClass, Changes.class, "Changes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getChanges_ChangesID(), this.getDocID(), "changesID", null, 0, 1, Changes.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getChanges_ChangesID(), ecorePackage.getEString(), "changesID", null, 0, 1, Changes.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+                IS_ORDERED );
         initEAttribute( getChanges_Date(), theXMLTypePackage.getDate(), "date", null, 0, 1, Changes.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
         initEAttribute( getChanges_Release(), this.getNSRelease(), "release", "1", 0, 1, Changes.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getChanges_Revision(), this.getNSRevision(), "revision", "A", 0, 1, Changes.class,
+        initEAttribute( getChanges_Revision(), ecorePackage.getEString(), "revision", "A", 0, 1, Changes.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getChanges_Tissues(), this.getissuesType(), "tissues", null, 0, 1, Changes.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getChanges_Tissues(), ecorePackage.getEString(), "tissues", null, 0, 1, Changes.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+                IS_ORDERED );
         initEAttribute( getChanges_Version(), this.getNSVersion(), "version", null, 1, 1, Changes.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
@@ -4441,7 +4086,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEReference( getConstructedAttribute_SubDataAttribute(), this.getSubDataAttribute(), null,
                 "subDataAttribute", null, 1, -1, ConstructedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getConstructedAttribute_Name(), this.getIec61850Name(), "name", null, 1, 1,
+        initEAttribute( getConstructedAttribute_Name(), ecorePackage.getEString(), "name", null, 1, 1,
                 ConstructedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
@@ -4477,14 +4122,14 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getDataAttribute_Dupd(), theXMLTypePackage.getBoolean(), "dupd", "false", 0, 1,
                 DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getDataAttribute_Fc(), this.getFCAbbreviation(), "fc", null, 1, 1, DataAttribute.class,
+        initEAttribute( getDataAttribute_Fc(), ecorePackage.getEString(), "fc", null, 1, 1, DataAttribute.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
         initEAttribute( getDataAttribute_IsArray(), theXMLTypePackage.getBoolean(), "isArray", "false", 0, 1,
                 DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getDataAttribute_MaxIndexAttribute(), this.getAttributeName(), "maxIndexAttribute", null, 0, 1,
-                DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+        initEAttribute( getDataAttribute_MaxIndexAttribute(), ecorePackage.getEString(), "maxIndexAttribute", null, 0,
+                1, DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getDataAttribute_MaxValue(), theXMLTypePackage.getDecimal(), "maxValue", null, 0, 1,
                 DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
@@ -4495,25 +4140,25 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getDataAttribute_MinValue(), theXMLTypePackage.getDecimal(), "minValue", null, 0, 1,
                 DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getDataAttribute_Name(), this.getAttributeName(), "name", null, 1, 1, DataAttribute.class,
+        initEAttribute( getDataAttribute_Name(), ecorePackage.getEString(), "name", null, 1, 1, DataAttribute.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
-        initEAttribute( getDataAttribute_PresCond(), this.getPresenceConditionName(), "presCond", "M", 0, 1,
+        initEAttribute( getDataAttribute_PresCond(), ecorePackage.getEString(), "presCond", "M", 0, 1,
                 DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getDataAttribute_PresCondArgs(), this.getPresenceConditionArgument(), "presCondArgs", null, 0,
-                1, DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+        initEAttribute( getDataAttribute_PresCondArgs(), ecorePackage.getEString(), "presCondArgs", null, 0, 1,
+                DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getDataAttribute_PresCondArgsID(), this.getDocID(), "presCondArgsID", null, 0, 1,
+        initEAttribute( getDataAttribute_PresCondArgsID(), ecorePackage.getEString(), "presCondArgsID", null, 0, 1,
                 DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getDataAttribute_Qchg(), theXMLTypePackage.getBoolean(), "qchg", "false", 0, 1,
                 DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getDataAttribute_SizeAttribute(), this.getAttributeName(), "sizeAttribute", null, 0, 1,
+        initEAttribute( getDataAttribute_SizeAttribute(), ecorePackage.getEString(), "sizeAttribute", null, 0, 1,
                 DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getDataAttribute_Type(), this.getIec61850Name(), "type", null, 0, 1, DataAttribute.class,
+        initEAttribute( getDataAttribute_Type(), ecorePackage.getEString(), "type", null, 0, 1, DataAttribute.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
         initEAttribute( getDataAttribute_TypeKind(), this.getAttributeTypeKind(), "typeKind", "BASIC", 0, 1,
@@ -4522,33 +4167,33 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
 
         initEClass( dataObjectEClass, DataObject.class, "DataObject", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getDataObject_DsPresCond(), this.getPresenceConditionName(), "dsPresCond", "M", 0, 1,
+        initEAttribute( getDataObject_DsPresCond(), ecorePackage.getEString(), "dsPresCond", "M", 0, 1,
                 DataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getDataObject_DsPresCondArgs(), this.getPresenceConditionArgument(), "dsPresCondArgs", null, 0,
-                1, DataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getDataObject_DsPresCondArgsID(), this.getDocID(), "dsPresCondArgsID", null, 0, 1,
+        initEAttribute( getDataObject_DsPresCondArgs(), ecorePackage.getEString(), "dsPresCondArgs", null, 0, 1,
                 DataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getDataObject_Name(), this.getDataObjectName(), "name", null, 1, 1, DataObject.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
-        initEAttribute( getDataObject_PresCond(), this.getPresenceConditionName(), "presCond", "M", 0, 1,
-                DataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getDataObject_PresCondArgs(), this.getPresenceConditionArgument(), "presCondArgs", null, 0, 1,
+        initEAttribute( getDataObject_DsPresCondArgsID(), ecorePackage.getEString(), "dsPresCondArgsID", null, 0, 1,
                 DataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getDataObject_PresCondArgsID(), this.getDocID(), "presCondArgsID", null, 0, 1, DataObject.class,
+        initEAttribute( getDataObject_Name(), ecorePackage.getEString(), "name", null, 1, 1, DataObject.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
+        initEAttribute( getDataObject_PresCond(), ecorePackage.getEString(), "presCond", "M", 0, 1, DataObject.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getDataObject_PresCondArgs(), ecorePackage.getEString(), "presCondArgs", null, 0, 1,
+                DataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getDataObject_PresCondArgsID(), ecorePackage.getEString(), "presCondArgsID", null, 0, 1,
+                DataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
         initEAttribute( getDataObject_Transient(), theXMLTypePackage.getBoolean(), "transient", "false", 0, 1,
                 DataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getDataObject_Type(), this.getCDCName(), "type", null, 1, 1, DataObject.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getDataObject_UnderlyingType(), this.getIec61850Name(), "underlyingType", null, 0, 1,
+        initEAttribute( getDataObject_Type(), ecorePackage.getEString(), "type", null, 1, 1, DataObject.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+                IS_ORDERED );
+        initEAttribute( getDataObject_UnderlyingType(), ecorePackage.getEString(), "underlyingType", null, 0, 1,
                 DataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getDataObject_UnderlyingTypeKind(), this.getDefinedAttributeTypeKind(), "underlyingTypeKind",
@@ -4568,17 +4213,17 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED );
         initEAttribute( getDoc_Any(), ecorePackage.getEFeatureMapEntry(), "any", null, 0, -1, Doc.class, IS_TRANSIENT,
                 IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED );
-        initEAttribute( getDoc_Id(), this.getDocID(), "id", null, 1, 1, Doc.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getDoc_Id(), ecorePackage.getEString(), "id", null, 1, 1, Doc.class, !IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass( documentedClassEClass, DocumentedClass.class, "DocumentedClass", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
         initEAttribute( getDocumentedClass_Deprecated(), theXMLTypePackage.getBoolean(), "deprecated", "false", 0, 1,
                 DocumentedClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getDocumentedClass_DescID(), this.getDocID(), "descID", null, 0, 1, DocumentedClass.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
+        initEAttribute( getDocumentedClass_DescID(), ecorePackage.getEString(), "descID", null, 0, 1,
+                DocumentedClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
         initEAttribute( getDocumentedClass_Informative(), theXMLTypePackage.getBoolean(), "informative", "false", 0, 1,
                 DocumentedClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
@@ -4588,10 +4233,10 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEReference( getEnumeration_Literal(), this.getLiteral(), null, "literal", null, 1, -1, Enumeration.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getEnumeration_InheritedFrom(), this.getIec61850Name(), "inheritedFrom", null, 0, 1,
+        initEAttribute( getEnumeration_InheritedFrom(), ecorePackage.getEString(), "inheritedFrom", null, 0, 1,
                 Enumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getEnumeration_Name(), this.getIec61850Name(), "name", null, 1, 1, Enumeration.class,
+        initEAttribute( getEnumeration_Name(), ecorePackage.getEString(), "name", null, 1, 1, Enumeration.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
 
@@ -4606,13 +4251,13 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEReference( getFunctionalConstraint_ApplicableServices(), this.getApplicableServices(), null,
                 "applicableServices", null, 0, 1, FunctionalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getFunctionalConstraint_Abbreviation(), this.getFCAbbreviation(), "abbreviation", null, 1, 1,
+        initEAttribute( getFunctionalConstraint_Abbreviation(), ecorePackage.getEString(), "abbreviation", null, 1, 1,
                 FunctionalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getFunctionalConstraint_DescID(), this.getDocID(), "descID", null, 0, 1,
+        initEAttribute( getFunctionalConstraint_DescID(), ecorePackage.getEString(), "descID", null, 0, 1,
                 FunctionalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getFunctionalConstraint_TitleID(), this.getDocID(), "titleID", null, 0, 1,
+        initEAttribute( getFunctionalConstraint_TitleID(), ecorePackage.getEString(), "titleID", null, 0, 1,
                 FunctionalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
@@ -4635,7 +4280,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEClass( literalEClass, Literal.class, "Literal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute( getLiteral_LiteralVal(), theXMLTypePackage.getInt(), "literalVal", null, 1, 1, Literal.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getLiteral_Name(), this.getLiteralName(), "name", null, 1, 1, Literal.class, !IS_TRANSIENT,
+        initEAttribute( getLiteral_Name(), ecorePackage.getEString(), "name", null, 1, 1, Literal.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass( lnClassEClass, LNClass.class, "LNClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
@@ -4645,7 +4290,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getLNClass_IsExtension(), theXMLTypePackage.getBoolean(), "isExtension", "false", 0, 1,
                 LNClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getLNClass_Name(), this.getLNClassName(), "name", null, 1, 1, LNClass.class, !IS_TRANSIENT,
+        initEAttribute( getLNClass_Name(), ecorePackage.getEString(), "name", null, 1, 1, LNClass.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass( lnClassesEClass, LNClasses.class, "LNClasses", !IS_ABSTRACT, !IS_INTERFACE,
@@ -4694,10 +4339,10 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEReference( getNS_LNClasses(), this.getLNClasses(), null, "lNClasses", null, 0, 1,
                 fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getNS_DescID(), this.getDocID(), "descID", null, 0, 1,
+        initEAttribute( getNS_DescID(), ecorePackage.getEString(), "descID", null, 0, 1,
                 fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getNS_Id(), this.getNSIdentifier(), "id", null, 1, 1,
+        initEAttribute( getNS_Id(), ecorePackage.getEString(), "id", null, 1, 1,
                 fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getNS_PublicationStage(), this.getPubStage(), "publicationStage", "IS", 0, 1,
@@ -4706,13 +4351,13 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getNS_Release(), this.getNSRelease(), "release", "1", 0, 1,
                 fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getNS_Revision(), this.getNSRevision(), "revision", "A", 0, 1,
+        initEAttribute( getNS_Revision(), ecorePackage.getEString(), "revision", "A", 0, 1,
                 fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getNS_UmlDate(), theXMLTypePackage.getDateTime(), "umlDate", null, 0, 1,
                 fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getNS_UmlVersion(), this.getUMLVersion(), "umlVersion", null, 0, 1,
+        initEAttribute( getNS_UmlVersion(), ecorePackage.getEString(), "umlVersion", null, 0, 1,
                 fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getNS_Version(), this.getNSVersion(), "version", null, 1, 1,
@@ -4723,7 +4368,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEReference( getNSDoc_Doc(), this.getDoc(), null, "doc", null, 1, -1, NSDoc.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
-        initEAttribute( getNSDoc_Id(), this.getNSIdentifier(), "id", null, 1, 1, NSDoc.class, !IS_TRANSIENT,
+        initEAttribute( getNSDoc_Id(), ecorePackage.getEString(), "id", null, 1, 1, NSDoc.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getNSDoc_Lang(), theXMLTypePackage.getLanguage(), "lang", null, 1, 1, NSDoc.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
@@ -4732,12 +4377,12 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getNSDoc_Release(), this.getNSRelease(), "release", "1", 0, 1, NSDoc.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getNSDoc_Revision(), this.getNSRevision(), "revision", "A", 0, 1, NSDoc.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getNSDoc_Revision(), ecorePackage.getEString(), "revision", "A", 0, 1, NSDoc.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getNSDoc_UmlDate(), theXMLTypePackage.getDateTime(), "umlDate", null, 0, 1, NSDoc.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
-        initEAttribute( getNSDoc_UmlVersion(), this.getUMLVersion(), "umlVersion", null, 0, 1, NSDoc.class,
+        initEAttribute( getNSDoc_UmlVersion(), ecorePackage.getEString(), "umlVersion", null, 0, 1, NSDoc.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
         initEAttribute( getNSDoc_Version(), this.getNSVersion(), "version", null, 1, 1, NSDoc.class, !IS_TRANSIENT,
@@ -4745,18 +4390,18 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
 
         initEClass( presenceConditionEClass, PresenceCondition.class, "PresenceCondition", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getPresenceCondition_Argument(), this.getPresenceConditionArgument(), "argument", null, 0, 1,
+        initEAttribute( getPresenceCondition_Argument(), ecorePackage.getEString(), "argument", null, 0, 1,
                 PresenceCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getPresenceCondition_DescID(), this.getDocID(), "descID", null, 0, 1, PresenceCondition.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
-        initEAttribute( getPresenceCondition_Name(), this.getPresenceConditionName(), "name", null, 1, 1,
+        initEAttribute( getPresenceCondition_DescID(), ecorePackage.getEString(), "descID", null, 0, 1,
                 PresenceCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getPresenceCondition_TitleID(), this.getDocID(), "titleID", null, 0, 1, PresenceCondition.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
+        initEAttribute( getPresenceCondition_Name(), ecorePackage.getEString(), "name", null, 1, 1,
+                PresenceCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getPresenceCondition_TitleID(), ecorePackage.getEString(), "titleID", null, 0, 1,
+                PresenceCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
 
         initEClass( presenceConditionsEClass, PresenceConditions.class, "PresenceConditions", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
@@ -4769,8 +4414,9 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEReference( getServiceCDC_ServiceDataAttribute(), this.getServiceDataAttribute(), null,
                 "serviceDataAttribute", null, 1, -1, ServiceCDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getServiceCDC_Cdc(), this.getCDCName(), "cdc", null, 1, 1, ServiceCDC.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getServiceCDC_Cdc(), ecorePackage.getEString(), "cdc", null, 1, 1, ServiceCDC.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+                IS_ORDERED );
         initEAttribute( getServiceCDC_Variant(), theXMLTypePackage.getToken(), "variant", null, 0, 1, ServiceCDC.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
@@ -4796,29 +4442,29 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
 
         initEClass( serviceDataAttributeEClass, ServiceDataAttribute.class, "ServiceDataAttribute", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getServiceDataAttribute_Fc(), this.getFCAbbreviation(), "fc", null, 1, 1,
+        initEAttribute( getServiceDataAttribute_Fc(), ecorePackage.getEString(), "fc", null, 1, 1,
                 ServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getServiceDataAttribute_Name(), this.getAttributeName(), "name", null, 1, 1,
+        initEAttribute( getServiceDataAttribute_Name(), ecorePackage.getEString(), "name", null, 1, 1,
                 ServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getServiceDataAttribute_PresCond(), this.getPresenceConditionName(), "presCond", "M", 0, 1,
+        initEAttribute( getServiceDataAttribute_PresCond(), ecorePackage.getEString(), "presCond", "M", 0, 1,
                 ServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getServiceDataAttribute_PresCondArgs(), this.getPresenceConditionArgument(), "presCondArgs",
-                null, 0, 1, ServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
-                !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getServiceDataAttribute_PresCondArgsID(), this.getDocID(), "presCondArgsID", null, 0, 1,
+        initEAttribute( getServiceDataAttribute_PresCondArgs(), ecorePackage.getEString(), "presCondArgs", null, 0, 1,
                 ServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getServiceDataAttribute_Type(), this.getIec61850Name(), "type", null, 0, 1,
+        initEAttribute( getServiceDataAttribute_PresCondArgsID(), ecorePackage.getEString(), "presCondArgsID", null, 0,
+                1, ServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+                IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getServiceDataAttribute_Type(), ecorePackage.getEString(), "type", null, 0, 1,
                 ServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getServiceDataAttribute_TypeKind(), this.getAttributeTypeKind(), "typeKind", "BASIC", 0, 1,
                 ServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getServiceDataAttribute_UnderlyingType(), this.getIec61850Name(), "underlyingType", null, 0, 1,
-                ServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+        initEAttribute( getServiceDataAttribute_UnderlyingType(), ecorePackage.getEString(), "underlyingType", null, 0,
+                1, ServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getServiceDataAttribute_UnderlyingTypeKind(), this.getDefinedAttributeTypeKind(),
                 "underlyingTypeKind", null, 0, 1, ServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE,
@@ -4847,21 +4493,22 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEReference( getServiceNS_ServiceCDCs(), this.getServiceCDCs(), null, "serviceCDCs", null, 0, 1,
                 ServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getServiceNS_DescID(), this.getDocID(), "descID", null, 0, 1, ServiceNS.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getServiceNS_Id(), this.getNSIdentifier(), "id", null, 1, 1, ServiceNS.class, !IS_TRANSIENT,
+        initEAttribute( getServiceNS_DescID(), ecorePackage.getEString(), "descID", null, 0, 1, ServiceNS.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+                IS_ORDERED );
+        initEAttribute( getServiceNS_Id(), ecorePackage.getEString(), "id", null, 1, 1, ServiceNS.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getServiceNS_PublicationStage(), this.getPubStage(), "publicationStage", "IS", 0, 1,
                 ServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getServiceNS_Release(), this.getNSRelease(), "release", "1", 0, 1, ServiceNS.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getServiceNS_Revision(), this.getNSRevision(), "revision", "A", 0, 1, ServiceNS.class,
+        initEAttribute( getServiceNS_Revision(), ecorePackage.getEString(), "revision", "A", 0, 1, ServiceNS.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getServiceNS_UmlDate(), theXMLTypePackage.getDateTime(), "umlDate", null, 0, 1, ServiceNS.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
-        initEAttribute( getServiceNS_UmlVersion(), this.getUMLVersion(), "umlVersion", null, 0, 1, ServiceNS.class,
+        initEAttribute( getServiceNS_UmlVersion(), ecorePackage.getEString(), "umlVersion", null, 0, 1, ServiceNS.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
         initEAttribute( getServiceNS_Version(), this.getNSVersion(), "version", null, 1, 1, ServiceNS.class,
@@ -4872,7 +4519,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEReference( getServiceNsUsage_AppliesTo(), this.getAppliesToType(), null, "appliesTo", null, 1, -1,
                 ServiceNsUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getServiceNsUsage_Id(), this.getNSIdentifier(), "id", null, 1, 1, ServiceNsUsage.class,
+        initEAttribute( getServiceNsUsage_Id(), ecorePackage.getEString(), "id", null, 1, 1, ServiceNsUsage.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
         initEAttribute( getServiceNsUsage_PublicationStage(), this.getPubStage(), "publicationStage", "IS", 0, 1,
@@ -4880,8 +4527,9 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getServiceNsUsage_Release(), this.getNSRelease(), "release", "1", 0, 1, ServiceNsUsage.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getServiceNsUsage_Revision(), this.getNSRevision(), "revision", "A", 0, 1, ServiceNsUsage.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getServiceNsUsage_Revision(), ecorePackage.getEString(), "revision", "A", 0, 1,
+                ServiceNsUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
         initEAttribute( getServiceNsUsage_Version(), this.getNSVersion(), "version", null, 1, 1, ServiceNsUsage.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
@@ -4896,34 +4544,34 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getServiceParameter_MinValue(), theXMLTypePackage.getDecimal(), "minValue", null, 0, 1,
                 ServiceParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getServiceParameter_Name(), this.getAttributeName(), "name", null, 1, 1, ServiceParameter.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
-        initEAttribute( getServiceParameter_Type(), this.getIec61850Name(), "type", null, 0, 1, ServiceParameter.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
+        initEAttribute( getServiceParameter_Name(), ecorePackage.getEString(), "name", null, 1, 1,
+                ServiceParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getServiceParameter_Type(), ecorePackage.getEString(), "type", null, 0, 1,
+                ServiceParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
         initEAttribute( getServiceParameter_TypeKind(), this.getAttributeTypeKind(), "typeKind", "BASIC", 0, 1,
                 ServiceParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
 
         initEClass( serviceTypeRealizationEClass, ServiceTypeRealization.class, "ServiceTypeRealization", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getServiceTypeRealization_Fc(), this.getFCAbbreviation(), "fc", null, 1, 1,
+        initEAttribute( getServiceTypeRealization_Fc(), ecorePackage.getEString(), "fc", null, 1, 1,
                 ServiceTypeRealization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getServiceTypeRealization_Name(), this.getAttributeName(), "name", null, 1, 1,
+        initEAttribute( getServiceTypeRealization_Name(), ecorePackage.getEString(), "name", null, 1, 1,
                 ServiceTypeRealization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getServiceTypeRealization_PresCond(), this.getPresenceConditionName(), "presCond", "M", 0, 1,
+        initEAttribute( getServiceTypeRealization_PresCond(), ecorePackage.getEString(), "presCond", "M", 0, 1,
                 ServiceTypeRealization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getServiceTypeRealization_PresCondArgs(), this.getPresenceConditionArgument(), "presCondArgs",
-                null, 0, 1, ServiceTypeRealization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
-                !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getServiceTypeRealization_PresCondArgsID(), this.getDocID(), "presCondArgsID", null, 0, 1,
+        initEAttribute( getServiceTypeRealization_PresCondArgs(), ecorePackage.getEString(), "presCondArgs", null, 0, 1,
                 ServiceTypeRealization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getServiceTypeRealization_Type(), this.getIec61850Name(), "type", null, 0, 1,
+        initEAttribute( getServiceTypeRealization_PresCondArgsID(), ecorePackage.getEString(), "presCondArgsID", null,
+                0, 1, ServiceTypeRealization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+                IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getServiceTypeRealization_Type(), ecorePackage.getEString(), "type", null, 0, 1,
                 ServiceTypeRealization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getServiceTypeRealization_TypeKind(), this.getAttributeTypeKind(), "typeKind", "BASIC", 0, 1,
@@ -4944,8 +4592,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getSubDataAttribute_IsArray(), theXMLTypePackage.getBoolean(), "isArray", "false", 0, 1,
                 SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getSubDataAttribute_MaxIndexAttribute(), this.getAttributeName(), "maxIndexAttribute", null, 0,
-                1, SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+        initEAttribute( getSubDataAttribute_MaxIndexAttribute(), ecorePackage.getEString(), "maxIndexAttribute", null,
+                0, 1, SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getSubDataAttribute_MaxValue(), theXMLTypePackage.getDecimal(), "maxValue", null, 0, 1,
                 SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
@@ -4956,24 +4604,24 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getSubDataAttribute_MinValue(), theXMLTypePackage.getDecimal(), "minValue", null, 0, 1,
                 SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getSubDataAttribute_Name(), this.getAttributeName(), "name", null, 1, 1, SubDataAttribute.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
-        initEAttribute( getSubDataAttribute_PresCond(), this.getPresenceConditionName(), "presCond", "M", 0, 1,
+        initEAttribute( getSubDataAttribute_Name(), ecorePackage.getEString(), "name", null, 1, 1,
+                SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getSubDataAttribute_PresCond(), ecorePackage.getEString(), "presCond", "M", 0, 1,
                 SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getSubDataAttribute_PresCondArgs(), this.getPresenceConditionArgument(), "presCondArgs", null,
-                0, 1, SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getSubDataAttribute_PresCondArgsID(), this.getDocID(), "presCondArgsID", null, 0, 1,
+        initEAttribute( getSubDataAttribute_PresCondArgs(), ecorePackage.getEString(), "presCondArgs", null, 0, 1,
                 SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getSubDataAttribute_SizeAttribute(), this.getAttributeName(), "sizeAttribute", null, 0, 1,
+        initEAttribute( getSubDataAttribute_PresCondArgsID(), ecorePackage.getEString(), "presCondArgsID", null, 0, 1,
                 SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getSubDataAttribute_Type(), this.getIec61850Name(), "type", null, 0, 1, SubDataAttribute.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
+        initEAttribute( getSubDataAttribute_SizeAttribute(), ecorePackage.getEString(), "sizeAttribute", null, 0, 1,
+                SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getSubDataAttribute_Type(), ecorePackage.getEString(), "type", null, 0, 1,
+                SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
         initEAttribute( getSubDataAttribute_TypeKind(), this.getAttributeTypeKind(), "typeKind", "BASIC", 0, 1,
                 SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
@@ -4983,31 +4631,31 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getSubDataObject_IsArray(), theXMLTypePackage.getBoolean(), "isArray", "false", 0, 1,
                 SubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getSubDataObject_MaxIndexAttribute(), this.getAttributeName(), "maxIndexAttribute", null, 0, 1,
-                SubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+        initEAttribute( getSubDataObject_MaxIndexAttribute(), ecorePackage.getEString(), "maxIndexAttribute", null, 0,
+                1, SubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getSubDataObject_MinIndex(), theXMLTypePackage.getUnsignedInt(), "minIndex", "0", 0, 1,
                 SubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getSubDataObject_Name(), this.getSubDataObjectName(), "name", null, 1, 1, SubDataObject.class,
+        initEAttribute( getSubDataObject_Name(), ecorePackage.getEString(), "name", null, 1, 1, SubDataObject.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
-        initEAttribute( getSubDataObject_PresCond(), this.getPresenceConditionName(), "presCond", "M", 0, 1,
+        initEAttribute( getSubDataObject_PresCond(), ecorePackage.getEString(), "presCond", "M", 0, 1,
                 SubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getSubDataObject_PresCondArgs(), this.getPresenceConditionArgument(), "presCondArgs", null, 0,
-                1, SubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getSubDataObject_PresCondArgsID(), this.getDocID(), "presCondArgsID", null, 0, 1,
+        initEAttribute( getSubDataObject_PresCondArgs(), ecorePackage.getEString(), "presCondArgs", null, 0, 1,
                 SubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getSubDataObject_SizeAttribute(), this.getAttributeName(), "sizeAttribute", null, 0, 1,
+        initEAttribute( getSubDataObject_PresCondArgsID(), ecorePackage.getEString(), "presCondArgsID", null, 0, 1,
                 SubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getSubDataObject_Type(), this.getCDCName(), "type", null, 1, 1, SubDataObject.class,
+        initEAttribute( getSubDataObject_SizeAttribute(), ecorePackage.getEString(), "sizeAttribute", null, 0, 1,
+                SubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getSubDataObject_Type(), ecorePackage.getEString(), "type", null, 1, 1, SubDataObject.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
-        initEAttribute( getSubDataObject_UnderlyingType(), this.getIec61850Name(), "underlyingType", null, 0, 1,
+        initEAttribute( getSubDataObject_UnderlyingType(), ecorePackage.getEString(), "underlyingType", null, 0, 1,
                 SubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getSubDataObject_UnderlyingTypeKind(), this.getDefinedAttributeTypeKind(), "underlyingTypeKind",
@@ -5016,7 +4664,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
 
         initEClass( titledClassEClass, TitledClass.class, "TitledClass", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getTitledClass_TitleID(), this.getDocID(), "titleID", null, 1, 1, TitledClass.class,
+        initEAttribute( getTitledClass_TitleID(), ecorePackage.getEString(), "titleID", null, 1, 1, TitledClass.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
 
@@ -5113,59 +4761,24 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         addEEnumLiteral( undefinedAttributeTypeKindEEnum, UndefinedAttributeTypeKind.UNDEFINED );
 
         // Initialize data types
-        initEDataType( abbreviationNameEDataType, String.class, "AbbreviationName", IS_SERIALIZABLE,
-                !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( abstractLNClassNameEDataType, String.class, "AbstractLNClassName", IS_SERIALIZABLE,
-                !IS_GENERATED_INSTANCE_CLASS );
         initEDataType( acsiServicesKindObjectEDataType, ACSIServicesKind.class, "ACSIServicesKindObject",
                 IS_SERIALIZABLE, IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( attributeNameEDataType, String.class, "AttributeName", IS_SERIALIZABLE,
-                !IS_GENERATED_INSTANCE_CLASS );
         initEDataType( attributeTypeKindEDataType, Enumerator.class, "AttributeTypeKind", IS_SERIALIZABLE,
-                !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( basicTypeNameEDataType, String.class, "BasicTypeName", IS_SERIALIZABLE,
                 !IS_GENERATED_INSTANCE_CLASS );
         initEDataType( cbKindObjectEDataType, CBKind.class, "CBKindObject", IS_SERIALIZABLE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( cdcNameEDataType, String.class, "CDCName", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( dataObjectNameEDataType, String.class, "DataObjectName", IS_SERIALIZABLE,
-                !IS_GENERATED_INSTANCE_CLASS );
         initEDataType( definedAttributeTypeKindObjectEDataType, DefinedAttributeTypeKind.class,
                 "DefinedAttributeTypeKindObject", IS_SERIALIZABLE, IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( docIDEDataType, String.class, "DocID", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( emptyStringEDataType, String.class, "EmptyString", IS_SERIALIZABLE,
-                !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( fcAbbreviationEDataType, String.class, "FCAbbreviation", IS_SERIALIZABLE,
-                !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( iec61850NameEDataType, String.class, "Iec61850Name", IS_SERIALIZABLE,
-                !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( iec61850NameStringEDataType, String.class, "Iec61850NameString", IS_SERIALIZABLE,
-                !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( issuesTypeEDataType, String.class, "issuesType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS );
         initEDataType( licenseKindObjectEDataType, LicenseKind.class, "LicenseKindObject", IS_SERIALIZABLE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( literalNameEDataType, String.class, "LiteralName", IS_SERIALIZABLE,
-                !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( lnClassNameEDataType, String.class, "LNClassName", IS_SERIALIZABLE,
-                !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( nsIdentifierEDataType, String.class, "NSIdentifier", IS_SERIALIZABLE,
-                !IS_GENERATED_INSTANCE_CLASS );
         initEDataType( nsReleaseEDataType, short.class, "NSRelease", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS );
         initEDataType( nsReleaseObjectEDataType, Short.class, "NSReleaseObject", IS_SERIALIZABLE,
                 !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( nsRevisionEDataType, String.class, "NSRevision", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS );
         initEDataType( nsVersionEDataType, int.class, "NSVersion", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS );
         initEDataType( nsVersionObjectEDataType, Integer.class, "NSVersionObject", IS_SERIALIZABLE,
                 !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( presenceConditionArgumentEDataType, String.class, "PresenceConditionArgument", IS_SERIALIZABLE,
-                !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( presenceConditionNameEDataType, String.class, "PresenceConditionName", IS_SERIALIZABLE,
-                !IS_GENERATED_INSTANCE_CLASS );
         initEDataType( pubStageObjectEDataType, PubStage.class, "PubStageObject", IS_SERIALIZABLE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( subDataObjectNameEDataType, String.class, "SubDataObjectName", IS_SERIALIZABLE,
-                !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( umlVersionEDataType, String.class, "UMLVersion", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS );
         initEDataType( undefinedAttributeTypeKindObjectEDataType, UndefinedAttributeTypeKind.class,
                 "UndefinedAttributeTypeKindObject", IS_SERIALIZABLE, IS_GENERATED_INSTANCE_CLASS );
 
@@ -5220,16 +4833,12 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         addAnnotation( abbreviationEClass, source, new String[] { "name", "tAbbreviation", "kind", "empty" } );
         addAnnotation( getAbbreviation_DescID(), source, new String[] { "kind", "attribute", "name", "descID" } );
         addAnnotation( getAbbreviation_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( abbreviationNameEDataType, source, new String[] { "name", "tAbbreviationName", "baseType",
-                "http://www.eclipse.org/emf/2003/XMLType#normalizedString" } );
         addAnnotation( abbreviationsEClass, source, new String[] { "name", "tAbbreviations", "kind", "elementOnly" } );
         addAnnotation( getAbbreviations_Abbreviation(), source,
                 new String[] { "kind", "element", "name", "Abbreviation", "namespace", "##targetNamespace" } );
         addAnnotation( abstractLNClassEClass, source,
                 new String[] { "name", "tAbstractLNClass", "kind", "elementOnly" } );
         addAnnotation( getAbstractLNClass_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( abstractLNClassNameEDataType, source,
-                new String[] { "name", "tAbstractLNClassName", "baseType", "tIec61850Name" } );
         addAnnotation( acsiServicesKindEEnum, source, new String[] { "name", "tACSIServicesKind" } );
         addAnnotation( acsiServicesKindObjectEDataType, source,
                 new String[] { "name", "tACSIServicesKind:Object", "baseType", "tACSIServicesKind" } );
@@ -5250,15 +4859,11 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 new String[] { "kind", "element", "name", "Service", "namespace", "##targetNamespace" } );
         addAnnotation( getApplicableServices_DataSetMemberOf(), source,
                 new String[] { "kind", "element", "name", "DataSetMemberOf", "namespace", "##targetNamespace" } );
-        addAnnotation( attributeNameEDataType, source,
-                new String[] { "name", "tAttributeName", "baseType", "tIec61850Name" } );
         addAnnotation( attributeTypeKindEDataType, source, new String[] { "name", "tAttributeTypeKind", "memberTypes",
                 "tDefinedAttributeTypeKind tUndefinedAttributeTypeKind" } );
         addAnnotation( basicTypeEClass, source, new String[] { "name", "tBasicType", "kind", "empty" } );
         addAnnotation( getBasicType_DescID(), source, new String[] { "kind", "attribute", "name", "descID" } );
         addAnnotation( getBasicType_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( basicTypeNameEDataType, source, new String[] { "name", "tBasicTypeName", "baseType",
-                "http://www.eclipse.org/emf/2003/XMLType#token", "minLength", "1" } );
         addAnnotation( basicTypesEClass, source, new String[] { "name", "tBasicTypes", "kind", "elementOnly" } );
         addAnnotation( getBasicTypes_BasicType(), source,
                 new String[] { "kind", "element", "name", "BasicType", "namespace", "##targetNamespace" } );
@@ -5279,8 +4884,6 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         addAnnotation( getCDC_TypeKindParameterized(), source,
                 new String[] { "kind", "attribute", "name", "typeKindParameterized" } );
         addAnnotation( getCDC_Variant(), source, new String[] { "kind", "attribute", "name", "variant" } );
-        addAnnotation( cdcNameEDataType, source,
-                new String[] { "name", "tCDCName", "baseType", "tIec61850Name", "minLength", "1" } );
         addAnnotation( cdCsEClass, source, new String[] { "name", "tCDCs", "kind", "elementOnly" } );
         addAnnotation( getCDCs_CDC(), source,
                 new String[] { "kind", "element", "name", "CDC", "namespace", "##targetNamespace" } );
@@ -5350,8 +4953,6 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 new String[] { "kind", "attribute", "name", "underlyingType" } );
         addAnnotation( getDataObject_UnderlyingTypeKind(), source,
                 new String[] { "kind", "attribute", "name", "underlyingTypeKind" } );
-        addAnnotation( dataObjectNameEDataType, source,
-                new String[] { "name", "tDataObjectName", "baseType", "tIec61850Name", "maxLength", "12" } );
         addAnnotation( dataSetMemberOfEClass, source, new String[] { "name", "tDataSetMemberOf", "kind", "empty" } );
         addAnnotation( getDataSetMemberOf_Cb(), source, new String[] { "kind", "attribute", "name", "cb" } );
         addAnnotation( definedAttributeTypeKindEEnum, source, new String[] { "name", "tDefinedAttributeTypeKind" } );
@@ -5363,16 +4964,12 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         addAnnotation( getDoc_Any(), source, new String[] { "kind", "elementWildcard", "wildcards", "##any", "name",
                 ":2", "processing", "lax", "group", "#group:1" } );
         addAnnotation( getDoc_Id(), source, new String[] { "kind", "attribute", "name", "id" } );
-        addAnnotation( docIDEDataType, source, new String[] { "name", "tDocID", "baseType",
-                "http://www.eclipse.org/emf/2003/XMLType#normalizedString", "minLength", "1" } );
         addAnnotation( documentedClassEClass, source, new String[] { "name", "tDocumentedClass", "kind", "empty" } );
         addAnnotation( getDocumentedClass_Deprecated(), source,
                 new String[] { "kind", "attribute", "name", "deprecated" } );
         addAnnotation( getDocumentedClass_DescID(), source, new String[] { "kind", "attribute", "name", "descID" } );
         addAnnotation( getDocumentedClass_Informative(), source,
                 new String[] { "kind", "attribute", "name", "informative" } );
-        addAnnotation( emptyStringEDataType, source, new String[] { "name", "tEmptyString", "baseType",
-                "http://www.eclipse.org/emf/2003/XMLType#normalizedString", "maxLength", "0" } );
         addAnnotation( enumerationEClass, source, new String[] { "name", "tEnumeration", "kind", "elementOnly" } );
         addAnnotation( getEnumeration_Literal(), source,
                 new String[] { "kind", "element", "name", "Literal", "namespace", "##targetNamespace" } );
@@ -5382,9 +4979,6 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         addAnnotation( enumerationsEClass, source, new String[] { "name", "tEnumerations", "kind", "elementOnly" } );
         addAnnotation( getEnumerations_Enumeration(), source,
                 new String[] { "kind", "element", "name", "Enumeration", "namespace", "##targetNamespace" } );
-        addAnnotation( fcAbbreviationEDataType, source,
-                new String[] { "name", "tFCAbbreviation", "baseType", "http://www.eclipse.org/emf/2003/XMLType#token",
-                        "minLength", "1", "pattern", "[\\p{IsBasicLatin}]+" } );
         addAnnotation( functionalConstraintEClass, source,
                 new String[] { "name", "tFunctionalConstraint", "kind", "elementOnly" } );
         addAnnotation( getFunctionalConstraint_ApplicableServices(), source,
@@ -5399,15 +4993,6 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 new String[] { "name", "tFunctionalConstraints", "kind", "elementOnly" } );
         addAnnotation( getFunctionalConstraints_FunctionalConstraint(), source,
                 new String[] { "kind", "element", "name", "FunctionalConstraint", "namespace", "##targetNamespace" } );
-        addAnnotation( iec61850NameEDataType, source,
-                new String[] { "name", "tIec61850Name", "baseType", "http://www.eclipse.org/emf/2003/XMLType#Name",
-                        "minLength", "1", "pattern", "[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]+" } );
-        addAnnotation( iec61850NameStringEDataType, source,
-                new String[] { "name", "tIec61850NameString", "baseType",
-                        "http://www.eclipse.org/emf/2003/XMLType#normalizedString", "pattern",
-                        "[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]+" } );
-        addAnnotation( issuesTypeEDataType, source, new String[] { "name", "tissues_._type", "baseType",
-                "http://www.eclipse.org/emf/2003/XMLType#normalizedString", "minLength", "1" } );
         addAnnotation( licenseEClass, source, new String[] { "name", "tLicense", "kind", "mixed" } );
         addAnnotation( getLicense_Mixed(), source, new String[] { "kind", "elementWildcard", "name", ":mixed" } );
         addAnnotation( getLicense_Kind(), source, new String[] { "kind", "attribute", "name", "kind" } );
@@ -5418,10 +5003,6 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         addAnnotation( literalEClass, source, new String[] { "name", "tLiteral", "kind", "empty" } );
         addAnnotation( getLiteral_LiteralVal(), source, new String[] { "kind", "attribute", "name", "literalVal" } );
         addAnnotation( getLiteral_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( literalNameEDataType, source,
-                new String[] { "name", "tLiteralName", "baseType",
-                        "http://www.eclipse.org/emf/2003/XMLType#normalizedString", "maxLength", "127", "pattern",
-                        "[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]*" } );
         addAnnotation( lnClassEClass, source, new String[] { "name", "tLNClass", "kind", "elementOnly" } );
         addAnnotation( getLNClass_CanHaveLOG(), source, new String[] { "kind", "attribute", "name", "canHaveLOG" } );
         addAnnotation( getLNClass_IsExtension(), source, new String[] { "kind", "attribute", "name", "isExtension" } );
@@ -5431,8 +5012,6 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 new String[] { "kind", "element", "name", "AbstractLNClass", "namespace", "##targetNamespace" } );
         addAnnotation( getLNClasses_LNClass(), source,
                 new String[] { "kind", "element", "name", "LNClass", "namespace", "##targetNamespace" } );
-        addAnnotation( lnClassNameEDataType, source, new String[] { "name", "tLNClassName", "baseType",
-                "http://www.eclipse.org/emf/2003/XMLType#Name", "pattern", "LLN0 [A-Z]{4}" } );
         addAnnotation( noticeEClass, source, new String[] { "name", "tNotice", "kind", "mixed" } );
         addAnnotation( getNotice_Mixed(), source, new String[] { "kind", "elementWildcard", "name", ":mixed" } );
         addAnnotation( nsEClass, source, new String[] { "name", "tNS", "kind", "elementOnly" } );
@@ -5477,14 +5056,10 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         addAnnotation( getNSDoc_UmlDate(), source, new String[] { "kind", "attribute", "name", "umlDate" } );
         addAnnotation( getNSDoc_UmlVersion(), source, new String[] { "kind", "attribute", "name", "umlVersion" } );
         addAnnotation( getNSDoc_Version(), source, new String[] { "kind", "attribute", "name", "version" } );
-        addAnnotation( nsIdentifierEDataType, source, new String[] { "name", "tNSIdentifier", "baseType",
-                "http://www.eclipse.org/emf/2003/XMLType#normalizedString", "pattern", "\\p{IsBasicLatin}+" } );
         addAnnotation( nsReleaseEDataType, source, new String[] { "name", "tNSRelease", "baseType",
                 "http://www.eclipse.org/emf/2003/XMLType#unsignedByte", "minExclusive", "0" } );
         addAnnotation( nsReleaseObjectEDataType, source,
                 new String[] { "name", "tNSRelease:Object", "baseType", "tNSRelease" } );
-        addAnnotation( nsRevisionEDataType, source, new String[] { "name", "tNSRevision", "baseType",
-                "http://www.eclipse.org/emf/2003/XMLType#token", "pattern", "[A-Z]" } );
         addAnnotation( nsVersionEDataType, source,
                 new String[] { "name", "tNSVersion", "baseType",
                         "http://www.eclipse.org/emf/2003/XMLType#unsignedShort", "minInclusive", "2002", "maxInclusive",
@@ -5499,10 +5074,6 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         addAnnotation( getPresenceCondition_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
         addAnnotation( getPresenceCondition_TitleID(), source,
                 new String[] { "kind", "attribute", "name", "titleID" } );
-        addAnnotation( presenceConditionArgumentEDataType, source, new String[] { "name", "tPresenceConditionArgument",
-                "baseType", "http://www.eclipse.org/emf/2003/XMLType#normalizedString" } );
-        addAnnotation( presenceConditionNameEDataType, source, new String[] { "name", "tPresenceConditionName",
-                "baseType", "http://www.eclipse.org/emf/2003/XMLType#normalizedString" } );
         addAnnotation( presenceConditionsEClass, source,
                 new String[] { "name", "tPresenceConditions", "kind", "elementOnly" } );
         addAnnotation( getPresenceConditions_PresenceCondition(), source,
@@ -5647,12 +5218,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 new String[] { "kind", "attribute", "name", "underlyingType" } );
         addAnnotation( getSubDataObject_UnderlyingTypeKind(), source,
                 new String[] { "kind", "attribute", "name", "underlyingTypeKind" } );
-        addAnnotation( subDataObjectNameEDataType, source,
-                new String[] { "name", "tSubDataObjectName", "baseType", "tIec61850Name" } );
         addAnnotation( titledClassEClass, source, new String[] { "name", "tTitledClass", "kind", "empty" } );
         addAnnotation( getTitledClass_TitleID(), source, new String[] { "kind", "attribute", "name", "titleID" } );
-        addAnnotation( umlVersionEDataType, source, new String[] { "name", "tUMLVersion", "baseType",
-                "http://www.eclipse.org/emf/2003/XMLType#Name", "minLength", "1" } );
         addAnnotation( undefinedAttributeTypeKindEEnum, source,
                 new String[] { "name", "tUndefinedAttributeTypeKind" } );
         addAnnotation( undefinedAttributeTypeKindObjectEDataType, source, new String[] { "name",

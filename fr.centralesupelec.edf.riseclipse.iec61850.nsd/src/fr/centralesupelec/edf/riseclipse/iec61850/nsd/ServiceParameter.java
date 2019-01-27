@@ -137,7 +137,7 @@ public interface ServiceParameter extends DocumentedClass {
      * @return the value of the '<em>Name</em>' attribute.
      * @see #setName(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceParameter_Name()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.AttributeName" required="true"
+     * @model required="true"
      *        extendedMetaData="kind='attribute' name='name'"
      * @generated
      */
@@ -163,8 +163,7 @@ public interface ServiceParameter extends DocumentedClass {
      * @return the value of the '<em>Type</em>' attribute.
      * @see #setType(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceParameter_Type()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.Iec61850Name"
-     *        extendedMetaData="kind='attribute' name='type'"
+     * @model extendedMetaData="kind='attribute' name='type'"
      * @generated
      */
     String getType();

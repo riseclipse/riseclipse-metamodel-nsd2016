@@ -59,8 +59,7 @@ public interface Changes extends EObject {
      * @return the value of the '<em>Changes ID</em>' attribute.
      * @see #setChangesID(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getChanges_ChangesID()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocID"
-     *        extendedMetaData="kind='attribute' name='changesID'"
+     * @model extendedMetaData="kind='attribute' name='changesID'"
      * @generated
      */
     String getChangesID();
@@ -168,7 +167,7 @@ public interface Changes extends EObject {
      * @see #unsetRevision()
      * @see #setRevision(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getChanges_Revision()
-     * @model default="A" unsettable="true" dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSRevision"
+     * @model default="A" unsettable="true"
      *        extendedMetaData="kind='attribute' name='revision'"
      * @generated
      */
@@ -219,8 +218,7 @@ public interface Changes extends EObject {
      * @return the value of the '<em>Tissues</em>' attribute.
      * @see #setTissues(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getChanges_Tissues()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.issuesType"
-     *        extendedMetaData="kind='attribute' name='tissues'"
+     * @model extendedMetaData="kind='attribute' name='tissues'"
      * @generated
      */
     String getTissues();

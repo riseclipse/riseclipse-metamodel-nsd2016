@@ -108,8 +108,7 @@ public interface DocumentedClass extends EObject {
      * @return the value of the '<em>Desc ID</em>' attribute.
      * @see #setDescID(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDocumentedClass_DescID()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocID"
-     *        extendedMetaData="kind='attribute' name='descID'"
+     * @model extendedMetaData="kind='attribute' name='descID'"
      * @generated
      */
     String getDescID();

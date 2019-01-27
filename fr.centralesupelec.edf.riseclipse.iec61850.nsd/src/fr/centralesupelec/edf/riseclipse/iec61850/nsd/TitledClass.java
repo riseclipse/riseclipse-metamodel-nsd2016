@@ -50,7 +50,7 @@ public interface TitledClass extends DocumentedClass {
      * @return the value of the '<em>Title ID</em>' attribute.
      * @see #setTitleID(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getTitledClass_TitleID()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocID" required="true"
+     * @model required="true"
      *        extendedMetaData="kind='attribute' name='titleID'"
      * @generated
      */

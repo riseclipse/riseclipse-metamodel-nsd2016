@@ -32,8 +32,6 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.EObjectValidator;
-
-import org.eclipse.emf.ecore.xml.type.util.XMLTypeUtil;
 import org.eclipse.emf.ecore.xml.type.util.XMLTypeValidator;
 
 /**
@@ -230,66 +228,26 @@ public class NsdValidator extends EObjectValidator {
             return validatePubStage( ( PubStage ) value, diagnostics, context );
         case NsdPackage.UNDEFINED_ATTRIBUTE_TYPE_KIND:
             return validateUndefinedAttributeTypeKind( ( UndefinedAttributeTypeKind ) value, diagnostics, context );
-        case NsdPackage.ABBREVIATION_NAME:
-            return validateAbbreviationName( ( String ) value, diagnostics, context );
-        case NsdPackage.ABSTRACT_LN_CLASS_NAME:
-            return validateAbstractLNClassName( ( String ) value, diagnostics, context );
         case NsdPackage.ACSI_SERVICES_KIND_OBJECT:
             return validateACSIServicesKindObject( ( ACSIServicesKind ) value, diagnostics, context );
-        case NsdPackage.ATTRIBUTE_NAME:
-            return validateAttributeName( ( String ) value, diagnostics, context );
         case NsdPackage.ATTRIBUTE_TYPE_KIND:
             return validateAttributeTypeKind( ( Enumerator ) value, diagnostics, context );
-        case NsdPackage.BASIC_TYPE_NAME:
-            return validateBasicTypeName( ( String ) value, diagnostics, context );
         case NsdPackage.CB_KIND_OBJECT:
             return validateCBKindObject( ( CBKind ) value, diagnostics, context );
-        case NsdPackage.CDC_NAME:
-            return validateCDCName( ( String ) value, diagnostics, context );
-        case NsdPackage.DATA_OBJECT_NAME:
-            return validateDataObjectName( ( String ) value, diagnostics, context );
         case NsdPackage.DEFINED_ATTRIBUTE_TYPE_KIND_OBJECT:
             return validateDefinedAttributeTypeKindObject( ( DefinedAttributeTypeKind ) value, diagnostics, context );
-        case NsdPackage.DOC_ID:
-            return validateDocID( ( String ) value, diagnostics, context );
-        case NsdPackage.EMPTY_STRING:
-            return validateEmptyString( ( String ) value, diagnostics, context );
-        case NsdPackage.FC_ABBREVIATION:
-            return validateFCAbbreviation( ( String ) value, diagnostics, context );
-        case NsdPackage.IEC61850_NAME:
-            return validateIec61850Name( ( String ) value, diagnostics, context );
-        case NsdPackage.IEC61850_NAME_STRING:
-            return validateIec61850NameString( ( String ) value, diagnostics, context );
-        case NsdPackage.ISSUES_TYPE:
-            return validateissuesType( ( String ) value, diagnostics, context );
         case NsdPackage.LICENSE_KIND_OBJECT:
             return validateLicenseKindObject( ( LicenseKind ) value, diagnostics, context );
-        case NsdPackage.LITERAL_NAME:
-            return validateLiteralName( ( String ) value, diagnostics, context );
-        case NsdPackage.LN_CLASS_NAME:
-            return validateLNClassName( ( String ) value, diagnostics, context );
-        case NsdPackage.NS_IDENTIFIER:
-            return validateNSIdentifier( ( String ) value, diagnostics, context );
         case NsdPackage.NS_RELEASE:
             return validateNSRelease( ( Short ) value, diagnostics, context );
         case NsdPackage.NS_RELEASE_OBJECT:
             return validateNSReleaseObject( ( Short ) value, diagnostics, context );
-        case NsdPackage.NS_REVISION:
-            return validateNSRevision( ( String ) value, diagnostics, context );
         case NsdPackage.NS_VERSION:
             return validateNSVersion( ( Integer ) value, diagnostics, context );
         case NsdPackage.NS_VERSION_OBJECT:
             return validateNSVersionObject( ( Integer ) value, diagnostics, context );
-        case NsdPackage.PRESENCE_CONDITION_ARGUMENT:
-            return validatePresenceConditionArgument( ( String ) value, diagnostics, context );
-        case NsdPackage.PRESENCE_CONDITION_NAME:
-            return validatePresenceConditionName( ( String ) value, diagnostics, context );
         case NsdPackage.PUB_STAGE_OBJECT:
             return validatePubStageObject( ( PubStage ) value, diagnostics, context );
-        case NsdPackage.SUB_DATA_OBJECT_NAME:
-            return validateSubDataObjectName( ( String ) value, diagnostics, context );
-        case NsdPackage.UML_VERSION:
-            return validateUMLVersion( ( String ) value, diagnostics, context );
         case NsdPackage.UNDEFINED_ATTRIBUTE_TYPE_KIND_OBJECT:
             return validateUndefinedAttributeTypeKindObject( ( UndefinedAttributeTypeKind ) value, diagnostics,
                     context );
@@ -851,45 +809,9 @@ public class NsdValidator extends EObjectValidator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean validateAbbreviationName( String abbreviationName, DiagnosticChain diagnostics,
-            Map< Object, Object > context ) {
-        return true;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateAbstractLNClassName( String abstractLNClassName, DiagnosticChain diagnostics,
-            Map< Object, Object > context ) {
-        boolean result = validateIec61850Name_Pattern( abstractLNClassName, diagnostics, context );
-        if( result || diagnostics != null )
-            result &= validateIec61850Name_MinLength( abstractLNClassName, diagnostics, context );
-        return result;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public boolean validateACSIServicesKindObject( ACSIServicesKind acsiServicesKindObject, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
         return true;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateAttributeName( String attributeName, DiagnosticChain diagnostics,
-            Map< Object, Object > context ) {
-        boolean result = validateIec61850Name_Pattern( attributeName, diagnostics, context );
-        if( result || diagnostics != null )
-            result &= validateIec61850Name_MinLength( attributeName, diagnostics, context );
-        return result;
     }
 
     /**
@@ -946,91 +868,9 @@ public class NsdValidator extends EObjectValidator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean validateBasicTypeName( String basicTypeName, DiagnosticChain diagnostics,
-            Map< Object, Object > context ) {
-        boolean result = validateBasicTypeName_MinLength( basicTypeName, diagnostics, context );
-        return result;
-    }
-
-    /**
-     * Validates the MinLength constraint of '<em>Basic Type Name</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateBasicTypeName_MinLength( String basicTypeName, DiagnosticChain diagnostics,
-            Map< Object, Object > context ) {
-        int length = basicTypeName.length();
-        boolean result = length >= 1;
-        if( !result && diagnostics != null ) reportMinLengthViolation( NsdPackage.Literals.BASIC_TYPE_NAME,
-                basicTypeName, length, 1, diagnostics, context );
-        return result;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public boolean validateCBKindObject( CBKind cbKindObject, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
         return true;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateCDCName( String cdcName, DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        boolean result = validateIec61850Name_Pattern( cdcName, diagnostics, context );
-        if( result || diagnostics != null ) result &= validateCDCName_MinLength( cdcName, diagnostics, context );
-        return result;
-    }
-
-    /**
-     * Validates the MinLength constraint of '<em>CDC Name</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateCDCName_MinLength( String cdcName, DiagnosticChain diagnostics,
-            Map< Object, Object > context ) {
-        int length = cdcName.length();
-        boolean result = length >= 1;
-        if( !result && diagnostics != null )
-            reportMinLengthViolation( NsdPackage.Literals.CDC_NAME, cdcName, length, 1, diagnostics, context );
-        return result;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateDataObjectName( String dataObjectName, DiagnosticChain diagnostics,
-            Map< Object, Object > context ) {
-        boolean result = validateIec61850Name_Pattern( dataObjectName, diagnostics, context );
-        if( result || diagnostics != null )
-            result &= validateIec61850Name_MinLength( dataObjectName, diagnostics, context );
-        if( result || diagnostics != null )
-            result &= validateDataObjectName_MaxLength( dataObjectName, diagnostics, context );
-        return result;
-    }
-
-    /**
-     * Validates the MaxLength constraint of '<em>Data Object Name</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateDataObjectName_MaxLength( String dataObjectName, DiagnosticChain diagnostics,
-            Map< Object, Object > context ) {
-        int length = dataObjectName.length();
-        boolean result = length <= 12;
-        if( !result && diagnostics != null ) reportMaxLengthViolation( NsdPackage.Literals.DATA_OBJECT_NAME,
-                dataObjectName, length, 12, diagnostics, context );
-        return result;
     }
 
     /**
@@ -1048,332 +888,9 @@ public class NsdValidator extends EObjectValidator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean validateDocID( String docID, DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        boolean result = validateDocID_MinLength( docID, diagnostics, context );
-        return result;
-    }
-
-    /**
-     * Validates the MinLength constraint of '<em>Doc ID</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateDocID_MinLength( String docID, DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        int length = docID.length();
-        boolean result = length >= 1;
-        if( !result && diagnostics != null )
-            reportMinLengthViolation( NsdPackage.Literals.DOC_ID, docID, length, 1, diagnostics, context );
-        return result;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateEmptyString( String emptyString, DiagnosticChain diagnostics,
-            Map< Object, Object > context ) {
-        boolean result = validateEmptyString_MaxLength( emptyString, diagnostics, context );
-        return result;
-    }
-
-    /**
-     * Validates the MaxLength constraint of '<em>Empty String</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateEmptyString_MaxLength( String emptyString, DiagnosticChain diagnostics,
-            Map< Object, Object > context ) {
-        int length = emptyString.length();
-        boolean result = length <= 0;
-        if( !result && diagnostics != null )
-            reportMaxLengthViolation( NsdPackage.Literals.EMPTY_STRING, emptyString, length, 0, diagnostics, context );
-        return result;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateFCAbbreviation( String fcAbbreviation, DiagnosticChain diagnostics,
-            Map< Object, Object > context ) {
-        boolean result = validateFCAbbreviation_Pattern( fcAbbreviation, diagnostics, context );
-        if( result || diagnostics != null )
-            result &= validateFCAbbreviation_MinLength( fcAbbreviation, diagnostics, context );
-        return result;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @see #validateFCAbbreviation_Pattern
-     */
-    public static final PatternMatcher[][] FC_ABBREVIATION__PATTERN__VALUES = new PatternMatcher[][] {
-            new PatternMatcher[] { XMLTypeUtil.createPatternMatcher( "[\\p{IsBasicLatin}]+" ) } };
-
-    /**
-     * Validates the Pattern constraint of '<em>FC Abbreviation</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateFCAbbreviation_Pattern( String fcAbbreviation, DiagnosticChain diagnostics,
-            Map< Object, Object > context ) {
-        return validatePattern( NsdPackage.Literals.FC_ABBREVIATION, fcAbbreviation, FC_ABBREVIATION__PATTERN__VALUES,
-                diagnostics, context );
-    }
-
-    /**
-     * Validates the MinLength constraint of '<em>FC Abbreviation</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateFCAbbreviation_MinLength( String fcAbbreviation, DiagnosticChain diagnostics,
-            Map< Object, Object > context ) {
-        int length = fcAbbreviation.length();
-        boolean result = length >= 1;
-        if( !result && diagnostics != null ) reportMinLengthViolation( NsdPackage.Literals.FC_ABBREVIATION,
-                fcAbbreviation, length, 1, diagnostics, context );
-        return result;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateIec61850Name( String iec61850Name, DiagnosticChain diagnostics,
-            Map< Object, Object > context ) {
-        boolean result = validateIec61850Name_Pattern( iec61850Name, diagnostics, context );
-        if( result || diagnostics != null )
-            result &= validateIec61850Name_MinLength( iec61850Name, diagnostics, context );
-        return result;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @see #validateIec61850Name_Pattern
-     */
-    public static final PatternMatcher[][] IEC61850_NAME__PATTERN__VALUES = new PatternMatcher[][] {
-            new PatternMatcher[] { XMLTypeUtil.createPatternMatcher( "[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]+" ) },
-            new PatternMatcher[] { XMLTypeUtil.createPatternMatcher( "\\i\\c*" ) } };
-
-    /**
-     * Validates the Pattern constraint of '<em>Iec61850 Name</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateIec61850Name_Pattern( String iec61850Name, DiagnosticChain diagnostics,
-            Map< Object, Object > context ) {
-        return validatePattern( NsdPackage.Literals.IEC61850_NAME, iec61850Name, IEC61850_NAME__PATTERN__VALUES,
-                diagnostics, context );
-    }
-
-    /**
-     * Validates the MinLength constraint of '<em>Iec61850 Name</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateIec61850Name_MinLength( String iec61850Name, DiagnosticChain diagnostics,
-            Map< Object, Object > context ) {
-        int length = iec61850Name.length();
-        boolean result = length >= 1;
-        if( !result && diagnostics != null ) reportMinLengthViolation( NsdPackage.Literals.IEC61850_NAME, iec61850Name,
-                length, 1, diagnostics, context );
-        return result;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateIec61850NameString( String iec61850NameString, DiagnosticChain diagnostics,
-            Map< Object, Object > context ) {
-        boolean result = validateIec61850NameString_Pattern( iec61850NameString, diagnostics, context );
-        return result;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @see #validateIec61850NameString_Pattern
-     */
-    public static final PatternMatcher[][] IEC61850_NAME_STRING__PATTERN__VALUES = new PatternMatcher[][] {
-            new PatternMatcher[] {
-                    XMLTypeUtil.createPatternMatcher( "[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]+" ) } };
-
-    /**
-     * Validates the Pattern constraint of '<em>Iec61850 Name String</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateIec61850NameString_Pattern( String iec61850NameString, DiagnosticChain diagnostics,
-            Map< Object, Object > context ) {
-        return validatePattern( NsdPackage.Literals.IEC61850_NAME_STRING, iec61850NameString,
-                IEC61850_NAME_STRING__PATTERN__VALUES, diagnostics, context );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateissuesType( String issuesType, DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        boolean result = validateissuesType_MinLength( issuesType, diagnostics, context );
-        return result;
-    }
-
-    /**
-     * Validates the MinLength constraint of '<em>issues Type</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateissuesType_MinLength( String issuesType, DiagnosticChain diagnostics,
-            Map< Object, Object > context ) {
-        int length = issuesType.length();
-        boolean result = length >= 1;
-        if( !result && diagnostics != null )
-            reportMinLengthViolation( NsdPackage.Literals.ISSUES_TYPE, issuesType, length, 1, diagnostics, context );
-        return result;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public boolean validateLicenseKindObject( LicenseKind licenseKindObject, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
         return true;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateLiteralName( String literalName, DiagnosticChain diagnostics,
-            Map< Object, Object > context ) {
-        boolean result = validateLiteralName_Pattern( literalName, diagnostics, context );
-        if( result || diagnostics != null )
-            result &= validateLiteralName_MaxLength( literalName, diagnostics, context );
-        return result;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @see #validateLiteralName_Pattern
-     */
-    public static final PatternMatcher[][] LITERAL_NAME__PATTERN__VALUES = new PatternMatcher[][] {
-            new PatternMatcher[] {
-                    XMLTypeUtil.createPatternMatcher( "[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]*" ) } };
-
-    /**
-     * Validates the Pattern constraint of '<em>Literal Name</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateLiteralName_Pattern( String literalName, DiagnosticChain diagnostics,
-            Map< Object, Object > context ) {
-        return validatePattern( NsdPackage.Literals.LITERAL_NAME, literalName, LITERAL_NAME__PATTERN__VALUES,
-                diagnostics, context );
-    }
-
-    /**
-     * Validates the MaxLength constraint of '<em>Literal Name</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateLiteralName_MaxLength( String literalName, DiagnosticChain diagnostics,
-            Map< Object, Object > context ) {
-        int length = literalName.length();
-        boolean result = length <= 127;
-        if( !result && diagnostics != null ) reportMaxLengthViolation( NsdPackage.Literals.LITERAL_NAME, literalName,
-                length, 127, diagnostics, context );
-        return result;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateLNClassName( String lnClassName, DiagnosticChain diagnostics,
-            Map< Object, Object > context ) {
-        boolean result = validateLNClassName_Pattern( lnClassName, diagnostics, context );
-        return result;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @see #validateLNClassName_Pattern
-     */
-    public static final PatternMatcher[][] LN_CLASS_NAME__PATTERN__VALUES = new PatternMatcher[][] {
-            new PatternMatcher[] { XMLTypeUtil.createPatternMatcher( "LLN0" ),
-                    XMLTypeUtil.createPatternMatcher( "[A-Z]{4}" ) },
-            new PatternMatcher[] { XMLTypeUtil.createPatternMatcher( "\\i\\c*" ) } };
-
-    /**
-     * Validates the Pattern constraint of '<em>LN Class Name</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateLNClassName_Pattern( String lnClassName, DiagnosticChain diagnostics,
-            Map< Object, Object > context ) {
-        return validatePattern( NsdPackage.Literals.LN_CLASS_NAME, lnClassName, LN_CLASS_NAME__PATTERN__VALUES,
-                diagnostics, context );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateNSIdentifier( String nsIdentifier, DiagnosticChain diagnostics,
-            Map< Object, Object > context ) {
-        boolean result = validateNSIdentifier_Pattern( nsIdentifier, diagnostics, context );
-        return result;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @see #validateNSIdentifier_Pattern
-     */
-    public static final PatternMatcher[][] NS_IDENTIFIER__PATTERN__VALUES = new PatternMatcher[][] {
-            new PatternMatcher[] { XMLTypeUtil.createPatternMatcher( "\\p{IsBasicLatin}+" ) } };
-
-    /**
-     * Validates the Pattern constraint of '<em>NS Identifier</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateNSIdentifier_Pattern( String nsIdentifier, DiagnosticChain diagnostics,
-            Map< Object, Object > context ) {
-        return validatePattern( NsdPackage.Literals.NS_IDENTIFIER, nsIdentifier, NS_IDENTIFIER__PATTERN__VALUES,
-                diagnostics, context );
     }
 
     /**
@@ -1421,37 +938,6 @@ public class NsdValidator extends EObjectValidator {
         if( result || diagnostics != null )
             result &= xmlTypeValidator.validateUnsignedByte_Max( nsReleaseObject, diagnostics, context );
         return result;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateNSRevision( String nsRevision, DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        boolean result = validateNSRevision_Pattern( nsRevision, diagnostics, context );
-        return result;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @see #validateNSRevision_Pattern
-     */
-    public static final PatternMatcher[][] NS_REVISION__PATTERN__VALUES = new PatternMatcher[][] {
-            new PatternMatcher[] { XMLTypeUtil.createPatternMatcher( "[A-Z]" ) } };
-
-    /**
-     * Validates the Pattern constraint of '<em>NS Revision</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateNSRevision_Pattern( String nsRevision, DiagnosticChain diagnostics,
-            Map< Object, Object > context ) {
-        return validatePattern( NsdPackage.Literals.NS_REVISION, nsRevision, NS_REVISION__PATTERN__VALUES, diagnostics,
-                context );
     }
 
     /**
@@ -1524,68 +1010,9 @@ public class NsdValidator extends EObjectValidator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean validatePresenceConditionArgument( String presenceConditionArgument, DiagnosticChain diagnostics,
-            Map< Object, Object > context ) {
-        return true;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validatePresenceConditionName( String presenceConditionName, DiagnosticChain diagnostics,
-            Map< Object, Object > context ) {
-        return true;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public boolean validatePubStageObject( PubStage pubStageObject, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
         return true;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateSubDataObjectName( String subDataObjectName, DiagnosticChain diagnostics,
-            Map< Object, Object > context ) {
-        boolean result = validateIec61850Name_Pattern( subDataObjectName, diagnostics, context );
-        if( result || diagnostics != null )
-            result &= validateIec61850Name_MinLength( subDataObjectName, diagnostics, context );
-        return result;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateUMLVersion( String umlVersion, DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        boolean result = xmlTypeValidator.validateName_Pattern( umlVersion, diagnostics, context );
-        if( result || diagnostics != null ) result &= validateUMLVersion_MinLength( umlVersion, diagnostics, context );
-        return result;
-    }
-
-    /**
-     * Validates the MinLength constraint of '<em>UML Version</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateUMLVersion_MinLength( String umlVersion, DiagnosticChain diagnostics,
-            Map< Object, Object > context ) {
-        int length = umlVersion.length();
-        boolean result = length >= 1;
-        if( !result && diagnostics != null )
-            reportMinLengthViolation( NsdPackage.Literals.UML_VERSION, umlVersion, length, 1, diagnostics, context );
-        return result;
     }
 
     /**

@@ -204,66 +204,26 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
             return createPubStageFromString( eDataType, initialValue );
         case NsdPackage.UNDEFINED_ATTRIBUTE_TYPE_KIND:
             return createUndefinedAttributeTypeKindFromString( eDataType, initialValue );
-        case NsdPackage.ABBREVIATION_NAME:
-            return createAbbreviationNameFromString( eDataType, initialValue );
-        case NsdPackage.ABSTRACT_LN_CLASS_NAME:
-            return createAbstractLNClassNameFromString( eDataType, initialValue );
         case NsdPackage.ACSI_SERVICES_KIND_OBJECT:
             return createACSIServicesKindObjectFromString( eDataType, initialValue );
-        case NsdPackage.ATTRIBUTE_NAME:
-            return createAttributeNameFromString( eDataType, initialValue );
         case NsdPackage.ATTRIBUTE_TYPE_KIND:
             return createAttributeTypeKindFromString( eDataType, initialValue );
-        case NsdPackage.BASIC_TYPE_NAME:
-            return createBasicTypeNameFromString( eDataType, initialValue );
         case NsdPackage.CB_KIND_OBJECT:
             return createCBKindObjectFromString( eDataType, initialValue );
-        case NsdPackage.CDC_NAME:
-            return createCDCNameFromString( eDataType, initialValue );
-        case NsdPackage.DATA_OBJECT_NAME:
-            return createDataObjectNameFromString( eDataType, initialValue );
         case NsdPackage.DEFINED_ATTRIBUTE_TYPE_KIND_OBJECT:
             return createDefinedAttributeTypeKindObjectFromString( eDataType, initialValue );
-        case NsdPackage.DOC_ID:
-            return createDocIDFromString( eDataType, initialValue );
-        case NsdPackage.EMPTY_STRING:
-            return createEmptyStringFromString( eDataType, initialValue );
-        case NsdPackage.FC_ABBREVIATION:
-            return createFCAbbreviationFromString( eDataType, initialValue );
-        case NsdPackage.IEC61850_NAME:
-            return createIec61850NameFromString( eDataType, initialValue );
-        case NsdPackage.IEC61850_NAME_STRING:
-            return createIec61850NameStringFromString( eDataType, initialValue );
-        case NsdPackage.ISSUES_TYPE:
-            return createissuesTypeFromString( eDataType, initialValue );
         case NsdPackage.LICENSE_KIND_OBJECT:
             return createLicenseKindObjectFromString( eDataType, initialValue );
-        case NsdPackage.LITERAL_NAME:
-            return createLiteralNameFromString( eDataType, initialValue );
-        case NsdPackage.LN_CLASS_NAME:
-            return createLNClassNameFromString( eDataType, initialValue );
-        case NsdPackage.NS_IDENTIFIER:
-            return createNSIdentifierFromString( eDataType, initialValue );
         case NsdPackage.NS_RELEASE:
             return createNSReleaseFromString( eDataType, initialValue );
         case NsdPackage.NS_RELEASE_OBJECT:
             return createNSReleaseObjectFromString( eDataType, initialValue );
-        case NsdPackage.NS_REVISION:
-            return createNSRevisionFromString( eDataType, initialValue );
         case NsdPackage.NS_VERSION:
             return createNSVersionFromString( eDataType, initialValue );
         case NsdPackage.NS_VERSION_OBJECT:
             return createNSVersionObjectFromString( eDataType, initialValue );
-        case NsdPackage.PRESENCE_CONDITION_ARGUMENT:
-            return createPresenceConditionArgumentFromString( eDataType, initialValue );
-        case NsdPackage.PRESENCE_CONDITION_NAME:
-            return createPresenceConditionNameFromString( eDataType, initialValue );
         case NsdPackage.PUB_STAGE_OBJECT:
             return createPubStageObjectFromString( eDataType, initialValue );
-        case NsdPackage.SUB_DATA_OBJECT_NAME:
-            return createSubDataObjectNameFromString( eDataType, initialValue );
-        case NsdPackage.UML_VERSION:
-            return createUMLVersionFromString( eDataType, initialValue );
         case NsdPackage.UNDEFINED_ATTRIBUTE_TYPE_KIND_OBJECT:
             return createUndefinedAttributeTypeKindObjectFromString( eDataType, initialValue );
         default:
@@ -292,66 +252,26 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
             return convertPubStageToString( eDataType, instanceValue );
         case NsdPackage.UNDEFINED_ATTRIBUTE_TYPE_KIND:
             return convertUndefinedAttributeTypeKindToString( eDataType, instanceValue );
-        case NsdPackage.ABBREVIATION_NAME:
-            return convertAbbreviationNameToString( eDataType, instanceValue );
-        case NsdPackage.ABSTRACT_LN_CLASS_NAME:
-            return convertAbstractLNClassNameToString( eDataType, instanceValue );
         case NsdPackage.ACSI_SERVICES_KIND_OBJECT:
             return convertACSIServicesKindObjectToString( eDataType, instanceValue );
-        case NsdPackage.ATTRIBUTE_NAME:
-            return convertAttributeNameToString( eDataType, instanceValue );
         case NsdPackage.ATTRIBUTE_TYPE_KIND:
             return convertAttributeTypeKindToString( eDataType, instanceValue );
-        case NsdPackage.BASIC_TYPE_NAME:
-            return convertBasicTypeNameToString( eDataType, instanceValue );
         case NsdPackage.CB_KIND_OBJECT:
             return convertCBKindObjectToString( eDataType, instanceValue );
-        case NsdPackage.CDC_NAME:
-            return convertCDCNameToString( eDataType, instanceValue );
-        case NsdPackage.DATA_OBJECT_NAME:
-            return convertDataObjectNameToString( eDataType, instanceValue );
         case NsdPackage.DEFINED_ATTRIBUTE_TYPE_KIND_OBJECT:
             return convertDefinedAttributeTypeKindObjectToString( eDataType, instanceValue );
-        case NsdPackage.DOC_ID:
-            return convertDocIDToString( eDataType, instanceValue );
-        case NsdPackage.EMPTY_STRING:
-            return convertEmptyStringToString( eDataType, instanceValue );
-        case NsdPackage.FC_ABBREVIATION:
-            return convertFCAbbreviationToString( eDataType, instanceValue );
-        case NsdPackage.IEC61850_NAME:
-            return convertIec61850NameToString( eDataType, instanceValue );
-        case NsdPackage.IEC61850_NAME_STRING:
-            return convertIec61850NameStringToString( eDataType, instanceValue );
-        case NsdPackage.ISSUES_TYPE:
-            return convertissuesTypeToString( eDataType, instanceValue );
         case NsdPackage.LICENSE_KIND_OBJECT:
             return convertLicenseKindObjectToString( eDataType, instanceValue );
-        case NsdPackage.LITERAL_NAME:
-            return convertLiteralNameToString( eDataType, instanceValue );
-        case NsdPackage.LN_CLASS_NAME:
-            return convertLNClassNameToString( eDataType, instanceValue );
-        case NsdPackage.NS_IDENTIFIER:
-            return convertNSIdentifierToString( eDataType, instanceValue );
         case NsdPackage.NS_RELEASE:
             return convertNSReleaseToString( eDataType, instanceValue );
         case NsdPackage.NS_RELEASE_OBJECT:
             return convertNSReleaseObjectToString( eDataType, instanceValue );
-        case NsdPackage.NS_REVISION:
-            return convertNSRevisionToString( eDataType, instanceValue );
         case NsdPackage.NS_VERSION:
             return convertNSVersionToString( eDataType, instanceValue );
         case NsdPackage.NS_VERSION_OBJECT:
             return convertNSVersionObjectToString( eDataType, instanceValue );
-        case NsdPackage.PRESENCE_CONDITION_ARGUMENT:
-            return convertPresenceConditionArgumentToString( eDataType, instanceValue );
-        case NsdPackage.PRESENCE_CONDITION_NAME:
-            return convertPresenceConditionNameToString( eDataType, instanceValue );
         case NsdPackage.PUB_STAGE_OBJECT:
             return convertPubStageObjectToString( eDataType, instanceValue );
-        case NsdPackage.SUB_DATA_OBJECT_NAME:
-            return convertSubDataObjectNameToString( eDataType, instanceValue );
-        case NsdPackage.UML_VERSION:
-            return convertUMLVersionToString( eDataType, instanceValue );
         case NsdPackage.UNDEFINED_ATTRIBUTE_TYPE_KIND_OBJECT:
             return convertUndefinedAttributeTypeKindObjectToString( eDataType, instanceValue );
         default:
@@ -1032,43 +952,6 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String createAbbreviationNameFromString( EDataType eDataType, String initialValue ) {
-        return ( String ) XMLTypeFactory.eINSTANCE.createFromString( XMLTypePackage.Literals.NORMALIZED_STRING,
-                initialValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String convertAbbreviationNameToString( EDataType eDataType, Object instanceValue ) {
-        return XMLTypeFactory.eINSTANCE.convertToString( XMLTypePackage.Literals.NORMALIZED_STRING, instanceValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String createAbstractLNClassNameFromString( EDataType eDataType, String initialValue ) {
-        return createIec61850NameFromString( NsdPackage.Literals.IEC61850_NAME, initialValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String convertAbstractLNClassNameToString( EDataType eDataType, Object instanceValue ) {
-        return convertIec61850NameToString( NsdPackage.Literals.IEC61850_NAME, instanceValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public ACSIServicesKind createACSIServicesKindObjectFromString( EDataType eDataType, String initialValue ) {
         return createACSIServicesKindFromString( NsdPackage.Literals.ACSI_SERVICES_KIND, initialValue );
     }
@@ -1080,24 +963,6 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      */
     public String convertACSIServicesKindObjectToString( EDataType eDataType, Object instanceValue ) {
         return convertACSIServicesKindToString( NsdPackage.Literals.ACSI_SERVICES_KIND, instanceValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String createAttributeNameFromString( EDataType eDataType, String initialValue ) {
-        return createIec61850NameFromString( NsdPackage.Literals.IEC61850_NAME, initialValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String convertAttributeNameToString( EDataType eDataType, Object instanceValue ) {
-        return convertIec61850NameToString( NsdPackage.Literals.IEC61850_NAME, instanceValue );
     }
 
     /**
@@ -1170,24 +1035,6 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String createBasicTypeNameFromString( EDataType eDataType, String initialValue ) {
-        return ( String ) XMLTypeFactory.eINSTANCE.createFromString( XMLTypePackage.Literals.TOKEN, initialValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String convertBasicTypeNameToString( EDataType eDataType, Object instanceValue ) {
-        return XMLTypeFactory.eINSTANCE.convertToString( XMLTypePackage.Literals.TOKEN, instanceValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public CBKind createCBKindObjectFromString( EDataType eDataType, String initialValue ) {
         return createCBKindFromString( NsdPackage.Literals.CB_KIND, initialValue );
     }
@@ -1199,42 +1046,6 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      */
     public String convertCBKindObjectToString( EDataType eDataType, Object instanceValue ) {
         return convertCBKindToString( NsdPackage.Literals.CB_KIND, instanceValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String createCDCNameFromString( EDataType eDataType, String initialValue ) {
-        return createIec61850NameFromString( NsdPackage.Literals.IEC61850_NAME, initialValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String convertCDCNameToString( EDataType eDataType, Object instanceValue ) {
-        return convertIec61850NameToString( NsdPackage.Literals.IEC61850_NAME, instanceValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String createDataObjectNameFromString( EDataType eDataType, String initialValue ) {
-        return createIec61850NameFromString( NsdPackage.Literals.IEC61850_NAME, initialValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String convertDataObjectNameToString( EDataType eDataType, Object instanceValue ) {
-        return convertIec61850NameToString( NsdPackage.Literals.IEC61850_NAME, instanceValue );
     }
 
     /**
@@ -1263,118 +1074,6 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String createDocIDFromString( EDataType eDataType, String initialValue ) {
-        return ( String ) XMLTypeFactory.eINSTANCE.createFromString( XMLTypePackage.Literals.NORMALIZED_STRING,
-                initialValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String convertDocIDToString( EDataType eDataType, Object instanceValue ) {
-        return XMLTypeFactory.eINSTANCE.convertToString( XMLTypePackage.Literals.NORMALIZED_STRING, instanceValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String createEmptyStringFromString( EDataType eDataType, String initialValue ) {
-        return ( String ) XMLTypeFactory.eINSTANCE.createFromString( XMLTypePackage.Literals.NORMALIZED_STRING,
-                initialValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String convertEmptyStringToString( EDataType eDataType, Object instanceValue ) {
-        return XMLTypeFactory.eINSTANCE.convertToString( XMLTypePackage.Literals.NORMALIZED_STRING, instanceValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String createFCAbbreviationFromString( EDataType eDataType, String initialValue ) {
-        return ( String ) XMLTypeFactory.eINSTANCE.createFromString( XMLTypePackage.Literals.TOKEN, initialValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String convertFCAbbreviationToString( EDataType eDataType, Object instanceValue ) {
-        return XMLTypeFactory.eINSTANCE.convertToString( XMLTypePackage.Literals.TOKEN, instanceValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String createIec61850NameFromString( EDataType eDataType, String initialValue ) {
-        return ( String ) XMLTypeFactory.eINSTANCE.createFromString( XMLTypePackage.Literals.NAME, initialValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String convertIec61850NameToString( EDataType eDataType, Object instanceValue ) {
-        return XMLTypeFactory.eINSTANCE.convertToString( XMLTypePackage.Literals.NAME, instanceValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String createIec61850NameStringFromString( EDataType eDataType, String initialValue ) {
-        return ( String ) XMLTypeFactory.eINSTANCE.createFromString( XMLTypePackage.Literals.NORMALIZED_STRING,
-                initialValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String convertIec61850NameStringToString( EDataType eDataType, Object instanceValue ) {
-        return XMLTypeFactory.eINSTANCE.convertToString( XMLTypePackage.Literals.NORMALIZED_STRING, instanceValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String createissuesTypeFromString( EDataType eDataType, String initialValue ) {
-        return ( String ) XMLTypeFactory.eINSTANCE.createFromString( XMLTypePackage.Literals.NORMALIZED_STRING,
-                initialValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String convertissuesTypeToString( EDataType eDataType, Object instanceValue ) {
-        return XMLTypeFactory.eINSTANCE.convertToString( XMLTypePackage.Literals.NORMALIZED_STRING, instanceValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public LicenseKind createLicenseKindObjectFromString( EDataType eDataType, String initialValue ) {
         return createLicenseKindFromString( NsdPackage.Literals.LICENSE_KIND, initialValue );
     }
@@ -1386,62 +1085,6 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      */
     public String convertLicenseKindObjectToString( EDataType eDataType, Object instanceValue ) {
         return convertLicenseKindToString( NsdPackage.Literals.LICENSE_KIND, instanceValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String createLiteralNameFromString( EDataType eDataType, String initialValue ) {
-        return ( String ) XMLTypeFactory.eINSTANCE.createFromString( XMLTypePackage.Literals.NORMALIZED_STRING,
-                initialValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String convertLiteralNameToString( EDataType eDataType, Object instanceValue ) {
-        return XMLTypeFactory.eINSTANCE.convertToString( XMLTypePackage.Literals.NORMALIZED_STRING, instanceValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String createLNClassNameFromString( EDataType eDataType, String initialValue ) {
-        return ( String ) XMLTypeFactory.eINSTANCE.createFromString( XMLTypePackage.Literals.NAME, initialValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String convertLNClassNameToString( EDataType eDataType, Object instanceValue ) {
-        return XMLTypeFactory.eINSTANCE.convertToString( XMLTypePackage.Literals.NAME, instanceValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String createNSIdentifierFromString( EDataType eDataType, String initialValue ) {
-        return ( String ) XMLTypeFactory.eINSTANCE.createFromString( XMLTypePackage.Literals.NORMALIZED_STRING,
-                initialValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String convertNSIdentifierToString( EDataType eDataType, Object instanceValue ) {
-        return XMLTypeFactory.eINSTANCE.convertToString( XMLTypePackage.Literals.NORMALIZED_STRING, instanceValue );
     }
 
     /**
@@ -1486,24 +1129,6 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String createNSRevisionFromString( EDataType eDataType, String initialValue ) {
-        return ( String ) XMLTypeFactory.eINSTANCE.createFromString( XMLTypePackage.Literals.TOKEN, initialValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String convertNSRevisionToString( EDataType eDataType, Object instanceValue ) {
-        return XMLTypeFactory.eINSTANCE.convertToString( XMLTypePackage.Literals.TOKEN, instanceValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public Integer createNSVersionFromString( EDataType eDataType, String initialValue ) {
         return ( Integer ) XMLTypeFactory.eINSTANCE.createFromString( XMLTypePackage.Literals.UNSIGNED_SHORT,
                 initialValue );
@@ -1541,44 +1166,6 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String createPresenceConditionArgumentFromString( EDataType eDataType, String initialValue ) {
-        return ( String ) XMLTypeFactory.eINSTANCE.createFromString( XMLTypePackage.Literals.NORMALIZED_STRING,
-                initialValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String convertPresenceConditionArgumentToString( EDataType eDataType, Object instanceValue ) {
-        return XMLTypeFactory.eINSTANCE.convertToString( XMLTypePackage.Literals.NORMALIZED_STRING, instanceValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String createPresenceConditionNameFromString( EDataType eDataType, String initialValue ) {
-        return ( String ) XMLTypeFactory.eINSTANCE.createFromString( XMLTypePackage.Literals.NORMALIZED_STRING,
-                initialValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String convertPresenceConditionNameToString( EDataType eDataType, Object instanceValue ) {
-        return XMLTypeFactory.eINSTANCE.convertToString( XMLTypePackage.Literals.NORMALIZED_STRING, instanceValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public PubStage createPubStageObjectFromString( EDataType eDataType, String initialValue ) {
         return createPubStageFromString( NsdPackage.Literals.PUB_STAGE, initialValue );
     }
@@ -1590,42 +1177,6 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      */
     public String convertPubStageObjectToString( EDataType eDataType, Object instanceValue ) {
         return convertPubStageToString( NsdPackage.Literals.PUB_STAGE, instanceValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String createSubDataObjectNameFromString( EDataType eDataType, String initialValue ) {
-        return createIec61850NameFromString( NsdPackage.Literals.IEC61850_NAME, initialValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String convertSubDataObjectNameToString( EDataType eDataType, Object instanceValue ) {
-        return convertIec61850NameToString( NsdPackage.Literals.IEC61850_NAME, instanceValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String createUMLVersionFromString( EDataType eDataType, String initialValue ) {
-        return ( String ) XMLTypeFactory.eINSTANCE.createFromString( XMLTypePackage.Literals.NAME, initialValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String convertUMLVersionToString( EDataType eDataType, Object instanceValue ) {
-        return XMLTypeFactory.eINSTANCE.convertToString( XMLTypePackage.Literals.NAME, instanceValue );
     }
 
     /**

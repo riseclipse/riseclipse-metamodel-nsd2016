@@ -9,7 +9,7 @@
       <details key="name" value="AppliesTo_._type"/>
       <details key="kind" value="empty"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="#//NSIdentifier">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Identifier of the namespace, e.g., &quot;IEC 61850-7-4&quot;, &quot;(Tr)IEC 61850-90-4&quot;."/>
       </eAnnotations>
@@ -38,7 +38,7 @@
         <details key="name" value="release"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="revision" eType="#//NSRevision"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="revision" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="A" unsettable="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Revision of the namespace version, by default 'A'."/>
@@ -64,7 +64,7 @@
       <details key="name" value="DependsOn_._type"/>
       <details key="kind" value="empty"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="#//NSIdentifier">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Identifier of the namespace, e.g., &quot;IEC 61850-7-4&quot;, &quot;(Tr)IEC 61850-90-4&quot;."/>
       </eAnnotations>
@@ -93,7 +93,7 @@
         <details key="name" value="release"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="revision" eType="#//NSRevision"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="revision" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="A" unsettable="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Revision of the namespace version, by default 'A'."/>
@@ -223,7 +223,7 @@
       <details key="name" value="tAbbreviation"/>
       <details key="kind" value="empty"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="descID" eType="#//DocID">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="descID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Documentation identifier referring to a full description of this abbreviation."/>
       </eAnnotations>
@@ -232,7 +232,7 @@
         <details key="name" value="descID"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="#//AbbreviationName">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Name of the abbreviation, as used in IEC 61850 data models."/>
       </eAnnotations>
@@ -241,15 +241,6 @@
         <details key="name" value="name"/>
       </eAnnotations>
     </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="AbbreviationName" instanceClassName="java.lang.String">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Name of an abbreviation."/>
-    </eAnnotations>
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="tAbbreviationName"/>
-      <details key="baseType" value="http://www.eclipse.org/emf/2003/XMLType#normalizedString"/>
-    </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Abbreviations">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -279,7 +270,7 @@
       <details key="name" value="tAbstractLNClass"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="#//AbstractLNClassName">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The name of the abstract logical node."/>
       </eAnnotations>
@@ -288,15 +279,6 @@
         <details key="name" value="name"/>
       </eAnnotations>
     </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="AbstractLNClassName" instanceClassName="java.lang.String">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Name of an abstract logical node."/>
-    </eAnnotations>
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="tAbstractLNClassName"/>
-      <details key="baseType" value="tIec61850Name"/>
-    </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ACSIServicesKind">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -390,7 +372,7 @@
         <details key="namespace" value="##targetNamespace"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="base" eType="#//AbstractLNClassName">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="base" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Name of the abstract LN class this one extends (directly)."/>
       </eAnnotations>
@@ -471,15 +453,6 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="AttributeName" instanceClassName="java.lang.String">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Name of a Data Attribute."/>
-    </eAnnotations>
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="tAttributeName"/>
-      <details key="baseType" value="tIec61850Name"/>
-    </eAnnotations>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="AttributeTypeKind" instanceClassName="org.eclipse.emf.common.util.Enumerator">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Type kind of a data attribute, which may be &quot;undefined&quot;."/>
@@ -497,7 +470,7 @@
       <details key="name" value="tBasicType"/>
       <details key="kind" value="empty"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="descID" eType="#//DocID">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="descID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Documentation identifier referring to a full description of this object."/>
       </eAnnotations>
@@ -506,7 +479,7 @@
         <details key="name" value="descID"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="#//BasicTypeName">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Name of the basic type (e.g., INT32), as used in SCL."/>
       </eAnnotations>
@@ -515,16 +488,6 @@
         <details key="name" value="name"/>
       </eAnnotations>
     </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="BasicTypeName" instanceClassName="java.lang.String">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Type describing the name of a basic type of a data attribute."/>
-    </eAnnotations>
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="tBasicTypeName"/>
-      <details key="baseType" value="http://www.eclipse.org/emf/2003/XMLType#token"/>
-      <details key="minLength" value="1"/>
-    </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BasicTypes">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -603,7 +566,7 @@
         <details key="name" value="enumParameterized"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="#//CDCName">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Name of the common data class."/>
       </eAnnotations>
@@ -643,16 +606,6 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="CDCName" instanceClassName="java.lang.String">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Name of a Common Data Class (CDC)."/>
-    </eAnnotations>
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="tCDCName"/>
-      <details key="baseType" value="tIec61850Name"/>
-      <details key="minLength" value="1"/>
-    </eAnnotations>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CDCs">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="List of CDCs introduced by a namespace."/>
@@ -681,7 +634,7 @@
       <details key="name" value="tChanges"/>
       <details key="kind" value="empty"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="changesID" eType="#//DocID">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="changesID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Documentation identifier referring to a textual description of changes (not TISSUE list). Shall only be used for private namespaces."/>
       </eAnnotations>
@@ -709,7 +662,7 @@
         <details key="name" value="release"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="revision" eType="#//NSRevision"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="revision" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="A" unsettable="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Revision of the namespace this NSD file is based on, per default 'A'."/>
@@ -719,7 +672,7 @@
         <details key="name" value="revision"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tissues" eType="#//issuesType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tissues" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Comma-separated list of TISSUE numbers that were implemented since the previous namespace version/revision/release."/>
       </eAnnotations>
@@ -755,7 +708,7 @@
         <details key="namespace" value="##targetNamespace"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="#//Iec61850Name">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Name of the constructed (structured) data attribute."/>
       </eAnnotations>
@@ -867,7 +820,7 @@
         <details key="name" value="dupd"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fc" lowerBound="1" eType="#//FCAbbreviation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fc" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Functional constraint of the data attribute."/>
       </eAnnotations>
@@ -886,7 +839,7 @@
         <details key="name" value="isArray"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxIndexAttribute" eType="#//AttributeName">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxIndexAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Name of the Attribute holding the maximal index of the array.&#xA;Is relevant information if and only if isArray=true. One and only one of sizeAttribute and maxIndexAttribute shall be used."/>
       </eAnnotations>
@@ -923,7 +876,7 @@
         <details key="name" value="minValue"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="#//AttributeName">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Name of the data attribute."/>
       </eAnnotations>
@@ -932,7 +885,7 @@
         <details key="name" value="name"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCond" eType="#//PresenceConditionName"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCond" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="M" unsettable="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Presence condition of the element. By default 'M' (mandatory)."/>
@@ -942,7 +895,7 @@
         <details key="name" value="presCond"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgs" eType="#//PresenceConditionArgument">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Optional argument to the presence condition. Can be a sibling element or a group number."/>
       </eAnnotations>
@@ -951,7 +904,7 @@
         <details key="name" value="presCondArgs"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgsID" eType="#//DocID">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgsID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Optional argument to the presence condition: a documentation identifier referring to some free text."/>
       </eAnnotations>
@@ -967,7 +920,7 @@
         <details key="name" value="qchg"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sizeAttribute" eType="#//AttributeName">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sizeAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Sibling data attribute name holding the size of the array.&#xA;Is relevant information if and only if isArray=true. One and only one of sizeAttribute and maxIndexAttribute shall be used."/>
       </eAnnotations>
@@ -976,7 +929,7 @@
         <details key="name" value="sizeAttribute"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//Iec61850Name">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The type of the data attribute, e.g., the name of a basic type like INT32, the name of an enumeration of a constructed data attribute - depending on the sibling typeKind. If not provided, shall be defined by the &quot;parent&quot; element."/>
       </eAnnotations>
@@ -1004,7 +957,7 @@
       <details key="name" value="tDataObject"/>
       <details key="kind" value="empty"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dsPresCond" eType="#//PresenceConditionName"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dsPresCond" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="M" unsettable="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Presence condition of the element. By default 'M' (mandatory)."/>
@@ -1014,7 +967,7 @@
         <details key="name" value="dsPresCond"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dsPresCondArgs" eType="#//PresenceConditionArgument">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dsPresCondArgs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Optional argument to the presence condition. Can be a sibling element or a group number."/>
       </eAnnotations>
@@ -1023,7 +976,7 @@
         <details key="name" value="dsPresCondArgs"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dsPresCondArgsID" eType="#//DocID">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dsPresCondArgsID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Optional argument to the presence condition: a documentation identifier referring to some free text."/>
       </eAnnotations>
@@ -1032,7 +985,7 @@
         <details key="name" value="dsPresCondArgsID"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="#//DataObjectName">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Name of the data object."/>
       </eAnnotations>
@@ -1041,7 +994,7 @@
         <details key="name" value="name"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCond" eType="#//PresenceConditionName"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCond" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="M" unsettable="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Presence condition of the element. By default 'M' (mandatory)."/>
@@ -1051,7 +1004,7 @@
         <details key="name" value="presCond"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgs" eType="#//PresenceConditionArgument">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Optional argument to the presence condition. Can be a sibling element or a group number."/>
       </eAnnotations>
@@ -1060,7 +1013,7 @@
         <details key="name" value="presCondArgs"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgsID" eType="#//DocID">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgsID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Optional argument to the presence condition: a documentation identifier referring to some free text."/>
       </eAnnotations>
@@ -1079,7 +1032,7 @@
         <details key="name" value="transient"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//CDCName">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Type of the data object, i.e., the name of the CDC."/>
       </eAnnotations>
@@ -1088,7 +1041,7 @@
         <details key="name" value="type"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="underlyingType" eType="#//Iec61850Name">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="underlyingType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Type to be used for type-open CDCs, e.g., enumeration to be used for enumeration-based CDCs (e.g., ENS, ENC, ENG)."/>
       </eAnnotations>
@@ -1107,16 +1060,6 @@
         <details key="name" value="underlyingTypeKind"/>
       </eAnnotations>
     </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="DataObjectName" instanceClassName="java.lang.String">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Name of a Data Object."/>
-    </eAnnotations>
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="tDataObjectName"/>
-      <details key="baseType" value="tIec61850Name"/>
-      <details key="maxLength" value="12"/>
-    </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataSetMemberOf">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1200,7 +1143,7 @@
         <details key="group" value="#group:1"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="#//DocID">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Identifier of the documentation string."/>
       </eAnnotations>
@@ -1209,16 +1152,6 @@
         <details key="name" value="id"/>
       </eAnnotations>
     </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="DocID" instanceClassName="java.lang.String">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Identifier referring to a documentation string, available in a sibling file."/>
-    </eAnnotations>
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="tDocID"/>
-      <details key="baseType" value="http://www.eclipse.org/emf/2003/XMLType#normalizedString"/>
-      <details key="minLength" value="1"/>
-    </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DocumentedClass">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1238,7 +1171,7 @@
         <details key="name" value="deprecated"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="descID" eType="#//DocID">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="descID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Documentation identifier referring to a full description of this object."/>
       </eAnnotations>
@@ -1258,16 +1191,6 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="EmptyString" instanceClassName="java.lang.String">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="The empty string."/>
-    </eAnnotations>
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="tEmptyString"/>
-      <details key="baseType" value="http://www.eclipse.org/emf/2003/XMLType#normalizedString"/>
-      <details key="maxLength" value="0"/>
-    </eAnnotations>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Enumeration" eSuperTypes="#//TitledClass">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Definition of an enumeration."/>
@@ -1284,7 +1207,7 @@
         <details key="namespace" value="##targetNamespace"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inheritedFrom" eType="#//Iec61850Name">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inheritedFrom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Name of the enumeration which is extended by the current enumeration."/>
       </eAnnotations>
@@ -1293,7 +1216,7 @@
         <details key="name" value="inheritedFrom"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="#//Iec61850Name">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Name of the enumeration."/>
       </eAnnotations>
@@ -1323,17 +1246,6 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="FCAbbreviation" instanceClassName="java.lang.String">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Functional Constraint abbreviation."/>
-    </eAnnotations>
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="tFCAbbreviation"/>
-      <details key="baseType" value="http://www.eclipse.org/emf/2003/XMLType#token"/>
-      <details key="minLength" value="1"/>
-      <details key="pattern" value="[\p{IsBasicLatin}]+"/>
-    </eAnnotations>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FunctionalConstraint">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Definition of a Functional Constraint."/>
@@ -1351,7 +1263,7 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="abbreviation" lowerBound="1"
-        eType="#//FCAbbreviation">
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Abbreviated name of the FC (e.g., ST, MX, etc.)."/>
       </eAnnotations>
@@ -1360,7 +1272,7 @@
         <details key="name" value="abbreviation"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="descID" eType="#//DocID">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="descID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Documentation identifier referring to a full description of this object."/>
       </eAnnotations>
@@ -1369,7 +1281,7 @@
         <details key="name" value="descID"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="titleID" eType="#//DocID">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="titleID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Documentation identifier referring to the title (alias) of this object."/>
       </eAnnotations>
@@ -1398,28 +1310,6 @@
         <details key="namespace" value="##targetNamespace"/>
       </eAnnotations>
     </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="Iec61850Name" instanceClassName="java.lang.String">
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="tIec61850Name"/>
-      <details key="baseType" value="http://www.eclipse.org/emf/2003/XMLType#Name"/>
-      <details key="minLength" value="1"/>
-      <details key="pattern" value="[\p{IsBasicLatin}\p{IsLatin-1Supplement}]+"/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="Iec61850NameString" instanceClassName="java.lang.String">
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="tIec61850NameString"/>
-      <details key="baseType" value="http://www.eclipse.org/emf/2003/XMLType#normalizedString"/>
-      <details key="pattern" value="[\p{IsBasicLatin}\p{IsLatin-1Supplement}]+"/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="issuesType" instanceClassName="java.lang.String">
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="tissues_._type"/>
-      <details key="baseType" value="http://www.eclipse.org/emf/2003/XMLType#normalizedString"/>
-      <details key="minLength" value="1"/>
-    </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="License">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1491,7 +1381,7 @@
         <details key="name" value="literalVal"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="#//LiteralName">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Name of the enumeration's literal."/>
       </eAnnotations>
@@ -1500,17 +1390,6 @@
         <details key="name" value="name"/>
       </eAnnotations>
     </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="LiteralName" instanceClassName="java.lang.String">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Name of an enumeration literal. Maybe the empty string."/>
-    </eAnnotations>
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="tLiteralName"/>
-      <details key="baseType" value="http://www.eclipse.org/emf/2003/XMLType#normalizedString"/>
-      <details key="maxLength" value="127"/>
-      <details key="pattern" value="[\p{IsBasicLatin}\p{IsLatin-1Supplement}]*"/>
-    </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LNClass" eSuperTypes="#//AnyLNClass">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1540,7 +1419,7 @@
         <details key="name" value="isExtension"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="#//LNClassName">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The logical node class name."/>
       </eAnnotations>
@@ -1580,16 +1459,6 @@
         <details key="namespace" value="##targetNamespace"/>
       </eAnnotations>
     </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="LNClassName" instanceClassName="java.lang.String">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Name of a (non-abstract) logical node class."/>
-    </eAnnotations>
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="tLNClassName"/>
-      <details key="baseType" value="http://www.eclipse.org/emf/2003/XMLType#Name"/>
-      <details key="pattern" value="LLN0 [A-Z]{4}"/>
-    </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Notice">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1725,7 +1594,7 @@
         <details key="namespace" value="##targetNamespace"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="descID" eType="#//DocID">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="descID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Documentation identifier referring to a full description of this NS."/>
       </eAnnotations>
@@ -1734,7 +1603,7 @@
         <details key="name" value="descID"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="#//NSIdentifier">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Identifier of the namespace, e.g., &quot;IEC 61850-7-4&quot;, &quot;(Tr)IEC 61850-90-4&quot;."/>
       </eAnnotations>
@@ -1763,7 +1632,7 @@
         <details key="name" value="release"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="revision" eType="#//NSRevision"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="revision" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="A" unsettable="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Revision of the namespace version, by default 'A'."/>
@@ -1782,7 +1651,7 @@
         <details key="name" value="umlDate"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="umlVersion" eType="#//UMLVersion">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="umlVersion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Version of UML from which this namespace definition file was generated from."/>
       </eAnnotations>
@@ -1821,7 +1690,7 @@
         <details key="namespace" value="##targetNamespace"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="#//NSIdentifier">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Identifier of the namespace, e.g., &quot;IEC 61850-7-4&quot;, &quot;(Tr)IEC 61850-90-4&quot;."/>
       </eAnnotations>
@@ -1859,7 +1728,7 @@
         <details key="name" value="release"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="revision" eType="#//NSRevision"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="revision" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="A" unsettable="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Revision of the namespace version, by default 'A'."/>
@@ -1878,7 +1747,7 @@
         <details key="name" value="umlDate"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="umlVersion" eType="#//UMLVersion">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="umlVersion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Version of UML from which this namespace definition file was generated from."/>
       </eAnnotations>
@@ -1898,16 +1767,6 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="NSIdentifier" instanceClassName="java.lang.String">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Identifier of a namespace."/>
-    </eAnnotations>
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="tNSIdentifier"/>
-      <details key="baseType" value="http://www.eclipse.org/emf/2003/XMLType#normalizedString"/>
-      <details key="pattern" value="\p{IsBasicLatin}+"/>
-    </eAnnotations>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="NSRelease" instanceClassName="short">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Release of a namespace (number between 1 and 255), distinguishing between releases of a same namespace version and revision."/>
@@ -1922,16 +1781,6 @@
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tNSRelease:Object"/>
       <details key="baseType" value="tNSRelease"/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="NSRevision" instanceClassName="java.lang.String">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Revision of a namespace (a basic latin upper-case letter), distinguishing between revisions of a same namespace version."/>
-    </eAnnotations>
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="tNSRevision"/>
-      <details key="baseType" value="http://www.eclipse.org/emf/2003/XMLType#token"/>
-      <details key="pattern" value="[A-Z]"/>
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="NSVersion" instanceClassName="int">
@@ -1959,7 +1808,7 @@
       <details key="name" value="tPresenceCondition"/>
       <details key="kind" value="empty"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="argument" eType="#//PresenceConditionArgument">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="argument" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The presence condition argument, if any."/>
       </eAnnotations>
@@ -1968,7 +1817,7 @@
         <details key="name" value="argument"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="descID" eType="#//DocID">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="descID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Documentation identifier referring to a full description of this object."/>
       </eAnnotations>
@@ -1977,7 +1826,7 @@
         <details key="name" value="descID"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="#//PresenceConditionName">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Name of the presence condition, as used in IEC 61850 data models."/>
       </eAnnotations>
@@ -1986,7 +1835,7 @@
         <details key="name" value="name"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="titleID" eType="#//DocID">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="titleID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Documentation identifier referring to the title (alias) of this object."/>
       </eAnnotations>
@@ -1995,24 +1844,6 @@
         <details key="name" value="titleID"/>
       </eAnnotations>
     </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="PresenceConditionArgument" instanceClassName="java.lang.String">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Argument to (some) presence conditions."/>
-    </eAnnotations>
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="tPresenceConditionArgument"/>
-      <details key="baseType" value="http://www.eclipse.org/emf/2003/XMLType#normalizedString"/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="PresenceConditionName" instanceClassName="java.lang.String">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Name of a presence condition of a child."/>
-    </eAnnotations>
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="tPresenceConditionName"/>
-      <details key="baseType" value="http://www.eclipse.org/emf/2003/XMLType#normalizedString"/>
-    </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PresenceConditions">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2112,7 +1943,7 @@
         <details key="namespace" value="##targetNamespace"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cdc" lowerBound="1" eType="#//CDCName">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cdc" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Name of the common data class the service extension is for."/>
       </eAnnotations>
@@ -2200,7 +2031,7 @@
       <details key="name" value="tServiceDataAttribute"/>
       <details key="kind" value="empty"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fc" lowerBound="1" eType="#//FCAbbreviation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fc" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Functional constraint of the data attribute."/>
       </eAnnotations>
@@ -2209,7 +2040,7 @@
         <details key="name" value="fc"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="#//AttributeName">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Name of the data attribute."/>
       </eAnnotations>
@@ -2218,7 +2049,7 @@
         <details key="name" value="name"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCond" eType="#//PresenceConditionName"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCond" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="M" unsettable="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Presence condition of the element. By default 'M' (mandatory)."/>
@@ -2228,7 +2059,7 @@
         <details key="name" value="presCond"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgs" eType="#//PresenceConditionArgument">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Optional argument to the presence condition. Can be a sibling element or a group number."/>
       </eAnnotations>
@@ -2237,7 +2068,7 @@
         <details key="name" value="presCondArgs"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgsID" eType="#//DocID">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgsID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Optional argument to the presence condition: a documentation identifier referring to some free text."/>
       </eAnnotations>
@@ -2246,7 +2077,7 @@
         <details key="name" value="presCondArgsID"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//Iec61850Name">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The type of the data attribute, e.g., the name of a basic type like INT32, the name of an enumeration of a constructed data attribute - depending on the sibling typeKind. If not provided, shall be defined by the &quot;parent&quot; element."/>
       </eAnnotations>
@@ -2265,7 +2096,7 @@
         <details key="name" value="typeKind"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="underlyingType" eType="#//Iec61850Name">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="underlyingType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Type to be used for type-open CDCs, e.g., enumeration to be used for enumeration-based CDCs (e.g., ENS, ENC, ENG)."/>
       </eAnnotations>
@@ -2370,7 +2201,7 @@
         <details key="namespace" value="##targetNamespace"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="descID" eType="#//DocID">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="descID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Documentation identifier referring to a full description of this NS."/>
       </eAnnotations>
@@ -2379,7 +2210,7 @@
         <details key="name" value="descID"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="#//NSIdentifier">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Identifier of the namespace, e.g., &quot;IEC 61850-7-4&quot;, &quot;(Tr)IEC 61850-90-4&quot;."/>
       </eAnnotations>
@@ -2408,7 +2239,7 @@
         <details key="name" value="release"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="revision" eType="#//NSRevision"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="revision" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="A" unsettable="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Revision of the namespace version, by default 'A'."/>
@@ -2427,7 +2258,7 @@
         <details key="name" value="umlDate"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="umlVersion" eType="#//UMLVersion">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="umlVersion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Version of UML from which this namespace definition file was generated from."/>
       </eAnnotations>
@@ -2466,7 +2297,7 @@
         <details key="namespace" value="##targetNamespace"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="#//NSIdentifier">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Identifier of the namespace, e.g., &quot;IEC 61850-7-4&quot;, &quot;(Tr)IEC 61850-90-4&quot;."/>
       </eAnnotations>
@@ -2495,7 +2326,7 @@
         <details key="name" value="release"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="revision" eType="#//NSRevision"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="revision" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="A" unsettable="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Revision of the namespace version, by default 'A'."/>
@@ -2551,7 +2382,7 @@
         <details key="name" value="minValue"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="#//AttributeName">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Name of the data attribute."/>
       </eAnnotations>
@@ -2560,7 +2391,7 @@
         <details key="name" value="name"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//Iec61850Name">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The type of the data attribute, e.g., the name of a basic type like INT32, the name of an enumeration of a constructed data attribute - depending on the sibling typeKind. If not provided, shall be defined by the &quot;parent&quot; element."/>
       </eAnnotations>
@@ -2588,7 +2419,7 @@
       <details key="name" value="tServiceTypeRealization"/>
       <details key="kind" value="empty"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fc" lowerBound="1" eType="#//FCAbbreviation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fc" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Functional constraint of the data attribute."/>
       </eAnnotations>
@@ -2597,7 +2428,7 @@
         <details key="name" value="fc"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="#//AttributeName">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Name of the data attribute."/>
       </eAnnotations>
@@ -2606,7 +2437,7 @@
         <details key="name" value="name"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCond" eType="#//PresenceConditionName"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCond" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="M" unsettable="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Presence condition of the element. By default 'M' (mandatory)."/>
@@ -2616,7 +2447,7 @@
         <details key="name" value="presCond"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgs" eType="#//PresenceConditionArgument">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Optional argument to the presence condition. Can be a sibling element or a group number."/>
       </eAnnotations>
@@ -2625,7 +2456,7 @@
         <details key="name" value="presCondArgs"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgsID" eType="#//DocID">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgsID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Optional argument to the presence condition: a documentation identifier referring to some free text."/>
       </eAnnotations>
@@ -2634,7 +2465,7 @@
         <details key="name" value="presCondArgsID"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//Iec61850Name">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The type of the data attribute, e.g., the name of a basic type like INT32, the name of an enumeration of a constructed data attribute - depending on the sibling typeKind. If not provided, shall be defined by the &quot;parent&quot; element."/>
       </eAnnotations>
@@ -2701,7 +2532,7 @@
         <details key="name" value="isArray"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxIndexAttribute" eType="#//AttributeName">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxIndexAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Name of the Attribute holding the maximal index of the array.&#xA;Is relevant information if and only if isArray=true. One and only one of sizeAttribute and maxIndexAttribute shall be used."/>
       </eAnnotations>
@@ -2738,7 +2569,7 @@
         <details key="name" value="minValue"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="#//AttributeName">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Name of the data attribute."/>
       </eAnnotations>
@@ -2747,7 +2578,7 @@
         <details key="name" value="name"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCond" eType="#//PresenceConditionName"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCond" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="M" unsettable="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Presence condition of the element. By default 'M' (mandatory)."/>
@@ -2757,7 +2588,7 @@
         <details key="name" value="presCond"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgs" eType="#//PresenceConditionArgument">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Optional argument to the presence condition. Can be a sibling element or a group number."/>
       </eAnnotations>
@@ -2766,7 +2597,7 @@
         <details key="name" value="presCondArgs"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgsID" eType="#//DocID">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgsID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Optional argument to the presence condition: a documentation identifier referring to some free text."/>
       </eAnnotations>
@@ -2775,7 +2606,7 @@
         <details key="name" value="presCondArgsID"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sizeAttribute" eType="#//AttributeName">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sizeAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Sibling data attribute name holding the size of the array.&#xA;Is relevant information if and only if isArray=true. One and only one of sizeAttribute and maxIndexAttribute shall be used."/>
       </eAnnotations>
@@ -2784,7 +2615,7 @@
         <details key="name" value="sizeAttribute"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//Iec61850Name">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The type of the data attribute, e.g., the name of a basic type like INT32, the name of an enumeration of a constructed data attribute - depending on the sibling typeKind. If not provided, shall be defined by the &quot;parent&quot; element."/>
       </eAnnotations>
@@ -2822,7 +2653,7 @@
         <details key="name" value="isArray"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxIndexAttribute" eType="#//AttributeName">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxIndexAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Name of the Attribute holding the maximal index of the array.&#xA;Is relevant information if and only if isArray=true. One and only one of sizeAttribute and maxIndexAttribute shall be used."/>
       </eAnnotations>
@@ -2841,7 +2672,7 @@
         <details key="name" value="minIndex"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="#//SubDataObjectName">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Name of the Sub-Data Object."/>
       </eAnnotations>
@@ -2850,7 +2681,7 @@
         <details key="name" value="name"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCond" eType="#//PresenceConditionName"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCond" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="M" unsettable="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Presence condition of the element. By default 'M' (mandatory)."/>
@@ -2860,7 +2691,7 @@
         <details key="name" value="presCond"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgs" eType="#//PresenceConditionArgument">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Optional argument to the presence condition. Can be a sibling element or a group number."/>
       </eAnnotations>
@@ -2869,7 +2700,7 @@
         <details key="name" value="presCondArgs"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgsID" eType="#//DocID">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgsID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Optional argument to the presence condition: a documentation identifier referring to some free text."/>
       </eAnnotations>
@@ -2878,7 +2709,7 @@
         <details key="name" value="presCondArgsID"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sizeAttribute" eType="#//AttributeName">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sizeAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Sibling data attribute name holding the size of the array.&#xA;Is relevant information if and only if isArray=true. One and only one of sizeAttribute and maxIndexAttribute shall be used."/>
       </eAnnotations>
@@ -2887,7 +2718,7 @@
         <details key="name" value="sizeAttribute"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//CDCName">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Type of the SubDataObject, i.e., its CDC."/>
       </eAnnotations>
@@ -2896,7 +2727,7 @@
         <details key="name" value="type"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="underlyingType" eType="#//Iec61850Name">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="underlyingType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Type to be used for type-open CDCs, e.g., enumeration to be used for enumeration-based CDCs (e.g., ENS, ENC, ENG)."/>
       </eAnnotations>
@@ -2916,15 +2747,6 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="SubDataObjectName" instanceClassName="java.lang.String">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Name of a Sub-Data Object."/>
-    </eAnnotations>
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="tSubDataObjectName"/>
-      <details key="baseType" value="tIec61850Name"/>
-    </eAnnotations>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TitledClass" eSuperTypes="#//DocumentedClass">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A tDocumentedClass with title."/>
@@ -2934,7 +2756,7 @@
       <details key="kind" value="empty"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="titleID" lowerBound="1"
-        eType="#//DocID">
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Documentation identifier referring to the title (alias) of this object."/>
       </eAnnotations>
@@ -2943,16 +2765,6 @@
         <details key="name" value="titleID"/>
       </eAnnotations>
     </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="UMLVersion" instanceClassName="java.lang.String">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Version of the UML model used to generate this NSD."/>
-    </eAnnotations>
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="tUMLVersion"/>
-      <details key="baseType" value="http://www.eclipse.org/emf/2003/XMLType#Name"/>
-      <details key="minLength" value="1"/>
-    </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="UndefinedAttributeTypeKind">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

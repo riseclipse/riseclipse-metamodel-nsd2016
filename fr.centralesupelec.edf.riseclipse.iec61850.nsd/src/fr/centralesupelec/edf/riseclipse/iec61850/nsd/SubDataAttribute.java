@@ -147,8 +147,7 @@ public interface SubDataAttribute extends DocumentedClass {
      * @return the value of the '<em>Max Index Attribute</em>' attribute.
      * @see #setMaxIndexAttribute(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getSubDataAttribute_MaxIndexAttribute()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.AttributeName"
-     *        extendedMetaData="kind='attribute' name='maxIndexAttribute'"
+     * @model extendedMetaData="kind='attribute' name='maxIndexAttribute'"
      * @generated
      */
     String getMaxIndexAttribute();
@@ -281,7 +280,7 @@ public interface SubDataAttribute extends DocumentedClass {
      * @return the value of the '<em>Name</em>' attribute.
      * @see #setName(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getSubDataAttribute_Name()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.AttributeName" required="true"
+     * @model required="true"
      *        extendedMetaData="kind='attribute' name='name'"
      * @generated
      */
@@ -310,7 +309,7 @@ public interface SubDataAttribute extends DocumentedClass {
      * @see #unsetPresCond()
      * @see #setPresCond(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getSubDataAttribute_PresCond()
-     * @model default="M" unsettable="true" dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditionName"
+     * @model default="M" unsettable="true"
      *        extendedMetaData="kind='attribute' name='presCond'"
      * @generated
      */
@@ -361,8 +360,7 @@ public interface SubDataAttribute extends DocumentedClass {
      * @return the value of the '<em>Pres Cond Args</em>' attribute.
      * @see #setPresCondArgs(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getSubDataAttribute_PresCondArgs()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditionArgument"
-     *        extendedMetaData="kind='attribute' name='presCondArgs'"
+     * @model extendedMetaData="kind='attribute' name='presCondArgs'"
      * @generated
      */
     String getPresCondArgs();
@@ -387,8 +385,7 @@ public interface SubDataAttribute extends DocumentedClass {
      * @return the value of the '<em>Pres Cond Args ID</em>' attribute.
      * @see #setPresCondArgsID(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getSubDataAttribute_PresCondArgsID()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocID"
-     *        extendedMetaData="kind='attribute' name='presCondArgsID'"
+     * @model extendedMetaData="kind='attribute' name='presCondArgsID'"
      * @generated
      */
     String getPresCondArgsID();
@@ -414,8 +411,7 @@ public interface SubDataAttribute extends DocumentedClass {
      * @return the value of the '<em>Size Attribute</em>' attribute.
      * @see #setSizeAttribute(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getSubDataAttribute_SizeAttribute()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.AttributeName"
-     *        extendedMetaData="kind='attribute' name='sizeAttribute'"
+     * @model extendedMetaData="kind='attribute' name='sizeAttribute'"
      * @generated
      */
     String getSizeAttribute();
@@ -440,8 +436,7 @@ public interface SubDataAttribute extends DocumentedClass {
      * @return the value of the '<em>Type</em>' attribute.
      * @see #setType(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getSubDataAttribute_Type()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.Iec61850Name"
-     *        extendedMetaData="kind='attribute' name='type'"
+     * @model extendedMetaData="kind='attribute' name='type'"
      * @generated
      */
     String getType();

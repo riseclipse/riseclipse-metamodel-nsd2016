@@ -50,7 +50,7 @@ public interface AbstractLNClass extends AnyLNClass {
      * @return the value of the '<em>Name</em>' attribute.
      * @see #setName(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAbstractLNClass_Name()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClassName" required="true"
+     * @model required="true"
      *        extendedMetaData="kind='attribute' name='name'"
      * @generated
      */

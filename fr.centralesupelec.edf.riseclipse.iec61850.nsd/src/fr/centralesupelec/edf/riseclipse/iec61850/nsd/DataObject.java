@@ -63,7 +63,7 @@ public interface DataObject extends DocumentedClass {
      * @see #unsetDsPresCond()
      * @see #setDsPresCond(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataObject_DsPresCond()
-     * @model default="M" unsettable="true" dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditionName"
+     * @model default="M" unsettable="true"
      *        extendedMetaData="kind='attribute' name='dsPresCond'"
      * @generated
      */
@@ -114,8 +114,7 @@ public interface DataObject extends DocumentedClass {
      * @return the value of the '<em>Ds Pres Cond Args</em>' attribute.
      * @see #setDsPresCondArgs(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataObject_DsPresCondArgs()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditionArgument"
-     *        extendedMetaData="kind='attribute' name='dsPresCondArgs'"
+     * @model extendedMetaData="kind='attribute' name='dsPresCondArgs'"
      * @generated
      */
     String getDsPresCondArgs();
@@ -140,8 +139,7 @@ public interface DataObject extends DocumentedClass {
      * @return the value of the '<em>Ds Pres Cond Args ID</em>' attribute.
      * @see #setDsPresCondArgsID(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataObject_DsPresCondArgsID()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocID"
-     *        extendedMetaData="kind='attribute' name='dsPresCondArgsID'"
+     * @model extendedMetaData="kind='attribute' name='dsPresCondArgsID'"
      * @generated
      */
     String getDsPresCondArgsID();
@@ -166,7 +164,7 @@ public interface DataObject extends DocumentedClass {
      * @return the value of the '<em>Name</em>' attribute.
      * @see #setName(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataObject_Name()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObjectName" required="true"
+     * @model required="true"
      *        extendedMetaData="kind='attribute' name='name'"
      * @generated
      */
@@ -195,7 +193,7 @@ public interface DataObject extends DocumentedClass {
      * @see #unsetPresCond()
      * @see #setPresCond(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataObject_PresCond()
-     * @model default="M" unsettable="true" dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditionName"
+     * @model default="M" unsettable="true"
      *        extendedMetaData="kind='attribute' name='presCond'"
      * @generated
      */
@@ -246,8 +244,7 @@ public interface DataObject extends DocumentedClass {
      * @return the value of the '<em>Pres Cond Args</em>' attribute.
      * @see #setPresCondArgs(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataObject_PresCondArgs()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditionArgument"
-     *        extendedMetaData="kind='attribute' name='presCondArgs'"
+     * @model extendedMetaData="kind='attribute' name='presCondArgs'"
      * @generated
      */
     String getPresCondArgs();
@@ -272,8 +269,7 @@ public interface DataObject extends DocumentedClass {
      * @return the value of the '<em>Pres Cond Args ID</em>' attribute.
      * @see #setPresCondArgsID(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataObject_PresCondArgsID()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocID"
-     *        extendedMetaData="kind='attribute' name='presCondArgsID'"
+     * @model extendedMetaData="kind='attribute' name='presCondArgsID'"
      * @generated
      */
     String getPresCondArgsID();
@@ -352,7 +348,7 @@ public interface DataObject extends DocumentedClass {
      * @return the value of the '<em>Type</em>' attribute.
      * @see #setType(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataObject_Type()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCName" required="true"
+     * @model required="true"
      *        extendedMetaData="kind='attribute' name='type'"
      * @generated
      */
@@ -378,8 +374,7 @@ public interface DataObject extends DocumentedClass {
      * @return the value of the '<em>Underlying Type</em>' attribute.
      * @see #setUnderlyingType(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataObject_UnderlyingType()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.Iec61850Name"
-     *        extendedMetaData="kind='attribute' name='underlyingType'"
+     * @model extendedMetaData="kind='attribute' name='underlyingType'"
      * @generated
      */
     String getUnderlyingType();

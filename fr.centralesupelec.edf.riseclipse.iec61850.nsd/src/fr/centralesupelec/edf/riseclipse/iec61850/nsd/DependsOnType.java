@@ -52,7 +52,7 @@ public interface DependsOnType extends EObject {
      * @return the value of the '<em>Id</em>' attribute.
      * @see #setId(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDependsOnType_Id()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSIdentifier" required="true"
+     * @model required="true"
      *        extendedMetaData="kind='attribute' name='id'"
      * @generated
      */
@@ -192,7 +192,7 @@ public interface DependsOnType extends EObject {
      * @see #unsetRevision()
      * @see #setRevision(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDependsOnType_Revision()
-     * @model default="A" unsettable="true" dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSRevision"
+     * @model default="A" unsettable="true"
      *        extendedMetaData="kind='attribute' name='revision'"
      * @generated
      */

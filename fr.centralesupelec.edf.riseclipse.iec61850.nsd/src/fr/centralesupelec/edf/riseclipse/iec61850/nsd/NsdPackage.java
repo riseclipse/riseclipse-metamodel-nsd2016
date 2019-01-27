@@ -4050,26 +4050,6 @@ public interface NsdPackage extends EPackage {
     int UNDEFINED_ATTRIBUTE_TYPE_KIND = 55;
 
     /**
-     * The meta object id for the '<em>Abbreviation Name</em>' data type.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see java.lang.String
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getAbbreviationName()
-     * @generated
-     */
-    int ABBREVIATION_NAME = 56;
-
-    /**
-     * The meta object id for the '<em>Abstract LN Class Name</em>' data type.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see java.lang.String
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getAbstractLNClassName()
-     * @generated
-     */
-    int ABSTRACT_LN_CLASS_NAME = 57;
-
-    /**
      * The meta object id for the '<em>ACSI Services Kind Object</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4077,17 +4057,7 @@ public interface NsdPackage extends EPackage {
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getACSIServicesKindObject()
      * @generated
      */
-    int ACSI_SERVICES_KIND_OBJECT = 58;
-
-    /**
-     * The meta object id for the '<em>Attribute Name</em>' data type.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see java.lang.String
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getAttributeName()
-     * @generated
-     */
-    int ATTRIBUTE_NAME = 59;
+    int ACSI_SERVICES_KIND_OBJECT = 56;
 
     /**
      * The meta object id for the '<em>Attribute Type Kind</em>' data type.
@@ -4097,17 +4067,7 @@ public interface NsdPackage extends EPackage {
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getAttributeTypeKind()
      * @generated
      */
-    int ATTRIBUTE_TYPE_KIND = 60;
-
-    /**
-     * The meta object id for the '<em>Basic Type Name</em>' data type.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see java.lang.String
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getBasicTypeName()
-     * @generated
-     */
-    int BASIC_TYPE_NAME = 61;
+    int ATTRIBUTE_TYPE_KIND = 57;
 
     /**
      * The meta object id for the '<em>CB Kind Object</em>' data type.
@@ -4117,27 +4077,7 @@ public interface NsdPackage extends EPackage {
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getCBKindObject()
      * @generated
      */
-    int CB_KIND_OBJECT = 62;
-
-    /**
-     * The meta object id for the '<em>CDC Name</em>' data type.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see java.lang.String
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getCDCName()
-     * @generated
-     */
-    int CDC_NAME = 63;
-
-    /**
-     * The meta object id for the '<em>Data Object Name</em>' data type.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see java.lang.String
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getDataObjectName()
-     * @generated
-     */
-    int DATA_OBJECT_NAME = 64;
+    int CB_KIND_OBJECT = 58;
 
     /**
      * The meta object id for the '<em>Defined Attribute Type Kind Object</em>' data type.
@@ -4147,67 +4087,7 @@ public interface NsdPackage extends EPackage {
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getDefinedAttributeTypeKindObject()
      * @generated
      */
-    int DEFINED_ATTRIBUTE_TYPE_KIND_OBJECT = 65;
-
-    /**
-     * The meta object id for the '<em>Doc ID</em>' data type.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see java.lang.String
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getDocID()
-     * @generated
-     */
-    int DOC_ID = 66;
-
-    /**
-     * The meta object id for the '<em>Empty String</em>' data type.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see java.lang.String
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getEmptyString()
-     * @generated
-     */
-    int EMPTY_STRING = 67;
-
-    /**
-     * The meta object id for the '<em>FC Abbreviation</em>' data type.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see java.lang.String
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getFCAbbreviation()
-     * @generated
-     */
-    int FC_ABBREVIATION = 68;
-
-    /**
-     * The meta object id for the '<em>Iec61850 Name</em>' data type.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see java.lang.String
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getIec61850Name()
-     * @generated
-     */
-    int IEC61850_NAME = 69;
-
-    /**
-     * The meta object id for the '<em>Iec61850 Name String</em>' data type.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see java.lang.String
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getIec61850NameString()
-     * @generated
-     */
-    int IEC61850_NAME_STRING = 70;
-
-    /**
-     * The meta object id for the '<em>issues Type</em>' data type.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see java.lang.String
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getissuesType()
-     * @generated
-     */
-    int ISSUES_TYPE = 71;
+    int DEFINED_ATTRIBUTE_TYPE_KIND_OBJECT = 59;
 
     /**
      * The meta object id for the '<em>License Kind Object</em>' data type.
@@ -4217,37 +4097,7 @@ public interface NsdPackage extends EPackage {
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getLicenseKindObject()
      * @generated
      */
-    int LICENSE_KIND_OBJECT = 72;
-
-    /**
-     * The meta object id for the '<em>Literal Name</em>' data type.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see java.lang.String
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getLiteralName()
-     * @generated
-     */
-    int LITERAL_NAME = 73;
-
-    /**
-     * The meta object id for the '<em>LN Class Name</em>' data type.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see java.lang.String
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getLNClassName()
-     * @generated
-     */
-    int LN_CLASS_NAME = 74;
-
-    /**
-     * The meta object id for the '<em>NS Identifier</em>' data type.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see java.lang.String
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getNSIdentifier()
-     * @generated
-     */
-    int NS_IDENTIFIER = 75;
+    int LICENSE_KIND_OBJECT = 60;
 
     /**
      * The meta object id for the '<em>NS Release</em>' data type.
@@ -4256,7 +4106,7 @@ public interface NsdPackage extends EPackage {
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getNSRelease()
      * @generated
      */
-    int NS_RELEASE = 76;
+    int NS_RELEASE = 61;
 
     /**
      * The meta object id for the '<em>NS Release Object</em>' data type.
@@ -4266,17 +4116,7 @@ public interface NsdPackage extends EPackage {
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getNSReleaseObject()
      * @generated
      */
-    int NS_RELEASE_OBJECT = 77;
-
-    /**
-     * The meta object id for the '<em>NS Revision</em>' data type.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see java.lang.String
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getNSRevision()
-     * @generated
-     */
-    int NS_REVISION = 78;
+    int NS_RELEASE_OBJECT = 62;
 
     /**
      * The meta object id for the '<em>NS Version</em>' data type.
@@ -4285,7 +4125,7 @@ public interface NsdPackage extends EPackage {
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getNSVersion()
      * @generated
      */
-    int NS_VERSION = 79;
+    int NS_VERSION = 63;
 
     /**
      * The meta object id for the '<em>NS Version Object</em>' data type.
@@ -4295,27 +4135,7 @@ public interface NsdPackage extends EPackage {
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getNSVersionObject()
      * @generated
      */
-    int NS_VERSION_OBJECT = 80;
-
-    /**
-     * The meta object id for the '<em>Presence Condition Argument</em>' data type.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see java.lang.String
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getPresenceConditionArgument()
-     * @generated
-     */
-    int PRESENCE_CONDITION_ARGUMENT = 81;
-
-    /**
-     * The meta object id for the '<em>Presence Condition Name</em>' data type.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see java.lang.String
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getPresenceConditionName()
-     * @generated
-     */
-    int PRESENCE_CONDITION_NAME = 82;
+    int NS_VERSION_OBJECT = 64;
 
     /**
      * The meta object id for the '<em>Pub Stage Object</em>' data type.
@@ -4325,27 +4145,7 @@ public interface NsdPackage extends EPackage {
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getPubStageObject()
      * @generated
      */
-    int PUB_STAGE_OBJECT = 83;
-
-    /**
-     * The meta object id for the '<em>Sub Data Object Name</em>' data type.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see java.lang.String
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getSubDataObjectName()
-     * @generated
-     */
-    int SUB_DATA_OBJECT_NAME = 84;
-
-    /**
-     * The meta object id for the '<em>UML Version</em>' data type.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see java.lang.String
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getUMLVersion()
-     * @generated
-     */
-    int UML_VERSION = 85;
+    int PUB_STAGE_OBJECT = 65;
 
     /**
      * The meta object id for the '<em>Undefined Attribute Type Kind Object</em>' data type.
@@ -4355,7 +4155,7 @@ public interface NsdPackage extends EPackage {
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getUndefinedAttributeTypeKindObject()
      * @generated
      */
-    int UNDEFINED_ATTRIBUTE_TYPE_KIND_OBJECT = 86;
+    int UNDEFINED_ATTRIBUTE_TYPE_KIND_OBJECT = 66;
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType <em>Applies To Type</em>}'.
@@ -7305,36 +7105,6 @@ public interface NsdPackage extends EPackage {
     EEnum getUndefinedAttributeTypeKind();
 
     /**
-     * Returns the meta object for data type '{@link java.lang.String <em>Abbreviation Name</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Name of an abbreviation.
-     * <!-- end-model-doc -->
-     * @return the meta object for data type '<em>Abbreviation Name</em>'.
-     * @see java.lang.String
-     * @model instanceClass="java.lang.String"
-     *        extendedMetaData="name='tAbbreviationName' baseType='http://www.eclipse.org/emf/2003/XMLType#normalizedString'"
-     * @generated
-     */
-    EDataType getAbbreviationName();
-
-    /**
-     * Returns the meta object for data type '{@link java.lang.String <em>Abstract LN Class Name</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Name of an abstract logical node.
-     * <!-- end-model-doc -->
-     * @return the meta object for data type '<em>Abstract LN Class Name</em>'.
-     * @see java.lang.String
-     * @model instanceClass="java.lang.String"
-     *        extendedMetaData="name='tAbstractLNClassName' baseType='tIec61850Name'"
-     * @generated
-     */
-    EDataType getAbstractLNClassName();
-
-    /**
      * Returns the meta object for data type '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ACSIServicesKind <em>ACSI Services Kind Object</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7345,21 +7115,6 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EDataType getACSIServicesKindObject();
-
-    /**
-     * Returns the meta object for data type '{@link java.lang.String <em>Attribute Name</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Name of a Data Attribute.
-     * <!-- end-model-doc -->
-     * @return the meta object for data type '<em>Attribute Name</em>'.
-     * @see java.lang.String
-     * @model instanceClass="java.lang.String"
-     *        extendedMetaData="name='tAttributeName' baseType='tIec61850Name'"
-     * @generated
-     */
-    EDataType getAttributeName();
 
     /**
      * Returns the meta object for data type '{@link org.eclipse.emf.common.util.Enumerator <em>Attribute Type Kind</em>}'.
@@ -7377,21 +7132,6 @@ public interface NsdPackage extends EPackage {
     EDataType getAttributeTypeKind();
 
     /**
-     * Returns the meta object for data type '{@link java.lang.String <em>Basic Type Name</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Type describing the name of a basic type of a data attribute.
-     * <!-- end-model-doc -->
-     * @return the meta object for data type '<em>Basic Type Name</em>'.
-     * @see java.lang.String
-     * @model instanceClass="java.lang.String"
-     *        extendedMetaData="name='tBasicTypeName' baseType='http://www.eclipse.org/emf/2003/XMLType#token' minLength='1'"
-     * @generated
-     */
-    EDataType getBasicTypeName();
-
-    /**
      * Returns the meta object for data type '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CBKind <em>CB Kind Object</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7402,36 +7142,6 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EDataType getCBKindObject();
-
-    /**
-     * Returns the meta object for data type '{@link java.lang.String <em>CDC Name</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Name of a Common Data Class (CDC).
-     * <!-- end-model-doc -->
-     * @return the meta object for data type '<em>CDC Name</em>'.
-     * @see java.lang.String
-     * @model instanceClass="java.lang.String"
-     *        extendedMetaData="name='tCDCName' baseType='tIec61850Name' minLength='1'"
-     * @generated
-     */
-    EDataType getCDCName();
-
-    /**
-     * Returns the meta object for data type '{@link java.lang.String <em>Data Object Name</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Name of a Data Object.
-     * <!-- end-model-doc -->
-     * @return the meta object for data type '<em>Data Object Name</em>'.
-     * @see java.lang.String
-     * @model instanceClass="java.lang.String"
-     *        extendedMetaData="name='tDataObjectName' baseType='tIec61850Name' maxLength='12'"
-     * @generated
-     */
-    EDataType getDataObjectName();
 
     /**
      * Returns the meta object for data type '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind <em>Defined Attribute Type Kind Object</em>}'.
@@ -7446,87 +7156,6 @@ public interface NsdPackage extends EPackage {
     EDataType getDefinedAttributeTypeKindObject();
 
     /**
-     * Returns the meta object for data type '{@link java.lang.String <em>Doc ID</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Identifier referring to a documentation string, available in a sibling file.
-     * <!-- end-model-doc -->
-     * @return the meta object for data type '<em>Doc ID</em>'.
-     * @see java.lang.String
-     * @model instanceClass="java.lang.String"
-     *        extendedMetaData="name='tDocID' baseType='http://www.eclipse.org/emf/2003/XMLType#normalizedString' minLength='1'"
-     * @generated
-     */
-    EDataType getDocID();
-
-    /**
-     * Returns the meta object for data type '{@link java.lang.String <em>Empty String</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * The empty string.
-     * <!-- end-model-doc -->
-     * @return the meta object for data type '<em>Empty String</em>'.
-     * @see java.lang.String
-     * @model instanceClass="java.lang.String"
-     *        extendedMetaData="name='tEmptyString' baseType='http://www.eclipse.org/emf/2003/XMLType#normalizedString' maxLength='0'"
-     * @generated
-     */
-    EDataType getEmptyString();
-
-    /**
-     * Returns the meta object for data type '{@link java.lang.String <em>FC Abbreviation</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Functional Constraint abbreviation.
-     * <!-- end-model-doc -->
-     * @return the meta object for data type '<em>FC Abbreviation</em>'.
-     * @see java.lang.String
-     * @model instanceClass="java.lang.String"
-     *        extendedMetaData="name='tFCAbbreviation' baseType='http://www.eclipse.org/emf/2003/XMLType#token' minLength='1' pattern='[\\p{IsBasicLatin}]+'"
-     * @generated
-     */
-    EDataType getFCAbbreviation();
-
-    /**
-     * Returns the meta object for data type '{@link java.lang.String <em>Iec61850 Name</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for data type '<em>Iec61850 Name</em>'.
-     * @see java.lang.String
-     * @model instanceClass="java.lang.String"
-     *        extendedMetaData="name='tIec61850Name' baseType='http://www.eclipse.org/emf/2003/XMLType#Name' minLength='1' pattern='[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]+'"
-     * @generated
-     */
-    EDataType getIec61850Name();
-
-    /**
-     * Returns the meta object for data type '{@link java.lang.String <em>Iec61850 Name String</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for data type '<em>Iec61850 Name String</em>'.
-     * @see java.lang.String
-     * @model instanceClass="java.lang.String"
-     *        extendedMetaData="name='tIec61850NameString' baseType='http://www.eclipse.org/emf/2003/XMLType#normalizedString' pattern='[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]+'"
-     * @generated
-     */
-    EDataType getIec61850NameString();
-
-    /**
-     * Returns the meta object for data type '{@link java.lang.String <em>issues Type</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for data type '<em>issues Type</em>'.
-     * @see java.lang.String
-     * @model instanceClass="java.lang.String"
-     *        extendedMetaData="name='tissues_._type' baseType='http://www.eclipse.org/emf/2003/XMLType#normalizedString' minLength='1'"
-     * @generated
-     */
-    EDataType getissuesType();
-
-    /**
      * Returns the meta object for data type '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LicenseKind <em>License Kind Object</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7537,51 +7166,6 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EDataType getLicenseKindObject();
-
-    /**
-     * Returns the meta object for data type '{@link java.lang.String <em>Literal Name</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Name of an enumeration literal. Maybe the empty string.
-     * <!-- end-model-doc -->
-     * @return the meta object for data type '<em>Literal Name</em>'.
-     * @see java.lang.String
-     * @model instanceClass="java.lang.String"
-     *        extendedMetaData="name='tLiteralName' baseType='http://www.eclipse.org/emf/2003/XMLType#normalizedString' maxLength='127' pattern='[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]*'"
-     * @generated
-     */
-    EDataType getLiteralName();
-
-    /**
-     * Returns the meta object for data type '{@link java.lang.String <em>LN Class Name</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Name of a (non-abstract) logical node class.
-     * <!-- end-model-doc -->
-     * @return the meta object for data type '<em>LN Class Name</em>'.
-     * @see java.lang.String
-     * @model instanceClass="java.lang.String"
-     *        extendedMetaData="name='tLNClassName' baseType='http://www.eclipse.org/emf/2003/XMLType#Name' pattern='LLN0 [A-Z]{4}'"
-     * @generated
-     */
-    EDataType getLNClassName();
-
-    /**
-     * Returns the meta object for data type '{@link java.lang.String <em>NS Identifier</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Identifier of a namespace.
-     * <!-- end-model-doc -->
-     * @return the meta object for data type '<em>NS Identifier</em>'.
-     * @see java.lang.String
-     * @model instanceClass="java.lang.String"
-     *        extendedMetaData="name='tNSIdentifier' baseType='http://www.eclipse.org/emf/2003/XMLType#normalizedString' pattern='\\p{IsBasicLatin}+'"
-     * @generated
-     */
-    EDataType getNSIdentifier();
 
     /**
      * Returns the meta object for data type '<em>NS Release</em>'.
@@ -7610,21 +7194,6 @@ public interface NsdPackage extends EPackage {
     EDataType getNSReleaseObject();
 
     /**
-     * Returns the meta object for data type '{@link java.lang.String <em>NS Revision</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Revision of a namespace (a basic latin upper-case letter), distinguishing between revisions of a same namespace version.
-     * <!-- end-model-doc -->
-     * @return the meta object for data type '<em>NS Revision</em>'.
-     * @see java.lang.String
-     * @model instanceClass="java.lang.String"
-     *        extendedMetaData="name='tNSRevision' baseType='http://www.eclipse.org/emf/2003/XMLType#token' pattern='[A-Z]'"
-     * @generated
-     */
-    EDataType getNSRevision();
-
-    /**
      * Returns the meta object for data type '<em>NS Version</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7651,36 +7220,6 @@ public interface NsdPackage extends EPackage {
     EDataType getNSVersionObject();
 
     /**
-     * Returns the meta object for data type '{@link java.lang.String <em>Presence Condition Argument</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Argument to (some) presence conditions.
-     * <!-- end-model-doc -->
-     * @return the meta object for data type '<em>Presence Condition Argument</em>'.
-     * @see java.lang.String
-     * @model instanceClass="java.lang.String"
-     *        extendedMetaData="name='tPresenceConditionArgument' baseType='http://www.eclipse.org/emf/2003/XMLType#normalizedString'"
-     * @generated
-     */
-    EDataType getPresenceConditionArgument();
-
-    /**
-     * Returns the meta object for data type '{@link java.lang.String <em>Presence Condition Name</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Name of a presence condition of a child.
-     * <!-- end-model-doc -->
-     * @return the meta object for data type '<em>Presence Condition Name</em>'.
-     * @see java.lang.String
-     * @model instanceClass="java.lang.String"
-     *        extendedMetaData="name='tPresenceConditionName' baseType='http://www.eclipse.org/emf/2003/XMLType#normalizedString'"
-     * @generated
-     */
-    EDataType getPresenceConditionName();
-
-    /**
      * Returns the meta object for data type '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage <em>Pub Stage Object</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7691,36 +7230,6 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EDataType getPubStageObject();
-
-    /**
-     * Returns the meta object for data type '{@link java.lang.String <em>Sub Data Object Name</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Name of a Sub-Data Object.
-     * <!-- end-model-doc -->
-     * @return the meta object for data type '<em>Sub Data Object Name</em>'.
-     * @see java.lang.String
-     * @model instanceClass="java.lang.String"
-     *        extendedMetaData="name='tSubDataObjectName' baseType='tIec61850Name'"
-     * @generated
-     */
-    EDataType getSubDataObjectName();
-
-    /**
-     * Returns the meta object for data type '{@link java.lang.String <em>UML Version</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Version of the UML model used to generate this NSD.
-     * <!-- end-model-doc -->
-     * @return the meta object for data type '<em>UML Version</em>'.
-     * @see java.lang.String
-     * @model instanceClass="java.lang.String"
-     *        extendedMetaData="name='tUMLVersion' baseType='http://www.eclipse.org/emf/2003/XMLType#Name' minLength='1'"
-     * @generated
-     */
-    EDataType getUMLVersion();
 
     /**
      * Returns the meta object for data type '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.UndefinedAttributeTypeKind <em>Undefined Attribute Type Kind Object</em>}'.
@@ -10060,26 +9569,6 @@ public interface NsdPackage extends EPackage {
         EEnum UNDEFINED_ATTRIBUTE_TYPE_KIND = eINSTANCE.getUndefinedAttributeTypeKind();
 
         /**
-         * The meta object literal for the '<em>Abbreviation Name</em>' data type.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see java.lang.String
-         * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getAbbreviationName()
-         * @generated
-         */
-        EDataType ABBREVIATION_NAME = eINSTANCE.getAbbreviationName();
-
-        /**
-         * The meta object literal for the '<em>Abstract LN Class Name</em>' data type.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see java.lang.String
-         * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getAbstractLNClassName()
-         * @generated
-         */
-        EDataType ABSTRACT_LN_CLASS_NAME = eINSTANCE.getAbstractLNClassName();
-
-        /**
          * The meta object literal for the '<em>ACSI Services Kind Object</em>' data type.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -10088,16 +9577,6 @@ public interface NsdPackage extends EPackage {
          * @generated
          */
         EDataType ACSI_SERVICES_KIND_OBJECT = eINSTANCE.getACSIServicesKindObject();
-
-        /**
-         * The meta object literal for the '<em>Attribute Name</em>' data type.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see java.lang.String
-         * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getAttributeName()
-         * @generated
-         */
-        EDataType ATTRIBUTE_NAME = eINSTANCE.getAttributeName();
 
         /**
          * The meta object literal for the '<em>Attribute Type Kind</em>' data type.
@@ -10110,16 +9589,6 @@ public interface NsdPackage extends EPackage {
         EDataType ATTRIBUTE_TYPE_KIND = eINSTANCE.getAttributeTypeKind();
 
         /**
-         * The meta object literal for the '<em>Basic Type Name</em>' data type.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see java.lang.String
-         * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getBasicTypeName()
-         * @generated
-         */
-        EDataType BASIC_TYPE_NAME = eINSTANCE.getBasicTypeName();
-
-        /**
          * The meta object literal for the '<em>CB Kind Object</em>' data type.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -10128,26 +9597,6 @@ public interface NsdPackage extends EPackage {
          * @generated
          */
         EDataType CB_KIND_OBJECT = eINSTANCE.getCBKindObject();
-
-        /**
-         * The meta object literal for the '<em>CDC Name</em>' data type.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see java.lang.String
-         * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getCDCName()
-         * @generated
-         */
-        EDataType CDC_NAME = eINSTANCE.getCDCName();
-
-        /**
-         * The meta object literal for the '<em>Data Object Name</em>' data type.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see java.lang.String
-         * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getDataObjectName()
-         * @generated
-         */
-        EDataType DATA_OBJECT_NAME = eINSTANCE.getDataObjectName();
 
         /**
          * The meta object literal for the '<em>Defined Attribute Type Kind Object</em>' data type.
@@ -10160,66 +9609,6 @@ public interface NsdPackage extends EPackage {
         EDataType DEFINED_ATTRIBUTE_TYPE_KIND_OBJECT = eINSTANCE.getDefinedAttributeTypeKindObject();
 
         /**
-         * The meta object literal for the '<em>Doc ID</em>' data type.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see java.lang.String
-         * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getDocID()
-         * @generated
-         */
-        EDataType DOC_ID = eINSTANCE.getDocID();
-
-        /**
-         * The meta object literal for the '<em>Empty String</em>' data type.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see java.lang.String
-         * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getEmptyString()
-         * @generated
-         */
-        EDataType EMPTY_STRING = eINSTANCE.getEmptyString();
-
-        /**
-         * The meta object literal for the '<em>FC Abbreviation</em>' data type.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see java.lang.String
-         * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getFCAbbreviation()
-         * @generated
-         */
-        EDataType FC_ABBREVIATION = eINSTANCE.getFCAbbreviation();
-
-        /**
-         * The meta object literal for the '<em>Iec61850 Name</em>' data type.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see java.lang.String
-         * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getIec61850Name()
-         * @generated
-         */
-        EDataType IEC61850_NAME = eINSTANCE.getIec61850Name();
-
-        /**
-         * The meta object literal for the '<em>Iec61850 Name String</em>' data type.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see java.lang.String
-         * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getIec61850NameString()
-         * @generated
-         */
-        EDataType IEC61850_NAME_STRING = eINSTANCE.getIec61850NameString();
-
-        /**
-         * The meta object literal for the '<em>issues Type</em>' data type.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see java.lang.String
-         * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getissuesType()
-         * @generated
-         */
-        EDataType ISSUES_TYPE = eINSTANCE.getissuesType();
-
-        /**
          * The meta object literal for the '<em>License Kind Object</em>' data type.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -10228,36 +9617,6 @@ public interface NsdPackage extends EPackage {
          * @generated
          */
         EDataType LICENSE_KIND_OBJECT = eINSTANCE.getLicenseKindObject();
-
-        /**
-         * The meta object literal for the '<em>Literal Name</em>' data type.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see java.lang.String
-         * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getLiteralName()
-         * @generated
-         */
-        EDataType LITERAL_NAME = eINSTANCE.getLiteralName();
-
-        /**
-         * The meta object literal for the '<em>LN Class Name</em>' data type.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see java.lang.String
-         * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getLNClassName()
-         * @generated
-         */
-        EDataType LN_CLASS_NAME = eINSTANCE.getLNClassName();
-
-        /**
-         * The meta object literal for the '<em>NS Identifier</em>' data type.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see java.lang.String
-         * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getNSIdentifier()
-         * @generated
-         */
-        EDataType NS_IDENTIFIER = eINSTANCE.getNSIdentifier();
 
         /**
          * The meta object literal for the '<em>NS Release</em>' data type.
@@ -10279,16 +9638,6 @@ public interface NsdPackage extends EPackage {
         EDataType NS_RELEASE_OBJECT = eINSTANCE.getNSReleaseObject();
 
         /**
-         * The meta object literal for the '<em>NS Revision</em>' data type.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see java.lang.String
-         * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getNSRevision()
-         * @generated
-         */
-        EDataType NS_REVISION = eINSTANCE.getNSRevision();
-
-        /**
          * The meta object literal for the '<em>NS Version</em>' data type.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -10308,26 +9657,6 @@ public interface NsdPackage extends EPackage {
         EDataType NS_VERSION_OBJECT = eINSTANCE.getNSVersionObject();
 
         /**
-         * The meta object literal for the '<em>Presence Condition Argument</em>' data type.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see java.lang.String
-         * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getPresenceConditionArgument()
-         * @generated
-         */
-        EDataType PRESENCE_CONDITION_ARGUMENT = eINSTANCE.getPresenceConditionArgument();
-
-        /**
-         * The meta object literal for the '<em>Presence Condition Name</em>' data type.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see java.lang.String
-         * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getPresenceConditionName()
-         * @generated
-         */
-        EDataType PRESENCE_CONDITION_NAME = eINSTANCE.getPresenceConditionName();
-
-        /**
          * The meta object literal for the '<em>Pub Stage Object</em>' data type.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -10336,26 +9665,6 @@ public interface NsdPackage extends EPackage {
          * @generated
          */
         EDataType PUB_STAGE_OBJECT = eINSTANCE.getPubStageObject();
-
-        /**
-         * The meta object literal for the '<em>Sub Data Object Name</em>' data type.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see java.lang.String
-         * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getSubDataObjectName()
-         * @generated
-         */
-        EDataType SUB_DATA_OBJECT_NAME = eINSTANCE.getSubDataObjectName();
-
-        /**
-         * The meta object literal for the '<em>UML Version</em>' data type.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see java.lang.String
-         * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getUMLVersion()
-         * @generated
-         */
-        EDataType UML_VERSION = eINSTANCE.getUMLVersion();
 
         /**
          * The meta object literal for the '<em>Undefined Attribute Type Kind Object</em>' data type.

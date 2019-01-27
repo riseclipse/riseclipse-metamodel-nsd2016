@@ -60,7 +60,7 @@ public interface ServiceDataAttribute extends DocumentedClass {
      * @return the value of the '<em>Fc</em>' attribute.
      * @see #setFc(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceDataAttribute_Fc()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.FCAbbreviation" required="true"
+     * @model required="true"
      *        extendedMetaData="kind='attribute' name='fc'"
      * @generated
      */
@@ -86,7 +86,7 @@ public interface ServiceDataAttribute extends DocumentedClass {
      * @return the value of the '<em>Name</em>' attribute.
      * @see #setName(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceDataAttribute_Name()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.AttributeName" required="true"
+     * @model required="true"
      *        extendedMetaData="kind='attribute' name='name'"
      * @generated
      */
@@ -115,7 +115,7 @@ public interface ServiceDataAttribute extends DocumentedClass {
      * @see #unsetPresCond()
      * @see #setPresCond(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceDataAttribute_PresCond()
-     * @model default="M" unsettable="true" dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditionName"
+     * @model default="M" unsettable="true"
      *        extendedMetaData="kind='attribute' name='presCond'"
      * @generated
      */
@@ -166,8 +166,7 @@ public interface ServiceDataAttribute extends DocumentedClass {
      * @return the value of the '<em>Pres Cond Args</em>' attribute.
      * @see #setPresCondArgs(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceDataAttribute_PresCondArgs()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditionArgument"
-     *        extendedMetaData="kind='attribute' name='presCondArgs'"
+     * @model extendedMetaData="kind='attribute' name='presCondArgs'"
      * @generated
      */
     String getPresCondArgs();
@@ -192,8 +191,7 @@ public interface ServiceDataAttribute extends DocumentedClass {
      * @return the value of the '<em>Pres Cond Args ID</em>' attribute.
      * @see #setPresCondArgsID(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceDataAttribute_PresCondArgsID()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocID"
-     *        extendedMetaData="kind='attribute' name='presCondArgsID'"
+     * @model extendedMetaData="kind='attribute' name='presCondArgsID'"
      * @generated
      */
     String getPresCondArgsID();
@@ -218,8 +216,7 @@ public interface ServiceDataAttribute extends DocumentedClass {
      * @return the value of the '<em>Type</em>' attribute.
      * @see #setType(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceDataAttribute_Type()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.Iec61850Name"
-     *        extendedMetaData="kind='attribute' name='type'"
+     * @model extendedMetaData="kind='attribute' name='type'"
      * @generated
      */
     String getType();
@@ -298,8 +295,7 @@ public interface ServiceDataAttribute extends DocumentedClass {
      * @return the value of the '<em>Underlying Type</em>' attribute.
      * @see #setUnderlyingType(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceDataAttribute_UnderlyingType()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.Iec61850Name"
-     *        extendedMetaData="kind='attribute' name='underlyingType'"
+     * @model extendedMetaData="kind='attribute' name='underlyingType'"
      * @generated
      */
     String getUnderlyingType();

@@ -82,7 +82,7 @@ public interface FunctionalConstraint extends EObject {
      * @return the value of the '<em>Abbreviation</em>' attribute.
      * @see #setAbbreviation(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getFunctionalConstraint_Abbreviation()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.FCAbbreviation" required="true"
+     * @model required="true"
      *        extendedMetaData="kind='attribute' name='abbreviation'"
      * @generated
      */
@@ -108,8 +108,7 @@ public interface FunctionalConstraint extends EObject {
      * @return the value of the '<em>Desc ID</em>' attribute.
      * @see #setDescID(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getFunctionalConstraint_DescID()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocID"
-     *        extendedMetaData="kind='attribute' name='descID'"
+     * @model extendedMetaData="kind='attribute' name='descID'"
      * @generated
      */
     String getDescID();
@@ -134,8 +133,7 @@ public interface FunctionalConstraint extends EObject {
      * @return the value of the '<em>Title ID</em>' attribute.
      * @see #setTitleID(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getFunctionalConstraint_TitleID()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocID"
-     *        extendedMetaData="kind='attribute' name='titleID'"
+     * @model extendedMetaData="kind='attribute' name='titleID'"
      * @generated
      */
     String getTitleID();
