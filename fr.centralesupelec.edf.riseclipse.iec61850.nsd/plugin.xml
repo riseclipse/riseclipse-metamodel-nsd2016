@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+  Copyright (c) 2019 CentraleSupélec & EDF.
+  All rights reserved. This program and the accompanying materials
+  are made available under the terms of the Eclipse Public License v1.0
+  which accompanies this distribution, and is available at
+  http://www.eclipse.org/legal/epl-v10.html
+ 
+  This file is part of the RiseClipse tool
+  
+  Contributors:
+      Computer Science Department, CentraleSupélec
+      EDF R&D
+  Contacts:
+      dominique.marcadet@centralesupelec.fr
+      aurelie.dehouck-neveu@edf.fr
+  Web site:
+      http://wdi.supelec.fr/software/RiseClipse/
+ 
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated nsd -->
+      <package
+            uri="http://www.iec.ch/61850/2016/NSD"
+            class="fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage"
+            genModel="model/nsd.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated nsd -->
+      <parser
+            type="nsd"
+            class="fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceFactoryImpl"/>
+      <parser
+            type="snsd"
+            class="fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceFactoryImpl"/>
+      <parser
+            type="nsdoc"
+            class="fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceFactoryImpl"/>
+   </extension>
+
+</plugin>
