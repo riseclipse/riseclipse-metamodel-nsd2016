@@ -19,13 +19,13 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServiceNS;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CopyrightNotice;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TApplicableServiceNS;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TCopyrightNotice;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNS;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNSDoc;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceNS;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -161,9 +161,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
      * @generated
      */
     @Override
-    public TApplicableServiceNS getApplicableServiceNS() {
-        return ( TApplicableServiceNS ) getMixed().get( NsdPackage.Literals.DOCUMENT_ROOT__APPLICABLE_SERVICE_NS,
-                true );
+    public ApplicableServiceNS getApplicableServiceNS() {
+        return ( ApplicableServiceNS ) getMixed().get( NsdPackage.Literals.DOCUMENT_ROOT__APPLICABLE_SERVICE_NS, true );
     }
 
     /**
@@ -171,7 +170,7 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetApplicableServiceNS( TApplicableServiceNS newApplicableServiceNS,
+    public NotificationChain basicSetApplicableServiceNS( ApplicableServiceNS newApplicableServiceNS,
             NotificationChain msgs ) {
         return ( ( FeatureMap.Internal ) getMixed() )
                 .basicAdd( NsdPackage.Literals.DOCUMENT_ROOT__APPLICABLE_SERVICE_NS, newApplicableServiceNS, msgs );
@@ -183,7 +182,7 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
      * @generated
      */
     @Override
-    public void setApplicableServiceNS( TApplicableServiceNS newApplicableServiceNS ) {
+    public void setApplicableServiceNS( ApplicableServiceNS newApplicableServiceNS ) {
         ( ( FeatureMap.Internal ) getMixed() ).set( NsdPackage.Literals.DOCUMENT_ROOT__APPLICABLE_SERVICE_NS,
                 newApplicableServiceNS );
     }
@@ -194,8 +193,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
      * @generated
      */
     @Override
-    public TCopyrightNotice getCopyright() {
-        return ( TCopyrightNotice ) getMixed().get( NsdPackage.Literals.DOCUMENT_ROOT__COPYRIGHT, true );
+    public CopyrightNotice getCopyright() {
+        return ( CopyrightNotice ) getMixed().get( NsdPackage.Literals.DOCUMENT_ROOT__COPYRIGHT, true );
     }
 
     /**
@@ -203,7 +202,7 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetCopyright( TCopyrightNotice newCopyright, NotificationChain msgs ) {
+    public NotificationChain basicSetCopyright( CopyrightNotice newCopyright, NotificationChain msgs ) {
         return ( ( FeatureMap.Internal ) getMixed() ).basicAdd( NsdPackage.Literals.DOCUMENT_ROOT__COPYRIGHT,
                 newCopyright, msgs );
     }
@@ -214,7 +213,7 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
      * @generated
      */
     @Override
-    public void setCopyright( TCopyrightNotice newCopyright ) {
+    public void setCopyright( CopyrightNotice newCopyright ) {
         ( ( FeatureMap.Internal ) getMixed() ).set( NsdPackage.Literals.DOCUMENT_ROOT__COPYRIGHT, newCopyright );
     }
 
@@ -224,8 +223,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
      * @generated
      */
     @Override
-    public TNS getNS() {
-        return ( TNS ) getMixed().get( NsdPackage.Literals.DOCUMENT_ROOT__NS, true );
+    public NS getNS() {
+        return ( NS ) getMixed().get( NsdPackage.Literals.DOCUMENT_ROOT__NS, true );
     }
 
     /**
@@ -233,7 +232,7 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetNS( TNS newNS, NotificationChain msgs ) {
+    public NotificationChain basicSetNS( NS newNS, NotificationChain msgs ) {
         return ( ( FeatureMap.Internal ) getMixed() ).basicAdd( NsdPackage.Literals.DOCUMENT_ROOT__NS, newNS, msgs );
     }
 
@@ -243,7 +242,7 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
      * @generated
      */
     @Override
-    public void setNS( TNS newNS ) {
+    public void setNS( NS newNS ) {
         ( ( FeatureMap.Internal ) getMixed() ).set( NsdPackage.Literals.DOCUMENT_ROOT__NS, newNS );
     }
 
@@ -253,8 +252,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
      * @generated
      */
     @Override
-    public TNSDoc getNSDoc() {
-        return ( TNSDoc ) getMixed().get( NsdPackage.Literals.DOCUMENT_ROOT__NS_DOC, true );
+    public NSDoc getNSDoc() {
+        return ( NSDoc ) getMixed().get( NsdPackage.Literals.DOCUMENT_ROOT__NS_DOC, true );
     }
 
     /**
@@ -262,7 +261,7 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetNSDoc( TNSDoc newNSDoc, NotificationChain msgs ) {
+    public NotificationChain basicSetNSDoc( NSDoc newNSDoc, NotificationChain msgs ) {
         return ( ( FeatureMap.Internal ) getMixed() ).basicAdd( NsdPackage.Literals.DOCUMENT_ROOT__NS_DOC, newNSDoc,
                 msgs );
     }
@@ -273,7 +272,7 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
      * @generated
      */
     @Override
-    public void setNSDoc( TNSDoc newNSDoc ) {
+    public void setNSDoc( NSDoc newNSDoc ) {
         ( ( FeatureMap.Internal ) getMixed() ).set( NsdPackage.Literals.DOCUMENT_ROOT__NS_DOC, newNSDoc );
     }
 
@@ -283,8 +282,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
      * @generated
      */
     @Override
-    public TServiceNS getServiceNS() {
-        return ( TServiceNS ) getMixed().get( NsdPackage.Literals.DOCUMENT_ROOT__SERVICE_NS, true );
+    public ServiceNS getServiceNS() {
+        return ( ServiceNS ) getMixed().get( NsdPackage.Literals.DOCUMENT_ROOT__SERVICE_NS, true );
     }
 
     /**
@@ -292,7 +291,7 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetServiceNS( TServiceNS newServiceNS, NotificationChain msgs ) {
+    public NotificationChain basicSetServiceNS( ServiceNS newServiceNS, NotificationChain msgs ) {
         return ( ( FeatureMap.Internal ) getMixed() ).basicAdd( NsdPackage.Literals.DOCUMENT_ROOT__SERVICE_NS,
                 newServiceNS, msgs );
     }
@@ -303,7 +302,7 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
      * @generated
      */
     @Override
-    public void setServiceNS( TServiceNS newServiceNS ) {
+    public void setServiceNS( ServiceNS newServiceNS ) {
         ( ( FeatureMap.Internal ) getMixed() ).set( NsdPackage.Literals.DOCUMENT_ROOT__SERVICE_NS, newServiceNS );
     }
 
@@ -388,19 +387,19 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
             ( ( EStructuralFeature.Setting ) getXSISchemaLocation() ).set( newValue );
             return;
         case NsdPackage.DOCUMENT_ROOT__APPLICABLE_SERVICE_NS:
-            setApplicableServiceNS( ( TApplicableServiceNS ) newValue );
+            setApplicableServiceNS( ( ApplicableServiceNS ) newValue );
             return;
         case NsdPackage.DOCUMENT_ROOT__COPYRIGHT:
-            setCopyright( ( TCopyrightNotice ) newValue );
+            setCopyright( ( CopyrightNotice ) newValue );
             return;
         case NsdPackage.DOCUMENT_ROOT__NS:
-            setNS( ( TNS ) newValue );
+            setNS( ( NS ) newValue );
             return;
         case NsdPackage.DOCUMENT_ROOT__NS_DOC:
-            setNSDoc( ( TNSDoc ) newValue );
+            setNSDoc( ( NSDoc ) newValue );
             return;
         case NsdPackage.DOCUMENT_ROOT__SERVICE_NS:
-            setServiceNS( ( TServiceNS ) newValue );
+            setServiceNS( ( ServiceNS ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -424,19 +423,19 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
             getXSISchemaLocation().clear();
             return;
         case NsdPackage.DOCUMENT_ROOT__APPLICABLE_SERVICE_NS:
-            setApplicableServiceNS( ( TApplicableServiceNS ) null );
+            setApplicableServiceNS( ( ApplicableServiceNS ) null );
             return;
         case NsdPackage.DOCUMENT_ROOT__COPYRIGHT:
-            setCopyright( ( TCopyrightNotice ) null );
+            setCopyright( ( CopyrightNotice ) null );
             return;
         case NsdPackage.DOCUMENT_ROOT__NS:
-            setNS( ( TNS ) null );
+            setNS( ( NS ) null );
             return;
         case NsdPackage.DOCUMENT_ROOT__NS_DOC:
-            setNSDoc( ( TNSDoc ) null );
+            setNSDoc( ( NSDoc ) null );
             return;
         case NsdPackage.DOCUMENT_ROOT__SERVICE_NS:
-            setServiceNS( ( TServiceNS ) null );
+            setServiceNS( ( ServiceNS ) null );
             return;
         }
         super.eUnset( featureID );

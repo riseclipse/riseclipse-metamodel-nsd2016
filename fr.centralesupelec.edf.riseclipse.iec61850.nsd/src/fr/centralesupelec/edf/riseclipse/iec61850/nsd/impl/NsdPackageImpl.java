@@ -19,62 +19,62 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ACSIServicesKind;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServiceNS;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CBKind;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CopyrightNotice;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Copyrighted;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataSetMemberOf;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOnType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentedClass;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.License;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LicenseKind;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Notice;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDCs;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttributes;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceParameter;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TACSIServicesKind;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TAbbreviation;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TAbbreviations;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TAbstractLNClass;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TAnyLNClass;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TApplicableServiceNS;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TApplicableServices;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TBasicType;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TBasicTypes;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TCBKind;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TCDCs;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TChanges;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TConstructedAttribute;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TConstructedAttributes;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TCopyrightNotice;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TCopyrighted;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TDataAttribute;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TDataObject;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TDataSetMemberOf;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TDefinedAttributeTypeKind;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TDoc;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TDocumentedClass;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TEnumeration;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TEnumerations;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TFunctionalConstraint;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TFunctionalConstraints;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TLNClass;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TLNClasses;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TLicense;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TLicenseKind;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TLiteral;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNSDoc;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNotice;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TPresenceCondition;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TPresenceConditions;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TPubStage;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceCDC;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceCDCs;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceConstructedAttribute;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceConstructedAttributes;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceDataAttribute;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceNS;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceNsUsage;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceParameter;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceTypeRealization;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceTypeRealizations;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TSubDataAttribute;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TSubDataObject;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TTitledClass;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TUndefinedAttributeTypeKind;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealization;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TitledClass;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.UndefinedAttributeTypeKind;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdValidator;
 
@@ -132,581 +132,581 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tAbbreviationEClass = null;
+    private EClass abbreviationEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tAbbreviationsEClass = null;
+    private EClass abbreviationsEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tAbstractLNClassEClass = null;
+    private EClass abstractLNClassEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tAnyLNClassEClass = null;
+    private EClass anyLNClassEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tApplicableServiceNSEClass = null;
+    private EClass applicableServiceNSEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tApplicableServicesEClass = null;
+    private EClass applicableServicesEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tBasicTypeEClass = null;
+    private EClass basicTypeEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tBasicTypesEClass = null;
+    private EClass basicTypesEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tcdcEClass = null;
+    private EClass cdcEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tcdCsEClass = null;
+    private EClass cdCsEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tChangesEClass = null;
+    private EClass changesEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tConstructedAttributeEClass = null;
+    private EClass constructedAttributeEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tConstructedAttributesEClass = null;
+    private EClass constructedAttributesEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tCopyrightedEClass = null;
+    private EClass copyrightedEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tCopyrightNoticeEClass = null;
+    private EClass copyrightNoticeEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tDataAttributeEClass = null;
+    private EClass dataAttributeEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tDataObjectEClass = null;
+    private EClass dataObjectEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tDataSetMemberOfEClass = null;
+    private EClass dataSetMemberOfEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tDocEClass = null;
+    private EClass docEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tDocumentedClassEClass = null;
+    private EClass documentedClassEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tEnumerationEClass = null;
+    private EClass enumerationEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tEnumerationsEClass = null;
+    private EClass enumerationsEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tFunctionalConstraintEClass = null;
+    private EClass functionalConstraintEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tFunctionalConstraintsEClass = null;
+    private EClass functionalConstraintsEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tLicenseEClass = null;
+    private EClass licenseEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tLiteralEClass = null;
+    private EClass literalEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tlnClassEClass = null;
+    private EClass lnClassEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tlnClassesEClass = null;
+    private EClass lnClassesEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tNoticeEClass = null;
+    private EClass noticeEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tnsEClass = null;
+    private EClass nsEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tnsDocEClass = null;
+    private EClass nsDocEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tPresenceConditionEClass = null;
+    private EClass presenceConditionEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tPresenceConditionsEClass = null;
+    private EClass presenceConditionsEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tServiceCDCEClass = null;
+    private EClass serviceCDCEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tServiceCDCsEClass = null;
+    private EClass serviceCDCsEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tServiceConstructedAttributeEClass = null;
+    private EClass serviceConstructedAttributeEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tServiceConstructedAttributesEClass = null;
+    private EClass serviceConstructedAttributesEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tServiceDataAttributeEClass = null;
+    private EClass serviceDataAttributeEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tServiceNSEClass = null;
+    private EClass serviceNSEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tServiceNsUsageEClass = null;
+    private EClass serviceNsUsageEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tServiceParameterEClass = null;
+    private EClass serviceParameterEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tServiceTypeRealizationEClass = null;
+    private EClass serviceTypeRealizationEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tServiceTypeRealizationsEClass = null;
+    private EClass serviceTypeRealizationsEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tSubDataAttributeEClass = null;
+    private EClass subDataAttributeEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tSubDataObjectEClass = null;
+    private EClass subDataObjectEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass tTitledClassEClass = null;
+    private EClass titledClassEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EEnum tacsiServicesKindEEnum = null;
+    private EEnum acsiServicesKindEEnum = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EEnum tcbKindEEnum = null;
+    private EEnum cbKindEEnum = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EEnum tDefinedAttributeTypeKindEEnum = null;
+    private EEnum definedAttributeTypeKindEEnum = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EEnum tLicenseKindEEnum = null;
+    private EEnum licenseKindEEnum = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EEnum tPubStageEEnum = null;
+    private EEnum pubStageEEnum = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EEnum tUndefinedAttributeTypeKindEEnum = null;
+    private EEnum undefinedAttributeTypeKindEEnum = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType tAbbreviationNameEDataType = null;
+    private EDataType abbreviationNameEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType tAbstractLNClassNameEDataType = null;
+    private EDataType abstractLNClassNameEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType tacsiServicesKindObjectEDataType = null;
+    private EDataType acsiServicesKindObjectEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType tAttributeNameEDataType = null;
+    private EDataType attributeNameEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType tAttributeTypeKindEDataType = null;
+    private EDataType attributeTypeKindEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType tBasicTypeNameEDataType = null;
+    private EDataType basicTypeNameEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType tcbKindObjectEDataType = null;
+    private EDataType cbKindObjectEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType tcdcNameEDataType = null;
+    private EDataType cdcNameEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType tDataObjectNameEDataType = null;
+    private EDataType dataObjectNameEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType tDefinedAttributeTypeKindObjectEDataType = null;
+    private EDataType definedAttributeTypeKindObjectEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType tDocIDEDataType = null;
+    private EDataType docIDEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType tEmptyStringEDataType = null;
+    private EDataType emptyStringEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType tfcAbbreviationEDataType = null;
+    private EDataType fcAbbreviationEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType tIec61850NameEDataType = null;
+    private EDataType iec61850NameEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType tIec61850NameStringEDataType = null;
+    private EDataType iec61850NameStringEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType tissuesTypeEDataType = null;
+    private EDataType issuesTypeEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType tLicenseKindObjectEDataType = null;
+    private EDataType licenseKindObjectEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType tLiteralNameEDataType = null;
+    private EDataType literalNameEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType tlnClassNameEDataType = null;
+    private EDataType lnClassNameEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType tnsIdentifierEDataType = null;
+    private EDataType nsIdentifierEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType tnsReleaseEDataType = null;
+    private EDataType nsReleaseEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType tnsReleaseObjectEDataType = null;
+    private EDataType nsReleaseObjectEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType tnsRevisionEDataType = null;
+    private EDataType nsRevisionEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType tnsVersionEDataType = null;
+    private EDataType nsVersionEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType tnsVersionObjectEDataType = null;
+    private EDataType nsVersionObjectEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType tPresenceConditionArgumentEDataType = null;
+    private EDataType presenceConditionArgumentEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType tPresenceConditionNameEDataType = null;
+    private EDataType presenceConditionNameEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType tPubStageObjectEDataType = null;
+    private EDataType pubStageObjectEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType tSubDataObjectNameEDataType = null;
+    private EDataType subDataObjectNameEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType tumlVersionEDataType = null;
+    private EDataType umlVersionEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EDataType tUndefinedAttributeTypeKindObjectEDataType = null;
+    private EDataType undefinedAttributeTypeKindObjectEDataType = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -1018,8 +1018,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTAbbreviation() {
-        return tAbbreviationEClass;
+    public EClass getAbbreviation() {
+        return abbreviationEClass;
     }
 
     /**
@@ -1028,8 +1028,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTAbbreviation_DescID() {
-        return ( EAttribute ) tAbbreviationEClass.getEStructuralFeatures().get( 0 );
+    public EAttribute getAbbreviation_DescID() {
+        return ( EAttribute ) abbreviationEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -1038,8 +1038,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTAbbreviation_Name() {
-        return ( EAttribute ) tAbbreviationEClass.getEStructuralFeatures().get( 1 );
+    public EAttribute getAbbreviation_Name() {
+        return ( EAttribute ) abbreviationEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -1048,8 +1048,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTAbbreviations() {
-        return tAbbreviationsEClass;
+    public EClass getAbbreviations() {
+        return abbreviationsEClass;
     }
 
     /**
@@ -1058,8 +1058,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTAbbreviations_Abbreviation() {
-        return ( EReference ) tAbbreviationsEClass.getEStructuralFeatures().get( 0 );
+    public EReference getAbbreviations_Abbreviation() {
+        return ( EReference ) abbreviationsEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -1068,8 +1068,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTAbstractLNClass() {
-        return tAbstractLNClassEClass;
+    public EClass getAbstractLNClass() {
+        return abstractLNClassEClass;
     }
 
     /**
@@ -1078,8 +1078,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTAbstractLNClass_Name() {
-        return ( EAttribute ) tAbstractLNClassEClass.getEStructuralFeatures().get( 0 );
+    public EAttribute getAbstractLNClass_Name() {
+        return ( EAttribute ) abstractLNClassEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -1088,8 +1088,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTAnyLNClass() {
-        return tAnyLNClassEClass;
+    public EClass getAnyLNClass() {
+        return anyLNClassEClass;
     }
 
     /**
@@ -1098,8 +1098,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTAnyLNClass_DataObject() {
-        return ( EReference ) tAnyLNClassEClass.getEStructuralFeatures().get( 0 );
+    public EReference getAnyLNClass_DataObject() {
+        return ( EReference ) anyLNClassEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -1108,8 +1108,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTAnyLNClass_Base() {
-        return ( EAttribute ) tAnyLNClassEClass.getEStructuralFeatures().get( 1 );
+    public EAttribute getAnyLNClass_Base() {
+        return ( EAttribute ) anyLNClassEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -1118,8 +1118,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTApplicableServiceNS() {
-        return tApplicableServiceNSEClass;
+    public EClass getApplicableServiceNS() {
+        return applicableServiceNSEClass;
     }
 
     /**
@@ -1128,8 +1128,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTApplicableServiceNS_ServiceNsUsage() {
-        return ( EReference ) tApplicableServiceNSEClass.getEStructuralFeatures().get( 0 );
+    public EReference getApplicableServiceNS_ServiceNsUsage() {
+        return ( EReference ) applicableServiceNSEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -1138,8 +1138,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTApplicableServiceNS_Date() {
-        return ( EAttribute ) tApplicableServiceNSEClass.getEStructuralFeatures().get( 1 );
+    public EAttribute getApplicableServiceNS_Date() {
+        return ( EAttribute ) applicableServiceNSEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -1148,8 +1148,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTApplicableServiceNS_Version() {
-        return ( EAttribute ) tApplicableServiceNSEClass.getEStructuralFeatures().get( 2 );
+    public EAttribute getApplicableServiceNS_Version() {
+        return ( EAttribute ) applicableServiceNSEClass.getEStructuralFeatures().get( 2 );
     }
 
     /**
@@ -1158,8 +1158,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTApplicableServices() {
-        return tApplicableServicesEClass;
+    public EClass getApplicableServices() {
+        return applicableServicesEClass;
     }
 
     /**
@@ -1168,8 +1168,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTApplicableServices_Service() {
-        return ( EReference ) tApplicableServicesEClass.getEStructuralFeatures().get( 0 );
+    public EReference getApplicableServices_Service() {
+        return ( EReference ) applicableServicesEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -1178,8 +1178,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTApplicableServices_DataSetMemberOf() {
-        return ( EReference ) tApplicableServicesEClass.getEStructuralFeatures().get( 1 );
+    public EReference getApplicableServices_DataSetMemberOf() {
+        return ( EReference ) applicableServicesEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -1188,8 +1188,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTBasicType() {
-        return tBasicTypeEClass;
+    public EClass getBasicType() {
+        return basicTypeEClass;
     }
 
     /**
@@ -1198,8 +1198,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTBasicType_DescID() {
-        return ( EAttribute ) tBasicTypeEClass.getEStructuralFeatures().get( 0 );
+    public EAttribute getBasicType_DescID() {
+        return ( EAttribute ) basicTypeEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -1208,8 +1208,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTBasicType_Name() {
-        return ( EAttribute ) tBasicTypeEClass.getEStructuralFeatures().get( 1 );
+    public EAttribute getBasicType_Name() {
+        return ( EAttribute ) basicTypeEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -1218,8 +1218,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTBasicTypes() {
-        return tBasicTypesEClass;
+    public EClass getBasicTypes() {
+        return basicTypesEClass;
     }
 
     /**
@@ -1228,8 +1228,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTBasicTypes_BasicType() {
-        return ( EReference ) tBasicTypesEClass.getEStructuralFeatures().get( 0 );
+    public EReference getBasicTypes_BasicType() {
+        return ( EReference ) basicTypesEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -1238,8 +1238,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTCDC() {
-        return tcdcEClass;
+    public EClass getCDC() {
+        return cdcEClass;
     }
 
     /**
@@ -1248,8 +1248,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTCDC_SubDataObject() {
-        return ( EReference ) tcdcEClass.getEStructuralFeatures().get( 0 );
+    public EReference getCDC_SubDataObject() {
+        return ( EReference ) cdcEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -1258,8 +1258,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTCDC_DataAttribute() {
-        return ( EReference ) tcdcEClass.getEStructuralFeatures().get( 1 );
+    public EReference getCDC_DataAttribute() {
+        return ( EReference ) cdcEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -1268,8 +1268,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTCDC_ServiceParameter() {
-        return ( EReference ) tcdcEClass.getEStructuralFeatures().get( 2 );
+    public EReference getCDC_ServiceParameter() {
+        return ( EReference ) cdcEClass.getEStructuralFeatures().get( 2 );
     }
 
     /**
@@ -1278,8 +1278,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTCDC_EnumParameterized() {
-        return ( EAttribute ) tcdcEClass.getEStructuralFeatures().get( 3 );
+    public EAttribute getCDC_EnumParameterized() {
+        return ( EAttribute ) cdcEClass.getEStructuralFeatures().get( 3 );
     }
 
     /**
@@ -1288,8 +1288,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTCDC_Name() {
-        return ( EAttribute ) tcdcEClass.getEStructuralFeatures().get( 4 );
+    public EAttribute getCDC_Name() {
+        return ( EAttribute ) cdcEClass.getEStructuralFeatures().get( 4 );
     }
 
     /**
@@ -1298,8 +1298,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTCDC_Statistics() {
-        return ( EAttribute ) tcdcEClass.getEStructuralFeatures().get( 5 );
+    public EAttribute getCDC_Statistics() {
+        return ( EAttribute ) cdcEClass.getEStructuralFeatures().get( 5 );
     }
 
     /**
@@ -1308,8 +1308,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTCDC_TypeKindParameterized() {
-        return ( EAttribute ) tcdcEClass.getEStructuralFeatures().get( 6 );
+    public EAttribute getCDC_TypeKindParameterized() {
+        return ( EAttribute ) cdcEClass.getEStructuralFeatures().get( 6 );
     }
 
     /**
@@ -1318,8 +1318,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTCDC_Variant() {
-        return ( EAttribute ) tcdcEClass.getEStructuralFeatures().get( 7 );
+    public EAttribute getCDC_Variant() {
+        return ( EAttribute ) cdcEClass.getEStructuralFeatures().get( 7 );
     }
 
     /**
@@ -1328,8 +1328,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTCDCs() {
-        return tcdCsEClass;
+    public EClass getCDCs() {
+        return cdCsEClass;
     }
 
     /**
@@ -1338,8 +1338,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTCDCs_CDC() {
-        return ( EReference ) tcdCsEClass.getEStructuralFeatures().get( 0 );
+    public EReference getCDCs_CDC() {
+        return ( EReference ) cdCsEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -1348,8 +1348,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTChanges() {
-        return tChangesEClass;
+    public EClass getChanges() {
+        return changesEClass;
     }
 
     /**
@@ -1358,8 +1358,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTChanges_ChangesID() {
-        return ( EAttribute ) tChangesEClass.getEStructuralFeatures().get( 0 );
+    public EAttribute getChanges_ChangesID() {
+        return ( EAttribute ) changesEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -1368,8 +1368,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTChanges_Date() {
-        return ( EAttribute ) tChangesEClass.getEStructuralFeatures().get( 1 );
+    public EAttribute getChanges_Date() {
+        return ( EAttribute ) changesEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -1378,8 +1378,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTChanges_Release() {
-        return ( EAttribute ) tChangesEClass.getEStructuralFeatures().get( 2 );
+    public EAttribute getChanges_Release() {
+        return ( EAttribute ) changesEClass.getEStructuralFeatures().get( 2 );
     }
 
     /**
@@ -1388,8 +1388,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTChanges_Revision() {
-        return ( EAttribute ) tChangesEClass.getEStructuralFeatures().get( 3 );
+    public EAttribute getChanges_Revision() {
+        return ( EAttribute ) changesEClass.getEStructuralFeatures().get( 3 );
     }
 
     /**
@@ -1398,8 +1398,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTChanges_Tissues() {
-        return ( EAttribute ) tChangesEClass.getEStructuralFeatures().get( 4 );
+    public EAttribute getChanges_Tissues() {
+        return ( EAttribute ) changesEClass.getEStructuralFeatures().get( 4 );
     }
 
     /**
@@ -1408,8 +1408,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTChanges_Version() {
-        return ( EAttribute ) tChangesEClass.getEStructuralFeatures().get( 5 );
+    public EAttribute getChanges_Version() {
+        return ( EAttribute ) changesEClass.getEStructuralFeatures().get( 5 );
     }
 
     /**
@@ -1418,8 +1418,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTConstructedAttribute() {
-        return tConstructedAttributeEClass;
+    public EClass getConstructedAttribute() {
+        return constructedAttributeEClass;
     }
 
     /**
@@ -1428,8 +1428,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTConstructedAttribute_SubDataAttribute() {
-        return ( EReference ) tConstructedAttributeEClass.getEStructuralFeatures().get( 0 );
+    public EReference getConstructedAttribute_SubDataAttribute() {
+        return ( EReference ) constructedAttributeEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -1438,8 +1438,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTConstructedAttribute_Name() {
-        return ( EAttribute ) tConstructedAttributeEClass.getEStructuralFeatures().get( 1 );
+    public EAttribute getConstructedAttribute_Name() {
+        return ( EAttribute ) constructedAttributeEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -1448,8 +1448,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTConstructedAttributes() {
-        return tConstructedAttributesEClass;
+    public EClass getConstructedAttributes() {
+        return constructedAttributesEClass;
     }
 
     /**
@@ -1458,8 +1458,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTConstructedAttributes_ConstructedAttribute() {
-        return ( EReference ) tConstructedAttributesEClass.getEStructuralFeatures().get( 0 );
+    public EReference getConstructedAttributes_ConstructedAttribute() {
+        return ( EReference ) constructedAttributesEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -1468,8 +1468,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTCopyrighted() {
-        return tCopyrightedEClass;
+    public EClass getCopyrighted() {
+        return copyrightedEClass;
     }
 
     /**
@@ -1478,8 +1478,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTCopyrighted_Copyright() {
-        return ( EReference ) tCopyrightedEClass.getEStructuralFeatures().get( 0 );
+    public EReference getCopyrighted_Copyright() {
+        return ( EReference ) copyrightedEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -1488,8 +1488,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTCopyrightNotice() {
-        return tCopyrightNoticeEClass;
+    public EClass getCopyrightNotice() {
+        return copyrightNoticeEClass;
     }
 
     /**
@@ -1498,8 +1498,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTCopyrightNotice_Notice() {
-        return ( EReference ) tCopyrightNoticeEClass.getEStructuralFeatures().get( 0 );
+    public EReference getCopyrightNotice_Notice() {
+        return ( EReference ) copyrightNoticeEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -1508,8 +1508,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTCopyrightNotice_License() {
-        return ( EReference ) tCopyrightNoticeEClass.getEStructuralFeatures().get( 1 );
+    public EReference getCopyrightNotice_License() {
+        return ( EReference ) copyrightNoticeEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -1518,8 +1518,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTDataAttribute() {
-        return tDataAttributeEClass;
+    public EClass getDataAttribute() {
+        return dataAttributeEClass;
     }
 
     /**
@@ -1528,8 +1528,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDataAttribute_Dchg() {
-        return ( EAttribute ) tDataAttributeEClass.getEStructuralFeatures().get( 0 );
+    public EAttribute getDataAttribute_Dchg() {
+        return ( EAttribute ) dataAttributeEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -1538,8 +1538,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDataAttribute_DefaultValue() {
-        return ( EAttribute ) tDataAttributeEClass.getEStructuralFeatures().get( 1 );
+    public EAttribute getDataAttribute_DefaultValue() {
+        return ( EAttribute ) dataAttributeEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -1548,8 +1548,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDataAttribute_Dupd() {
-        return ( EAttribute ) tDataAttributeEClass.getEStructuralFeatures().get( 2 );
+    public EAttribute getDataAttribute_Dupd() {
+        return ( EAttribute ) dataAttributeEClass.getEStructuralFeatures().get( 2 );
     }
 
     /**
@@ -1558,8 +1558,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDataAttribute_Fc() {
-        return ( EAttribute ) tDataAttributeEClass.getEStructuralFeatures().get( 3 );
+    public EAttribute getDataAttribute_Fc() {
+        return ( EAttribute ) dataAttributeEClass.getEStructuralFeatures().get( 3 );
     }
 
     /**
@@ -1568,8 +1568,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDataAttribute_IsArray() {
-        return ( EAttribute ) tDataAttributeEClass.getEStructuralFeatures().get( 4 );
+    public EAttribute getDataAttribute_IsArray() {
+        return ( EAttribute ) dataAttributeEClass.getEStructuralFeatures().get( 4 );
     }
 
     /**
@@ -1578,8 +1578,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDataAttribute_MaxIndexAttribute() {
-        return ( EAttribute ) tDataAttributeEClass.getEStructuralFeatures().get( 5 );
+    public EAttribute getDataAttribute_MaxIndexAttribute() {
+        return ( EAttribute ) dataAttributeEClass.getEStructuralFeatures().get( 5 );
     }
 
     /**
@@ -1588,8 +1588,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDataAttribute_MaxValue() {
-        return ( EAttribute ) tDataAttributeEClass.getEStructuralFeatures().get( 6 );
+    public EAttribute getDataAttribute_MaxValue() {
+        return ( EAttribute ) dataAttributeEClass.getEStructuralFeatures().get( 6 );
     }
 
     /**
@@ -1598,8 +1598,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDataAttribute_MinIndex() {
-        return ( EAttribute ) tDataAttributeEClass.getEStructuralFeatures().get( 7 );
+    public EAttribute getDataAttribute_MinIndex() {
+        return ( EAttribute ) dataAttributeEClass.getEStructuralFeatures().get( 7 );
     }
 
     /**
@@ -1608,8 +1608,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDataAttribute_MinValue() {
-        return ( EAttribute ) tDataAttributeEClass.getEStructuralFeatures().get( 8 );
+    public EAttribute getDataAttribute_MinValue() {
+        return ( EAttribute ) dataAttributeEClass.getEStructuralFeatures().get( 8 );
     }
 
     /**
@@ -1618,8 +1618,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDataAttribute_Name() {
-        return ( EAttribute ) tDataAttributeEClass.getEStructuralFeatures().get( 9 );
+    public EAttribute getDataAttribute_Name() {
+        return ( EAttribute ) dataAttributeEClass.getEStructuralFeatures().get( 9 );
     }
 
     /**
@@ -1628,8 +1628,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDataAttribute_PresCond() {
-        return ( EAttribute ) tDataAttributeEClass.getEStructuralFeatures().get( 10 );
+    public EAttribute getDataAttribute_PresCond() {
+        return ( EAttribute ) dataAttributeEClass.getEStructuralFeatures().get( 10 );
     }
 
     /**
@@ -1638,8 +1638,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDataAttribute_PresCondArgs() {
-        return ( EAttribute ) tDataAttributeEClass.getEStructuralFeatures().get( 11 );
+    public EAttribute getDataAttribute_PresCondArgs() {
+        return ( EAttribute ) dataAttributeEClass.getEStructuralFeatures().get( 11 );
     }
 
     /**
@@ -1648,8 +1648,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDataAttribute_PresCondArgsID() {
-        return ( EAttribute ) tDataAttributeEClass.getEStructuralFeatures().get( 12 );
+    public EAttribute getDataAttribute_PresCondArgsID() {
+        return ( EAttribute ) dataAttributeEClass.getEStructuralFeatures().get( 12 );
     }
 
     /**
@@ -1658,8 +1658,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDataAttribute_Qchg() {
-        return ( EAttribute ) tDataAttributeEClass.getEStructuralFeatures().get( 13 );
+    public EAttribute getDataAttribute_Qchg() {
+        return ( EAttribute ) dataAttributeEClass.getEStructuralFeatures().get( 13 );
     }
 
     /**
@@ -1668,8 +1668,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDataAttribute_SizeAttribute() {
-        return ( EAttribute ) tDataAttributeEClass.getEStructuralFeatures().get( 14 );
+    public EAttribute getDataAttribute_SizeAttribute() {
+        return ( EAttribute ) dataAttributeEClass.getEStructuralFeatures().get( 14 );
     }
 
     /**
@@ -1678,8 +1678,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDataAttribute_Type() {
-        return ( EAttribute ) tDataAttributeEClass.getEStructuralFeatures().get( 15 );
+    public EAttribute getDataAttribute_Type() {
+        return ( EAttribute ) dataAttributeEClass.getEStructuralFeatures().get( 15 );
     }
 
     /**
@@ -1688,8 +1688,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDataAttribute_TypeKind() {
-        return ( EAttribute ) tDataAttributeEClass.getEStructuralFeatures().get( 16 );
+    public EAttribute getDataAttribute_TypeKind() {
+        return ( EAttribute ) dataAttributeEClass.getEStructuralFeatures().get( 16 );
     }
 
     /**
@@ -1698,8 +1698,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTDataObject() {
-        return tDataObjectEClass;
+    public EClass getDataObject() {
+        return dataObjectEClass;
     }
 
     /**
@@ -1708,8 +1708,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDataObject_DsPresCond() {
-        return ( EAttribute ) tDataObjectEClass.getEStructuralFeatures().get( 0 );
+    public EAttribute getDataObject_DsPresCond() {
+        return ( EAttribute ) dataObjectEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -1718,8 +1718,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDataObject_DsPresCondArgs() {
-        return ( EAttribute ) tDataObjectEClass.getEStructuralFeatures().get( 1 );
+    public EAttribute getDataObject_DsPresCondArgs() {
+        return ( EAttribute ) dataObjectEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -1728,8 +1728,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDataObject_DsPresCondArgsID() {
-        return ( EAttribute ) tDataObjectEClass.getEStructuralFeatures().get( 2 );
+    public EAttribute getDataObject_DsPresCondArgsID() {
+        return ( EAttribute ) dataObjectEClass.getEStructuralFeatures().get( 2 );
     }
 
     /**
@@ -1738,8 +1738,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDataObject_Name() {
-        return ( EAttribute ) tDataObjectEClass.getEStructuralFeatures().get( 3 );
+    public EAttribute getDataObject_Name() {
+        return ( EAttribute ) dataObjectEClass.getEStructuralFeatures().get( 3 );
     }
 
     /**
@@ -1748,8 +1748,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDataObject_PresCond() {
-        return ( EAttribute ) tDataObjectEClass.getEStructuralFeatures().get( 4 );
+    public EAttribute getDataObject_PresCond() {
+        return ( EAttribute ) dataObjectEClass.getEStructuralFeatures().get( 4 );
     }
 
     /**
@@ -1758,8 +1758,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDataObject_PresCondArgs() {
-        return ( EAttribute ) tDataObjectEClass.getEStructuralFeatures().get( 5 );
+    public EAttribute getDataObject_PresCondArgs() {
+        return ( EAttribute ) dataObjectEClass.getEStructuralFeatures().get( 5 );
     }
 
     /**
@@ -1768,8 +1768,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDataObject_PresCondArgsID() {
-        return ( EAttribute ) tDataObjectEClass.getEStructuralFeatures().get( 6 );
+    public EAttribute getDataObject_PresCondArgsID() {
+        return ( EAttribute ) dataObjectEClass.getEStructuralFeatures().get( 6 );
     }
 
     /**
@@ -1778,8 +1778,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDataObject_Transient() {
-        return ( EAttribute ) tDataObjectEClass.getEStructuralFeatures().get( 7 );
+    public EAttribute getDataObject_Transient() {
+        return ( EAttribute ) dataObjectEClass.getEStructuralFeatures().get( 7 );
     }
 
     /**
@@ -1788,8 +1788,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDataObject_Type() {
-        return ( EAttribute ) tDataObjectEClass.getEStructuralFeatures().get( 8 );
+    public EAttribute getDataObject_Type() {
+        return ( EAttribute ) dataObjectEClass.getEStructuralFeatures().get( 8 );
     }
 
     /**
@@ -1798,8 +1798,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDataObject_UnderlyingType() {
-        return ( EAttribute ) tDataObjectEClass.getEStructuralFeatures().get( 9 );
+    public EAttribute getDataObject_UnderlyingType() {
+        return ( EAttribute ) dataObjectEClass.getEStructuralFeatures().get( 9 );
     }
 
     /**
@@ -1808,8 +1808,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDataObject_UnderlyingTypeKind() {
-        return ( EAttribute ) tDataObjectEClass.getEStructuralFeatures().get( 10 );
+    public EAttribute getDataObject_UnderlyingTypeKind() {
+        return ( EAttribute ) dataObjectEClass.getEStructuralFeatures().get( 10 );
     }
 
     /**
@@ -1818,8 +1818,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTDataSetMemberOf() {
-        return tDataSetMemberOfEClass;
+    public EClass getDataSetMemberOf() {
+        return dataSetMemberOfEClass;
     }
 
     /**
@@ -1828,8 +1828,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDataSetMemberOf_Cb() {
-        return ( EAttribute ) tDataSetMemberOfEClass.getEStructuralFeatures().get( 0 );
+    public EAttribute getDataSetMemberOf_Cb() {
+        return ( EAttribute ) dataSetMemberOfEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -1838,8 +1838,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTDoc() {
-        return tDocEClass;
+    public EClass getDoc() {
+        return docEClass;
     }
 
     /**
@@ -1848,8 +1848,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDoc_Mixed() {
-        return ( EAttribute ) tDocEClass.getEStructuralFeatures().get( 0 );
+    public EAttribute getDoc_Mixed() {
+        return ( EAttribute ) docEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -1858,8 +1858,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDoc_Group() {
-        return ( EAttribute ) tDocEClass.getEStructuralFeatures().get( 1 );
+    public EAttribute getDoc_Group() {
+        return ( EAttribute ) docEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -1868,8 +1868,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDoc_Any() {
-        return ( EAttribute ) tDocEClass.getEStructuralFeatures().get( 2 );
+    public EAttribute getDoc_Any() {
+        return ( EAttribute ) docEClass.getEStructuralFeatures().get( 2 );
     }
 
     /**
@@ -1878,8 +1878,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDoc_Id() {
-        return ( EAttribute ) tDocEClass.getEStructuralFeatures().get( 3 );
+    public EAttribute getDoc_Id() {
+        return ( EAttribute ) docEClass.getEStructuralFeatures().get( 3 );
     }
 
     /**
@@ -1888,8 +1888,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTDocumentedClass() {
-        return tDocumentedClassEClass;
+    public EClass getDocumentedClass() {
+        return documentedClassEClass;
     }
 
     /**
@@ -1898,8 +1898,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDocumentedClass_Deprecated() {
-        return ( EAttribute ) tDocumentedClassEClass.getEStructuralFeatures().get( 0 );
+    public EAttribute getDocumentedClass_Deprecated() {
+        return ( EAttribute ) documentedClassEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -1908,8 +1908,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDocumentedClass_DescID() {
-        return ( EAttribute ) tDocumentedClassEClass.getEStructuralFeatures().get( 1 );
+    public EAttribute getDocumentedClass_DescID() {
+        return ( EAttribute ) documentedClassEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -1918,8 +1918,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTDocumentedClass_Informative() {
-        return ( EAttribute ) tDocumentedClassEClass.getEStructuralFeatures().get( 2 );
+    public EAttribute getDocumentedClass_Informative() {
+        return ( EAttribute ) documentedClassEClass.getEStructuralFeatures().get( 2 );
     }
 
     /**
@@ -1928,8 +1928,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTEnumeration() {
-        return tEnumerationEClass;
+    public EClass getEnumeration() {
+        return enumerationEClass;
     }
 
     /**
@@ -1938,8 +1938,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTEnumeration_Literal() {
-        return ( EReference ) tEnumerationEClass.getEStructuralFeatures().get( 0 );
+    public EReference getEnumeration_Literal() {
+        return ( EReference ) enumerationEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -1948,8 +1948,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTEnumeration_InheritedFrom() {
-        return ( EAttribute ) tEnumerationEClass.getEStructuralFeatures().get( 1 );
+    public EAttribute getEnumeration_InheritedFrom() {
+        return ( EAttribute ) enumerationEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -1958,8 +1958,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTEnumeration_Name() {
-        return ( EAttribute ) tEnumerationEClass.getEStructuralFeatures().get( 2 );
+    public EAttribute getEnumeration_Name() {
+        return ( EAttribute ) enumerationEClass.getEStructuralFeatures().get( 2 );
     }
 
     /**
@@ -1968,8 +1968,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTEnumerations() {
-        return tEnumerationsEClass;
+    public EClass getEnumerations() {
+        return enumerationsEClass;
     }
 
     /**
@@ -1978,8 +1978,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTEnumerations_Enumeration() {
-        return ( EReference ) tEnumerationsEClass.getEStructuralFeatures().get( 0 );
+    public EReference getEnumerations_Enumeration() {
+        return ( EReference ) enumerationsEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -1988,8 +1988,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTFunctionalConstraint() {
-        return tFunctionalConstraintEClass;
+    public EClass getFunctionalConstraint() {
+        return functionalConstraintEClass;
     }
 
     /**
@@ -1998,8 +1998,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTFunctionalConstraint_ApplicableServices() {
-        return ( EReference ) tFunctionalConstraintEClass.getEStructuralFeatures().get( 0 );
+    public EReference getFunctionalConstraint_ApplicableServices() {
+        return ( EReference ) functionalConstraintEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -2008,8 +2008,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTFunctionalConstraint_Abbreviation() {
-        return ( EAttribute ) tFunctionalConstraintEClass.getEStructuralFeatures().get( 1 );
+    public EAttribute getFunctionalConstraint_Abbreviation() {
+        return ( EAttribute ) functionalConstraintEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -2018,8 +2018,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTFunctionalConstraint_DescID() {
-        return ( EAttribute ) tFunctionalConstraintEClass.getEStructuralFeatures().get( 2 );
+    public EAttribute getFunctionalConstraint_DescID() {
+        return ( EAttribute ) functionalConstraintEClass.getEStructuralFeatures().get( 2 );
     }
 
     /**
@@ -2028,8 +2028,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTFunctionalConstraint_TitleID() {
-        return ( EAttribute ) tFunctionalConstraintEClass.getEStructuralFeatures().get( 3 );
+    public EAttribute getFunctionalConstraint_TitleID() {
+        return ( EAttribute ) functionalConstraintEClass.getEStructuralFeatures().get( 3 );
     }
 
     /**
@@ -2038,8 +2038,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTFunctionalConstraints() {
-        return tFunctionalConstraintsEClass;
+    public EClass getFunctionalConstraints() {
+        return functionalConstraintsEClass;
     }
 
     /**
@@ -2048,8 +2048,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTFunctionalConstraints_FunctionalConstraint() {
-        return ( EReference ) tFunctionalConstraintsEClass.getEStructuralFeatures().get( 0 );
+    public EReference getFunctionalConstraints_FunctionalConstraint() {
+        return ( EReference ) functionalConstraintsEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -2058,8 +2058,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTLicense() {
-        return tLicenseEClass;
+    public EClass getLicense() {
+        return licenseEClass;
     }
 
     /**
@@ -2068,8 +2068,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTLicense_Mixed() {
-        return ( EAttribute ) tLicenseEClass.getEStructuralFeatures().get( 0 );
+    public EAttribute getLicense_Mixed() {
+        return ( EAttribute ) licenseEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -2078,8 +2078,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTLicense_Kind() {
-        return ( EAttribute ) tLicenseEClass.getEStructuralFeatures().get( 1 );
+    public EAttribute getLicense_Kind() {
+        return ( EAttribute ) licenseEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -2088,8 +2088,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTLicense_Uri() {
-        return ( EAttribute ) tLicenseEClass.getEStructuralFeatures().get( 2 );
+    public EAttribute getLicense_Uri() {
+        return ( EAttribute ) licenseEClass.getEStructuralFeatures().get( 2 );
     }
 
     /**
@@ -2098,8 +2098,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTLiteral() {
-        return tLiteralEClass;
+    public EClass getLiteral() {
+        return literalEClass;
     }
 
     /**
@@ -2108,8 +2108,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTLiteral_LiteralVal() {
-        return ( EAttribute ) tLiteralEClass.getEStructuralFeatures().get( 0 );
+    public EAttribute getLiteral_LiteralVal() {
+        return ( EAttribute ) literalEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -2118,8 +2118,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTLiteral_Name() {
-        return ( EAttribute ) tLiteralEClass.getEStructuralFeatures().get( 1 );
+    public EAttribute getLiteral_Name() {
+        return ( EAttribute ) literalEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -2128,8 +2128,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTLNClass() {
-        return tlnClassEClass;
+    public EClass getLNClass() {
+        return lnClassEClass;
     }
 
     /**
@@ -2138,8 +2138,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTLNClass_CanHaveLOG() {
-        return ( EAttribute ) tlnClassEClass.getEStructuralFeatures().get( 0 );
+    public EAttribute getLNClass_CanHaveLOG() {
+        return ( EAttribute ) lnClassEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -2148,8 +2148,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTLNClass_IsExtension() {
-        return ( EAttribute ) tlnClassEClass.getEStructuralFeatures().get( 1 );
+    public EAttribute getLNClass_IsExtension() {
+        return ( EAttribute ) lnClassEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -2158,8 +2158,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTLNClass_Name() {
-        return ( EAttribute ) tlnClassEClass.getEStructuralFeatures().get( 2 );
+    public EAttribute getLNClass_Name() {
+        return ( EAttribute ) lnClassEClass.getEStructuralFeatures().get( 2 );
     }
 
     /**
@@ -2168,8 +2168,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTLNClasses() {
-        return tlnClassesEClass;
+    public EClass getLNClasses() {
+        return lnClassesEClass;
     }
 
     /**
@@ -2178,8 +2178,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTLNClasses_AbstractLNClass() {
-        return ( EReference ) tlnClassesEClass.getEStructuralFeatures().get( 0 );
+    public EReference getLNClasses_AbstractLNClass() {
+        return ( EReference ) lnClassesEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -2188,8 +2188,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTLNClasses_LNClass() {
-        return ( EReference ) tlnClassesEClass.getEStructuralFeatures().get( 1 );
+    public EReference getLNClasses_LNClass() {
+        return ( EReference ) lnClassesEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -2198,8 +2198,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTNotice() {
-        return tNoticeEClass;
+    public EClass getNotice() {
+        return noticeEClass;
     }
 
     /**
@@ -2208,8 +2208,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTNotice_Mixed() {
-        return ( EAttribute ) tNoticeEClass.getEStructuralFeatures().get( 0 );
+    public EAttribute getNotice_Mixed() {
+        return ( EAttribute ) noticeEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -2218,8 +2218,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTNS() {
-        return tnsEClass;
+    public EClass getNS() {
+        return nsEClass;
     }
 
     /**
@@ -2228,8 +2228,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTNS_Changes() {
-        return ( EReference ) tnsEClass.getEStructuralFeatures().get( 0 );
+    public EReference getNS_Changes() {
+        return ( EReference ) nsEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -2238,8 +2238,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTNS_DependsOn() {
-        return ( EReference ) tnsEClass.getEStructuralFeatures().get( 1 );
+    public EReference getNS_DependsOn() {
+        return ( EReference ) nsEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -2248,8 +2248,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTNS_BasicTypes() {
-        return ( EReference ) tnsEClass.getEStructuralFeatures().get( 2 );
+    public EReference getNS_BasicTypes() {
+        return ( EReference ) nsEClass.getEStructuralFeatures().get( 2 );
     }
 
     /**
@@ -2258,8 +2258,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTNS_FunctionalConstraints() {
-        return ( EReference ) tnsEClass.getEStructuralFeatures().get( 3 );
+    public EReference getNS_FunctionalConstraints() {
+        return ( EReference ) nsEClass.getEStructuralFeatures().get( 3 );
     }
 
     /**
@@ -2268,8 +2268,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTNS_PresenceConditions() {
-        return ( EReference ) tnsEClass.getEStructuralFeatures().get( 4 );
+    public EReference getNS_PresenceConditions() {
+        return ( EReference ) nsEClass.getEStructuralFeatures().get( 4 );
     }
 
     /**
@@ -2278,8 +2278,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTNS_Abbreviations() {
-        return ( EReference ) tnsEClass.getEStructuralFeatures().get( 5 );
+    public EReference getNS_Abbreviations() {
+        return ( EReference ) nsEClass.getEStructuralFeatures().get( 5 );
     }
 
     /**
@@ -2288,8 +2288,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTNS_Enumerations() {
-        return ( EReference ) tnsEClass.getEStructuralFeatures().get( 6 );
+    public EReference getNS_Enumerations() {
+        return ( EReference ) nsEClass.getEStructuralFeatures().get( 6 );
     }
 
     /**
@@ -2298,8 +2298,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTNS_ConstructedAttributes() {
-        return ( EReference ) tnsEClass.getEStructuralFeatures().get( 7 );
+    public EReference getNS_ConstructedAttributes() {
+        return ( EReference ) nsEClass.getEStructuralFeatures().get( 7 );
     }
 
     /**
@@ -2308,8 +2308,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTNS_CDCs() {
-        return ( EReference ) tnsEClass.getEStructuralFeatures().get( 8 );
+    public EReference getNS_CDCs() {
+        return ( EReference ) nsEClass.getEStructuralFeatures().get( 8 );
     }
 
     /**
@@ -2318,8 +2318,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTNS_LNClasses() {
-        return ( EReference ) tnsEClass.getEStructuralFeatures().get( 9 );
+    public EReference getNS_LNClasses() {
+        return ( EReference ) nsEClass.getEStructuralFeatures().get( 9 );
     }
 
     /**
@@ -2328,8 +2328,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTNS_DescID() {
-        return ( EAttribute ) tnsEClass.getEStructuralFeatures().get( 10 );
+    public EAttribute getNS_DescID() {
+        return ( EAttribute ) nsEClass.getEStructuralFeatures().get( 10 );
     }
 
     /**
@@ -2338,8 +2338,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTNS_Id() {
-        return ( EAttribute ) tnsEClass.getEStructuralFeatures().get( 11 );
+    public EAttribute getNS_Id() {
+        return ( EAttribute ) nsEClass.getEStructuralFeatures().get( 11 );
     }
 
     /**
@@ -2348,8 +2348,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTNS_PublicationStage() {
-        return ( EAttribute ) tnsEClass.getEStructuralFeatures().get( 12 );
+    public EAttribute getNS_PublicationStage() {
+        return ( EAttribute ) nsEClass.getEStructuralFeatures().get( 12 );
     }
 
     /**
@@ -2358,8 +2358,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTNS_Release() {
-        return ( EAttribute ) tnsEClass.getEStructuralFeatures().get( 13 );
+    public EAttribute getNS_Release() {
+        return ( EAttribute ) nsEClass.getEStructuralFeatures().get( 13 );
     }
 
     /**
@@ -2368,8 +2368,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTNS_Revision() {
-        return ( EAttribute ) tnsEClass.getEStructuralFeatures().get( 14 );
+    public EAttribute getNS_Revision() {
+        return ( EAttribute ) nsEClass.getEStructuralFeatures().get( 14 );
     }
 
     /**
@@ -2378,8 +2378,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTNS_UmlDate() {
-        return ( EAttribute ) tnsEClass.getEStructuralFeatures().get( 15 );
+    public EAttribute getNS_UmlDate() {
+        return ( EAttribute ) nsEClass.getEStructuralFeatures().get( 15 );
     }
 
     /**
@@ -2388,8 +2388,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTNS_UmlVersion() {
-        return ( EAttribute ) tnsEClass.getEStructuralFeatures().get( 16 );
+    public EAttribute getNS_UmlVersion() {
+        return ( EAttribute ) nsEClass.getEStructuralFeatures().get( 16 );
     }
 
     /**
@@ -2398,8 +2398,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTNS_Version() {
-        return ( EAttribute ) tnsEClass.getEStructuralFeatures().get( 17 );
+    public EAttribute getNS_Version() {
+        return ( EAttribute ) nsEClass.getEStructuralFeatures().get( 17 );
     }
 
     /**
@@ -2408,8 +2408,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTNSDoc() {
-        return tnsDocEClass;
+    public EClass getNSDoc() {
+        return nsDocEClass;
     }
 
     /**
@@ -2418,8 +2418,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTNSDoc_Doc() {
-        return ( EReference ) tnsDocEClass.getEStructuralFeatures().get( 0 );
+    public EReference getNSDoc_Doc() {
+        return ( EReference ) nsDocEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -2428,8 +2428,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTNSDoc_Id() {
-        return ( EAttribute ) tnsDocEClass.getEStructuralFeatures().get( 1 );
+    public EAttribute getNSDoc_Id() {
+        return ( EAttribute ) nsDocEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -2438,8 +2438,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTNSDoc_Lang() {
-        return ( EAttribute ) tnsDocEClass.getEStructuralFeatures().get( 2 );
+    public EAttribute getNSDoc_Lang() {
+        return ( EAttribute ) nsDocEClass.getEStructuralFeatures().get( 2 );
     }
 
     /**
@@ -2448,8 +2448,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTNSDoc_PublicationStage() {
-        return ( EAttribute ) tnsDocEClass.getEStructuralFeatures().get( 3 );
+    public EAttribute getNSDoc_PublicationStage() {
+        return ( EAttribute ) nsDocEClass.getEStructuralFeatures().get( 3 );
     }
 
     /**
@@ -2458,8 +2458,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTNSDoc_Release() {
-        return ( EAttribute ) tnsDocEClass.getEStructuralFeatures().get( 4 );
+    public EAttribute getNSDoc_Release() {
+        return ( EAttribute ) nsDocEClass.getEStructuralFeatures().get( 4 );
     }
 
     /**
@@ -2468,8 +2468,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTNSDoc_Revision() {
-        return ( EAttribute ) tnsDocEClass.getEStructuralFeatures().get( 5 );
+    public EAttribute getNSDoc_Revision() {
+        return ( EAttribute ) nsDocEClass.getEStructuralFeatures().get( 5 );
     }
 
     /**
@@ -2478,8 +2478,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTNSDoc_UmlDate() {
-        return ( EAttribute ) tnsDocEClass.getEStructuralFeatures().get( 6 );
+    public EAttribute getNSDoc_UmlDate() {
+        return ( EAttribute ) nsDocEClass.getEStructuralFeatures().get( 6 );
     }
 
     /**
@@ -2488,8 +2488,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTNSDoc_UmlVersion() {
-        return ( EAttribute ) tnsDocEClass.getEStructuralFeatures().get( 7 );
+    public EAttribute getNSDoc_UmlVersion() {
+        return ( EAttribute ) nsDocEClass.getEStructuralFeatures().get( 7 );
     }
 
     /**
@@ -2498,8 +2498,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTNSDoc_Version() {
-        return ( EAttribute ) tnsDocEClass.getEStructuralFeatures().get( 8 );
+    public EAttribute getNSDoc_Version() {
+        return ( EAttribute ) nsDocEClass.getEStructuralFeatures().get( 8 );
     }
 
     /**
@@ -2508,8 +2508,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTPresenceCondition() {
-        return tPresenceConditionEClass;
+    public EClass getPresenceCondition() {
+        return presenceConditionEClass;
     }
 
     /**
@@ -2518,8 +2518,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTPresenceCondition_Argument() {
-        return ( EAttribute ) tPresenceConditionEClass.getEStructuralFeatures().get( 0 );
+    public EAttribute getPresenceCondition_Argument() {
+        return ( EAttribute ) presenceConditionEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -2528,8 +2528,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTPresenceCondition_DescID() {
-        return ( EAttribute ) tPresenceConditionEClass.getEStructuralFeatures().get( 1 );
+    public EAttribute getPresenceCondition_DescID() {
+        return ( EAttribute ) presenceConditionEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -2538,8 +2538,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTPresenceCondition_Name() {
-        return ( EAttribute ) tPresenceConditionEClass.getEStructuralFeatures().get( 2 );
+    public EAttribute getPresenceCondition_Name() {
+        return ( EAttribute ) presenceConditionEClass.getEStructuralFeatures().get( 2 );
     }
 
     /**
@@ -2548,8 +2548,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTPresenceCondition_TitleID() {
-        return ( EAttribute ) tPresenceConditionEClass.getEStructuralFeatures().get( 3 );
+    public EAttribute getPresenceCondition_TitleID() {
+        return ( EAttribute ) presenceConditionEClass.getEStructuralFeatures().get( 3 );
     }
 
     /**
@@ -2558,8 +2558,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTPresenceConditions() {
-        return tPresenceConditionsEClass;
+    public EClass getPresenceConditions() {
+        return presenceConditionsEClass;
     }
 
     /**
@@ -2568,8 +2568,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTPresenceConditions_PresenceCondition() {
-        return ( EReference ) tPresenceConditionsEClass.getEStructuralFeatures().get( 0 );
+    public EReference getPresenceConditions_PresenceCondition() {
+        return ( EReference ) presenceConditionsEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -2578,8 +2578,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTServiceCDC() {
-        return tServiceCDCEClass;
+    public EClass getServiceCDC() {
+        return serviceCDCEClass;
     }
 
     /**
@@ -2588,8 +2588,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTServiceCDC_ServiceDataAttribute() {
-        return ( EReference ) tServiceCDCEClass.getEStructuralFeatures().get( 0 );
+    public EReference getServiceCDC_ServiceDataAttribute() {
+        return ( EReference ) serviceCDCEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -2598,8 +2598,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceCDC_Cdc() {
-        return ( EAttribute ) tServiceCDCEClass.getEStructuralFeatures().get( 1 );
+    public EAttribute getServiceCDC_Cdc() {
+        return ( EAttribute ) serviceCDCEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -2608,8 +2608,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceCDC_Variant() {
-        return ( EAttribute ) tServiceCDCEClass.getEStructuralFeatures().get( 2 );
+    public EAttribute getServiceCDC_Variant() {
+        return ( EAttribute ) serviceCDCEClass.getEStructuralFeatures().get( 2 );
     }
 
     /**
@@ -2618,8 +2618,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTServiceCDCs() {
-        return tServiceCDCsEClass;
+    public EClass getServiceCDCs() {
+        return serviceCDCsEClass;
     }
 
     /**
@@ -2628,8 +2628,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTServiceCDCs_ServiceCDC() {
-        return ( EReference ) tServiceCDCsEClass.getEStructuralFeatures().get( 0 );
+    public EReference getServiceCDCs_ServiceCDC() {
+        return ( EReference ) serviceCDCsEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -2638,8 +2638,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTServiceConstructedAttribute() {
-        return tServiceConstructedAttributeEClass;
+    public EClass getServiceConstructedAttribute() {
+        return serviceConstructedAttributeEClass;
     }
 
     /**
@@ -2648,8 +2648,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceConstructedAttribute_TypeKindParameterized() {
-        return ( EAttribute ) tServiceConstructedAttributeEClass.getEStructuralFeatures().get( 0 );
+    public EAttribute getServiceConstructedAttribute_TypeKindParameterized() {
+        return ( EAttribute ) serviceConstructedAttributeEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -2658,8 +2658,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTServiceConstructedAttributes() {
-        return tServiceConstructedAttributesEClass;
+    public EClass getServiceConstructedAttributes() {
+        return serviceConstructedAttributesEClass;
     }
 
     /**
@@ -2668,8 +2668,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTServiceConstructedAttributes_ServiceConstructedAttribute() {
-        return ( EReference ) tServiceConstructedAttributesEClass.getEStructuralFeatures().get( 0 );
+    public EReference getServiceConstructedAttributes_ServiceConstructedAttribute() {
+        return ( EReference ) serviceConstructedAttributesEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -2678,8 +2678,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTServiceDataAttribute() {
-        return tServiceDataAttributeEClass;
+    public EClass getServiceDataAttribute() {
+        return serviceDataAttributeEClass;
     }
 
     /**
@@ -2688,8 +2688,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceDataAttribute_Fc() {
-        return ( EAttribute ) tServiceDataAttributeEClass.getEStructuralFeatures().get( 0 );
+    public EAttribute getServiceDataAttribute_Fc() {
+        return ( EAttribute ) serviceDataAttributeEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -2698,8 +2698,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceDataAttribute_Name() {
-        return ( EAttribute ) tServiceDataAttributeEClass.getEStructuralFeatures().get( 1 );
+    public EAttribute getServiceDataAttribute_Name() {
+        return ( EAttribute ) serviceDataAttributeEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -2708,8 +2708,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceDataAttribute_PresCond() {
-        return ( EAttribute ) tServiceDataAttributeEClass.getEStructuralFeatures().get( 2 );
+    public EAttribute getServiceDataAttribute_PresCond() {
+        return ( EAttribute ) serviceDataAttributeEClass.getEStructuralFeatures().get( 2 );
     }
 
     /**
@@ -2718,8 +2718,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceDataAttribute_PresCondArgs() {
-        return ( EAttribute ) tServiceDataAttributeEClass.getEStructuralFeatures().get( 3 );
+    public EAttribute getServiceDataAttribute_PresCondArgs() {
+        return ( EAttribute ) serviceDataAttributeEClass.getEStructuralFeatures().get( 3 );
     }
 
     /**
@@ -2728,8 +2728,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceDataAttribute_PresCondArgsID() {
-        return ( EAttribute ) tServiceDataAttributeEClass.getEStructuralFeatures().get( 4 );
+    public EAttribute getServiceDataAttribute_PresCondArgsID() {
+        return ( EAttribute ) serviceDataAttributeEClass.getEStructuralFeatures().get( 4 );
     }
 
     /**
@@ -2738,8 +2738,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceDataAttribute_Type() {
-        return ( EAttribute ) tServiceDataAttributeEClass.getEStructuralFeatures().get( 5 );
+    public EAttribute getServiceDataAttribute_Type() {
+        return ( EAttribute ) serviceDataAttributeEClass.getEStructuralFeatures().get( 5 );
     }
 
     /**
@@ -2748,8 +2748,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceDataAttribute_TypeKind() {
-        return ( EAttribute ) tServiceDataAttributeEClass.getEStructuralFeatures().get( 6 );
+    public EAttribute getServiceDataAttribute_TypeKind() {
+        return ( EAttribute ) serviceDataAttributeEClass.getEStructuralFeatures().get( 6 );
     }
 
     /**
@@ -2758,8 +2758,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceDataAttribute_UnderlyingType() {
-        return ( EAttribute ) tServiceDataAttributeEClass.getEStructuralFeatures().get( 7 );
+    public EAttribute getServiceDataAttribute_UnderlyingType() {
+        return ( EAttribute ) serviceDataAttributeEClass.getEStructuralFeatures().get( 7 );
     }
 
     /**
@@ -2768,8 +2768,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceDataAttribute_UnderlyingTypeKind() {
-        return ( EAttribute ) tServiceDataAttributeEClass.getEStructuralFeatures().get( 8 );
+    public EAttribute getServiceDataAttribute_UnderlyingTypeKind() {
+        return ( EAttribute ) serviceDataAttributeEClass.getEStructuralFeatures().get( 8 );
     }
 
     /**
@@ -2778,8 +2778,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTServiceNS() {
-        return tServiceNSEClass;
+    public EClass getServiceNS() {
+        return serviceNSEClass;
     }
 
     /**
@@ -2788,8 +2788,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTServiceNS_Changes() {
-        return ( EReference ) tServiceNSEClass.getEStructuralFeatures().get( 0 );
+    public EReference getServiceNS_Changes() {
+        return ( EReference ) serviceNSEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -2798,8 +2798,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTServiceNS_FunctionalConstraints() {
-        return ( EReference ) tServiceNSEClass.getEStructuralFeatures().get( 1 );
+    public EReference getServiceNS_FunctionalConstraints() {
+        return ( EReference ) serviceNSEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -2808,8 +2808,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTServiceNS_PresenceConditions() {
-        return ( EReference ) tServiceNSEClass.getEStructuralFeatures().get( 2 );
+    public EReference getServiceNS_PresenceConditions() {
+        return ( EReference ) serviceNSEClass.getEStructuralFeatures().get( 2 );
     }
 
     /**
@@ -2818,8 +2818,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTServiceNS_Abbreviations() {
-        return ( EReference ) tServiceNSEClass.getEStructuralFeatures().get( 3 );
+    public EReference getServiceNS_Abbreviations() {
+        return ( EReference ) serviceNSEClass.getEStructuralFeatures().get( 3 );
     }
 
     /**
@@ -2828,8 +2828,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTServiceNS_ServiceTypeRealizations() {
-        return ( EReference ) tServiceNSEClass.getEStructuralFeatures().get( 4 );
+    public EReference getServiceNS_ServiceTypeRealizations() {
+        return ( EReference ) serviceNSEClass.getEStructuralFeatures().get( 4 );
     }
 
     /**
@@ -2838,8 +2838,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTServiceNS_ServiceConstructedAttributes() {
-        return ( EReference ) tServiceNSEClass.getEStructuralFeatures().get( 5 );
+    public EReference getServiceNS_ServiceConstructedAttributes() {
+        return ( EReference ) serviceNSEClass.getEStructuralFeatures().get( 5 );
     }
 
     /**
@@ -2848,8 +2848,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTServiceNS_ServiceCDCs() {
-        return ( EReference ) tServiceNSEClass.getEStructuralFeatures().get( 6 );
+    public EReference getServiceNS_ServiceCDCs() {
+        return ( EReference ) serviceNSEClass.getEStructuralFeatures().get( 6 );
     }
 
     /**
@@ -2858,8 +2858,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceNS_DescID() {
-        return ( EAttribute ) tServiceNSEClass.getEStructuralFeatures().get( 7 );
+    public EAttribute getServiceNS_DescID() {
+        return ( EAttribute ) serviceNSEClass.getEStructuralFeatures().get( 7 );
     }
 
     /**
@@ -2868,8 +2868,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceNS_Id() {
-        return ( EAttribute ) tServiceNSEClass.getEStructuralFeatures().get( 8 );
+    public EAttribute getServiceNS_Id() {
+        return ( EAttribute ) serviceNSEClass.getEStructuralFeatures().get( 8 );
     }
 
     /**
@@ -2878,8 +2878,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceNS_PublicationStage() {
-        return ( EAttribute ) tServiceNSEClass.getEStructuralFeatures().get( 9 );
+    public EAttribute getServiceNS_PublicationStage() {
+        return ( EAttribute ) serviceNSEClass.getEStructuralFeatures().get( 9 );
     }
 
     /**
@@ -2888,8 +2888,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceNS_Release() {
-        return ( EAttribute ) tServiceNSEClass.getEStructuralFeatures().get( 10 );
+    public EAttribute getServiceNS_Release() {
+        return ( EAttribute ) serviceNSEClass.getEStructuralFeatures().get( 10 );
     }
 
     /**
@@ -2898,8 +2898,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceNS_Revision() {
-        return ( EAttribute ) tServiceNSEClass.getEStructuralFeatures().get( 11 );
+    public EAttribute getServiceNS_Revision() {
+        return ( EAttribute ) serviceNSEClass.getEStructuralFeatures().get( 11 );
     }
 
     /**
@@ -2908,8 +2908,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceNS_UmlDate() {
-        return ( EAttribute ) tServiceNSEClass.getEStructuralFeatures().get( 12 );
+    public EAttribute getServiceNS_UmlDate() {
+        return ( EAttribute ) serviceNSEClass.getEStructuralFeatures().get( 12 );
     }
 
     /**
@@ -2918,8 +2918,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceNS_UmlVersion() {
-        return ( EAttribute ) tServiceNSEClass.getEStructuralFeatures().get( 13 );
+    public EAttribute getServiceNS_UmlVersion() {
+        return ( EAttribute ) serviceNSEClass.getEStructuralFeatures().get( 13 );
     }
 
     /**
@@ -2928,8 +2928,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceNS_Version() {
-        return ( EAttribute ) tServiceNSEClass.getEStructuralFeatures().get( 14 );
+    public EAttribute getServiceNS_Version() {
+        return ( EAttribute ) serviceNSEClass.getEStructuralFeatures().get( 14 );
     }
 
     /**
@@ -2938,8 +2938,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTServiceNsUsage() {
-        return tServiceNsUsageEClass;
+    public EClass getServiceNsUsage() {
+        return serviceNsUsageEClass;
     }
 
     /**
@@ -2948,8 +2948,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTServiceNsUsage_AppliesTo() {
-        return ( EReference ) tServiceNsUsageEClass.getEStructuralFeatures().get( 0 );
+    public EReference getServiceNsUsage_AppliesTo() {
+        return ( EReference ) serviceNsUsageEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -2958,8 +2958,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceNsUsage_Id() {
-        return ( EAttribute ) tServiceNsUsageEClass.getEStructuralFeatures().get( 1 );
+    public EAttribute getServiceNsUsage_Id() {
+        return ( EAttribute ) serviceNsUsageEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -2968,8 +2968,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceNsUsage_PublicationStage() {
-        return ( EAttribute ) tServiceNsUsageEClass.getEStructuralFeatures().get( 2 );
+    public EAttribute getServiceNsUsage_PublicationStage() {
+        return ( EAttribute ) serviceNsUsageEClass.getEStructuralFeatures().get( 2 );
     }
 
     /**
@@ -2978,8 +2978,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceNsUsage_Release() {
-        return ( EAttribute ) tServiceNsUsageEClass.getEStructuralFeatures().get( 3 );
+    public EAttribute getServiceNsUsage_Release() {
+        return ( EAttribute ) serviceNsUsageEClass.getEStructuralFeatures().get( 3 );
     }
 
     /**
@@ -2988,8 +2988,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceNsUsage_Revision() {
-        return ( EAttribute ) tServiceNsUsageEClass.getEStructuralFeatures().get( 4 );
+    public EAttribute getServiceNsUsage_Revision() {
+        return ( EAttribute ) serviceNsUsageEClass.getEStructuralFeatures().get( 4 );
     }
 
     /**
@@ -2998,8 +2998,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceNsUsage_Version() {
-        return ( EAttribute ) tServiceNsUsageEClass.getEStructuralFeatures().get( 5 );
+    public EAttribute getServiceNsUsage_Version() {
+        return ( EAttribute ) serviceNsUsageEClass.getEStructuralFeatures().get( 5 );
     }
 
     /**
@@ -3008,8 +3008,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTServiceParameter() {
-        return tServiceParameterEClass;
+    public EClass getServiceParameter() {
+        return serviceParameterEClass;
     }
 
     /**
@@ -3018,8 +3018,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceParameter_DefaultValue() {
-        return ( EAttribute ) tServiceParameterEClass.getEStructuralFeatures().get( 0 );
+    public EAttribute getServiceParameter_DefaultValue() {
+        return ( EAttribute ) serviceParameterEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -3028,8 +3028,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceParameter_MaxValue() {
-        return ( EAttribute ) tServiceParameterEClass.getEStructuralFeatures().get( 1 );
+    public EAttribute getServiceParameter_MaxValue() {
+        return ( EAttribute ) serviceParameterEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -3038,8 +3038,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceParameter_MinValue() {
-        return ( EAttribute ) tServiceParameterEClass.getEStructuralFeatures().get( 2 );
+    public EAttribute getServiceParameter_MinValue() {
+        return ( EAttribute ) serviceParameterEClass.getEStructuralFeatures().get( 2 );
     }
 
     /**
@@ -3048,8 +3048,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceParameter_Name() {
-        return ( EAttribute ) tServiceParameterEClass.getEStructuralFeatures().get( 3 );
+    public EAttribute getServiceParameter_Name() {
+        return ( EAttribute ) serviceParameterEClass.getEStructuralFeatures().get( 3 );
     }
 
     /**
@@ -3058,8 +3058,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceParameter_Type() {
-        return ( EAttribute ) tServiceParameterEClass.getEStructuralFeatures().get( 4 );
+    public EAttribute getServiceParameter_Type() {
+        return ( EAttribute ) serviceParameterEClass.getEStructuralFeatures().get( 4 );
     }
 
     /**
@@ -3068,8 +3068,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceParameter_TypeKind() {
-        return ( EAttribute ) tServiceParameterEClass.getEStructuralFeatures().get( 5 );
+    public EAttribute getServiceParameter_TypeKind() {
+        return ( EAttribute ) serviceParameterEClass.getEStructuralFeatures().get( 5 );
     }
 
     /**
@@ -3078,8 +3078,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTServiceTypeRealization() {
-        return tServiceTypeRealizationEClass;
+    public EClass getServiceTypeRealization() {
+        return serviceTypeRealizationEClass;
     }
 
     /**
@@ -3088,8 +3088,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceTypeRealization_Fc() {
-        return ( EAttribute ) tServiceTypeRealizationEClass.getEStructuralFeatures().get( 0 );
+    public EAttribute getServiceTypeRealization_Fc() {
+        return ( EAttribute ) serviceTypeRealizationEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -3098,8 +3098,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceTypeRealization_Name() {
-        return ( EAttribute ) tServiceTypeRealizationEClass.getEStructuralFeatures().get( 1 );
+    public EAttribute getServiceTypeRealization_Name() {
+        return ( EAttribute ) serviceTypeRealizationEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -3108,8 +3108,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceTypeRealization_PresCond() {
-        return ( EAttribute ) tServiceTypeRealizationEClass.getEStructuralFeatures().get( 2 );
+    public EAttribute getServiceTypeRealization_PresCond() {
+        return ( EAttribute ) serviceTypeRealizationEClass.getEStructuralFeatures().get( 2 );
     }
 
     /**
@@ -3118,8 +3118,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceTypeRealization_PresCondArgs() {
-        return ( EAttribute ) tServiceTypeRealizationEClass.getEStructuralFeatures().get( 3 );
+    public EAttribute getServiceTypeRealization_PresCondArgs() {
+        return ( EAttribute ) serviceTypeRealizationEClass.getEStructuralFeatures().get( 3 );
     }
 
     /**
@@ -3128,8 +3128,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceTypeRealization_PresCondArgsID() {
-        return ( EAttribute ) tServiceTypeRealizationEClass.getEStructuralFeatures().get( 4 );
+    public EAttribute getServiceTypeRealization_PresCondArgsID() {
+        return ( EAttribute ) serviceTypeRealizationEClass.getEStructuralFeatures().get( 4 );
     }
 
     /**
@@ -3138,8 +3138,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceTypeRealization_Type() {
-        return ( EAttribute ) tServiceTypeRealizationEClass.getEStructuralFeatures().get( 5 );
+    public EAttribute getServiceTypeRealization_Type() {
+        return ( EAttribute ) serviceTypeRealizationEClass.getEStructuralFeatures().get( 5 );
     }
 
     /**
@@ -3148,8 +3148,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTServiceTypeRealization_TypeKind() {
-        return ( EAttribute ) tServiceTypeRealizationEClass.getEStructuralFeatures().get( 6 );
+    public EAttribute getServiceTypeRealization_TypeKind() {
+        return ( EAttribute ) serviceTypeRealizationEClass.getEStructuralFeatures().get( 6 );
     }
 
     /**
@@ -3158,8 +3158,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTServiceTypeRealizations() {
-        return tServiceTypeRealizationsEClass;
+    public EClass getServiceTypeRealizations() {
+        return serviceTypeRealizationsEClass;
     }
 
     /**
@@ -3168,8 +3168,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getTServiceTypeRealizations_ServiceTypeRealization() {
-        return ( EReference ) tServiceTypeRealizationsEClass.getEStructuralFeatures().get( 0 );
+    public EReference getServiceTypeRealizations_ServiceTypeRealization() {
+        return ( EReference ) serviceTypeRealizationsEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -3178,8 +3178,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTSubDataAttribute() {
-        return tSubDataAttributeEClass;
+    public EClass getSubDataAttribute() {
+        return subDataAttributeEClass;
     }
 
     /**
@@ -3188,8 +3188,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTSubDataAttribute_DefaultValue() {
-        return ( EAttribute ) tSubDataAttributeEClass.getEStructuralFeatures().get( 0 );
+    public EAttribute getSubDataAttribute_DefaultValue() {
+        return ( EAttribute ) subDataAttributeEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -3198,8 +3198,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTSubDataAttribute_IsArray() {
-        return ( EAttribute ) tSubDataAttributeEClass.getEStructuralFeatures().get( 1 );
+    public EAttribute getSubDataAttribute_IsArray() {
+        return ( EAttribute ) subDataAttributeEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -3208,8 +3208,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTSubDataAttribute_MaxIndexAttribute() {
-        return ( EAttribute ) tSubDataAttributeEClass.getEStructuralFeatures().get( 2 );
+    public EAttribute getSubDataAttribute_MaxIndexAttribute() {
+        return ( EAttribute ) subDataAttributeEClass.getEStructuralFeatures().get( 2 );
     }
 
     /**
@@ -3218,8 +3218,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTSubDataAttribute_MaxValue() {
-        return ( EAttribute ) tSubDataAttributeEClass.getEStructuralFeatures().get( 3 );
+    public EAttribute getSubDataAttribute_MaxValue() {
+        return ( EAttribute ) subDataAttributeEClass.getEStructuralFeatures().get( 3 );
     }
 
     /**
@@ -3228,8 +3228,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTSubDataAttribute_MinIndex() {
-        return ( EAttribute ) tSubDataAttributeEClass.getEStructuralFeatures().get( 4 );
+    public EAttribute getSubDataAttribute_MinIndex() {
+        return ( EAttribute ) subDataAttributeEClass.getEStructuralFeatures().get( 4 );
     }
 
     /**
@@ -3238,8 +3238,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTSubDataAttribute_MinValue() {
-        return ( EAttribute ) tSubDataAttributeEClass.getEStructuralFeatures().get( 5 );
+    public EAttribute getSubDataAttribute_MinValue() {
+        return ( EAttribute ) subDataAttributeEClass.getEStructuralFeatures().get( 5 );
     }
 
     /**
@@ -3248,8 +3248,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTSubDataAttribute_Name() {
-        return ( EAttribute ) tSubDataAttributeEClass.getEStructuralFeatures().get( 6 );
+    public EAttribute getSubDataAttribute_Name() {
+        return ( EAttribute ) subDataAttributeEClass.getEStructuralFeatures().get( 6 );
     }
 
     /**
@@ -3258,8 +3258,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTSubDataAttribute_PresCond() {
-        return ( EAttribute ) tSubDataAttributeEClass.getEStructuralFeatures().get( 7 );
+    public EAttribute getSubDataAttribute_PresCond() {
+        return ( EAttribute ) subDataAttributeEClass.getEStructuralFeatures().get( 7 );
     }
 
     /**
@@ -3268,8 +3268,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTSubDataAttribute_PresCondArgs() {
-        return ( EAttribute ) tSubDataAttributeEClass.getEStructuralFeatures().get( 8 );
+    public EAttribute getSubDataAttribute_PresCondArgs() {
+        return ( EAttribute ) subDataAttributeEClass.getEStructuralFeatures().get( 8 );
     }
 
     /**
@@ -3278,8 +3278,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTSubDataAttribute_PresCondArgsID() {
-        return ( EAttribute ) tSubDataAttributeEClass.getEStructuralFeatures().get( 9 );
+    public EAttribute getSubDataAttribute_PresCondArgsID() {
+        return ( EAttribute ) subDataAttributeEClass.getEStructuralFeatures().get( 9 );
     }
 
     /**
@@ -3288,8 +3288,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTSubDataAttribute_SizeAttribute() {
-        return ( EAttribute ) tSubDataAttributeEClass.getEStructuralFeatures().get( 10 );
+    public EAttribute getSubDataAttribute_SizeAttribute() {
+        return ( EAttribute ) subDataAttributeEClass.getEStructuralFeatures().get( 10 );
     }
 
     /**
@@ -3298,8 +3298,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTSubDataAttribute_Type() {
-        return ( EAttribute ) tSubDataAttributeEClass.getEStructuralFeatures().get( 11 );
+    public EAttribute getSubDataAttribute_Type() {
+        return ( EAttribute ) subDataAttributeEClass.getEStructuralFeatures().get( 11 );
     }
 
     /**
@@ -3308,8 +3308,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTSubDataAttribute_TypeKind() {
-        return ( EAttribute ) tSubDataAttributeEClass.getEStructuralFeatures().get( 12 );
+    public EAttribute getSubDataAttribute_TypeKind() {
+        return ( EAttribute ) subDataAttributeEClass.getEStructuralFeatures().get( 12 );
     }
 
     /**
@@ -3318,8 +3318,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTSubDataObject() {
-        return tSubDataObjectEClass;
+    public EClass getSubDataObject() {
+        return subDataObjectEClass;
     }
 
     /**
@@ -3328,8 +3328,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTSubDataObject_IsArray() {
-        return ( EAttribute ) tSubDataObjectEClass.getEStructuralFeatures().get( 0 );
+    public EAttribute getSubDataObject_IsArray() {
+        return ( EAttribute ) subDataObjectEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -3338,8 +3338,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTSubDataObject_MaxIndexAttribute() {
-        return ( EAttribute ) tSubDataObjectEClass.getEStructuralFeatures().get( 1 );
+    public EAttribute getSubDataObject_MaxIndexAttribute() {
+        return ( EAttribute ) subDataObjectEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -3348,8 +3348,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTSubDataObject_MinIndex() {
-        return ( EAttribute ) tSubDataObjectEClass.getEStructuralFeatures().get( 2 );
+    public EAttribute getSubDataObject_MinIndex() {
+        return ( EAttribute ) subDataObjectEClass.getEStructuralFeatures().get( 2 );
     }
 
     /**
@@ -3358,8 +3358,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTSubDataObject_Name() {
-        return ( EAttribute ) tSubDataObjectEClass.getEStructuralFeatures().get( 3 );
+    public EAttribute getSubDataObject_Name() {
+        return ( EAttribute ) subDataObjectEClass.getEStructuralFeatures().get( 3 );
     }
 
     /**
@@ -3368,8 +3368,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTSubDataObject_PresCond() {
-        return ( EAttribute ) tSubDataObjectEClass.getEStructuralFeatures().get( 4 );
+    public EAttribute getSubDataObject_PresCond() {
+        return ( EAttribute ) subDataObjectEClass.getEStructuralFeatures().get( 4 );
     }
 
     /**
@@ -3378,8 +3378,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTSubDataObject_PresCondArgs() {
-        return ( EAttribute ) tSubDataObjectEClass.getEStructuralFeatures().get( 5 );
+    public EAttribute getSubDataObject_PresCondArgs() {
+        return ( EAttribute ) subDataObjectEClass.getEStructuralFeatures().get( 5 );
     }
 
     /**
@@ -3388,8 +3388,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTSubDataObject_PresCondArgsID() {
-        return ( EAttribute ) tSubDataObjectEClass.getEStructuralFeatures().get( 6 );
+    public EAttribute getSubDataObject_PresCondArgsID() {
+        return ( EAttribute ) subDataObjectEClass.getEStructuralFeatures().get( 6 );
     }
 
     /**
@@ -3398,8 +3398,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTSubDataObject_SizeAttribute() {
-        return ( EAttribute ) tSubDataObjectEClass.getEStructuralFeatures().get( 7 );
+    public EAttribute getSubDataObject_SizeAttribute() {
+        return ( EAttribute ) subDataObjectEClass.getEStructuralFeatures().get( 7 );
     }
 
     /**
@@ -3408,8 +3408,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTSubDataObject_Type() {
-        return ( EAttribute ) tSubDataObjectEClass.getEStructuralFeatures().get( 8 );
+    public EAttribute getSubDataObject_Type() {
+        return ( EAttribute ) subDataObjectEClass.getEStructuralFeatures().get( 8 );
     }
 
     /**
@@ -3418,8 +3418,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTSubDataObject_UnderlyingType() {
-        return ( EAttribute ) tSubDataObjectEClass.getEStructuralFeatures().get( 9 );
+    public EAttribute getSubDataObject_UnderlyingType() {
+        return ( EAttribute ) subDataObjectEClass.getEStructuralFeatures().get( 9 );
     }
 
     /**
@@ -3428,8 +3428,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTSubDataObject_UnderlyingTypeKind() {
-        return ( EAttribute ) tSubDataObjectEClass.getEStructuralFeatures().get( 10 );
+    public EAttribute getSubDataObject_UnderlyingTypeKind() {
+        return ( EAttribute ) subDataObjectEClass.getEStructuralFeatures().get( 10 );
     }
 
     /**
@@ -3438,8 +3438,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getTTitledClass() {
-        return tTitledClassEClass;
+    public EClass getTitledClass() {
+        return titledClassEClass;
     }
 
     /**
@@ -3448,8 +3448,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getTTitledClass_TitleID() {
-        return ( EAttribute ) tTitledClassEClass.getEStructuralFeatures().get( 0 );
+    public EAttribute getTitledClass_TitleID() {
+        return ( EAttribute ) titledClassEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -3458,8 +3458,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EEnum getTACSIServicesKind() {
-        return tacsiServicesKindEEnum;
+    public EEnum getACSIServicesKind() {
+        return acsiServicesKindEEnum;
     }
 
     /**
@@ -3468,8 +3468,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EEnum getTCBKind() {
-        return tcbKindEEnum;
+    public EEnum getCBKind() {
+        return cbKindEEnum;
     }
 
     /**
@@ -3478,8 +3478,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EEnum getTDefinedAttributeTypeKind() {
-        return tDefinedAttributeTypeKindEEnum;
+    public EEnum getDefinedAttributeTypeKind() {
+        return definedAttributeTypeKindEEnum;
     }
 
     /**
@@ -3488,8 +3488,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EEnum getTLicenseKind() {
-        return tLicenseKindEEnum;
+    public EEnum getLicenseKind() {
+        return licenseKindEEnum;
     }
 
     /**
@@ -3498,8 +3498,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EEnum getTPubStage() {
-        return tPubStageEEnum;
+    public EEnum getPubStage() {
+        return pubStageEEnum;
     }
 
     /**
@@ -3508,8 +3508,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EEnum getTUndefinedAttributeTypeKind() {
-        return tUndefinedAttributeTypeKindEEnum;
+    public EEnum getUndefinedAttributeTypeKind() {
+        return undefinedAttributeTypeKindEEnum;
     }
 
     /**
@@ -3518,8 +3518,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getTAbbreviationName() {
-        return tAbbreviationNameEDataType;
+    public EDataType getAbbreviationName() {
+        return abbreviationNameEDataType;
     }
 
     /**
@@ -3528,8 +3528,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getTAbstractLNClassName() {
-        return tAbstractLNClassNameEDataType;
+    public EDataType getAbstractLNClassName() {
+        return abstractLNClassNameEDataType;
     }
 
     /**
@@ -3538,8 +3538,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getTACSIServicesKindObject() {
-        return tacsiServicesKindObjectEDataType;
+    public EDataType getACSIServicesKindObject() {
+        return acsiServicesKindObjectEDataType;
     }
 
     /**
@@ -3548,8 +3548,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getTAttributeName() {
-        return tAttributeNameEDataType;
+    public EDataType getAttributeName() {
+        return attributeNameEDataType;
     }
 
     /**
@@ -3558,8 +3558,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getTAttributeTypeKind() {
-        return tAttributeTypeKindEDataType;
+    public EDataType getAttributeTypeKind() {
+        return attributeTypeKindEDataType;
     }
 
     /**
@@ -3568,8 +3568,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getTBasicTypeName() {
-        return tBasicTypeNameEDataType;
+    public EDataType getBasicTypeName() {
+        return basicTypeNameEDataType;
     }
 
     /**
@@ -3578,8 +3578,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getTCBKindObject() {
-        return tcbKindObjectEDataType;
+    public EDataType getCBKindObject() {
+        return cbKindObjectEDataType;
     }
 
     /**
@@ -3588,8 +3588,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getTCDCName() {
-        return tcdcNameEDataType;
+    public EDataType getCDCName() {
+        return cdcNameEDataType;
     }
 
     /**
@@ -3598,8 +3598,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getTDataObjectName() {
-        return tDataObjectNameEDataType;
+    public EDataType getDataObjectName() {
+        return dataObjectNameEDataType;
     }
 
     /**
@@ -3608,8 +3608,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getTDefinedAttributeTypeKindObject() {
-        return tDefinedAttributeTypeKindObjectEDataType;
+    public EDataType getDefinedAttributeTypeKindObject() {
+        return definedAttributeTypeKindObjectEDataType;
     }
 
     /**
@@ -3618,8 +3618,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getTDocID() {
-        return tDocIDEDataType;
+    public EDataType getDocID() {
+        return docIDEDataType;
     }
 
     /**
@@ -3628,8 +3628,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getTEmptyString() {
-        return tEmptyStringEDataType;
+    public EDataType getEmptyString() {
+        return emptyStringEDataType;
     }
 
     /**
@@ -3638,8 +3638,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getTFCAbbreviation() {
-        return tfcAbbreviationEDataType;
+    public EDataType getFCAbbreviation() {
+        return fcAbbreviationEDataType;
     }
 
     /**
@@ -3648,8 +3648,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getTIec61850Name() {
-        return tIec61850NameEDataType;
+    public EDataType getIec61850Name() {
+        return iec61850NameEDataType;
     }
 
     /**
@@ -3658,8 +3658,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getTIec61850NameString() {
-        return tIec61850NameStringEDataType;
+    public EDataType getIec61850NameString() {
+        return iec61850NameStringEDataType;
     }
 
     /**
@@ -3668,8 +3668,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getTissuesType() {
-        return tissuesTypeEDataType;
+    public EDataType getissuesType() {
+        return issuesTypeEDataType;
     }
 
     /**
@@ -3678,8 +3678,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getTLicenseKindObject() {
-        return tLicenseKindObjectEDataType;
+    public EDataType getLicenseKindObject() {
+        return licenseKindObjectEDataType;
     }
 
     /**
@@ -3688,8 +3688,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getTLiteralName() {
-        return tLiteralNameEDataType;
+    public EDataType getLiteralName() {
+        return literalNameEDataType;
     }
 
     /**
@@ -3698,8 +3698,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getTLNClassName() {
-        return tlnClassNameEDataType;
+    public EDataType getLNClassName() {
+        return lnClassNameEDataType;
     }
 
     /**
@@ -3708,8 +3708,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getTNSIdentifier() {
-        return tnsIdentifierEDataType;
+    public EDataType getNSIdentifier() {
+        return nsIdentifierEDataType;
     }
 
     /**
@@ -3718,8 +3718,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getTNSRelease() {
-        return tnsReleaseEDataType;
+    public EDataType getNSRelease() {
+        return nsReleaseEDataType;
     }
 
     /**
@@ -3728,8 +3728,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getTNSReleaseObject() {
-        return tnsReleaseObjectEDataType;
+    public EDataType getNSReleaseObject() {
+        return nsReleaseObjectEDataType;
     }
 
     /**
@@ -3738,8 +3738,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getTNSRevision() {
-        return tnsRevisionEDataType;
+    public EDataType getNSRevision() {
+        return nsRevisionEDataType;
     }
 
     /**
@@ -3748,8 +3748,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getTNSVersion() {
-        return tnsVersionEDataType;
+    public EDataType getNSVersion() {
+        return nsVersionEDataType;
     }
 
     /**
@@ -3758,8 +3758,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getTNSVersionObject() {
-        return tnsVersionObjectEDataType;
+    public EDataType getNSVersionObject() {
+        return nsVersionObjectEDataType;
     }
 
     /**
@@ -3768,8 +3768,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getTPresenceConditionArgument() {
-        return tPresenceConditionArgumentEDataType;
+    public EDataType getPresenceConditionArgument() {
+        return presenceConditionArgumentEDataType;
     }
 
     /**
@@ -3778,8 +3778,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getTPresenceConditionName() {
-        return tPresenceConditionNameEDataType;
+    public EDataType getPresenceConditionName() {
+        return presenceConditionNameEDataType;
     }
 
     /**
@@ -3788,8 +3788,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getTPubStageObject() {
-        return tPubStageObjectEDataType;
+    public EDataType getPubStageObject() {
+        return pubStageObjectEDataType;
     }
 
     /**
@@ -3798,8 +3798,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getTSubDataObjectName() {
-        return tSubDataObjectNameEDataType;
+    public EDataType getSubDataObjectName() {
+        return subDataObjectNameEDataType;
     }
 
     /**
@@ -3808,8 +3808,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getTUMLVersion() {
-        return tumlVersionEDataType;
+    public EDataType getUMLVersion() {
+        return umlVersionEDataType;
     }
 
     /**
@@ -3818,8 +3818,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EDataType getTUndefinedAttributeTypeKindObject() {
-        return tUndefinedAttributeTypeKindObjectEDataType;
+    public EDataType getUndefinedAttributeTypeKindObject() {
+        return undefinedAttributeTypeKindObjectEDataType;
     }
 
     /**
@@ -3878,337 +3878,337 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         serviceTypeEClass = createEClass( SERVICE_TYPE );
         createEAttribute( serviceTypeEClass, SERVICE_TYPE__NAME );
 
-        tAbbreviationEClass = createEClass( TABBREVIATION );
-        createEAttribute( tAbbreviationEClass, TABBREVIATION__DESC_ID );
-        createEAttribute( tAbbreviationEClass, TABBREVIATION__NAME );
+        abbreviationEClass = createEClass( ABBREVIATION );
+        createEAttribute( abbreviationEClass, ABBREVIATION__DESC_ID );
+        createEAttribute( abbreviationEClass, ABBREVIATION__NAME );
 
-        tAbbreviationsEClass = createEClass( TABBREVIATIONS );
-        createEReference( tAbbreviationsEClass, TABBREVIATIONS__ABBREVIATION );
+        abbreviationsEClass = createEClass( ABBREVIATIONS );
+        createEReference( abbreviationsEClass, ABBREVIATIONS__ABBREVIATION );
 
-        tAbstractLNClassEClass = createEClass( TABSTRACT_LN_CLASS );
-        createEAttribute( tAbstractLNClassEClass, TABSTRACT_LN_CLASS__NAME );
+        abstractLNClassEClass = createEClass( ABSTRACT_LN_CLASS );
+        createEAttribute( abstractLNClassEClass, ABSTRACT_LN_CLASS__NAME );
 
-        tAnyLNClassEClass = createEClass( TANY_LN_CLASS );
-        createEReference( tAnyLNClassEClass, TANY_LN_CLASS__DATA_OBJECT );
-        createEAttribute( tAnyLNClassEClass, TANY_LN_CLASS__BASE );
+        anyLNClassEClass = createEClass( ANY_LN_CLASS );
+        createEReference( anyLNClassEClass, ANY_LN_CLASS__DATA_OBJECT );
+        createEAttribute( anyLNClassEClass, ANY_LN_CLASS__BASE );
 
-        tApplicableServiceNSEClass = createEClass( TAPPLICABLE_SERVICE_NS );
-        createEReference( tApplicableServiceNSEClass, TAPPLICABLE_SERVICE_NS__SERVICE_NS_USAGE );
-        createEAttribute( tApplicableServiceNSEClass, TAPPLICABLE_SERVICE_NS__DATE );
-        createEAttribute( tApplicableServiceNSEClass, TAPPLICABLE_SERVICE_NS__VERSION );
+        applicableServiceNSEClass = createEClass( APPLICABLE_SERVICE_NS );
+        createEReference( applicableServiceNSEClass, APPLICABLE_SERVICE_NS__SERVICE_NS_USAGE );
+        createEAttribute( applicableServiceNSEClass, APPLICABLE_SERVICE_NS__DATE );
+        createEAttribute( applicableServiceNSEClass, APPLICABLE_SERVICE_NS__VERSION );
 
-        tApplicableServicesEClass = createEClass( TAPPLICABLE_SERVICES );
-        createEReference( tApplicableServicesEClass, TAPPLICABLE_SERVICES__SERVICE );
-        createEReference( tApplicableServicesEClass, TAPPLICABLE_SERVICES__DATA_SET_MEMBER_OF );
+        applicableServicesEClass = createEClass( APPLICABLE_SERVICES );
+        createEReference( applicableServicesEClass, APPLICABLE_SERVICES__SERVICE );
+        createEReference( applicableServicesEClass, APPLICABLE_SERVICES__DATA_SET_MEMBER_OF );
 
-        tBasicTypeEClass = createEClass( TBASIC_TYPE );
-        createEAttribute( tBasicTypeEClass, TBASIC_TYPE__DESC_ID );
-        createEAttribute( tBasicTypeEClass, TBASIC_TYPE__NAME );
+        basicTypeEClass = createEClass( BASIC_TYPE );
+        createEAttribute( basicTypeEClass, BASIC_TYPE__DESC_ID );
+        createEAttribute( basicTypeEClass, BASIC_TYPE__NAME );
 
-        tBasicTypesEClass = createEClass( TBASIC_TYPES );
-        createEReference( tBasicTypesEClass, TBASIC_TYPES__BASIC_TYPE );
+        basicTypesEClass = createEClass( BASIC_TYPES );
+        createEReference( basicTypesEClass, BASIC_TYPES__BASIC_TYPE );
 
-        tcdcEClass = createEClass( TCDC );
-        createEReference( tcdcEClass, TCDC__SUB_DATA_OBJECT );
-        createEReference( tcdcEClass, TCDC__DATA_ATTRIBUTE );
-        createEReference( tcdcEClass, TCDC__SERVICE_PARAMETER );
-        createEAttribute( tcdcEClass, TCDC__ENUM_PARAMETERIZED );
-        createEAttribute( tcdcEClass, TCDC__NAME );
-        createEAttribute( tcdcEClass, TCDC__STATISTICS );
-        createEAttribute( tcdcEClass, TCDC__TYPE_KIND_PARAMETERIZED );
-        createEAttribute( tcdcEClass, TCDC__VARIANT );
+        cdcEClass = createEClass( CDC );
+        createEReference( cdcEClass, CDC__SUB_DATA_OBJECT );
+        createEReference( cdcEClass, CDC__DATA_ATTRIBUTE );
+        createEReference( cdcEClass, CDC__SERVICE_PARAMETER );
+        createEAttribute( cdcEClass, CDC__ENUM_PARAMETERIZED );
+        createEAttribute( cdcEClass, CDC__NAME );
+        createEAttribute( cdcEClass, CDC__STATISTICS );
+        createEAttribute( cdcEClass, CDC__TYPE_KIND_PARAMETERIZED );
+        createEAttribute( cdcEClass, CDC__VARIANT );
 
-        tcdCsEClass = createEClass( TCD_CS );
-        createEReference( tcdCsEClass, TCD_CS__CDC );
+        cdCsEClass = createEClass( CD_CS );
+        createEReference( cdCsEClass, CD_CS__CDC );
 
-        tChangesEClass = createEClass( TCHANGES );
-        createEAttribute( tChangesEClass, TCHANGES__CHANGES_ID );
-        createEAttribute( tChangesEClass, TCHANGES__DATE );
-        createEAttribute( tChangesEClass, TCHANGES__RELEASE );
-        createEAttribute( tChangesEClass, TCHANGES__REVISION );
-        createEAttribute( tChangesEClass, TCHANGES__TISSUES );
-        createEAttribute( tChangesEClass, TCHANGES__VERSION );
+        changesEClass = createEClass( CHANGES );
+        createEAttribute( changesEClass, CHANGES__CHANGES_ID );
+        createEAttribute( changesEClass, CHANGES__DATE );
+        createEAttribute( changesEClass, CHANGES__RELEASE );
+        createEAttribute( changesEClass, CHANGES__REVISION );
+        createEAttribute( changesEClass, CHANGES__TISSUES );
+        createEAttribute( changesEClass, CHANGES__VERSION );
 
-        tConstructedAttributeEClass = createEClass( TCONSTRUCTED_ATTRIBUTE );
-        createEReference( tConstructedAttributeEClass, TCONSTRUCTED_ATTRIBUTE__SUB_DATA_ATTRIBUTE );
-        createEAttribute( tConstructedAttributeEClass, TCONSTRUCTED_ATTRIBUTE__NAME );
+        constructedAttributeEClass = createEClass( CONSTRUCTED_ATTRIBUTE );
+        createEReference( constructedAttributeEClass, CONSTRUCTED_ATTRIBUTE__SUB_DATA_ATTRIBUTE );
+        createEAttribute( constructedAttributeEClass, CONSTRUCTED_ATTRIBUTE__NAME );
 
-        tConstructedAttributesEClass = createEClass( TCONSTRUCTED_ATTRIBUTES );
-        createEReference( tConstructedAttributesEClass, TCONSTRUCTED_ATTRIBUTES__CONSTRUCTED_ATTRIBUTE );
+        constructedAttributesEClass = createEClass( CONSTRUCTED_ATTRIBUTES );
+        createEReference( constructedAttributesEClass, CONSTRUCTED_ATTRIBUTES__CONSTRUCTED_ATTRIBUTE );
 
-        tCopyrightedEClass = createEClass( TCOPYRIGHTED );
-        createEReference( tCopyrightedEClass, TCOPYRIGHTED__COPYRIGHT );
+        copyrightedEClass = createEClass( COPYRIGHTED );
+        createEReference( copyrightedEClass, COPYRIGHTED__COPYRIGHT );
 
-        tCopyrightNoticeEClass = createEClass( TCOPYRIGHT_NOTICE );
-        createEReference( tCopyrightNoticeEClass, TCOPYRIGHT_NOTICE__NOTICE );
-        createEReference( tCopyrightNoticeEClass, TCOPYRIGHT_NOTICE__LICENSE );
+        copyrightNoticeEClass = createEClass( COPYRIGHT_NOTICE );
+        createEReference( copyrightNoticeEClass, COPYRIGHT_NOTICE__NOTICE );
+        createEReference( copyrightNoticeEClass, COPYRIGHT_NOTICE__LICENSE );
 
-        tDataAttributeEClass = createEClass( TDATA_ATTRIBUTE );
-        createEAttribute( tDataAttributeEClass, TDATA_ATTRIBUTE__DCHG );
-        createEAttribute( tDataAttributeEClass, TDATA_ATTRIBUTE__DEFAULT_VALUE );
-        createEAttribute( tDataAttributeEClass, TDATA_ATTRIBUTE__DUPD );
-        createEAttribute( tDataAttributeEClass, TDATA_ATTRIBUTE__FC );
-        createEAttribute( tDataAttributeEClass, TDATA_ATTRIBUTE__IS_ARRAY );
-        createEAttribute( tDataAttributeEClass, TDATA_ATTRIBUTE__MAX_INDEX_ATTRIBUTE );
-        createEAttribute( tDataAttributeEClass, TDATA_ATTRIBUTE__MAX_VALUE );
-        createEAttribute( tDataAttributeEClass, TDATA_ATTRIBUTE__MIN_INDEX );
-        createEAttribute( tDataAttributeEClass, TDATA_ATTRIBUTE__MIN_VALUE );
-        createEAttribute( tDataAttributeEClass, TDATA_ATTRIBUTE__NAME );
-        createEAttribute( tDataAttributeEClass, TDATA_ATTRIBUTE__PRES_COND );
-        createEAttribute( tDataAttributeEClass, TDATA_ATTRIBUTE__PRES_COND_ARGS );
-        createEAttribute( tDataAttributeEClass, TDATA_ATTRIBUTE__PRES_COND_ARGS_ID );
-        createEAttribute( tDataAttributeEClass, TDATA_ATTRIBUTE__QCHG );
-        createEAttribute( tDataAttributeEClass, TDATA_ATTRIBUTE__SIZE_ATTRIBUTE );
-        createEAttribute( tDataAttributeEClass, TDATA_ATTRIBUTE__TYPE );
-        createEAttribute( tDataAttributeEClass, TDATA_ATTRIBUTE__TYPE_KIND );
+        dataAttributeEClass = createEClass( DATA_ATTRIBUTE );
+        createEAttribute( dataAttributeEClass, DATA_ATTRIBUTE__DCHG );
+        createEAttribute( dataAttributeEClass, DATA_ATTRIBUTE__DEFAULT_VALUE );
+        createEAttribute( dataAttributeEClass, DATA_ATTRIBUTE__DUPD );
+        createEAttribute( dataAttributeEClass, DATA_ATTRIBUTE__FC );
+        createEAttribute( dataAttributeEClass, DATA_ATTRIBUTE__IS_ARRAY );
+        createEAttribute( dataAttributeEClass, DATA_ATTRIBUTE__MAX_INDEX_ATTRIBUTE );
+        createEAttribute( dataAttributeEClass, DATA_ATTRIBUTE__MAX_VALUE );
+        createEAttribute( dataAttributeEClass, DATA_ATTRIBUTE__MIN_INDEX );
+        createEAttribute( dataAttributeEClass, DATA_ATTRIBUTE__MIN_VALUE );
+        createEAttribute( dataAttributeEClass, DATA_ATTRIBUTE__NAME );
+        createEAttribute( dataAttributeEClass, DATA_ATTRIBUTE__PRES_COND );
+        createEAttribute( dataAttributeEClass, DATA_ATTRIBUTE__PRES_COND_ARGS );
+        createEAttribute( dataAttributeEClass, DATA_ATTRIBUTE__PRES_COND_ARGS_ID );
+        createEAttribute( dataAttributeEClass, DATA_ATTRIBUTE__QCHG );
+        createEAttribute( dataAttributeEClass, DATA_ATTRIBUTE__SIZE_ATTRIBUTE );
+        createEAttribute( dataAttributeEClass, DATA_ATTRIBUTE__TYPE );
+        createEAttribute( dataAttributeEClass, DATA_ATTRIBUTE__TYPE_KIND );
 
-        tDataObjectEClass = createEClass( TDATA_OBJECT );
-        createEAttribute( tDataObjectEClass, TDATA_OBJECT__DS_PRES_COND );
-        createEAttribute( tDataObjectEClass, TDATA_OBJECT__DS_PRES_COND_ARGS );
-        createEAttribute( tDataObjectEClass, TDATA_OBJECT__DS_PRES_COND_ARGS_ID );
-        createEAttribute( tDataObjectEClass, TDATA_OBJECT__NAME );
-        createEAttribute( tDataObjectEClass, TDATA_OBJECT__PRES_COND );
-        createEAttribute( tDataObjectEClass, TDATA_OBJECT__PRES_COND_ARGS );
-        createEAttribute( tDataObjectEClass, TDATA_OBJECT__PRES_COND_ARGS_ID );
-        createEAttribute( tDataObjectEClass, TDATA_OBJECT__TRANSIENT );
-        createEAttribute( tDataObjectEClass, TDATA_OBJECT__TYPE );
-        createEAttribute( tDataObjectEClass, TDATA_OBJECT__UNDERLYING_TYPE );
-        createEAttribute( tDataObjectEClass, TDATA_OBJECT__UNDERLYING_TYPE_KIND );
+        dataObjectEClass = createEClass( DATA_OBJECT );
+        createEAttribute( dataObjectEClass, DATA_OBJECT__DS_PRES_COND );
+        createEAttribute( dataObjectEClass, DATA_OBJECT__DS_PRES_COND_ARGS );
+        createEAttribute( dataObjectEClass, DATA_OBJECT__DS_PRES_COND_ARGS_ID );
+        createEAttribute( dataObjectEClass, DATA_OBJECT__NAME );
+        createEAttribute( dataObjectEClass, DATA_OBJECT__PRES_COND );
+        createEAttribute( dataObjectEClass, DATA_OBJECT__PRES_COND_ARGS );
+        createEAttribute( dataObjectEClass, DATA_OBJECT__PRES_COND_ARGS_ID );
+        createEAttribute( dataObjectEClass, DATA_OBJECT__TRANSIENT );
+        createEAttribute( dataObjectEClass, DATA_OBJECT__TYPE );
+        createEAttribute( dataObjectEClass, DATA_OBJECT__UNDERLYING_TYPE );
+        createEAttribute( dataObjectEClass, DATA_OBJECT__UNDERLYING_TYPE_KIND );
 
-        tDataSetMemberOfEClass = createEClass( TDATA_SET_MEMBER_OF );
-        createEAttribute( tDataSetMemberOfEClass, TDATA_SET_MEMBER_OF__CB );
+        dataSetMemberOfEClass = createEClass( DATA_SET_MEMBER_OF );
+        createEAttribute( dataSetMemberOfEClass, DATA_SET_MEMBER_OF__CB );
 
-        tDocEClass = createEClass( TDOC );
-        createEAttribute( tDocEClass, TDOC__MIXED );
-        createEAttribute( tDocEClass, TDOC__GROUP );
-        createEAttribute( tDocEClass, TDOC__ANY );
-        createEAttribute( tDocEClass, TDOC__ID );
+        docEClass = createEClass( DOC );
+        createEAttribute( docEClass, DOC__MIXED );
+        createEAttribute( docEClass, DOC__GROUP );
+        createEAttribute( docEClass, DOC__ANY );
+        createEAttribute( docEClass, DOC__ID );
 
-        tDocumentedClassEClass = createEClass( TDOCUMENTED_CLASS );
-        createEAttribute( tDocumentedClassEClass, TDOCUMENTED_CLASS__DEPRECATED );
-        createEAttribute( tDocumentedClassEClass, TDOCUMENTED_CLASS__DESC_ID );
-        createEAttribute( tDocumentedClassEClass, TDOCUMENTED_CLASS__INFORMATIVE );
+        documentedClassEClass = createEClass( DOCUMENTED_CLASS );
+        createEAttribute( documentedClassEClass, DOCUMENTED_CLASS__DEPRECATED );
+        createEAttribute( documentedClassEClass, DOCUMENTED_CLASS__DESC_ID );
+        createEAttribute( documentedClassEClass, DOCUMENTED_CLASS__INFORMATIVE );
 
-        tEnumerationEClass = createEClass( TENUMERATION );
-        createEReference( tEnumerationEClass, TENUMERATION__LITERAL );
-        createEAttribute( tEnumerationEClass, TENUMERATION__INHERITED_FROM );
-        createEAttribute( tEnumerationEClass, TENUMERATION__NAME );
+        enumerationEClass = createEClass( ENUMERATION );
+        createEReference( enumerationEClass, ENUMERATION__LITERAL );
+        createEAttribute( enumerationEClass, ENUMERATION__INHERITED_FROM );
+        createEAttribute( enumerationEClass, ENUMERATION__NAME );
 
-        tEnumerationsEClass = createEClass( TENUMERATIONS );
-        createEReference( tEnumerationsEClass, TENUMERATIONS__ENUMERATION );
+        enumerationsEClass = createEClass( ENUMERATIONS );
+        createEReference( enumerationsEClass, ENUMERATIONS__ENUMERATION );
 
-        tFunctionalConstraintEClass = createEClass( TFUNCTIONAL_CONSTRAINT );
-        createEReference( tFunctionalConstraintEClass, TFUNCTIONAL_CONSTRAINT__APPLICABLE_SERVICES );
-        createEAttribute( tFunctionalConstraintEClass, TFUNCTIONAL_CONSTRAINT__ABBREVIATION );
-        createEAttribute( tFunctionalConstraintEClass, TFUNCTIONAL_CONSTRAINT__DESC_ID );
-        createEAttribute( tFunctionalConstraintEClass, TFUNCTIONAL_CONSTRAINT__TITLE_ID );
+        functionalConstraintEClass = createEClass( FUNCTIONAL_CONSTRAINT );
+        createEReference( functionalConstraintEClass, FUNCTIONAL_CONSTRAINT__APPLICABLE_SERVICES );
+        createEAttribute( functionalConstraintEClass, FUNCTIONAL_CONSTRAINT__ABBREVIATION );
+        createEAttribute( functionalConstraintEClass, FUNCTIONAL_CONSTRAINT__DESC_ID );
+        createEAttribute( functionalConstraintEClass, FUNCTIONAL_CONSTRAINT__TITLE_ID );
 
-        tFunctionalConstraintsEClass = createEClass( TFUNCTIONAL_CONSTRAINTS );
-        createEReference( tFunctionalConstraintsEClass, TFUNCTIONAL_CONSTRAINTS__FUNCTIONAL_CONSTRAINT );
+        functionalConstraintsEClass = createEClass( FUNCTIONAL_CONSTRAINTS );
+        createEReference( functionalConstraintsEClass, FUNCTIONAL_CONSTRAINTS__FUNCTIONAL_CONSTRAINT );
 
-        tLicenseEClass = createEClass( TLICENSE );
-        createEAttribute( tLicenseEClass, TLICENSE__MIXED );
-        createEAttribute( tLicenseEClass, TLICENSE__KIND );
-        createEAttribute( tLicenseEClass, TLICENSE__URI );
+        licenseEClass = createEClass( LICENSE );
+        createEAttribute( licenseEClass, LICENSE__MIXED );
+        createEAttribute( licenseEClass, LICENSE__KIND );
+        createEAttribute( licenseEClass, LICENSE__URI );
 
-        tLiteralEClass = createEClass( TLITERAL );
-        createEAttribute( tLiteralEClass, TLITERAL__LITERAL_VAL );
-        createEAttribute( tLiteralEClass, TLITERAL__NAME );
+        literalEClass = createEClass( LITERAL );
+        createEAttribute( literalEClass, LITERAL__LITERAL_VAL );
+        createEAttribute( literalEClass, LITERAL__NAME );
 
-        tlnClassEClass = createEClass( TLN_CLASS );
-        createEAttribute( tlnClassEClass, TLN_CLASS__CAN_HAVE_LOG );
-        createEAttribute( tlnClassEClass, TLN_CLASS__IS_EXTENSION );
-        createEAttribute( tlnClassEClass, TLN_CLASS__NAME );
+        lnClassEClass = createEClass( LN_CLASS );
+        createEAttribute( lnClassEClass, LN_CLASS__CAN_HAVE_LOG );
+        createEAttribute( lnClassEClass, LN_CLASS__IS_EXTENSION );
+        createEAttribute( lnClassEClass, LN_CLASS__NAME );
 
-        tlnClassesEClass = createEClass( TLN_CLASSES );
-        createEReference( tlnClassesEClass, TLN_CLASSES__ABSTRACT_LN_CLASS );
-        createEReference( tlnClassesEClass, TLN_CLASSES__LN_CLASS );
+        lnClassesEClass = createEClass( LN_CLASSES );
+        createEReference( lnClassesEClass, LN_CLASSES__ABSTRACT_LN_CLASS );
+        createEReference( lnClassesEClass, LN_CLASSES__LN_CLASS );
 
-        tNoticeEClass = createEClass( TNOTICE );
-        createEAttribute( tNoticeEClass, TNOTICE__MIXED );
+        noticeEClass = createEClass( NOTICE );
+        createEAttribute( noticeEClass, NOTICE__MIXED );
 
-        tnsEClass = createEClass( TNS );
-        createEReference( tnsEClass, TNS__CHANGES );
-        createEReference( tnsEClass, TNS__DEPENDS_ON );
-        createEReference( tnsEClass, TNS__BASIC_TYPES );
-        createEReference( tnsEClass, TNS__FUNCTIONAL_CONSTRAINTS );
-        createEReference( tnsEClass, TNS__PRESENCE_CONDITIONS );
-        createEReference( tnsEClass, TNS__ABBREVIATIONS );
-        createEReference( tnsEClass, TNS__ENUMERATIONS );
-        createEReference( tnsEClass, TNS__CONSTRUCTED_ATTRIBUTES );
-        createEReference( tnsEClass, TNS__CD_CS );
-        createEReference( tnsEClass, TNS__LN_CLASSES );
-        createEAttribute( tnsEClass, TNS__DESC_ID );
-        createEAttribute( tnsEClass, TNS__ID );
-        createEAttribute( tnsEClass, TNS__PUBLICATION_STAGE );
-        createEAttribute( tnsEClass, TNS__RELEASE );
-        createEAttribute( tnsEClass, TNS__REVISION );
-        createEAttribute( tnsEClass, TNS__UML_DATE );
-        createEAttribute( tnsEClass, TNS__UML_VERSION );
-        createEAttribute( tnsEClass, TNS__VERSION );
+        nsEClass = createEClass( NS );
+        createEReference( nsEClass, NS__CHANGES );
+        createEReference( nsEClass, NS__DEPENDS_ON );
+        createEReference( nsEClass, NS__BASIC_TYPES );
+        createEReference( nsEClass, NS__FUNCTIONAL_CONSTRAINTS );
+        createEReference( nsEClass, NS__PRESENCE_CONDITIONS );
+        createEReference( nsEClass, NS__ABBREVIATIONS );
+        createEReference( nsEClass, NS__ENUMERATIONS );
+        createEReference( nsEClass, NS__CONSTRUCTED_ATTRIBUTES );
+        createEReference( nsEClass, NS__CD_CS );
+        createEReference( nsEClass, NS__LN_CLASSES );
+        createEAttribute( nsEClass, NS__DESC_ID );
+        createEAttribute( nsEClass, NS__ID );
+        createEAttribute( nsEClass, NS__PUBLICATION_STAGE );
+        createEAttribute( nsEClass, NS__RELEASE );
+        createEAttribute( nsEClass, NS__REVISION );
+        createEAttribute( nsEClass, NS__UML_DATE );
+        createEAttribute( nsEClass, NS__UML_VERSION );
+        createEAttribute( nsEClass, NS__VERSION );
 
-        tnsDocEClass = createEClass( TNS_DOC );
-        createEReference( tnsDocEClass, TNS_DOC__DOC );
-        createEAttribute( tnsDocEClass, TNS_DOC__ID );
-        createEAttribute( tnsDocEClass, TNS_DOC__LANG );
-        createEAttribute( tnsDocEClass, TNS_DOC__PUBLICATION_STAGE );
-        createEAttribute( tnsDocEClass, TNS_DOC__RELEASE );
-        createEAttribute( tnsDocEClass, TNS_DOC__REVISION );
-        createEAttribute( tnsDocEClass, TNS_DOC__UML_DATE );
-        createEAttribute( tnsDocEClass, TNS_DOC__UML_VERSION );
-        createEAttribute( tnsDocEClass, TNS_DOC__VERSION );
+        nsDocEClass = createEClass( NS_DOC );
+        createEReference( nsDocEClass, NS_DOC__DOC );
+        createEAttribute( nsDocEClass, NS_DOC__ID );
+        createEAttribute( nsDocEClass, NS_DOC__LANG );
+        createEAttribute( nsDocEClass, NS_DOC__PUBLICATION_STAGE );
+        createEAttribute( nsDocEClass, NS_DOC__RELEASE );
+        createEAttribute( nsDocEClass, NS_DOC__REVISION );
+        createEAttribute( nsDocEClass, NS_DOC__UML_DATE );
+        createEAttribute( nsDocEClass, NS_DOC__UML_VERSION );
+        createEAttribute( nsDocEClass, NS_DOC__VERSION );
 
-        tPresenceConditionEClass = createEClass( TPRESENCE_CONDITION );
-        createEAttribute( tPresenceConditionEClass, TPRESENCE_CONDITION__ARGUMENT );
-        createEAttribute( tPresenceConditionEClass, TPRESENCE_CONDITION__DESC_ID );
-        createEAttribute( tPresenceConditionEClass, TPRESENCE_CONDITION__NAME );
-        createEAttribute( tPresenceConditionEClass, TPRESENCE_CONDITION__TITLE_ID );
+        presenceConditionEClass = createEClass( PRESENCE_CONDITION );
+        createEAttribute( presenceConditionEClass, PRESENCE_CONDITION__ARGUMENT );
+        createEAttribute( presenceConditionEClass, PRESENCE_CONDITION__DESC_ID );
+        createEAttribute( presenceConditionEClass, PRESENCE_CONDITION__NAME );
+        createEAttribute( presenceConditionEClass, PRESENCE_CONDITION__TITLE_ID );
 
-        tPresenceConditionsEClass = createEClass( TPRESENCE_CONDITIONS );
-        createEReference( tPresenceConditionsEClass, TPRESENCE_CONDITIONS__PRESENCE_CONDITION );
+        presenceConditionsEClass = createEClass( PRESENCE_CONDITIONS );
+        createEReference( presenceConditionsEClass, PRESENCE_CONDITIONS__PRESENCE_CONDITION );
 
-        tServiceCDCEClass = createEClass( TSERVICE_CDC );
-        createEReference( tServiceCDCEClass, TSERVICE_CDC__SERVICE_DATA_ATTRIBUTE );
-        createEAttribute( tServiceCDCEClass, TSERVICE_CDC__CDC );
-        createEAttribute( tServiceCDCEClass, TSERVICE_CDC__VARIANT );
+        serviceCDCEClass = createEClass( SERVICE_CDC );
+        createEReference( serviceCDCEClass, SERVICE_CDC__SERVICE_DATA_ATTRIBUTE );
+        createEAttribute( serviceCDCEClass, SERVICE_CDC__CDC );
+        createEAttribute( serviceCDCEClass, SERVICE_CDC__VARIANT );
 
-        tServiceCDCsEClass = createEClass( TSERVICE_CD_CS );
-        createEReference( tServiceCDCsEClass, TSERVICE_CD_CS__SERVICE_CDC );
+        serviceCDCsEClass = createEClass( SERVICE_CD_CS );
+        createEReference( serviceCDCsEClass, SERVICE_CD_CS__SERVICE_CDC );
 
-        tServiceConstructedAttributeEClass = createEClass( TSERVICE_CONSTRUCTED_ATTRIBUTE );
-        createEAttribute( tServiceConstructedAttributeEClass, TSERVICE_CONSTRUCTED_ATTRIBUTE__TYPE_KIND_PARAMETERIZED );
+        serviceConstructedAttributeEClass = createEClass( SERVICE_CONSTRUCTED_ATTRIBUTE );
+        createEAttribute( serviceConstructedAttributeEClass, SERVICE_CONSTRUCTED_ATTRIBUTE__TYPE_KIND_PARAMETERIZED );
 
-        tServiceConstructedAttributesEClass = createEClass( TSERVICE_CONSTRUCTED_ATTRIBUTES );
-        createEReference( tServiceConstructedAttributesEClass,
-                TSERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_CONSTRUCTED_ATTRIBUTE );
+        serviceConstructedAttributesEClass = createEClass( SERVICE_CONSTRUCTED_ATTRIBUTES );
+        createEReference( serviceConstructedAttributesEClass,
+                SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_CONSTRUCTED_ATTRIBUTE );
 
-        tServiceDataAttributeEClass = createEClass( TSERVICE_DATA_ATTRIBUTE );
-        createEAttribute( tServiceDataAttributeEClass, TSERVICE_DATA_ATTRIBUTE__FC );
-        createEAttribute( tServiceDataAttributeEClass, TSERVICE_DATA_ATTRIBUTE__NAME );
-        createEAttribute( tServiceDataAttributeEClass, TSERVICE_DATA_ATTRIBUTE__PRES_COND );
-        createEAttribute( tServiceDataAttributeEClass, TSERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS );
-        createEAttribute( tServiceDataAttributeEClass, TSERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS_ID );
-        createEAttribute( tServiceDataAttributeEClass, TSERVICE_DATA_ATTRIBUTE__TYPE );
-        createEAttribute( tServiceDataAttributeEClass, TSERVICE_DATA_ATTRIBUTE__TYPE_KIND );
-        createEAttribute( tServiceDataAttributeEClass, TSERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE );
-        createEAttribute( tServiceDataAttributeEClass, TSERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE_KIND );
+        serviceDataAttributeEClass = createEClass( SERVICE_DATA_ATTRIBUTE );
+        createEAttribute( serviceDataAttributeEClass, SERVICE_DATA_ATTRIBUTE__FC );
+        createEAttribute( serviceDataAttributeEClass, SERVICE_DATA_ATTRIBUTE__NAME );
+        createEAttribute( serviceDataAttributeEClass, SERVICE_DATA_ATTRIBUTE__PRES_COND );
+        createEAttribute( serviceDataAttributeEClass, SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS );
+        createEAttribute( serviceDataAttributeEClass, SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS_ID );
+        createEAttribute( serviceDataAttributeEClass, SERVICE_DATA_ATTRIBUTE__TYPE );
+        createEAttribute( serviceDataAttributeEClass, SERVICE_DATA_ATTRIBUTE__TYPE_KIND );
+        createEAttribute( serviceDataAttributeEClass, SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE );
+        createEAttribute( serviceDataAttributeEClass, SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE_KIND );
 
-        tServiceNSEClass = createEClass( TSERVICE_NS );
-        createEReference( tServiceNSEClass, TSERVICE_NS__CHANGES );
-        createEReference( tServiceNSEClass, TSERVICE_NS__FUNCTIONAL_CONSTRAINTS );
-        createEReference( tServiceNSEClass, TSERVICE_NS__PRESENCE_CONDITIONS );
-        createEReference( tServiceNSEClass, TSERVICE_NS__ABBREVIATIONS );
-        createEReference( tServiceNSEClass, TSERVICE_NS__SERVICE_TYPE_REALIZATIONS );
-        createEReference( tServiceNSEClass, TSERVICE_NS__SERVICE_CONSTRUCTED_ATTRIBUTES );
-        createEReference( tServiceNSEClass, TSERVICE_NS__SERVICE_CD_CS );
-        createEAttribute( tServiceNSEClass, TSERVICE_NS__DESC_ID );
-        createEAttribute( tServiceNSEClass, TSERVICE_NS__ID );
-        createEAttribute( tServiceNSEClass, TSERVICE_NS__PUBLICATION_STAGE );
-        createEAttribute( tServiceNSEClass, TSERVICE_NS__RELEASE );
-        createEAttribute( tServiceNSEClass, TSERVICE_NS__REVISION );
-        createEAttribute( tServiceNSEClass, TSERVICE_NS__UML_DATE );
-        createEAttribute( tServiceNSEClass, TSERVICE_NS__UML_VERSION );
-        createEAttribute( tServiceNSEClass, TSERVICE_NS__VERSION );
+        serviceNSEClass = createEClass( SERVICE_NS );
+        createEReference( serviceNSEClass, SERVICE_NS__CHANGES );
+        createEReference( serviceNSEClass, SERVICE_NS__FUNCTIONAL_CONSTRAINTS );
+        createEReference( serviceNSEClass, SERVICE_NS__PRESENCE_CONDITIONS );
+        createEReference( serviceNSEClass, SERVICE_NS__ABBREVIATIONS );
+        createEReference( serviceNSEClass, SERVICE_NS__SERVICE_TYPE_REALIZATIONS );
+        createEReference( serviceNSEClass, SERVICE_NS__SERVICE_CONSTRUCTED_ATTRIBUTES );
+        createEReference( serviceNSEClass, SERVICE_NS__SERVICE_CD_CS );
+        createEAttribute( serviceNSEClass, SERVICE_NS__DESC_ID );
+        createEAttribute( serviceNSEClass, SERVICE_NS__ID );
+        createEAttribute( serviceNSEClass, SERVICE_NS__PUBLICATION_STAGE );
+        createEAttribute( serviceNSEClass, SERVICE_NS__RELEASE );
+        createEAttribute( serviceNSEClass, SERVICE_NS__REVISION );
+        createEAttribute( serviceNSEClass, SERVICE_NS__UML_DATE );
+        createEAttribute( serviceNSEClass, SERVICE_NS__UML_VERSION );
+        createEAttribute( serviceNSEClass, SERVICE_NS__VERSION );
 
-        tServiceNsUsageEClass = createEClass( TSERVICE_NS_USAGE );
-        createEReference( tServiceNsUsageEClass, TSERVICE_NS_USAGE__APPLIES_TO );
-        createEAttribute( tServiceNsUsageEClass, TSERVICE_NS_USAGE__ID );
-        createEAttribute( tServiceNsUsageEClass, TSERVICE_NS_USAGE__PUBLICATION_STAGE );
-        createEAttribute( tServiceNsUsageEClass, TSERVICE_NS_USAGE__RELEASE );
-        createEAttribute( tServiceNsUsageEClass, TSERVICE_NS_USAGE__REVISION );
-        createEAttribute( tServiceNsUsageEClass, TSERVICE_NS_USAGE__VERSION );
+        serviceNsUsageEClass = createEClass( SERVICE_NS_USAGE );
+        createEReference( serviceNsUsageEClass, SERVICE_NS_USAGE__APPLIES_TO );
+        createEAttribute( serviceNsUsageEClass, SERVICE_NS_USAGE__ID );
+        createEAttribute( serviceNsUsageEClass, SERVICE_NS_USAGE__PUBLICATION_STAGE );
+        createEAttribute( serviceNsUsageEClass, SERVICE_NS_USAGE__RELEASE );
+        createEAttribute( serviceNsUsageEClass, SERVICE_NS_USAGE__REVISION );
+        createEAttribute( serviceNsUsageEClass, SERVICE_NS_USAGE__VERSION );
 
-        tServiceParameterEClass = createEClass( TSERVICE_PARAMETER );
-        createEAttribute( tServiceParameterEClass, TSERVICE_PARAMETER__DEFAULT_VALUE );
-        createEAttribute( tServiceParameterEClass, TSERVICE_PARAMETER__MAX_VALUE );
-        createEAttribute( tServiceParameterEClass, TSERVICE_PARAMETER__MIN_VALUE );
-        createEAttribute( tServiceParameterEClass, TSERVICE_PARAMETER__NAME );
-        createEAttribute( tServiceParameterEClass, TSERVICE_PARAMETER__TYPE );
-        createEAttribute( tServiceParameterEClass, TSERVICE_PARAMETER__TYPE_KIND );
+        serviceParameterEClass = createEClass( SERVICE_PARAMETER );
+        createEAttribute( serviceParameterEClass, SERVICE_PARAMETER__DEFAULT_VALUE );
+        createEAttribute( serviceParameterEClass, SERVICE_PARAMETER__MAX_VALUE );
+        createEAttribute( serviceParameterEClass, SERVICE_PARAMETER__MIN_VALUE );
+        createEAttribute( serviceParameterEClass, SERVICE_PARAMETER__NAME );
+        createEAttribute( serviceParameterEClass, SERVICE_PARAMETER__TYPE );
+        createEAttribute( serviceParameterEClass, SERVICE_PARAMETER__TYPE_KIND );
 
-        tServiceTypeRealizationEClass = createEClass( TSERVICE_TYPE_REALIZATION );
-        createEAttribute( tServiceTypeRealizationEClass, TSERVICE_TYPE_REALIZATION__FC );
-        createEAttribute( tServiceTypeRealizationEClass, TSERVICE_TYPE_REALIZATION__NAME );
-        createEAttribute( tServiceTypeRealizationEClass, TSERVICE_TYPE_REALIZATION__PRES_COND );
-        createEAttribute( tServiceTypeRealizationEClass, TSERVICE_TYPE_REALIZATION__PRES_COND_ARGS );
-        createEAttribute( tServiceTypeRealizationEClass, TSERVICE_TYPE_REALIZATION__PRES_COND_ARGS_ID );
-        createEAttribute( tServiceTypeRealizationEClass, TSERVICE_TYPE_REALIZATION__TYPE );
-        createEAttribute( tServiceTypeRealizationEClass, TSERVICE_TYPE_REALIZATION__TYPE_KIND );
+        serviceTypeRealizationEClass = createEClass( SERVICE_TYPE_REALIZATION );
+        createEAttribute( serviceTypeRealizationEClass, SERVICE_TYPE_REALIZATION__FC );
+        createEAttribute( serviceTypeRealizationEClass, SERVICE_TYPE_REALIZATION__NAME );
+        createEAttribute( serviceTypeRealizationEClass, SERVICE_TYPE_REALIZATION__PRES_COND );
+        createEAttribute( serviceTypeRealizationEClass, SERVICE_TYPE_REALIZATION__PRES_COND_ARGS );
+        createEAttribute( serviceTypeRealizationEClass, SERVICE_TYPE_REALIZATION__PRES_COND_ARGS_ID );
+        createEAttribute( serviceTypeRealizationEClass, SERVICE_TYPE_REALIZATION__TYPE );
+        createEAttribute( serviceTypeRealizationEClass, SERVICE_TYPE_REALIZATION__TYPE_KIND );
 
-        tServiceTypeRealizationsEClass = createEClass( TSERVICE_TYPE_REALIZATIONS );
-        createEReference( tServiceTypeRealizationsEClass, TSERVICE_TYPE_REALIZATIONS__SERVICE_TYPE_REALIZATION );
+        serviceTypeRealizationsEClass = createEClass( SERVICE_TYPE_REALIZATIONS );
+        createEReference( serviceTypeRealizationsEClass, SERVICE_TYPE_REALIZATIONS__SERVICE_TYPE_REALIZATION );
 
-        tSubDataAttributeEClass = createEClass( TSUB_DATA_ATTRIBUTE );
-        createEAttribute( tSubDataAttributeEClass, TSUB_DATA_ATTRIBUTE__DEFAULT_VALUE );
-        createEAttribute( tSubDataAttributeEClass, TSUB_DATA_ATTRIBUTE__IS_ARRAY );
-        createEAttribute( tSubDataAttributeEClass, TSUB_DATA_ATTRIBUTE__MAX_INDEX_ATTRIBUTE );
-        createEAttribute( tSubDataAttributeEClass, TSUB_DATA_ATTRIBUTE__MAX_VALUE );
-        createEAttribute( tSubDataAttributeEClass, TSUB_DATA_ATTRIBUTE__MIN_INDEX );
-        createEAttribute( tSubDataAttributeEClass, TSUB_DATA_ATTRIBUTE__MIN_VALUE );
-        createEAttribute( tSubDataAttributeEClass, TSUB_DATA_ATTRIBUTE__NAME );
-        createEAttribute( tSubDataAttributeEClass, TSUB_DATA_ATTRIBUTE__PRES_COND );
-        createEAttribute( tSubDataAttributeEClass, TSUB_DATA_ATTRIBUTE__PRES_COND_ARGS );
-        createEAttribute( tSubDataAttributeEClass, TSUB_DATA_ATTRIBUTE__PRES_COND_ARGS_ID );
-        createEAttribute( tSubDataAttributeEClass, TSUB_DATA_ATTRIBUTE__SIZE_ATTRIBUTE );
-        createEAttribute( tSubDataAttributeEClass, TSUB_DATA_ATTRIBUTE__TYPE );
-        createEAttribute( tSubDataAttributeEClass, TSUB_DATA_ATTRIBUTE__TYPE_KIND );
+        subDataAttributeEClass = createEClass( SUB_DATA_ATTRIBUTE );
+        createEAttribute( subDataAttributeEClass, SUB_DATA_ATTRIBUTE__DEFAULT_VALUE );
+        createEAttribute( subDataAttributeEClass, SUB_DATA_ATTRIBUTE__IS_ARRAY );
+        createEAttribute( subDataAttributeEClass, SUB_DATA_ATTRIBUTE__MAX_INDEX_ATTRIBUTE );
+        createEAttribute( subDataAttributeEClass, SUB_DATA_ATTRIBUTE__MAX_VALUE );
+        createEAttribute( subDataAttributeEClass, SUB_DATA_ATTRIBUTE__MIN_INDEX );
+        createEAttribute( subDataAttributeEClass, SUB_DATA_ATTRIBUTE__MIN_VALUE );
+        createEAttribute( subDataAttributeEClass, SUB_DATA_ATTRIBUTE__NAME );
+        createEAttribute( subDataAttributeEClass, SUB_DATA_ATTRIBUTE__PRES_COND );
+        createEAttribute( subDataAttributeEClass, SUB_DATA_ATTRIBUTE__PRES_COND_ARGS );
+        createEAttribute( subDataAttributeEClass, SUB_DATA_ATTRIBUTE__PRES_COND_ARGS_ID );
+        createEAttribute( subDataAttributeEClass, SUB_DATA_ATTRIBUTE__SIZE_ATTRIBUTE );
+        createEAttribute( subDataAttributeEClass, SUB_DATA_ATTRIBUTE__TYPE );
+        createEAttribute( subDataAttributeEClass, SUB_DATA_ATTRIBUTE__TYPE_KIND );
 
-        tSubDataObjectEClass = createEClass( TSUB_DATA_OBJECT );
-        createEAttribute( tSubDataObjectEClass, TSUB_DATA_OBJECT__IS_ARRAY );
-        createEAttribute( tSubDataObjectEClass, TSUB_DATA_OBJECT__MAX_INDEX_ATTRIBUTE );
-        createEAttribute( tSubDataObjectEClass, TSUB_DATA_OBJECT__MIN_INDEX );
-        createEAttribute( tSubDataObjectEClass, TSUB_DATA_OBJECT__NAME );
-        createEAttribute( tSubDataObjectEClass, TSUB_DATA_OBJECT__PRES_COND );
-        createEAttribute( tSubDataObjectEClass, TSUB_DATA_OBJECT__PRES_COND_ARGS );
-        createEAttribute( tSubDataObjectEClass, TSUB_DATA_OBJECT__PRES_COND_ARGS_ID );
-        createEAttribute( tSubDataObjectEClass, TSUB_DATA_OBJECT__SIZE_ATTRIBUTE );
-        createEAttribute( tSubDataObjectEClass, TSUB_DATA_OBJECT__TYPE );
-        createEAttribute( tSubDataObjectEClass, TSUB_DATA_OBJECT__UNDERLYING_TYPE );
-        createEAttribute( tSubDataObjectEClass, TSUB_DATA_OBJECT__UNDERLYING_TYPE_KIND );
+        subDataObjectEClass = createEClass( SUB_DATA_OBJECT );
+        createEAttribute( subDataObjectEClass, SUB_DATA_OBJECT__IS_ARRAY );
+        createEAttribute( subDataObjectEClass, SUB_DATA_OBJECT__MAX_INDEX_ATTRIBUTE );
+        createEAttribute( subDataObjectEClass, SUB_DATA_OBJECT__MIN_INDEX );
+        createEAttribute( subDataObjectEClass, SUB_DATA_OBJECT__NAME );
+        createEAttribute( subDataObjectEClass, SUB_DATA_OBJECT__PRES_COND );
+        createEAttribute( subDataObjectEClass, SUB_DATA_OBJECT__PRES_COND_ARGS );
+        createEAttribute( subDataObjectEClass, SUB_DATA_OBJECT__PRES_COND_ARGS_ID );
+        createEAttribute( subDataObjectEClass, SUB_DATA_OBJECT__SIZE_ATTRIBUTE );
+        createEAttribute( subDataObjectEClass, SUB_DATA_OBJECT__TYPE );
+        createEAttribute( subDataObjectEClass, SUB_DATA_OBJECT__UNDERLYING_TYPE );
+        createEAttribute( subDataObjectEClass, SUB_DATA_OBJECT__UNDERLYING_TYPE_KIND );
 
-        tTitledClassEClass = createEClass( TTITLED_CLASS );
-        createEAttribute( tTitledClassEClass, TTITLED_CLASS__TITLE_ID );
+        titledClassEClass = createEClass( TITLED_CLASS );
+        createEAttribute( titledClassEClass, TITLED_CLASS__TITLE_ID );
 
         // Create enums
-        tacsiServicesKindEEnum = createEEnum( TACSI_SERVICES_KIND );
-        tcbKindEEnum = createEEnum( TCB_KIND );
-        tDefinedAttributeTypeKindEEnum = createEEnum( TDEFINED_ATTRIBUTE_TYPE_KIND );
-        tLicenseKindEEnum = createEEnum( TLICENSE_KIND );
-        tPubStageEEnum = createEEnum( TPUB_STAGE );
-        tUndefinedAttributeTypeKindEEnum = createEEnum( TUNDEFINED_ATTRIBUTE_TYPE_KIND );
+        acsiServicesKindEEnum = createEEnum( ACSI_SERVICES_KIND );
+        cbKindEEnum = createEEnum( CB_KIND );
+        definedAttributeTypeKindEEnum = createEEnum( DEFINED_ATTRIBUTE_TYPE_KIND );
+        licenseKindEEnum = createEEnum( LICENSE_KIND );
+        pubStageEEnum = createEEnum( PUB_STAGE );
+        undefinedAttributeTypeKindEEnum = createEEnum( UNDEFINED_ATTRIBUTE_TYPE_KIND );
 
         // Create data types
-        tAbbreviationNameEDataType = createEDataType( TABBREVIATION_NAME );
-        tAbstractLNClassNameEDataType = createEDataType( TABSTRACT_LN_CLASS_NAME );
-        tacsiServicesKindObjectEDataType = createEDataType( TACSI_SERVICES_KIND_OBJECT );
-        tAttributeNameEDataType = createEDataType( TATTRIBUTE_NAME );
-        tAttributeTypeKindEDataType = createEDataType( TATTRIBUTE_TYPE_KIND );
-        tBasicTypeNameEDataType = createEDataType( TBASIC_TYPE_NAME );
-        tcbKindObjectEDataType = createEDataType( TCB_KIND_OBJECT );
-        tcdcNameEDataType = createEDataType( TCDC_NAME );
-        tDataObjectNameEDataType = createEDataType( TDATA_OBJECT_NAME );
-        tDefinedAttributeTypeKindObjectEDataType = createEDataType( TDEFINED_ATTRIBUTE_TYPE_KIND_OBJECT );
-        tDocIDEDataType = createEDataType( TDOC_ID );
-        tEmptyStringEDataType = createEDataType( TEMPTY_STRING );
-        tfcAbbreviationEDataType = createEDataType( TFC_ABBREVIATION );
-        tIec61850NameEDataType = createEDataType( TIEC61850_NAME );
-        tIec61850NameStringEDataType = createEDataType( TIEC61850_NAME_STRING );
-        tissuesTypeEDataType = createEDataType( TISSUES_TYPE );
-        tLicenseKindObjectEDataType = createEDataType( TLICENSE_KIND_OBJECT );
-        tLiteralNameEDataType = createEDataType( TLITERAL_NAME );
-        tlnClassNameEDataType = createEDataType( TLN_CLASS_NAME );
-        tnsIdentifierEDataType = createEDataType( TNS_IDENTIFIER );
-        tnsReleaseEDataType = createEDataType( TNS_RELEASE );
-        tnsReleaseObjectEDataType = createEDataType( TNS_RELEASE_OBJECT );
-        tnsRevisionEDataType = createEDataType( TNS_REVISION );
-        tnsVersionEDataType = createEDataType( TNS_VERSION );
-        tnsVersionObjectEDataType = createEDataType( TNS_VERSION_OBJECT );
-        tPresenceConditionArgumentEDataType = createEDataType( TPRESENCE_CONDITION_ARGUMENT );
-        tPresenceConditionNameEDataType = createEDataType( TPRESENCE_CONDITION_NAME );
-        tPubStageObjectEDataType = createEDataType( TPUB_STAGE_OBJECT );
-        tSubDataObjectNameEDataType = createEDataType( TSUB_DATA_OBJECT_NAME );
-        tumlVersionEDataType = createEDataType( TUML_VERSION );
-        tUndefinedAttributeTypeKindObjectEDataType = createEDataType( TUNDEFINED_ATTRIBUTE_TYPE_KIND_OBJECT );
+        abbreviationNameEDataType = createEDataType( ABBREVIATION_NAME );
+        abstractLNClassNameEDataType = createEDataType( ABSTRACT_LN_CLASS_NAME );
+        acsiServicesKindObjectEDataType = createEDataType( ACSI_SERVICES_KIND_OBJECT );
+        attributeNameEDataType = createEDataType( ATTRIBUTE_NAME );
+        attributeTypeKindEDataType = createEDataType( ATTRIBUTE_TYPE_KIND );
+        basicTypeNameEDataType = createEDataType( BASIC_TYPE_NAME );
+        cbKindObjectEDataType = createEDataType( CB_KIND_OBJECT );
+        cdcNameEDataType = createEDataType( CDC_NAME );
+        dataObjectNameEDataType = createEDataType( DATA_OBJECT_NAME );
+        definedAttributeTypeKindObjectEDataType = createEDataType( DEFINED_ATTRIBUTE_TYPE_KIND_OBJECT );
+        docIDEDataType = createEDataType( DOC_ID );
+        emptyStringEDataType = createEDataType( EMPTY_STRING );
+        fcAbbreviationEDataType = createEDataType( FC_ABBREVIATION );
+        iec61850NameEDataType = createEDataType( IEC61850_NAME );
+        iec61850NameStringEDataType = createEDataType( IEC61850_NAME_STRING );
+        issuesTypeEDataType = createEDataType( ISSUES_TYPE );
+        licenseKindObjectEDataType = createEDataType( LICENSE_KIND_OBJECT );
+        literalNameEDataType = createEDataType( LITERAL_NAME );
+        lnClassNameEDataType = createEDataType( LN_CLASS_NAME );
+        nsIdentifierEDataType = createEDataType( NS_IDENTIFIER );
+        nsReleaseEDataType = createEDataType( NS_RELEASE );
+        nsReleaseObjectEDataType = createEDataType( NS_RELEASE_OBJECT );
+        nsRevisionEDataType = createEDataType( NS_REVISION );
+        nsVersionEDataType = createEDataType( NS_VERSION );
+        nsVersionObjectEDataType = createEDataType( NS_VERSION_OBJECT );
+        presenceConditionArgumentEDataType = createEDataType( PRESENCE_CONDITION_ARGUMENT );
+        presenceConditionNameEDataType = createEDataType( PRESENCE_CONDITION_NAME );
+        pubStageObjectEDataType = createEDataType( PUB_STAGE_OBJECT );
+        subDataObjectNameEDataType = createEDataType( SUB_DATA_OBJECT_NAME );
+        umlVersionEDataType = createEDataType( UML_VERSION );
+        undefinedAttributeTypeKindObjectEDataType = createEDataType( UNDEFINED_ATTRIBUTE_TYPE_KIND_OBJECT );
     }
 
     /**
@@ -4243,55 +4243,55 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        tAbstractLNClassEClass.getESuperTypes().add( this.getTAnyLNClass() );
-        tAnyLNClassEClass.getESuperTypes().add( this.getTTitledClass() );
-        tApplicableServiceNSEClass.getESuperTypes().add( this.getTCopyrighted() );
-        tcdcEClass.getESuperTypes().add( this.getTTitledClass() );
-        tConstructedAttributeEClass.getESuperTypes().add( this.getTTitledClass() );
-        tDataAttributeEClass.getESuperTypes().add( this.getTDocumentedClass() );
-        tDataObjectEClass.getESuperTypes().add( this.getTDocumentedClass() );
-        tEnumerationEClass.getESuperTypes().add( this.getTTitledClass() );
-        tLiteralEClass.getESuperTypes().add( this.getTDocumentedClass() );
-        tlnClassEClass.getESuperTypes().add( this.getTAnyLNClass() );
-        tnsEClass.getESuperTypes().add( this.getTCopyrighted() );
-        tnsDocEClass.getESuperTypes().add( this.getTCopyrighted() );
-        tServiceConstructedAttributeEClass.getESuperTypes().add( this.getTConstructedAttribute() );
-        tServiceDataAttributeEClass.getESuperTypes().add( this.getTDocumentedClass() );
-        tServiceNSEClass.getESuperTypes().add( this.getTCopyrighted() );
-        tServiceParameterEClass.getESuperTypes().add( this.getTDocumentedClass() );
-        tSubDataAttributeEClass.getESuperTypes().add( this.getTDocumentedClass() );
-        tSubDataObjectEClass.getESuperTypes().add( this.getTDocumentedClass() );
-        tTitledClassEClass.getESuperTypes().add( this.getTDocumentedClass() );
+        abstractLNClassEClass.getESuperTypes().add( this.getAnyLNClass() );
+        anyLNClassEClass.getESuperTypes().add( this.getTitledClass() );
+        applicableServiceNSEClass.getESuperTypes().add( this.getCopyrighted() );
+        cdcEClass.getESuperTypes().add( this.getTitledClass() );
+        constructedAttributeEClass.getESuperTypes().add( this.getTitledClass() );
+        dataAttributeEClass.getESuperTypes().add( this.getDocumentedClass() );
+        dataObjectEClass.getESuperTypes().add( this.getDocumentedClass() );
+        enumerationEClass.getESuperTypes().add( this.getTitledClass() );
+        literalEClass.getESuperTypes().add( this.getDocumentedClass() );
+        lnClassEClass.getESuperTypes().add( this.getAnyLNClass() );
+        nsEClass.getESuperTypes().add( this.getCopyrighted() );
+        nsDocEClass.getESuperTypes().add( this.getCopyrighted() );
+        serviceConstructedAttributeEClass.getESuperTypes().add( this.getConstructedAttribute() );
+        serviceDataAttributeEClass.getESuperTypes().add( this.getDocumentedClass() );
+        serviceNSEClass.getESuperTypes().add( this.getCopyrighted() );
+        serviceParameterEClass.getESuperTypes().add( this.getDocumentedClass() );
+        subDataAttributeEClass.getESuperTypes().add( this.getDocumentedClass() );
+        subDataObjectEClass.getESuperTypes().add( this.getDocumentedClass() );
+        titledClassEClass.getESuperTypes().add( this.getDocumentedClass() );
 
         // Initialize classes, features, and operations; add parameters
         initEClass( appliesToTypeEClass, AppliesToType.class, "AppliesToType", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getAppliesToType_Id(), this.getTNSIdentifier(), "id", null, 1, 1, AppliesToType.class,
+        initEAttribute( getAppliesToType_Id(), this.getNSIdentifier(), "id", null, 1, 1, AppliesToType.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
-        initEAttribute( getAppliesToType_PublicationStage(), this.getTPubStage(), "publicationStage", "IS", 0, 1,
+        initEAttribute( getAppliesToType_PublicationStage(), this.getPubStage(), "publicationStage", "IS", 0, 1,
                 AppliesToType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getAppliesToType_Release(), this.getTNSRelease(), "release", "1", 0, 1, AppliesToType.class,
+        initEAttribute( getAppliesToType_Release(), this.getNSRelease(), "release", "1", 0, 1, AppliesToType.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getAppliesToType_Revision(), this.getTNSRevision(), "revision", "A", 0, 1, AppliesToType.class,
+        initEAttribute( getAppliesToType_Revision(), this.getNSRevision(), "revision", "A", 0, 1, AppliesToType.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getAppliesToType_Version(), this.getTNSVersion(), "version", null, 1, 1, AppliesToType.class,
+        initEAttribute( getAppliesToType_Version(), this.getNSVersion(), "version", null, 1, 1, AppliesToType.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass( dependsOnTypeEClass, DependsOnType.class, "DependsOnType", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getDependsOnType_Id(), this.getTNSIdentifier(), "id", null, 1, 1, DependsOnType.class,
+        initEAttribute( getDependsOnType_Id(), this.getNSIdentifier(), "id", null, 1, 1, DependsOnType.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
-        initEAttribute( getDependsOnType_PublicationStage(), this.getTPubStage(), "publicationStage", "IS", 0, 1,
+        initEAttribute( getDependsOnType_PublicationStage(), this.getPubStage(), "publicationStage", "IS", 0, 1,
                 DependsOnType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getDependsOnType_Release(), this.getTNSRelease(), "release", "1", 0, 1, DependsOnType.class,
+        initEAttribute( getDependsOnType_Release(), this.getNSRelease(), "release", "1", 0, 1, DependsOnType.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getDependsOnType_Revision(), this.getTNSRevision(), "revision", "A", 0, 1, DependsOnType.class,
+        initEAttribute( getDependsOnType_Revision(), this.getNSRevision(), "revision", "A", 0, 1, DependsOnType.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getDependsOnType_Version(), this.getTNSVersion(), "version", null, 1, 1, DependsOnType.class,
+        initEAttribute( getDependsOnType_Version(), this.getNSVersion(), "version", null, 1, 1, DependsOnType.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass( documentRootEClass, DocumentRoot.class, "DocumentRoot", !IS_ABSTRACT, !IS_INTERFACE,
@@ -4305,881 +4305,869 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEReference( getDocumentRoot_XSISchemaLocation(), ecorePackage.getEStringToStringMapEntry(), null,
                 "xSISchemaLocation", null, 0, -1, null, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getDocumentRoot_ApplicableServiceNS(), this.getTApplicableServiceNS(), null,
+        initEReference( getDocumentRoot_ApplicableServiceNS(), this.getApplicableServiceNS(), null,
                 "applicableServiceNS", null, 0, -2, null, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED );
-        initEReference( getDocumentRoot_Copyright(), this.getTCopyrightNotice(), null, "copyright", null, 0, -2, null,
+        initEReference( getDocumentRoot_Copyright(), this.getCopyrightNotice(), null, "copyright", null, 0, -2, null,
                 IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
                 IS_DERIVED, IS_ORDERED );
-        initEReference( getDocumentRoot_NS(), this.getTNS(), null, "nS", null, 0, -2, null, IS_TRANSIENT, IS_VOLATILE,
+        initEReference( getDocumentRoot_NS(), this.getNS(), null, "nS", null, 0, -2, null, IS_TRANSIENT, IS_VOLATILE,
                 IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED );
-        initEReference( getDocumentRoot_NSDoc(), this.getTNSDoc(), null, "nSDoc", null, 0, -2, null, IS_TRANSIENT,
+        initEReference( getDocumentRoot_NSDoc(), this.getNSDoc(), null, "nSDoc", null, 0, -2, null, IS_TRANSIENT,
                 IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED,
                 IS_ORDERED );
-        initEReference( getDocumentRoot_ServiceNS(), this.getTServiceNS(), null, "serviceNS", null, 0, -2, null,
+        initEReference( getDocumentRoot_ServiceNS(), this.getServiceNS(), null, "serviceNS", null, 0, -2, null,
                 IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
                 IS_DERIVED, IS_ORDERED );
 
         initEClass( serviceTypeEClass, ServiceType.class, "ServiceType", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getServiceType_Name(), this.getTACSIServicesKind(), "name", null, 1, 1, ServiceType.class,
+        initEAttribute( getServiceType_Name(), this.getACSIServicesKind(), "name", null, 1, 1, ServiceType.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        initEClass( tAbbreviationEClass, TAbbreviation.class, "TAbbreviation", !IS_ABSTRACT, !IS_INTERFACE,
+        initEClass( abbreviationEClass, Abbreviation.class, "Abbreviation", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getTAbbreviation_DescID(), this.getTDocID(), "descID", null, 0, 1, TAbbreviation.class,
+        initEAttribute( getAbbreviation_DescID(), this.getDocID(), "descID", null, 0, 1, Abbreviation.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
-        initEAttribute( getTAbbreviation_Name(), this.getTAbbreviationName(), "name", null, 1, 1, TAbbreviation.class,
+        initEAttribute( getAbbreviation_Name(), this.getAbbreviationName(), "name", null, 1, 1, Abbreviation.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
 
-        initEClass( tAbbreviationsEClass, TAbbreviations.class, "TAbbreviations", !IS_ABSTRACT, !IS_INTERFACE,
+        initEClass( abbreviationsEClass, Abbreviations.class, "Abbreviations", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getTAbbreviations_Abbreviation(), this.getTAbbreviation(), null, "abbreviation", null, 1, -1,
-                TAbbreviations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+        initEReference( getAbbreviations_Abbreviation(), this.getAbbreviation(), null, "abbreviation", null, 1, -1,
+                Abbreviations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        initEClass( tAbstractLNClassEClass, TAbstractLNClass.class, "TAbstractLNClass", !IS_ABSTRACT, !IS_INTERFACE,
+        initEClass( abstractLNClassEClass, AbstractLNClass.class, "AbstractLNClass", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getTAbstractLNClass_Name(), this.getTAbstractLNClassName(), "name", null, 1, 1,
-                TAbstractLNClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+        initEAttribute( getAbstractLNClass_Name(), this.getAbstractLNClassName(), "name", null, 1, 1,
+                AbstractLNClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
 
-        initEClass( tAnyLNClassEClass, TAnyLNClass.class, "TAnyLNClass", IS_ABSTRACT, !IS_INTERFACE,
+        initEClass( anyLNClassEClass, AnyLNClass.class, "AnyLNClass", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getTAnyLNClass_DataObject(), this.getTDataObject(), null, "dataObject", null, 0, -1,
-                TAnyLNClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+        initEReference( getAnyLNClass_DataObject(), this.getDataObject(), null, "dataObject", null, 0, -1,
+                AnyLNClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTAnyLNClass_Base(), this.getTAbstractLNClassName(), "base", null, 0, 1, TAnyLNClass.class,
+        initEAttribute( getAnyLNClass_Base(), this.getAbstractLNClassName(), "base", null, 0, 1, AnyLNClass.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
 
-        initEClass( tApplicableServiceNSEClass, TApplicableServiceNS.class, "TApplicableServiceNS", !IS_ABSTRACT,
+        initEClass( applicableServiceNSEClass, ApplicableServiceNS.class, "ApplicableServiceNS", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getTApplicableServiceNS_ServiceNsUsage(), this.getTServiceNsUsage(), null, "serviceNsUsage",
-                null, 1, -1, TApplicableServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+        initEReference( getApplicableServiceNS_ServiceNsUsage(), this.getServiceNsUsage(), null, "serviceNsUsage", null,
+                1, -1, ApplicableServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTApplicableServiceNS_Date(), theXMLTypePackage.getDateTime(), "date", null, 1, 1,
-                TApplicableServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+        initEAttribute( getApplicableServiceNS_Date(), theXMLTypePackage.getDateTime(), "date", null, 1, 1,
+                ApplicableServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTApplicableServiceNS_Version(), theXMLTypePackage.getUnsignedInt(), "version", null, 1, 1,
-                TApplicableServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getApplicableServiceNS_Version(), theXMLTypePackage.getUnsignedInt(), "version", null, 1, 1,
+                ApplicableServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
 
-        initEClass( tApplicableServicesEClass, TApplicableServices.class, "TApplicableServices", !IS_ABSTRACT,
+        initEClass( applicableServicesEClass, ApplicableServices.class, "ApplicableServices", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getTApplicableServices_Service(), this.getServiceType(), null, "service", null, 0, -1,
-                TApplicableServices.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getTApplicableServices_DataSetMemberOf(), this.getTDataSetMemberOf(), null, "dataSetMemberOf",
-                null, 0, -1, TApplicableServices.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+        initEReference( getApplicableServices_Service(), this.getServiceType(), null, "service", null, 0, -1,
+                ApplicableServices.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getApplicableServices_DataSetMemberOf(), this.getDataSetMemberOf(), null, "dataSetMemberOf",
+                null, 0, -1, ApplicableServices.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        initEClass( tBasicTypeEClass, TBasicType.class, "TBasicType", !IS_ABSTRACT, !IS_INTERFACE,
+        initEClass( basicTypeEClass, BasicType.class, "BasicType", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getTBasicType_DescID(), this.getTDocID(), "descID", null, 0, 1, TBasicType.class, !IS_TRANSIENT,
+        initEAttribute( getBasicType_DescID(), this.getDocID(), "descID", null, 0, 1, BasicType.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTBasicType_Name(), this.getTBasicTypeName(), "name", null, 1, 1, TBasicType.class,
+        initEAttribute( getBasicType_Name(), this.getBasicTypeName(), "name", null, 1, 1, BasicType.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
 
-        initEClass( tBasicTypesEClass, TBasicTypes.class, "TBasicTypes", !IS_ABSTRACT, !IS_INTERFACE,
+        initEClass( basicTypesEClass, BasicTypes.class, "BasicTypes", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getTBasicTypes_BasicType(), this.getTBasicType(), null, "basicType", null, 1, -1,
-                TBasicTypes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+        initEReference( getBasicTypes_BasicType(), this.getBasicType(), null, "basicType", null, 1, -1,
+                BasicTypes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        initEClass( tcdcEClass, fr.centralesupelec.edf.riseclipse.iec61850.nsd.TCDC.class, "TCDC", !IS_ABSTRACT,
+        initEClass( cdcEClass, fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC.class, "CDC", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getTCDC_SubDataObject(), this.getTSubDataObject(), null, "subDataObject", null, 0, -1,
-                fr.centralesupelec.edf.riseclipse.iec61850.nsd.TCDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+        initEReference( getCDC_SubDataObject(), this.getSubDataObject(), null, "subDataObject", null, 0, -1,
+                fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getTCDC_DataAttribute(), this.getTDataAttribute(), null, "dataAttribute", null, 1, -1,
-                fr.centralesupelec.edf.riseclipse.iec61850.nsd.TCDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+        initEReference( getCDC_DataAttribute(), this.getDataAttribute(), null, "dataAttribute", null, 1, -1,
+                fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getTCDC_ServiceParameter(), this.getTServiceParameter(), null, "serviceParameter", null, 0, 1,
-                fr.centralesupelec.edf.riseclipse.iec61850.nsd.TCDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+        initEReference( getCDC_ServiceParameter(), this.getServiceParameter(), null, "serviceParameter", null, 0, 1,
+                fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTCDC_EnumParameterized(), theXMLTypePackage.getBoolean(), "enumParameterized", "false", 0, 1,
-                fr.centralesupelec.edf.riseclipse.iec61850.nsd.TCDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+        initEAttribute( getCDC_EnumParameterized(), theXMLTypePackage.getBoolean(), "enumParameterized", "false", 0, 1,
+                fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTCDC_Name(), this.getTCDCName(), "name", null, 1, 1,
-                fr.centralesupelec.edf.riseclipse.iec61850.nsd.TCDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+        initEAttribute( getCDC_Name(), this.getCDCName(), "name", null, 1, 1,
+                fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTCDC_Statistics(), theXMLTypePackage.getBoolean(), "statistics", "false", 0, 1,
-                fr.centralesupelec.edf.riseclipse.iec61850.nsd.TCDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+        initEAttribute( getCDC_Statistics(), theXMLTypePackage.getBoolean(), "statistics", "false", 0, 1,
+                fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTCDC_TypeKindParameterized(), theXMLTypePackage.getBoolean(), "typeKindParameterized",
-                "false", 0, 1, fr.centralesupelec.edf.riseclipse.iec61850.nsd.TCDC.class, !IS_TRANSIENT, !IS_VOLATILE,
+        initEAttribute( getCDC_TypeKindParameterized(), theXMLTypePackage.getBoolean(), "typeKindParameterized",
+                "false", 0, 1, fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTCDC_Variant(), theXMLTypePackage.getToken(), "variant", null, 0, 1,
-                fr.centralesupelec.edf.riseclipse.iec61850.nsd.TCDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+        initEAttribute( getCDC_Variant(), theXMLTypePackage.getToken(), "variant", null, 0, 1,
+                fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        initEClass( tcdCsEClass, TCDCs.class, "TCDCs", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getTCDCs_CDC(), this.getTCDC(), null, "cDC", null, 0, -1, TCDCs.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
-
-        initEClass( tChangesEClass, TChanges.class, "TChanges", !IS_ABSTRACT, !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getTChanges_ChangesID(), this.getTDocID(), "changesID", null, 0, 1, TChanges.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
-        initEAttribute( getTChanges_Date(), theXMLTypePackage.getDate(), "date", null, 0, 1, TChanges.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
-        initEAttribute( getTChanges_Release(), this.getTNSRelease(), "release", "1", 0, 1, TChanges.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTChanges_Revision(), this.getTNSRevision(), "revision", "A", 0, 1, TChanges.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTChanges_Tissues(), this.getTissuesType(), "tissues", null, 0, 1, TChanges.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
-        initEAttribute( getTChanges_Version(), this.getTNSVersion(), "version", null, 1, 1, TChanges.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-
-        initEClass( tConstructedAttributeEClass, TConstructedAttribute.class, "TConstructedAttribute", !IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getTConstructedAttribute_SubDataAttribute(), this.getTSubDataAttribute(), null,
-                "subDataAttribute", null, 1, -1, TConstructedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTConstructedAttribute_Name(), this.getTIec61850Name(), "name", null, 1, 1,
-                TConstructedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-
-        initEClass( tConstructedAttributesEClass, TConstructedAttributes.class, "TConstructedAttributes", !IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getTConstructedAttributes_ConstructedAttribute(), this.getTConstructedAttribute(), null,
-                "constructedAttribute", null, 0, -1, TConstructedAttributes.class, !IS_TRANSIENT, !IS_VOLATILE,
+        initEClass( cdCsEClass, CDCs.class, "CDCs", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEReference( getCDCs_CDC(), this.getCDC(), null, "cDC", null, 0, -1, CDCs.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        initEClass( tCopyrightedEClass, TCopyrighted.class, "TCopyrighted", !IS_ABSTRACT, !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getTCopyrighted_Copyright(), this.getTCopyrightNotice(), null, "copyright", null, 0, 1,
-                TCopyrighted.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-
-        initEClass( tCopyrightNoticeEClass, TCopyrightNotice.class, "TCopyrightNotice", !IS_ABSTRACT, !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getTCopyrightNotice_Notice(), this.getTNotice(), null, "notice", null, 1, 1,
-                TCopyrightNotice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getTCopyrightNotice_License(), this.getTLicense(), null, "license", null, 1, 1,
-                TCopyrightNotice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-
-        initEClass( tDataAttributeEClass, TDataAttribute.class, "TDataAttribute", !IS_ABSTRACT, !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getTDataAttribute_Dchg(), theXMLTypePackage.getBoolean(), "dchg", "false", 0, 1,
-                TDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTDataAttribute_DefaultValue(), theXMLTypePackage.getNormalizedString(), "defaultValue", null,
-                0, 1, TDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTDataAttribute_Dupd(), theXMLTypePackage.getBoolean(), "dupd", "false", 0, 1,
-                TDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTDataAttribute_Fc(), this.getTFCAbbreviation(), "fc", null, 1, 1, TDataAttribute.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
-        initEAttribute( getTDataAttribute_IsArray(), theXMLTypePackage.getBoolean(), "isArray", "false", 0, 1,
-                TDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTDataAttribute_MaxIndexAttribute(), this.getTAttributeName(), "maxIndexAttribute", null, 0,
-                1, TDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTDataAttribute_MaxValue(), theXMLTypePackage.getDecimal(), "maxValue", null, 0, 1,
-                TDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTDataAttribute_MinIndex(), theXMLTypePackage.getUnsignedInt(), "minIndex", "0", 0, 1,
-                TDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTDataAttribute_MinValue(), theXMLTypePackage.getDecimal(), "minValue", null, 0, 1,
-                TDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTDataAttribute_Name(), this.getTAttributeName(), "name", null, 1, 1, TDataAttribute.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
-        initEAttribute( getTDataAttribute_PresCond(), this.getTPresenceConditionName(), "presCond", "M", 0, 1,
-                TDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTDataAttribute_PresCondArgs(), this.getTPresenceConditionArgument(), "presCondArgs", null, 0,
-                1, TDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTDataAttribute_PresCondArgsID(), this.getTDocID(), "presCondArgsID", null, 0, 1,
-                TDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTDataAttribute_Qchg(), theXMLTypePackage.getBoolean(), "qchg", "false", 0, 1,
-                TDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTDataAttribute_SizeAttribute(), this.getTAttributeName(), "sizeAttribute", null, 0, 1,
-                TDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTDataAttribute_Type(), this.getTIec61850Name(), "type", null, 0, 1, TDataAttribute.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
-        initEAttribute( getTDataAttribute_TypeKind(), this.getTAttributeTypeKind(), "typeKind", "BASIC", 0, 1,
-                TDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-
-        initEClass( tDataObjectEClass, TDataObject.class, "TDataObject", !IS_ABSTRACT, !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getTDataObject_DsPresCond(), this.getTPresenceConditionName(), "dsPresCond", "M", 0, 1,
-                TDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTDataObject_DsPresCondArgs(), this.getTPresenceConditionArgument(), "dsPresCondArgs", null,
-                0, 1, TDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTDataObject_DsPresCondArgsID(), this.getTDocID(), "dsPresCondArgsID", null, 0, 1,
-                TDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTDataObject_Name(), this.getTDataObjectName(), "name", null, 1, 1, TDataObject.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
-        initEAttribute( getTDataObject_PresCond(), this.getTPresenceConditionName(), "presCond", "M", 0, 1,
-                TDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTDataObject_PresCondArgs(), this.getTPresenceConditionArgument(), "presCondArgs", null, 0, 1,
-                TDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTDataObject_PresCondArgsID(), this.getTDocID(), "presCondArgsID", null, 0, 1,
-                TDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTDataObject_Transient(), theXMLTypePackage.getBoolean(), "transient", "false", 0, 1,
-                TDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTDataObject_Type(), this.getTCDCName(), "type", null, 1, 1, TDataObject.class, !IS_TRANSIENT,
+        initEClass( changesEClass, Changes.class, "Changes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute( getChanges_ChangesID(), this.getDocID(), "changesID", null, 0, 1, Changes.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTDataObject_UnderlyingType(), this.getTIec61850Name(), "underlyingType", null, 0, 1,
-                TDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTDataObject_UnderlyingTypeKind(), this.getTDefinedAttributeTypeKind(), "underlyingTypeKind",
-                null, 0, 1, TDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
+        initEAttribute( getChanges_Date(), theXMLTypePackage.getDate(), "date", null, 0, 1, Changes.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+                IS_ORDERED );
+        initEAttribute( getChanges_Release(), this.getNSRelease(), "release", "1", 0, 1, Changes.class, !IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getChanges_Revision(), this.getNSRevision(), "revision", "A", 0, 1, Changes.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getChanges_Tissues(), this.getissuesType(), "tissues", null, 0, 1, Changes.class, !IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getChanges_Version(), this.getNSVersion(), "version", null, 1, 1, Changes.class, !IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        initEClass( constructedAttributeEClass, ConstructedAttribute.class, "ConstructedAttribute", !IS_ABSTRACT,
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEReference( getConstructedAttribute_SubDataAttribute(), this.getSubDataAttribute(), null,
+                "subDataAttribute", null, 1, -1, ConstructedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getConstructedAttribute_Name(), this.getIec61850Name(), "name", null, 1, 1,
+                ConstructedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        initEClass( tDataSetMemberOfEClass, TDataSetMemberOf.class, "TDataSetMemberOf", !IS_ABSTRACT, !IS_INTERFACE,
+        initEClass( constructedAttributesEClass, ConstructedAttributes.class, "ConstructedAttributes", !IS_ABSTRACT,
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEReference( getConstructedAttributes_ConstructedAttribute(), this.getConstructedAttribute(), null,
+                "constructedAttribute", null, 0, -1, ConstructedAttributes.class, !IS_TRANSIENT, !IS_VOLATILE,
+                IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        initEClass( copyrightedEClass, Copyrighted.class, "Copyrighted", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getTDataSetMemberOf_Cb(), this.getTCBKind(), "cb", null, 1, 1, TDataSetMemberOf.class,
+        initEReference( getCopyrighted_Copyright(), this.getCopyrightNotice(), null, "copyright", null, 0, 1,
+                Copyrighted.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        initEClass( copyrightNoticeEClass, CopyrightNotice.class, "CopyrightNotice", !IS_ABSTRACT, !IS_INTERFACE,
+                IS_GENERATED_INSTANCE_CLASS );
+        initEReference( getCopyrightNotice_Notice(), this.getNotice(), null, "notice", null, 1, 1,
+                CopyrightNotice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getCopyrightNotice_License(), this.getLicense(), null, "license", null, 1, 1,
+                CopyrightNotice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        initEClass( dataAttributeEClass, DataAttribute.class, "DataAttribute", !IS_ABSTRACT, !IS_INTERFACE,
+                IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute( getDataAttribute_Dchg(), theXMLTypePackage.getBoolean(), "dchg", "false", 0, 1,
+                DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getDataAttribute_DefaultValue(), theXMLTypePackage.getNormalizedString(), "defaultValue", null,
+                0, 1, DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+                IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getDataAttribute_Dupd(), theXMLTypePackage.getBoolean(), "dupd", "false", 0, 1,
+                DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getDataAttribute_Fc(), this.getFCAbbreviation(), "fc", null, 1, 1, DataAttribute.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+                IS_ORDERED );
+        initEAttribute( getDataAttribute_IsArray(), theXMLTypePackage.getBoolean(), "isArray", "false", 0, 1,
+                DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getDataAttribute_MaxIndexAttribute(), this.getAttributeName(), "maxIndexAttribute", null, 0, 1,
+                DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getDataAttribute_MaxValue(), theXMLTypePackage.getDecimal(), "maxValue", null, 0, 1,
+                DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getDataAttribute_MinIndex(), theXMLTypePackage.getUnsignedInt(), "minIndex", "0", 0, 1,
+                DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getDataAttribute_MinValue(), theXMLTypePackage.getDecimal(), "minValue", null, 0, 1,
+                DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getDataAttribute_Name(), this.getAttributeName(), "name", null, 1, 1, DataAttribute.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+                IS_ORDERED );
+        initEAttribute( getDataAttribute_PresCond(), this.getPresenceConditionName(), "presCond", "M", 0, 1,
+                DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getDataAttribute_PresCondArgs(), this.getPresenceConditionArgument(), "presCondArgs", null, 0,
+                1, DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getDataAttribute_PresCondArgsID(), this.getDocID(), "presCondArgsID", null, 0, 1,
+                DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getDataAttribute_Qchg(), theXMLTypePackage.getBoolean(), "qchg", "false", 0, 1,
+                DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getDataAttribute_SizeAttribute(), this.getAttributeName(), "sizeAttribute", null, 0, 1,
+                DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getDataAttribute_Type(), this.getIec61850Name(), "type", null, 0, 1, DataAttribute.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+                IS_ORDERED );
+        initEAttribute( getDataAttribute_TypeKind(), this.getAttributeTypeKind(), "typeKind", "BASIC", 0, 1,
+                DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+
+        initEClass( dataObjectEClass, DataObject.class, "DataObject", !IS_ABSTRACT, !IS_INTERFACE,
+                IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute( getDataObject_DsPresCond(), this.getPresenceConditionName(), "dsPresCond", "M", 0, 1,
+                DataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getDataObject_DsPresCondArgs(), this.getPresenceConditionArgument(), "dsPresCondArgs", null, 0,
+                1, DataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getDataObject_DsPresCondArgsID(), this.getDocID(), "dsPresCondArgsID", null, 0, 1,
+                DataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getDataObject_Name(), this.getDataObjectName(), "name", null, 1, 1, DataObject.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+                IS_ORDERED );
+        initEAttribute( getDataObject_PresCond(), this.getPresenceConditionName(), "presCond", "M", 0, 1,
+                DataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getDataObject_PresCondArgs(), this.getPresenceConditionArgument(), "presCondArgs", null, 0, 1,
+                DataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getDataObject_PresCondArgsID(), this.getDocID(), "presCondArgsID", null, 0, 1, DataObject.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+                IS_ORDERED );
+        initEAttribute( getDataObject_Transient(), theXMLTypePackage.getBoolean(), "transient", "false", 0, 1,
+                DataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getDataObject_Type(), this.getCDCName(), "type", null, 1, 1, DataObject.class, !IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getDataObject_UnderlyingType(), this.getIec61850Name(), "underlyingType", null, 0, 1,
+                DataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getDataObject_UnderlyingTypeKind(), this.getDefinedAttributeTypeKind(), "underlyingTypeKind",
+                null, 0, 1, DataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
+                IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        initEClass( dataSetMemberOfEClass, DataSetMemberOf.class, "DataSetMemberOf", !IS_ABSTRACT, !IS_INTERFACE,
+                IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute( getDataSetMemberOf_Cb(), this.getCBKind(), "cb", null, 1, 1, DataSetMemberOf.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        initEClass( tDocEClass, TDoc.class, "TDoc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getTDoc_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, TDoc.class,
+        initEClass( docEClass, Doc.class, "Doc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute( getDoc_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, Doc.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
-        initEAttribute( getTDoc_Group(), ecorePackage.getEFeatureMapEntry(), "group", null, 0, -1, TDoc.class,
+        initEAttribute( getDoc_Group(), ecorePackage.getEFeatureMapEntry(), "group", null, 0, -1, Doc.class,
                 IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTDoc_Any(), ecorePackage.getEFeatureMapEntry(), "any", null, 0, -1, TDoc.class, IS_TRANSIENT,
+        initEAttribute( getDoc_Any(), ecorePackage.getEFeatureMapEntry(), "any", null, 0, -1, Doc.class, IS_TRANSIENT,
                 IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTDoc_Id(), this.getTDocID(), "id", null, 1, 1, TDoc.class, !IS_TRANSIENT, !IS_VOLATILE,
+        initEAttribute( getDoc_Id(), this.getDocID(), "id", null, 1, 1, Doc.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        initEClass( tDocumentedClassEClass, TDocumentedClass.class, "TDocumentedClass", !IS_ABSTRACT, !IS_INTERFACE,
+        initEClass( documentedClassEClass, DocumentedClass.class, "DocumentedClass", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getTDocumentedClass_Deprecated(), theXMLTypePackage.getBoolean(), "deprecated", "false", 0, 1,
-                TDocumentedClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+        initEAttribute( getDocumentedClass_Deprecated(), theXMLTypePackage.getBoolean(), "deprecated", "false", 0, 1,
+                DocumentedClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTDocumentedClass_DescID(), this.getTDocID(), "descID", null, 0, 1, TDocumentedClass.class,
+        initEAttribute( getDocumentedClass_DescID(), this.getDocID(), "descID", null, 0, 1, DocumentedClass.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
-        initEAttribute( getTDocumentedClass_Informative(), theXMLTypePackage.getBoolean(), "informative", "false", 0, 1,
-                TDocumentedClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+        initEAttribute( getDocumentedClass_Informative(), theXMLTypePackage.getBoolean(), "informative", "false", 0, 1,
+                DocumentedClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
 
-        initEClass( tEnumerationEClass, TEnumeration.class, "TEnumeration", !IS_ABSTRACT, !IS_INTERFACE,
+        initEClass( enumerationEClass, Enumeration.class, "Enumeration", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getTEnumeration_Literal(), this.getTLiteral(), null, "literal", null, 1, -1, TEnumeration.class,
+        initEReference( getEnumeration_Literal(), this.getLiteral(), null, "literal", null, 1, -1, Enumeration.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTEnumeration_InheritedFrom(), this.getTIec61850Name(), "inheritedFrom", null, 0, 1,
-                TEnumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+        initEAttribute( getEnumeration_InheritedFrom(), this.getIec61850Name(), "inheritedFrom", null, 0, 1,
+                Enumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTEnumeration_Name(), this.getTIec61850Name(), "name", null, 1, 1, TEnumeration.class,
+        initEAttribute( getEnumeration_Name(), this.getIec61850Name(), "name", null, 1, 1, Enumeration.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
 
-        initEClass( tEnumerationsEClass, TEnumerations.class, "TEnumerations", !IS_ABSTRACT, !IS_INTERFACE,
+        initEClass( enumerationsEClass, Enumerations.class, "Enumerations", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getTEnumerations_Enumeration(), this.getTEnumeration(), null, "enumeration", null, 0, -1,
-                TEnumerations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+        initEReference( getEnumerations_Enumeration(), this.getEnumeration(), null, "enumeration", null, 0, -1,
+                Enumerations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        initEClass( tFunctionalConstraintEClass, TFunctionalConstraint.class, "TFunctionalConstraint", !IS_ABSTRACT,
+        initEClass( functionalConstraintEClass, FunctionalConstraint.class, "FunctionalConstraint", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getTFunctionalConstraint_ApplicableServices(), this.getTApplicableServices(), null,
-                "applicableServices", null, 0, 1, TFunctionalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE,
+        initEReference( getFunctionalConstraint_ApplicableServices(), this.getApplicableServices(), null,
+                "applicableServices", null, 0, 1, FunctionalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTFunctionalConstraint_Abbreviation(), this.getTFCAbbreviation(), "abbreviation", null, 1, 1,
-                TFunctionalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+        initEAttribute( getFunctionalConstraint_Abbreviation(), this.getFCAbbreviation(), "abbreviation", null, 1, 1,
+                FunctionalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTFunctionalConstraint_DescID(), this.getTDocID(), "descID", null, 0, 1,
-                TFunctionalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+        initEAttribute( getFunctionalConstraint_DescID(), this.getDocID(), "descID", null, 0, 1,
+                FunctionalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTFunctionalConstraint_TitleID(), this.getTDocID(), "titleID", null, 0, 1,
-                TFunctionalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+        initEAttribute( getFunctionalConstraint_TitleID(), this.getDocID(), "titleID", null, 0, 1,
+                FunctionalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        initEClass( tFunctionalConstraintsEClass, TFunctionalConstraints.class, "TFunctionalConstraints", !IS_ABSTRACT,
+        initEClass( functionalConstraintsEClass, FunctionalConstraints.class, "FunctionalConstraints", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getTFunctionalConstraints_FunctionalConstraint(), this.getTFunctionalConstraint(), null,
-                "functionalConstraint", null, 1, -1, TFunctionalConstraints.class, !IS_TRANSIENT, !IS_VOLATILE,
+        initEReference( getFunctionalConstraints_FunctionalConstraint(), this.getFunctionalConstraint(), null,
+                "functionalConstraint", null, 1, -1, FunctionalConstraints.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        initEClass( tLicenseEClass, TLicense.class, "TLicense", !IS_ABSTRACT, !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getTLicense_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, TLicense.class,
+        initEClass( licenseEClass, License.class, "License", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute( getLicense_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, License.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
-        initEAttribute( getTLicense_Kind(), this.getTLicenseKind(), "kind", null, 0, 1, TLicense.class, !IS_TRANSIENT,
+        initEAttribute( getLicense_Kind(), this.getLicenseKind(), "kind", null, 0, 1, License.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTLicense_Uri(), theXMLTypePackage.getNormalizedString(), "uri", null, 0, 1, TLicense.class,
+        initEAttribute( getLicense_Uri(), theXMLTypePackage.getNormalizedString(), "uri", null, 0, 1, License.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
 
-        initEClass( tLiteralEClass, TLiteral.class, "TLiteral", !IS_ABSTRACT, !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getTLiteral_LiteralVal(), theXMLTypePackage.getInt(), "literalVal", null, 1, 1, TLiteral.class,
+        initEClass( literalEClass, Literal.class, "Literal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute( getLiteral_LiteralVal(), theXMLTypePackage.getInt(), "literalVal", null, 1, 1, Literal.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTLiteral_Name(), this.getTLiteralName(), "name", null, 1, 1, TLiteral.class, !IS_TRANSIENT,
+        initEAttribute( getLiteral_Name(), this.getLiteralName(), "name", null, 1, 1, Literal.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        initEClass( tlnClassEClass, TLNClass.class, "TLNClass", !IS_ABSTRACT, !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getTLNClass_CanHaveLOG(), theXMLTypePackage.getBoolean(), "canHaveLOG", "false", 0, 1,
-                TLNClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+        initEClass( lnClassEClass, LNClass.class, "LNClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute( getLNClass_CanHaveLOG(), theXMLTypePackage.getBoolean(), "canHaveLOG", "false", 0, 1,
+                LNClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTLNClass_IsExtension(), theXMLTypePackage.getBoolean(), "isExtension", "false", 0, 1,
-                TLNClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+        initEAttribute( getLNClass_IsExtension(), theXMLTypePackage.getBoolean(), "isExtension", "false", 0, 1,
+                LNClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTLNClass_Name(), this.getTLNClassName(), "name", null, 1, 1, TLNClass.class, !IS_TRANSIENT,
+        initEAttribute( getLNClass_Name(), this.getLNClassName(), "name", null, 1, 1, LNClass.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        initEClass( tlnClassesEClass, TLNClasses.class, "TLNClasses", !IS_ABSTRACT, !IS_INTERFACE,
+        initEClass( lnClassesEClass, LNClasses.class, "LNClasses", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getTLNClasses_AbstractLNClass(), this.getTAbstractLNClass(), null, "abstractLNClass", null, 0,
-                -1, TLNClasses.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+        initEReference( getLNClasses_AbstractLNClass(), this.getAbstractLNClass(), null, "abstractLNClass", null, 0, -1,
+                LNClasses.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getTLNClasses_LNClass(), this.getTLNClass(), null, "lNClass", null, 0, -1, TLNClasses.class,
+        initEReference( getLNClasses_LNClass(), this.getLNClass(), null, "lNClass", null, 0, -1, LNClasses.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        initEClass( tNoticeEClass, TNotice.class, "TNotice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getTNotice_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, TNotice.class,
+        initEClass( noticeEClass, Notice.class, "Notice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute( getNotice_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, Notice.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
 
-        initEClass( tnsEClass, fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNS.class, "TNS", !IS_ABSTRACT,
+        initEClass( nsEClass, fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, "NS", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getTNS_Changes(), this.getTChanges(), null, "changes", null, 0, 1,
-                fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+        initEReference( getNS_Changes(), this.getChanges(), null, "changes", null, 0, 1,
+                fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getTNS_DependsOn(), this.getDependsOnType(), null, "dependsOn", null, 0, 1,
-                fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+        initEReference( getNS_DependsOn(), this.getDependsOnType(), null, "dependsOn", null, 0, 1,
+                fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getTNS_BasicTypes(), this.getTBasicTypes(), null, "basicTypes", null, 0, 1,
-                fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+        initEReference( getNS_BasicTypes(), this.getBasicTypes(), null, "basicTypes", null, 0, 1,
+                fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getTNS_FunctionalConstraints(), this.getTFunctionalConstraints(), null, "functionalConstraints",
-                null, 0, 1, fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNS.class, !IS_TRANSIENT, !IS_VOLATILE,
+        initEReference( getNS_FunctionalConstraints(), this.getFunctionalConstraints(), null, "functionalConstraints",
+                null, 0, 1, fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getTNS_PresenceConditions(), this.getTPresenceConditions(), null, "presenceConditions", null, 0,
-                1, fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+        initEReference( getNS_PresenceConditions(), this.getPresenceConditions(), null, "presenceConditions", null, 0,
+                1, fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getTNS_Abbreviations(), this.getTAbbreviations(), null, "abbreviations", null, 0, 1,
-                fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+        initEReference( getNS_Abbreviations(), this.getAbbreviations(), null, "abbreviations", null, 0, 1,
+                fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getTNS_Enumerations(), this.getTEnumerations(), null, "enumerations", null, 0, 1,
-                fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+        initEReference( getNS_Enumerations(), this.getEnumerations(), null, "enumerations", null, 0, 1,
+                fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getTNS_ConstructedAttributes(), this.getTConstructedAttributes(), null, "constructedAttributes",
-                null, 0, 1, fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNS.class, !IS_TRANSIENT, !IS_VOLATILE,
+        initEReference( getNS_ConstructedAttributes(), this.getConstructedAttributes(), null, "constructedAttributes",
+                null, 0, 1, fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getTNS_CDCs(), this.getTCDCs(), null, "cDCs", null, 0, 1,
-                fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+        initEReference( getNS_CDCs(), this.getCDCs(), null, "cDCs", null, 0, 1,
+                fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getTNS_LNClasses(), this.getTLNClasses(), null, "lNClasses", null, 0, 1,
-                fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+        initEReference( getNS_LNClasses(), this.getLNClasses(), null, "lNClasses", null, 0, 1,
+                fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTNS_DescID(), this.getTDocID(), "descID", null, 0, 1,
-                fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+        initEAttribute( getNS_DescID(), this.getDocID(), "descID", null, 0, 1,
+                fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTNS_Id(), this.getTNSIdentifier(), "id", null, 1, 1,
-                fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+        initEAttribute( getNS_Id(), this.getNSIdentifier(), "id", null, 1, 1,
+                fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTNS_PublicationStage(), this.getTPubStage(), "publicationStage", "IS", 0, 1,
-                fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+        initEAttribute( getNS_PublicationStage(), this.getPubStage(), "publicationStage", "IS", 0, 1,
+                fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTNS_Release(), this.getTNSRelease(), "release", "1", 0, 1,
-                fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+        initEAttribute( getNS_Release(), this.getNSRelease(), "release", "1", 0, 1,
+                fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTNS_Revision(), this.getTNSRevision(), "revision", "A", 0, 1,
-                fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+        initEAttribute( getNS_Revision(), this.getNSRevision(), "revision", "A", 0, 1,
+                fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTNS_UmlDate(), theXMLTypePackage.getDateTime(), "umlDate", null, 0, 1,
-                fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+        initEAttribute( getNS_UmlDate(), theXMLTypePackage.getDateTime(), "umlDate", null, 0, 1,
+                fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTNS_UmlVersion(), this.getTUMLVersion(), "umlVersion", null, 0, 1,
-                fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+        initEAttribute( getNS_UmlVersion(), this.getUMLVersion(), "umlVersion", null, 0, 1,
+                fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTNS_Version(), this.getTNSVersion(), "version", null, 1, 1,
-                fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+        initEAttribute( getNS_Version(), this.getNSVersion(), "version", null, 1, 1,
+                fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        initEClass( tnsDocEClass, TNSDoc.class, "TNSDoc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getTNSDoc_Doc(), this.getTDoc(), null, "doc", null, 1, -1, TNSDoc.class, !IS_TRANSIENT,
+        initEClass( nsDocEClass, NSDoc.class, "NSDoc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEReference( getNSDoc_Doc(), this.getDoc(), null, "doc", null, 1, -1, NSDoc.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
-        initEAttribute( getTNSDoc_Id(), this.getTNSIdentifier(), "id", null, 1, 1, TNSDoc.class, !IS_TRANSIENT,
+        initEAttribute( getNSDoc_Id(), this.getNSIdentifier(), "id", null, 1, 1, NSDoc.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTNSDoc_Lang(), theXMLTypePackage.getLanguage(), "lang", null, 1, 1, TNSDoc.class,
+        initEAttribute( getNSDoc_Lang(), theXMLTypePackage.getLanguage(), "lang", null, 1, 1, NSDoc.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
-        initEAttribute( getTNSDoc_PublicationStage(), this.getTPubStage(), "publicationStage", "IS", 0, 1, TNSDoc.class,
+        initEAttribute( getNSDoc_PublicationStage(), this.getPubStage(), "publicationStage", "IS", 0, 1, NSDoc.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTNSDoc_Release(), this.getTNSRelease(), "release", "1", 0, 1, TNSDoc.class, !IS_TRANSIENT,
+        initEAttribute( getNSDoc_Release(), this.getNSRelease(), "release", "1", 0, 1, NSDoc.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTNSDoc_Revision(), this.getTNSRevision(), "revision", "A", 0, 1, TNSDoc.class, !IS_TRANSIENT,
+        initEAttribute( getNSDoc_Revision(), this.getNSRevision(), "revision", "A", 0, 1, NSDoc.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTNSDoc_UmlDate(), theXMLTypePackage.getDateTime(), "umlDate", null, 0, 1, TNSDoc.class,
+        initEAttribute( getNSDoc_UmlDate(), theXMLTypePackage.getDateTime(), "umlDate", null, 0, 1, NSDoc.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
-        initEAttribute( getTNSDoc_UmlVersion(), this.getTUMLVersion(), "umlVersion", null, 0, 1, TNSDoc.class,
+        initEAttribute( getNSDoc_UmlVersion(), this.getUMLVersion(), "umlVersion", null, 0, 1, NSDoc.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
-        initEAttribute( getTNSDoc_Version(), this.getTNSVersion(), "version", null, 1, 1, TNSDoc.class, !IS_TRANSIENT,
+        initEAttribute( getNSDoc_Version(), this.getNSVersion(), "version", null, 1, 1, NSDoc.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        initEClass( tPresenceConditionEClass, TPresenceCondition.class, "TPresenceCondition", !IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getTPresenceCondition_Argument(), this.getTPresenceConditionArgument(), "argument", null, 0, 1,
-                TPresenceCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTPresenceCondition_DescID(), this.getTDocID(), "descID", null, 0, 1,
-                TPresenceCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTPresenceCondition_Name(), this.getTPresenceConditionName(), "name", null, 1, 1,
-                TPresenceCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTPresenceCondition_TitleID(), this.getTDocID(), "titleID", null, 0, 1,
-                TPresenceCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-
-        initEClass( tPresenceConditionsEClass, TPresenceConditions.class, "TPresenceConditions", !IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getTPresenceConditions_PresenceCondition(), this.getTPresenceCondition(), null,
-                "presenceCondition", null, 1, -1, TPresenceConditions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-
-        initEClass( tServiceCDCEClass, TServiceCDC.class, "TServiceCDC", !IS_ABSTRACT, !IS_INTERFACE,
+        initEClass( presenceConditionEClass, PresenceCondition.class, "PresenceCondition", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getTServiceCDC_ServiceDataAttribute(), this.getTServiceDataAttribute(), null,
-                "serviceDataAttribute", null, 1, -1, TServiceCDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+        initEAttribute( getPresenceCondition_Argument(), this.getPresenceConditionArgument(), "argument", null, 0, 1,
+                PresenceCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getPresenceCondition_DescID(), this.getDocID(), "descID", null, 0, 1, PresenceCondition.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+                IS_ORDERED );
+        initEAttribute( getPresenceCondition_Name(), this.getPresenceConditionName(), "name", null, 1, 1,
+                PresenceCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getPresenceCondition_TitleID(), this.getDocID(), "titleID", null, 0, 1, PresenceCondition.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+                IS_ORDERED );
+
+        initEClass( presenceConditionsEClass, PresenceConditions.class, "PresenceConditions", !IS_ABSTRACT,
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEReference( getPresenceConditions_PresenceCondition(), this.getPresenceCondition(), null,
+                "presenceCondition", null, 1, -1, PresenceConditions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTServiceCDC_Cdc(), this.getTCDCName(), "cdc", null, 1, 1, TServiceCDC.class, !IS_TRANSIENT,
+
+        initEClass( serviceCDCEClass, ServiceCDC.class, "ServiceCDC", !IS_ABSTRACT, !IS_INTERFACE,
+                IS_GENERATED_INSTANCE_CLASS );
+        initEReference( getServiceCDC_ServiceDataAttribute(), this.getServiceDataAttribute(), null,
+                "serviceDataAttribute", null, 1, -1, ServiceCDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getServiceCDC_Cdc(), this.getCDCName(), "cdc", null, 1, 1, ServiceCDC.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTServiceCDC_Variant(), theXMLTypePackage.getToken(), "variant", null, 0, 1,
-                TServiceCDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getServiceCDC_Variant(), theXMLTypePackage.getToken(), "variant", null, 0, 1, ServiceCDC.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+                IS_ORDERED );
 
-        initEClass( tServiceCDCsEClass, TServiceCDCs.class, "TServiceCDCs", !IS_ABSTRACT, !IS_INTERFACE,
+        initEClass( serviceCDCsEClass, ServiceCDCs.class, "ServiceCDCs", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getTServiceCDCs_ServiceCDC(), this.getTServiceCDC(), null, "serviceCDC", null, 0, -1,
-                TServiceCDCs.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+        initEReference( getServiceCDCs_ServiceCDC(), this.getServiceCDC(), null, "serviceCDC", null, 0, -1,
+                ServiceCDCs.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        initEClass( tServiceConstructedAttributeEClass, TServiceConstructedAttribute.class,
-                "TServiceConstructedAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getTServiceConstructedAttribute_TypeKindParameterized(), theXMLTypePackage.getBoolean(),
-                "typeKindParameterized", "false", 0, 1, TServiceConstructedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE,
+        initEClass( serviceConstructedAttributeEClass, ServiceConstructedAttribute.class, "ServiceConstructedAttribute",
+                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute( getServiceConstructedAttribute_TypeKindParameterized(), theXMLTypePackage.getBoolean(),
+                "typeKindParameterized", "false", 0, 1, ServiceConstructedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        initEClass( tServiceConstructedAttributesEClass, TServiceConstructedAttributes.class,
-                "TServiceConstructedAttributes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getTServiceConstructedAttributes_ServiceConstructedAttribute(),
-                this.getTServiceConstructedAttribute(), null, "serviceConstructedAttribute", null, 0, -1,
-                TServiceConstructedAttributes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+        initEClass( serviceConstructedAttributesEClass, ServiceConstructedAttributes.class,
+                "ServiceConstructedAttributes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEReference( getServiceConstructedAttributes_ServiceConstructedAttribute(),
+                this.getServiceConstructedAttribute(), null, "serviceConstructedAttribute", null, 0, -1,
+                ServiceConstructedAttributes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        initEClass( tServiceDataAttributeEClass, TServiceDataAttribute.class, "TServiceDataAttribute", !IS_ABSTRACT,
+        initEClass( serviceDataAttributeEClass, ServiceDataAttribute.class, "ServiceDataAttribute", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getTServiceDataAttribute_Fc(), this.getTFCAbbreviation(), "fc", null, 1, 1,
-                TServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+        initEAttribute( getServiceDataAttribute_Fc(), this.getFCAbbreviation(), "fc", null, 1, 1,
+                ServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTServiceDataAttribute_Name(), this.getTAttributeName(), "name", null, 1, 1,
-                TServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+        initEAttribute( getServiceDataAttribute_Name(), this.getAttributeName(), "name", null, 1, 1,
+                ServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTServiceDataAttribute_PresCond(), this.getTPresenceConditionName(), "presCond", "M", 0, 1,
-                TServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
+        initEAttribute( getServiceDataAttribute_PresCond(), this.getPresenceConditionName(), "presCond", "M", 0, 1,
+                ServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTServiceDataAttribute_PresCondArgs(), this.getTPresenceConditionArgument(), "presCondArgs",
-                null, 0, 1, TServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+        initEAttribute( getServiceDataAttribute_PresCondArgs(), this.getPresenceConditionArgument(), "presCondArgs",
+                null, 0, 1, ServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
                 !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTServiceDataAttribute_PresCondArgsID(), this.getTDocID(), "presCondArgsID", null, 0, 1,
-                TServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+        initEAttribute( getServiceDataAttribute_PresCondArgsID(), this.getDocID(), "presCondArgsID", null, 0, 1,
+                ServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTServiceDataAttribute_Type(), this.getTIec61850Name(), "type", null, 0, 1,
-                TServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+        initEAttribute( getServiceDataAttribute_Type(), this.getIec61850Name(), "type", null, 0, 1,
+                ServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTServiceDataAttribute_TypeKind(), this.getTAttributeTypeKind(), "typeKind", "BASIC", 0, 1,
-                TServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
+        initEAttribute( getServiceDataAttribute_TypeKind(), this.getAttributeTypeKind(), "typeKind", "BASIC", 0, 1,
+                ServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTServiceDataAttribute_UnderlyingType(), this.getTIec61850Name(), "underlyingType", null, 0,
-                1, TServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+        initEAttribute( getServiceDataAttribute_UnderlyingType(), this.getIec61850Name(), "underlyingType", null, 0, 1,
+                ServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTServiceDataAttribute_UnderlyingTypeKind(), this.getTDefinedAttributeTypeKind(),
-                "underlyingTypeKind", null, 0, 1, TServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE,
+        initEAttribute( getServiceDataAttribute_UnderlyingTypeKind(), this.getDefinedAttributeTypeKind(),
+                "underlyingTypeKind", null, 0, 1, ServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        initEClass( tServiceNSEClass, TServiceNS.class, "TServiceNS", !IS_ABSTRACT, !IS_INTERFACE,
+        initEClass( serviceNSEClass, ServiceNS.class, "ServiceNS", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getTServiceNS_Changes(), this.getTChanges(), null, "changes", null, 0, 1, TServiceNS.class,
+        initEReference( getServiceNS_Changes(), this.getChanges(), null, "changes", null, 0, 1, ServiceNS.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getTServiceNS_FunctionalConstraints(), this.getTFunctionalConstraints(), null,
-                "functionalConstraints", null, 0, 1, TServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+        initEReference( getServiceNS_FunctionalConstraints(), this.getFunctionalConstraints(), null,
+                "functionalConstraints", null, 0, 1, ServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getTServiceNS_PresenceConditions(), this.getTPresenceConditions(), null, "presenceConditions",
-                null, 0, 1, TServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+        initEReference( getServiceNS_PresenceConditions(), this.getPresenceConditions(), null, "presenceConditions",
+                null, 0, 1, ServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getTServiceNS_Abbreviations(), this.getTAbbreviations(), null, "abbreviations", null, 0, 1,
-                TServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+        initEReference( getServiceNS_Abbreviations(), this.getAbbreviations(), null, "abbreviations", null, 0, 1,
+                ServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getTServiceNS_ServiceTypeRealizations(), this.getTServiceTypeRealizations(), null,
-                "serviceTypeRealizations", null, 0, 1, TServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+        initEReference( getServiceNS_ServiceTypeRealizations(), this.getServiceTypeRealizations(), null,
+                "serviceTypeRealizations", null, 0, 1, ServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getTServiceNS_ServiceConstructedAttributes(), this.getTServiceConstructedAttributes(), null,
-                "serviceConstructedAttributes", null, 0, 1, TServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getTServiceNS_ServiceCDCs(), this.getTServiceCDCs(), null, "serviceCDCs", null, 0, 1,
-                TServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+        initEReference( getServiceNS_ServiceConstructedAttributes(), this.getServiceConstructedAttributes(), null,
+                "serviceConstructedAttributes", null, 0, 1, ServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getServiceNS_ServiceCDCs(), this.getServiceCDCs(), null, "serviceCDCs", null, 0, 1,
+                ServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTServiceNS_DescID(), this.getTDocID(), "descID", null, 0, 1, TServiceNS.class, !IS_TRANSIENT,
+        initEAttribute( getServiceNS_DescID(), this.getDocID(), "descID", null, 0, 1, ServiceNS.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTServiceNS_Id(), this.getTNSIdentifier(), "id", null, 1, 1, TServiceNS.class, !IS_TRANSIENT,
+        initEAttribute( getServiceNS_Id(), this.getNSIdentifier(), "id", null, 1, 1, ServiceNS.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTServiceNS_PublicationStage(), this.getTPubStage(), "publicationStage", "IS", 0, 1,
-                TServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+        initEAttribute( getServiceNS_PublicationStage(), this.getPubStage(), "publicationStage", "IS", 0, 1,
+                ServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTServiceNS_Release(), this.getTNSRelease(), "release", "1", 0, 1, TServiceNS.class,
+        initEAttribute( getServiceNS_Release(), this.getNSRelease(), "release", "1", 0, 1, ServiceNS.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTServiceNS_Revision(), this.getTNSRevision(), "revision", "A", 0, 1, TServiceNS.class,
+        initEAttribute( getServiceNS_Revision(), this.getNSRevision(), "revision", "A", 0, 1, ServiceNS.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTServiceNS_UmlDate(), theXMLTypePackage.getDateTime(), "umlDate", null, 0, 1,
-                TServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTServiceNS_UmlVersion(), this.getTUMLVersion(), "umlVersion", null, 0, 1, TServiceNS.class,
+        initEAttribute( getServiceNS_UmlDate(), theXMLTypePackage.getDateTime(), "umlDate", null, 0, 1, ServiceNS.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
-        initEAttribute( getTServiceNS_Version(), this.getTNSVersion(), "version", null, 1, 1, TServiceNS.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-
-        initEClass( tServiceNsUsageEClass, TServiceNsUsage.class, "TServiceNsUsage", !IS_ABSTRACT, !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getTServiceNsUsage_AppliesTo(), this.getAppliesToType(), null, "appliesTo", null, 1, -1,
-                TServiceNsUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTServiceNsUsage_Id(), this.getTNSIdentifier(), "id", null, 1, 1, TServiceNsUsage.class,
+        initEAttribute( getServiceNS_UmlVersion(), this.getUMLVersion(), "umlVersion", null, 0, 1, ServiceNS.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
-        initEAttribute( getTServiceNsUsage_PublicationStage(), this.getTPubStage(), "publicationStage", "IS", 0, 1,
-                TServiceNsUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTServiceNsUsage_Release(), this.getTNSRelease(), "release", "1", 0, 1, TServiceNsUsage.class,
+        initEAttribute( getServiceNS_Version(), this.getNSVersion(), "version", null, 1, 1, ServiceNS.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTServiceNsUsage_Revision(), this.getTNSRevision(), "revision", "A", 0, 1,
-                TServiceNsUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTServiceNsUsage_Version(), this.getTNSVersion(), "version", null, 1, 1,
-                TServiceNsUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
 
-        initEClass( tServiceParameterEClass, TServiceParameter.class, "TServiceParameter", !IS_ABSTRACT, !IS_INTERFACE,
+        initEClass( serviceNsUsageEClass, ServiceNsUsage.class, "ServiceNsUsage", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getTServiceParameter_DefaultValue(), theXMLTypePackage.getNormalizedString(), "defaultValue",
-                null, 0, 1, TServiceParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+        initEReference( getServiceNsUsage_AppliesTo(), this.getAppliesToType(), null, "appliesTo", null, 1, -1,
+                ServiceNsUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getServiceNsUsage_Id(), this.getNSIdentifier(), "id", null, 1, 1, ServiceNsUsage.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+                IS_ORDERED );
+        initEAttribute( getServiceNsUsage_PublicationStage(), this.getPubStage(), "publicationStage", "IS", 0, 1,
+                ServiceNsUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getServiceNsUsage_Release(), this.getNSRelease(), "release", "1", 0, 1, ServiceNsUsage.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getServiceNsUsage_Revision(), this.getNSRevision(), "revision", "A", 0, 1, ServiceNsUsage.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getServiceNsUsage_Version(), this.getNSVersion(), "version", null, 1, 1, ServiceNsUsage.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        initEClass( serviceParameterEClass, ServiceParameter.class, "ServiceParameter", !IS_ABSTRACT, !IS_INTERFACE,
+                IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute( getServiceParameter_DefaultValue(), theXMLTypePackage.getNormalizedString(), "defaultValue",
+                null, 0, 1, ServiceParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTServiceParameter_MaxValue(), theXMLTypePackage.getDecimal(), "maxValue", null, 0, 1,
-                TServiceParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+        initEAttribute( getServiceParameter_MaxValue(), theXMLTypePackage.getDecimal(), "maxValue", null, 0, 1,
+                ServiceParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTServiceParameter_MinValue(), theXMLTypePackage.getDecimal(), "minValue", null, 0, 1,
-                TServiceParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+        initEAttribute( getServiceParameter_MinValue(), theXMLTypePackage.getDecimal(), "minValue", null, 0, 1,
+                ServiceParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTServiceParameter_Name(), this.getTAttributeName(), "name", null, 1, 1,
-                TServiceParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTServiceParameter_Type(), this.getTIec61850Name(), "type", null, 0, 1,
-                TServiceParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTServiceParameter_TypeKind(), this.getTAttributeTypeKind(), "typeKind", "BASIC", 0, 1,
-                TServiceParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+        initEAttribute( getServiceParameter_Name(), this.getAttributeName(), "name", null, 1, 1, ServiceParameter.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+                IS_ORDERED );
+        initEAttribute( getServiceParameter_Type(), this.getIec61850Name(), "type", null, 0, 1, ServiceParameter.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+                IS_ORDERED );
+        initEAttribute( getServiceParameter_TypeKind(), this.getAttributeTypeKind(), "typeKind", "BASIC", 0, 1,
+                ServiceParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
 
-        initEClass( tServiceTypeRealizationEClass, TServiceTypeRealization.class, "TServiceTypeRealization",
-                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getTServiceTypeRealization_Fc(), this.getTFCAbbreviation(), "fc", null, 1, 1,
-                TServiceTypeRealization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+        initEClass( serviceTypeRealizationEClass, ServiceTypeRealization.class, "ServiceTypeRealization", !IS_ABSTRACT,
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute( getServiceTypeRealization_Fc(), this.getFCAbbreviation(), "fc", null, 1, 1,
+                ServiceTypeRealization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTServiceTypeRealization_Name(), this.getTAttributeName(), "name", null, 1, 1,
-                TServiceTypeRealization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+        initEAttribute( getServiceTypeRealization_Name(), this.getAttributeName(), "name", null, 1, 1,
+                ServiceTypeRealization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTServiceTypeRealization_PresCond(), this.getTPresenceConditionName(), "presCond", "M", 0, 1,
-                TServiceTypeRealization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
+        initEAttribute( getServiceTypeRealization_PresCond(), this.getPresenceConditionName(), "presCond", "M", 0, 1,
+                ServiceTypeRealization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTServiceTypeRealization_PresCondArgs(), this.getTPresenceConditionArgument(), "presCondArgs",
-                null, 0, 1, TServiceTypeRealization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+        initEAttribute( getServiceTypeRealization_PresCondArgs(), this.getPresenceConditionArgument(), "presCondArgs",
+                null, 0, 1, ServiceTypeRealization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
                 !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTServiceTypeRealization_PresCondArgsID(), this.getTDocID(), "presCondArgsID", null, 0, 1,
-                TServiceTypeRealization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+        initEAttribute( getServiceTypeRealization_PresCondArgsID(), this.getDocID(), "presCondArgsID", null, 0, 1,
+                ServiceTypeRealization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTServiceTypeRealization_Type(), this.getTIec61850Name(), "type", null, 0, 1,
-                TServiceTypeRealization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+        initEAttribute( getServiceTypeRealization_Type(), this.getIec61850Name(), "type", null, 0, 1,
+                ServiceTypeRealization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTServiceTypeRealization_TypeKind(), this.getTAttributeTypeKind(), "typeKind", "BASIC", 0, 1,
-                TServiceTypeRealization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
+        initEAttribute( getServiceTypeRealization_TypeKind(), this.getAttributeTypeKind(), "typeKind", "BASIC", 0, 1,
+                ServiceTypeRealization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        initEClass( tServiceTypeRealizationsEClass, TServiceTypeRealizations.class, "TServiceTypeRealizations",
+        initEClass( serviceTypeRealizationsEClass, ServiceTypeRealizations.class, "ServiceTypeRealizations",
                 !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getTServiceTypeRealizations_ServiceTypeRealization(), this.getTConstructedAttribute(), null,
-                "serviceTypeRealization", null, 0, -1, TServiceTypeRealizations.class, !IS_TRANSIENT, !IS_VOLATILE,
+        initEReference( getServiceTypeRealizations_ServiceTypeRealization(), this.getConstructedAttribute(), null,
+                "serviceTypeRealization", null, 0, -1, ServiceTypeRealizations.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        initEClass( tSubDataAttributeEClass, TSubDataAttribute.class, "TSubDataAttribute", !IS_ABSTRACT, !IS_INTERFACE,
+        initEClass( subDataAttributeEClass, SubDataAttribute.class, "SubDataAttribute", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getTSubDataAttribute_DefaultValue(), theXMLTypePackage.getNormalizedString(), "defaultValue",
-                null, 0, 1, TSubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+        initEAttribute( getSubDataAttribute_DefaultValue(), theXMLTypePackage.getNormalizedString(), "defaultValue",
+                null, 0, 1, SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTSubDataAttribute_IsArray(), theXMLTypePackage.getBoolean(), "isArray", "false", 0, 1,
-                TSubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+        initEAttribute( getSubDataAttribute_IsArray(), theXMLTypePackage.getBoolean(), "isArray", "false", 0, 1,
+                SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTSubDataAttribute_MaxIndexAttribute(), this.getTAttributeName(), "maxIndexAttribute", null,
-                0, 1, TSubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+        initEAttribute( getSubDataAttribute_MaxIndexAttribute(), this.getAttributeName(), "maxIndexAttribute", null, 0,
+                1, SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTSubDataAttribute_MaxValue(), theXMLTypePackage.getDecimal(), "maxValue", null, 0, 1,
-                TSubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+        initEAttribute( getSubDataAttribute_MaxValue(), theXMLTypePackage.getDecimal(), "maxValue", null, 0, 1,
+                SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTSubDataAttribute_MinIndex(), theXMLTypePackage.getUnsignedInt(), "minIndex", "0", 0, 1,
-                TSubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+        initEAttribute( getSubDataAttribute_MinIndex(), theXMLTypePackage.getUnsignedInt(), "minIndex", "0", 0, 1,
+                SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTSubDataAttribute_MinValue(), theXMLTypePackage.getDecimal(), "minValue", null, 0, 1,
-                TSubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+        initEAttribute( getSubDataAttribute_MinValue(), theXMLTypePackage.getDecimal(), "minValue", null, 0, 1,
+                SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTSubDataAttribute_Name(), this.getTAttributeName(), "name", null, 1, 1,
-                TSubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTSubDataAttribute_PresCond(), this.getTPresenceConditionName(), "presCond", "M", 0, 1,
-                TSubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTSubDataAttribute_PresCondArgs(), this.getTPresenceConditionArgument(), "presCondArgs", null,
-                0, 1, TSubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTSubDataAttribute_PresCondArgsID(), this.getTDocID(), "presCondArgsID", null, 0, 1,
-                TSubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTSubDataAttribute_SizeAttribute(), this.getTAttributeName(), "sizeAttribute", null, 0, 1,
-                TSubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTSubDataAttribute_Type(), this.getTIec61850Name(), "type", null, 0, 1,
-                TSubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTSubDataAttribute_TypeKind(), this.getTAttributeTypeKind(), "typeKind", "BASIC", 0, 1,
-                TSubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-
-        initEClass( tSubDataObjectEClass, TSubDataObject.class, "TSubDataObject", !IS_ABSTRACT, !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getTSubDataObject_IsArray(), theXMLTypePackage.getBoolean(), "isArray", "false", 0, 1,
-                TSubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTSubDataObject_MaxIndexAttribute(), this.getTAttributeName(), "maxIndexAttribute", null, 0,
-                1, TSubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTSubDataObject_MinIndex(), theXMLTypePackage.getUnsignedInt(), "minIndex", "0", 0, 1,
-                TSubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTSubDataObject_Name(), this.getTSubDataObjectName(), "name", null, 1, 1,
-                TSubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTSubDataObject_PresCond(), this.getTPresenceConditionName(), "presCond", "M", 0, 1,
-                TSubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTSubDataObject_PresCondArgs(), this.getTPresenceConditionArgument(), "presCondArgs", null, 0,
-                1, TSubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTSubDataObject_PresCondArgsID(), this.getTDocID(), "presCondArgsID", null, 0, 1,
-                TSubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTSubDataObject_SizeAttribute(), this.getTAttributeName(), "sizeAttribute", null, 0, 1,
-                TSubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTSubDataObject_Type(), this.getTCDCName(), "type", null, 1, 1, TSubDataObject.class,
+        initEAttribute( getSubDataAttribute_Name(), this.getAttributeName(), "name", null, 1, 1, SubDataAttribute.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
-        initEAttribute( getTSubDataObject_UnderlyingType(), this.getTIec61850Name(), "underlyingType", null, 0, 1,
-                TSubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+        initEAttribute( getSubDataAttribute_PresCond(), this.getPresenceConditionName(), "presCond", "M", 0, 1,
+                SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getTSubDataObject_UnderlyingTypeKind(), this.getTDefinedAttributeTypeKind(),
-                "underlyingTypeKind", null, 0, 1, TSubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getSubDataAttribute_PresCondArgs(), this.getPresenceConditionArgument(), "presCondArgs", null,
+                0, 1, SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+                IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getSubDataAttribute_PresCondArgsID(), this.getDocID(), "presCondArgsID", null, 0, 1,
+                SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getSubDataAttribute_SizeAttribute(), this.getAttributeName(), "sizeAttribute", null, 0, 1,
+                SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getSubDataAttribute_Type(), this.getIec61850Name(), "type", null, 0, 1, SubDataAttribute.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+                IS_ORDERED );
+        initEAttribute( getSubDataAttribute_TypeKind(), this.getAttributeTypeKind(), "typeKind", "BASIC", 0, 1,
+                SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
 
-        initEClass( tTitledClassEClass, TTitledClass.class, "TTitledClass", !IS_ABSTRACT, !IS_INTERFACE,
+        initEClass( subDataObjectEClass, SubDataObject.class, "SubDataObject", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getTTitledClass_TitleID(), this.getTDocID(), "titleID", null, 1, 1, TTitledClass.class,
+        initEAttribute( getSubDataObject_IsArray(), theXMLTypePackage.getBoolean(), "isArray", "false", 0, 1,
+                SubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getSubDataObject_MaxIndexAttribute(), this.getAttributeName(), "maxIndexAttribute", null, 0, 1,
+                SubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getSubDataObject_MinIndex(), theXMLTypePackage.getUnsignedInt(), "minIndex", "0", 0, 1,
+                SubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getSubDataObject_Name(), this.getSubDataObjectName(), "name", null, 1, 1, SubDataObject.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+                IS_ORDERED );
+        initEAttribute( getSubDataObject_PresCond(), this.getPresenceConditionName(), "presCond", "M", 0, 1,
+                SubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getSubDataObject_PresCondArgs(), this.getPresenceConditionArgument(), "presCondArgs", null, 0,
+                1, SubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getSubDataObject_PresCondArgsID(), this.getDocID(), "presCondArgsID", null, 0, 1,
+                SubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getSubDataObject_SizeAttribute(), this.getAttributeName(), "sizeAttribute", null, 0, 1,
+                SubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getSubDataObject_Type(), this.getCDCName(), "type", null, 1, 1, SubDataObject.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+                IS_ORDERED );
+        initEAttribute( getSubDataObject_UnderlyingType(), this.getIec61850Name(), "underlyingType", null, 0, 1,
+                SubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getSubDataObject_UnderlyingTypeKind(), this.getDefinedAttributeTypeKind(), "underlyingTypeKind",
+                null, 0, 1, SubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
+                IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        initEClass( titledClassEClass, TitledClass.class, "TitledClass", !IS_ABSTRACT, !IS_INTERFACE,
+                IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute( getTitledClass_TitleID(), this.getDocID(), "titleID", null, 1, 1, TitledClass.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
 
         // Initialize enums and add enum literals
-        initEEnum( tacsiServicesKindEEnum, TACSIServicesKind.class, "TACSIServicesKind" );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.ASSOCIATE );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.ABORT );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.RELEASE );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.GET_SERVER_DIRECTORY );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.GET_LOGICAL_DEVICE_DIRECTORY );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.GET_ALL_DATA_VALUES );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.GET_DATA_VALUES );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.SET_DATA_VALUES );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.GET_DATA_DIRECTORY );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.GET_DATA_DEFINITION );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.GET_DATA_SET_VALUES );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.SET_DATA_SET_VALUES );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.CREATE_DATA_SET );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.DELETE_DATA_SET );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.GET_DATA_SET_DIRECTORY );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.SELECT_ACTIVE_SG );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.SELECT_EDIT_SG );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.SET_EDIT_SG_VALUE );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.CONFIRM_EDIT_SG_VALUES );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.GET_EDIT_SG_VALUE );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.GET_SGCB_VALUES );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.REPORT );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.GET_BRCB_VALUES );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.SET_BRCB_VALUES );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.GET_URCB_VALUES );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.SET_URCB_VALUES );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.GET_LCB_VALUES );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.SET_LCB_VALUES );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.QUERY_LOG_BY_TIME );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.QUERY_LOG_AFTER );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.GET_LOG_STATUS_VALUES );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.SEND_GOOSE_MESSAGE );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.GET_GO_CB_VALUES );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.SET_GO_CB_VALUES );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.GET_GO_REFERENCE );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.GET_GOOSE_ELEMENT_NUMBER );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.SEND_MSV_MESSAGE );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.GET_MSVCB_VALUES );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.SET_MSVCB_VALUES );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.SEND_USV_MESSAGE );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.GET_USVCB_VALUES );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.SET_USVCB_VALUES );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.SELECT );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.SELECT_WITH_VALUE );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.CANCEL );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.OPERATE );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.COMMAND_TERMINATION );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.TIME_ACTIVATED_OPERATE );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.GET_FILE );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.SET_FILE );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.DELETE_FILE );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.GET_FILE_ATTRIBUTE_VALUES );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.TIME_SYNCHRONIZATION );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.INTERNAL_CHANGE );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.GET_LOGICAL_NODE_DIRECTORY );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.GET_MSV_REFERENCE );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.GET_MSV_ELEMENT_NUMBER );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.GET_USV_REFERENCE );
-        addEEnumLiteral( tacsiServicesKindEEnum, TACSIServicesKind.GET_USV_ELEMENT_NUMBER );
+        initEEnum( acsiServicesKindEEnum, ACSIServicesKind.class, "ACSIServicesKind" );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.ASSOCIATE );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.ABORT );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.RELEASE );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.GET_SERVER_DIRECTORY );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.GET_LOGICAL_DEVICE_DIRECTORY );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.GET_ALL_DATA_VALUES );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.GET_DATA_VALUES );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.SET_DATA_VALUES );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.GET_DATA_DIRECTORY );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.GET_DATA_DEFINITION );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.GET_DATA_SET_VALUES );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.SET_DATA_SET_VALUES );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.CREATE_DATA_SET );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.DELETE_DATA_SET );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.GET_DATA_SET_DIRECTORY );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.SELECT_ACTIVE_SG );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.SELECT_EDIT_SG );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.SET_EDIT_SG_VALUE );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.CONFIRM_EDIT_SG_VALUES );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.GET_EDIT_SG_VALUE );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.GET_SGCB_VALUES );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.REPORT );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.GET_BRCB_VALUES );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.SET_BRCB_VALUES );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.GET_URCB_VALUES );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.SET_URCB_VALUES );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.GET_LCB_VALUES );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.SET_LCB_VALUES );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.QUERY_LOG_BY_TIME );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.QUERY_LOG_AFTER );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.GET_LOG_STATUS_VALUES );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.SEND_GOOSE_MESSAGE );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.GET_GO_CB_VALUES );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.SET_GO_CB_VALUES );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.GET_GO_REFERENCE );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.GET_GOOSE_ELEMENT_NUMBER );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.SEND_MSV_MESSAGE );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.GET_MSVCB_VALUES );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.SET_MSVCB_VALUES );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.SEND_USV_MESSAGE );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.GET_USVCB_VALUES );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.SET_USVCB_VALUES );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.SELECT );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.SELECT_WITH_VALUE );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.CANCEL );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.OPERATE );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.COMMAND_TERMINATION );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.TIME_ACTIVATED_OPERATE );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.GET_FILE );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.SET_FILE );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.DELETE_FILE );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.GET_FILE_ATTRIBUTE_VALUES );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.TIME_SYNCHRONIZATION );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.INTERNAL_CHANGE );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.GET_LOGICAL_NODE_DIRECTORY );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.GET_MSV_REFERENCE );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.GET_MSV_ELEMENT_NUMBER );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.GET_USV_REFERENCE );
+        addEEnumLiteral( acsiServicesKindEEnum, ACSIServicesKind.GET_USV_ELEMENT_NUMBER );
 
-        initEEnum( tcbKindEEnum, TCBKind.class, "TCBKind" );
-        addEEnumLiteral( tcbKindEEnum, TCBKind.RCB );
-        addEEnumLiteral( tcbKindEEnum, TCBKind.LCB );
-        addEEnumLiteral( tcbKindEEnum, TCBKind.GO_CB );
-        addEEnumLiteral( tcbKindEEnum, TCBKind.SVCB );
+        initEEnum( cbKindEEnum, CBKind.class, "CBKind" );
+        addEEnumLiteral( cbKindEEnum, CBKind.RCB );
+        addEEnumLiteral( cbKindEEnum, CBKind.LCB );
+        addEEnumLiteral( cbKindEEnum, CBKind.GO_CB );
+        addEEnumLiteral( cbKindEEnum, CBKind.SVCB );
 
-        initEEnum( tDefinedAttributeTypeKindEEnum, TDefinedAttributeTypeKind.class, "TDefinedAttributeTypeKind" );
-        addEEnumLiteral( tDefinedAttributeTypeKindEEnum, TDefinedAttributeTypeKind.BASIC );
-        addEEnumLiteral( tDefinedAttributeTypeKindEEnum, TDefinedAttributeTypeKind.ENUMERATED );
-        addEEnumLiteral( tDefinedAttributeTypeKindEEnum, TDefinedAttributeTypeKind.CONSTRUCTED );
+        initEEnum( definedAttributeTypeKindEEnum, DefinedAttributeTypeKind.class, "DefinedAttributeTypeKind" );
+        addEEnumLiteral( definedAttributeTypeKindEEnum, DefinedAttributeTypeKind.BASIC );
+        addEEnumLiteral( definedAttributeTypeKindEEnum, DefinedAttributeTypeKind.ENUMERATED );
+        addEEnumLiteral( definedAttributeTypeKindEEnum, DefinedAttributeTypeKind.CONSTRUCTED );
 
-        initEEnum( tLicenseKindEEnum, TLicenseKind.class, "TLicenseKind" );
-        addEEnumLiteral( tLicenseKindEEnum, TLicenseKind.STANDARD );
-        addEEnumLiteral( tLicenseKindEEnum, TLicenseKind.PRIVATE );
-        addEEnumLiteral( tLicenseKindEEnum, TLicenseKind.NONE );
+        initEEnum( licenseKindEEnum, LicenseKind.class, "LicenseKind" );
+        addEEnumLiteral( licenseKindEEnum, LicenseKind.STANDARD );
+        addEEnumLiteral( licenseKindEEnum, LicenseKind.PRIVATE );
+        addEEnumLiteral( licenseKindEEnum, LicenseKind.NONE );
 
-        initEEnum( tPubStageEEnum, TPubStage.class, "TPubStage" );
-        addEEnumLiteral( tPubStageEEnum, TPubStage.WD );
-        addEEnumLiteral( tPubStageEEnum, TPubStage.CD );
-        addEEnumLiteral( tPubStageEEnum, TPubStage.CDV );
-        addEEnumLiteral( tPubStageEEnum, TPubStage.DTS );
-        addEEnumLiteral( tPubStageEEnum, TPubStage.DTR );
-        addEEnumLiteral( tPubStageEEnum, TPubStage.FDIS );
-        addEEnumLiteral( tPubStageEEnum, TPubStage.TS );
-        addEEnumLiteral( tPubStageEEnum, TPubStage.TR );
-        addEEnumLiteral( tPubStageEEnum, TPubStage.IS );
+        initEEnum( pubStageEEnum, PubStage.class, "PubStage" );
+        addEEnumLiteral( pubStageEEnum, PubStage.WD );
+        addEEnumLiteral( pubStageEEnum, PubStage.CD );
+        addEEnumLiteral( pubStageEEnum, PubStage.CDV );
+        addEEnumLiteral( pubStageEEnum, PubStage.DTS );
+        addEEnumLiteral( pubStageEEnum, PubStage.DTR );
+        addEEnumLiteral( pubStageEEnum, PubStage.FDIS );
+        addEEnumLiteral( pubStageEEnum, PubStage.TS );
+        addEEnumLiteral( pubStageEEnum, PubStage.TR );
+        addEEnumLiteral( pubStageEEnum, PubStage.IS );
 
-        initEEnum( tUndefinedAttributeTypeKindEEnum, TUndefinedAttributeTypeKind.class, "TUndefinedAttributeTypeKind" );
-        addEEnumLiteral( tUndefinedAttributeTypeKindEEnum, TUndefinedAttributeTypeKind.UNDEFINED );
+        initEEnum( undefinedAttributeTypeKindEEnum, UndefinedAttributeTypeKind.class, "UndefinedAttributeTypeKind" );
+        addEEnumLiteral( undefinedAttributeTypeKindEEnum, UndefinedAttributeTypeKind.UNDEFINED );
 
         // Initialize data types
-        initEDataType( tAbbreviationNameEDataType, String.class, "TAbbreviationName", IS_SERIALIZABLE,
+        initEDataType( abbreviationNameEDataType, String.class, "AbbreviationName", IS_SERIALIZABLE,
                 !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( tAbstractLNClassNameEDataType, String.class, "TAbstractLNClassName", IS_SERIALIZABLE,
+        initEDataType( abstractLNClassNameEDataType, String.class, "AbstractLNClassName", IS_SERIALIZABLE,
                 !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( tacsiServicesKindObjectEDataType, TACSIServicesKind.class, "TACSIServicesKindObject",
+        initEDataType( acsiServicesKindObjectEDataType, ACSIServicesKind.class, "ACSIServicesKindObject",
                 IS_SERIALIZABLE, IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( tAttributeNameEDataType, String.class, "TAttributeName", IS_SERIALIZABLE,
+        initEDataType( attributeNameEDataType, String.class, "AttributeName", IS_SERIALIZABLE,
                 !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( tAttributeTypeKindEDataType, Enumerator.class, "TAttributeTypeKind", IS_SERIALIZABLE,
+        initEDataType( attributeTypeKindEDataType, Enumerator.class, "AttributeTypeKind", IS_SERIALIZABLE,
                 !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( tBasicTypeNameEDataType, String.class, "TBasicTypeName", IS_SERIALIZABLE,
+        initEDataType( basicTypeNameEDataType, String.class, "BasicTypeName", IS_SERIALIZABLE,
                 !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( tcbKindObjectEDataType, TCBKind.class, "TCBKindObject", IS_SERIALIZABLE,
+        initEDataType( cbKindObjectEDataType, CBKind.class, "CBKindObject", IS_SERIALIZABLE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( tcdcNameEDataType, String.class, "TCDCName", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( tDataObjectNameEDataType, String.class, "TDataObjectName", IS_SERIALIZABLE,
+        initEDataType( cdcNameEDataType, String.class, "CDCName", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS );
+        initEDataType( dataObjectNameEDataType, String.class, "DataObjectName", IS_SERIALIZABLE,
                 !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( tDefinedAttributeTypeKindObjectEDataType, TDefinedAttributeTypeKind.class,
-                "TDefinedAttributeTypeKindObject", IS_SERIALIZABLE, IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( tDocIDEDataType, String.class, "TDocID", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( tEmptyStringEDataType, String.class, "TEmptyString", IS_SERIALIZABLE,
+        initEDataType( definedAttributeTypeKindObjectEDataType, DefinedAttributeTypeKind.class,
+                "DefinedAttributeTypeKindObject", IS_SERIALIZABLE, IS_GENERATED_INSTANCE_CLASS );
+        initEDataType( docIDEDataType, String.class, "DocID", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS );
+        initEDataType( emptyStringEDataType, String.class, "EmptyString", IS_SERIALIZABLE,
                 !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( tfcAbbreviationEDataType, String.class, "TFCAbbreviation", IS_SERIALIZABLE,
+        initEDataType( fcAbbreviationEDataType, String.class, "FCAbbreviation", IS_SERIALIZABLE,
                 !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( tIec61850NameEDataType, String.class, "TIec61850Name", IS_SERIALIZABLE,
+        initEDataType( iec61850NameEDataType, String.class, "Iec61850Name", IS_SERIALIZABLE,
                 !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( tIec61850NameStringEDataType, String.class, "TIec61850NameString", IS_SERIALIZABLE,
+        initEDataType( iec61850NameStringEDataType, String.class, "Iec61850NameString", IS_SERIALIZABLE,
                 !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( tissuesTypeEDataType, String.class, "TissuesType", IS_SERIALIZABLE,
-                !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( tLicenseKindObjectEDataType, TLicenseKind.class, "TLicenseKindObject", IS_SERIALIZABLE,
+        initEDataType( issuesTypeEDataType, String.class, "issuesType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS );
+        initEDataType( licenseKindObjectEDataType, LicenseKind.class, "LicenseKindObject", IS_SERIALIZABLE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( tLiteralNameEDataType, String.class, "TLiteralName", IS_SERIALIZABLE,
+        initEDataType( literalNameEDataType, String.class, "LiteralName", IS_SERIALIZABLE,
                 !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( tlnClassNameEDataType, String.class, "TLNClassName", IS_SERIALIZABLE,
+        initEDataType( lnClassNameEDataType, String.class, "LNClassName", IS_SERIALIZABLE,
                 !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( tnsIdentifierEDataType, String.class, "TNSIdentifier", IS_SERIALIZABLE,
+        initEDataType( nsIdentifierEDataType, String.class, "NSIdentifier", IS_SERIALIZABLE,
                 !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( tnsReleaseEDataType, short.class, "TNSRelease", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( tnsReleaseObjectEDataType, Short.class, "TNSReleaseObject", IS_SERIALIZABLE,
+        initEDataType( nsReleaseEDataType, short.class, "NSRelease", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS );
+        initEDataType( nsReleaseObjectEDataType, Short.class, "NSReleaseObject", IS_SERIALIZABLE,
                 !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( tnsRevisionEDataType, String.class, "TNSRevision", IS_SERIALIZABLE,
+        initEDataType( nsRevisionEDataType, String.class, "NSRevision", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS );
+        initEDataType( nsVersionEDataType, int.class, "NSVersion", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS );
+        initEDataType( nsVersionObjectEDataType, Integer.class, "NSVersionObject", IS_SERIALIZABLE,
                 !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( tnsVersionEDataType, int.class, "TNSVersion", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( tnsVersionObjectEDataType, Integer.class, "TNSVersionObject", IS_SERIALIZABLE,
+        initEDataType( presenceConditionArgumentEDataType, String.class, "PresenceConditionArgument", IS_SERIALIZABLE,
                 !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( tPresenceConditionArgumentEDataType, String.class, "TPresenceConditionArgument", IS_SERIALIZABLE,
+        initEDataType( presenceConditionNameEDataType, String.class, "PresenceConditionName", IS_SERIALIZABLE,
                 !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( tPresenceConditionNameEDataType, String.class, "TPresenceConditionName", IS_SERIALIZABLE,
-                !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( tPubStageObjectEDataType, TPubStage.class, "TPubStageObject", IS_SERIALIZABLE,
+        initEDataType( pubStageObjectEDataType, PubStage.class, "PubStageObject", IS_SERIALIZABLE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( tSubDataObjectNameEDataType, String.class, "TSubDataObjectName", IS_SERIALIZABLE,
+        initEDataType( subDataObjectNameEDataType, String.class, "SubDataObjectName", IS_SERIALIZABLE,
                 !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( tumlVersionEDataType, String.class, "TUMLVersion", IS_SERIALIZABLE,
-                !IS_GENERATED_INSTANCE_CLASS );
-        initEDataType( tUndefinedAttributeTypeKindObjectEDataType, TUndefinedAttributeTypeKind.class,
-                "TUndefinedAttributeTypeKindObject", IS_SERIALIZABLE, IS_GENERATED_INSTANCE_CLASS );
+        initEDataType( umlVersionEDataType, String.class, "UMLVersion", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS );
+        initEDataType( undefinedAttributeTypeKindObjectEDataType, UndefinedAttributeTypeKind.class,
+                "UndefinedAttributeTypeKindObject", IS_SERIALIZABLE, IS_GENERATED_INSTANCE_CLASS );
 
         // Create resource
         createResource( eNS_URI );
@@ -5229,450 +5217,445 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 new String[] { "kind", "element", "name", "ServiceNS", "namespace", "##targetNamespace" } );
         addAnnotation( serviceTypeEClass, source, new String[] { "name", "Service_._type", "kind", "empty" } );
         addAnnotation( getServiceType_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( tAbbreviationEClass, source, new String[] { "name", "tAbbreviation", "kind", "empty" } );
-        addAnnotation( getTAbbreviation_DescID(), source, new String[] { "kind", "attribute", "name", "descID" } );
-        addAnnotation( getTAbbreviation_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( tAbbreviationNameEDataType, source, new String[] { "name", "tAbbreviationName", "baseType",
+        addAnnotation( abbreviationEClass, source, new String[] { "name", "tAbbreviation", "kind", "empty" } );
+        addAnnotation( getAbbreviation_DescID(), source, new String[] { "kind", "attribute", "name", "descID" } );
+        addAnnotation( getAbbreviation_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
+        addAnnotation( abbreviationNameEDataType, source, new String[] { "name", "tAbbreviationName", "baseType",
                 "http://www.eclipse.org/emf/2003/XMLType#normalizedString" } );
-        addAnnotation( tAbbreviationsEClass, source, new String[] { "name", "tAbbreviations", "kind", "elementOnly" } );
-        addAnnotation( getTAbbreviations_Abbreviation(), source,
+        addAnnotation( abbreviationsEClass, source, new String[] { "name", "tAbbreviations", "kind", "elementOnly" } );
+        addAnnotation( getAbbreviations_Abbreviation(), source,
                 new String[] { "kind", "element", "name", "Abbreviation", "namespace", "##targetNamespace" } );
-        addAnnotation( tAbstractLNClassEClass, source,
+        addAnnotation( abstractLNClassEClass, source,
                 new String[] { "name", "tAbstractLNClass", "kind", "elementOnly" } );
-        addAnnotation( getTAbstractLNClass_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( tAbstractLNClassNameEDataType, source,
+        addAnnotation( getAbstractLNClass_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
+        addAnnotation( abstractLNClassNameEDataType, source,
                 new String[] { "name", "tAbstractLNClassName", "baseType", "tIec61850Name" } );
-        addAnnotation( tacsiServicesKindEEnum, source, new String[] { "name", "tACSIServicesKind" } );
-        addAnnotation( tacsiServicesKindObjectEDataType, source,
+        addAnnotation( acsiServicesKindEEnum, source, new String[] { "name", "tACSIServicesKind" } );
+        addAnnotation( acsiServicesKindObjectEDataType, source,
                 new String[] { "name", "tACSIServicesKind:Object", "baseType", "tACSIServicesKind" } );
-        addAnnotation( tAnyLNClassEClass, source, new String[] { "name", "tAnyLNClass", "kind", "elementOnly" } );
-        addAnnotation( getTAnyLNClass_DataObject(), source,
+        addAnnotation( anyLNClassEClass, source, new String[] { "name", "tAnyLNClass", "kind", "elementOnly" } );
+        addAnnotation( getAnyLNClass_DataObject(), source,
                 new String[] { "kind", "element", "name", "DataObject", "namespace", "##targetNamespace" } );
-        addAnnotation( getTAnyLNClass_Base(), source, new String[] { "kind", "attribute", "name", "base" } );
-        addAnnotation( tApplicableServiceNSEClass, source,
+        addAnnotation( getAnyLNClass_Base(), source, new String[] { "kind", "attribute", "name", "base" } );
+        addAnnotation( applicableServiceNSEClass, source,
                 new String[] { "name", "tApplicableServiceNS", "kind", "elementOnly" } );
-        addAnnotation( getTApplicableServiceNS_ServiceNsUsage(), source,
+        addAnnotation( getApplicableServiceNS_ServiceNsUsage(), source,
                 new String[] { "kind", "element", "name", "ServiceNsUsage", "namespace", "##targetNamespace" } );
-        addAnnotation( getTApplicableServiceNS_Date(), source, new String[] { "kind", "attribute", "name", "date" } );
-        addAnnotation( getTApplicableServiceNS_Version(), source,
+        addAnnotation( getApplicableServiceNS_Date(), source, new String[] { "kind", "attribute", "name", "date" } );
+        addAnnotation( getApplicableServiceNS_Version(), source,
                 new String[] { "kind", "attribute", "name", "version" } );
-        addAnnotation( tApplicableServicesEClass, source,
+        addAnnotation( applicableServicesEClass, source,
                 new String[] { "name", "tApplicableServices", "kind", "elementOnly" } );
-        addAnnotation( getTApplicableServices_Service(), source,
+        addAnnotation( getApplicableServices_Service(), source,
                 new String[] { "kind", "element", "name", "Service", "namespace", "##targetNamespace" } );
-        addAnnotation( getTApplicableServices_DataSetMemberOf(), source,
+        addAnnotation( getApplicableServices_DataSetMemberOf(), source,
                 new String[] { "kind", "element", "name", "DataSetMemberOf", "namespace", "##targetNamespace" } );
-        addAnnotation( tAttributeNameEDataType, source,
+        addAnnotation( attributeNameEDataType, source,
                 new String[] { "name", "tAttributeName", "baseType", "tIec61850Name" } );
-        addAnnotation( tAttributeTypeKindEDataType, source, new String[] { "name", "tAttributeTypeKind", "memberTypes",
+        addAnnotation( attributeTypeKindEDataType, source, new String[] { "name", "tAttributeTypeKind", "memberTypes",
                 "tDefinedAttributeTypeKind tUndefinedAttributeTypeKind" } );
-        addAnnotation( tBasicTypeEClass, source, new String[] { "name", "tBasicType", "kind", "empty" } );
-        addAnnotation( getTBasicType_DescID(), source, new String[] { "kind", "attribute", "name", "descID" } );
-        addAnnotation( getTBasicType_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( tBasicTypeNameEDataType, source, new String[] { "name", "tBasicTypeName", "baseType",
+        addAnnotation( basicTypeEClass, source, new String[] { "name", "tBasicType", "kind", "empty" } );
+        addAnnotation( getBasicType_DescID(), source, new String[] { "kind", "attribute", "name", "descID" } );
+        addAnnotation( getBasicType_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
+        addAnnotation( basicTypeNameEDataType, source, new String[] { "name", "tBasicTypeName", "baseType",
                 "http://www.eclipse.org/emf/2003/XMLType#token", "minLength", "1" } );
-        addAnnotation( tBasicTypesEClass, source, new String[] { "name", "tBasicTypes", "kind", "elementOnly" } );
-        addAnnotation( getTBasicTypes_BasicType(), source,
+        addAnnotation( basicTypesEClass, source, new String[] { "name", "tBasicTypes", "kind", "elementOnly" } );
+        addAnnotation( getBasicTypes_BasicType(), source,
                 new String[] { "kind", "element", "name", "BasicType", "namespace", "##targetNamespace" } );
-        addAnnotation( tcbKindEEnum, source, new String[] { "name", "tCBKind" } );
-        addAnnotation( tcbKindObjectEDataType, source,
+        addAnnotation( cbKindEEnum, source, new String[] { "name", "tCBKind" } );
+        addAnnotation( cbKindObjectEDataType, source,
                 new String[] { "name", "tCBKind:Object", "baseType", "tCBKind" } );
-        addAnnotation( tcdcEClass, source, new String[] { "name", "tCDC", "kind", "elementOnly" } );
-        addAnnotation( getTCDC_SubDataObject(), source,
+        addAnnotation( cdcEClass, source, new String[] { "name", "tCDC", "kind", "elementOnly" } );
+        addAnnotation( getCDC_SubDataObject(), source,
                 new String[] { "kind", "element", "name", "SubDataObject", "namespace", "##targetNamespace" } );
-        addAnnotation( getTCDC_DataAttribute(), source,
+        addAnnotation( getCDC_DataAttribute(), source,
                 new String[] { "kind", "element", "name", "DataAttribute", "namespace", "##targetNamespace" } );
-        addAnnotation( getTCDC_ServiceParameter(), source,
+        addAnnotation( getCDC_ServiceParameter(), source,
                 new String[] { "kind", "element", "name", "ServiceParameter", "namespace", "##targetNamespace" } );
-        addAnnotation( getTCDC_EnumParameterized(), source,
+        addAnnotation( getCDC_EnumParameterized(), source,
                 new String[] { "kind", "attribute", "name", "enumParameterized" } );
-        addAnnotation( getTCDC_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( getTCDC_Statistics(), source, new String[] { "kind", "attribute", "name", "statistics" } );
-        addAnnotation( getTCDC_TypeKindParameterized(), source,
+        addAnnotation( getCDC_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
+        addAnnotation( getCDC_Statistics(), source, new String[] { "kind", "attribute", "name", "statistics" } );
+        addAnnotation( getCDC_TypeKindParameterized(), source,
                 new String[] { "kind", "attribute", "name", "typeKindParameterized" } );
-        addAnnotation( getTCDC_Variant(), source, new String[] { "kind", "attribute", "name", "variant" } );
-        addAnnotation( tcdcNameEDataType, source,
+        addAnnotation( getCDC_Variant(), source, new String[] { "kind", "attribute", "name", "variant" } );
+        addAnnotation( cdcNameEDataType, source,
                 new String[] { "name", "tCDCName", "baseType", "tIec61850Name", "minLength", "1" } );
-        addAnnotation( tcdCsEClass, source, new String[] { "name", "tCDCs", "kind", "elementOnly" } );
-        addAnnotation( getTCDCs_CDC(), source,
+        addAnnotation( cdCsEClass, source, new String[] { "name", "tCDCs", "kind", "elementOnly" } );
+        addAnnotation( getCDCs_CDC(), source,
                 new String[] { "kind", "element", "name", "CDC", "namespace", "##targetNamespace" } );
-        addAnnotation( tChangesEClass, source, new String[] { "name", "tChanges", "kind", "empty" } );
-        addAnnotation( getTChanges_ChangesID(), source, new String[] { "kind", "attribute", "name", "changesID" } );
-        addAnnotation( getTChanges_Date(), source, new String[] { "kind", "attribute", "name", "date" } );
-        addAnnotation( getTChanges_Release(), source, new String[] { "kind", "attribute", "name", "release" } );
-        addAnnotation( getTChanges_Revision(), source, new String[] { "kind", "attribute", "name", "revision" } );
-        addAnnotation( getTChanges_Tissues(), source, new String[] { "kind", "attribute", "name", "tissues" } );
-        addAnnotation( getTChanges_Version(), source, new String[] { "kind", "attribute", "name", "version" } );
-        addAnnotation( tConstructedAttributeEClass, source,
+        addAnnotation( changesEClass, source, new String[] { "name", "tChanges", "kind", "empty" } );
+        addAnnotation( getChanges_ChangesID(), source, new String[] { "kind", "attribute", "name", "changesID" } );
+        addAnnotation( getChanges_Date(), source, new String[] { "kind", "attribute", "name", "date" } );
+        addAnnotation( getChanges_Release(), source, new String[] { "kind", "attribute", "name", "release" } );
+        addAnnotation( getChanges_Revision(), source, new String[] { "kind", "attribute", "name", "revision" } );
+        addAnnotation( getChanges_Tissues(), source, new String[] { "kind", "attribute", "name", "tissues" } );
+        addAnnotation( getChanges_Version(), source, new String[] { "kind", "attribute", "name", "version" } );
+        addAnnotation( constructedAttributeEClass, source,
                 new String[] { "name", "tConstructedAttribute", "kind", "elementOnly" } );
-        addAnnotation( getTConstructedAttribute_SubDataAttribute(), source,
+        addAnnotation( getConstructedAttribute_SubDataAttribute(), source,
                 new String[] { "kind", "element", "name", "SubDataAttribute", "namespace", "##targetNamespace" } );
-        addAnnotation( getTConstructedAttribute_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( tConstructedAttributesEClass, source,
+        addAnnotation( getConstructedAttribute_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
+        addAnnotation( constructedAttributesEClass, source,
                 new String[] { "name", "tConstructedAttributes", "kind", "elementOnly" } );
-        addAnnotation( getTConstructedAttributes_ConstructedAttribute(), source,
+        addAnnotation( getConstructedAttributes_ConstructedAttribute(), source,
                 new String[] { "kind", "element", "name", "ConstructedAttribute", "namespace", "##targetNamespace" } );
-        addAnnotation( tCopyrightedEClass, source, new String[] { "name", "tCopyrighted", "kind", "elementOnly" } );
-        addAnnotation( getTCopyrighted_Copyright(), source,
+        addAnnotation( copyrightedEClass, source, new String[] { "name", "tCopyrighted", "kind", "elementOnly" } );
+        addAnnotation( getCopyrighted_Copyright(), source,
                 new String[] { "kind", "element", "name", "Copyright", "namespace", "##targetNamespace" } );
-        addAnnotation( tCopyrightNoticeEClass, source,
+        addAnnotation( copyrightNoticeEClass, source,
                 new String[] { "name", "tCopyrightNotice", "kind", "elementOnly" } );
-        addAnnotation( getTCopyrightNotice_Notice(), source,
+        addAnnotation( getCopyrightNotice_Notice(), source,
                 new String[] { "kind", "element", "name", "Notice", "namespace", "##targetNamespace" } );
-        addAnnotation( getTCopyrightNotice_License(), source,
+        addAnnotation( getCopyrightNotice_License(), source,
                 new String[] { "kind", "element", "name", "License", "namespace", "##targetNamespace" } );
-        addAnnotation( tDataAttributeEClass, source, new String[] { "name", "tDataAttribute", "kind", "empty" } );
-        addAnnotation( getTDataAttribute_Dchg(), source, new String[] { "kind", "attribute", "name", "dchg" } );
-        addAnnotation( getTDataAttribute_DefaultValue(), source,
+        addAnnotation( dataAttributeEClass, source, new String[] { "name", "tDataAttribute", "kind", "empty" } );
+        addAnnotation( getDataAttribute_Dchg(), source, new String[] { "kind", "attribute", "name", "dchg" } );
+        addAnnotation( getDataAttribute_DefaultValue(), source,
                 new String[] { "kind", "attribute", "name", "defaultValue" } );
-        addAnnotation( getTDataAttribute_Dupd(), source, new String[] { "kind", "attribute", "name", "dupd" } );
-        addAnnotation( getTDataAttribute_Fc(), source, new String[] { "kind", "attribute", "name", "fc" } );
-        addAnnotation( getTDataAttribute_IsArray(), source, new String[] { "kind", "attribute", "name", "isArray" } );
-        addAnnotation( getTDataAttribute_MaxIndexAttribute(), source,
+        addAnnotation( getDataAttribute_Dupd(), source, new String[] { "kind", "attribute", "name", "dupd" } );
+        addAnnotation( getDataAttribute_Fc(), source, new String[] { "kind", "attribute", "name", "fc" } );
+        addAnnotation( getDataAttribute_IsArray(), source, new String[] { "kind", "attribute", "name", "isArray" } );
+        addAnnotation( getDataAttribute_MaxIndexAttribute(), source,
                 new String[] { "kind", "attribute", "name", "maxIndexAttribute" } );
-        addAnnotation( getTDataAttribute_MaxValue(), source, new String[] { "kind", "attribute", "name", "maxValue" } );
-        addAnnotation( getTDataAttribute_MinIndex(), source, new String[] { "kind", "attribute", "name", "minIndex" } );
-        addAnnotation( getTDataAttribute_MinValue(), source, new String[] { "kind", "attribute", "name", "minValue" } );
-        addAnnotation( getTDataAttribute_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( getTDataAttribute_PresCond(), source, new String[] { "kind", "attribute", "name", "presCond" } );
-        addAnnotation( getTDataAttribute_PresCondArgs(), source,
+        addAnnotation( getDataAttribute_MaxValue(), source, new String[] { "kind", "attribute", "name", "maxValue" } );
+        addAnnotation( getDataAttribute_MinIndex(), source, new String[] { "kind", "attribute", "name", "minIndex" } );
+        addAnnotation( getDataAttribute_MinValue(), source, new String[] { "kind", "attribute", "name", "minValue" } );
+        addAnnotation( getDataAttribute_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
+        addAnnotation( getDataAttribute_PresCond(), source, new String[] { "kind", "attribute", "name", "presCond" } );
+        addAnnotation( getDataAttribute_PresCondArgs(), source,
                 new String[] { "kind", "attribute", "name", "presCondArgs" } );
-        addAnnotation( getTDataAttribute_PresCondArgsID(), source,
+        addAnnotation( getDataAttribute_PresCondArgsID(), source,
                 new String[] { "kind", "attribute", "name", "presCondArgsID" } );
-        addAnnotation( getTDataAttribute_Qchg(), source, new String[] { "kind", "attribute", "name", "qchg" } );
-        addAnnotation( getTDataAttribute_SizeAttribute(), source,
+        addAnnotation( getDataAttribute_Qchg(), source, new String[] { "kind", "attribute", "name", "qchg" } );
+        addAnnotation( getDataAttribute_SizeAttribute(), source,
                 new String[] { "kind", "attribute", "name", "sizeAttribute" } );
-        addAnnotation( getTDataAttribute_Type(), source, new String[] { "kind", "attribute", "name", "type" } );
-        addAnnotation( getTDataAttribute_TypeKind(), source, new String[] { "kind", "attribute", "name", "typeKind" } );
-        addAnnotation( tDataObjectEClass, source, new String[] { "name", "tDataObject", "kind", "empty" } );
-        addAnnotation( getTDataObject_DsPresCond(), source,
-                new String[] { "kind", "attribute", "name", "dsPresCond" } );
-        addAnnotation( getTDataObject_DsPresCondArgs(), source,
+        addAnnotation( getDataAttribute_Type(), source, new String[] { "kind", "attribute", "name", "type" } );
+        addAnnotation( getDataAttribute_TypeKind(), source, new String[] { "kind", "attribute", "name", "typeKind" } );
+        addAnnotation( dataObjectEClass, source, new String[] { "name", "tDataObject", "kind", "empty" } );
+        addAnnotation( getDataObject_DsPresCond(), source, new String[] { "kind", "attribute", "name", "dsPresCond" } );
+        addAnnotation( getDataObject_DsPresCondArgs(), source,
                 new String[] { "kind", "attribute", "name", "dsPresCondArgs" } );
-        addAnnotation( getTDataObject_DsPresCondArgsID(), source,
+        addAnnotation( getDataObject_DsPresCondArgsID(), source,
                 new String[] { "kind", "attribute", "name", "dsPresCondArgsID" } );
-        addAnnotation( getTDataObject_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( getTDataObject_PresCond(), source, new String[] { "kind", "attribute", "name", "presCond" } );
-        addAnnotation( getTDataObject_PresCondArgs(), source,
+        addAnnotation( getDataObject_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
+        addAnnotation( getDataObject_PresCond(), source, new String[] { "kind", "attribute", "name", "presCond" } );
+        addAnnotation( getDataObject_PresCondArgs(), source,
                 new String[] { "kind", "attribute", "name", "presCondArgs" } );
-        addAnnotation( getTDataObject_PresCondArgsID(), source,
+        addAnnotation( getDataObject_PresCondArgsID(), source,
                 new String[] { "kind", "attribute", "name", "presCondArgsID" } );
-        addAnnotation( getTDataObject_Transient(), source, new String[] { "kind", "attribute", "name", "transient" } );
-        addAnnotation( getTDataObject_Type(), source, new String[] { "kind", "attribute", "name", "type" } );
-        addAnnotation( getTDataObject_UnderlyingType(), source,
+        addAnnotation( getDataObject_Transient(), source, new String[] { "kind", "attribute", "name", "transient" } );
+        addAnnotation( getDataObject_Type(), source, new String[] { "kind", "attribute", "name", "type" } );
+        addAnnotation( getDataObject_UnderlyingType(), source,
                 new String[] { "kind", "attribute", "name", "underlyingType" } );
-        addAnnotation( getTDataObject_UnderlyingTypeKind(), source,
+        addAnnotation( getDataObject_UnderlyingTypeKind(), source,
                 new String[] { "kind", "attribute", "name", "underlyingTypeKind" } );
-        addAnnotation( tDataObjectNameEDataType, source,
+        addAnnotation( dataObjectNameEDataType, source,
                 new String[] { "name", "tDataObjectName", "baseType", "tIec61850Name", "maxLength", "12" } );
-        addAnnotation( tDataSetMemberOfEClass, source, new String[] { "name", "tDataSetMemberOf", "kind", "empty" } );
-        addAnnotation( getTDataSetMemberOf_Cb(), source, new String[] { "kind", "attribute", "name", "cb" } );
-        addAnnotation( tDefinedAttributeTypeKindEEnum, source, new String[] { "name", "tDefinedAttributeTypeKind" } );
-        addAnnotation( tDefinedAttributeTypeKindObjectEDataType, source,
+        addAnnotation( dataSetMemberOfEClass, source, new String[] { "name", "tDataSetMemberOf", "kind", "empty" } );
+        addAnnotation( getDataSetMemberOf_Cb(), source, new String[] { "kind", "attribute", "name", "cb" } );
+        addAnnotation( definedAttributeTypeKindEEnum, source, new String[] { "name", "tDefinedAttributeTypeKind" } );
+        addAnnotation( definedAttributeTypeKindObjectEDataType, source,
                 new String[] { "name", "tDefinedAttributeTypeKind:Object", "baseType", "tDefinedAttributeTypeKind" } );
-        addAnnotation( tDocEClass, source, new String[] { "name", "tDoc", "kind", "mixed" } );
-        addAnnotation( getTDoc_Mixed(), source, new String[] { "kind", "elementWildcard", "name", ":mixed" } );
-        addAnnotation( getTDoc_Group(), source, new String[] { "kind", "group", "name", "group:1" } );
-        addAnnotation( getTDoc_Any(), source, new String[] { "kind", "elementWildcard", "wildcards", "##any", "name",
+        addAnnotation( docEClass, source, new String[] { "name", "tDoc", "kind", "mixed" } );
+        addAnnotation( getDoc_Mixed(), source, new String[] { "kind", "elementWildcard", "name", ":mixed" } );
+        addAnnotation( getDoc_Group(), source, new String[] { "kind", "group", "name", "group:1" } );
+        addAnnotation( getDoc_Any(), source, new String[] { "kind", "elementWildcard", "wildcards", "##any", "name",
                 ":2", "processing", "lax", "group", "#group:1" } );
-        addAnnotation( getTDoc_Id(), source, new String[] { "kind", "attribute", "name", "id" } );
-        addAnnotation( tDocIDEDataType, source, new String[] { "name", "tDocID", "baseType",
+        addAnnotation( getDoc_Id(), source, new String[] { "kind", "attribute", "name", "id" } );
+        addAnnotation( docIDEDataType, source, new String[] { "name", "tDocID", "baseType",
                 "http://www.eclipse.org/emf/2003/XMLType#normalizedString", "minLength", "1" } );
-        addAnnotation( tDocumentedClassEClass, source, new String[] { "name", "tDocumentedClass", "kind", "empty" } );
-        addAnnotation( getTDocumentedClass_Deprecated(), source,
+        addAnnotation( documentedClassEClass, source, new String[] { "name", "tDocumentedClass", "kind", "empty" } );
+        addAnnotation( getDocumentedClass_Deprecated(), source,
                 new String[] { "kind", "attribute", "name", "deprecated" } );
-        addAnnotation( getTDocumentedClass_DescID(), source, new String[] { "kind", "attribute", "name", "descID" } );
-        addAnnotation( getTDocumentedClass_Informative(), source,
+        addAnnotation( getDocumentedClass_DescID(), source, new String[] { "kind", "attribute", "name", "descID" } );
+        addAnnotation( getDocumentedClass_Informative(), source,
                 new String[] { "kind", "attribute", "name", "informative" } );
-        addAnnotation( tEmptyStringEDataType, source, new String[] { "name", "tEmptyString", "baseType",
+        addAnnotation( emptyStringEDataType, source, new String[] { "name", "tEmptyString", "baseType",
                 "http://www.eclipse.org/emf/2003/XMLType#normalizedString", "maxLength", "0" } );
-        addAnnotation( tEnumerationEClass, source, new String[] { "name", "tEnumeration", "kind", "elementOnly" } );
-        addAnnotation( getTEnumeration_Literal(), source,
+        addAnnotation( enumerationEClass, source, new String[] { "name", "tEnumeration", "kind", "elementOnly" } );
+        addAnnotation( getEnumeration_Literal(), source,
                 new String[] { "kind", "element", "name", "Literal", "namespace", "##targetNamespace" } );
-        addAnnotation( getTEnumeration_InheritedFrom(), source,
+        addAnnotation( getEnumeration_InheritedFrom(), source,
                 new String[] { "kind", "attribute", "name", "inheritedFrom" } );
-        addAnnotation( getTEnumeration_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( tEnumerationsEClass, source, new String[] { "name", "tEnumerations", "kind", "elementOnly" } );
-        addAnnotation( getTEnumerations_Enumeration(), source,
+        addAnnotation( getEnumeration_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
+        addAnnotation( enumerationsEClass, source, new String[] { "name", "tEnumerations", "kind", "elementOnly" } );
+        addAnnotation( getEnumerations_Enumeration(), source,
                 new String[] { "kind", "element", "name", "Enumeration", "namespace", "##targetNamespace" } );
-        addAnnotation( tfcAbbreviationEDataType, source,
+        addAnnotation( fcAbbreviationEDataType, source,
                 new String[] { "name", "tFCAbbreviation", "baseType", "http://www.eclipse.org/emf/2003/XMLType#token",
                         "minLength", "1", "pattern", "[\\p{IsBasicLatin}]+" } );
-        addAnnotation( tFunctionalConstraintEClass, source,
+        addAnnotation( functionalConstraintEClass, source,
                 new String[] { "name", "tFunctionalConstraint", "kind", "elementOnly" } );
-        addAnnotation( getTFunctionalConstraint_ApplicableServices(), source,
+        addAnnotation( getFunctionalConstraint_ApplicableServices(), source,
                 new String[] { "kind", "element", "name", "ApplicableServices", "namespace", "##targetNamespace" } );
-        addAnnotation( getTFunctionalConstraint_Abbreviation(), source,
+        addAnnotation( getFunctionalConstraint_Abbreviation(), source,
                 new String[] { "kind", "attribute", "name", "abbreviation" } );
-        addAnnotation( getTFunctionalConstraint_DescID(), source,
+        addAnnotation( getFunctionalConstraint_DescID(), source,
                 new String[] { "kind", "attribute", "name", "descID" } );
-        addAnnotation( getTFunctionalConstraint_TitleID(), source,
+        addAnnotation( getFunctionalConstraint_TitleID(), source,
                 new String[] { "kind", "attribute", "name", "titleID" } );
-        addAnnotation( tFunctionalConstraintsEClass, source,
+        addAnnotation( functionalConstraintsEClass, source,
                 new String[] { "name", "tFunctionalConstraints", "kind", "elementOnly" } );
-        addAnnotation( getTFunctionalConstraints_FunctionalConstraint(), source,
+        addAnnotation( getFunctionalConstraints_FunctionalConstraint(), source,
                 new String[] { "kind", "element", "name", "FunctionalConstraint", "namespace", "##targetNamespace" } );
-        addAnnotation( tIec61850NameEDataType, source,
+        addAnnotation( iec61850NameEDataType, source,
                 new String[] { "name", "tIec61850Name", "baseType", "http://www.eclipse.org/emf/2003/XMLType#Name",
                         "minLength", "1", "pattern", "[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]+" } );
-        addAnnotation( tIec61850NameStringEDataType, source,
+        addAnnotation( iec61850NameStringEDataType, source,
                 new String[] { "name", "tIec61850NameString", "baseType",
                         "http://www.eclipse.org/emf/2003/XMLType#normalizedString", "pattern",
                         "[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]+" } );
-        addAnnotation( tissuesTypeEDataType, source, new String[] { "name", "tissues_._type", "baseType",
+        addAnnotation( issuesTypeEDataType, source, new String[] { "name", "tissues_._type", "baseType",
                 "http://www.eclipse.org/emf/2003/XMLType#normalizedString", "minLength", "1" } );
-        addAnnotation( tLicenseEClass, source, new String[] { "name", "tLicense", "kind", "mixed" } );
-        addAnnotation( getTLicense_Mixed(), source, new String[] { "kind", "elementWildcard", "name", ":mixed" } );
-        addAnnotation( getTLicense_Kind(), source, new String[] { "kind", "attribute", "name", "kind" } );
-        addAnnotation( getTLicense_Uri(), source, new String[] { "kind", "attribute", "name", "uri" } );
-        addAnnotation( tLicenseKindEEnum, source, new String[] { "name", "tLicenseKind" } );
-        addAnnotation( tLicenseKindObjectEDataType, source,
+        addAnnotation( licenseEClass, source, new String[] { "name", "tLicense", "kind", "mixed" } );
+        addAnnotation( getLicense_Mixed(), source, new String[] { "kind", "elementWildcard", "name", ":mixed" } );
+        addAnnotation( getLicense_Kind(), source, new String[] { "kind", "attribute", "name", "kind" } );
+        addAnnotation( getLicense_Uri(), source, new String[] { "kind", "attribute", "name", "uri" } );
+        addAnnotation( licenseKindEEnum, source, new String[] { "name", "tLicenseKind" } );
+        addAnnotation( licenseKindObjectEDataType, source,
                 new String[] { "name", "tLicenseKind:Object", "baseType", "tLicenseKind" } );
-        addAnnotation( tLiteralEClass, source, new String[] { "name", "tLiteral", "kind", "empty" } );
-        addAnnotation( getTLiteral_LiteralVal(), source, new String[] { "kind", "attribute", "name", "literalVal" } );
-        addAnnotation( getTLiteral_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( tLiteralNameEDataType, source,
+        addAnnotation( literalEClass, source, new String[] { "name", "tLiteral", "kind", "empty" } );
+        addAnnotation( getLiteral_LiteralVal(), source, new String[] { "kind", "attribute", "name", "literalVal" } );
+        addAnnotation( getLiteral_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
+        addAnnotation( literalNameEDataType, source,
                 new String[] { "name", "tLiteralName", "baseType",
                         "http://www.eclipse.org/emf/2003/XMLType#normalizedString", "maxLength", "127", "pattern",
                         "[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]*" } );
-        addAnnotation( tlnClassEClass, source, new String[] { "name", "tLNClass", "kind", "elementOnly" } );
-        addAnnotation( getTLNClass_CanHaveLOG(), source, new String[] { "kind", "attribute", "name", "canHaveLOG" } );
-        addAnnotation( getTLNClass_IsExtension(), source, new String[] { "kind", "attribute", "name", "isExtension" } );
-        addAnnotation( getTLNClass_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( tlnClassesEClass, source, new String[] { "name", "tLNClasses", "kind", "elementOnly" } );
-        addAnnotation( getTLNClasses_AbstractLNClass(), source,
+        addAnnotation( lnClassEClass, source, new String[] { "name", "tLNClass", "kind", "elementOnly" } );
+        addAnnotation( getLNClass_CanHaveLOG(), source, new String[] { "kind", "attribute", "name", "canHaveLOG" } );
+        addAnnotation( getLNClass_IsExtension(), source, new String[] { "kind", "attribute", "name", "isExtension" } );
+        addAnnotation( getLNClass_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
+        addAnnotation( lnClassesEClass, source, new String[] { "name", "tLNClasses", "kind", "elementOnly" } );
+        addAnnotation( getLNClasses_AbstractLNClass(), source,
                 new String[] { "kind", "element", "name", "AbstractLNClass", "namespace", "##targetNamespace" } );
-        addAnnotation( getTLNClasses_LNClass(), source,
+        addAnnotation( getLNClasses_LNClass(), source,
                 new String[] { "kind", "element", "name", "LNClass", "namespace", "##targetNamespace" } );
-        addAnnotation( tlnClassNameEDataType, source, new String[] { "name", "tLNClassName", "baseType",
+        addAnnotation( lnClassNameEDataType, source, new String[] { "name", "tLNClassName", "baseType",
                 "http://www.eclipse.org/emf/2003/XMLType#Name", "pattern", "LLN0 [A-Z]{4}" } );
-        addAnnotation( tNoticeEClass, source, new String[] { "name", "tNotice", "kind", "mixed" } );
-        addAnnotation( getTNotice_Mixed(), source, new String[] { "kind", "elementWildcard", "name", ":mixed" } );
-        addAnnotation( tnsEClass, source, new String[] { "name", "tNS", "kind", "elementOnly" } );
-        addAnnotation( getTNS_Changes(), source,
+        addAnnotation( noticeEClass, source, new String[] { "name", "tNotice", "kind", "mixed" } );
+        addAnnotation( getNotice_Mixed(), source, new String[] { "kind", "elementWildcard", "name", ":mixed" } );
+        addAnnotation( nsEClass, source, new String[] { "name", "tNS", "kind", "elementOnly" } );
+        addAnnotation( getNS_Changes(), source,
                 new String[] { "kind", "element", "name", "Changes", "namespace", "##targetNamespace" } );
-        addAnnotation( getTNS_DependsOn(), source,
+        addAnnotation( getNS_DependsOn(), source,
                 new String[] { "kind", "element", "name", "DependsOn", "namespace", "##targetNamespace" } );
-        addAnnotation( getTNS_BasicTypes(), source,
+        addAnnotation( getNS_BasicTypes(), source,
                 new String[] { "kind", "element", "name", "BasicTypes", "namespace", "##targetNamespace" } );
-        addAnnotation( getTNS_FunctionalConstraints(), source,
+        addAnnotation( getNS_FunctionalConstraints(), source,
                 new String[] { "kind", "element", "name", "FunctionalConstraints", "namespace", "##targetNamespace" } );
-        addAnnotation( getTNS_PresenceConditions(), source,
+        addAnnotation( getNS_PresenceConditions(), source,
                 new String[] { "kind", "element", "name", "PresenceConditions", "namespace", "##targetNamespace" } );
-        addAnnotation( getTNS_Abbreviations(), source,
+        addAnnotation( getNS_Abbreviations(), source,
                 new String[] { "kind", "element", "name", "Abbreviations", "namespace", "##targetNamespace" } );
-        addAnnotation( getTNS_Enumerations(), source,
+        addAnnotation( getNS_Enumerations(), source,
                 new String[] { "kind", "element", "name", "Enumerations", "namespace", "##targetNamespace" } );
-        addAnnotation( getTNS_ConstructedAttributes(), source,
+        addAnnotation( getNS_ConstructedAttributes(), source,
                 new String[] { "kind", "element", "name", "ConstructedAttributes", "namespace", "##targetNamespace" } );
-        addAnnotation( getTNS_CDCs(), source,
+        addAnnotation( getNS_CDCs(), source,
                 new String[] { "kind", "element", "name", "CDCs", "namespace", "##targetNamespace" } );
-        addAnnotation( getTNS_LNClasses(), source,
+        addAnnotation( getNS_LNClasses(), source,
                 new String[] { "kind", "element", "name", "LNClasses", "namespace", "##targetNamespace" } );
-        addAnnotation( getTNS_DescID(), source, new String[] { "kind", "attribute", "name", "descID" } );
-        addAnnotation( getTNS_Id(), source, new String[] { "kind", "attribute", "name", "id" } );
-        addAnnotation( getTNS_PublicationStage(), source,
+        addAnnotation( getNS_DescID(), source, new String[] { "kind", "attribute", "name", "descID" } );
+        addAnnotation( getNS_Id(), source, new String[] { "kind", "attribute", "name", "id" } );
+        addAnnotation( getNS_PublicationStage(), source,
                 new String[] { "kind", "attribute", "name", "publicationStage" } );
-        addAnnotation( getTNS_Release(), source, new String[] { "kind", "attribute", "name", "release" } );
-        addAnnotation( getTNS_Revision(), source, new String[] { "kind", "attribute", "name", "revision" } );
-        addAnnotation( getTNS_UmlDate(), source, new String[] { "kind", "attribute", "name", "umlDate" } );
-        addAnnotation( getTNS_UmlVersion(), source, new String[] { "kind", "attribute", "name", "umlVersion" } );
-        addAnnotation( getTNS_Version(), source, new String[] { "kind", "attribute", "name", "version" } );
-        addAnnotation( tnsDocEClass, source, new String[] { "name", "tNSDoc", "kind", "elementOnly" } );
-        addAnnotation( getTNSDoc_Doc(), source,
+        addAnnotation( getNS_Release(), source, new String[] { "kind", "attribute", "name", "release" } );
+        addAnnotation( getNS_Revision(), source, new String[] { "kind", "attribute", "name", "revision" } );
+        addAnnotation( getNS_UmlDate(), source, new String[] { "kind", "attribute", "name", "umlDate" } );
+        addAnnotation( getNS_UmlVersion(), source, new String[] { "kind", "attribute", "name", "umlVersion" } );
+        addAnnotation( getNS_Version(), source, new String[] { "kind", "attribute", "name", "version" } );
+        addAnnotation( nsDocEClass, source, new String[] { "name", "tNSDoc", "kind", "elementOnly" } );
+        addAnnotation( getNSDoc_Doc(), source,
                 new String[] { "kind", "element", "name", "Doc", "namespace", "##targetNamespace" } );
-        addAnnotation( getTNSDoc_Id(), source, new String[] { "kind", "attribute", "name", "id" } );
-        addAnnotation( getTNSDoc_Lang(), source, new String[] { "kind", "attribute", "name", "lang" } );
-        addAnnotation( getTNSDoc_PublicationStage(), source,
+        addAnnotation( getNSDoc_Id(), source, new String[] { "kind", "attribute", "name", "id" } );
+        addAnnotation( getNSDoc_Lang(), source, new String[] { "kind", "attribute", "name", "lang" } );
+        addAnnotation( getNSDoc_PublicationStage(), source,
                 new String[] { "kind", "attribute", "name", "publicationStage" } );
-        addAnnotation( getTNSDoc_Release(), source, new String[] { "kind", "attribute", "name", "release" } );
-        addAnnotation( getTNSDoc_Revision(), source, new String[] { "kind", "attribute", "name", "revision" } );
-        addAnnotation( getTNSDoc_UmlDate(), source, new String[] { "kind", "attribute", "name", "umlDate" } );
-        addAnnotation( getTNSDoc_UmlVersion(), source, new String[] { "kind", "attribute", "name", "umlVersion" } );
-        addAnnotation( getTNSDoc_Version(), source, new String[] { "kind", "attribute", "name", "version" } );
-        addAnnotation( tnsIdentifierEDataType, source, new String[] { "name", "tNSIdentifier", "baseType",
+        addAnnotation( getNSDoc_Release(), source, new String[] { "kind", "attribute", "name", "release" } );
+        addAnnotation( getNSDoc_Revision(), source, new String[] { "kind", "attribute", "name", "revision" } );
+        addAnnotation( getNSDoc_UmlDate(), source, new String[] { "kind", "attribute", "name", "umlDate" } );
+        addAnnotation( getNSDoc_UmlVersion(), source, new String[] { "kind", "attribute", "name", "umlVersion" } );
+        addAnnotation( getNSDoc_Version(), source, new String[] { "kind", "attribute", "name", "version" } );
+        addAnnotation( nsIdentifierEDataType, source, new String[] { "name", "tNSIdentifier", "baseType",
                 "http://www.eclipse.org/emf/2003/XMLType#normalizedString", "pattern", "\\p{IsBasicLatin}+" } );
-        addAnnotation( tnsReleaseEDataType, source, new String[] { "name", "tNSRelease", "baseType",
+        addAnnotation( nsReleaseEDataType, source, new String[] { "name", "tNSRelease", "baseType",
                 "http://www.eclipse.org/emf/2003/XMLType#unsignedByte", "minExclusive", "0" } );
-        addAnnotation( tnsReleaseObjectEDataType, source,
+        addAnnotation( nsReleaseObjectEDataType, source,
                 new String[] { "name", "tNSRelease:Object", "baseType", "tNSRelease" } );
-        addAnnotation( tnsRevisionEDataType, source, new String[] { "name", "tNSRevision", "baseType",
+        addAnnotation( nsRevisionEDataType, source, new String[] { "name", "tNSRevision", "baseType",
                 "http://www.eclipse.org/emf/2003/XMLType#token", "pattern", "[A-Z]" } );
-        addAnnotation( tnsVersionEDataType, source,
+        addAnnotation( nsVersionEDataType, source,
                 new String[] { "name", "tNSVersion", "baseType",
                         "http://www.eclipse.org/emf/2003/XMLType#unsignedShort", "minInclusive", "2002", "maxInclusive",
                         "2099" } );
-        addAnnotation( tnsVersionObjectEDataType, source,
+        addAnnotation( nsVersionObjectEDataType, source,
                 new String[] { "name", "tNSVersion:Object", "baseType", "tNSVersion" } );
-        addAnnotation( tPresenceConditionEClass, source,
+        addAnnotation( presenceConditionEClass, source,
                 new String[] { "name", "tPresenceCondition", "kind", "empty" } );
-        addAnnotation( getTPresenceCondition_Argument(), source,
+        addAnnotation( getPresenceCondition_Argument(), source,
                 new String[] { "kind", "attribute", "name", "argument" } );
-        addAnnotation( getTPresenceCondition_DescID(), source, new String[] { "kind", "attribute", "name", "descID" } );
-        addAnnotation( getTPresenceCondition_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( getTPresenceCondition_TitleID(), source,
+        addAnnotation( getPresenceCondition_DescID(), source, new String[] { "kind", "attribute", "name", "descID" } );
+        addAnnotation( getPresenceCondition_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
+        addAnnotation( getPresenceCondition_TitleID(), source,
                 new String[] { "kind", "attribute", "name", "titleID" } );
-        addAnnotation( tPresenceConditionArgumentEDataType, source, new String[] { "name", "tPresenceConditionArgument",
+        addAnnotation( presenceConditionArgumentEDataType, source, new String[] { "name", "tPresenceConditionArgument",
                 "baseType", "http://www.eclipse.org/emf/2003/XMLType#normalizedString" } );
-        addAnnotation( tPresenceConditionNameEDataType, source, new String[] { "name", "tPresenceConditionName",
+        addAnnotation( presenceConditionNameEDataType, source, new String[] { "name", "tPresenceConditionName",
                 "baseType", "http://www.eclipse.org/emf/2003/XMLType#normalizedString" } );
-        addAnnotation( tPresenceConditionsEClass, source,
+        addAnnotation( presenceConditionsEClass, source,
                 new String[] { "name", "tPresenceConditions", "kind", "elementOnly" } );
-        addAnnotation( getTPresenceConditions_PresenceCondition(), source,
+        addAnnotation( getPresenceConditions_PresenceCondition(), source,
                 new String[] { "kind", "element", "name", "PresenceCondition", "namespace", "##targetNamespace" } );
-        addAnnotation( tPubStageEEnum, source, new String[] { "name", "tPubStage" } );
-        addAnnotation( tPubStageObjectEDataType, source,
+        addAnnotation( pubStageEEnum, source, new String[] { "name", "tPubStage" } );
+        addAnnotation( pubStageObjectEDataType, source,
                 new String[] { "name", "tPubStage:Object", "baseType", "tPubStage" } );
-        addAnnotation( tServiceCDCEClass, source, new String[] { "name", "tServiceCDC", "kind", "elementOnly" } );
-        addAnnotation( getTServiceCDC_ServiceDataAttribute(), source,
+        addAnnotation( serviceCDCEClass, source, new String[] { "name", "tServiceCDC", "kind", "elementOnly" } );
+        addAnnotation( getServiceCDC_ServiceDataAttribute(), source,
                 new String[] { "kind", "element", "name", "ServiceDataAttribute", "namespace", "##targetNamespace" } );
-        addAnnotation( getTServiceCDC_Cdc(), source, new String[] { "kind", "attribute", "name", "cdc" } );
-        addAnnotation( getTServiceCDC_Variant(), source, new String[] { "kind", "attribute", "name", "variant" } );
-        addAnnotation( tServiceCDCsEClass, source, new String[] { "name", "tServiceCDCs", "kind", "elementOnly" } );
-        addAnnotation( getTServiceCDCs_ServiceCDC(), source,
+        addAnnotation( getServiceCDC_Cdc(), source, new String[] { "kind", "attribute", "name", "cdc" } );
+        addAnnotation( getServiceCDC_Variant(), source, new String[] { "kind", "attribute", "name", "variant" } );
+        addAnnotation( serviceCDCsEClass, source, new String[] { "name", "tServiceCDCs", "kind", "elementOnly" } );
+        addAnnotation( getServiceCDCs_ServiceCDC(), source,
                 new String[] { "kind", "element", "name", "ServiceCDC", "namespace", "##targetNamespace" } );
-        addAnnotation( tServiceConstructedAttributeEClass, source,
+        addAnnotation( serviceConstructedAttributeEClass, source,
                 new String[] { "name", "tServiceConstructedAttribute", "kind", "elementOnly" } );
-        addAnnotation( getTServiceConstructedAttribute_TypeKindParameterized(), source,
+        addAnnotation( getServiceConstructedAttribute_TypeKindParameterized(), source,
                 new String[] { "kind", "attribute", "name", "typeKindParameterized" } );
-        addAnnotation( tServiceConstructedAttributesEClass, source,
+        addAnnotation( serviceConstructedAttributesEClass, source,
                 new String[] { "name", "tServiceConstructedAttributes", "kind", "elementOnly" } );
-        addAnnotation( getTServiceConstructedAttributes_ServiceConstructedAttribute(), source, new String[] { "kind",
+        addAnnotation( getServiceConstructedAttributes_ServiceConstructedAttribute(), source, new String[] { "kind",
                 "element", "name", "ServiceConstructedAttribute", "namespace", "##targetNamespace" } );
-        addAnnotation( tServiceDataAttributeEClass, source,
+        addAnnotation( serviceDataAttributeEClass, source,
                 new String[] { "name", "tServiceDataAttribute", "kind", "empty" } );
-        addAnnotation( getTServiceDataAttribute_Fc(), source, new String[] { "kind", "attribute", "name", "fc" } );
-        addAnnotation( getTServiceDataAttribute_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( getTServiceDataAttribute_PresCond(), source,
+        addAnnotation( getServiceDataAttribute_Fc(), source, new String[] { "kind", "attribute", "name", "fc" } );
+        addAnnotation( getServiceDataAttribute_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
+        addAnnotation( getServiceDataAttribute_PresCond(), source,
                 new String[] { "kind", "attribute", "name", "presCond" } );
-        addAnnotation( getTServiceDataAttribute_PresCondArgs(), source,
+        addAnnotation( getServiceDataAttribute_PresCondArgs(), source,
                 new String[] { "kind", "attribute", "name", "presCondArgs" } );
-        addAnnotation( getTServiceDataAttribute_PresCondArgsID(), source,
+        addAnnotation( getServiceDataAttribute_PresCondArgsID(), source,
                 new String[] { "kind", "attribute", "name", "presCondArgsID" } );
-        addAnnotation( getTServiceDataAttribute_Type(), source, new String[] { "kind", "attribute", "name", "type" } );
-        addAnnotation( getTServiceDataAttribute_TypeKind(), source,
+        addAnnotation( getServiceDataAttribute_Type(), source, new String[] { "kind", "attribute", "name", "type" } );
+        addAnnotation( getServiceDataAttribute_TypeKind(), source,
                 new String[] { "kind", "attribute", "name", "typeKind" } );
-        addAnnotation( getTServiceDataAttribute_UnderlyingType(), source,
+        addAnnotation( getServiceDataAttribute_UnderlyingType(), source,
                 new String[] { "kind", "attribute", "name", "underlyingType" } );
-        addAnnotation( getTServiceDataAttribute_UnderlyingTypeKind(), source,
+        addAnnotation( getServiceDataAttribute_UnderlyingTypeKind(), source,
                 new String[] { "kind", "attribute", "name", "underlyingTypeKind" } );
-        addAnnotation( tServiceNSEClass, source, new String[] { "name", "tServiceNS", "kind", "elementOnly" } );
-        addAnnotation( getTServiceNS_Changes(), source,
+        addAnnotation( serviceNSEClass, source, new String[] { "name", "tServiceNS", "kind", "elementOnly" } );
+        addAnnotation( getServiceNS_Changes(), source,
                 new String[] { "kind", "element", "name", "Changes", "namespace", "##targetNamespace" } );
-        addAnnotation( getTServiceNS_FunctionalConstraints(), source,
+        addAnnotation( getServiceNS_FunctionalConstraints(), source,
                 new String[] { "kind", "element", "name", "FunctionalConstraints", "namespace", "##targetNamespace" } );
-        addAnnotation( getTServiceNS_PresenceConditions(), source,
+        addAnnotation( getServiceNS_PresenceConditions(), source,
                 new String[] { "kind", "element", "name", "PresenceConditions", "namespace", "##targetNamespace" } );
-        addAnnotation( getTServiceNS_Abbreviations(), source,
+        addAnnotation( getServiceNS_Abbreviations(), source,
                 new String[] { "kind", "element", "name", "Abbreviations", "namespace", "##targetNamespace" } );
-        addAnnotation( getTServiceNS_ServiceTypeRealizations(), source, new String[] { "kind", "element", "name",
+        addAnnotation( getServiceNS_ServiceTypeRealizations(), source, new String[] { "kind", "element", "name",
                 "ServiceTypeRealizations", "namespace", "##targetNamespace" } );
-        addAnnotation( getTServiceNS_ServiceConstructedAttributes(), source, new String[] { "kind", "element", "name",
+        addAnnotation( getServiceNS_ServiceConstructedAttributes(), source, new String[] { "kind", "element", "name",
                 "ServiceConstructedAttributes", "namespace", "##targetNamespace" } );
-        addAnnotation( getTServiceNS_ServiceCDCs(), source,
+        addAnnotation( getServiceNS_ServiceCDCs(), source,
                 new String[] { "kind", "element", "name", "ServiceCDCs", "namespace", "##targetNamespace" } );
-        addAnnotation( getTServiceNS_DescID(), source, new String[] { "kind", "attribute", "name", "descID" } );
-        addAnnotation( getTServiceNS_Id(), source, new String[] { "kind", "attribute", "name", "id" } );
-        addAnnotation( getTServiceNS_PublicationStage(), source,
+        addAnnotation( getServiceNS_DescID(), source, new String[] { "kind", "attribute", "name", "descID" } );
+        addAnnotation( getServiceNS_Id(), source, new String[] { "kind", "attribute", "name", "id" } );
+        addAnnotation( getServiceNS_PublicationStage(), source,
                 new String[] { "kind", "attribute", "name", "publicationStage" } );
-        addAnnotation( getTServiceNS_Release(), source, new String[] { "kind", "attribute", "name", "release" } );
-        addAnnotation( getTServiceNS_Revision(), source, new String[] { "kind", "attribute", "name", "revision" } );
-        addAnnotation( getTServiceNS_UmlDate(), source, new String[] { "kind", "attribute", "name", "umlDate" } );
-        addAnnotation( getTServiceNS_UmlVersion(), source, new String[] { "kind", "attribute", "name", "umlVersion" } );
-        addAnnotation( getTServiceNS_Version(), source, new String[] { "kind", "attribute", "name", "version" } );
-        addAnnotation( tServiceNsUsageEClass, source,
+        addAnnotation( getServiceNS_Release(), source, new String[] { "kind", "attribute", "name", "release" } );
+        addAnnotation( getServiceNS_Revision(), source, new String[] { "kind", "attribute", "name", "revision" } );
+        addAnnotation( getServiceNS_UmlDate(), source, new String[] { "kind", "attribute", "name", "umlDate" } );
+        addAnnotation( getServiceNS_UmlVersion(), source, new String[] { "kind", "attribute", "name", "umlVersion" } );
+        addAnnotation( getServiceNS_Version(), source, new String[] { "kind", "attribute", "name", "version" } );
+        addAnnotation( serviceNsUsageEClass, source,
                 new String[] { "name", "tServiceNsUsage", "kind", "elementOnly" } );
-        addAnnotation( getTServiceNsUsage_AppliesTo(), source,
+        addAnnotation( getServiceNsUsage_AppliesTo(), source,
                 new String[] { "kind", "element", "name", "AppliesTo", "namespace", "##targetNamespace" } );
-        addAnnotation( getTServiceNsUsage_Id(), source, new String[] { "kind", "attribute", "name", "id" } );
-        addAnnotation( getTServiceNsUsage_PublicationStage(), source,
+        addAnnotation( getServiceNsUsage_Id(), source, new String[] { "kind", "attribute", "name", "id" } );
+        addAnnotation( getServiceNsUsage_PublicationStage(), source,
                 new String[] { "kind", "attribute", "name", "publicationStage" } );
-        addAnnotation( getTServiceNsUsage_Release(), source, new String[] { "kind", "attribute", "name", "release" } );
-        addAnnotation( getTServiceNsUsage_Revision(), source,
-                new String[] { "kind", "attribute", "name", "revision" } );
-        addAnnotation( getTServiceNsUsage_Version(), source, new String[] { "kind", "attribute", "name", "version" } );
-        addAnnotation( tServiceParameterEClass, source, new String[] { "name", "tServiceParameter", "kind", "empty" } );
-        addAnnotation( getTServiceParameter_DefaultValue(), source,
+        addAnnotation( getServiceNsUsage_Release(), source, new String[] { "kind", "attribute", "name", "release" } );
+        addAnnotation( getServiceNsUsage_Revision(), source, new String[] { "kind", "attribute", "name", "revision" } );
+        addAnnotation( getServiceNsUsage_Version(), source, new String[] { "kind", "attribute", "name", "version" } );
+        addAnnotation( serviceParameterEClass, source, new String[] { "name", "tServiceParameter", "kind", "empty" } );
+        addAnnotation( getServiceParameter_DefaultValue(), source,
                 new String[] { "kind", "attribute", "name", "defaultValue" } );
-        addAnnotation( getTServiceParameter_MaxValue(), source,
+        addAnnotation( getServiceParameter_MaxValue(), source,
                 new String[] { "kind", "attribute", "name", "maxValue" } );
-        addAnnotation( getTServiceParameter_MinValue(), source,
+        addAnnotation( getServiceParameter_MinValue(), source,
                 new String[] { "kind", "attribute", "name", "minValue" } );
-        addAnnotation( getTServiceParameter_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( getTServiceParameter_Type(), source, new String[] { "kind", "attribute", "name", "type" } );
-        addAnnotation( getTServiceParameter_TypeKind(), source,
+        addAnnotation( getServiceParameter_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
+        addAnnotation( getServiceParameter_Type(), source, new String[] { "kind", "attribute", "name", "type" } );
+        addAnnotation( getServiceParameter_TypeKind(), source,
                 new String[] { "kind", "attribute", "name", "typeKind" } );
-        addAnnotation( tServiceTypeRealizationEClass, source,
+        addAnnotation( serviceTypeRealizationEClass, source,
                 new String[] { "name", "tServiceTypeRealization", "kind", "empty" } );
-        addAnnotation( getTServiceTypeRealization_Fc(), source, new String[] { "kind", "attribute", "name", "fc" } );
-        addAnnotation( getTServiceTypeRealization_Name(), source,
-                new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( getTServiceTypeRealization_PresCond(), source,
+        addAnnotation( getServiceTypeRealization_Fc(), source, new String[] { "kind", "attribute", "name", "fc" } );
+        addAnnotation( getServiceTypeRealization_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
+        addAnnotation( getServiceTypeRealization_PresCond(), source,
                 new String[] { "kind", "attribute", "name", "presCond" } );
-        addAnnotation( getTServiceTypeRealization_PresCondArgs(), source,
+        addAnnotation( getServiceTypeRealization_PresCondArgs(), source,
                 new String[] { "kind", "attribute", "name", "presCondArgs" } );
-        addAnnotation( getTServiceTypeRealization_PresCondArgsID(), source,
+        addAnnotation( getServiceTypeRealization_PresCondArgsID(), source,
                 new String[] { "kind", "attribute", "name", "presCondArgsID" } );
-        addAnnotation( getTServiceTypeRealization_Type(), source,
-                new String[] { "kind", "attribute", "name", "type" } );
-        addAnnotation( getTServiceTypeRealization_TypeKind(), source,
+        addAnnotation( getServiceTypeRealization_Type(), source, new String[] { "kind", "attribute", "name", "type" } );
+        addAnnotation( getServiceTypeRealization_TypeKind(), source,
                 new String[] { "kind", "attribute", "name", "typeKind" } );
-        addAnnotation( tServiceTypeRealizationsEClass, source,
+        addAnnotation( serviceTypeRealizationsEClass, source,
                 new String[] { "name", "tServiceTypeRealizations", "kind", "elementOnly" } );
-        addAnnotation( getTServiceTypeRealizations_ServiceTypeRealization(), source, new String[] { "kind", "element",
+        addAnnotation( getServiceTypeRealizations_ServiceTypeRealization(), source, new String[] { "kind", "element",
                 "name", "ServiceTypeRealization", "namespace", "##targetNamespace" } );
-        addAnnotation( tSubDataAttributeEClass, source, new String[] { "name", "tSubDataAttribute", "kind", "empty" } );
-        addAnnotation( getTSubDataAttribute_DefaultValue(), source,
+        addAnnotation( subDataAttributeEClass, source, new String[] { "name", "tSubDataAttribute", "kind", "empty" } );
+        addAnnotation( getSubDataAttribute_DefaultValue(), source,
                 new String[] { "kind", "attribute", "name", "defaultValue" } );
-        addAnnotation( getTSubDataAttribute_IsArray(), source,
-                new String[] { "kind", "attribute", "name", "isArray" } );
-        addAnnotation( getTSubDataAttribute_MaxIndexAttribute(), source,
+        addAnnotation( getSubDataAttribute_IsArray(), source, new String[] { "kind", "attribute", "name", "isArray" } );
+        addAnnotation( getSubDataAttribute_MaxIndexAttribute(), source,
                 new String[] { "kind", "attribute", "name", "maxIndexAttribute" } );
-        addAnnotation( getTSubDataAttribute_MaxValue(), source,
+        addAnnotation( getSubDataAttribute_MaxValue(), source,
                 new String[] { "kind", "attribute", "name", "maxValue" } );
-        addAnnotation( getTSubDataAttribute_MinIndex(), source,
+        addAnnotation( getSubDataAttribute_MinIndex(), source,
                 new String[] { "kind", "attribute", "name", "minIndex" } );
-        addAnnotation( getTSubDataAttribute_MinValue(), source,
+        addAnnotation( getSubDataAttribute_MinValue(), source,
                 new String[] { "kind", "attribute", "name", "minValue" } );
-        addAnnotation( getTSubDataAttribute_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( getTSubDataAttribute_PresCond(), source,
+        addAnnotation( getSubDataAttribute_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
+        addAnnotation( getSubDataAttribute_PresCond(), source,
                 new String[] { "kind", "attribute", "name", "presCond" } );
-        addAnnotation( getTSubDataAttribute_PresCondArgs(), source,
+        addAnnotation( getSubDataAttribute_PresCondArgs(), source,
                 new String[] { "kind", "attribute", "name", "presCondArgs" } );
-        addAnnotation( getTSubDataAttribute_PresCondArgsID(), source,
+        addAnnotation( getSubDataAttribute_PresCondArgsID(), source,
                 new String[] { "kind", "attribute", "name", "presCondArgsID" } );
-        addAnnotation( getTSubDataAttribute_SizeAttribute(), source,
+        addAnnotation( getSubDataAttribute_SizeAttribute(), source,
                 new String[] { "kind", "attribute", "name", "sizeAttribute" } );
-        addAnnotation( getTSubDataAttribute_Type(), source, new String[] { "kind", "attribute", "name", "type" } );
-        addAnnotation( getTSubDataAttribute_TypeKind(), source,
+        addAnnotation( getSubDataAttribute_Type(), source, new String[] { "kind", "attribute", "name", "type" } );
+        addAnnotation( getSubDataAttribute_TypeKind(), source,
                 new String[] { "kind", "attribute", "name", "typeKind" } );
-        addAnnotation( tSubDataObjectEClass, source, new String[] { "name", "tSubDataObject", "kind", "empty" } );
-        addAnnotation( getTSubDataObject_IsArray(), source, new String[] { "kind", "attribute", "name", "isArray" } );
-        addAnnotation( getTSubDataObject_MaxIndexAttribute(), source,
+        addAnnotation( subDataObjectEClass, source, new String[] { "name", "tSubDataObject", "kind", "empty" } );
+        addAnnotation( getSubDataObject_IsArray(), source, new String[] { "kind", "attribute", "name", "isArray" } );
+        addAnnotation( getSubDataObject_MaxIndexAttribute(), source,
                 new String[] { "kind", "attribute", "name", "maxIndexAttribute" } );
-        addAnnotation( getTSubDataObject_MinIndex(), source, new String[] { "kind", "attribute", "name", "minIndex" } );
-        addAnnotation( getTSubDataObject_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( getTSubDataObject_PresCond(), source, new String[] { "kind", "attribute", "name", "presCond" } );
-        addAnnotation( getTSubDataObject_PresCondArgs(), source,
+        addAnnotation( getSubDataObject_MinIndex(), source, new String[] { "kind", "attribute", "name", "minIndex" } );
+        addAnnotation( getSubDataObject_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
+        addAnnotation( getSubDataObject_PresCond(), source, new String[] { "kind", "attribute", "name", "presCond" } );
+        addAnnotation( getSubDataObject_PresCondArgs(), source,
                 new String[] { "kind", "attribute", "name", "presCondArgs" } );
-        addAnnotation( getTSubDataObject_PresCondArgsID(), source,
+        addAnnotation( getSubDataObject_PresCondArgsID(), source,
                 new String[] { "kind", "attribute", "name", "presCondArgsID" } );
-        addAnnotation( getTSubDataObject_SizeAttribute(), source,
+        addAnnotation( getSubDataObject_SizeAttribute(), source,
                 new String[] { "kind", "attribute", "name", "sizeAttribute" } );
-        addAnnotation( getTSubDataObject_Type(), source, new String[] { "kind", "attribute", "name", "type" } );
-        addAnnotation( getTSubDataObject_UnderlyingType(), source,
+        addAnnotation( getSubDataObject_Type(), source, new String[] { "kind", "attribute", "name", "type" } );
+        addAnnotation( getSubDataObject_UnderlyingType(), source,
                 new String[] { "kind", "attribute", "name", "underlyingType" } );
-        addAnnotation( getTSubDataObject_UnderlyingTypeKind(), source,
+        addAnnotation( getSubDataObject_UnderlyingTypeKind(), source,
                 new String[] { "kind", "attribute", "name", "underlyingTypeKind" } );
-        addAnnotation( tSubDataObjectNameEDataType, source,
+        addAnnotation( subDataObjectNameEDataType, source,
                 new String[] { "name", "tSubDataObjectName", "baseType", "tIec61850Name" } );
-        addAnnotation( tTitledClassEClass, source, new String[] { "name", "tTitledClass", "kind", "empty" } );
-        addAnnotation( getTTitledClass_TitleID(), source, new String[] { "kind", "attribute", "name", "titleID" } );
-        addAnnotation( tumlVersionEDataType, source, new String[] { "name", "tUMLVersion", "baseType",
+        addAnnotation( titledClassEClass, source, new String[] { "name", "tTitledClass", "kind", "empty" } );
+        addAnnotation( getTitledClass_TitleID(), source, new String[] { "kind", "attribute", "name", "titleID" } );
+        addAnnotation( umlVersionEDataType, source, new String[] { "name", "tUMLVersion", "baseType",
                 "http://www.eclipse.org/emf/2003/XMLType#Name", "minLength", "1" } );
-        addAnnotation( tUndefinedAttributeTypeKindEEnum, source,
+        addAnnotation( undefinedAttributeTypeKindEEnum, source,
                 new String[] { "name", "tUndefinedAttributeTypeKind" } );
-        addAnnotation( tUndefinedAttributeTypeKindObjectEDataType, source, new String[] { "name",
+        addAnnotation( undefinedAttributeTypeKindObjectEDataType, source, new String[] { "name",
                 "tUndefinedAttributeTypeKind:Object", "baseType", "tUndefinedAttributeTypeKind" } );
     }
 

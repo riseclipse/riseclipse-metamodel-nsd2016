@@ -52,7 +52,7 @@ public interface DependsOnType extends EObject {
      * @return the value of the '<em>Id</em>' attribute.
      * @see #setId(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDependsOnType_Id()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNSIdentifier" required="true"
+     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSIdentifier" required="true"
      *        extendedMetaData="kind='attribute' name='id'"
      * @generated
      */
@@ -71,36 +71,36 @@ public interface DependsOnType extends EObject {
     /**
      * Returns the value of the '<em><b>Publication Stage</b></em>' attribute.
      * The default value is <code>"IS"</code>.
-     * The literals are from the enumeration {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TPubStage}.
+     * The literals are from the enumeration {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * <!-- begin-model-doc -->
      * The publication stage of the namespace, by default IS.
      * <!-- end-model-doc -->
      * @return the value of the '<em>Publication Stage</em>' attribute.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TPubStage
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage
      * @see #isSetPublicationStage()
      * @see #unsetPublicationStage()
-     * @see #setPublicationStage(TPubStage)
+     * @see #setPublicationStage(PubStage)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDependsOnType_PublicationStage()
      * @model default="IS" unsettable="true"
      *        extendedMetaData="kind='attribute' name='publicationStage'"
      * @generated
      */
-    TPubStage getPublicationStage();
+    PubStage getPublicationStage();
 
     /**
      * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOnType#getPublicationStage <em>Publication Stage</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Publication Stage</em>' attribute.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TPubStage
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage
      * @see #isSetPublicationStage()
      * @see #unsetPublicationStage()
      * @see #getPublicationStage()
      * @generated
      */
-    void setPublicationStage( TPubStage value );
+    void setPublicationStage( PubStage value );
 
     /**
      * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOnType#getPublicationStage <em>Publication Stage</em>}' attribute.
@@ -108,7 +108,7 @@ public interface DependsOnType extends EObject {
      * <!-- end-user-doc -->
      * @see #isSetPublicationStage()
      * @see #getPublicationStage()
-     * @see #setPublicationStage(TPubStage)
+     * @see #setPublicationStage(PubStage)
      * @generated
      */
     void unsetPublicationStage();
@@ -120,7 +120,7 @@ public interface DependsOnType extends EObject {
      * @return whether the value of the '<em>Publication Stage</em>' attribute is set.
      * @see #unsetPublicationStage()
      * @see #getPublicationStage()
-     * @see #setPublicationStage(TPubStage)
+     * @see #setPublicationStage(PubStage)
      * @generated
      */
     boolean isSetPublicationStage();
@@ -138,7 +138,7 @@ public interface DependsOnType extends EObject {
      * @see #unsetRelease()
      * @see #setRelease(short)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDependsOnType_Release()
-     * @model default="1" unsettable="true" dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNSRelease"
+     * @model default="1" unsettable="true" dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSRelease"
      *        extendedMetaData="kind='attribute' name='release'"
      * @generated
      */
@@ -192,7 +192,7 @@ public interface DependsOnType extends EObject {
      * @see #unsetRevision()
      * @see #setRevision(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDependsOnType_Revision()
-     * @model default="A" unsettable="true" dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNSRevision"
+     * @model default="A" unsettable="true" dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSRevision"
      *        extendedMetaData="kind='attribute' name='revision'"
      * @generated
      */
@@ -245,7 +245,7 @@ public interface DependsOnType extends EObject {
      * @see #unsetVersion()
      * @see #setVersion(int)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDependsOnType_Version()
-     * @model unsettable="true" dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNSVersion" required="true"
+     * @model unsettable="true" dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSVersion" required="true"
      *        extendedMetaData="kind='attribute' name='version'"
      * @generated
      */

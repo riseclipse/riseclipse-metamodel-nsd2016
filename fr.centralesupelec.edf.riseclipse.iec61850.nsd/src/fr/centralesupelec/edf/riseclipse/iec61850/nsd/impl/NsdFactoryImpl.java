@@ -89,96 +89,96 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
             return createDocumentRoot();
         case NsdPackage.SERVICE_TYPE:
             return createServiceType();
-        case NsdPackage.TABBREVIATION:
-            return createTAbbreviation();
-        case NsdPackage.TABBREVIATIONS:
-            return createTAbbreviations();
-        case NsdPackage.TABSTRACT_LN_CLASS:
-            return createTAbstractLNClass();
-        case NsdPackage.TAPPLICABLE_SERVICE_NS:
-            return createTApplicableServiceNS();
-        case NsdPackage.TAPPLICABLE_SERVICES:
-            return createTApplicableServices();
-        case NsdPackage.TBASIC_TYPE:
-            return createTBasicType();
-        case NsdPackage.TBASIC_TYPES:
-            return createTBasicTypes();
-        case NsdPackage.TCDC:
-            return createTCDC();
-        case NsdPackage.TCD_CS:
-            return createTCDCs();
-        case NsdPackage.TCHANGES:
-            return createTChanges();
-        case NsdPackage.TCONSTRUCTED_ATTRIBUTE:
-            return createTConstructedAttribute();
-        case NsdPackage.TCONSTRUCTED_ATTRIBUTES:
-            return createTConstructedAttributes();
-        case NsdPackage.TCOPYRIGHTED:
-            return createTCopyrighted();
-        case NsdPackage.TCOPYRIGHT_NOTICE:
-            return createTCopyrightNotice();
-        case NsdPackage.TDATA_ATTRIBUTE:
-            return createTDataAttribute();
-        case NsdPackage.TDATA_OBJECT:
-            return createTDataObject();
-        case NsdPackage.TDATA_SET_MEMBER_OF:
-            return createTDataSetMemberOf();
-        case NsdPackage.TDOC:
-            return createTDoc();
-        case NsdPackage.TDOCUMENTED_CLASS:
-            return createTDocumentedClass();
-        case NsdPackage.TENUMERATION:
-            return createTEnumeration();
-        case NsdPackage.TENUMERATIONS:
-            return createTEnumerations();
-        case NsdPackage.TFUNCTIONAL_CONSTRAINT:
-            return createTFunctionalConstraint();
-        case NsdPackage.TFUNCTIONAL_CONSTRAINTS:
-            return createTFunctionalConstraints();
-        case NsdPackage.TLICENSE:
-            return createTLicense();
-        case NsdPackage.TLITERAL:
-            return createTLiteral();
-        case NsdPackage.TLN_CLASS:
-            return createTLNClass();
-        case NsdPackage.TLN_CLASSES:
-            return createTLNClasses();
-        case NsdPackage.TNOTICE:
-            return createTNotice();
-        case NsdPackage.TNS:
-            return createTNS();
-        case NsdPackage.TNS_DOC:
-            return createTNSDoc();
-        case NsdPackage.TPRESENCE_CONDITION:
-            return createTPresenceCondition();
-        case NsdPackage.TPRESENCE_CONDITIONS:
-            return createTPresenceConditions();
-        case NsdPackage.TSERVICE_CDC:
-            return createTServiceCDC();
-        case NsdPackage.TSERVICE_CD_CS:
-            return createTServiceCDCs();
-        case NsdPackage.TSERVICE_CONSTRUCTED_ATTRIBUTE:
-            return createTServiceConstructedAttribute();
-        case NsdPackage.TSERVICE_CONSTRUCTED_ATTRIBUTES:
-            return createTServiceConstructedAttributes();
-        case NsdPackage.TSERVICE_DATA_ATTRIBUTE:
-            return createTServiceDataAttribute();
-        case NsdPackage.TSERVICE_NS:
-            return createTServiceNS();
-        case NsdPackage.TSERVICE_NS_USAGE:
-            return createTServiceNsUsage();
-        case NsdPackage.TSERVICE_PARAMETER:
-            return createTServiceParameter();
-        case NsdPackage.TSERVICE_TYPE_REALIZATION:
-            return createTServiceTypeRealization();
-        case NsdPackage.TSERVICE_TYPE_REALIZATIONS:
-            return createTServiceTypeRealizations();
-        case NsdPackage.TSUB_DATA_ATTRIBUTE:
-            return createTSubDataAttribute();
-        case NsdPackage.TSUB_DATA_OBJECT:
-            return createTSubDataObject();
-        case NsdPackage.TTITLED_CLASS:
-            return createTTitledClass();
+        case NsdPackage.ABBREVIATION:
+            return createAbbreviation();
+        case NsdPackage.ABBREVIATIONS:
+            return createAbbreviations();
+        case NsdPackage.ABSTRACT_LN_CLASS:
+            return createAbstractLNClass();
+        case NsdPackage.APPLICABLE_SERVICE_NS:
+            return createApplicableServiceNS();
+        case NsdPackage.APPLICABLE_SERVICES:
+            return createApplicableServices();
+        case NsdPackage.BASIC_TYPE:
+            return createBasicType();
+        case NsdPackage.BASIC_TYPES:
+            return createBasicTypes();
+        case NsdPackage.CDC:
+            return createCDC();
+        case NsdPackage.CD_CS:
+            return createCDCs();
+        case NsdPackage.CHANGES:
+            return createChanges();
+        case NsdPackage.CONSTRUCTED_ATTRIBUTE:
+            return createConstructedAttribute();
+        case NsdPackage.CONSTRUCTED_ATTRIBUTES:
+            return createConstructedAttributes();
+        case NsdPackage.COPYRIGHTED:
+            return createCopyrighted();
+        case NsdPackage.COPYRIGHT_NOTICE:
+            return createCopyrightNotice();
+        case NsdPackage.DATA_ATTRIBUTE:
+            return createDataAttribute();
+        case NsdPackage.DATA_OBJECT:
+            return createDataObject();
+        case NsdPackage.DATA_SET_MEMBER_OF:
+            return createDataSetMemberOf();
+        case NsdPackage.DOC:
+            return createDoc();
+        case NsdPackage.DOCUMENTED_CLASS:
+            return createDocumentedClass();
+        case NsdPackage.ENUMERATION:
+            return createEnumeration();
+        case NsdPackage.ENUMERATIONS:
+            return createEnumerations();
+        case NsdPackage.FUNCTIONAL_CONSTRAINT:
+            return createFunctionalConstraint();
+        case NsdPackage.FUNCTIONAL_CONSTRAINTS:
+            return createFunctionalConstraints();
+        case NsdPackage.LICENSE:
+            return createLicense();
+        case NsdPackage.LITERAL:
+            return createLiteral();
+        case NsdPackage.LN_CLASS:
+            return createLNClass();
+        case NsdPackage.LN_CLASSES:
+            return createLNClasses();
+        case NsdPackage.NOTICE:
+            return createNotice();
+        case NsdPackage.NS:
+            return createNS();
+        case NsdPackage.NS_DOC:
+            return createNSDoc();
+        case NsdPackage.PRESENCE_CONDITION:
+            return createPresenceCondition();
+        case NsdPackage.PRESENCE_CONDITIONS:
+            return createPresenceConditions();
+        case NsdPackage.SERVICE_CDC:
+            return createServiceCDC();
+        case NsdPackage.SERVICE_CD_CS:
+            return createServiceCDCs();
+        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE:
+            return createServiceConstructedAttribute();
+        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES:
+            return createServiceConstructedAttributes();
+        case NsdPackage.SERVICE_DATA_ATTRIBUTE:
+            return createServiceDataAttribute();
+        case NsdPackage.SERVICE_NS:
+            return createServiceNS();
+        case NsdPackage.SERVICE_NS_USAGE:
+            return createServiceNsUsage();
+        case NsdPackage.SERVICE_PARAMETER:
+            return createServiceParameter();
+        case NsdPackage.SERVICE_TYPE_REALIZATION:
+            return createServiceTypeRealization();
+        case NsdPackage.SERVICE_TYPE_REALIZATIONS:
+            return createServiceTypeRealizations();
+        case NsdPackage.SUB_DATA_ATTRIBUTE:
+            return createSubDataAttribute();
+        case NsdPackage.SUB_DATA_OBJECT:
+            return createSubDataObject();
+        case NsdPackage.TITLED_CLASS:
+            return createTitledClass();
         default:
             throw new IllegalArgumentException( "The class '" + eClass.getName() + "' is not a valid classifier" );
         }
@@ -192,80 +192,80 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
     @Override
     public Object createFromString( EDataType eDataType, String initialValue ) {
         switch( eDataType.getClassifierID() ) {
-        case NsdPackage.TACSI_SERVICES_KIND:
-            return createTACSIServicesKindFromString( eDataType, initialValue );
-        case NsdPackage.TCB_KIND:
-            return createTCBKindFromString( eDataType, initialValue );
-        case NsdPackage.TDEFINED_ATTRIBUTE_TYPE_KIND:
-            return createTDefinedAttributeTypeKindFromString( eDataType, initialValue );
-        case NsdPackage.TLICENSE_KIND:
-            return createTLicenseKindFromString( eDataType, initialValue );
-        case NsdPackage.TPUB_STAGE:
-            return createTPubStageFromString( eDataType, initialValue );
-        case NsdPackage.TUNDEFINED_ATTRIBUTE_TYPE_KIND:
-            return createTUndefinedAttributeTypeKindFromString( eDataType, initialValue );
-        case NsdPackage.TABBREVIATION_NAME:
-            return createTAbbreviationNameFromString( eDataType, initialValue );
-        case NsdPackage.TABSTRACT_LN_CLASS_NAME:
-            return createTAbstractLNClassNameFromString( eDataType, initialValue );
-        case NsdPackage.TACSI_SERVICES_KIND_OBJECT:
-            return createTACSIServicesKindObjectFromString( eDataType, initialValue );
-        case NsdPackage.TATTRIBUTE_NAME:
-            return createTAttributeNameFromString( eDataType, initialValue );
-        case NsdPackage.TATTRIBUTE_TYPE_KIND:
-            return createTAttributeTypeKindFromString( eDataType, initialValue );
-        case NsdPackage.TBASIC_TYPE_NAME:
-            return createTBasicTypeNameFromString( eDataType, initialValue );
-        case NsdPackage.TCB_KIND_OBJECT:
-            return createTCBKindObjectFromString( eDataType, initialValue );
-        case NsdPackage.TCDC_NAME:
-            return createTCDCNameFromString( eDataType, initialValue );
-        case NsdPackage.TDATA_OBJECT_NAME:
-            return createTDataObjectNameFromString( eDataType, initialValue );
-        case NsdPackage.TDEFINED_ATTRIBUTE_TYPE_KIND_OBJECT:
-            return createTDefinedAttributeTypeKindObjectFromString( eDataType, initialValue );
-        case NsdPackage.TDOC_ID:
-            return createTDocIDFromString( eDataType, initialValue );
-        case NsdPackage.TEMPTY_STRING:
-            return createTEmptyStringFromString( eDataType, initialValue );
-        case NsdPackage.TFC_ABBREVIATION:
-            return createTFCAbbreviationFromString( eDataType, initialValue );
-        case NsdPackage.TIEC61850_NAME:
-            return createTIec61850NameFromString( eDataType, initialValue );
-        case NsdPackage.TIEC61850_NAME_STRING:
-            return createTIec61850NameStringFromString( eDataType, initialValue );
-        case NsdPackage.TISSUES_TYPE:
-            return createTissuesTypeFromString( eDataType, initialValue );
-        case NsdPackage.TLICENSE_KIND_OBJECT:
-            return createTLicenseKindObjectFromString( eDataType, initialValue );
-        case NsdPackage.TLITERAL_NAME:
-            return createTLiteralNameFromString( eDataType, initialValue );
-        case NsdPackage.TLN_CLASS_NAME:
-            return createTLNClassNameFromString( eDataType, initialValue );
-        case NsdPackage.TNS_IDENTIFIER:
-            return createTNSIdentifierFromString( eDataType, initialValue );
-        case NsdPackage.TNS_RELEASE:
-            return createTNSReleaseFromString( eDataType, initialValue );
-        case NsdPackage.TNS_RELEASE_OBJECT:
-            return createTNSReleaseObjectFromString( eDataType, initialValue );
-        case NsdPackage.TNS_REVISION:
-            return createTNSRevisionFromString( eDataType, initialValue );
-        case NsdPackage.TNS_VERSION:
-            return createTNSVersionFromString( eDataType, initialValue );
-        case NsdPackage.TNS_VERSION_OBJECT:
-            return createTNSVersionObjectFromString( eDataType, initialValue );
-        case NsdPackage.TPRESENCE_CONDITION_ARGUMENT:
-            return createTPresenceConditionArgumentFromString( eDataType, initialValue );
-        case NsdPackage.TPRESENCE_CONDITION_NAME:
-            return createTPresenceConditionNameFromString( eDataType, initialValue );
-        case NsdPackage.TPUB_STAGE_OBJECT:
-            return createTPubStageObjectFromString( eDataType, initialValue );
-        case NsdPackage.TSUB_DATA_OBJECT_NAME:
-            return createTSubDataObjectNameFromString( eDataType, initialValue );
-        case NsdPackage.TUML_VERSION:
-            return createTUMLVersionFromString( eDataType, initialValue );
-        case NsdPackage.TUNDEFINED_ATTRIBUTE_TYPE_KIND_OBJECT:
-            return createTUndefinedAttributeTypeKindObjectFromString( eDataType, initialValue );
+        case NsdPackage.ACSI_SERVICES_KIND:
+            return createACSIServicesKindFromString( eDataType, initialValue );
+        case NsdPackage.CB_KIND:
+            return createCBKindFromString( eDataType, initialValue );
+        case NsdPackage.DEFINED_ATTRIBUTE_TYPE_KIND:
+            return createDefinedAttributeTypeKindFromString( eDataType, initialValue );
+        case NsdPackage.LICENSE_KIND:
+            return createLicenseKindFromString( eDataType, initialValue );
+        case NsdPackage.PUB_STAGE:
+            return createPubStageFromString( eDataType, initialValue );
+        case NsdPackage.UNDEFINED_ATTRIBUTE_TYPE_KIND:
+            return createUndefinedAttributeTypeKindFromString( eDataType, initialValue );
+        case NsdPackage.ABBREVIATION_NAME:
+            return createAbbreviationNameFromString( eDataType, initialValue );
+        case NsdPackage.ABSTRACT_LN_CLASS_NAME:
+            return createAbstractLNClassNameFromString( eDataType, initialValue );
+        case NsdPackage.ACSI_SERVICES_KIND_OBJECT:
+            return createACSIServicesKindObjectFromString( eDataType, initialValue );
+        case NsdPackage.ATTRIBUTE_NAME:
+            return createAttributeNameFromString( eDataType, initialValue );
+        case NsdPackage.ATTRIBUTE_TYPE_KIND:
+            return createAttributeTypeKindFromString( eDataType, initialValue );
+        case NsdPackage.BASIC_TYPE_NAME:
+            return createBasicTypeNameFromString( eDataType, initialValue );
+        case NsdPackage.CB_KIND_OBJECT:
+            return createCBKindObjectFromString( eDataType, initialValue );
+        case NsdPackage.CDC_NAME:
+            return createCDCNameFromString( eDataType, initialValue );
+        case NsdPackage.DATA_OBJECT_NAME:
+            return createDataObjectNameFromString( eDataType, initialValue );
+        case NsdPackage.DEFINED_ATTRIBUTE_TYPE_KIND_OBJECT:
+            return createDefinedAttributeTypeKindObjectFromString( eDataType, initialValue );
+        case NsdPackage.DOC_ID:
+            return createDocIDFromString( eDataType, initialValue );
+        case NsdPackage.EMPTY_STRING:
+            return createEmptyStringFromString( eDataType, initialValue );
+        case NsdPackage.FC_ABBREVIATION:
+            return createFCAbbreviationFromString( eDataType, initialValue );
+        case NsdPackage.IEC61850_NAME:
+            return createIec61850NameFromString( eDataType, initialValue );
+        case NsdPackage.IEC61850_NAME_STRING:
+            return createIec61850NameStringFromString( eDataType, initialValue );
+        case NsdPackage.ISSUES_TYPE:
+            return createissuesTypeFromString( eDataType, initialValue );
+        case NsdPackage.LICENSE_KIND_OBJECT:
+            return createLicenseKindObjectFromString( eDataType, initialValue );
+        case NsdPackage.LITERAL_NAME:
+            return createLiteralNameFromString( eDataType, initialValue );
+        case NsdPackage.LN_CLASS_NAME:
+            return createLNClassNameFromString( eDataType, initialValue );
+        case NsdPackage.NS_IDENTIFIER:
+            return createNSIdentifierFromString( eDataType, initialValue );
+        case NsdPackage.NS_RELEASE:
+            return createNSReleaseFromString( eDataType, initialValue );
+        case NsdPackage.NS_RELEASE_OBJECT:
+            return createNSReleaseObjectFromString( eDataType, initialValue );
+        case NsdPackage.NS_REVISION:
+            return createNSRevisionFromString( eDataType, initialValue );
+        case NsdPackage.NS_VERSION:
+            return createNSVersionFromString( eDataType, initialValue );
+        case NsdPackage.NS_VERSION_OBJECT:
+            return createNSVersionObjectFromString( eDataType, initialValue );
+        case NsdPackage.PRESENCE_CONDITION_ARGUMENT:
+            return createPresenceConditionArgumentFromString( eDataType, initialValue );
+        case NsdPackage.PRESENCE_CONDITION_NAME:
+            return createPresenceConditionNameFromString( eDataType, initialValue );
+        case NsdPackage.PUB_STAGE_OBJECT:
+            return createPubStageObjectFromString( eDataType, initialValue );
+        case NsdPackage.SUB_DATA_OBJECT_NAME:
+            return createSubDataObjectNameFromString( eDataType, initialValue );
+        case NsdPackage.UML_VERSION:
+            return createUMLVersionFromString( eDataType, initialValue );
+        case NsdPackage.UNDEFINED_ATTRIBUTE_TYPE_KIND_OBJECT:
+            return createUndefinedAttributeTypeKindObjectFromString( eDataType, initialValue );
         default:
             throw new IllegalArgumentException(
                     "The datatype '" + eDataType.getName() + "' is not a valid classifier" );
@@ -280,80 +280,80 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
     @Override
     public String convertToString( EDataType eDataType, Object instanceValue ) {
         switch( eDataType.getClassifierID() ) {
-        case NsdPackage.TACSI_SERVICES_KIND:
-            return convertTACSIServicesKindToString( eDataType, instanceValue );
-        case NsdPackage.TCB_KIND:
-            return convertTCBKindToString( eDataType, instanceValue );
-        case NsdPackage.TDEFINED_ATTRIBUTE_TYPE_KIND:
-            return convertTDefinedAttributeTypeKindToString( eDataType, instanceValue );
-        case NsdPackage.TLICENSE_KIND:
-            return convertTLicenseKindToString( eDataType, instanceValue );
-        case NsdPackage.TPUB_STAGE:
-            return convertTPubStageToString( eDataType, instanceValue );
-        case NsdPackage.TUNDEFINED_ATTRIBUTE_TYPE_KIND:
-            return convertTUndefinedAttributeTypeKindToString( eDataType, instanceValue );
-        case NsdPackage.TABBREVIATION_NAME:
-            return convertTAbbreviationNameToString( eDataType, instanceValue );
-        case NsdPackage.TABSTRACT_LN_CLASS_NAME:
-            return convertTAbstractLNClassNameToString( eDataType, instanceValue );
-        case NsdPackage.TACSI_SERVICES_KIND_OBJECT:
-            return convertTACSIServicesKindObjectToString( eDataType, instanceValue );
-        case NsdPackage.TATTRIBUTE_NAME:
-            return convertTAttributeNameToString( eDataType, instanceValue );
-        case NsdPackage.TATTRIBUTE_TYPE_KIND:
-            return convertTAttributeTypeKindToString( eDataType, instanceValue );
-        case NsdPackage.TBASIC_TYPE_NAME:
-            return convertTBasicTypeNameToString( eDataType, instanceValue );
-        case NsdPackage.TCB_KIND_OBJECT:
-            return convertTCBKindObjectToString( eDataType, instanceValue );
-        case NsdPackage.TCDC_NAME:
-            return convertTCDCNameToString( eDataType, instanceValue );
-        case NsdPackage.TDATA_OBJECT_NAME:
-            return convertTDataObjectNameToString( eDataType, instanceValue );
-        case NsdPackage.TDEFINED_ATTRIBUTE_TYPE_KIND_OBJECT:
-            return convertTDefinedAttributeTypeKindObjectToString( eDataType, instanceValue );
-        case NsdPackage.TDOC_ID:
-            return convertTDocIDToString( eDataType, instanceValue );
-        case NsdPackage.TEMPTY_STRING:
-            return convertTEmptyStringToString( eDataType, instanceValue );
-        case NsdPackage.TFC_ABBREVIATION:
-            return convertTFCAbbreviationToString( eDataType, instanceValue );
-        case NsdPackage.TIEC61850_NAME:
-            return convertTIec61850NameToString( eDataType, instanceValue );
-        case NsdPackage.TIEC61850_NAME_STRING:
-            return convertTIec61850NameStringToString( eDataType, instanceValue );
-        case NsdPackage.TISSUES_TYPE:
-            return convertTissuesTypeToString( eDataType, instanceValue );
-        case NsdPackage.TLICENSE_KIND_OBJECT:
-            return convertTLicenseKindObjectToString( eDataType, instanceValue );
-        case NsdPackage.TLITERAL_NAME:
-            return convertTLiteralNameToString( eDataType, instanceValue );
-        case NsdPackage.TLN_CLASS_NAME:
-            return convertTLNClassNameToString( eDataType, instanceValue );
-        case NsdPackage.TNS_IDENTIFIER:
-            return convertTNSIdentifierToString( eDataType, instanceValue );
-        case NsdPackage.TNS_RELEASE:
-            return convertTNSReleaseToString( eDataType, instanceValue );
-        case NsdPackage.TNS_RELEASE_OBJECT:
-            return convertTNSReleaseObjectToString( eDataType, instanceValue );
-        case NsdPackage.TNS_REVISION:
-            return convertTNSRevisionToString( eDataType, instanceValue );
-        case NsdPackage.TNS_VERSION:
-            return convertTNSVersionToString( eDataType, instanceValue );
-        case NsdPackage.TNS_VERSION_OBJECT:
-            return convertTNSVersionObjectToString( eDataType, instanceValue );
-        case NsdPackage.TPRESENCE_CONDITION_ARGUMENT:
-            return convertTPresenceConditionArgumentToString( eDataType, instanceValue );
-        case NsdPackage.TPRESENCE_CONDITION_NAME:
-            return convertTPresenceConditionNameToString( eDataType, instanceValue );
-        case NsdPackage.TPUB_STAGE_OBJECT:
-            return convertTPubStageObjectToString( eDataType, instanceValue );
-        case NsdPackage.TSUB_DATA_OBJECT_NAME:
-            return convertTSubDataObjectNameToString( eDataType, instanceValue );
-        case NsdPackage.TUML_VERSION:
-            return convertTUMLVersionToString( eDataType, instanceValue );
-        case NsdPackage.TUNDEFINED_ATTRIBUTE_TYPE_KIND_OBJECT:
-            return convertTUndefinedAttributeTypeKindObjectToString( eDataType, instanceValue );
+        case NsdPackage.ACSI_SERVICES_KIND:
+            return convertACSIServicesKindToString( eDataType, instanceValue );
+        case NsdPackage.CB_KIND:
+            return convertCBKindToString( eDataType, instanceValue );
+        case NsdPackage.DEFINED_ATTRIBUTE_TYPE_KIND:
+            return convertDefinedAttributeTypeKindToString( eDataType, instanceValue );
+        case NsdPackage.LICENSE_KIND:
+            return convertLicenseKindToString( eDataType, instanceValue );
+        case NsdPackage.PUB_STAGE:
+            return convertPubStageToString( eDataType, instanceValue );
+        case NsdPackage.UNDEFINED_ATTRIBUTE_TYPE_KIND:
+            return convertUndefinedAttributeTypeKindToString( eDataType, instanceValue );
+        case NsdPackage.ABBREVIATION_NAME:
+            return convertAbbreviationNameToString( eDataType, instanceValue );
+        case NsdPackage.ABSTRACT_LN_CLASS_NAME:
+            return convertAbstractLNClassNameToString( eDataType, instanceValue );
+        case NsdPackage.ACSI_SERVICES_KIND_OBJECT:
+            return convertACSIServicesKindObjectToString( eDataType, instanceValue );
+        case NsdPackage.ATTRIBUTE_NAME:
+            return convertAttributeNameToString( eDataType, instanceValue );
+        case NsdPackage.ATTRIBUTE_TYPE_KIND:
+            return convertAttributeTypeKindToString( eDataType, instanceValue );
+        case NsdPackage.BASIC_TYPE_NAME:
+            return convertBasicTypeNameToString( eDataType, instanceValue );
+        case NsdPackage.CB_KIND_OBJECT:
+            return convertCBKindObjectToString( eDataType, instanceValue );
+        case NsdPackage.CDC_NAME:
+            return convertCDCNameToString( eDataType, instanceValue );
+        case NsdPackage.DATA_OBJECT_NAME:
+            return convertDataObjectNameToString( eDataType, instanceValue );
+        case NsdPackage.DEFINED_ATTRIBUTE_TYPE_KIND_OBJECT:
+            return convertDefinedAttributeTypeKindObjectToString( eDataType, instanceValue );
+        case NsdPackage.DOC_ID:
+            return convertDocIDToString( eDataType, instanceValue );
+        case NsdPackage.EMPTY_STRING:
+            return convertEmptyStringToString( eDataType, instanceValue );
+        case NsdPackage.FC_ABBREVIATION:
+            return convertFCAbbreviationToString( eDataType, instanceValue );
+        case NsdPackage.IEC61850_NAME:
+            return convertIec61850NameToString( eDataType, instanceValue );
+        case NsdPackage.IEC61850_NAME_STRING:
+            return convertIec61850NameStringToString( eDataType, instanceValue );
+        case NsdPackage.ISSUES_TYPE:
+            return convertissuesTypeToString( eDataType, instanceValue );
+        case NsdPackage.LICENSE_KIND_OBJECT:
+            return convertLicenseKindObjectToString( eDataType, instanceValue );
+        case NsdPackage.LITERAL_NAME:
+            return convertLiteralNameToString( eDataType, instanceValue );
+        case NsdPackage.LN_CLASS_NAME:
+            return convertLNClassNameToString( eDataType, instanceValue );
+        case NsdPackage.NS_IDENTIFIER:
+            return convertNSIdentifierToString( eDataType, instanceValue );
+        case NsdPackage.NS_RELEASE:
+            return convertNSReleaseToString( eDataType, instanceValue );
+        case NsdPackage.NS_RELEASE_OBJECT:
+            return convertNSReleaseObjectToString( eDataType, instanceValue );
+        case NsdPackage.NS_REVISION:
+            return convertNSRevisionToString( eDataType, instanceValue );
+        case NsdPackage.NS_VERSION:
+            return convertNSVersionToString( eDataType, instanceValue );
+        case NsdPackage.NS_VERSION_OBJECT:
+            return convertNSVersionObjectToString( eDataType, instanceValue );
+        case NsdPackage.PRESENCE_CONDITION_ARGUMENT:
+            return convertPresenceConditionArgumentToString( eDataType, instanceValue );
+        case NsdPackage.PRESENCE_CONDITION_NAME:
+            return convertPresenceConditionNameToString( eDataType, instanceValue );
+        case NsdPackage.PUB_STAGE_OBJECT:
+            return convertPubStageObjectToString( eDataType, instanceValue );
+        case NsdPackage.SUB_DATA_OBJECT_NAME:
+            return convertSubDataObjectNameToString( eDataType, instanceValue );
+        case NsdPackage.UML_VERSION:
+            return convertUMLVersionToString( eDataType, instanceValue );
+        case NsdPackage.UNDEFINED_ATTRIBUTE_TYPE_KIND_OBJECT:
+            return convertUndefinedAttributeTypeKindObjectToString( eDataType, instanceValue );
         default:
             throw new IllegalArgumentException(
                     "The datatype '" + eDataType.getName() + "' is not a valid classifier" );
@@ -410,9 +410,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TAbbreviation createTAbbreviation() {
-        TAbbreviationImpl tAbbreviation = new TAbbreviationImpl();
-        return tAbbreviation;
+    public Abbreviation createAbbreviation() {
+        AbbreviationImpl abbreviation = new AbbreviationImpl();
+        return abbreviation;
     }
 
     /**
@@ -421,9 +421,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TAbbreviations createTAbbreviations() {
-        TAbbreviationsImpl tAbbreviations = new TAbbreviationsImpl();
-        return tAbbreviations;
+    public Abbreviations createAbbreviations() {
+        AbbreviationsImpl abbreviations = new AbbreviationsImpl();
+        return abbreviations;
     }
 
     /**
@@ -432,9 +432,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TAbstractLNClass createTAbstractLNClass() {
-        TAbstractLNClassImpl tAbstractLNClass = new TAbstractLNClassImpl();
-        return tAbstractLNClass;
+    public AbstractLNClass createAbstractLNClass() {
+        AbstractLNClassImpl abstractLNClass = new AbstractLNClassImpl();
+        return abstractLNClass;
     }
 
     /**
@@ -443,9 +443,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TApplicableServiceNS createTApplicableServiceNS() {
-        TApplicableServiceNSImpl tApplicableServiceNS = new TApplicableServiceNSImpl();
-        return tApplicableServiceNS;
+    public ApplicableServiceNS createApplicableServiceNS() {
+        ApplicableServiceNSImpl applicableServiceNS = new ApplicableServiceNSImpl();
+        return applicableServiceNS;
     }
 
     /**
@@ -454,9 +454,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TApplicableServices createTApplicableServices() {
-        TApplicableServicesImpl tApplicableServices = new TApplicableServicesImpl();
-        return tApplicableServices;
+    public ApplicableServices createApplicableServices() {
+        ApplicableServicesImpl applicableServices = new ApplicableServicesImpl();
+        return applicableServices;
     }
 
     /**
@@ -465,9 +465,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TBasicType createTBasicType() {
-        TBasicTypeImpl tBasicType = new TBasicTypeImpl();
-        return tBasicType;
+    public BasicType createBasicType() {
+        BasicTypeImpl basicType = new BasicTypeImpl();
+        return basicType;
     }
 
     /**
@@ -476,9 +476,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TBasicTypes createTBasicTypes() {
-        TBasicTypesImpl tBasicTypes = new TBasicTypesImpl();
-        return tBasicTypes;
+    public BasicTypes createBasicTypes() {
+        BasicTypesImpl basicTypes = new BasicTypesImpl();
+        return basicTypes;
     }
 
     /**
@@ -487,9 +487,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TCDC createTCDC() {
-        TCDCImpl tcdc = new TCDCImpl();
-        return tcdc;
+    public CDC createCDC() {
+        CDCImpl cdc = new CDCImpl();
+        return cdc;
     }
 
     /**
@@ -498,9 +498,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TCDCs createTCDCs() {
-        TCDCsImpl tcdCs = new TCDCsImpl();
-        return tcdCs;
+    public CDCs createCDCs() {
+        CDCsImpl cdCs = new CDCsImpl();
+        return cdCs;
     }
 
     /**
@@ -509,9 +509,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TChanges createTChanges() {
-        TChangesImpl tChanges = new TChangesImpl();
-        return tChanges;
+    public Changes createChanges() {
+        ChangesImpl changes = new ChangesImpl();
+        return changes;
     }
 
     /**
@@ -520,9 +520,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TConstructedAttribute createTConstructedAttribute() {
-        TConstructedAttributeImpl tConstructedAttribute = new TConstructedAttributeImpl();
-        return tConstructedAttribute;
+    public ConstructedAttribute createConstructedAttribute() {
+        ConstructedAttributeImpl constructedAttribute = new ConstructedAttributeImpl();
+        return constructedAttribute;
     }
 
     /**
@@ -531,9 +531,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TConstructedAttributes createTConstructedAttributes() {
-        TConstructedAttributesImpl tConstructedAttributes = new TConstructedAttributesImpl();
-        return tConstructedAttributes;
+    public ConstructedAttributes createConstructedAttributes() {
+        ConstructedAttributesImpl constructedAttributes = new ConstructedAttributesImpl();
+        return constructedAttributes;
     }
 
     /**
@@ -542,9 +542,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TCopyrighted createTCopyrighted() {
-        TCopyrightedImpl tCopyrighted = new TCopyrightedImpl();
-        return tCopyrighted;
+    public Copyrighted createCopyrighted() {
+        CopyrightedImpl copyrighted = new CopyrightedImpl();
+        return copyrighted;
     }
 
     /**
@@ -553,9 +553,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TCopyrightNotice createTCopyrightNotice() {
-        TCopyrightNoticeImpl tCopyrightNotice = new TCopyrightNoticeImpl();
-        return tCopyrightNotice;
+    public CopyrightNotice createCopyrightNotice() {
+        CopyrightNoticeImpl copyrightNotice = new CopyrightNoticeImpl();
+        return copyrightNotice;
     }
 
     /**
@@ -564,9 +564,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TDataAttribute createTDataAttribute() {
-        TDataAttributeImpl tDataAttribute = new TDataAttributeImpl();
-        return tDataAttribute;
+    public DataAttribute createDataAttribute() {
+        DataAttributeImpl dataAttribute = new DataAttributeImpl();
+        return dataAttribute;
     }
 
     /**
@@ -575,9 +575,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TDataObject createTDataObject() {
-        TDataObjectImpl tDataObject = new TDataObjectImpl();
-        return tDataObject;
+    public DataObject createDataObject() {
+        DataObjectImpl dataObject = new DataObjectImpl();
+        return dataObject;
     }
 
     /**
@@ -586,9 +586,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TDataSetMemberOf createTDataSetMemberOf() {
-        TDataSetMemberOfImpl tDataSetMemberOf = new TDataSetMemberOfImpl();
-        return tDataSetMemberOf;
+    public DataSetMemberOf createDataSetMemberOf() {
+        DataSetMemberOfImpl dataSetMemberOf = new DataSetMemberOfImpl();
+        return dataSetMemberOf;
     }
 
     /**
@@ -597,9 +597,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TDoc createTDoc() {
-        TDocImpl tDoc = new TDocImpl();
-        return tDoc;
+    public Doc createDoc() {
+        DocImpl doc = new DocImpl();
+        return doc;
     }
 
     /**
@@ -608,9 +608,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TDocumentedClass createTDocumentedClass() {
-        TDocumentedClassImpl tDocumentedClass = new TDocumentedClassImpl();
-        return tDocumentedClass;
+    public DocumentedClass createDocumentedClass() {
+        DocumentedClassImpl documentedClass = new DocumentedClassImpl();
+        return documentedClass;
     }
 
     /**
@@ -619,9 +619,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TEnumeration createTEnumeration() {
-        TEnumerationImpl tEnumeration = new TEnumerationImpl();
-        return tEnumeration;
+    public Enumeration createEnumeration() {
+        EnumerationImpl enumeration = new EnumerationImpl();
+        return enumeration;
     }
 
     /**
@@ -630,9 +630,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TEnumerations createTEnumerations() {
-        TEnumerationsImpl tEnumerations = new TEnumerationsImpl();
-        return tEnumerations;
+    public Enumerations createEnumerations() {
+        EnumerationsImpl enumerations = new EnumerationsImpl();
+        return enumerations;
     }
 
     /**
@@ -641,9 +641,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TFunctionalConstraint createTFunctionalConstraint() {
-        TFunctionalConstraintImpl tFunctionalConstraint = new TFunctionalConstraintImpl();
-        return tFunctionalConstraint;
+    public FunctionalConstraint createFunctionalConstraint() {
+        FunctionalConstraintImpl functionalConstraint = new FunctionalConstraintImpl();
+        return functionalConstraint;
     }
 
     /**
@@ -652,9 +652,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TFunctionalConstraints createTFunctionalConstraints() {
-        TFunctionalConstraintsImpl tFunctionalConstraints = new TFunctionalConstraintsImpl();
-        return tFunctionalConstraints;
+    public FunctionalConstraints createFunctionalConstraints() {
+        FunctionalConstraintsImpl functionalConstraints = new FunctionalConstraintsImpl();
+        return functionalConstraints;
     }
 
     /**
@@ -663,9 +663,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TLicense createTLicense() {
-        TLicenseImpl tLicense = new TLicenseImpl();
-        return tLicense;
+    public License createLicense() {
+        LicenseImpl license = new LicenseImpl();
+        return license;
     }
 
     /**
@@ -674,9 +674,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TLiteral createTLiteral() {
-        TLiteralImpl tLiteral = new TLiteralImpl();
-        return tLiteral;
+    public Literal createLiteral() {
+        LiteralImpl literal = new LiteralImpl();
+        return literal;
     }
 
     /**
@@ -685,9 +685,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TLNClass createTLNClass() {
-        TLNClassImpl tlnClass = new TLNClassImpl();
-        return tlnClass;
+    public LNClass createLNClass() {
+        LNClassImpl lnClass = new LNClassImpl();
+        return lnClass;
     }
 
     /**
@@ -696,9 +696,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TLNClasses createTLNClasses() {
-        TLNClassesImpl tlnClasses = new TLNClassesImpl();
-        return tlnClasses;
+    public LNClasses createLNClasses() {
+        LNClassesImpl lnClasses = new LNClassesImpl();
+        return lnClasses;
     }
 
     /**
@@ -707,9 +707,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TNotice createTNotice() {
-        TNoticeImpl tNotice = new TNoticeImpl();
-        return tNotice;
+    public Notice createNotice() {
+        NoticeImpl notice = new NoticeImpl();
+        return notice;
     }
 
     /**
@@ -718,9 +718,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TNS createTNS() {
-        TNSImpl tns = new TNSImpl();
-        return tns;
+    public NS createNS() {
+        NSImpl ns = new NSImpl();
+        return ns;
     }
 
     /**
@@ -729,9 +729,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TNSDoc createTNSDoc() {
-        TNSDocImpl tnsDoc = new TNSDocImpl();
-        return tnsDoc;
+    public NSDoc createNSDoc() {
+        NSDocImpl nsDoc = new NSDocImpl();
+        return nsDoc;
     }
 
     /**
@@ -740,9 +740,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TPresenceCondition createTPresenceCondition() {
-        TPresenceConditionImpl tPresenceCondition = new TPresenceConditionImpl();
-        return tPresenceCondition;
+    public PresenceCondition createPresenceCondition() {
+        PresenceConditionImpl presenceCondition = new PresenceConditionImpl();
+        return presenceCondition;
     }
 
     /**
@@ -751,9 +751,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TPresenceConditions createTPresenceConditions() {
-        TPresenceConditionsImpl tPresenceConditions = new TPresenceConditionsImpl();
-        return tPresenceConditions;
+    public PresenceConditions createPresenceConditions() {
+        PresenceConditionsImpl presenceConditions = new PresenceConditionsImpl();
+        return presenceConditions;
     }
 
     /**
@@ -762,9 +762,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TServiceCDC createTServiceCDC() {
-        TServiceCDCImpl tServiceCDC = new TServiceCDCImpl();
-        return tServiceCDC;
+    public ServiceCDC createServiceCDC() {
+        ServiceCDCImpl serviceCDC = new ServiceCDCImpl();
+        return serviceCDC;
     }
 
     /**
@@ -773,9 +773,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TServiceCDCs createTServiceCDCs() {
-        TServiceCDCsImpl tServiceCDCs = new TServiceCDCsImpl();
-        return tServiceCDCs;
+    public ServiceCDCs createServiceCDCs() {
+        ServiceCDCsImpl serviceCDCs = new ServiceCDCsImpl();
+        return serviceCDCs;
     }
 
     /**
@@ -784,9 +784,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TServiceConstructedAttribute createTServiceConstructedAttribute() {
-        TServiceConstructedAttributeImpl tServiceConstructedAttribute = new TServiceConstructedAttributeImpl();
-        return tServiceConstructedAttribute;
+    public ServiceConstructedAttribute createServiceConstructedAttribute() {
+        ServiceConstructedAttributeImpl serviceConstructedAttribute = new ServiceConstructedAttributeImpl();
+        return serviceConstructedAttribute;
     }
 
     /**
@@ -795,9 +795,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TServiceConstructedAttributes createTServiceConstructedAttributes() {
-        TServiceConstructedAttributesImpl tServiceConstructedAttributes = new TServiceConstructedAttributesImpl();
-        return tServiceConstructedAttributes;
+    public ServiceConstructedAttributes createServiceConstructedAttributes() {
+        ServiceConstructedAttributesImpl serviceConstructedAttributes = new ServiceConstructedAttributesImpl();
+        return serviceConstructedAttributes;
     }
 
     /**
@@ -806,9 +806,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TServiceDataAttribute createTServiceDataAttribute() {
-        TServiceDataAttributeImpl tServiceDataAttribute = new TServiceDataAttributeImpl();
-        return tServiceDataAttribute;
+    public ServiceDataAttribute createServiceDataAttribute() {
+        ServiceDataAttributeImpl serviceDataAttribute = new ServiceDataAttributeImpl();
+        return serviceDataAttribute;
     }
 
     /**
@@ -817,9 +817,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TServiceNS createTServiceNS() {
-        TServiceNSImpl tServiceNS = new TServiceNSImpl();
-        return tServiceNS;
+    public ServiceNS createServiceNS() {
+        ServiceNSImpl serviceNS = new ServiceNSImpl();
+        return serviceNS;
     }
 
     /**
@@ -828,9 +828,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TServiceNsUsage createTServiceNsUsage() {
-        TServiceNsUsageImpl tServiceNsUsage = new TServiceNsUsageImpl();
-        return tServiceNsUsage;
+    public ServiceNsUsage createServiceNsUsage() {
+        ServiceNsUsageImpl serviceNsUsage = new ServiceNsUsageImpl();
+        return serviceNsUsage;
     }
 
     /**
@@ -839,9 +839,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TServiceParameter createTServiceParameter() {
-        TServiceParameterImpl tServiceParameter = new TServiceParameterImpl();
-        return tServiceParameter;
+    public ServiceParameter createServiceParameter() {
+        ServiceParameterImpl serviceParameter = new ServiceParameterImpl();
+        return serviceParameter;
     }
 
     /**
@@ -850,9 +850,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TServiceTypeRealization createTServiceTypeRealization() {
-        TServiceTypeRealizationImpl tServiceTypeRealization = new TServiceTypeRealizationImpl();
-        return tServiceTypeRealization;
+    public ServiceTypeRealization createServiceTypeRealization() {
+        ServiceTypeRealizationImpl serviceTypeRealization = new ServiceTypeRealizationImpl();
+        return serviceTypeRealization;
     }
 
     /**
@@ -861,9 +861,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TServiceTypeRealizations createTServiceTypeRealizations() {
-        TServiceTypeRealizationsImpl tServiceTypeRealizations = new TServiceTypeRealizationsImpl();
-        return tServiceTypeRealizations;
+    public ServiceTypeRealizations createServiceTypeRealizations() {
+        ServiceTypeRealizationsImpl serviceTypeRealizations = new ServiceTypeRealizationsImpl();
+        return serviceTypeRealizations;
     }
 
     /**
@@ -872,9 +872,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TSubDataAttribute createTSubDataAttribute() {
-        TSubDataAttributeImpl tSubDataAttribute = new TSubDataAttributeImpl();
-        return tSubDataAttribute;
+    public SubDataAttribute createSubDataAttribute() {
+        SubDataAttributeImpl subDataAttribute = new SubDataAttributeImpl();
+        return subDataAttribute;
     }
 
     /**
@@ -883,9 +883,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TSubDataObject createTSubDataObject() {
-        TSubDataObjectImpl tSubDataObject = new TSubDataObjectImpl();
-        return tSubDataObject;
+    public SubDataObject createSubDataObject() {
+        SubDataObjectImpl subDataObject = new SubDataObjectImpl();
+        return subDataObject;
     }
 
     /**
@@ -894,9 +894,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public TTitledClass createTTitledClass() {
-        TTitledClassImpl tTitledClass = new TTitledClassImpl();
-        return tTitledClass;
+    public TitledClass createTitledClass() {
+        TitledClassImpl titledClass = new TitledClassImpl();
+        return titledClass;
     }
 
     /**
@@ -904,8 +904,8 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public TACSIServicesKind createTACSIServicesKindFromString( EDataType eDataType, String initialValue ) {
-        TACSIServicesKind result = TACSIServicesKind.get( initialValue );
+    public ACSIServicesKind createACSIServicesKindFromString( EDataType eDataType, String initialValue ) {
+        ACSIServicesKind result = ACSIServicesKind.get( initialValue );
         if( result == null ) throw new IllegalArgumentException(
                 "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'" );
         return result;
@@ -916,7 +916,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTACSIServicesKindToString( EDataType eDataType, Object instanceValue ) {
+    public String convertACSIServicesKindToString( EDataType eDataType, Object instanceValue ) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -925,8 +925,8 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public TCBKind createTCBKindFromString( EDataType eDataType, String initialValue ) {
-        TCBKind result = TCBKind.get( initialValue );
+    public CBKind createCBKindFromString( EDataType eDataType, String initialValue ) {
+        CBKind result = CBKind.get( initialValue );
         if( result == null ) throw new IllegalArgumentException(
                 "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'" );
         return result;
@@ -937,7 +937,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTCBKindToString( EDataType eDataType, Object instanceValue ) {
+    public String convertCBKindToString( EDataType eDataType, Object instanceValue ) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -946,9 +946,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public TDefinedAttributeTypeKind createTDefinedAttributeTypeKindFromString( EDataType eDataType,
+    public DefinedAttributeTypeKind createDefinedAttributeTypeKindFromString( EDataType eDataType,
             String initialValue ) {
-        TDefinedAttributeTypeKind result = TDefinedAttributeTypeKind.get( initialValue );
+        DefinedAttributeTypeKind result = DefinedAttributeTypeKind.get( initialValue );
         if( result == null ) throw new IllegalArgumentException(
                 "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'" );
         return result;
@@ -959,7 +959,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTDefinedAttributeTypeKindToString( EDataType eDataType, Object instanceValue ) {
+    public String convertDefinedAttributeTypeKindToString( EDataType eDataType, Object instanceValue ) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -968,8 +968,8 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public TLicenseKind createTLicenseKindFromString( EDataType eDataType, String initialValue ) {
-        TLicenseKind result = TLicenseKind.get( initialValue );
+    public LicenseKind createLicenseKindFromString( EDataType eDataType, String initialValue ) {
+        LicenseKind result = LicenseKind.get( initialValue );
         if( result == null ) throw new IllegalArgumentException(
                 "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'" );
         return result;
@@ -980,7 +980,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTLicenseKindToString( EDataType eDataType, Object instanceValue ) {
+    public String convertLicenseKindToString( EDataType eDataType, Object instanceValue ) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -989,8 +989,8 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public TPubStage createTPubStageFromString( EDataType eDataType, String initialValue ) {
-        TPubStage result = TPubStage.get( initialValue );
+    public PubStage createPubStageFromString( EDataType eDataType, String initialValue ) {
+        PubStage result = PubStage.get( initialValue );
         if( result == null ) throw new IllegalArgumentException(
                 "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'" );
         return result;
@@ -1001,7 +1001,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTPubStageToString( EDataType eDataType, Object instanceValue ) {
+    public String convertPubStageToString( EDataType eDataType, Object instanceValue ) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -1010,9 +1010,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public TUndefinedAttributeTypeKind createTUndefinedAttributeTypeKindFromString( EDataType eDataType,
+    public UndefinedAttributeTypeKind createUndefinedAttributeTypeKindFromString( EDataType eDataType,
             String initialValue ) {
-        TUndefinedAttributeTypeKind result = TUndefinedAttributeTypeKind.get( initialValue );
+        UndefinedAttributeTypeKind result = UndefinedAttributeTypeKind.get( initialValue );
         if( result == null ) throw new IllegalArgumentException(
                 "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'" );
         return result;
@@ -1023,7 +1023,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTUndefinedAttributeTypeKindToString( EDataType eDataType, Object instanceValue ) {
+    public String convertUndefinedAttributeTypeKindToString( EDataType eDataType, Object instanceValue ) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -1032,7 +1032,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String createTAbbreviationNameFromString( EDataType eDataType, String initialValue ) {
+    public String createAbbreviationNameFromString( EDataType eDataType, String initialValue ) {
         return ( String ) XMLTypeFactory.eINSTANCE.createFromString( XMLTypePackage.Literals.NORMALIZED_STRING,
                 initialValue );
     }
@@ -1042,7 +1042,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTAbbreviationNameToString( EDataType eDataType, Object instanceValue ) {
+    public String convertAbbreviationNameToString( EDataType eDataType, Object instanceValue ) {
         return XMLTypeFactory.eINSTANCE.convertToString( XMLTypePackage.Literals.NORMALIZED_STRING, instanceValue );
     }
 
@@ -1051,8 +1051,8 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String createTAbstractLNClassNameFromString( EDataType eDataType, String initialValue ) {
-        return createTIec61850NameFromString( NsdPackage.Literals.TIEC61850_NAME, initialValue );
+    public String createAbstractLNClassNameFromString( EDataType eDataType, String initialValue ) {
+        return createIec61850NameFromString( NsdPackage.Literals.IEC61850_NAME, initialValue );
     }
 
     /**
@@ -1060,8 +1060,8 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTAbstractLNClassNameToString( EDataType eDataType, Object instanceValue ) {
-        return convertTIec61850NameToString( NsdPackage.Literals.TIEC61850_NAME, instanceValue );
+    public String convertAbstractLNClassNameToString( EDataType eDataType, Object instanceValue ) {
+        return convertIec61850NameToString( NsdPackage.Literals.IEC61850_NAME, instanceValue );
     }
 
     /**
@@ -1069,8 +1069,8 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public TACSIServicesKind createTACSIServicesKindObjectFromString( EDataType eDataType, String initialValue ) {
-        return createTACSIServicesKindFromString( NsdPackage.Literals.TACSI_SERVICES_KIND, initialValue );
+    public ACSIServicesKind createACSIServicesKindObjectFromString( EDataType eDataType, String initialValue ) {
+        return createACSIServicesKindFromString( NsdPackage.Literals.ACSI_SERVICES_KIND, initialValue );
     }
 
     /**
@@ -1078,8 +1078,8 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTACSIServicesKindObjectToString( EDataType eDataType, Object instanceValue ) {
-        return convertTACSIServicesKindToString( NsdPackage.Literals.TACSI_SERVICES_KIND, instanceValue );
+    public String convertACSIServicesKindObjectToString( EDataType eDataType, Object instanceValue ) {
+        return convertACSIServicesKindToString( NsdPackage.Literals.ACSI_SERVICES_KIND, instanceValue );
     }
 
     /**
@@ -1087,8 +1087,8 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String createTAttributeNameFromString( EDataType eDataType, String initialValue ) {
-        return createTIec61850NameFromString( NsdPackage.Literals.TIEC61850_NAME, initialValue );
+    public String createAttributeNameFromString( EDataType eDataType, String initialValue ) {
+        return createIec61850NameFromString( NsdPackage.Literals.IEC61850_NAME, initialValue );
     }
 
     /**
@@ -1096,8 +1096,8 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTAttributeNameToString( EDataType eDataType, Object instanceValue ) {
-        return convertTIec61850NameToString( NsdPackage.Literals.TIEC61850_NAME, instanceValue );
+    public String convertAttributeNameToString( EDataType eDataType, Object instanceValue ) {
+        return convertIec61850NameToString( NsdPackage.Literals.IEC61850_NAME, instanceValue );
     }
 
     /**
@@ -1105,13 +1105,13 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public Enumerator createTAttributeTypeKindFromString( EDataType eDataType, String initialValue ) {
+    public Enumerator createAttributeTypeKindFromString( EDataType eDataType, String initialValue ) {
         if( initialValue == null ) return null;
         Enumerator result = null;
         RuntimeException exception = null;
         try {
-            result = createTDefinedAttributeTypeKindFromString(
-                    NsdPackage.Literals.TDEFINED_ATTRIBUTE_TYPE_KIND, initialValue );
+            result = createDefinedAttributeTypeKindFromString(
+                    NsdPackage.Literals.DEFINED_ATTRIBUTE_TYPE_KIND, initialValue );
             if( result != null && Diagnostician.INSTANCE.validate( eDataType, result, null, null ) ) {
                 return result;
             }
@@ -1120,8 +1120,8 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
             exception = e;
         }
         try {
-            result = createTUndefinedAttributeTypeKindFromString(
-                    NsdPackage.Literals.TUNDEFINED_ATTRIBUTE_TYPE_KIND, initialValue );
+            result = createUndefinedAttributeTypeKindFromString(
+                    NsdPackage.Literals.UNDEFINED_ATTRIBUTE_TYPE_KIND, initialValue );
             if( result != null && Diagnostician.INSTANCE.validate( eDataType, result, null, null ) ) {
                 return result;
             }
@@ -1139,22 +1139,22 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTAttributeTypeKindToString( EDataType eDataType, Object instanceValue ) {
+    public String convertAttributeTypeKindToString( EDataType eDataType, Object instanceValue ) {
         if( instanceValue == null ) return null;
-        if( NsdPackage.Literals.TDEFINED_ATTRIBUTE_TYPE_KIND.isInstance( instanceValue ) ) {
+        if( NsdPackage.Literals.DEFINED_ATTRIBUTE_TYPE_KIND.isInstance( instanceValue ) ) {
             try {
-                String value = convertTDefinedAttributeTypeKindToString(
-                        NsdPackage.Literals.TDEFINED_ATTRIBUTE_TYPE_KIND, instanceValue );
+                String value = convertDefinedAttributeTypeKindToString( NsdPackage.Literals.DEFINED_ATTRIBUTE_TYPE_KIND,
+                        instanceValue );
                 if( value != null ) return value;
             }
             catch( Exception e ) {
                 // Keep trying other member types until all have failed.
             }
         }
-        if( NsdPackage.Literals.TUNDEFINED_ATTRIBUTE_TYPE_KIND.isInstance( instanceValue ) ) {
+        if( NsdPackage.Literals.UNDEFINED_ATTRIBUTE_TYPE_KIND.isInstance( instanceValue ) ) {
             try {
-                String value = convertTUndefinedAttributeTypeKindToString(
-                        NsdPackage.Literals.TUNDEFINED_ATTRIBUTE_TYPE_KIND, instanceValue );
+                String value = convertUndefinedAttributeTypeKindToString(
+                        NsdPackage.Literals.UNDEFINED_ATTRIBUTE_TYPE_KIND, instanceValue );
                 if( value != null ) return value;
             }
             catch( Exception e ) {
@@ -1170,7 +1170,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String createTBasicTypeNameFromString( EDataType eDataType, String initialValue ) {
+    public String createBasicTypeNameFromString( EDataType eDataType, String initialValue ) {
         return ( String ) XMLTypeFactory.eINSTANCE.createFromString( XMLTypePackage.Literals.TOKEN, initialValue );
     }
 
@@ -1179,7 +1179,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTBasicTypeNameToString( EDataType eDataType, Object instanceValue ) {
+    public String convertBasicTypeNameToString( EDataType eDataType, Object instanceValue ) {
         return XMLTypeFactory.eINSTANCE.convertToString( XMLTypePackage.Literals.TOKEN, instanceValue );
     }
 
@@ -1188,8 +1188,8 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public TCBKind createTCBKindObjectFromString( EDataType eDataType, String initialValue ) {
-        return createTCBKindFromString( NsdPackage.Literals.TCB_KIND, initialValue );
+    public CBKind createCBKindObjectFromString( EDataType eDataType, String initialValue ) {
+        return createCBKindFromString( NsdPackage.Literals.CB_KIND, initialValue );
     }
 
     /**
@@ -1197,8 +1197,8 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTCBKindObjectToString( EDataType eDataType, Object instanceValue ) {
-        return convertTCBKindToString( NsdPackage.Literals.TCB_KIND, instanceValue );
+    public String convertCBKindObjectToString( EDataType eDataType, Object instanceValue ) {
+        return convertCBKindToString( NsdPackage.Literals.CB_KIND, instanceValue );
     }
 
     /**
@@ -1206,8 +1206,8 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String createTCDCNameFromString( EDataType eDataType, String initialValue ) {
-        return createTIec61850NameFromString( NsdPackage.Literals.TIEC61850_NAME, initialValue );
+    public String createCDCNameFromString( EDataType eDataType, String initialValue ) {
+        return createIec61850NameFromString( NsdPackage.Literals.IEC61850_NAME, initialValue );
     }
 
     /**
@@ -1215,8 +1215,8 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTCDCNameToString( EDataType eDataType, Object instanceValue ) {
-        return convertTIec61850NameToString( NsdPackage.Literals.TIEC61850_NAME, instanceValue );
+    public String convertCDCNameToString( EDataType eDataType, Object instanceValue ) {
+        return convertIec61850NameToString( NsdPackage.Literals.IEC61850_NAME, instanceValue );
     }
 
     /**
@@ -1224,8 +1224,8 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String createTDataObjectNameFromString( EDataType eDataType, String initialValue ) {
-        return createTIec61850NameFromString( NsdPackage.Literals.TIEC61850_NAME, initialValue );
+    public String createDataObjectNameFromString( EDataType eDataType, String initialValue ) {
+        return createIec61850NameFromString( NsdPackage.Literals.IEC61850_NAME, initialValue );
     }
 
     /**
@@ -1233,8 +1233,8 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTDataObjectNameToString( EDataType eDataType, Object instanceValue ) {
-        return convertTIec61850NameToString( NsdPackage.Literals.TIEC61850_NAME, instanceValue );
+    public String convertDataObjectNameToString( EDataType eDataType, Object instanceValue ) {
+        return convertIec61850NameToString( NsdPackage.Literals.IEC61850_NAME, instanceValue );
     }
 
     /**
@@ -1242,9 +1242,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public TDefinedAttributeTypeKind createTDefinedAttributeTypeKindObjectFromString( EDataType eDataType,
+    public DefinedAttributeTypeKind createDefinedAttributeTypeKindObjectFromString( EDataType eDataType,
             String initialValue ) {
-        return createTDefinedAttributeTypeKindFromString( NsdPackage.Literals.TDEFINED_ATTRIBUTE_TYPE_KIND,
+        return createDefinedAttributeTypeKindFromString( NsdPackage.Literals.DEFINED_ATTRIBUTE_TYPE_KIND,
                 initialValue );
     }
 
@@ -1253,8 +1253,8 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTDefinedAttributeTypeKindObjectToString( EDataType eDataType, Object instanceValue ) {
-        return convertTDefinedAttributeTypeKindToString( NsdPackage.Literals.TDEFINED_ATTRIBUTE_TYPE_KIND,
+    public String convertDefinedAttributeTypeKindObjectToString( EDataType eDataType, Object instanceValue ) {
+        return convertDefinedAttributeTypeKindToString( NsdPackage.Literals.DEFINED_ATTRIBUTE_TYPE_KIND,
                 instanceValue );
     }
 
@@ -1263,7 +1263,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String createTDocIDFromString( EDataType eDataType, String initialValue ) {
+    public String createDocIDFromString( EDataType eDataType, String initialValue ) {
         return ( String ) XMLTypeFactory.eINSTANCE.createFromString( XMLTypePackage.Literals.NORMALIZED_STRING,
                 initialValue );
     }
@@ -1273,7 +1273,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTDocIDToString( EDataType eDataType, Object instanceValue ) {
+    public String convertDocIDToString( EDataType eDataType, Object instanceValue ) {
         return XMLTypeFactory.eINSTANCE.convertToString( XMLTypePackage.Literals.NORMALIZED_STRING, instanceValue );
     }
 
@@ -1282,7 +1282,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String createTEmptyStringFromString( EDataType eDataType, String initialValue ) {
+    public String createEmptyStringFromString( EDataType eDataType, String initialValue ) {
         return ( String ) XMLTypeFactory.eINSTANCE.createFromString( XMLTypePackage.Literals.NORMALIZED_STRING,
                 initialValue );
     }
@@ -1292,7 +1292,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTEmptyStringToString( EDataType eDataType, Object instanceValue ) {
+    public String convertEmptyStringToString( EDataType eDataType, Object instanceValue ) {
         return XMLTypeFactory.eINSTANCE.convertToString( XMLTypePackage.Literals.NORMALIZED_STRING, instanceValue );
     }
 
@@ -1301,7 +1301,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String createTFCAbbreviationFromString( EDataType eDataType, String initialValue ) {
+    public String createFCAbbreviationFromString( EDataType eDataType, String initialValue ) {
         return ( String ) XMLTypeFactory.eINSTANCE.createFromString( XMLTypePackage.Literals.TOKEN, initialValue );
     }
 
@@ -1310,7 +1310,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTFCAbbreviationToString( EDataType eDataType, Object instanceValue ) {
+    public String convertFCAbbreviationToString( EDataType eDataType, Object instanceValue ) {
         return XMLTypeFactory.eINSTANCE.convertToString( XMLTypePackage.Literals.TOKEN, instanceValue );
     }
 
@@ -1319,7 +1319,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String createTIec61850NameFromString( EDataType eDataType, String initialValue ) {
+    public String createIec61850NameFromString( EDataType eDataType, String initialValue ) {
         return ( String ) XMLTypeFactory.eINSTANCE.createFromString( XMLTypePackage.Literals.NAME, initialValue );
     }
 
@@ -1328,7 +1328,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTIec61850NameToString( EDataType eDataType, Object instanceValue ) {
+    public String convertIec61850NameToString( EDataType eDataType, Object instanceValue ) {
         return XMLTypeFactory.eINSTANCE.convertToString( XMLTypePackage.Literals.NAME, instanceValue );
     }
 
@@ -1337,7 +1337,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String createTIec61850NameStringFromString( EDataType eDataType, String initialValue ) {
+    public String createIec61850NameStringFromString( EDataType eDataType, String initialValue ) {
         return ( String ) XMLTypeFactory.eINSTANCE.createFromString( XMLTypePackage.Literals.NORMALIZED_STRING,
                 initialValue );
     }
@@ -1347,7 +1347,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTIec61850NameStringToString( EDataType eDataType, Object instanceValue ) {
+    public String convertIec61850NameStringToString( EDataType eDataType, Object instanceValue ) {
         return XMLTypeFactory.eINSTANCE.convertToString( XMLTypePackage.Literals.NORMALIZED_STRING, instanceValue );
     }
 
@@ -1356,7 +1356,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String createTissuesTypeFromString( EDataType eDataType, String initialValue ) {
+    public String createissuesTypeFromString( EDataType eDataType, String initialValue ) {
         return ( String ) XMLTypeFactory.eINSTANCE.createFromString( XMLTypePackage.Literals.NORMALIZED_STRING,
                 initialValue );
     }
@@ -1366,7 +1366,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTissuesTypeToString( EDataType eDataType, Object instanceValue ) {
+    public String convertissuesTypeToString( EDataType eDataType, Object instanceValue ) {
         return XMLTypeFactory.eINSTANCE.convertToString( XMLTypePackage.Literals.NORMALIZED_STRING, instanceValue );
     }
 
@@ -1375,8 +1375,8 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public TLicenseKind createTLicenseKindObjectFromString( EDataType eDataType, String initialValue ) {
-        return createTLicenseKindFromString( NsdPackage.Literals.TLICENSE_KIND, initialValue );
+    public LicenseKind createLicenseKindObjectFromString( EDataType eDataType, String initialValue ) {
+        return createLicenseKindFromString( NsdPackage.Literals.LICENSE_KIND, initialValue );
     }
 
     /**
@@ -1384,8 +1384,8 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTLicenseKindObjectToString( EDataType eDataType, Object instanceValue ) {
-        return convertTLicenseKindToString( NsdPackage.Literals.TLICENSE_KIND, instanceValue );
+    public String convertLicenseKindObjectToString( EDataType eDataType, Object instanceValue ) {
+        return convertLicenseKindToString( NsdPackage.Literals.LICENSE_KIND, instanceValue );
     }
 
     /**
@@ -1393,7 +1393,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String createTLiteralNameFromString( EDataType eDataType, String initialValue ) {
+    public String createLiteralNameFromString( EDataType eDataType, String initialValue ) {
         return ( String ) XMLTypeFactory.eINSTANCE.createFromString( XMLTypePackage.Literals.NORMALIZED_STRING,
                 initialValue );
     }
@@ -1403,7 +1403,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTLiteralNameToString( EDataType eDataType, Object instanceValue ) {
+    public String convertLiteralNameToString( EDataType eDataType, Object instanceValue ) {
         return XMLTypeFactory.eINSTANCE.convertToString( XMLTypePackage.Literals.NORMALIZED_STRING, instanceValue );
     }
 
@@ -1412,7 +1412,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String createTLNClassNameFromString( EDataType eDataType, String initialValue ) {
+    public String createLNClassNameFromString( EDataType eDataType, String initialValue ) {
         return ( String ) XMLTypeFactory.eINSTANCE.createFromString( XMLTypePackage.Literals.NAME, initialValue );
     }
 
@@ -1421,7 +1421,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTLNClassNameToString( EDataType eDataType, Object instanceValue ) {
+    public String convertLNClassNameToString( EDataType eDataType, Object instanceValue ) {
         return XMLTypeFactory.eINSTANCE.convertToString( XMLTypePackage.Literals.NAME, instanceValue );
     }
 
@@ -1430,7 +1430,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String createTNSIdentifierFromString( EDataType eDataType, String initialValue ) {
+    public String createNSIdentifierFromString( EDataType eDataType, String initialValue ) {
         return ( String ) XMLTypeFactory.eINSTANCE.createFromString( XMLTypePackage.Literals.NORMALIZED_STRING,
                 initialValue );
     }
@@ -1440,7 +1440,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTNSIdentifierToString( EDataType eDataType, Object instanceValue ) {
+    public String convertNSIdentifierToString( EDataType eDataType, Object instanceValue ) {
         return XMLTypeFactory.eINSTANCE.convertToString( XMLTypePackage.Literals.NORMALIZED_STRING, instanceValue );
     }
 
@@ -1449,7 +1449,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public Short createTNSReleaseFromString( EDataType eDataType, String initialValue ) {
+    public Short createNSReleaseFromString( EDataType eDataType, String initialValue ) {
         return ( Short ) XMLTypeFactory.eINSTANCE.createFromString( XMLTypePackage.Literals.UNSIGNED_BYTE,
                 initialValue );
     }
@@ -1459,7 +1459,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTNSReleaseToString( EDataType eDataType, Object instanceValue ) {
+    public String convertNSReleaseToString( EDataType eDataType, Object instanceValue ) {
         return XMLTypeFactory.eINSTANCE.convertToString( XMLTypePackage.Literals.UNSIGNED_BYTE, instanceValue );
     }
 
@@ -1468,8 +1468,8 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public Short createTNSReleaseObjectFromString( EDataType eDataType, String initialValue ) {
-        return createTNSReleaseFromString( NsdPackage.Literals.TNS_RELEASE, initialValue );
+    public Short createNSReleaseObjectFromString( EDataType eDataType, String initialValue ) {
+        return createNSReleaseFromString( NsdPackage.Literals.NS_RELEASE, initialValue );
     }
 
     /**
@@ -1477,8 +1477,8 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTNSReleaseObjectToString( EDataType eDataType, Object instanceValue ) {
-        return convertTNSReleaseToString( NsdPackage.Literals.TNS_RELEASE, instanceValue );
+    public String convertNSReleaseObjectToString( EDataType eDataType, Object instanceValue ) {
+        return convertNSReleaseToString( NsdPackage.Literals.NS_RELEASE, instanceValue );
     }
 
     /**
@@ -1486,7 +1486,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String createTNSRevisionFromString( EDataType eDataType, String initialValue ) {
+    public String createNSRevisionFromString( EDataType eDataType, String initialValue ) {
         return ( String ) XMLTypeFactory.eINSTANCE.createFromString( XMLTypePackage.Literals.TOKEN, initialValue );
     }
 
@@ -1495,7 +1495,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTNSRevisionToString( EDataType eDataType, Object instanceValue ) {
+    public String convertNSRevisionToString( EDataType eDataType, Object instanceValue ) {
         return XMLTypeFactory.eINSTANCE.convertToString( XMLTypePackage.Literals.TOKEN, instanceValue );
     }
 
@@ -1504,7 +1504,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public Integer createTNSVersionFromString( EDataType eDataType, String initialValue ) {
+    public Integer createNSVersionFromString( EDataType eDataType, String initialValue ) {
         return ( Integer ) XMLTypeFactory.eINSTANCE.createFromString( XMLTypePackage.Literals.UNSIGNED_SHORT,
                 initialValue );
     }
@@ -1514,7 +1514,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTNSVersionToString( EDataType eDataType, Object instanceValue ) {
+    public String convertNSVersionToString( EDataType eDataType, Object instanceValue ) {
         return XMLTypeFactory.eINSTANCE.convertToString( XMLTypePackage.Literals.UNSIGNED_SHORT, instanceValue );
     }
 
@@ -1523,8 +1523,8 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public Integer createTNSVersionObjectFromString( EDataType eDataType, String initialValue ) {
-        return createTNSVersionFromString( NsdPackage.Literals.TNS_VERSION, initialValue );
+    public Integer createNSVersionObjectFromString( EDataType eDataType, String initialValue ) {
+        return createNSVersionFromString( NsdPackage.Literals.NS_VERSION, initialValue );
     }
 
     /**
@@ -1532,8 +1532,8 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTNSVersionObjectToString( EDataType eDataType, Object instanceValue ) {
-        return convertTNSVersionToString( NsdPackage.Literals.TNS_VERSION, instanceValue );
+    public String convertNSVersionObjectToString( EDataType eDataType, Object instanceValue ) {
+        return convertNSVersionToString( NsdPackage.Literals.NS_VERSION, instanceValue );
     }
 
     /**
@@ -1541,7 +1541,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String createTPresenceConditionArgumentFromString( EDataType eDataType, String initialValue ) {
+    public String createPresenceConditionArgumentFromString( EDataType eDataType, String initialValue ) {
         return ( String ) XMLTypeFactory.eINSTANCE.createFromString( XMLTypePackage.Literals.NORMALIZED_STRING,
                 initialValue );
     }
@@ -1551,7 +1551,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTPresenceConditionArgumentToString( EDataType eDataType, Object instanceValue ) {
+    public String convertPresenceConditionArgumentToString( EDataType eDataType, Object instanceValue ) {
         return XMLTypeFactory.eINSTANCE.convertToString( XMLTypePackage.Literals.NORMALIZED_STRING, instanceValue );
     }
 
@@ -1560,7 +1560,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String createTPresenceConditionNameFromString( EDataType eDataType, String initialValue ) {
+    public String createPresenceConditionNameFromString( EDataType eDataType, String initialValue ) {
         return ( String ) XMLTypeFactory.eINSTANCE.createFromString( XMLTypePackage.Literals.NORMALIZED_STRING,
                 initialValue );
     }
@@ -1570,7 +1570,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTPresenceConditionNameToString( EDataType eDataType, Object instanceValue ) {
+    public String convertPresenceConditionNameToString( EDataType eDataType, Object instanceValue ) {
         return XMLTypeFactory.eINSTANCE.convertToString( XMLTypePackage.Literals.NORMALIZED_STRING, instanceValue );
     }
 
@@ -1579,8 +1579,8 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public TPubStage createTPubStageObjectFromString( EDataType eDataType, String initialValue ) {
-        return createTPubStageFromString( NsdPackage.Literals.TPUB_STAGE, initialValue );
+    public PubStage createPubStageObjectFromString( EDataType eDataType, String initialValue ) {
+        return createPubStageFromString( NsdPackage.Literals.PUB_STAGE, initialValue );
     }
 
     /**
@@ -1588,8 +1588,8 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTPubStageObjectToString( EDataType eDataType, Object instanceValue ) {
-        return convertTPubStageToString( NsdPackage.Literals.TPUB_STAGE, instanceValue );
+    public String convertPubStageObjectToString( EDataType eDataType, Object instanceValue ) {
+        return convertPubStageToString( NsdPackage.Literals.PUB_STAGE, instanceValue );
     }
 
     /**
@@ -1597,8 +1597,8 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String createTSubDataObjectNameFromString( EDataType eDataType, String initialValue ) {
-        return createTIec61850NameFromString( NsdPackage.Literals.TIEC61850_NAME, initialValue );
+    public String createSubDataObjectNameFromString( EDataType eDataType, String initialValue ) {
+        return createIec61850NameFromString( NsdPackage.Literals.IEC61850_NAME, initialValue );
     }
 
     /**
@@ -1606,8 +1606,8 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTSubDataObjectNameToString( EDataType eDataType, Object instanceValue ) {
-        return convertTIec61850NameToString( NsdPackage.Literals.TIEC61850_NAME, instanceValue );
+    public String convertSubDataObjectNameToString( EDataType eDataType, Object instanceValue ) {
+        return convertIec61850NameToString( NsdPackage.Literals.IEC61850_NAME, instanceValue );
     }
 
     /**
@@ -1615,7 +1615,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String createTUMLVersionFromString( EDataType eDataType, String initialValue ) {
+    public String createUMLVersionFromString( EDataType eDataType, String initialValue ) {
         return ( String ) XMLTypeFactory.eINSTANCE.createFromString( XMLTypePackage.Literals.NAME, initialValue );
     }
 
@@ -1624,7 +1624,7 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTUMLVersionToString( EDataType eDataType, Object instanceValue ) {
+    public String convertUMLVersionToString( EDataType eDataType, Object instanceValue ) {
         return XMLTypeFactory.eINSTANCE.convertToString( XMLTypePackage.Literals.NAME, instanceValue );
     }
 
@@ -1633,9 +1633,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public TUndefinedAttributeTypeKind createTUndefinedAttributeTypeKindObjectFromString( EDataType eDataType,
+    public UndefinedAttributeTypeKind createUndefinedAttributeTypeKindObjectFromString( EDataType eDataType,
             String initialValue ) {
-        return createTUndefinedAttributeTypeKindFromString( NsdPackage.Literals.TUNDEFINED_ATTRIBUTE_TYPE_KIND,
+        return createUndefinedAttributeTypeKindFromString( NsdPackage.Literals.UNDEFINED_ATTRIBUTE_TYPE_KIND,
                 initialValue );
     }
 
@@ -1644,8 +1644,8 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTUndefinedAttributeTypeKindObjectToString( EDataType eDataType, Object instanceValue ) {
-        return convertTUndefinedAttributeTypeKindToString( NsdPackage.Literals.TUNDEFINED_ATTRIBUTE_TYPE_KIND,
+    public String convertUndefinedAttributeTypeKindObjectToString( EDataType eDataType, Object instanceValue ) {
+        return convertUndefinedAttributeTypeKindToString( NsdPackage.Literals.UNDEFINED_ATTRIBUTE_TYPE_KIND,
                 instanceValue );
     }
 

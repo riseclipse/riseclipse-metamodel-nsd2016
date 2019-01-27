@@ -107,308 +107,308 @@ public class NsdSwitch< T > extends Switch< T > {
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TABBREVIATION: {
-            TAbbreviation tAbbreviation = ( TAbbreviation ) theEObject;
-            T result = caseTAbbreviation( tAbbreviation );
+        case NsdPackage.ABBREVIATION: {
+            Abbreviation abbreviation = ( Abbreviation ) theEObject;
+            T result = caseAbbreviation( abbreviation );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TABBREVIATIONS: {
-            TAbbreviations tAbbreviations = ( TAbbreviations ) theEObject;
-            T result = caseTAbbreviations( tAbbreviations );
+        case NsdPackage.ABBREVIATIONS: {
+            Abbreviations abbreviations = ( Abbreviations ) theEObject;
+            T result = caseAbbreviations( abbreviations );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TABSTRACT_LN_CLASS: {
-            TAbstractLNClass tAbstractLNClass = ( TAbstractLNClass ) theEObject;
-            T result = caseTAbstractLNClass( tAbstractLNClass );
-            if( result == null ) result = caseTAnyLNClass( tAbstractLNClass );
-            if( result == null ) result = caseTTitledClass( tAbstractLNClass );
-            if( result == null ) result = caseTDocumentedClass( tAbstractLNClass );
+        case NsdPackage.ABSTRACT_LN_CLASS: {
+            AbstractLNClass abstractLNClass = ( AbstractLNClass ) theEObject;
+            T result = caseAbstractLNClass( abstractLNClass );
+            if( result == null ) result = caseAnyLNClass( abstractLNClass );
+            if( result == null ) result = caseTitledClass( abstractLNClass );
+            if( result == null ) result = caseDocumentedClass( abstractLNClass );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TANY_LN_CLASS: {
-            TAnyLNClass tAnyLNClass = ( TAnyLNClass ) theEObject;
-            T result = caseTAnyLNClass( tAnyLNClass );
-            if( result == null ) result = caseTTitledClass( tAnyLNClass );
-            if( result == null ) result = caseTDocumentedClass( tAnyLNClass );
+        case NsdPackage.ANY_LN_CLASS: {
+            AnyLNClass anyLNClass = ( AnyLNClass ) theEObject;
+            T result = caseAnyLNClass( anyLNClass );
+            if( result == null ) result = caseTitledClass( anyLNClass );
+            if( result == null ) result = caseDocumentedClass( anyLNClass );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TAPPLICABLE_SERVICE_NS: {
-            TApplicableServiceNS tApplicableServiceNS = ( TApplicableServiceNS ) theEObject;
-            T result = caseTApplicableServiceNS( tApplicableServiceNS );
-            if( result == null ) result = caseTCopyrighted( tApplicableServiceNS );
+        case NsdPackage.APPLICABLE_SERVICE_NS: {
+            ApplicableServiceNS applicableServiceNS = ( ApplicableServiceNS ) theEObject;
+            T result = caseApplicableServiceNS( applicableServiceNS );
+            if( result == null ) result = caseCopyrighted( applicableServiceNS );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TAPPLICABLE_SERVICES: {
-            TApplicableServices tApplicableServices = ( TApplicableServices ) theEObject;
-            T result = caseTApplicableServices( tApplicableServices );
+        case NsdPackage.APPLICABLE_SERVICES: {
+            ApplicableServices applicableServices = ( ApplicableServices ) theEObject;
+            T result = caseApplicableServices( applicableServices );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TBASIC_TYPE: {
-            TBasicType tBasicType = ( TBasicType ) theEObject;
-            T result = caseTBasicType( tBasicType );
+        case NsdPackage.BASIC_TYPE: {
+            BasicType basicType = ( BasicType ) theEObject;
+            T result = caseBasicType( basicType );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TBASIC_TYPES: {
-            TBasicTypes tBasicTypes = ( TBasicTypes ) theEObject;
-            T result = caseTBasicTypes( tBasicTypes );
+        case NsdPackage.BASIC_TYPES: {
+            BasicTypes basicTypes = ( BasicTypes ) theEObject;
+            T result = caseBasicTypes( basicTypes );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TCDC: {
-            TCDC tcdc = ( TCDC ) theEObject;
-            T result = caseTCDC( tcdc );
-            if( result == null ) result = caseTTitledClass( tcdc );
-            if( result == null ) result = caseTDocumentedClass( tcdc );
+        case NsdPackage.CDC: {
+            CDC cdc = ( CDC ) theEObject;
+            T result = caseCDC( cdc );
+            if( result == null ) result = caseTitledClass( cdc );
+            if( result == null ) result = caseDocumentedClass( cdc );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TCD_CS: {
-            TCDCs tcdCs = ( TCDCs ) theEObject;
-            T result = caseTCDCs( tcdCs );
+        case NsdPackage.CD_CS: {
+            CDCs cdCs = ( CDCs ) theEObject;
+            T result = caseCDCs( cdCs );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TCHANGES: {
-            TChanges tChanges = ( TChanges ) theEObject;
-            T result = caseTChanges( tChanges );
+        case NsdPackage.CHANGES: {
+            Changes changes = ( Changes ) theEObject;
+            T result = caseChanges( changes );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TCONSTRUCTED_ATTRIBUTE: {
-            TConstructedAttribute tConstructedAttribute = ( TConstructedAttribute ) theEObject;
-            T result = caseTConstructedAttribute( tConstructedAttribute );
-            if( result == null ) result = caseTTitledClass( tConstructedAttribute );
-            if( result == null ) result = caseTDocumentedClass( tConstructedAttribute );
+        case NsdPackage.CONSTRUCTED_ATTRIBUTE: {
+            ConstructedAttribute constructedAttribute = ( ConstructedAttribute ) theEObject;
+            T result = caseConstructedAttribute( constructedAttribute );
+            if( result == null ) result = caseTitledClass( constructedAttribute );
+            if( result == null ) result = caseDocumentedClass( constructedAttribute );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TCONSTRUCTED_ATTRIBUTES: {
-            TConstructedAttributes tConstructedAttributes = ( TConstructedAttributes ) theEObject;
-            T result = caseTConstructedAttributes( tConstructedAttributes );
+        case NsdPackage.CONSTRUCTED_ATTRIBUTES: {
+            ConstructedAttributes constructedAttributes = ( ConstructedAttributes ) theEObject;
+            T result = caseConstructedAttributes( constructedAttributes );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TCOPYRIGHTED: {
-            TCopyrighted tCopyrighted = ( TCopyrighted ) theEObject;
-            T result = caseTCopyrighted( tCopyrighted );
+        case NsdPackage.COPYRIGHTED: {
+            Copyrighted copyrighted = ( Copyrighted ) theEObject;
+            T result = caseCopyrighted( copyrighted );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TCOPYRIGHT_NOTICE: {
-            TCopyrightNotice tCopyrightNotice = ( TCopyrightNotice ) theEObject;
-            T result = caseTCopyrightNotice( tCopyrightNotice );
+        case NsdPackage.COPYRIGHT_NOTICE: {
+            CopyrightNotice copyrightNotice = ( CopyrightNotice ) theEObject;
+            T result = caseCopyrightNotice( copyrightNotice );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TDATA_ATTRIBUTE: {
-            TDataAttribute tDataAttribute = ( TDataAttribute ) theEObject;
-            T result = caseTDataAttribute( tDataAttribute );
-            if( result == null ) result = caseTDocumentedClass( tDataAttribute );
+        case NsdPackage.DATA_ATTRIBUTE: {
+            DataAttribute dataAttribute = ( DataAttribute ) theEObject;
+            T result = caseDataAttribute( dataAttribute );
+            if( result == null ) result = caseDocumentedClass( dataAttribute );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TDATA_OBJECT: {
-            TDataObject tDataObject = ( TDataObject ) theEObject;
-            T result = caseTDataObject( tDataObject );
-            if( result == null ) result = caseTDocumentedClass( tDataObject );
+        case NsdPackage.DATA_OBJECT: {
+            DataObject dataObject = ( DataObject ) theEObject;
+            T result = caseDataObject( dataObject );
+            if( result == null ) result = caseDocumentedClass( dataObject );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TDATA_SET_MEMBER_OF: {
-            TDataSetMemberOf tDataSetMemberOf = ( TDataSetMemberOf ) theEObject;
-            T result = caseTDataSetMemberOf( tDataSetMemberOf );
+        case NsdPackage.DATA_SET_MEMBER_OF: {
+            DataSetMemberOf dataSetMemberOf = ( DataSetMemberOf ) theEObject;
+            T result = caseDataSetMemberOf( dataSetMemberOf );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TDOC: {
-            TDoc tDoc = ( TDoc ) theEObject;
-            T result = caseTDoc( tDoc );
+        case NsdPackage.DOC: {
+            Doc doc = ( Doc ) theEObject;
+            T result = caseDoc( doc );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TDOCUMENTED_CLASS: {
-            TDocumentedClass tDocumentedClass = ( TDocumentedClass ) theEObject;
-            T result = caseTDocumentedClass( tDocumentedClass );
+        case NsdPackage.DOCUMENTED_CLASS: {
+            DocumentedClass documentedClass = ( DocumentedClass ) theEObject;
+            T result = caseDocumentedClass( documentedClass );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TENUMERATION: {
-            TEnumeration tEnumeration = ( TEnumeration ) theEObject;
-            T result = caseTEnumeration( tEnumeration );
-            if( result == null ) result = caseTTitledClass( tEnumeration );
-            if( result == null ) result = caseTDocumentedClass( tEnumeration );
+        case NsdPackage.ENUMERATION: {
+            Enumeration enumeration = ( Enumeration ) theEObject;
+            T result = caseEnumeration( enumeration );
+            if( result == null ) result = caseTitledClass( enumeration );
+            if( result == null ) result = caseDocumentedClass( enumeration );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TENUMERATIONS: {
-            TEnumerations tEnumerations = ( TEnumerations ) theEObject;
-            T result = caseTEnumerations( tEnumerations );
+        case NsdPackage.ENUMERATIONS: {
+            Enumerations enumerations = ( Enumerations ) theEObject;
+            T result = caseEnumerations( enumerations );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TFUNCTIONAL_CONSTRAINT: {
-            TFunctionalConstraint tFunctionalConstraint = ( TFunctionalConstraint ) theEObject;
-            T result = caseTFunctionalConstraint( tFunctionalConstraint );
+        case NsdPackage.FUNCTIONAL_CONSTRAINT: {
+            FunctionalConstraint functionalConstraint = ( FunctionalConstraint ) theEObject;
+            T result = caseFunctionalConstraint( functionalConstraint );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TFUNCTIONAL_CONSTRAINTS: {
-            TFunctionalConstraints tFunctionalConstraints = ( TFunctionalConstraints ) theEObject;
-            T result = caseTFunctionalConstraints( tFunctionalConstraints );
+        case NsdPackage.FUNCTIONAL_CONSTRAINTS: {
+            FunctionalConstraints functionalConstraints = ( FunctionalConstraints ) theEObject;
+            T result = caseFunctionalConstraints( functionalConstraints );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TLICENSE: {
-            TLicense tLicense = ( TLicense ) theEObject;
-            T result = caseTLicense( tLicense );
+        case NsdPackage.LICENSE: {
+            License license = ( License ) theEObject;
+            T result = caseLicense( license );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TLITERAL: {
-            TLiteral tLiteral = ( TLiteral ) theEObject;
-            T result = caseTLiteral( tLiteral );
-            if( result == null ) result = caseTDocumentedClass( tLiteral );
+        case NsdPackage.LITERAL: {
+            Literal literal = ( Literal ) theEObject;
+            T result = caseLiteral( literal );
+            if( result == null ) result = caseDocumentedClass( literal );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TLN_CLASS: {
-            TLNClass tlnClass = ( TLNClass ) theEObject;
-            T result = caseTLNClass( tlnClass );
-            if( result == null ) result = caseTAnyLNClass( tlnClass );
-            if( result == null ) result = caseTTitledClass( tlnClass );
-            if( result == null ) result = caseTDocumentedClass( tlnClass );
+        case NsdPackage.LN_CLASS: {
+            LNClass lnClass = ( LNClass ) theEObject;
+            T result = caseLNClass( lnClass );
+            if( result == null ) result = caseAnyLNClass( lnClass );
+            if( result == null ) result = caseTitledClass( lnClass );
+            if( result == null ) result = caseDocumentedClass( lnClass );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TLN_CLASSES: {
-            TLNClasses tlnClasses = ( TLNClasses ) theEObject;
-            T result = caseTLNClasses( tlnClasses );
+        case NsdPackage.LN_CLASSES: {
+            LNClasses lnClasses = ( LNClasses ) theEObject;
+            T result = caseLNClasses( lnClasses );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TNOTICE: {
-            TNotice tNotice = ( TNotice ) theEObject;
-            T result = caseTNotice( tNotice );
+        case NsdPackage.NOTICE: {
+            Notice notice = ( Notice ) theEObject;
+            T result = caseNotice( notice );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TNS: {
-            TNS tns = ( TNS ) theEObject;
-            T result = caseTNS( tns );
-            if( result == null ) result = caseTCopyrighted( tns );
+        case NsdPackage.NS: {
+            NS ns = ( NS ) theEObject;
+            T result = caseNS( ns );
+            if( result == null ) result = caseCopyrighted( ns );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TNS_DOC: {
-            TNSDoc tnsDoc = ( TNSDoc ) theEObject;
-            T result = caseTNSDoc( tnsDoc );
-            if( result == null ) result = caseTCopyrighted( tnsDoc );
+        case NsdPackage.NS_DOC: {
+            NSDoc nsDoc = ( NSDoc ) theEObject;
+            T result = caseNSDoc( nsDoc );
+            if( result == null ) result = caseCopyrighted( nsDoc );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TPRESENCE_CONDITION: {
-            TPresenceCondition tPresenceCondition = ( TPresenceCondition ) theEObject;
-            T result = caseTPresenceCondition( tPresenceCondition );
+        case NsdPackage.PRESENCE_CONDITION: {
+            PresenceCondition presenceCondition = ( PresenceCondition ) theEObject;
+            T result = casePresenceCondition( presenceCondition );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TPRESENCE_CONDITIONS: {
-            TPresenceConditions tPresenceConditions = ( TPresenceConditions ) theEObject;
-            T result = caseTPresenceConditions( tPresenceConditions );
+        case NsdPackage.PRESENCE_CONDITIONS: {
+            PresenceConditions presenceConditions = ( PresenceConditions ) theEObject;
+            T result = casePresenceConditions( presenceConditions );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TSERVICE_CDC: {
-            TServiceCDC tServiceCDC = ( TServiceCDC ) theEObject;
-            T result = caseTServiceCDC( tServiceCDC );
+        case NsdPackage.SERVICE_CDC: {
+            ServiceCDC serviceCDC = ( ServiceCDC ) theEObject;
+            T result = caseServiceCDC( serviceCDC );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TSERVICE_CD_CS: {
-            TServiceCDCs tServiceCDCs = ( TServiceCDCs ) theEObject;
-            T result = caseTServiceCDCs( tServiceCDCs );
+        case NsdPackage.SERVICE_CD_CS: {
+            ServiceCDCs serviceCDCs = ( ServiceCDCs ) theEObject;
+            T result = caseServiceCDCs( serviceCDCs );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TSERVICE_CONSTRUCTED_ATTRIBUTE: {
-            TServiceConstructedAttribute tServiceConstructedAttribute = ( TServiceConstructedAttribute ) theEObject;
-            T result = caseTServiceConstructedAttribute( tServiceConstructedAttribute );
-            if( result == null ) result = caseTConstructedAttribute( tServiceConstructedAttribute );
-            if( result == null ) result = caseTTitledClass( tServiceConstructedAttribute );
-            if( result == null ) result = caseTDocumentedClass( tServiceConstructedAttribute );
+        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE: {
+            ServiceConstructedAttribute serviceConstructedAttribute = ( ServiceConstructedAttribute ) theEObject;
+            T result = caseServiceConstructedAttribute( serviceConstructedAttribute );
+            if( result == null ) result = caseConstructedAttribute( serviceConstructedAttribute );
+            if( result == null ) result = caseTitledClass( serviceConstructedAttribute );
+            if( result == null ) result = caseDocumentedClass( serviceConstructedAttribute );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TSERVICE_CONSTRUCTED_ATTRIBUTES: {
-            TServiceConstructedAttributes tServiceConstructedAttributes = ( TServiceConstructedAttributes ) theEObject;
-            T result = caseTServiceConstructedAttributes( tServiceConstructedAttributes );
+        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES: {
+            ServiceConstructedAttributes serviceConstructedAttributes = ( ServiceConstructedAttributes ) theEObject;
+            T result = caseServiceConstructedAttributes( serviceConstructedAttributes );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TSERVICE_DATA_ATTRIBUTE: {
-            TServiceDataAttribute tServiceDataAttribute = ( TServiceDataAttribute ) theEObject;
-            T result = caseTServiceDataAttribute( tServiceDataAttribute );
-            if( result == null ) result = caseTDocumentedClass( tServiceDataAttribute );
+        case NsdPackage.SERVICE_DATA_ATTRIBUTE: {
+            ServiceDataAttribute serviceDataAttribute = ( ServiceDataAttribute ) theEObject;
+            T result = caseServiceDataAttribute( serviceDataAttribute );
+            if( result == null ) result = caseDocumentedClass( serviceDataAttribute );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TSERVICE_NS: {
-            TServiceNS tServiceNS = ( TServiceNS ) theEObject;
-            T result = caseTServiceNS( tServiceNS );
-            if( result == null ) result = caseTCopyrighted( tServiceNS );
+        case NsdPackage.SERVICE_NS: {
+            ServiceNS serviceNS = ( ServiceNS ) theEObject;
+            T result = caseServiceNS( serviceNS );
+            if( result == null ) result = caseCopyrighted( serviceNS );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TSERVICE_NS_USAGE: {
-            TServiceNsUsage tServiceNsUsage = ( TServiceNsUsage ) theEObject;
-            T result = caseTServiceNsUsage( tServiceNsUsage );
+        case NsdPackage.SERVICE_NS_USAGE: {
+            ServiceNsUsage serviceNsUsage = ( ServiceNsUsage ) theEObject;
+            T result = caseServiceNsUsage( serviceNsUsage );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TSERVICE_PARAMETER: {
-            TServiceParameter tServiceParameter = ( TServiceParameter ) theEObject;
-            T result = caseTServiceParameter( tServiceParameter );
-            if( result == null ) result = caseTDocumentedClass( tServiceParameter );
+        case NsdPackage.SERVICE_PARAMETER: {
+            ServiceParameter serviceParameter = ( ServiceParameter ) theEObject;
+            T result = caseServiceParameter( serviceParameter );
+            if( result == null ) result = caseDocumentedClass( serviceParameter );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TSERVICE_TYPE_REALIZATION: {
-            TServiceTypeRealization tServiceTypeRealization = ( TServiceTypeRealization ) theEObject;
-            T result = caseTServiceTypeRealization( tServiceTypeRealization );
+        case NsdPackage.SERVICE_TYPE_REALIZATION: {
+            ServiceTypeRealization serviceTypeRealization = ( ServiceTypeRealization ) theEObject;
+            T result = caseServiceTypeRealization( serviceTypeRealization );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TSERVICE_TYPE_REALIZATIONS: {
-            TServiceTypeRealizations tServiceTypeRealizations = ( TServiceTypeRealizations ) theEObject;
-            T result = caseTServiceTypeRealizations( tServiceTypeRealizations );
+        case NsdPackage.SERVICE_TYPE_REALIZATIONS: {
+            ServiceTypeRealizations serviceTypeRealizations = ( ServiceTypeRealizations ) theEObject;
+            T result = caseServiceTypeRealizations( serviceTypeRealizations );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TSUB_DATA_ATTRIBUTE: {
-            TSubDataAttribute tSubDataAttribute = ( TSubDataAttribute ) theEObject;
-            T result = caseTSubDataAttribute( tSubDataAttribute );
-            if( result == null ) result = caseTDocumentedClass( tSubDataAttribute );
+        case NsdPackage.SUB_DATA_ATTRIBUTE: {
+            SubDataAttribute subDataAttribute = ( SubDataAttribute ) theEObject;
+            T result = caseSubDataAttribute( subDataAttribute );
+            if( result == null ) result = caseDocumentedClass( subDataAttribute );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TSUB_DATA_OBJECT: {
-            TSubDataObject tSubDataObject = ( TSubDataObject ) theEObject;
-            T result = caseTSubDataObject( tSubDataObject );
-            if( result == null ) result = caseTDocumentedClass( tSubDataObject );
+        case NsdPackage.SUB_DATA_OBJECT: {
+            SubDataObject subDataObject = ( SubDataObject ) theEObject;
+            T result = caseSubDataObject( subDataObject );
+            if( result == null ) result = caseDocumentedClass( subDataObject );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.TTITLED_CLASS: {
-            TTitledClass tTitledClass = ( TTitledClass ) theEObject;
-            T result = caseTTitledClass( tTitledClass );
-            if( result == null ) result = caseTDocumentedClass( tTitledClass );
+        case NsdPackage.TITLED_CLASS: {
+            TitledClass titledClass = ( TitledClass ) theEObject;
+            T result = caseTitledClass( titledClass );
+            if( result == null ) result = caseDocumentedClass( titledClass );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
@@ -478,692 +478,692 @@ public class NsdSwitch< T > extends Switch< T > {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TAbbreviation</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Abbreviation</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TAbbreviation</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Abbreviation</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTAbbreviation( TAbbreviation object ) {
+    public T caseAbbreviation( Abbreviation object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TAbbreviations</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Abbreviations</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TAbbreviations</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Abbreviations</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTAbbreviations( TAbbreviations object ) {
+    public T caseAbbreviations( Abbreviations object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TAbstract LN Class</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Abstract LN Class</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TAbstract LN Class</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Abstract LN Class</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTAbstractLNClass( TAbstractLNClass object ) {
+    public T caseAbstractLNClass( AbstractLNClass object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TAny LN Class</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Any LN Class</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TAny LN Class</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Any LN Class</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTAnyLNClass( TAnyLNClass object ) {
+    public T caseAnyLNClass( AnyLNClass object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TApplicable Service NS</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Applicable Service NS</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TApplicable Service NS</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Applicable Service NS</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTApplicableServiceNS( TApplicableServiceNS object ) {
+    public T caseApplicableServiceNS( ApplicableServiceNS object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TApplicable Services</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Applicable Services</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TApplicable Services</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Applicable Services</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTApplicableServices( TApplicableServices object ) {
+    public T caseApplicableServices( ApplicableServices object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TBasic Type</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Basic Type</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TBasic Type</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Basic Type</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTBasicType( TBasicType object ) {
+    public T caseBasicType( BasicType object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TBasic Types</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Basic Types</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TBasic Types</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Basic Types</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTBasicTypes( TBasicTypes object ) {
+    public T caseBasicTypes( BasicTypes object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TCDC</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>CDC</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TCDC</em>'.
+     * @return the result of interpreting the object as an instance of '<em>CDC</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTCDC( TCDC object ) {
+    public T caseCDC( CDC object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TCD Cs</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>CD Cs</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TCD Cs</em>'.
+     * @return the result of interpreting the object as an instance of '<em>CD Cs</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTCDCs( TCDCs object ) {
+    public T caseCDCs( CDCs object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TChanges</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Changes</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TChanges</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Changes</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTChanges( TChanges object ) {
+    public T caseChanges( Changes object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TConstructed Attribute</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Constructed Attribute</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TConstructed Attribute</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Constructed Attribute</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTConstructedAttribute( TConstructedAttribute object ) {
+    public T caseConstructedAttribute( ConstructedAttribute object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TConstructed Attributes</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Constructed Attributes</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TConstructed Attributes</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Constructed Attributes</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTConstructedAttributes( TConstructedAttributes object ) {
+    public T caseConstructedAttributes( ConstructedAttributes object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TCopyrighted</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Copyrighted</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TCopyrighted</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Copyrighted</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTCopyrighted( TCopyrighted object ) {
+    public T caseCopyrighted( Copyrighted object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TCopyright Notice</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Copyright Notice</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TCopyright Notice</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Copyright Notice</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTCopyrightNotice( TCopyrightNotice object ) {
+    public T caseCopyrightNotice( CopyrightNotice object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TData Attribute</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Data Attribute</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TData Attribute</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Data Attribute</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTDataAttribute( TDataAttribute object ) {
+    public T caseDataAttribute( DataAttribute object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TData Object</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Data Object</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TData Object</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Data Object</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTDataObject( TDataObject object ) {
+    public T caseDataObject( DataObject object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TData Set Member Of</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Data Set Member Of</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TData Set Member Of</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Data Set Member Of</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTDataSetMemberOf( TDataSetMemberOf object ) {
+    public T caseDataSetMemberOf( DataSetMemberOf object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TDoc</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Doc</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TDoc</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Doc</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTDoc( TDoc object ) {
+    public T caseDoc( Doc object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TDocumented Class</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Documented Class</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TDocumented Class</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Documented Class</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTDocumentedClass( TDocumentedClass object ) {
+    public T caseDocumentedClass( DocumentedClass object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TEnumeration</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Enumeration</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TEnumeration</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Enumeration</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTEnumeration( TEnumeration object ) {
+    public T caseEnumeration( Enumeration object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TEnumerations</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Enumerations</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TEnumerations</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Enumerations</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTEnumerations( TEnumerations object ) {
+    public T caseEnumerations( Enumerations object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TFunctional Constraint</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Functional Constraint</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TFunctional Constraint</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Functional Constraint</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTFunctionalConstraint( TFunctionalConstraint object ) {
+    public T caseFunctionalConstraint( FunctionalConstraint object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TFunctional Constraints</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Functional Constraints</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TFunctional Constraints</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Functional Constraints</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTFunctionalConstraints( TFunctionalConstraints object ) {
+    public T caseFunctionalConstraints( FunctionalConstraints object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TLicense</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>License</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TLicense</em>'.
+     * @return the result of interpreting the object as an instance of '<em>License</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTLicense( TLicense object ) {
+    public T caseLicense( License object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TLiteral</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Literal</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TLiteral</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Literal</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTLiteral( TLiteral object ) {
+    public T caseLiteral( Literal object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TLN Class</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>LN Class</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TLN Class</em>'.
+     * @return the result of interpreting the object as an instance of '<em>LN Class</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTLNClass( TLNClass object ) {
+    public T caseLNClass( LNClass object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TLN Classes</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>LN Classes</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TLN Classes</em>'.
+     * @return the result of interpreting the object as an instance of '<em>LN Classes</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTLNClasses( TLNClasses object ) {
+    public T caseLNClasses( LNClasses object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TNotice</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Notice</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TNotice</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Notice</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTNotice( TNotice object ) {
+    public T caseNotice( Notice object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TNS</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>NS</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TNS</em>'.
+     * @return the result of interpreting the object as an instance of '<em>NS</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTNS( TNS object ) {
+    public T caseNS( NS object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TNS Doc</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>NS Doc</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TNS Doc</em>'.
+     * @return the result of interpreting the object as an instance of '<em>NS Doc</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTNSDoc( TNSDoc object ) {
+    public T caseNSDoc( NSDoc object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TPresence Condition</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Presence Condition</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TPresence Condition</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Presence Condition</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTPresenceCondition( TPresenceCondition object ) {
+    public T casePresenceCondition( PresenceCondition object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TPresence Conditions</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Presence Conditions</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TPresence Conditions</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Presence Conditions</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTPresenceConditions( TPresenceConditions object ) {
+    public T casePresenceConditions( PresenceConditions object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TService CDC</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Service CDC</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TService CDC</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Service CDC</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTServiceCDC( TServiceCDC object ) {
+    public T caseServiceCDC( ServiceCDC object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TService CD Cs</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Service CD Cs</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TService CD Cs</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Service CD Cs</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTServiceCDCs( TServiceCDCs object ) {
+    public T caseServiceCDCs( ServiceCDCs object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TService Constructed Attribute</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Service Constructed Attribute</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TService Constructed Attribute</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Service Constructed Attribute</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTServiceConstructedAttribute( TServiceConstructedAttribute object ) {
+    public T caseServiceConstructedAttribute( ServiceConstructedAttribute object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TService Constructed Attributes</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Service Constructed Attributes</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TService Constructed Attributes</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Service Constructed Attributes</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTServiceConstructedAttributes( TServiceConstructedAttributes object ) {
+    public T caseServiceConstructedAttributes( ServiceConstructedAttributes object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TService Data Attribute</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Service Data Attribute</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TService Data Attribute</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Service Data Attribute</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTServiceDataAttribute( TServiceDataAttribute object ) {
+    public T caseServiceDataAttribute( ServiceDataAttribute object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TService NS</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Service NS</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TService NS</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Service NS</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTServiceNS( TServiceNS object ) {
+    public T caseServiceNS( ServiceNS object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TService Ns Usage</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Service Ns Usage</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TService Ns Usage</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Service Ns Usage</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTServiceNsUsage( TServiceNsUsage object ) {
+    public T caseServiceNsUsage( ServiceNsUsage object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TService Parameter</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Service Parameter</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TService Parameter</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Service Parameter</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTServiceParameter( TServiceParameter object ) {
+    public T caseServiceParameter( ServiceParameter object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TService Type Realization</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Service Type Realization</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TService Type Realization</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Service Type Realization</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTServiceTypeRealization( TServiceTypeRealization object ) {
+    public T caseServiceTypeRealization( ServiceTypeRealization object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TService Type Realizations</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Service Type Realizations</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TService Type Realizations</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Service Type Realizations</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTServiceTypeRealizations( TServiceTypeRealizations object ) {
+    public T caseServiceTypeRealizations( ServiceTypeRealizations object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TSub Data Attribute</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Sub Data Attribute</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TSub Data Attribute</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Sub Data Attribute</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTSubDataAttribute( TSubDataAttribute object ) {
+    public T caseSubDataAttribute( SubDataAttribute object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TSub Data Object</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Sub Data Object</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TSub Data Object</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Sub Data Object</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTSubDataObject( TSubDataObject object ) {
+    public T caseSubDataObject( SubDataObject object ) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>TTitled Class</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Titled Class</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>TTitled Class</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Titled Class</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTTitledClass( TTitledClass object ) {
+    public T caseTitledClass( TitledClass object ) {
         return null;
     }
 

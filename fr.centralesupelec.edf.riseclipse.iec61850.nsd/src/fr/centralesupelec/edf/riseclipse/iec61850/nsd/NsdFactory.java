@@ -75,409 +75,409 @@ public interface NsdFactory extends EFactory {
     ServiceType createServiceType();
 
     /**
-     * Returns a new object of class '<em>TAbbreviation</em>'.
+     * Returns a new object of class '<em>Abbreviation</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TAbbreviation</em>'.
+     * @return a new object of class '<em>Abbreviation</em>'.
      * @generated
      */
-    TAbbreviation createTAbbreviation();
+    Abbreviation createAbbreviation();
 
     /**
-     * Returns a new object of class '<em>TAbbreviations</em>'.
+     * Returns a new object of class '<em>Abbreviations</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TAbbreviations</em>'.
+     * @return a new object of class '<em>Abbreviations</em>'.
      * @generated
      */
-    TAbbreviations createTAbbreviations();
+    Abbreviations createAbbreviations();
 
     /**
-     * Returns a new object of class '<em>TAbstract LN Class</em>'.
+     * Returns a new object of class '<em>Abstract LN Class</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TAbstract LN Class</em>'.
+     * @return a new object of class '<em>Abstract LN Class</em>'.
      * @generated
      */
-    TAbstractLNClass createTAbstractLNClass();
+    AbstractLNClass createAbstractLNClass();
 
     /**
-     * Returns a new object of class '<em>TApplicable Service NS</em>'.
+     * Returns a new object of class '<em>Applicable Service NS</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TApplicable Service NS</em>'.
+     * @return a new object of class '<em>Applicable Service NS</em>'.
      * @generated
      */
-    TApplicableServiceNS createTApplicableServiceNS();
+    ApplicableServiceNS createApplicableServiceNS();
 
     /**
-     * Returns a new object of class '<em>TApplicable Services</em>'.
+     * Returns a new object of class '<em>Applicable Services</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TApplicable Services</em>'.
+     * @return a new object of class '<em>Applicable Services</em>'.
      * @generated
      */
-    TApplicableServices createTApplicableServices();
+    ApplicableServices createApplicableServices();
 
     /**
-     * Returns a new object of class '<em>TBasic Type</em>'.
+     * Returns a new object of class '<em>Basic Type</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TBasic Type</em>'.
+     * @return a new object of class '<em>Basic Type</em>'.
      * @generated
      */
-    TBasicType createTBasicType();
+    BasicType createBasicType();
 
     /**
-     * Returns a new object of class '<em>TBasic Types</em>'.
+     * Returns a new object of class '<em>Basic Types</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TBasic Types</em>'.
+     * @return a new object of class '<em>Basic Types</em>'.
      * @generated
      */
-    TBasicTypes createTBasicTypes();
+    BasicTypes createBasicTypes();
 
     /**
-     * Returns a new object of class '<em>TCDC</em>'.
+     * Returns a new object of class '<em>CDC</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TCDC</em>'.
+     * @return a new object of class '<em>CDC</em>'.
      * @generated
      */
-    TCDC createTCDC();
+    CDC createCDC();
 
     /**
-     * Returns a new object of class '<em>TCD Cs</em>'.
+     * Returns a new object of class '<em>CD Cs</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TCD Cs</em>'.
+     * @return a new object of class '<em>CD Cs</em>'.
      * @generated
      */
-    TCDCs createTCDCs();
+    CDCs createCDCs();
 
     /**
-     * Returns a new object of class '<em>TChanges</em>'.
+     * Returns a new object of class '<em>Changes</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TChanges</em>'.
+     * @return a new object of class '<em>Changes</em>'.
      * @generated
      */
-    TChanges createTChanges();
+    Changes createChanges();
 
     /**
-     * Returns a new object of class '<em>TConstructed Attribute</em>'.
+     * Returns a new object of class '<em>Constructed Attribute</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TConstructed Attribute</em>'.
+     * @return a new object of class '<em>Constructed Attribute</em>'.
      * @generated
      */
-    TConstructedAttribute createTConstructedAttribute();
+    ConstructedAttribute createConstructedAttribute();
 
     /**
-     * Returns a new object of class '<em>TConstructed Attributes</em>'.
+     * Returns a new object of class '<em>Constructed Attributes</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TConstructed Attributes</em>'.
+     * @return a new object of class '<em>Constructed Attributes</em>'.
      * @generated
      */
-    TConstructedAttributes createTConstructedAttributes();
+    ConstructedAttributes createConstructedAttributes();
 
     /**
-     * Returns a new object of class '<em>TCopyrighted</em>'.
+     * Returns a new object of class '<em>Copyrighted</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TCopyrighted</em>'.
+     * @return a new object of class '<em>Copyrighted</em>'.
      * @generated
      */
-    TCopyrighted createTCopyrighted();
+    Copyrighted createCopyrighted();
 
     /**
-     * Returns a new object of class '<em>TCopyright Notice</em>'.
+     * Returns a new object of class '<em>Copyright Notice</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TCopyright Notice</em>'.
+     * @return a new object of class '<em>Copyright Notice</em>'.
      * @generated
      */
-    TCopyrightNotice createTCopyrightNotice();
+    CopyrightNotice createCopyrightNotice();
 
     /**
-     * Returns a new object of class '<em>TData Attribute</em>'.
+     * Returns a new object of class '<em>Data Attribute</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TData Attribute</em>'.
+     * @return a new object of class '<em>Data Attribute</em>'.
      * @generated
      */
-    TDataAttribute createTDataAttribute();
+    DataAttribute createDataAttribute();
 
     /**
-     * Returns a new object of class '<em>TData Object</em>'.
+     * Returns a new object of class '<em>Data Object</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TData Object</em>'.
+     * @return a new object of class '<em>Data Object</em>'.
      * @generated
      */
-    TDataObject createTDataObject();
+    DataObject createDataObject();
 
     /**
-     * Returns a new object of class '<em>TData Set Member Of</em>'.
+     * Returns a new object of class '<em>Data Set Member Of</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TData Set Member Of</em>'.
+     * @return a new object of class '<em>Data Set Member Of</em>'.
      * @generated
      */
-    TDataSetMemberOf createTDataSetMemberOf();
+    DataSetMemberOf createDataSetMemberOf();
 
     /**
-     * Returns a new object of class '<em>TDoc</em>'.
+     * Returns a new object of class '<em>Doc</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TDoc</em>'.
+     * @return a new object of class '<em>Doc</em>'.
      * @generated
      */
-    TDoc createTDoc();
+    Doc createDoc();
 
     /**
-     * Returns a new object of class '<em>TDocumented Class</em>'.
+     * Returns a new object of class '<em>Documented Class</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TDocumented Class</em>'.
+     * @return a new object of class '<em>Documented Class</em>'.
      * @generated
      */
-    TDocumentedClass createTDocumentedClass();
+    DocumentedClass createDocumentedClass();
 
     /**
-     * Returns a new object of class '<em>TEnumeration</em>'.
+     * Returns a new object of class '<em>Enumeration</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TEnumeration</em>'.
+     * @return a new object of class '<em>Enumeration</em>'.
      * @generated
      */
-    TEnumeration createTEnumeration();
+    Enumeration createEnumeration();
 
     /**
-     * Returns a new object of class '<em>TEnumerations</em>'.
+     * Returns a new object of class '<em>Enumerations</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TEnumerations</em>'.
+     * @return a new object of class '<em>Enumerations</em>'.
      * @generated
      */
-    TEnumerations createTEnumerations();
+    Enumerations createEnumerations();
 
     /**
-     * Returns a new object of class '<em>TFunctional Constraint</em>'.
+     * Returns a new object of class '<em>Functional Constraint</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TFunctional Constraint</em>'.
+     * @return a new object of class '<em>Functional Constraint</em>'.
      * @generated
      */
-    TFunctionalConstraint createTFunctionalConstraint();
+    FunctionalConstraint createFunctionalConstraint();
 
     /**
-     * Returns a new object of class '<em>TFunctional Constraints</em>'.
+     * Returns a new object of class '<em>Functional Constraints</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TFunctional Constraints</em>'.
+     * @return a new object of class '<em>Functional Constraints</em>'.
      * @generated
      */
-    TFunctionalConstraints createTFunctionalConstraints();
+    FunctionalConstraints createFunctionalConstraints();
 
     /**
-     * Returns a new object of class '<em>TLicense</em>'.
+     * Returns a new object of class '<em>License</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TLicense</em>'.
+     * @return a new object of class '<em>License</em>'.
      * @generated
      */
-    TLicense createTLicense();
+    License createLicense();
 
     /**
-     * Returns a new object of class '<em>TLiteral</em>'.
+     * Returns a new object of class '<em>Literal</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TLiteral</em>'.
+     * @return a new object of class '<em>Literal</em>'.
      * @generated
      */
-    TLiteral createTLiteral();
+    Literal createLiteral();
 
     /**
-     * Returns a new object of class '<em>TLN Class</em>'.
+     * Returns a new object of class '<em>LN Class</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TLN Class</em>'.
+     * @return a new object of class '<em>LN Class</em>'.
      * @generated
      */
-    TLNClass createTLNClass();
+    LNClass createLNClass();
 
     /**
-     * Returns a new object of class '<em>TLN Classes</em>'.
+     * Returns a new object of class '<em>LN Classes</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TLN Classes</em>'.
+     * @return a new object of class '<em>LN Classes</em>'.
      * @generated
      */
-    TLNClasses createTLNClasses();
+    LNClasses createLNClasses();
 
     /**
-     * Returns a new object of class '<em>TNotice</em>'.
+     * Returns a new object of class '<em>Notice</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TNotice</em>'.
+     * @return a new object of class '<em>Notice</em>'.
      * @generated
      */
-    TNotice createTNotice();
+    Notice createNotice();
 
     /**
-     * Returns a new object of class '<em>TNS</em>'.
+     * Returns a new object of class '<em>NS</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TNS</em>'.
+     * @return a new object of class '<em>NS</em>'.
      * @generated
      */
-    TNS createTNS();
+    NS createNS();
 
     /**
-     * Returns a new object of class '<em>TNS Doc</em>'.
+     * Returns a new object of class '<em>NS Doc</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TNS Doc</em>'.
+     * @return a new object of class '<em>NS Doc</em>'.
      * @generated
      */
-    TNSDoc createTNSDoc();
+    NSDoc createNSDoc();
 
     /**
-     * Returns a new object of class '<em>TPresence Condition</em>'.
+     * Returns a new object of class '<em>Presence Condition</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TPresence Condition</em>'.
+     * @return a new object of class '<em>Presence Condition</em>'.
      * @generated
      */
-    TPresenceCondition createTPresenceCondition();
+    PresenceCondition createPresenceCondition();
 
     /**
-     * Returns a new object of class '<em>TPresence Conditions</em>'.
+     * Returns a new object of class '<em>Presence Conditions</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TPresence Conditions</em>'.
+     * @return a new object of class '<em>Presence Conditions</em>'.
      * @generated
      */
-    TPresenceConditions createTPresenceConditions();
+    PresenceConditions createPresenceConditions();
 
     /**
-     * Returns a new object of class '<em>TService CDC</em>'.
+     * Returns a new object of class '<em>Service CDC</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TService CDC</em>'.
+     * @return a new object of class '<em>Service CDC</em>'.
      * @generated
      */
-    TServiceCDC createTServiceCDC();
+    ServiceCDC createServiceCDC();
 
     /**
-     * Returns a new object of class '<em>TService CD Cs</em>'.
+     * Returns a new object of class '<em>Service CD Cs</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TService CD Cs</em>'.
+     * @return a new object of class '<em>Service CD Cs</em>'.
      * @generated
      */
-    TServiceCDCs createTServiceCDCs();
+    ServiceCDCs createServiceCDCs();
 
     /**
-     * Returns a new object of class '<em>TService Constructed Attribute</em>'.
+     * Returns a new object of class '<em>Service Constructed Attribute</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TService Constructed Attribute</em>'.
+     * @return a new object of class '<em>Service Constructed Attribute</em>'.
      * @generated
      */
-    TServiceConstructedAttribute createTServiceConstructedAttribute();
+    ServiceConstructedAttribute createServiceConstructedAttribute();
 
     /**
-     * Returns a new object of class '<em>TService Constructed Attributes</em>'.
+     * Returns a new object of class '<em>Service Constructed Attributes</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TService Constructed Attributes</em>'.
+     * @return a new object of class '<em>Service Constructed Attributes</em>'.
      * @generated
      */
-    TServiceConstructedAttributes createTServiceConstructedAttributes();
+    ServiceConstructedAttributes createServiceConstructedAttributes();
 
     /**
-     * Returns a new object of class '<em>TService Data Attribute</em>'.
+     * Returns a new object of class '<em>Service Data Attribute</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TService Data Attribute</em>'.
+     * @return a new object of class '<em>Service Data Attribute</em>'.
      * @generated
      */
-    TServiceDataAttribute createTServiceDataAttribute();
+    ServiceDataAttribute createServiceDataAttribute();
 
     /**
-     * Returns a new object of class '<em>TService NS</em>'.
+     * Returns a new object of class '<em>Service NS</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TService NS</em>'.
+     * @return a new object of class '<em>Service NS</em>'.
      * @generated
      */
-    TServiceNS createTServiceNS();
+    ServiceNS createServiceNS();
 
     /**
-     * Returns a new object of class '<em>TService Ns Usage</em>'.
+     * Returns a new object of class '<em>Service Ns Usage</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TService Ns Usage</em>'.
+     * @return a new object of class '<em>Service Ns Usage</em>'.
      * @generated
      */
-    TServiceNsUsage createTServiceNsUsage();
+    ServiceNsUsage createServiceNsUsage();
 
     /**
-     * Returns a new object of class '<em>TService Parameter</em>'.
+     * Returns a new object of class '<em>Service Parameter</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TService Parameter</em>'.
+     * @return a new object of class '<em>Service Parameter</em>'.
      * @generated
      */
-    TServiceParameter createTServiceParameter();
+    ServiceParameter createServiceParameter();
 
     /**
-     * Returns a new object of class '<em>TService Type Realization</em>'.
+     * Returns a new object of class '<em>Service Type Realization</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TService Type Realization</em>'.
+     * @return a new object of class '<em>Service Type Realization</em>'.
      * @generated
      */
-    TServiceTypeRealization createTServiceTypeRealization();
+    ServiceTypeRealization createServiceTypeRealization();
 
     /**
-     * Returns a new object of class '<em>TService Type Realizations</em>'.
+     * Returns a new object of class '<em>Service Type Realizations</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TService Type Realizations</em>'.
+     * @return a new object of class '<em>Service Type Realizations</em>'.
      * @generated
      */
-    TServiceTypeRealizations createTServiceTypeRealizations();
+    ServiceTypeRealizations createServiceTypeRealizations();
 
     /**
-     * Returns a new object of class '<em>TSub Data Attribute</em>'.
+     * Returns a new object of class '<em>Sub Data Attribute</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TSub Data Attribute</em>'.
+     * @return a new object of class '<em>Sub Data Attribute</em>'.
      * @generated
      */
-    TSubDataAttribute createTSubDataAttribute();
+    SubDataAttribute createSubDataAttribute();
 
     /**
-     * Returns a new object of class '<em>TSub Data Object</em>'.
+     * Returns a new object of class '<em>Sub Data Object</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TSub Data Object</em>'.
+     * @return a new object of class '<em>Sub Data Object</em>'.
      * @generated
      */
-    TSubDataObject createTSubDataObject();
+    SubDataObject createSubDataObject();
 
     /**
-     * Returns a new object of class '<em>TTitled Class</em>'.
+     * Returns a new object of class '<em>Titled Class</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>TTitled Class</em>'.
+     * @return a new object of class '<em>Titled Class</em>'.
      * @generated
      */
-    TTitledClass createTTitledClass();
+    TitledClass createTitledClass();
 
     /**
      * Returns the package supported by this factory.

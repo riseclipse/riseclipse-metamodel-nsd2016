@@ -21,7 +21,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TPubStage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -76,7 +76,7 @@ public class AppliesToTypeImpl extends MinimalEObjectImpl.Container implements A
      * @generated
      * @ordered
      */
-    protected static final TPubStage PUBLICATION_STAGE_EDEFAULT = TPubStage.IS;
+    protected static final PubStage PUBLICATION_STAGE_EDEFAULT = PubStage.IS;
 
     /**
      * The cached value of the '{@link #getPublicationStage() <em>Publication Stage</em>}' attribute.
@@ -86,7 +86,7 @@ public class AppliesToTypeImpl extends MinimalEObjectImpl.Container implements A
      * @generated
      * @ordered
      */
-    protected TPubStage publicationStage = PUBLICATION_STAGE_EDEFAULT;
+    protected PubStage publicationStage = PUBLICATION_STAGE_EDEFAULT;
 
     /**
      * This is true if the Publication Stage attribute has been set.
@@ -232,7 +232,7 @@ public class AppliesToTypeImpl extends MinimalEObjectImpl.Container implements A
      * @generated
      */
     @Override
-    public TPubStage getPublicationStage() {
+    public PubStage getPublicationStage() {
         return publicationStage;
     }
 
@@ -242,8 +242,8 @@ public class AppliesToTypeImpl extends MinimalEObjectImpl.Container implements A
      * @generated
      */
     @Override
-    public void setPublicationStage( TPubStage newPublicationStage ) {
-        TPubStage oldPublicationStage = publicationStage;
+    public void setPublicationStage( PubStage newPublicationStage ) {
+        PubStage oldPublicationStage = publicationStage;
         publicationStage = newPublicationStage == null ? PUBLICATION_STAGE_EDEFAULT : newPublicationStage;
         boolean oldPublicationStageESet = publicationStageESet;
         publicationStageESet = true;
@@ -259,7 +259,7 @@ public class AppliesToTypeImpl extends MinimalEObjectImpl.Container implements A
      */
     @Override
     public void unsetPublicationStage() {
-        TPubStage oldPublicationStage = publicationStage;
+        PubStage oldPublicationStage = publicationStage;
         boolean oldPublicationStageESet = publicationStageESet;
         publicationStage = PUBLICATION_STAGE_EDEFAULT;
         publicationStageESet = false;
@@ -462,7 +462,7 @@ public class AppliesToTypeImpl extends MinimalEObjectImpl.Container implements A
             setId( ( String ) newValue );
             return;
         case NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE:
-            setPublicationStage( ( TPubStage ) newValue );
+            setPublicationStage( ( PubStage ) newValue );
             return;
         case NsdPackage.APPLIES_TO_TYPE__RELEASE:
             setRelease( ( Short ) newValue );

@@ -19,9 +19,9 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.provider;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ACSIServicesKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TACSIServicesKind;
 
 import java.util.Collection;
 import java.util.List;
@@ -111,7 +111,7 @@ public class ServiceTypeItemProvider extends ItemProviderAdapter implements IEdi
      */
     @Override
     public String getText( Object object ) {
-        TACSIServicesKind labelValue = ( ( ServiceType ) object ).getName();
+        ACSIServicesKind labelValue = ( ( ServiceType ) object ).getName();
         String label = labelValue == null ? null : labelValue.toString();
         return label == null || label.length() == 0 ? getString( "_UI_ServiceType_type" )
                 : getString( "_UI_ServiceType_type" ) + " " + label;
