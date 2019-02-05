@@ -166,19 +166,19 @@ public class DocumentRootItemProvider extends ItemProviderAdapter implements IEd
         super.collectNewChildDescriptors( newChildDescriptors, object );
 
         newChildDescriptors.add( createChildParameter( NsdPackage.Literals.DOCUMENT_ROOT__APPLICABLE_SERVICE_NS,
-                NsdFactory.eINSTANCE.createTApplicableServiceNS() ) );
+                NsdFactory.eINSTANCE.createApplicableServiceNS() ) );
 
         newChildDescriptors.add( createChildParameter( NsdPackage.Literals.DOCUMENT_ROOT__COPYRIGHT,
-                NsdFactory.eINSTANCE.createTCopyrightNotice() ) );
+                NsdFactory.eINSTANCE.createCopyrightNotice() ) );
 
         newChildDescriptors
-                .add( createChildParameter( NsdPackage.Literals.DOCUMENT_ROOT__NS, NsdFactory.eINSTANCE.createTNS() ) );
+                .add( createChildParameter( NsdPackage.Literals.DOCUMENT_ROOT__NS, NsdFactory.eINSTANCE.createNS() ) );
 
-        newChildDescriptors.add( createChildParameter( NsdPackage.Literals.DOCUMENT_ROOT__NS_DOC,
-                NsdFactory.eINSTANCE.createTNSDoc() ) );
+        newChildDescriptors.add(
+                createChildParameter( NsdPackage.Literals.DOCUMENT_ROOT__NS_DOC, NsdFactory.eINSTANCE.createNSDoc() ) );
 
         newChildDescriptors.add( createChildParameter( NsdPackage.Literals.DOCUMENT_ROOT__SERVICE_NS,
-                NsdFactory.eINSTANCE.createTServiceNS() ) );
+                NsdFactory.eINSTANCE.createServiceNS() ) );
     }
 
     /**

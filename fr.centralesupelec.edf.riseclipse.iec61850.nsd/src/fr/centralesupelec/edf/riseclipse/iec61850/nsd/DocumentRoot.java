@@ -110,13 +110,13 @@ public interface DocumentRoot extends EObject {
      * Root element of a file holding the allowed usages of ServiceNS-es.
      * <!-- end-model-doc -->
      * @return the value of the '<em>Applicable Service NS</em>' containment reference.
-     * @see #setApplicableServiceNS(TApplicableServiceNS)
+     * @see #setApplicableServiceNS(ApplicableServiceNS)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDocumentRoot_ApplicableServiceNS()
      * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
      *        extendedMetaData="kind='element' name='ApplicableServiceNS' namespace='##targetNamespace'"
      * @generated
      */
-    TApplicableServiceNS getApplicableServiceNS();
+    ApplicableServiceNS getApplicableServiceNS();
 
     /**
      * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot#getApplicableServiceNS <em>Applicable Service NS</em>}' containment reference.
@@ -126,7 +126,7 @@ public interface DocumentRoot extends EObject {
      * @see #getApplicableServiceNS()
      * @generated
      */
-    void setApplicableServiceNS( TApplicableServiceNS value );
+    void setApplicableServiceNS( ApplicableServiceNS value );
 
     /**
      * Returns the value of the '<em><b>Copyright</b></em>' containment reference.
@@ -136,13 +136,13 @@ public interface DocumentRoot extends EObject {
      * The copyright notice attached to the XML
      * <!-- end-model-doc -->
      * @return the value of the '<em>Copyright</em>' containment reference.
-     * @see #setCopyright(TCopyrightNotice)
+     * @see #setCopyright(CopyrightNotice)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDocumentRoot_Copyright()
      * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
      *        extendedMetaData="kind='element' name='Copyright' namespace='##targetNamespace'"
      * @generated
      */
-    TCopyrightNotice getCopyright();
+    CopyrightNotice getCopyright();
 
     /**
      * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot#getCopyright <em>Copyright</em>}' containment reference.
@@ -152,7 +152,7 @@ public interface DocumentRoot extends EObject {
      * @see #getCopyright()
      * @generated
      */
-    void setCopyright( TCopyrightNotice value );
+    void setCopyright( CopyrightNotice value );
 
     /**
      * Returns the value of the '<em><b>NS</b></em>' containment reference.
@@ -162,13 +162,13 @@ public interface DocumentRoot extends EObject {
      * Root element of a namespace definition (NSD) file.
      * <!-- end-model-doc -->
      * @return the value of the '<em>NS</em>' containment reference.
-     * @see #setNS(TNS)
+     * @see #setNS(NS)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDocumentRoot_NS()
      * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
      *        extendedMetaData="kind='element' name='NS' namespace='##targetNamespace'"
      * @generated
      */
-    TNS getNS();
+    NS getNS();
 
     /**
      * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot#getNS <em>NS</em>}' containment reference.
@@ -178,7 +178,7 @@ public interface DocumentRoot extends EObject {
      * @see #getNS()
      * @generated
      */
-    void setNS( TNS value );
+    void setNS( NS value );
 
     /**
      * Returns the value of the '<em><b>NS Doc</b></em>' containment reference.
@@ -188,13 +188,13 @@ public interface DocumentRoot extends EObject {
      * Root element of a file holding the documentation strings of an NSD file (NSDOC).
      * <!-- end-model-doc -->
      * @return the value of the '<em>NS Doc</em>' containment reference.
-     * @see #setNSDoc(TNSDoc)
+     * @see #setNSDoc(NSDoc)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDocumentRoot_NSDoc()
      * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
      *        extendedMetaData="kind='element' name='NSDoc' namespace='##targetNamespace'"
      * @generated
      */
-    TNSDoc getNSDoc();
+    NSDoc getNSDoc();
 
     /**
      * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot#getNSDoc <em>NS Doc</em>}' containment reference.
@@ -204,7 +204,7 @@ public interface DocumentRoot extends EObject {
      * @see #getNSDoc()
      * @generated
      */
-    void setNSDoc( TNSDoc value );
+    void setNSDoc( NSDoc value );
 
     /**
      * Returns the value of the '<em><b>Service NS</b></em>' containment reference.
@@ -214,13 +214,13 @@ public interface DocumentRoot extends EObject {
      * Root element of a service namespace definition (SNSD) file.
      * <!-- end-model-doc -->
      * @return the value of the '<em>Service NS</em>' containment reference.
-     * @see #setServiceNS(TServiceNS)
+     * @see #setServiceNS(ServiceNS)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDocumentRoot_ServiceNS()
      * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
      *        extendedMetaData="kind='element' name='ServiceNS' namespace='##targetNamespace'"
      * @generated
      */
-    TServiceNS getServiceNS();
+    ServiceNS getServiceNS();
 
     /**
      * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot#getServiceNS <em>Service NS</em>}' containment reference.
@@ -230,6 +230,6 @@ public interface DocumentRoot extends EObject {
      * @see #getServiceNS()
      * @generated
      */
-    void setServiceNS( TServiceNS value );
+    void setServiceNS( ServiceNS value );
 
 } // DocumentRoot

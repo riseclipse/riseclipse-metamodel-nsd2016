@@ -19,9 +19,9 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ACSIServicesKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TACSIServicesKind;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -52,7 +52,7 @@ public class ServiceTypeImpl extends MinimalEObjectImpl.Container implements Ser
      * @generated
      * @ordered
      */
-    protected static final TACSIServicesKind NAME_EDEFAULT = TACSIServicesKind.ASSOCIATE;
+    protected static final ACSIServicesKind NAME_EDEFAULT = ACSIServicesKind.ASSOCIATE;
 
     /**
      * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -62,7 +62,7 @@ public class ServiceTypeImpl extends MinimalEObjectImpl.Container implements Ser
      * @generated
      * @ordered
      */
-    protected TACSIServicesKind name = NAME_EDEFAULT;
+    protected ACSIServicesKind name = NAME_EDEFAULT;
 
     /**
      * This is true if the Name attribute has been set.
@@ -98,7 +98,7 @@ public class ServiceTypeImpl extends MinimalEObjectImpl.Container implements Ser
      * @generated
      */
     @Override
-    public TACSIServicesKind getName() {
+    public ACSIServicesKind getName() {
         return name;
     }
 
@@ -108,8 +108,8 @@ public class ServiceTypeImpl extends MinimalEObjectImpl.Container implements Ser
      * @generated
      */
     @Override
-    public void setName( TACSIServicesKind newName ) {
-        TACSIServicesKind oldName = name;
+    public void setName( ACSIServicesKind newName ) {
+        ACSIServicesKind oldName = name;
         name = newName == null ? NAME_EDEFAULT : newName;
         boolean oldNameESet = nameESet;
         nameESet = true;
@@ -124,7 +124,7 @@ public class ServiceTypeImpl extends MinimalEObjectImpl.Container implements Ser
      */
     @Override
     public void unsetName() {
-        TACSIServicesKind oldName = name;
+        ACSIServicesKind oldName = name;
         boolean oldNameESet = nameESet;
         name = NAME_EDEFAULT;
         nameESet = false;
@@ -165,7 +165,7 @@ public class ServiceTypeImpl extends MinimalEObjectImpl.Container implements Ser
     public void eSet( int featureID, Object newValue ) {
         switch( featureID ) {
         case NsdPackage.SERVICE_TYPE__NAME:
-            setName( ( TACSIServicesKind ) newValue );
+            setName( ( ACSIServicesKind ) newValue );
             return;
         }
         super.eSet( featureID, newValue );

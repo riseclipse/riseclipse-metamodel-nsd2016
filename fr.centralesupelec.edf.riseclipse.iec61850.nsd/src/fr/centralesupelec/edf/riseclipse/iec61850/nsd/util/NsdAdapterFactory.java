@@ -104,233 +104,238 @@ public class NsdAdapterFactory extends AdapterFactoryImpl {
         }
 
         @Override
-        public Adapter caseTAbbreviation( TAbbreviation object ) {
-            return createTAbbreviationAdapter();
+        public Adapter caseAbbreviation( Abbreviation object ) {
+            return createAbbreviationAdapter();
         }
 
         @Override
-        public Adapter caseTAbbreviations( TAbbreviations object ) {
-            return createTAbbreviationsAdapter();
+        public Adapter caseAbbreviations( Abbreviations object ) {
+            return createAbbreviationsAdapter();
         }
 
         @Override
-        public Adapter caseTAbstractLNClass( TAbstractLNClass object ) {
-            return createTAbstractLNClassAdapter();
+        public Adapter caseAbstractLNClass( AbstractLNClass object ) {
+            return createAbstractLNClassAdapter();
         }
 
         @Override
-        public Adapter caseTAnyLNClass( TAnyLNClass object ) {
-            return createTAnyLNClassAdapter();
+        public Adapter caseAnyLNClass( AnyLNClass object ) {
+            return createAnyLNClassAdapter();
         }
 
         @Override
-        public Adapter caseTApplicableServiceNS( TApplicableServiceNS object ) {
-            return createTApplicableServiceNSAdapter();
+        public Adapter caseApplicableServiceNS( ApplicableServiceNS object ) {
+            return createApplicableServiceNSAdapter();
         }
 
         @Override
-        public Adapter caseTApplicableServices( TApplicableServices object ) {
-            return createTApplicableServicesAdapter();
+        public Adapter caseApplicableServices( ApplicableServices object ) {
+            return createApplicableServicesAdapter();
         }
 
         @Override
-        public Adapter caseTBasicType( TBasicType object ) {
-            return createTBasicTypeAdapter();
+        public Adapter caseBasicType( BasicType object ) {
+            return createBasicTypeAdapter();
         }
 
         @Override
-        public Adapter caseTBasicTypes( TBasicTypes object ) {
-            return createTBasicTypesAdapter();
+        public Adapter caseBasicTypes( BasicTypes object ) {
+            return createBasicTypesAdapter();
         }
 
         @Override
-        public Adapter caseTCDC( TCDC object ) {
-            return createTCDCAdapter();
+        public Adapter caseCDC( CDC object ) {
+            return createCDCAdapter();
         }
 
         @Override
-        public Adapter caseTCDCs( TCDCs object ) {
-            return createTCDCsAdapter();
+        public Adapter caseCDCs( CDCs object ) {
+            return createCDCsAdapter();
         }
 
         @Override
-        public Adapter caseTChanges( TChanges object ) {
-            return createTChangesAdapter();
+        public Adapter caseChanges( Changes object ) {
+            return createChangesAdapter();
         }
 
         @Override
-        public Adapter caseTConstructedAttribute( TConstructedAttribute object ) {
-            return createTConstructedAttributeAdapter();
+        public Adapter caseConstructedAttribute( ConstructedAttribute object ) {
+            return createConstructedAttributeAdapter();
         }
 
         @Override
-        public Adapter caseTConstructedAttributes( TConstructedAttributes object ) {
-            return createTConstructedAttributesAdapter();
+        public Adapter caseConstructedAttributes( ConstructedAttributes object ) {
+            return createConstructedAttributesAdapter();
         }
 
         @Override
-        public Adapter caseTCopyrighted( TCopyrighted object ) {
-            return createTCopyrightedAdapter();
+        public Adapter caseCopyrighted( Copyrighted object ) {
+            return createCopyrightedAdapter();
         }
 
         @Override
-        public Adapter caseTCopyrightNotice( TCopyrightNotice object ) {
-            return createTCopyrightNoticeAdapter();
+        public Adapter caseCopyrightNotice( CopyrightNotice object ) {
+            return createCopyrightNoticeAdapter();
         }
 
         @Override
-        public Adapter caseTDataAttribute( TDataAttribute object ) {
-            return createTDataAttributeAdapter();
+        public Adapter caseDataAttribute( DataAttribute object ) {
+            return createDataAttributeAdapter();
         }
 
         @Override
-        public Adapter caseTDataObject( TDataObject object ) {
-            return createTDataObjectAdapter();
+        public Adapter caseDataObject( DataObject object ) {
+            return createDataObjectAdapter();
         }
 
         @Override
-        public Adapter caseTDataSetMemberOf( TDataSetMemberOf object ) {
-            return createTDataSetMemberOfAdapter();
+        public Adapter caseDataSetMemberOf( DataSetMemberOf object ) {
+            return createDataSetMemberOfAdapter();
         }
 
         @Override
-        public Adapter caseTDoc( TDoc object ) {
-            return createTDocAdapter();
+        public Adapter caseDoc( Doc object ) {
+            return createDocAdapter();
         }
 
         @Override
-        public Adapter caseTDocumentedClass( TDocumentedClass object ) {
-            return createTDocumentedClassAdapter();
+        public Adapter caseDocumentedClass( DocumentedClass object ) {
+            return createDocumentedClassAdapter();
         }
 
         @Override
-        public Adapter caseTEnumeration( TEnumeration object ) {
-            return createTEnumerationAdapter();
+        public Adapter caseEnumeration( Enumeration object ) {
+            return createEnumerationAdapter();
         }
 
         @Override
-        public Adapter caseTEnumerations( TEnumerations object ) {
-            return createTEnumerationsAdapter();
+        public Adapter caseEnumerations( Enumerations object ) {
+            return createEnumerationsAdapter();
         }
 
         @Override
-        public Adapter caseTFunctionalConstraint( TFunctionalConstraint object ) {
-            return createTFunctionalConstraintAdapter();
+        public Adapter caseFunctionalConstraint( FunctionalConstraint object ) {
+            return createFunctionalConstraintAdapter();
         }
 
         @Override
-        public Adapter caseTFunctionalConstraints( TFunctionalConstraints object ) {
-            return createTFunctionalConstraintsAdapter();
+        public Adapter caseFunctionalConstraints( FunctionalConstraints object ) {
+            return createFunctionalConstraintsAdapter();
         }
 
         @Override
-        public Adapter caseTLicense( TLicense object ) {
-            return createTLicenseAdapter();
+        public Adapter caseLicense( License object ) {
+            return createLicenseAdapter();
         }
 
         @Override
-        public Adapter caseTLiteral( TLiteral object ) {
-            return createTLiteralAdapter();
+        public Adapter caseLiteral( Literal object ) {
+            return createLiteralAdapter();
         }
 
         @Override
-        public Adapter caseTLNClass( TLNClass object ) {
-            return createTLNClassAdapter();
+        public Adapter caseLNClass( LNClass object ) {
+            return createLNClassAdapter();
         }
 
         @Override
-        public Adapter caseTLNClasses( TLNClasses object ) {
-            return createTLNClassesAdapter();
+        public Adapter caseLNClasses( LNClasses object ) {
+            return createLNClassesAdapter();
         }
 
         @Override
-        public Adapter caseTNotice( TNotice object ) {
-            return createTNoticeAdapter();
+        public Adapter caseNotice( Notice object ) {
+            return createNoticeAdapter();
         }
 
         @Override
-        public Adapter caseTNS( TNS object ) {
-            return createTNSAdapter();
+        public Adapter caseNS( NS object ) {
+            return createNSAdapter();
         }
 
         @Override
-        public Adapter caseTNSDoc( TNSDoc object ) {
-            return createTNSDocAdapter();
+        public Adapter caseNSDoc( NSDoc object ) {
+            return createNSDocAdapter();
         }
 
         @Override
-        public Adapter caseTPresenceCondition( TPresenceCondition object ) {
-            return createTPresenceConditionAdapter();
+        public Adapter casePresenceCondition( PresenceCondition object ) {
+            return createPresenceConditionAdapter();
         }
 
         @Override
-        public Adapter caseTPresenceConditions( TPresenceConditions object ) {
-            return createTPresenceConditionsAdapter();
+        public Adapter casePresenceConditions( PresenceConditions object ) {
+            return createPresenceConditionsAdapter();
         }
 
         @Override
-        public Adapter caseTServiceCDC( TServiceCDC object ) {
-            return createTServiceCDCAdapter();
+        public Adapter caseServiceCDC( ServiceCDC object ) {
+            return createServiceCDCAdapter();
         }
 
         @Override
-        public Adapter caseTServiceCDCs( TServiceCDCs object ) {
-            return createTServiceCDCsAdapter();
+        public Adapter caseServiceCDCs( ServiceCDCs object ) {
+            return createServiceCDCsAdapter();
         }
 
         @Override
-        public Adapter caseTServiceConstructedAttribute( TServiceConstructedAttribute object ) {
-            return createTServiceConstructedAttributeAdapter();
+        public Adapter caseServiceConstructedAttribute( ServiceConstructedAttribute object ) {
+            return createServiceConstructedAttributeAdapter();
         }
 
         @Override
-        public Adapter caseTServiceConstructedAttributes( TServiceConstructedAttributes object ) {
-            return createTServiceConstructedAttributesAdapter();
+        public Adapter caseServiceConstructedAttributes( ServiceConstructedAttributes object ) {
+            return createServiceConstructedAttributesAdapter();
         }
 
         @Override
-        public Adapter caseTServiceDataAttribute( TServiceDataAttribute object ) {
-            return createTServiceDataAttributeAdapter();
+        public Adapter caseServiceDataAttribute( ServiceDataAttribute object ) {
+            return createServiceDataAttributeAdapter();
         }
 
         @Override
-        public Adapter caseTServiceNS( TServiceNS object ) {
-            return createTServiceNSAdapter();
+        public Adapter caseServiceNS( ServiceNS object ) {
+            return createServiceNSAdapter();
         }
 
         @Override
-        public Adapter caseTServiceNsUsage( TServiceNsUsage object ) {
-            return createTServiceNsUsageAdapter();
+        public Adapter caseServiceNsUsage( ServiceNsUsage object ) {
+            return createServiceNsUsageAdapter();
         }
 
         @Override
-        public Adapter caseTServiceParameter( TServiceParameter object ) {
-            return createTServiceParameterAdapter();
+        public Adapter caseServiceParameter( ServiceParameter object ) {
+            return createServiceParameterAdapter();
         }
 
         @Override
-        public Adapter caseTServiceTypeRealization( TServiceTypeRealization object ) {
-            return createTServiceTypeRealizationAdapter();
+        public Adapter caseServiceTypeRealization( ServiceTypeRealization object ) {
+            return createServiceTypeRealizationAdapter();
         }
 
         @Override
-        public Adapter caseTServiceTypeRealizations( TServiceTypeRealizations object ) {
-            return createTServiceTypeRealizationsAdapter();
+        public Adapter caseServiceTypeRealizations( ServiceTypeRealizations object ) {
+            return createServiceTypeRealizationsAdapter();
         }
 
         @Override
-        public Adapter caseTSubDataAttribute( TSubDataAttribute object ) {
-            return createTSubDataAttributeAdapter();
+        public Adapter caseSubDataAttribute( SubDataAttribute object ) {
+            return createSubDataAttributeAdapter();
         }
 
         @Override
-        public Adapter caseTSubDataObject( TSubDataObject object ) {
-            return createTSubDataObjectAdapter();
+        public Adapter caseSubDataObject( SubDataObject object ) {
+            return createSubDataObjectAdapter();
         }
 
         @Override
-        public Adapter caseTTitledClass( TTitledClass object ) {
-            return createTTitledClassAdapter();
+        public Adapter caseTitledClass( TitledClass object ) {
+            return createTitledClassAdapter();
+        }
+
+        @Override
+        public Adapter caseNSDObjectWithVersionAndRelease( NSDObjectWithVersionAndRelease object ) {
+            return createNSDObjectWithVersionAndReleaseAdapter();
         }
 
         @Override
@@ -409,646 +414,660 @@ public class NsdAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TAbbreviation <em>TAbbreviation</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation <em>Abbreviation</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TAbbreviation
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation
      * @generated
      */
-    public Adapter createTAbbreviationAdapter() {
+    public Adapter createAbbreviationAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TAbbreviations <em>TAbbreviations</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations <em>Abbreviations</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TAbbreviations
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations
      * @generated
      */
-    public Adapter createTAbbreviationsAdapter() {
+    public Adapter createAbbreviationsAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TAbstractLNClass <em>TAbstract LN Class</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass <em>Abstract LN Class</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TAbstractLNClass
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass
      * @generated
      */
-    public Adapter createTAbstractLNClassAdapter() {
+    public Adapter createAbstractLNClassAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TAnyLNClass <em>TAny LN Class</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass <em>Any LN Class</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TAnyLNClass
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass
      * @generated
      */
-    public Adapter createTAnyLNClassAdapter() {
+    public Adapter createAnyLNClassAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TApplicableServiceNS <em>TApplicable Service NS</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServiceNS <em>Applicable Service NS</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TApplicableServiceNS
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServiceNS
      * @generated
      */
-    public Adapter createTApplicableServiceNSAdapter() {
+    public Adapter createApplicableServiceNSAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TApplicableServices <em>TApplicable Services</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices <em>Applicable Services</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TApplicableServices
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices
      * @generated
      */
-    public Adapter createTApplicableServicesAdapter() {
+    public Adapter createApplicableServicesAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TBasicType <em>TBasic Type</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType <em>Basic Type</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TBasicType
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType
      * @generated
      */
-    public Adapter createTBasicTypeAdapter() {
+    public Adapter createBasicTypeAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TBasicTypes <em>TBasic Types</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes <em>Basic Types</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TBasicTypes
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes
      * @generated
      */
-    public Adapter createTBasicTypesAdapter() {
+    public Adapter createBasicTypesAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TCDC <em>TCDC</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC <em>CDC</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TCDC
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC
      * @generated
      */
-    public Adapter createTCDCAdapter() {
+    public Adapter createCDCAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TCDCs <em>TCD Cs</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs <em>CD Cs</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TCDCs
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs
      * @generated
      */
-    public Adapter createTCDCsAdapter() {
+    public Adapter createCDCsAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TChanges <em>TChanges</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes <em>Changes</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TChanges
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes
      * @generated
      */
-    public Adapter createTChangesAdapter() {
+    public Adapter createChangesAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TConstructedAttribute <em>TConstructed Attribute</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute <em>Constructed Attribute</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TConstructedAttribute
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute
      * @generated
      */
-    public Adapter createTConstructedAttributeAdapter() {
+    public Adapter createConstructedAttributeAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TConstructedAttributes <em>TConstructed Attributes</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes <em>Constructed Attributes</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TConstructedAttributes
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes
      * @generated
      */
-    public Adapter createTConstructedAttributesAdapter() {
+    public Adapter createConstructedAttributesAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TCopyrighted <em>TCopyrighted</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Copyrighted <em>Copyrighted</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TCopyrighted
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Copyrighted
      * @generated
      */
-    public Adapter createTCopyrightedAdapter() {
+    public Adapter createCopyrightedAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TCopyrightNotice <em>TCopyright Notice</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CopyrightNotice <em>Copyright Notice</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TCopyrightNotice
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CopyrightNotice
      * @generated
      */
-    public Adapter createTCopyrightNoticeAdapter() {
+    public Adapter createCopyrightNoticeAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TDataAttribute <em>TData Attribute</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute <em>Data Attribute</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TDataAttribute
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute
      * @generated
      */
-    public Adapter createTDataAttributeAdapter() {
+    public Adapter createDataAttributeAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TDataObject <em>TData Object</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject <em>Data Object</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TDataObject
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject
      * @generated
      */
-    public Adapter createTDataObjectAdapter() {
+    public Adapter createDataObjectAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TDataSetMemberOf <em>TData Set Member Of</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataSetMemberOf <em>Data Set Member Of</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TDataSetMemberOf
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataSetMemberOf
      * @generated
      */
-    public Adapter createTDataSetMemberOfAdapter() {
+    public Adapter createDataSetMemberOfAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TDoc <em>TDoc</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc <em>Doc</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TDoc
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc
      * @generated
      */
-    public Adapter createTDocAdapter() {
+    public Adapter createDocAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TDocumentedClass <em>TDocumented Class</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentedClass <em>Documented Class</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TDocumentedClass
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentedClass
      * @generated
      */
-    public Adapter createTDocumentedClassAdapter() {
+    public Adapter createDocumentedClassAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TEnumeration <em>TEnumeration</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration <em>Enumeration</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TEnumeration
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration
      * @generated
      */
-    public Adapter createTEnumerationAdapter() {
+    public Adapter createEnumerationAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TEnumerations <em>TEnumerations</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations <em>Enumerations</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TEnumerations
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations
      * @generated
      */
-    public Adapter createTEnumerationsAdapter() {
+    public Adapter createEnumerationsAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TFunctionalConstraint <em>TFunctional Constraint</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint <em>Functional Constraint</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TFunctionalConstraint
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint
      * @generated
      */
-    public Adapter createTFunctionalConstraintAdapter() {
+    public Adapter createFunctionalConstraintAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TFunctionalConstraints <em>TFunctional Constraints</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints <em>Functional Constraints</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TFunctionalConstraints
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints
      * @generated
      */
-    public Adapter createTFunctionalConstraintsAdapter() {
+    public Adapter createFunctionalConstraintsAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TLicense <em>TLicense</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.License <em>License</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TLicense
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.License
      * @generated
      */
-    public Adapter createTLicenseAdapter() {
+    public Adapter createLicenseAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TLiteral <em>TLiteral</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal <em>Literal</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TLiteral
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal
      * @generated
      */
-    public Adapter createTLiteralAdapter() {
+    public Adapter createLiteralAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TLNClass <em>TLN Class</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass <em>LN Class</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TLNClass
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass
      * @generated
      */
-    public Adapter createTLNClassAdapter() {
+    public Adapter createLNClassAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TLNClasses <em>TLN Classes</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses <em>LN Classes</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TLNClasses
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses
      * @generated
      */
-    public Adapter createTLNClassesAdapter() {
+    public Adapter createLNClassesAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNotice <em>TNotice</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Notice <em>Notice</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNotice
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Notice
      * @generated
      */
-    public Adapter createTNoticeAdapter() {
+    public Adapter createNoticeAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNS <em>TNS</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS <em>NS</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNS
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS
      * @generated
      */
-    public Adapter createTNSAdapter() {
+    public Adapter createNSAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNSDoc <em>TNS Doc</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc <em>NS Doc</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNSDoc
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc
      * @generated
      */
-    public Adapter createTNSDocAdapter() {
+    public Adapter createNSDocAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TPresenceCondition <em>TPresence Condition</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition <em>Presence Condition</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TPresenceCondition
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition
      * @generated
      */
-    public Adapter createTPresenceConditionAdapter() {
+    public Adapter createPresenceConditionAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TPresenceConditions <em>TPresence Conditions</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions <em>Presence Conditions</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TPresenceConditions
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions
      * @generated
      */
-    public Adapter createTPresenceConditionsAdapter() {
+    public Adapter createPresenceConditionsAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceCDC <em>TService CDC</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC <em>Service CDC</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceCDC
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC
      * @generated
      */
-    public Adapter createTServiceCDCAdapter() {
+    public Adapter createServiceCDCAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceCDCs <em>TService CD Cs</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDCs <em>Service CD Cs</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceCDCs
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDCs
      * @generated
      */
-    public Adapter createTServiceCDCsAdapter() {
+    public Adapter createServiceCDCsAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceConstructedAttribute <em>TService Constructed Attribute</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute <em>Service Constructed Attribute</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceConstructedAttribute
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute
      * @generated
      */
-    public Adapter createTServiceConstructedAttributeAdapter() {
+    public Adapter createServiceConstructedAttributeAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceConstructedAttributes <em>TService Constructed Attributes</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttributes <em>Service Constructed Attributes</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceConstructedAttributes
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttributes
      * @generated
      */
-    public Adapter createTServiceConstructedAttributesAdapter() {
+    public Adapter createServiceConstructedAttributesAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceDataAttribute <em>TService Data Attribute</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute <em>Service Data Attribute</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceDataAttribute
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute
      * @generated
      */
-    public Adapter createTServiceDataAttributeAdapter() {
+    public Adapter createServiceDataAttributeAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceNS <em>TService NS</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS <em>Service NS</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceNS
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS
      * @generated
      */
-    public Adapter createTServiceNSAdapter() {
+    public Adapter createServiceNSAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceNsUsage <em>TService Ns Usage</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage <em>Service Ns Usage</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceNsUsage
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage
      * @generated
      */
-    public Adapter createTServiceNsUsageAdapter() {
+    public Adapter createServiceNsUsageAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceParameter <em>TService Parameter</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceParameter <em>Service Parameter</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceParameter
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceParameter
      * @generated
      */
-    public Adapter createTServiceParameterAdapter() {
+    public Adapter createServiceParameterAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceTypeRealization <em>TService Type Realization</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealization <em>Service Type Realization</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceTypeRealization
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealization
      * @generated
      */
-    public Adapter createTServiceTypeRealizationAdapter() {
+    public Adapter createServiceTypeRealizationAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceTypeRealizations <em>TService Type Realizations</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations <em>Service Type Realizations</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceTypeRealizations
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations
      * @generated
      */
-    public Adapter createTServiceTypeRealizationsAdapter() {
+    public Adapter createServiceTypeRealizationsAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TSubDataAttribute <em>TSub Data Attribute</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute <em>Sub Data Attribute</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TSubDataAttribute
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute
      * @generated
      */
-    public Adapter createTSubDataAttributeAdapter() {
+    public Adapter createSubDataAttributeAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TSubDataObject <em>TSub Data Object</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject <em>Sub Data Object</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TSubDataObject
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject
      * @generated
      */
-    public Adapter createTSubDataObjectAdapter() {
+    public Adapter createSubDataObjectAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TTitledClass <em>TTitled Class</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TitledClass <em>Titled Class</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TTitledClass
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TitledClass
      * @generated
      */
-    public Adapter createTTitledClassAdapter() {
+    public Adapter createTitledClassAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDObjectWithVersionAndRelease <em>NSD Object With Version And Release</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDObjectWithVersionAndRelease
+     * @generated
+     */
+    public Adapter createNSDObjectWithVersionAndReleaseAdapter() {
         return null;
     }
 

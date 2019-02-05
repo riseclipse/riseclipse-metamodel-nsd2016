@@ -27,18 +27,9 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -47,8 +38,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AppliesToTypeItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class AppliesToTypeItemProvider extends NSDObjectWithVersionAndReleaseItemProvider {
     /**
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
@@ -72,9 +62,7 @@ public class AppliesToTypeItemProvider extends ItemProviderAdapter implements IE
 
             addIdPropertyDescriptor( object );
             addPublicationStagePropertyDescriptor( object );
-            addReleasePropertyDescriptor( object );
             addRevisionPropertyDescriptor( object );
-            addVersionPropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -112,22 +100,6 @@ public class AppliesToTypeItemProvider extends ItemProviderAdapter implements IE
     }
 
     /**
-     * This adds a property descriptor for the Release feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addReleasePropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add(
-                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_AppliesToType_release_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_AppliesToType_release_feature",
-                                "_UI_AppliesToType_type" ),
-                        NsdPackage.Literals.APPLIES_TO_TYPE__RELEASE, true, false, false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
-    }
-
-    /**
      * This adds a property descriptor for the Revision feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -141,22 +113,6 @@ public class AppliesToTypeItemProvider extends ItemProviderAdapter implements IE
                                 "_UI_AppliesToType_type" ),
                         NsdPackage.Literals.APPLIES_TO_TYPE__REVISION, true, false, false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
-    }
-
-    /**
-     * This adds a property descriptor for the Version feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addVersionPropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add(
-                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_AppliesToType_version_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_AppliesToType_version_feature",
-                                "_UI_AppliesToType_type" ),
-                        NsdPackage.Literals.APPLIES_TO_TYPE__VERSION, true, false, false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -197,9 +153,7 @@ public class AppliesToTypeItemProvider extends ItemProviderAdapter implements IE
         switch( notification.getFeatureID( AppliesToType.class ) ) {
         case NsdPackage.APPLIES_TO_TYPE__ID:
         case NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE:
-        case NsdPackage.APPLIES_TO_TYPE__RELEASE:
         case NsdPackage.APPLIES_TO_TYPE__REVISION:
-        case NsdPackage.APPLIES_TO_TYPE__VERSION:
             fireNotifyChanged( new ViewerNotification( notification, notification.getNotifier(), false, true ) );
             return;
         }
@@ -216,17 +170,6 @@ public class AppliesToTypeItemProvider extends ItemProviderAdapter implements IE
     @Override
     protected void collectNewChildDescriptors( Collection< Object > newChildDescriptors, Object object ) {
         super.collectNewChildDescriptors( newChildDescriptors, object );
-    }
-
-    /**
-     * Return the resource locator for this item provider's resources.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public ResourceLocator getResourceLocator() {
-        return NSDEditPlugin.INSTANCE;
     }
 
 }

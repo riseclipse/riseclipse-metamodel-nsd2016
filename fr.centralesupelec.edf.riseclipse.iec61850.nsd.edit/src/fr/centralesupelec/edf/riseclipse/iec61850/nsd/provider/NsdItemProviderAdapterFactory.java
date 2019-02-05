@@ -182,1038 +182,1038 @@ public class NsdItemProviderAdapterFactory extends NsdAdapterFactory
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TAbbreviation} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TAbbreviationItemProvider tAbbreviationItemProvider;
+    protected AbbreviationItemProvider abbreviationItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TAbbreviation}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTAbbreviationAdapter() {
-        if( tAbbreviationItemProvider == null ) {
-            tAbbreviationItemProvider = new TAbbreviationItemProvider( this );
+    public Adapter createAbbreviationAdapter() {
+        if( abbreviationItemProvider == null ) {
+            abbreviationItemProvider = new AbbreviationItemProvider( this );
         }
 
-        return tAbbreviationItemProvider;
+        return abbreviationItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TAbbreviations} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TAbbreviationsItemProvider tAbbreviationsItemProvider;
+    protected AbbreviationsItemProvider abbreviationsItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TAbbreviations}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTAbbreviationsAdapter() {
-        if( tAbbreviationsItemProvider == null ) {
-            tAbbreviationsItemProvider = new TAbbreviationsItemProvider( this );
+    public Adapter createAbbreviationsAdapter() {
+        if( abbreviationsItemProvider == null ) {
+            abbreviationsItemProvider = new AbbreviationsItemProvider( this );
         }
 
-        return tAbbreviationsItemProvider;
+        return abbreviationsItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TAbstractLNClass} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TAbstractLNClassItemProvider tAbstractLNClassItemProvider;
+    protected AbstractLNClassItemProvider abstractLNClassItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TAbstractLNClass}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTAbstractLNClassAdapter() {
-        if( tAbstractLNClassItemProvider == null ) {
-            tAbstractLNClassItemProvider = new TAbstractLNClassItemProvider( this );
+    public Adapter createAbstractLNClassAdapter() {
+        if( abstractLNClassItemProvider == null ) {
+            abstractLNClassItemProvider = new AbstractLNClassItemProvider( this );
         }
 
-        return tAbstractLNClassItemProvider;
+        return abstractLNClassItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TApplicableServiceNS} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServiceNS} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TApplicableServiceNSItemProvider tApplicableServiceNSItemProvider;
+    protected ApplicableServiceNSItemProvider applicableServiceNSItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TApplicableServiceNS}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServiceNS}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTApplicableServiceNSAdapter() {
-        if( tApplicableServiceNSItemProvider == null ) {
-            tApplicableServiceNSItemProvider = new TApplicableServiceNSItemProvider( this );
+    public Adapter createApplicableServiceNSAdapter() {
+        if( applicableServiceNSItemProvider == null ) {
+            applicableServiceNSItemProvider = new ApplicableServiceNSItemProvider( this );
         }
 
-        return tApplicableServiceNSItemProvider;
+        return applicableServiceNSItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TApplicableServices} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TApplicableServicesItemProvider tApplicableServicesItemProvider;
+    protected ApplicableServicesItemProvider applicableServicesItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TApplicableServices}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTApplicableServicesAdapter() {
-        if( tApplicableServicesItemProvider == null ) {
-            tApplicableServicesItemProvider = new TApplicableServicesItemProvider( this );
+    public Adapter createApplicableServicesAdapter() {
+        if( applicableServicesItemProvider == null ) {
+            applicableServicesItemProvider = new ApplicableServicesItemProvider( this );
         }
 
-        return tApplicableServicesItemProvider;
+        return applicableServicesItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TBasicType} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TBasicTypeItemProvider tBasicTypeItemProvider;
+    protected BasicTypeItemProvider basicTypeItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TBasicType}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTBasicTypeAdapter() {
-        if( tBasicTypeItemProvider == null ) {
-            tBasicTypeItemProvider = new TBasicTypeItemProvider( this );
+    public Adapter createBasicTypeAdapter() {
+        if( basicTypeItemProvider == null ) {
+            basicTypeItemProvider = new BasicTypeItemProvider( this );
         }
 
-        return tBasicTypeItemProvider;
+        return basicTypeItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TBasicTypes} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TBasicTypesItemProvider tBasicTypesItemProvider;
+    protected BasicTypesItemProvider basicTypesItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TBasicTypes}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTBasicTypesAdapter() {
-        if( tBasicTypesItemProvider == null ) {
-            tBasicTypesItemProvider = new TBasicTypesItemProvider( this );
+    public Adapter createBasicTypesAdapter() {
+        if( basicTypesItemProvider == null ) {
+            basicTypesItemProvider = new BasicTypesItemProvider( this );
         }
 
-        return tBasicTypesItemProvider;
+        return basicTypesItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TCDC} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TCDCItemProvider tcdcItemProvider;
+    protected CDCItemProvider cdcItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TCDC}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTCDCAdapter() {
-        if( tcdcItemProvider == null ) {
-            tcdcItemProvider = new TCDCItemProvider( this );
+    public Adapter createCDCAdapter() {
+        if( cdcItemProvider == null ) {
+            cdcItemProvider = new CDCItemProvider( this );
         }
 
-        return tcdcItemProvider;
+        return cdcItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TCDCs} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TCDCsItemProvider tcdCsItemProvider;
+    protected CDCsItemProvider cdCsItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TCDCs}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTCDCsAdapter() {
-        if( tcdCsItemProvider == null ) {
-            tcdCsItemProvider = new TCDCsItemProvider( this );
+    public Adapter createCDCsAdapter() {
+        if( cdCsItemProvider == null ) {
+            cdCsItemProvider = new CDCsItemProvider( this );
         }
 
-        return tcdCsItemProvider;
+        return cdCsItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TChanges} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TChangesItemProvider tChangesItemProvider;
+    protected ChangesItemProvider changesItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TChanges}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTChangesAdapter() {
-        if( tChangesItemProvider == null ) {
-            tChangesItemProvider = new TChangesItemProvider( this );
+    public Adapter createChangesAdapter() {
+        if( changesItemProvider == null ) {
+            changesItemProvider = new ChangesItemProvider( this );
         }
 
-        return tChangesItemProvider;
+        return changesItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TConstructedAttribute} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TConstructedAttributeItemProvider tConstructedAttributeItemProvider;
+    protected ConstructedAttributeItemProvider constructedAttributeItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TConstructedAttribute}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTConstructedAttributeAdapter() {
-        if( tConstructedAttributeItemProvider == null ) {
-            tConstructedAttributeItemProvider = new TConstructedAttributeItemProvider( this );
+    public Adapter createConstructedAttributeAdapter() {
+        if( constructedAttributeItemProvider == null ) {
+            constructedAttributeItemProvider = new ConstructedAttributeItemProvider( this );
         }
 
-        return tConstructedAttributeItemProvider;
+        return constructedAttributeItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TConstructedAttributes} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TConstructedAttributesItemProvider tConstructedAttributesItemProvider;
+    protected ConstructedAttributesItemProvider constructedAttributesItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TConstructedAttributes}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTConstructedAttributesAdapter() {
-        if( tConstructedAttributesItemProvider == null ) {
-            tConstructedAttributesItemProvider = new TConstructedAttributesItemProvider( this );
+    public Adapter createConstructedAttributesAdapter() {
+        if( constructedAttributesItemProvider == null ) {
+            constructedAttributesItemProvider = new ConstructedAttributesItemProvider( this );
         }
 
-        return tConstructedAttributesItemProvider;
+        return constructedAttributesItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TCopyrighted} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Copyrighted} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TCopyrightedItemProvider tCopyrightedItemProvider;
+    protected CopyrightedItemProvider copyrightedItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TCopyrighted}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Copyrighted}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTCopyrightedAdapter() {
-        if( tCopyrightedItemProvider == null ) {
-            tCopyrightedItemProvider = new TCopyrightedItemProvider( this );
+    public Adapter createCopyrightedAdapter() {
+        if( copyrightedItemProvider == null ) {
+            copyrightedItemProvider = new CopyrightedItemProvider( this );
         }
 
-        return tCopyrightedItemProvider;
+        return copyrightedItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TCopyrightNotice} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CopyrightNotice} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TCopyrightNoticeItemProvider tCopyrightNoticeItemProvider;
+    protected CopyrightNoticeItemProvider copyrightNoticeItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TCopyrightNotice}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CopyrightNotice}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTCopyrightNoticeAdapter() {
-        if( tCopyrightNoticeItemProvider == null ) {
-            tCopyrightNoticeItemProvider = new TCopyrightNoticeItemProvider( this );
+    public Adapter createCopyrightNoticeAdapter() {
+        if( copyrightNoticeItemProvider == null ) {
+            copyrightNoticeItemProvider = new CopyrightNoticeItemProvider( this );
         }
 
-        return tCopyrightNoticeItemProvider;
+        return copyrightNoticeItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TDataAttribute} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TDataAttributeItemProvider tDataAttributeItemProvider;
+    protected DataAttributeItemProvider dataAttributeItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TDataAttribute}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTDataAttributeAdapter() {
-        if( tDataAttributeItemProvider == null ) {
-            tDataAttributeItemProvider = new TDataAttributeItemProvider( this );
+    public Adapter createDataAttributeAdapter() {
+        if( dataAttributeItemProvider == null ) {
+            dataAttributeItemProvider = new DataAttributeItemProvider( this );
         }
 
-        return tDataAttributeItemProvider;
+        return dataAttributeItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TDataObject} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TDataObjectItemProvider tDataObjectItemProvider;
+    protected DataObjectItemProvider dataObjectItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TDataObject}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTDataObjectAdapter() {
-        if( tDataObjectItemProvider == null ) {
-            tDataObjectItemProvider = new TDataObjectItemProvider( this );
+    public Adapter createDataObjectAdapter() {
+        if( dataObjectItemProvider == null ) {
+            dataObjectItemProvider = new DataObjectItemProvider( this );
         }
 
-        return tDataObjectItemProvider;
+        return dataObjectItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TDataSetMemberOf} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataSetMemberOf} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TDataSetMemberOfItemProvider tDataSetMemberOfItemProvider;
+    protected DataSetMemberOfItemProvider dataSetMemberOfItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TDataSetMemberOf}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataSetMemberOf}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTDataSetMemberOfAdapter() {
-        if( tDataSetMemberOfItemProvider == null ) {
-            tDataSetMemberOfItemProvider = new TDataSetMemberOfItemProvider( this );
+    public Adapter createDataSetMemberOfAdapter() {
+        if( dataSetMemberOfItemProvider == null ) {
+            dataSetMemberOfItemProvider = new DataSetMemberOfItemProvider( this );
         }
 
-        return tDataSetMemberOfItemProvider;
+        return dataSetMemberOfItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TDoc} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TDocItemProvider tDocItemProvider;
+    protected DocItemProvider docItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TDoc}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTDocAdapter() {
-        if( tDocItemProvider == null ) {
-            tDocItemProvider = new TDocItemProvider( this );
+    public Adapter createDocAdapter() {
+        if( docItemProvider == null ) {
+            docItemProvider = new DocItemProvider( this );
         }
 
-        return tDocItemProvider;
+        return docItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TDocumentedClass} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentedClass} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TDocumentedClassItemProvider tDocumentedClassItemProvider;
+    protected DocumentedClassItemProvider documentedClassItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TDocumentedClass}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentedClass}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTDocumentedClassAdapter() {
-        if( tDocumentedClassItemProvider == null ) {
-            tDocumentedClassItemProvider = new TDocumentedClassItemProvider( this );
+    public Adapter createDocumentedClassAdapter() {
+        if( documentedClassItemProvider == null ) {
+            documentedClassItemProvider = new DocumentedClassItemProvider( this );
         }
 
-        return tDocumentedClassItemProvider;
+        return documentedClassItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TEnumeration} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TEnumerationItemProvider tEnumerationItemProvider;
+    protected EnumerationItemProvider enumerationItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TEnumeration}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTEnumerationAdapter() {
-        if( tEnumerationItemProvider == null ) {
-            tEnumerationItemProvider = new TEnumerationItemProvider( this );
+    public Adapter createEnumerationAdapter() {
+        if( enumerationItemProvider == null ) {
+            enumerationItemProvider = new EnumerationItemProvider( this );
         }
 
-        return tEnumerationItemProvider;
+        return enumerationItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TEnumerations} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TEnumerationsItemProvider tEnumerationsItemProvider;
+    protected EnumerationsItemProvider enumerationsItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TEnumerations}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTEnumerationsAdapter() {
-        if( tEnumerationsItemProvider == null ) {
-            tEnumerationsItemProvider = new TEnumerationsItemProvider( this );
+    public Adapter createEnumerationsAdapter() {
+        if( enumerationsItemProvider == null ) {
+            enumerationsItemProvider = new EnumerationsItemProvider( this );
         }
 
-        return tEnumerationsItemProvider;
+        return enumerationsItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TFunctionalConstraint} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TFunctionalConstraintItemProvider tFunctionalConstraintItemProvider;
+    protected FunctionalConstraintItemProvider functionalConstraintItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TFunctionalConstraint}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTFunctionalConstraintAdapter() {
-        if( tFunctionalConstraintItemProvider == null ) {
-            tFunctionalConstraintItemProvider = new TFunctionalConstraintItemProvider( this );
+    public Adapter createFunctionalConstraintAdapter() {
+        if( functionalConstraintItemProvider == null ) {
+            functionalConstraintItemProvider = new FunctionalConstraintItemProvider( this );
         }
 
-        return tFunctionalConstraintItemProvider;
+        return functionalConstraintItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TFunctionalConstraints} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TFunctionalConstraintsItemProvider tFunctionalConstraintsItemProvider;
+    protected FunctionalConstraintsItemProvider functionalConstraintsItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TFunctionalConstraints}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTFunctionalConstraintsAdapter() {
-        if( tFunctionalConstraintsItemProvider == null ) {
-            tFunctionalConstraintsItemProvider = new TFunctionalConstraintsItemProvider( this );
+    public Adapter createFunctionalConstraintsAdapter() {
+        if( functionalConstraintsItemProvider == null ) {
+            functionalConstraintsItemProvider = new FunctionalConstraintsItemProvider( this );
         }
 
-        return tFunctionalConstraintsItemProvider;
+        return functionalConstraintsItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TLicense} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.License} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TLicenseItemProvider tLicenseItemProvider;
+    protected LicenseItemProvider licenseItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TLicense}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.License}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTLicenseAdapter() {
-        if( tLicenseItemProvider == null ) {
-            tLicenseItemProvider = new TLicenseItemProvider( this );
+    public Adapter createLicenseAdapter() {
+        if( licenseItemProvider == null ) {
+            licenseItemProvider = new LicenseItemProvider( this );
         }
 
-        return tLicenseItemProvider;
+        return licenseItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TLiteral} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TLiteralItemProvider tLiteralItemProvider;
+    protected LiteralItemProvider literalItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TLiteral}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTLiteralAdapter() {
-        if( tLiteralItemProvider == null ) {
-            tLiteralItemProvider = new TLiteralItemProvider( this );
+    public Adapter createLiteralAdapter() {
+        if( literalItemProvider == null ) {
+            literalItemProvider = new LiteralItemProvider( this );
         }
 
-        return tLiteralItemProvider;
+        return literalItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TLNClass} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TLNClassItemProvider tlnClassItemProvider;
+    protected LNClassItemProvider lnClassItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TLNClass}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTLNClassAdapter() {
-        if( tlnClassItemProvider == null ) {
-            tlnClassItemProvider = new TLNClassItemProvider( this );
+    public Adapter createLNClassAdapter() {
+        if( lnClassItemProvider == null ) {
+            lnClassItemProvider = new LNClassItemProvider( this );
         }
 
-        return tlnClassItemProvider;
+        return lnClassItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TLNClasses} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TLNClassesItemProvider tlnClassesItemProvider;
+    protected LNClassesItemProvider lnClassesItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TLNClasses}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTLNClassesAdapter() {
-        if( tlnClassesItemProvider == null ) {
-            tlnClassesItemProvider = new TLNClassesItemProvider( this );
+    public Adapter createLNClassesAdapter() {
+        if( lnClassesItemProvider == null ) {
+            lnClassesItemProvider = new LNClassesItemProvider( this );
         }
 
-        return tlnClassesItemProvider;
+        return lnClassesItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNotice} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Notice} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TNoticeItemProvider tNoticeItemProvider;
+    protected NoticeItemProvider noticeItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNotice}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Notice}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTNoticeAdapter() {
-        if( tNoticeItemProvider == null ) {
-            tNoticeItemProvider = new TNoticeItemProvider( this );
+    public Adapter createNoticeAdapter() {
+        if( noticeItemProvider == null ) {
+            noticeItemProvider = new NoticeItemProvider( this );
         }
 
-        return tNoticeItemProvider;
+        return noticeItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNS} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TNSItemProvider tnsItemProvider;
+    protected NSItemProvider nsItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNS}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTNSAdapter() {
-        if( tnsItemProvider == null ) {
-            tnsItemProvider = new TNSItemProvider( this );
+    public Adapter createNSAdapter() {
+        if( nsItemProvider == null ) {
+            nsItemProvider = new NSItemProvider( this );
         }
 
-        return tnsItemProvider;
+        return nsItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNSDoc} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TNSDocItemProvider tnsDocItemProvider;
+    protected NSDocItemProvider nsDocItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNSDoc}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTNSDocAdapter() {
-        if( tnsDocItemProvider == null ) {
-            tnsDocItemProvider = new TNSDocItemProvider( this );
+    public Adapter createNSDocAdapter() {
+        if( nsDocItemProvider == null ) {
+            nsDocItemProvider = new NSDocItemProvider( this );
         }
 
-        return tnsDocItemProvider;
+        return nsDocItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TPresenceCondition} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TPresenceConditionItemProvider tPresenceConditionItemProvider;
+    protected PresenceConditionItemProvider presenceConditionItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TPresenceCondition}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTPresenceConditionAdapter() {
-        if( tPresenceConditionItemProvider == null ) {
-            tPresenceConditionItemProvider = new TPresenceConditionItemProvider( this );
+    public Adapter createPresenceConditionAdapter() {
+        if( presenceConditionItemProvider == null ) {
+            presenceConditionItemProvider = new PresenceConditionItemProvider( this );
         }
 
-        return tPresenceConditionItemProvider;
+        return presenceConditionItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TPresenceConditions} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TPresenceConditionsItemProvider tPresenceConditionsItemProvider;
+    protected PresenceConditionsItemProvider presenceConditionsItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TPresenceConditions}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTPresenceConditionsAdapter() {
-        if( tPresenceConditionsItemProvider == null ) {
-            tPresenceConditionsItemProvider = new TPresenceConditionsItemProvider( this );
+    public Adapter createPresenceConditionsAdapter() {
+        if( presenceConditionsItemProvider == null ) {
+            presenceConditionsItemProvider = new PresenceConditionsItemProvider( this );
         }
 
-        return tPresenceConditionsItemProvider;
+        return presenceConditionsItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceCDC} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TServiceCDCItemProvider tServiceCDCItemProvider;
+    protected ServiceCDCItemProvider serviceCDCItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceCDC}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTServiceCDCAdapter() {
-        if( tServiceCDCItemProvider == null ) {
-            tServiceCDCItemProvider = new TServiceCDCItemProvider( this );
+    public Adapter createServiceCDCAdapter() {
+        if( serviceCDCItemProvider == null ) {
+            serviceCDCItemProvider = new ServiceCDCItemProvider( this );
         }
 
-        return tServiceCDCItemProvider;
+        return serviceCDCItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceCDCs} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDCs} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TServiceCDCsItemProvider tServiceCDCsItemProvider;
+    protected ServiceCDCsItemProvider serviceCDCsItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceCDCs}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDCs}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTServiceCDCsAdapter() {
-        if( tServiceCDCsItemProvider == null ) {
-            tServiceCDCsItemProvider = new TServiceCDCsItemProvider( this );
+    public Adapter createServiceCDCsAdapter() {
+        if( serviceCDCsItemProvider == null ) {
+            serviceCDCsItemProvider = new ServiceCDCsItemProvider( this );
         }
 
-        return tServiceCDCsItemProvider;
+        return serviceCDCsItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceConstructedAttribute} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TServiceConstructedAttributeItemProvider tServiceConstructedAttributeItemProvider;
+    protected ServiceConstructedAttributeItemProvider serviceConstructedAttributeItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceConstructedAttribute}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTServiceConstructedAttributeAdapter() {
-        if( tServiceConstructedAttributeItemProvider == null ) {
-            tServiceConstructedAttributeItemProvider = new TServiceConstructedAttributeItemProvider( this );
+    public Adapter createServiceConstructedAttributeAdapter() {
+        if( serviceConstructedAttributeItemProvider == null ) {
+            serviceConstructedAttributeItemProvider = new ServiceConstructedAttributeItemProvider( this );
         }
 
-        return tServiceConstructedAttributeItemProvider;
+        return serviceConstructedAttributeItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceConstructedAttributes} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttributes} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TServiceConstructedAttributesItemProvider tServiceConstructedAttributesItemProvider;
+    protected ServiceConstructedAttributesItemProvider serviceConstructedAttributesItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceConstructedAttributes}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttributes}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTServiceConstructedAttributesAdapter() {
-        if( tServiceConstructedAttributesItemProvider == null ) {
-            tServiceConstructedAttributesItemProvider = new TServiceConstructedAttributesItemProvider( this );
+    public Adapter createServiceConstructedAttributesAdapter() {
+        if( serviceConstructedAttributesItemProvider == null ) {
+            serviceConstructedAttributesItemProvider = new ServiceConstructedAttributesItemProvider( this );
         }
 
-        return tServiceConstructedAttributesItemProvider;
+        return serviceConstructedAttributesItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceDataAttribute} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TServiceDataAttributeItemProvider tServiceDataAttributeItemProvider;
+    protected ServiceDataAttributeItemProvider serviceDataAttributeItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceDataAttribute}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTServiceDataAttributeAdapter() {
-        if( tServiceDataAttributeItemProvider == null ) {
-            tServiceDataAttributeItemProvider = new TServiceDataAttributeItemProvider( this );
+    public Adapter createServiceDataAttributeAdapter() {
+        if( serviceDataAttributeItemProvider == null ) {
+            serviceDataAttributeItemProvider = new ServiceDataAttributeItemProvider( this );
         }
 
-        return tServiceDataAttributeItemProvider;
+        return serviceDataAttributeItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceNS} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TServiceNSItemProvider tServiceNSItemProvider;
+    protected ServiceNSItemProvider serviceNSItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceNS}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTServiceNSAdapter() {
-        if( tServiceNSItemProvider == null ) {
-            tServiceNSItemProvider = new TServiceNSItemProvider( this );
+    public Adapter createServiceNSAdapter() {
+        if( serviceNSItemProvider == null ) {
+            serviceNSItemProvider = new ServiceNSItemProvider( this );
         }
 
-        return tServiceNSItemProvider;
+        return serviceNSItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceNsUsage} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TServiceNsUsageItemProvider tServiceNsUsageItemProvider;
+    protected ServiceNsUsageItemProvider serviceNsUsageItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceNsUsage}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTServiceNsUsageAdapter() {
-        if( tServiceNsUsageItemProvider == null ) {
-            tServiceNsUsageItemProvider = new TServiceNsUsageItemProvider( this );
+    public Adapter createServiceNsUsageAdapter() {
+        if( serviceNsUsageItemProvider == null ) {
+            serviceNsUsageItemProvider = new ServiceNsUsageItemProvider( this );
         }
 
-        return tServiceNsUsageItemProvider;
+        return serviceNsUsageItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceParameter} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceParameter} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TServiceParameterItemProvider tServiceParameterItemProvider;
+    protected ServiceParameterItemProvider serviceParameterItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceParameter}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceParameter}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTServiceParameterAdapter() {
-        if( tServiceParameterItemProvider == null ) {
-            tServiceParameterItemProvider = new TServiceParameterItemProvider( this );
+    public Adapter createServiceParameterAdapter() {
+        if( serviceParameterItemProvider == null ) {
+            serviceParameterItemProvider = new ServiceParameterItemProvider( this );
         }
 
-        return tServiceParameterItemProvider;
+        return serviceParameterItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceTypeRealization} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealization} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TServiceTypeRealizationItemProvider tServiceTypeRealizationItemProvider;
+    protected ServiceTypeRealizationItemProvider serviceTypeRealizationItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceTypeRealization}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealization}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTServiceTypeRealizationAdapter() {
-        if( tServiceTypeRealizationItemProvider == null ) {
-            tServiceTypeRealizationItemProvider = new TServiceTypeRealizationItemProvider( this );
+    public Adapter createServiceTypeRealizationAdapter() {
+        if( serviceTypeRealizationItemProvider == null ) {
+            serviceTypeRealizationItemProvider = new ServiceTypeRealizationItemProvider( this );
         }
 
-        return tServiceTypeRealizationItemProvider;
+        return serviceTypeRealizationItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceTypeRealizations} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TServiceTypeRealizationsItemProvider tServiceTypeRealizationsItemProvider;
+    protected ServiceTypeRealizationsItemProvider serviceTypeRealizationsItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TServiceTypeRealizations}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTServiceTypeRealizationsAdapter() {
-        if( tServiceTypeRealizationsItemProvider == null ) {
-            tServiceTypeRealizationsItemProvider = new TServiceTypeRealizationsItemProvider( this );
+    public Adapter createServiceTypeRealizationsAdapter() {
+        if( serviceTypeRealizationsItemProvider == null ) {
+            serviceTypeRealizationsItemProvider = new ServiceTypeRealizationsItemProvider( this );
         }
 
-        return tServiceTypeRealizationsItemProvider;
+        return serviceTypeRealizationsItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TSubDataAttribute} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TSubDataAttributeItemProvider tSubDataAttributeItemProvider;
+    protected SubDataAttributeItemProvider subDataAttributeItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TSubDataAttribute}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTSubDataAttributeAdapter() {
-        if( tSubDataAttributeItemProvider == null ) {
-            tSubDataAttributeItemProvider = new TSubDataAttributeItemProvider( this );
+    public Adapter createSubDataAttributeAdapter() {
+        if( subDataAttributeItemProvider == null ) {
+            subDataAttributeItemProvider = new SubDataAttributeItemProvider( this );
         }
 
-        return tSubDataAttributeItemProvider;
+        return subDataAttributeItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TSubDataObject} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TSubDataObjectItemProvider tSubDataObjectItemProvider;
+    protected SubDataObjectItemProvider subDataObjectItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TSubDataObject}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTSubDataObjectAdapter() {
-        if( tSubDataObjectItemProvider == null ) {
-            tSubDataObjectItemProvider = new TSubDataObjectItemProvider( this );
+    public Adapter createSubDataObjectAdapter() {
+        if( subDataObjectItemProvider == null ) {
+            subDataObjectItemProvider = new SubDataObjectItemProvider( this );
         }
 
-        return tSubDataObjectItemProvider;
+        return subDataObjectItemProvider;
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TTitledClass} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TitledClass} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TTitledClassItemProvider tTitledClassItemProvider;
+    protected TitledClassItemProvider titledClassItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TTitledClass}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TitledClass}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createTTitledClassAdapter() {
-        if( tTitledClassItemProvider == null ) {
-            tTitledClassItemProvider = new TTitledClassItemProvider( this );
+    public Adapter createTitledClassAdapter() {
+        if( titledClassItemProvider == null ) {
+            titledClassItemProvider = new TitledClassItemProvider( this );
         }
 
-        return tTitledClassItemProvider;
+        return titledClassItemProvider;
     }
 
     /**
@@ -1325,51 +1325,51 @@ public class NsdItemProviderAdapterFactory extends NsdAdapterFactory
         if( dependsOnTypeItemProvider != null ) dependsOnTypeItemProvider.dispose();
         if( documentRootItemProvider != null ) documentRootItemProvider.dispose();
         if( serviceTypeItemProvider != null ) serviceTypeItemProvider.dispose();
-        if( tAbbreviationItemProvider != null ) tAbbreviationItemProvider.dispose();
-        if( tAbbreviationsItemProvider != null ) tAbbreviationsItemProvider.dispose();
-        if( tAbstractLNClassItemProvider != null ) tAbstractLNClassItemProvider.dispose();
-        if( tApplicableServiceNSItemProvider != null ) tApplicableServiceNSItemProvider.dispose();
-        if( tApplicableServicesItemProvider != null ) tApplicableServicesItemProvider.dispose();
-        if( tBasicTypeItemProvider != null ) tBasicTypeItemProvider.dispose();
-        if( tBasicTypesItemProvider != null ) tBasicTypesItemProvider.dispose();
-        if( tcdcItemProvider != null ) tcdcItemProvider.dispose();
-        if( tcdCsItemProvider != null ) tcdCsItemProvider.dispose();
-        if( tChangesItemProvider != null ) tChangesItemProvider.dispose();
-        if( tConstructedAttributeItemProvider != null ) tConstructedAttributeItemProvider.dispose();
-        if( tConstructedAttributesItemProvider != null ) tConstructedAttributesItemProvider.dispose();
-        if( tCopyrightedItemProvider != null ) tCopyrightedItemProvider.dispose();
-        if( tCopyrightNoticeItemProvider != null ) tCopyrightNoticeItemProvider.dispose();
-        if( tDataAttributeItemProvider != null ) tDataAttributeItemProvider.dispose();
-        if( tDataObjectItemProvider != null ) tDataObjectItemProvider.dispose();
-        if( tDataSetMemberOfItemProvider != null ) tDataSetMemberOfItemProvider.dispose();
-        if( tDocItemProvider != null ) tDocItemProvider.dispose();
-        if( tDocumentedClassItemProvider != null ) tDocumentedClassItemProvider.dispose();
-        if( tEnumerationItemProvider != null ) tEnumerationItemProvider.dispose();
-        if( tEnumerationsItemProvider != null ) tEnumerationsItemProvider.dispose();
-        if( tFunctionalConstraintItemProvider != null ) tFunctionalConstraintItemProvider.dispose();
-        if( tFunctionalConstraintsItemProvider != null ) tFunctionalConstraintsItemProvider.dispose();
-        if( tLicenseItemProvider != null ) tLicenseItemProvider.dispose();
-        if( tLiteralItemProvider != null ) tLiteralItemProvider.dispose();
-        if( tlnClassItemProvider != null ) tlnClassItemProvider.dispose();
-        if( tlnClassesItemProvider != null ) tlnClassesItemProvider.dispose();
-        if( tNoticeItemProvider != null ) tNoticeItemProvider.dispose();
-        if( tnsItemProvider != null ) tnsItemProvider.dispose();
-        if( tnsDocItemProvider != null ) tnsDocItemProvider.dispose();
-        if( tPresenceConditionItemProvider != null ) tPresenceConditionItemProvider.dispose();
-        if( tPresenceConditionsItemProvider != null ) tPresenceConditionsItemProvider.dispose();
-        if( tServiceCDCItemProvider != null ) tServiceCDCItemProvider.dispose();
-        if( tServiceCDCsItemProvider != null ) tServiceCDCsItemProvider.dispose();
-        if( tServiceConstructedAttributeItemProvider != null ) tServiceConstructedAttributeItemProvider.dispose();
-        if( tServiceConstructedAttributesItemProvider != null ) tServiceConstructedAttributesItemProvider.dispose();
-        if( tServiceDataAttributeItemProvider != null ) tServiceDataAttributeItemProvider.dispose();
-        if( tServiceNSItemProvider != null ) tServiceNSItemProvider.dispose();
-        if( tServiceNsUsageItemProvider != null ) tServiceNsUsageItemProvider.dispose();
-        if( tServiceParameterItemProvider != null ) tServiceParameterItemProvider.dispose();
-        if( tServiceTypeRealizationItemProvider != null ) tServiceTypeRealizationItemProvider.dispose();
-        if( tServiceTypeRealizationsItemProvider != null ) tServiceTypeRealizationsItemProvider.dispose();
-        if( tSubDataAttributeItemProvider != null ) tSubDataAttributeItemProvider.dispose();
-        if( tSubDataObjectItemProvider != null ) tSubDataObjectItemProvider.dispose();
-        if( tTitledClassItemProvider != null ) tTitledClassItemProvider.dispose();
+        if( abbreviationItemProvider != null ) abbreviationItemProvider.dispose();
+        if( abbreviationsItemProvider != null ) abbreviationsItemProvider.dispose();
+        if( abstractLNClassItemProvider != null ) abstractLNClassItemProvider.dispose();
+        if( applicableServiceNSItemProvider != null ) applicableServiceNSItemProvider.dispose();
+        if( applicableServicesItemProvider != null ) applicableServicesItemProvider.dispose();
+        if( basicTypeItemProvider != null ) basicTypeItemProvider.dispose();
+        if( basicTypesItemProvider != null ) basicTypesItemProvider.dispose();
+        if( cdcItemProvider != null ) cdcItemProvider.dispose();
+        if( cdCsItemProvider != null ) cdCsItemProvider.dispose();
+        if( changesItemProvider != null ) changesItemProvider.dispose();
+        if( constructedAttributeItemProvider != null ) constructedAttributeItemProvider.dispose();
+        if( constructedAttributesItemProvider != null ) constructedAttributesItemProvider.dispose();
+        if( copyrightedItemProvider != null ) copyrightedItemProvider.dispose();
+        if( copyrightNoticeItemProvider != null ) copyrightNoticeItemProvider.dispose();
+        if( dataAttributeItemProvider != null ) dataAttributeItemProvider.dispose();
+        if( dataObjectItemProvider != null ) dataObjectItemProvider.dispose();
+        if( dataSetMemberOfItemProvider != null ) dataSetMemberOfItemProvider.dispose();
+        if( docItemProvider != null ) docItemProvider.dispose();
+        if( documentedClassItemProvider != null ) documentedClassItemProvider.dispose();
+        if( enumerationItemProvider != null ) enumerationItemProvider.dispose();
+        if( enumerationsItemProvider != null ) enumerationsItemProvider.dispose();
+        if( functionalConstraintItemProvider != null ) functionalConstraintItemProvider.dispose();
+        if( functionalConstraintsItemProvider != null ) functionalConstraintsItemProvider.dispose();
+        if( licenseItemProvider != null ) licenseItemProvider.dispose();
+        if( literalItemProvider != null ) literalItemProvider.dispose();
+        if( lnClassItemProvider != null ) lnClassItemProvider.dispose();
+        if( lnClassesItemProvider != null ) lnClassesItemProvider.dispose();
+        if( noticeItemProvider != null ) noticeItemProvider.dispose();
+        if( nsItemProvider != null ) nsItemProvider.dispose();
+        if( nsDocItemProvider != null ) nsDocItemProvider.dispose();
+        if( presenceConditionItemProvider != null ) presenceConditionItemProvider.dispose();
+        if( presenceConditionsItemProvider != null ) presenceConditionsItemProvider.dispose();
+        if( serviceCDCItemProvider != null ) serviceCDCItemProvider.dispose();
+        if( serviceCDCsItemProvider != null ) serviceCDCsItemProvider.dispose();
+        if( serviceConstructedAttributeItemProvider != null ) serviceConstructedAttributeItemProvider.dispose();
+        if( serviceConstructedAttributesItemProvider != null ) serviceConstructedAttributesItemProvider.dispose();
+        if( serviceDataAttributeItemProvider != null ) serviceDataAttributeItemProvider.dispose();
+        if( serviceNSItemProvider != null ) serviceNSItemProvider.dispose();
+        if( serviceNsUsageItemProvider != null ) serviceNsUsageItemProvider.dispose();
+        if( serviceParameterItemProvider != null ) serviceParameterItemProvider.dispose();
+        if( serviceTypeRealizationItemProvider != null ) serviceTypeRealizationItemProvider.dispose();
+        if( serviceTypeRealizationsItemProvider != null ) serviceTypeRealizationsItemProvider.dispose();
+        if( subDataAttributeItemProvider != null ) subDataAttributeItemProvider.dispose();
+        if( subDataObjectItemProvider != null ) subDataObjectItemProvider.dispose();
+        if( titledClassItemProvider != null ) titledClassItemProvider.dispose();
     }
 
 }

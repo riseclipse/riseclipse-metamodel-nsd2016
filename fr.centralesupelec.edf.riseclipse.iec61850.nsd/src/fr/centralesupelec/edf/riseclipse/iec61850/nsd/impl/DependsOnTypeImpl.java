@@ -21,14 +21,13 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOnType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TPubStage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,14 +39,12 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DependsOnTypeImpl#getId <em>Id</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DependsOnTypeImpl#getPublicationStage <em>Publication Stage</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DependsOnTypeImpl#getRelease <em>Release</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DependsOnTypeImpl#getRevision <em>Revision</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DependsOnTypeImpl#getVersion <em>Version</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DependsOnTypeImpl extends MinimalEObjectImpl.Container implements DependsOnType {
+public class DependsOnTypeImpl extends NSDObjectWithVersionAndReleaseImpl implements DependsOnType {
     /**
      * The default value of the '{@link #getId() <em>Id</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -76,7 +73,7 @@ public class DependsOnTypeImpl extends MinimalEObjectImpl.Container implements D
      * @generated
      * @ordered
      */
-    protected static final TPubStage PUBLICATION_STAGE_EDEFAULT = TPubStage.IS;
+    protected static final PubStage PUBLICATION_STAGE_EDEFAULT = PubStage.IS;
 
     /**
      * The cached value of the '{@link #getPublicationStage() <em>Publication Stage</em>}' attribute.
@@ -86,7 +83,7 @@ public class DependsOnTypeImpl extends MinimalEObjectImpl.Container implements D
      * @generated
      * @ordered
      */
-    protected TPubStage publicationStage = PUBLICATION_STAGE_EDEFAULT;
+    protected PubStage publicationStage = PUBLICATION_STAGE_EDEFAULT;
 
     /**
      * This is true if the Publication Stage attribute has been set.
@@ -96,35 +93,6 @@ public class DependsOnTypeImpl extends MinimalEObjectImpl.Container implements D
      * @ordered
      */
     protected boolean publicationStageESet;
-
-    /**
-     * The default value of the '{@link #getRelease() <em>Release</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getRelease()
-     * @generated
-     * @ordered
-     */
-    protected static final short RELEASE_EDEFAULT = 1;
-
-    /**
-     * The cached value of the '{@link #getRelease() <em>Release</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getRelease()
-     * @generated
-     * @ordered
-     */
-    protected short release = RELEASE_EDEFAULT;
-
-    /**
-     * This is true if the Release attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean releaseESet;
 
     /**
      * The default value of the '{@link #getRevision() <em>Revision</em>}' attribute.
@@ -154,35 +122,6 @@ public class DependsOnTypeImpl extends MinimalEObjectImpl.Container implements D
      * @ordered
      */
     protected boolean revisionESet;
-
-    /**
-     * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getVersion()
-     * @generated
-     * @ordered
-     */
-    protected static final int VERSION_EDEFAULT = 0;
-
-    /**
-     * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getVersion()
-     * @generated
-     * @ordered
-     */
-    protected int version = VERSION_EDEFAULT;
-
-    /**
-     * This is true if the Version attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean versionESet;
 
     /**
      * <!-- begin-user-doc -->
@@ -232,7 +171,7 @@ public class DependsOnTypeImpl extends MinimalEObjectImpl.Container implements D
      * @generated
      */
     @Override
-    public TPubStage getPublicationStage() {
+    public PubStage getPublicationStage() {
         return publicationStage;
     }
 
@@ -242,8 +181,8 @@ public class DependsOnTypeImpl extends MinimalEObjectImpl.Container implements D
      * @generated
      */
     @Override
-    public void setPublicationStage( TPubStage newPublicationStage ) {
-        TPubStage oldPublicationStage = publicationStage;
+    public void setPublicationStage( PubStage newPublicationStage ) {
+        PubStage oldPublicationStage = publicationStage;
         publicationStage = newPublicationStage == null ? PUBLICATION_STAGE_EDEFAULT : newPublicationStage;
         boolean oldPublicationStageESet = publicationStageESet;
         publicationStageESet = true;
@@ -259,7 +198,7 @@ public class DependsOnTypeImpl extends MinimalEObjectImpl.Container implements D
      */
     @Override
     public void unsetPublicationStage() {
-        TPubStage oldPublicationStage = publicationStage;
+        PubStage oldPublicationStage = publicationStage;
         boolean oldPublicationStageESet = publicationStageESet;
         publicationStage = PUBLICATION_STAGE_EDEFAULT;
         publicationStageESet = false;
@@ -276,56 +215,6 @@ public class DependsOnTypeImpl extends MinimalEObjectImpl.Container implements D
     @Override
     public boolean isSetPublicationStage() {
         return publicationStageESet;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public short getRelease() {
-        return release;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setRelease( short newRelease ) {
-        short oldRelease = release;
-        release = newRelease;
-        boolean oldReleaseESet = releaseESet;
-        releaseESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.DEPENDS_ON_TYPE__RELEASE, oldRelease, release, !oldReleaseESet ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void unsetRelease() {
-        short oldRelease = release;
-        boolean oldReleaseESet = releaseESet;
-        release = RELEASE_EDEFAULT;
-        releaseESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.DEPENDS_ON_TYPE__RELEASE, oldRelease, RELEASE_EDEFAULT, oldReleaseESet ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean isSetRelease() {
-        return releaseESet;
     }
 
     /**
@@ -384,68 +273,14 @@ public class DependsOnTypeImpl extends MinimalEObjectImpl.Container implements D
      * @generated
      */
     @Override
-    public int getVersion() {
-        return version;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setVersion( int newVersion ) {
-        int oldVersion = version;
-        version = newVersion;
-        boolean oldVersionESet = versionESet;
-        versionESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.DEPENDS_ON_TYPE__VERSION, oldVersion, version, !oldVersionESet ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void unsetVersion() {
-        int oldVersion = version;
-        boolean oldVersionESet = versionESet;
-        version = VERSION_EDEFAULT;
-        versionESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.DEPENDS_ON_TYPE__VERSION, oldVersion, VERSION_EDEFAULT, oldVersionESet ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean isSetVersion() {
-        return versionESet;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
         case NsdPackage.DEPENDS_ON_TYPE__ID:
             return getId();
         case NsdPackage.DEPENDS_ON_TYPE__PUBLICATION_STAGE:
             return getPublicationStage();
-        case NsdPackage.DEPENDS_ON_TYPE__RELEASE:
-            return getRelease();
         case NsdPackage.DEPENDS_ON_TYPE__REVISION:
             return getRevision();
-        case NsdPackage.DEPENDS_ON_TYPE__VERSION:
-            return getVersion();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -462,16 +297,10 @@ public class DependsOnTypeImpl extends MinimalEObjectImpl.Container implements D
             setId( ( String ) newValue );
             return;
         case NsdPackage.DEPENDS_ON_TYPE__PUBLICATION_STAGE:
-            setPublicationStage( ( TPubStage ) newValue );
-            return;
-        case NsdPackage.DEPENDS_ON_TYPE__RELEASE:
-            setRelease( ( Short ) newValue );
+            setPublicationStage( ( PubStage ) newValue );
             return;
         case NsdPackage.DEPENDS_ON_TYPE__REVISION:
             setRevision( ( String ) newValue );
-            return;
-        case NsdPackage.DEPENDS_ON_TYPE__VERSION:
-            setVersion( ( Integer ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -491,14 +320,8 @@ public class DependsOnTypeImpl extends MinimalEObjectImpl.Container implements D
         case NsdPackage.DEPENDS_ON_TYPE__PUBLICATION_STAGE:
             unsetPublicationStage();
             return;
-        case NsdPackage.DEPENDS_ON_TYPE__RELEASE:
-            unsetRelease();
-            return;
         case NsdPackage.DEPENDS_ON_TYPE__REVISION:
             unsetRevision();
-            return;
-        case NsdPackage.DEPENDS_ON_TYPE__VERSION:
-            unsetVersion();
             return;
         }
         super.eUnset( featureID );
@@ -516,12 +339,8 @@ public class DependsOnTypeImpl extends MinimalEObjectImpl.Container implements D
             return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals( id );
         case NsdPackage.DEPENDS_ON_TYPE__PUBLICATION_STAGE:
             return isSetPublicationStage();
-        case NsdPackage.DEPENDS_ON_TYPE__RELEASE:
-            return isSetRelease();
         case NsdPackage.DEPENDS_ON_TYPE__REVISION:
             return isSetRevision();
-        case NsdPackage.DEPENDS_ON_TYPE__VERSION:
-            return isSetVersion();
         }
         return super.eIsSet( featureID );
     }
@@ -543,19 +362,9 @@ public class DependsOnTypeImpl extends MinimalEObjectImpl.Container implements D
             result.append( publicationStage );
         else
             result.append( "<unset>" );
-        result.append( ", release: " );
-        if( releaseESet )
-            result.append( release );
-        else
-            result.append( "<unset>" );
         result.append( ", revision: " );
         if( revisionESet )
             result.append( revision );
-        else
-            result.append( "<unset>" );
-        result.append( ", version: " );
-        if( versionESet )
-            result.append( version );
         else
             result.append( "<unset>" );
         result.append( ')' );

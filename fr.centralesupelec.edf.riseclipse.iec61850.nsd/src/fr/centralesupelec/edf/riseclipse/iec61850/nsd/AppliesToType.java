@@ -19,8 +19,6 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Applies To Type</b></em>'.
@@ -32,16 +30,14 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getId <em>Id</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getPublicationStage <em>Publication Stage</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getRelease <em>Release</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getRevision <em>Revision</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getVersion <em>Version</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAppliesToType()
  * @model extendedMetaData="name='AppliesTo_._type' kind='empty'"
  * @generated
  */
-public interface AppliesToType extends EObject {
+public interface AppliesToType extends NSDObjectWithVersionAndRelease {
     /**
      * Returns the value of the '<em><b>Id</b></em>' attribute.
      * <!-- begin-user-doc -->
@@ -52,7 +48,7 @@ public interface AppliesToType extends EObject {
      * @return the value of the '<em>Id</em>' attribute.
      * @see #setId(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAppliesToType_Id()
-     * @model dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNSIdentifier" required="true"
+     * @model required="true"
      *        extendedMetaData="kind='attribute' name='id'"
      * @generated
      */
@@ -71,36 +67,36 @@ public interface AppliesToType extends EObject {
     /**
      * Returns the value of the '<em><b>Publication Stage</b></em>' attribute.
      * The default value is <code>"IS"</code>.
-     * The literals are from the enumeration {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TPubStage}.
+     * The literals are from the enumeration {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * <!-- begin-model-doc -->
      * The publication stage of the namespace, by default IS.
      * <!-- end-model-doc -->
      * @return the value of the '<em>Publication Stage</em>' attribute.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TPubStage
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage
      * @see #isSetPublicationStage()
      * @see #unsetPublicationStage()
-     * @see #setPublicationStage(TPubStage)
+     * @see #setPublicationStage(PubStage)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAppliesToType_PublicationStage()
      * @model default="IS" unsettable="true"
      *        extendedMetaData="kind='attribute' name='publicationStage'"
      * @generated
      */
-    TPubStage getPublicationStage();
+    PubStage getPublicationStage();
 
     /**
      * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getPublicationStage <em>Publication Stage</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Publication Stage</em>' attribute.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TPubStage
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage
      * @see #isSetPublicationStage()
      * @see #unsetPublicationStage()
      * @see #getPublicationStage()
      * @generated
      */
-    void setPublicationStage( TPubStage value );
+    void setPublicationStage( PubStage value );
 
     /**
      * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getPublicationStage <em>Publication Stage</em>}' attribute.
@@ -108,7 +104,7 @@ public interface AppliesToType extends EObject {
      * <!-- end-user-doc -->
      * @see #isSetPublicationStage()
      * @see #getPublicationStage()
-     * @see #setPublicationStage(TPubStage)
+     * @see #setPublicationStage(PubStage)
      * @generated
      */
     void unsetPublicationStage();
@@ -120,64 +116,10 @@ public interface AppliesToType extends EObject {
      * @return whether the value of the '<em>Publication Stage</em>' attribute is set.
      * @see #unsetPublicationStage()
      * @see #getPublicationStage()
-     * @see #setPublicationStage(TPubStage)
+     * @see #setPublicationStage(PubStage)
      * @generated
      */
     boolean isSetPublicationStage();
-
-    /**
-     * Returns the value of the '<em><b>Release</b></em>' attribute.
-     * The default value is <code>"1"</code>.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Release of the namespace version and revision, by default 1.
-     * <!-- end-model-doc -->
-     * @return the value of the '<em>Release</em>' attribute.
-     * @see #isSetRelease()
-     * @see #unsetRelease()
-     * @see #setRelease(short)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAppliesToType_Release()
-     * @model default="1" unsettable="true" dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNSRelease"
-     *        extendedMetaData="kind='attribute' name='release'"
-     * @generated
-     */
-    short getRelease();
-
-    /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getRelease <em>Release</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Release</em>' attribute.
-     * @see #isSetRelease()
-     * @see #unsetRelease()
-     * @see #getRelease()
-     * @generated
-     */
-    void setRelease( short value );
-
-    /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getRelease <em>Release</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isSetRelease()
-     * @see #getRelease()
-     * @see #setRelease(short)
-     * @generated
-     */
-    void unsetRelease();
-
-    /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getRelease <em>Release</em>}' attribute is set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Release</em>' attribute is set.
-     * @see #unsetRelease()
-     * @see #getRelease()
-     * @see #setRelease(short)
-     * @generated
-     */
-    boolean isSetRelease();
 
     /**
      * Returns the value of the '<em><b>Revision</b></em>' attribute.
@@ -192,7 +134,7 @@ public interface AppliesToType extends EObject {
      * @see #unsetRevision()
      * @see #setRevision(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAppliesToType_Revision()
-     * @model default="A" unsettable="true" dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNSRevision"
+     * @model default="A" unsettable="true"
      *        extendedMetaData="kind='attribute' name='revision'"
      * @generated
      */
@@ -232,58 +174,5 @@ public interface AppliesToType extends EObject {
      * @generated
      */
     boolean isSetRevision();
-
-    /**
-     * Returns the value of the '<em><b>Version</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Version (year) of the namespace.
-     * <!-- end-model-doc -->
-     * @return the value of the '<em>Version</em>' attribute.
-     * @see #isSetVersion()
-     * @see #unsetVersion()
-     * @see #setVersion(int)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAppliesToType_Version()
-     * @model unsettable="true" dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.TNSVersion" required="true"
-     *        extendedMetaData="kind='attribute' name='version'"
-     * @generated
-     */
-    int getVersion();
-
-    /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getVersion <em>Version</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Version</em>' attribute.
-     * @see #isSetVersion()
-     * @see #unsetVersion()
-     * @see #getVersion()
-     * @generated
-     */
-    void setVersion( int value );
-
-    /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getVersion <em>Version</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isSetVersion()
-     * @see #getVersion()
-     * @see #setVersion(int)
-     * @generated
-     */
-    void unsetVersion();
-
-    /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getVersion <em>Version</em>}' attribute is set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Version</em>' attribute is set.
-     * @see #unsetVersion()
-     * @see #getVersion()
-     * @see #setVersion(int)
-     * @generated
-     */
-    boolean isSetVersion();
 
 } // AppliesToType
