@@ -19,6 +19,7 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServiceNS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage;
@@ -35,7 +36,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -50,6 +52,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getId <em>Id</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getPublicationStage <em>Publication Stage</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getRevision <em>Revision</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getApplicableServiceNS <em>Applicable Service NS</em>}</li>
  * </ul>
  *
  * @generated
@@ -84,6 +87,15 @@ public class ServiceNsUsageImpl extends NSDObjectWithVersionAndReleaseImpl imple
      * @ordered
      */
     protected String id = ID_EDEFAULT;
+
+    /**
+     * This is true if the Id attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean idESet;
 
     /**
      * The default value of the '{@link #getPublicationStage() <em>Publication Stage</em>}' attribute.
@@ -170,10 +182,30 @@ public class ServiceNsUsageImpl extends NSDObjectWithVersionAndReleaseImpl imple
     @Override
     public EList< AppliesToType > getAppliesTo() {
         if( appliesTo == null ) {
-            appliesTo = new EObjectContainmentEList< AppliesToType >( AppliesToType.class, this,
-                    NsdPackage.SERVICE_NS_USAGE__APPLIES_TO );
+            appliesTo = new EObjectContainmentWithInverseEList.Unsettable< AppliesToType >( AppliesToType.class, this,
+                    NsdPackage.SERVICE_NS_USAGE__APPLIES_TO, NsdPackage.APPLIES_TO_TYPE__SERVICE_NS_USAGE );
         }
         return appliesTo;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetAppliesTo() {
+        if( appliesTo != null ) ( ( InternalEList.Unsettable< ? > ) appliesTo ).unset();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetAppliesTo() {
+        return appliesTo != null && ( ( InternalEList.Unsettable< ? > ) appliesTo ).isSet();
     }
 
     /**
@@ -195,8 +227,35 @@ public class ServiceNsUsageImpl extends NSDObjectWithVersionAndReleaseImpl imple
     public void setId( String newId ) {
         String oldId = id;
         id = newId;
-        if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_NS_USAGE__ID, oldId, id ) );
+        boolean oldIdESet = idESet;
+        idESet = true;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.SERVICE_NS_USAGE__ID, oldId, id, !oldIdESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetId() {
+        String oldId = id;
+        boolean oldIdESet = idESet;
+        id = ID_EDEFAULT;
+        idESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.SERVICE_NS_USAGE__ID, oldId, ID_EDEFAULT, oldIdESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetId() {
+        return idESet;
     }
 
     /**
@@ -307,12 +366,95 @@ public class ServiceNsUsageImpl extends NSDObjectWithVersionAndReleaseImpl imple
      * @generated
      */
     @Override
+    public ApplicableServiceNS getApplicableServiceNS() {
+        if( eContainerFeatureID() != NsdPackage.SERVICE_NS_USAGE__APPLICABLE_SERVICE_NS ) return null;
+        return ( ApplicableServiceNS ) eInternalContainer();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetApplicableServiceNS( ApplicableServiceNS newApplicableServiceNS,
+            NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newApplicableServiceNS,
+                NsdPackage.SERVICE_NS_USAGE__APPLICABLE_SERVICE_NS, msgs );
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setApplicableServiceNS( ApplicableServiceNS newApplicableServiceNS ) {
+        if( newApplicableServiceNS != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.SERVICE_NS_USAGE__APPLICABLE_SERVICE_NS
+                        && newApplicableServiceNS != null ) ) {
+            if( EcoreUtil.isAncestor( this, newApplicableServiceNS ) )
+                throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            NotificationChain msgs = null;
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( newApplicableServiceNS != null )
+                msgs = ( ( InternalEObject ) newApplicableServiceNS ).eInverseAdd( this,
+                        NsdPackage.APPLICABLE_SERVICE_NS__SERVICE_NS_USAGE, ApplicableServiceNS.class, msgs );
+            msgs = basicSetApplicableServiceNS( newApplicableServiceNS, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.SERVICE_NS_USAGE__APPLICABLE_SERVICE_NS, newApplicableServiceNS, newApplicableServiceNS ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @SuppressWarnings( "unchecked" )
+    @Override
+    public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.SERVICE_NS_USAGE__APPLIES_TO:
+            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getAppliesTo() ).basicAdd( otherEnd,
+                    msgs );
+        case NsdPackage.SERVICE_NS_USAGE__APPLICABLE_SERVICE_NS:
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            return basicSetApplicableServiceNS( ( ApplicableServiceNS ) otherEnd, msgs );
+        }
+        return super.eInverseAdd( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.SERVICE_NS_USAGE__APPLIES_TO:
             return ( ( InternalEList< ? > ) getAppliesTo() ).basicRemove( otherEnd, msgs );
+        case NsdPackage.SERVICE_NS_USAGE__APPLICABLE_SERVICE_NS:
+            return basicSetApplicableServiceNS( null, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
+        switch( eContainerFeatureID() ) {
+        case NsdPackage.SERVICE_NS_USAGE__APPLICABLE_SERVICE_NS:
+            return eInternalContainer().eInverseRemove( this, NsdPackage.APPLICABLE_SERVICE_NS__SERVICE_NS_USAGE,
+                    ApplicableServiceNS.class, msgs );
+        }
+        return super.eBasicRemoveFromContainerFeature( msgs );
     }
 
     /**
@@ -331,6 +473,8 @@ public class ServiceNsUsageImpl extends NSDObjectWithVersionAndReleaseImpl imple
             return getPublicationStage();
         case NsdPackage.SERVICE_NS_USAGE__REVISION:
             return getRevision();
+        case NsdPackage.SERVICE_NS_USAGE__APPLICABLE_SERVICE_NS:
+            return getApplicableServiceNS();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -357,6 +501,9 @@ public class ServiceNsUsageImpl extends NSDObjectWithVersionAndReleaseImpl imple
         case NsdPackage.SERVICE_NS_USAGE__REVISION:
             setRevision( ( String ) newValue );
             return;
+        case NsdPackage.SERVICE_NS_USAGE__APPLICABLE_SERVICE_NS:
+            setApplicableServiceNS( ( ApplicableServiceNS ) newValue );
+            return;
         }
         super.eSet( featureID, newValue );
     }
@@ -370,16 +517,19 @@ public class ServiceNsUsageImpl extends NSDObjectWithVersionAndReleaseImpl imple
     public void eUnset( int featureID ) {
         switch( featureID ) {
         case NsdPackage.SERVICE_NS_USAGE__APPLIES_TO:
-            getAppliesTo().clear();
+            unsetAppliesTo();
             return;
         case NsdPackage.SERVICE_NS_USAGE__ID:
-            setId( ID_EDEFAULT );
+            unsetId();
             return;
         case NsdPackage.SERVICE_NS_USAGE__PUBLICATION_STAGE:
             unsetPublicationStage();
             return;
         case NsdPackage.SERVICE_NS_USAGE__REVISION:
             unsetRevision();
+            return;
+        case NsdPackage.SERVICE_NS_USAGE__APPLICABLE_SERVICE_NS:
+            setApplicableServiceNS( ( ApplicableServiceNS ) null );
             return;
         }
         super.eUnset( featureID );
@@ -394,13 +544,15 @@ public class ServiceNsUsageImpl extends NSDObjectWithVersionAndReleaseImpl imple
     public boolean eIsSet( int featureID ) {
         switch( featureID ) {
         case NsdPackage.SERVICE_NS_USAGE__APPLIES_TO:
-            return appliesTo != null && !appliesTo.isEmpty();
+            return isSetAppliesTo();
         case NsdPackage.SERVICE_NS_USAGE__ID:
-            return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals( id );
+            return isSetId();
         case NsdPackage.SERVICE_NS_USAGE__PUBLICATION_STAGE:
             return isSetPublicationStage();
         case NsdPackage.SERVICE_NS_USAGE__REVISION:
             return isSetRevision();
+        case NsdPackage.SERVICE_NS_USAGE__APPLICABLE_SERVICE_NS:
+            return getApplicableServiceNS() != null;
         }
         return super.eIsSet( featureID );
     }
@@ -416,7 +568,10 @@ public class ServiceNsUsageImpl extends NSDObjectWithVersionAndReleaseImpl imple
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (id: " );
-        result.append( id );
+        if( idESet )
+            result.append( id );
+        else
+            result.append( "<unset>" );
         result.append( ", publicationStage: " );
         if( publicationStageESet )
             result.append( publicationStage );

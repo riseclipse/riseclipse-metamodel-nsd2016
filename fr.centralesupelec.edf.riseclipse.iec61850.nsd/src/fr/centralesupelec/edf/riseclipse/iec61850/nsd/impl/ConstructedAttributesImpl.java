@@ -21,10 +21,12 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -32,9 +34,10 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -46,6 +49,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ConstructedAttributesImpl#getConstructedAttribute <em>Constructed Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ConstructedAttributesImpl#getNS <em>NS</em>}</li>
  * </ul>
  *
  * @generated
@@ -88,10 +92,93 @@ public class ConstructedAttributesImpl extends MinimalEObjectImpl.Container impl
     @Override
     public EList< ConstructedAttribute > getConstructedAttribute() {
         if( constructedAttribute == null ) {
-            constructedAttribute = new EObjectContainmentEList< ConstructedAttribute >( ConstructedAttribute.class,
-                    this, NsdPackage.CONSTRUCTED_ATTRIBUTES__CONSTRUCTED_ATTRIBUTE );
+            constructedAttribute = new EObjectContainmentWithInverseEList.Unsettable< ConstructedAttribute >(
+                    ConstructedAttribute.class, this, NsdPackage.CONSTRUCTED_ATTRIBUTES__CONSTRUCTED_ATTRIBUTE,
+                    NsdPackage.CONSTRUCTED_ATTRIBUTE__CONSTRUCTED_ATTRIBUTES );
         }
         return constructedAttribute;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetConstructedAttribute() {
+        if( constructedAttribute != null ) ( ( InternalEList.Unsettable< ? > ) constructedAttribute ).unset();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetConstructedAttribute() {
+        return constructedAttribute != null && ( ( InternalEList.Unsettable< ? > ) constructedAttribute ).isSet();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NS getNS() {
+        if( eContainerFeatureID() != NsdPackage.CONSTRUCTED_ATTRIBUTES__NS ) return null;
+        return ( NS ) eInternalContainer();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetNS( NS newNS, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newNS, NsdPackage.CONSTRUCTED_ATTRIBUTES__NS, msgs );
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setNS( NS newNS ) {
+        if( newNS != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.CONSTRUCTED_ATTRIBUTES__NS && newNS != null ) ) {
+            if( EcoreUtil.isAncestor( this, newNS ) )
+                throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            NotificationChain msgs = null;
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( newNS != null ) msgs = ( ( InternalEObject ) newNS ).eInverseAdd( this,
+                    NsdPackage.NS__CONSTRUCTED_ATTRIBUTES, NS.class, msgs );
+            msgs = basicSetNS( newNS, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else if( eNotificationRequired() ) eNotify(
+                new ENotificationImpl( this, Notification.SET, NsdPackage.CONSTRUCTED_ATTRIBUTES__NS, newNS, newNS ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @SuppressWarnings( "unchecked" )
+    @Override
+    public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.CONSTRUCTED_ATTRIBUTES__CONSTRUCTED_ATTRIBUTE:
+            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getConstructedAttribute() )
+                    .basicAdd( otherEnd, msgs );
+        case NsdPackage.CONSTRUCTED_ATTRIBUTES__NS:
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            return basicSetNS( ( NS ) otherEnd, msgs );
+        }
+        return super.eInverseAdd( otherEnd, featureID, msgs );
     }
 
     /**
@@ -104,8 +191,24 @@ public class ConstructedAttributesImpl extends MinimalEObjectImpl.Container impl
         switch( featureID ) {
         case NsdPackage.CONSTRUCTED_ATTRIBUTES__CONSTRUCTED_ATTRIBUTE:
             return ( ( InternalEList< ? > ) getConstructedAttribute() ).basicRemove( otherEnd, msgs );
+        case NsdPackage.CONSTRUCTED_ATTRIBUTES__NS:
+            return basicSetNS( null, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
+        switch( eContainerFeatureID() ) {
+        case NsdPackage.CONSTRUCTED_ATTRIBUTES__NS:
+            return eInternalContainer().eInverseRemove( this, NsdPackage.NS__CONSTRUCTED_ATTRIBUTES, NS.class, msgs );
+        }
+        return super.eBasicRemoveFromContainerFeature( msgs );
     }
 
     /**
@@ -118,6 +221,8 @@ public class ConstructedAttributesImpl extends MinimalEObjectImpl.Container impl
         switch( featureID ) {
         case NsdPackage.CONSTRUCTED_ATTRIBUTES__CONSTRUCTED_ATTRIBUTE:
             return getConstructedAttribute();
+        case NsdPackage.CONSTRUCTED_ATTRIBUTES__NS:
+            return getNS();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -135,6 +240,9 @@ public class ConstructedAttributesImpl extends MinimalEObjectImpl.Container impl
             getConstructedAttribute().clear();
             getConstructedAttribute().addAll( ( Collection< ? extends ConstructedAttribute > ) newValue );
             return;
+        case NsdPackage.CONSTRUCTED_ATTRIBUTES__NS:
+            setNS( ( NS ) newValue );
+            return;
         }
         super.eSet( featureID, newValue );
     }
@@ -148,7 +256,10 @@ public class ConstructedAttributesImpl extends MinimalEObjectImpl.Container impl
     public void eUnset( int featureID ) {
         switch( featureID ) {
         case NsdPackage.CONSTRUCTED_ATTRIBUTES__CONSTRUCTED_ATTRIBUTE:
-            getConstructedAttribute().clear();
+            unsetConstructedAttribute();
+            return;
+        case NsdPackage.CONSTRUCTED_ATTRIBUTES__NS:
+            setNS( ( NS ) null );
             return;
         }
         super.eUnset( featureID );
@@ -163,7 +274,9 @@ public class ConstructedAttributesImpl extends MinimalEObjectImpl.Container impl
     public boolean eIsSet( int featureID ) {
         switch( featureID ) {
         case NsdPackage.CONSTRUCTED_ATTRIBUTES__CONSTRUCTED_ATTRIBUTE:
-            return constructedAttribute != null && !constructedAttribute.isEmpty();
+            return isSetConstructedAttribute();
+        case NsdPackage.CONSTRUCTED_ATTRIBUTES__NS:
+            return getNS() != null;
         }
         return super.eIsSet( featureID );
     }

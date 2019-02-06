@@ -30,9 +30,6 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>License Kind</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * <!-- begin-model-doc -->
- * Kind of license
- * <!-- end-model-doc -->
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getLicenseKind()
  * @model extendedMetaData="name='tLicenseKind'"
  * @generated

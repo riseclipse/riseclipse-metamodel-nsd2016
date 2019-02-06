@@ -314,8 +314,8 @@ public class NSItemProvider extends CopyrightedItemProvider {
         newChildDescriptors
                 .add( createChildParameter( NsdPackage.Literals.NS__CHANGES, NsdFactory.eINSTANCE.createChanges() ) );
 
-        newChildDescriptors.add( createChildParameter( NsdPackage.Literals.NS__DEPENDS_ON,
-                NsdFactory.eINSTANCE.createDependsOnType() ) );
+        newChildDescriptors.add(
+                createChildParameter( NsdPackage.Literals.NS__DEPENDS_ON, NsdFactory.eINSTANCE.createDependsOn() ) );
 
         newChildDescriptors.add(
                 createChildParameter( NsdPackage.Literals.NS__BASIC_TYPES, NsdFactory.eINSTANCE.createBasicTypes() ) );

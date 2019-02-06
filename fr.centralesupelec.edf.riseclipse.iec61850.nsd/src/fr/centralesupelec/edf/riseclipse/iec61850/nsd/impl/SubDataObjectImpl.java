@@ -19,15 +19,19 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,6 +52,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getType <em>Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getUnderlyingType <em>Underlying Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getUnderlyingTypeKind <em>Underlying Type Kind</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getCDC <em>CDC</em>}</li>
  * </ul>
  *
  * @generated
@@ -103,6 +108,15 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
     protected String maxIndexAttribute = MAX_INDEX_ATTRIBUTE_EDEFAULT;
 
     /**
+     * This is true if the Max Index Attribute attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean maxIndexAttributeESet;
+
+    /**
      * The default value of the '{@link #getMinIndex() <em>Min Index</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -150,6 +164,15 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
      * @ordered
      */
     protected String name = NAME_EDEFAULT;
+
+    /**
+     * This is true if the Name attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean nameESet;
 
     /**
      * The default value of the '{@link #getPresCond() <em>Pres Cond</em>}' attribute.
@@ -201,6 +224,15 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
     protected String presCondArgs = PRES_COND_ARGS_EDEFAULT;
 
     /**
+     * This is true if the Pres Cond Args attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean presCondArgsESet;
+
+    /**
      * The default value of the '{@link #getPresCondArgsID() <em>Pres Cond Args ID</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -219,6 +251,15 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
      * @ordered
      */
     protected String presCondArgsID = PRES_COND_ARGS_ID_EDEFAULT;
+
+    /**
+     * This is true if the Pres Cond Args ID attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean presCondArgsIDESet;
 
     /**
      * The default value of the '{@link #getSizeAttribute() <em>Size Attribute</em>}' attribute.
@@ -241,6 +282,15 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
     protected String sizeAttribute = SIZE_ATTRIBUTE_EDEFAULT;
 
     /**
+     * This is true if the Size Attribute attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean sizeAttributeESet;
+
+    /**
      * The default value of the '{@link #getType() <em>Type</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -261,6 +311,15 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
     protected String type = TYPE_EDEFAULT;
 
     /**
+     * This is true if the Type attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean typeESet;
+
+    /**
      * The default value of the '{@link #getUnderlyingType() <em>Underlying Type</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -279,6 +338,15 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
      * @ordered
      */
     protected String underlyingType = UNDERLYING_TYPE_EDEFAULT;
+
+    /**
+     * This is true if the Underlying Type attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean underlyingTypeESet;
 
     /**
      * The default value of the '{@link #getUnderlyingTypeKind() <em>Underlying Type Kind</em>}' attribute.
@@ -397,8 +465,37 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
     public void setMaxIndexAttribute( String newMaxIndexAttribute ) {
         String oldMaxIndexAttribute = maxIndexAttribute;
         maxIndexAttribute = newMaxIndexAttribute;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.SUB_DATA_OBJECT__MAX_INDEX_ATTRIBUTE, oldMaxIndexAttribute, maxIndexAttribute ) );
+        boolean oldMaxIndexAttributeESet = maxIndexAttributeESet;
+        maxIndexAttributeESet = true;
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SUB_DATA_OBJECT__MAX_INDEX_ATTRIBUTE,
+                    oldMaxIndexAttribute, maxIndexAttribute, !oldMaxIndexAttributeESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetMaxIndexAttribute() {
+        String oldMaxIndexAttribute = maxIndexAttribute;
+        boolean oldMaxIndexAttributeESet = maxIndexAttributeESet;
+        maxIndexAttribute = MAX_INDEX_ATTRIBUTE_EDEFAULT;
+        maxIndexAttributeESet = false;
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SUB_DATA_OBJECT__MAX_INDEX_ATTRIBUTE,
+                    oldMaxIndexAttribute, MAX_INDEX_ATTRIBUTE_EDEFAULT, oldMaxIndexAttributeESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetMaxIndexAttribute() {
+        return maxIndexAttributeESet;
     }
 
     /**
@@ -470,8 +567,35 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
     public void setName( String newName ) {
         String oldName = name;
         name = newName;
-        if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SUB_DATA_OBJECT__NAME, oldName, name ) );
+        boolean oldNameESet = nameESet;
+        nameESet = true;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.SUB_DATA_OBJECT__NAME, oldName, name, !oldNameESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetName() {
+        String oldName = name;
+        boolean oldNameESet = nameESet;
+        name = NAME_EDEFAULT;
+        nameESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.SUB_DATA_OBJECT__NAME, oldName, NAME_EDEFAULT, oldNameESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetName() {
+        return nameESet;
     }
 
     /**
@@ -543,8 +667,36 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
     public void setPresCondArgs( String newPresCondArgs ) {
         String oldPresCondArgs = presCondArgs;
         presCondArgs = newPresCondArgs;
+        boolean oldPresCondArgsESet = presCondArgsESet;
+        presCondArgsESet = true;
         if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.SUB_DATA_OBJECT__PRES_COND_ARGS, oldPresCondArgs, presCondArgs ) );
+                NsdPackage.SUB_DATA_OBJECT__PRES_COND_ARGS, oldPresCondArgs, presCondArgs, !oldPresCondArgsESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetPresCondArgs() {
+        String oldPresCondArgs = presCondArgs;
+        boolean oldPresCondArgsESet = presCondArgsESet;
+        presCondArgs = PRES_COND_ARGS_EDEFAULT;
+        presCondArgsESet = false;
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SUB_DATA_OBJECT__PRES_COND_ARGS,
+                    oldPresCondArgs, PRES_COND_ARGS_EDEFAULT, oldPresCondArgsESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetPresCondArgs() {
+        return presCondArgsESet;
     }
 
     /**
@@ -566,8 +718,37 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
     public void setPresCondArgsID( String newPresCondArgsID ) {
         String oldPresCondArgsID = presCondArgsID;
         presCondArgsID = newPresCondArgsID;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.SUB_DATA_OBJECT__PRES_COND_ARGS_ID, oldPresCondArgsID, presCondArgsID ) );
+        boolean oldPresCondArgsIDESet = presCondArgsIDESet;
+        presCondArgsIDESet = true;
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SUB_DATA_OBJECT__PRES_COND_ARGS_ID,
+                    oldPresCondArgsID, presCondArgsID, !oldPresCondArgsIDESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetPresCondArgsID() {
+        String oldPresCondArgsID = presCondArgsID;
+        boolean oldPresCondArgsIDESet = presCondArgsIDESet;
+        presCondArgsID = PRES_COND_ARGS_ID_EDEFAULT;
+        presCondArgsIDESet = false;
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SUB_DATA_OBJECT__PRES_COND_ARGS_ID,
+                    oldPresCondArgsID, PRES_COND_ARGS_ID_EDEFAULT, oldPresCondArgsIDESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetPresCondArgsID() {
+        return presCondArgsIDESet;
     }
 
     /**
@@ -589,8 +770,36 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
     public void setSizeAttribute( String newSizeAttribute ) {
         String oldSizeAttribute = sizeAttribute;
         sizeAttribute = newSizeAttribute;
+        boolean oldSizeAttributeESet = sizeAttributeESet;
+        sizeAttributeESet = true;
         if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.SUB_DATA_OBJECT__SIZE_ATTRIBUTE, oldSizeAttribute, sizeAttribute ) );
+                NsdPackage.SUB_DATA_OBJECT__SIZE_ATTRIBUTE, oldSizeAttribute, sizeAttribute, !oldSizeAttributeESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetSizeAttribute() {
+        String oldSizeAttribute = sizeAttribute;
+        boolean oldSizeAttributeESet = sizeAttributeESet;
+        sizeAttribute = SIZE_ATTRIBUTE_EDEFAULT;
+        sizeAttributeESet = false;
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SUB_DATA_OBJECT__SIZE_ATTRIBUTE,
+                    oldSizeAttribute, SIZE_ATTRIBUTE_EDEFAULT, oldSizeAttributeESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetSizeAttribute() {
+        return sizeAttributeESet;
     }
 
     /**
@@ -612,8 +821,35 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
     public void setType( String newType ) {
         String oldType = type;
         type = newType;
-        if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SUB_DATA_OBJECT__TYPE, oldType, type ) );
+        boolean oldTypeESet = typeESet;
+        typeESet = true;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.SUB_DATA_OBJECT__TYPE, oldType, type, !oldTypeESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetType() {
+        String oldType = type;
+        boolean oldTypeESet = typeESet;
+        type = TYPE_EDEFAULT;
+        typeESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.SUB_DATA_OBJECT__TYPE, oldType, TYPE_EDEFAULT, oldTypeESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetType() {
+        return typeESet;
     }
 
     /**
@@ -635,8 +871,37 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
     public void setUnderlyingType( String newUnderlyingType ) {
         String oldUnderlyingType = underlyingType;
         underlyingType = newUnderlyingType;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.SUB_DATA_OBJECT__UNDERLYING_TYPE, oldUnderlyingType, underlyingType ) );
+        boolean oldUnderlyingTypeESet = underlyingTypeESet;
+        underlyingTypeESet = true;
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SUB_DATA_OBJECT__UNDERLYING_TYPE,
+                    oldUnderlyingType, underlyingType, !oldUnderlyingTypeESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetUnderlyingType() {
+        String oldUnderlyingType = underlyingType;
+        boolean oldUnderlyingTypeESet = underlyingTypeESet;
+        underlyingType = UNDERLYING_TYPE_EDEFAULT;
+        underlyingTypeESet = false;
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SUB_DATA_OBJECT__UNDERLYING_TYPE,
+                    oldUnderlyingType, UNDERLYING_TYPE_EDEFAULT, oldUnderlyingTypeESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetUnderlyingType() {
+        return underlyingTypeESet;
     }
 
     /**
@@ -697,6 +962,92 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
      * @generated
      */
     @Override
+    public CDC getCDC() {
+        if( eContainerFeatureID() != NsdPackage.SUB_DATA_OBJECT__CDC ) return null;
+        return ( CDC ) eInternalContainer();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetCDC( CDC newCDC, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newCDC, NsdPackage.SUB_DATA_OBJECT__CDC, msgs );
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setCDC( CDC newCDC ) {
+        if( newCDC != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.SUB_DATA_OBJECT__CDC && newCDC != null ) ) {
+            if( EcoreUtil.isAncestor( this, newCDC ) )
+                throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            NotificationChain msgs = null;
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( newCDC != null ) msgs = ( ( InternalEObject ) newCDC ).eInverseAdd( this,
+                    NsdPackage.CDC__SUB_DATA_OBJECT, CDC.class, msgs );
+            msgs = basicSetCDC( newCDC, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SUB_DATA_OBJECT__CDC, newCDC, newCDC ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.SUB_DATA_OBJECT__CDC:
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            return basicSetCDC( ( CDC ) otherEnd, msgs );
+        }
+        return super.eInverseAdd( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.SUB_DATA_OBJECT__CDC:
+            return basicSetCDC( null, msgs );
+        }
+        return super.eInverseRemove( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
+        switch( eContainerFeatureID() ) {
+        case NsdPackage.SUB_DATA_OBJECT__CDC:
+            return eInternalContainer().eInverseRemove( this, NsdPackage.CDC__SUB_DATA_OBJECT, CDC.class, msgs );
+        }
+        return super.eBasicRemoveFromContainerFeature( msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
         case NsdPackage.SUB_DATA_OBJECT__IS_ARRAY:
@@ -721,6 +1072,8 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
             return getUnderlyingType();
         case NsdPackage.SUB_DATA_OBJECT__UNDERLYING_TYPE_KIND:
             return getUnderlyingTypeKind();
+        case NsdPackage.SUB_DATA_OBJECT__CDC:
+            return getCDC();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -766,6 +1119,9 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
         case NsdPackage.SUB_DATA_OBJECT__UNDERLYING_TYPE_KIND:
             setUnderlyingTypeKind( ( DefinedAttributeTypeKind ) newValue );
             return;
+        case NsdPackage.SUB_DATA_OBJECT__CDC:
+            setCDC( ( CDC ) newValue );
+            return;
         }
         super.eSet( featureID, newValue );
     }
@@ -782,34 +1138,37 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
             unsetIsArray();
             return;
         case NsdPackage.SUB_DATA_OBJECT__MAX_INDEX_ATTRIBUTE:
-            setMaxIndexAttribute( MAX_INDEX_ATTRIBUTE_EDEFAULT );
+            unsetMaxIndexAttribute();
             return;
         case NsdPackage.SUB_DATA_OBJECT__MIN_INDEX:
             unsetMinIndex();
             return;
         case NsdPackage.SUB_DATA_OBJECT__NAME:
-            setName( NAME_EDEFAULT );
+            unsetName();
             return;
         case NsdPackage.SUB_DATA_OBJECT__PRES_COND:
             unsetPresCond();
             return;
         case NsdPackage.SUB_DATA_OBJECT__PRES_COND_ARGS:
-            setPresCondArgs( PRES_COND_ARGS_EDEFAULT );
+            unsetPresCondArgs();
             return;
         case NsdPackage.SUB_DATA_OBJECT__PRES_COND_ARGS_ID:
-            setPresCondArgsID( PRES_COND_ARGS_ID_EDEFAULT );
+            unsetPresCondArgsID();
             return;
         case NsdPackage.SUB_DATA_OBJECT__SIZE_ATTRIBUTE:
-            setSizeAttribute( SIZE_ATTRIBUTE_EDEFAULT );
+            unsetSizeAttribute();
             return;
         case NsdPackage.SUB_DATA_OBJECT__TYPE:
-            setType( TYPE_EDEFAULT );
+            unsetType();
             return;
         case NsdPackage.SUB_DATA_OBJECT__UNDERLYING_TYPE:
-            setUnderlyingType( UNDERLYING_TYPE_EDEFAULT );
+            unsetUnderlyingType();
             return;
         case NsdPackage.SUB_DATA_OBJECT__UNDERLYING_TYPE_KIND:
             unsetUnderlyingTypeKind();
+            return;
+        case NsdPackage.SUB_DATA_OBJECT__CDC:
+            setCDC( ( CDC ) null );
             return;
         }
         super.eUnset( featureID );
@@ -826,30 +1185,27 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
         case NsdPackage.SUB_DATA_OBJECT__IS_ARRAY:
             return isSetIsArray();
         case NsdPackage.SUB_DATA_OBJECT__MAX_INDEX_ATTRIBUTE:
-            return MAX_INDEX_ATTRIBUTE_EDEFAULT == null ? maxIndexAttribute != null
-                    : !MAX_INDEX_ATTRIBUTE_EDEFAULT.equals( maxIndexAttribute );
+            return isSetMaxIndexAttribute();
         case NsdPackage.SUB_DATA_OBJECT__MIN_INDEX:
             return isSetMinIndex();
         case NsdPackage.SUB_DATA_OBJECT__NAME:
-            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals( name );
+            return isSetName();
         case NsdPackage.SUB_DATA_OBJECT__PRES_COND:
             return isSetPresCond();
         case NsdPackage.SUB_DATA_OBJECT__PRES_COND_ARGS:
-            return PRES_COND_ARGS_EDEFAULT == null ? presCondArgs != null
-                    : !PRES_COND_ARGS_EDEFAULT.equals( presCondArgs );
+            return isSetPresCondArgs();
         case NsdPackage.SUB_DATA_OBJECT__PRES_COND_ARGS_ID:
-            return PRES_COND_ARGS_ID_EDEFAULT == null ? presCondArgsID != null
-                    : !PRES_COND_ARGS_ID_EDEFAULT.equals( presCondArgsID );
+            return isSetPresCondArgsID();
         case NsdPackage.SUB_DATA_OBJECT__SIZE_ATTRIBUTE:
-            return SIZE_ATTRIBUTE_EDEFAULT == null ? sizeAttribute != null
-                    : !SIZE_ATTRIBUTE_EDEFAULT.equals( sizeAttribute );
+            return isSetSizeAttribute();
         case NsdPackage.SUB_DATA_OBJECT__TYPE:
-            return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals( type );
+            return isSetType();
         case NsdPackage.SUB_DATA_OBJECT__UNDERLYING_TYPE:
-            return UNDERLYING_TYPE_EDEFAULT == null ? underlyingType != null
-                    : !UNDERLYING_TYPE_EDEFAULT.equals( underlyingType );
+            return isSetUnderlyingType();
         case NsdPackage.SUB_DATA_OBJECT__UNDERLYING_TYPE_KIND:
             return isSetUnderlyingTypeKind();
+        case NsdPackage.SUB_DATA_OBJECT__CDC:
+            return getCDC() != null;
         }
         return super.eIsSet( featureID );
     }
@@ -870,29 +1226,50 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
         else
             result.append( "<unset>" );
         result.append( ", maxIndexAttribute: " );
-        result.append( maxIndexAttribute );
+        if( maxIndexAttributeESet )
+            result.append( maxIndexAttribute );
+        else
+            result.append( "<unset>" );
         result.append( ", minIndex: " );
         if( minIndexESet )
             result.append( minIndex );
         else
             result.append( "<unset>" );
         result.append( ", name: " );
-        result.append( name );
+        if( nameESet )
+            result.append( name );
+        else
+            result.append( "<unset>" );
         result.append( ", presCond: " );
         if( presCondESet )
             result.append( presCond );
         else
             result.append( "<unset>" );
         result.append( ", presCondArgs: " );
-        result.append( presCondArgs );
+        if( presCondArgsESet )
+            result.append( presCondArgs );
+        else
+            result.append( "<unset>" );
         result.append( ", presCondArgsID: " );
-        result.append( presCondArgsID );
+        if( presCondArgsIDESet )
+            result.append( presCondArgsID );
+        else
+            result.append( "<unset>" );
         result.append( ", sizeAttribute: " );
-        result.append( sizeAttribute );
+        if( sizeAttributeESet )
+            result.append( sizeAttribute );
+        else
+            result.append( "<unset>" );
         result.append( ", type: " );
-        result.append( type );
+        if( typeESet )
+            result.append( type );
+        else
+            result.append( "<unset>" );
         result.append( ", underlyingType: " );
-        result.append( underlyingType );
+        if( underlyingTypeESet )
+            result.append( underlyingType );
+        else
+            result.append( "<unset>" );
         result.append( ", underlyingTypeKind: " );
         if( underlyingTypeKindESet )
             result.append( underlyingTypeKind );

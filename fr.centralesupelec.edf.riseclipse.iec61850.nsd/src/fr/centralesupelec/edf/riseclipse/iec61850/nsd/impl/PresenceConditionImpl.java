@@ -22,12 +22,16 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,6 +45,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.PresenceConditionImpl#getDescID <em>Desc ID</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.PresenceConditionImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.PresenceConditionImpl#getTitleID <em>Title ID</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.PresenceConditionImpl#getPresenceConditions <em>Presence Conditions</em>}</li>
  * </ul>
  *
  * @generated
@@ -67,6 +72,15 @@ public class PresenceConditionImpl extends MinimalEObjectImpl.Container implemen
     protected String argument = ARGUMENT_EDEFAULT;
 
     /**
+     * This is true if the Argument attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean argumentESet;
+
+    /**
      * The default value of the '{@link #getDescID() <em>Desc ID</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -85,6 +99,15 @@ public class PresenceConditionImpl extends MinimalEObjectImpl.Container implemen
      * @ordered
      */
     protected String descID = DESC_ID_EDEFAULT;
+
+    /**
+     * This is true if the Desc ID attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean descIDESet;
 
     /**
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -107,6 +130,15 @@ public class PresenceConditionImpl extends MinimalEObjectImpl.Container implemen
     protected String name = NAME_EDEFAULT;
 
     /**
+     * This is true if the Name attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean nameESet;
+
+    /**
      * The default value of the '{@link #getTitleID() <em>Title ID</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -125,6 +157,15 @@ public class PresenceConditionImpl extends MinimalEObjectImpl.Container implemen
      * @ordered
      */
     protected String titleID = TITLE_ID_EDEFAULT;
+
+    /**
+     * This is true if the Title ID attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean titleIDESet;
 
     /**
      * <!-- begin-user-doc -->
@@ -164,8 +205,35 @@ public class PresenceConditionImpl extends MinimalEObjectImpl.Container implemen
     public void setArgument( String newArgument ) {
         String oldArgument = argument;
         argument = newArgument;
+        boolean oldArgumentESet = argumentESet;
+        argumentESet = true;
         if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.PRESENCE_CONDITION__ARGUMENT, oldArgument, argument ) );
+                NsdPackage.PRESENCE_CONDITION__ARGUMENT, oldArgument, argument, !oldArgumentESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetArgument() {
+        String oldArgument = argument;
+        boolean oldArgumentESet = argumentESet;
+        argument = ARGUMENT_EDEFAULT;
+        argumentESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.PRESENCE_CONDITION__ARGUMENT, oldArgument, ARGUMENT_EDEFAULT, oldArgumentESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetArgument() {
+        return argumentESet;
     }
 
     /**
@@ -187,8 +255,35 @@ public class PresenceConditionImpl extends MinimalEObjectImpl.Container implemen
     public void setDescID( String newDescID ) {
         String oldDescID = descID;
         descID = newDescID;
+        boolean oldDescIDESet = descIDESet;
+        descIDESet = true;
         if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.PRESENCE_CONDITION__DESC_ID, oldDescID, descID ) );
+                NsdPackage.PRESENCE_CONDITION__DESC_ID, oldDescID, descID, !oldDescIDESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetDescID() {
+        String oldDescID = descID;
+        boolean oldDescIDESet = descIDESet;
+        descID = DESC_ID_EDEFAULT;
+        descIDESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.PRESENCE_CONDITION__DESC_ID, oldDescID, DESC_ID_EDEFAULT, oldDescIDESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetDescID() {
+        return descIDESet;
     }
 
     /**
@@ -210,8 +305,35 @@ public class PresenceConditionImpl extends MinimalEObjectImpl.Container implemen
     public void setName( String newName ) {
         String oldName = name;
         name = newName;
-        if( eNotificationRequired() ) eNotify(
-                new ENotificationImpl( this, Notification.SET, NsdPackage.PRESENCE_CONDITION__NAME, oldName, name ) );
+        boolean oldNameESet = nameESet;
+        nameESet = true;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.PRESENCE_CONDITION__NAME, oldName, name, !oldNameESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetName() {
+        String oldName = name;
+        boolean oldNameESet = nameESet;
+        name = NAME_EDEFAULT;
+        nameESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.PRESENCE_CONDITION__NAME, oldName, NAME_EDEFAULT, oldNameESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetName() {
+        return nameESet;
     }
 
     /**
@@ -233,8 +355,125 @@ public class PresenceConditionImpl extends MinimalEObjectImpl.Container implemen
     public void setTitleID( String newTitleID ) {
         String oldTitleID = titleID;
         titleID = newTitleID;
+        boolean oldTitleIDESet = titleIDESet;
+        titleIDESet = true;
         if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.PRESENCE_CONDITION__TITLE_ID, oldTitleID, titleID ) );
+                NsdPackage.PRESENCE_CONDITION__TITLE_ID, oldTitleID, titleID, !oldTitleIDESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetTitleID() {
+        String oldTitleID = titleID;
+        boolean oldTitleIDESet = titleIDESet;
+        titleID = TITLE_ID_EDEFAULT;
+        titleIDESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.PRESENCE_CONDITION__TITLE_ID, oldTitleID, TITLE_ID_EDEFAULT, oldTitleIDESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetTitleID() {
+        return titleIDESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public PresenceConditions getPresenceConditions() {
+        if( eContainerFeatureID() != NsdPackage.PRESENCE_CONDITION__PRESENCE_CONDITIONS ) return null;
+        return ( PresenceConditions ) eInternalContainer();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetPresenceConditions( PresenceConditions newPresenceConditions,
+            NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newPresenceConditions,
+                NsdPackage.PRESENCE_CONDITION__PRESENCE_CONDITIONS, msgs );
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setPresenceConditions( PresenceConditions newPresenceConditions ) {
+        if( newPresenceConditions != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.PRESENCE_CONDITION__PRESENCE_CONDITIONS
+                        && newPresenceConditions != null ) ) {
+            if( EcoreUtil.isAncestor( this, newPresenceConditions ) )
+                throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            NotificationChain msgs = null;
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( newPresenceConditions != null ) msgs = ( ( InternalEObject ) newPresenceConditions ).eInverseAdd( this,
+                    NsdPackage.PRESENCE_CONDITIONS__PRESENCE_CONDITION, PresenceConditions.class, msgs );
+            msgs = basicSetPresenceConditions( newPresenceConditions, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.PRESENCE_CONDITION__PRESENCE_CONDITIONS, newPresenceConditions, newPresenceConditions ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.PRESENCE_CONDITION__PRESENCE_CONDITIONS:
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            return basicSetPresenceConditions( ( PresenceConditions ) otherEnd, msgs );
+        }
+        return super.eInverseAdd( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.PRESENCE_CONDITION__PRESENCE_CONDITIONS:
+            return basicSetPresenceConditions( null, msgs );
+        }
+        return super.eInverseRemove( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
+        switch( eContainerFeatureID() ) {
+        case NsdPackage.PRESENCE_CONDITION__PRESENCE_CONDITIONS:
+            return eInternalContainer().eInverseRemove( this, NsdPackage.PRESENCE_CONDITIONS__PRESENCE_CONDITION,
+                    PresenceConditions.class, msgs );
+        }
+        return super.eBasicRemoveFromContainerFeature( msgs );
     }
 
     /**
@@ -253,6 +492,8 @@ public class PresenceConditionImpl extends MinimalEObjectImpl.Container implemen
             return getName();
         case NsdPackage.PRESENCE_CONDITION__TITLE_ID:
             return getTitleID();
+        case NsdPackage.PRESENCE_CONDITION__PRESENCE_CONDITIONS:
+            return getPresenceConditions();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -277,6 +518,9 @@ public class PresenceConditionImpl extends MinimalEObjectImpl.Container implemen
         case NsdPackage.PRESENCE_CONDITION__TITLE_ID:
             setTitleID( ( String ) newValue );
             return;
+        case NsdPackage.PRESENCE_CONDITION__PRESENCE_CONDITIONS:
+            setPresenceConditions( ( PresenceConditions ) newValue );
+            return;
         }
         super.eSet( featureID, newValue );
     }
@@ -290,16 +534,19 @@ public class PresenceConditionImpl extends MinimalEObjectImpl.Container implemen
     public void eUnset( int featureID ) {
         switch( featureID ) {
         case NsdPackage.PRESENCE_CONDITION__ARGUMENT:
-            setArgument( ARGUMENT_EDEFAULT );
+            unsetArgument();
             return;
         case NsdPackage.PRESENCE_CONDITION__DESC_ID:
-            setDescID( DESC_ID_EDEFAULT );
+            unsetDescID();
             return;
         case NsdPackage.PRESENCE_CONDITION__NAME:
-            setName( NAME_EDEFAULT );
+            unsetName();
             return;
         case NsdPackage.PRESENCE_CONDITION__TITLE_ID:
-            setTitleID( TITLE_ID_EDEFAULT );
+            unsetTitleID();
+            return;
+        case NsdPackage.PRESENCE_CONDITION__PRESENCE_CONDITIONS:
+            setPresenceConditions( ( PresenceConditions ) null );
             return;
         }
         super.eUnset( featureID );
@@ -314,13 +561,15 @@ public class PresenceConditionImpl extends MinimalEObjectImpl.Container implemen
     public boolean eIsSet( int featureID ) {
         switch( featureID ) {
         case NsdPackage.PRESENCE_CONDITION__ARGUMENT:
-            return ARGUMENT_EDEFAULT == null ? argument != null : !ARGUMENT_EDEFAULT.equals( argument );
+            return isSetArgument();
         case NsdPackage.PRESENCE_CONDITION__DESC_ID:
-            return DESC_ID_EDEFAULT == null ? descID != null : !DESC_ID_EDEFAULT.equals( descID );
+            return isSetDescID();
         case NsdPackage.PRESENCE_CONDITION__NAME:
-            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals( name );
+            return isSetName();
         case NsdPackage.PRESENCE_CONDITION__TITLE_ID:
-            return TITLE_ID_EDEFAULT == null ? titleID != null : !TITLE_ID_EDEFAULT.equals( titleID );
+            return isSetTitleID();
+        case NsdPackage.PRESENCE_CONDITION__PRESENCE_CONDITIONS:
+            return getPresenceConditions() != null;
         }
         return super.eIsSet( featureID );
     }
@@ -336,13 +585,25 @@ public class PresenceConditionImpl extends MinimalEObjectImpl.Container implemen
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (argument: " );
-        result.append( argument );
+        if( argumentESet )
+            result.append( argument );
+        else
+            result.append( "<unset>" );
         result.append( ", descID: " );
-        result.append( descID );
+        if( descIDESet )
+            result.append( descID );
+        else
+            result.append( "<unset>" );
         result.append( ", name: " );
-        result.append( name );
+        if( nameESet )
+            result.append( name );
+        else
+            result.append( "<unset>" );
         result.append( ", titleID: " );
-        result.append( titleID );
+        if( titleIDESet )
+            result.append( titleID );
+        else
+            result.append( "<unset>" );
         result.append( ')' );
         return result.toString();
     }

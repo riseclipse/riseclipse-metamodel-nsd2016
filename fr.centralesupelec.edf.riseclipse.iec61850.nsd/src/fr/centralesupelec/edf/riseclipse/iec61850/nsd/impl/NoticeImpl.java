@@ -19,17 +19,21 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CopyrightNotice;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Notice;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.BasicFeatureMap;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -42,6 +46,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NoticeImpl#getMixed <em>Mixed</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NoticeImpl#getCopyrightNotice <em>Copyright Notice</em>}</li>
  * </ul>
  *
  * @generated
@@ -95,12 +100,87 @@ public class NoticeImpl extends MinimalEObjectImpl.Container implements Notice {
      * @generated
      */
     @Override
+    public CopyrightNotice getCopyrightNotice() {
+        if( eContainerFeatureID() != NsdPackage.NOTICE__COPYRIGHT_NOTICE ) return null;
+        return ( CopyrightNotice ) eInternalContainer();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetCopyrightNotice( CopyrightNotice newCopyrightNotice, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newCopyrightNotice, NsdPackage.NOTICE__COPYRIGHT_NOTICE, msgs );
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setCopyrightNotice( CopyrightNotice newCopyrightNotice ) {
+        if( newCopyrightNotice != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.NOTICE__COPYRIGHT_NOTICE && newCopyrightNotice != null ) ) {
+            if( EcoreUtil.isAncestor( this, newCopyrightNotice ) )
+                throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            NotificationChain msgs = null;
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( newCopyrightNotice != null ) msgs = ( ( InternalEObject ) newCopyrightNotice ).eInverseAdd( this,
+                    NsdPackage.COPYRIGHT_NOTICE__NOTICE, CopyrightNotice.class, msgs );
+            msgs = basicSetCopyrightNotice( newCopyrightNotice, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.NOTICE__COPYRIGHT_NOTICE, newCopyrightNotice, newCopyrightNotice ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.NOTICE__COPYRIGHT_NOTICE:
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            return basicSetCopyrightNotice( ( CopyrightNotice ) otherEnd, msgs );
+        }
+        return super.eInverseAdd( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.NOTICE__MIXED:
             return ( ( InternalEList< ? > ) getMixed() ).basicRemove( otherEnd, msgs );
+        case NsdPackage.NOTICE__COPYRIGHT_NOTICE:
+            return basicSetCopyrightNotice( null, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
+        switch( eContainerFeatureID() ) {
+        case NsdPackage.NOTICE__COPYRIGHT_NOTICE:
+            return eInternalContainer().eInverseRemove( this, NsdPackage.COPYRIGHT_NOTICE__NOTICE,
+                    CopyrightNotice.class, msgs );
+        }
+        return super.eBasicRemoveFromContainerFeature( msgs );
     }
 
     /**
@@ -114,6 +194,8 @@ public class NoticeImpl extends MinimalEObjectImpl.Container implements Notice {
         case NsdPackage.NOTICE__MIXED:
             if( coreType ) return getMixed();
             return ( ( FeatureMap.Internal ) getMixed() ).getWrapper();
+        case NsdPackage.NOTICE__COPYRIGHT_NOTICE:
+            return getCopyrightNotice();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -128,6 +210,9 @@ public class NoticeImpl extends MinimalEObjectImpl.Container implements Notice {
         switch( featureID ) {
         case NsdPackage.NOTICE__MIXED:
             ( ( FeatureMap.Internal ) getMixed() ).set( newValue );
+            return;
+        case NsdPackage.NOTICE__COPYRIGHT_NOTICE:
+            setCopyrightNotice( ( CopyrightNotice ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -144,6 +229,9 @@ public class NoticeImpl extends MinimalEObjectImpl.Container implements Notice {
         case NsdPackage.NOTICE__MIXED:
             getMixed().clear();
             return;
+        case NsdPackage.NOTICE__COPYRIGHT_NOTICE:
+            setCopyrightNotice( ( CopyrightNotice ) null );
+            return;
         }
         super.eUnset( featureID );
     }
@@ -158,6 +246,8 @@ public class NoticeImpl extends MinimalEObjectImpl.Container implements Notice {
         switch( featureID ) {
         case NsdPackage.NOTICE__MIXED:
             return mixed != null && !mixed.isEmpty();
+        case NsdPackage.NOTICE__COPYRIGHT_NOTICE:
+            return getCopyrightNotice() != null;
         }
         return super.eIsSet( featureID );
     }

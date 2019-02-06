@@ -20,15 +20,20 @@
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,6 +47,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ChangesImpl#getDate <em>Date</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ChangesImpl#getRevision <em>Revision</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ChangesImpl#getTissues <em>Tissues</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ChangesImpl#getNS <em>NS</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ChangesImpl#getServiceNS <em>Service NS</em>}</li>
  * </ul>
  *
  * @generated
@@ -68,6 +75,15 @@ public class ChangesImpl extends NSDObjectWithVersionAndReleaseImpl implements C
     protected String changesID = CHANGES_ID_EDEFAULT;
 
     /**
+     * This is true if the Changes ID attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean changesIDESet;
+
+    /**
      * The default value of the '{@link #getDate() <em>Date</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -86,6 +102,15 @@ public class ChangesImpl extends NSDObjectWithVersionAndReleaseImpl implements C
      * @ordered
      */
     protected XMLGregorianCalendar date = DATE_EDEFAULT;
+
+    /**
+     * This is true if the Date attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean dateESet;
 
     /**
      * The default value of the '{@link #getRevision() <em>Revision</em>}' attribute.
@@ -137,6 +162,15 @@ public class ChangesImpl extends NSDObjectWithVersionAndReleaseImpl implements C
     protected String tissues = TISSUES_EDEFAULT;
 
     /**
+     * This is true if the Tissues attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean tissuesESet;
+
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -174,8 +208,35 @@ public class ChangesImpl extends NSDObjectWithVersionAndReleaseImpl implements C
     public void setChangesID( String newChangesID ) {
         String oldChangesID = changesID;
         changesID = newChangesID;
+        boolean oldChangesIDESet = changesIDESet;
+        changesIDESet = true;
         if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.CHANGES__CHANGES_ID, oldChangesID, changesID ) );
+                NsdPackage.CHANGES__CHANGES_ID, oldChangesID, changesID, !oldChangesIDESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetChangesID() {
+        String oldChangesID = changesID;
+        boolean oldChangesIDESet = changesIDESet;
+        changesID = CHANGES_ID_EDEFAULT;
+        changesIDESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.CHANGES__CHANGES_ID, oldChangesID, CHANGES_ID_EDEFAULT, oldChangesIDESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetChangesID() {
+        return changesIDESet;
     }
 
     /**
@@ -197,8 +258,35 @@ public class ChangesImpl extends NSDObjectWithVersionAndReleaseImpl implements C
     public void setDate( XMLGregorianCalendar newDate ) {
         XMLGregorianCalendar oldDate = date;
         date = newDate;
-        if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CHANGES__DATE, oldDate, date ) );
+        boolean oldDateESet = dateESet;
+        dateESet = true;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CHANGES__DATE,
+                oldDate, date, !oldDateESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetDate() {
+        XMLGregorianCalendar oldDate = date;
+        boolean oldDateESet = dateESet;
+        date = DATE_EDEFAULT;
+        dateESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.CHANGES__DATE, oldDate, DATE_EDEFAULT, oldDateESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetDate() {
+        return dateESet;
     }
 
     /**
@@ -270,8 +358,170 @@ public class ChangesImpl extends NSDObjectWithVersionAndReleaseImpl implements C
     public void setTissues( String newTissues ) {
         String oldTissues = tissues;
         tissues = newTissues;
-        if( eNotificationRequired() ) eNotify(
-                new ENotificationImpl( this, Notification.SET, NsdPackage.CHANGES__TISSUES, oldTissues, tissues ) );
+        boolean oldTissuesESet = tissuesESet;
+        tissuesESet = true;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.CHANGES__TISSUES, oldTissues, tissues, !oldTissuesESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetTissues() {
+        String oldTissues = tissues;
+        boolean oldTissuesESet = tissuesESet;
+        tissues = TISSUES_EDEFAULT;
+        tissuesESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.CHANGES__TISSUES, oldTissues, TISSUES_EDEFAULT, oldTissuesESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetTissues() {
+        return tissuesESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NS getNS() {
+        if( eContainerFeatureID() != NsdPackage.CHANGES__NS ) return null;
+        return ( NS ) eInternalContainer();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetNS( NS newNS, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newNS, NsdPackage.CHANGES__NS, msgs );
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setNS( NS newNS ) {
+        if( newNS != eInternalContainer() || ( eContainerFeatureID() != NsdPackage.CHANGES__NS && newNS != null ) ) {
+            if( EcoreUtil.isAncestor( this, newNS ) )
+                throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            NotificationChain msgs = null;
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( newNS != null )
+                msgs = ( ( InternalEObject ) newNS ).eInverseAdd( this, NsdPackage.NS__CHANGES, NS.class, msgs );
+            msgs = basicSetNS( newNS, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CHANGES__NS, newNS, newNS ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public ServiceNS getServiceNS() {
+        if( eContainerFeatureID() != NsdPackage.CHANGES__SERVICE_NS ) return null;
+        return ( ServiceNS ) eInternalContainer();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetServiceNS( ServiceNS newServiceNS, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newServiceNS, NsdPackage.CHANGES__SERVICE_NS, msgs );
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setServiceNS( ServiceNS newServiceNS ) {
+        if( newServiceNS != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.CHANGES__SERVICE_NS && newServiceNS != null ) ) {
+            if( EcoreUtil.isAncestor( this, newServiceNS ) )
+                throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            NotificationChain msgs = null;
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( newServiceNS != null ) msgs = ( ( InternalEObject ) newServiceNS ).eInverseAdd( this,
+                    NsdPackage.SERVICE_NS__CHANGES, ServiceNS.class, msgs );
+            msgs = basicSetServiceNS( newServiceNS, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.CHANGES__SERVICE_NS, newServiceNS, newServiceNS ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.CHANGES__NS:
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            return basicSetNS( ( NS ) otherEnd, msgs );
+        case NsdPackage.CHANGES__SERVICE_NS:
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            return basicSetServiceNS( ( ServiceNS ) otherEnd, msgs );
+        }
+        return super.eInverseAdd( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.CHANGES__NS:
+            return basicSetNS( null, msgs );
+        case NsdPackage.CHANGES__SERVICE_NS:
+            return basicSetServiceNS( null, msgs );
+        }
+        return super.eInverseRemove( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
+        switch( eContainerFeatureID() ) {
+        case NsdPackage.CHANGES__NS:
+            return eInternalContainer().eInverseRemove( this, NsdPackage.NS__CHANGES, NS.class, msgs );
+        case NsdPackage.CHANGES__SERVICE_NS:
+            return eInternalContainer().eInverseRemove( this, NsdPackage.SERVICE_NS__CHANGES, ServiceNS.class, msgs );
+        }
+        return super.eBasicRemoveFromContainerFeature( msgs );
     }
 
     /**
@@ -290,6 +540,10 @@ public class ChangesImpl extends NSDObjectWithVersionAndReleaseImpl implements C
             return getRevision();
         case NsdPackage.CHANGES__TISSUES:
             return getTissues();
+        case NsdPackage.CHANGES__NS:
+            return getNS();
+        case NsdPackage.CHANGES__SERVICE_NS:
+            return getServiceNS();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -314,6 +568,12 @@ public class ChangesImpl extends NSDObjectWithVersionAndReleaseImpl implements C
         case NsdPackage.CHANGES__TISSUES:
             setTissues( ( String ) newValue );
             return;
+        case NsdPackage.CHANGES__NS:
+            setNS( ( NS ) newValue );
+            return;
+        case NsdPackage.CHANGES__SERVICE_NS:
+            setServiceNS( ( ServiceNS ) newValue );
+            return;
         }
         super.eSet( featureID, newValue );
     }
@@ -327,16 +587,22 @@ public class ChangesImpl extends NSDObjectWithVersionAndReleaseImpl implements C
     public void eUnset( int featureID ) {
         switch( featureID ) {
         case NsdPackage.CHANGES__CHANGES_ID:
-            setChangesID( CHANGES_ID_EDEFAULT );
+            unsetChangesID();
             return;
         case NsdPackage.CHANGES__DATE:
-            setDate( DATE_EDEFAULT );
+            unsetDate();
             return;
         case NsdPackage.CHANGES__REVISION:
             unsetRevision();
             return;
         case NsdPackage.CHANGES__TISSUES:
-            setTissues( TISSUES_EDEFAULT );
+            unsetTissues();
+            return;
+        case NsdPackage.CHANGES__NS:
+            setNS( ( NS ) null );
+            return;
+        case NsdPackage.CHANGES__SERVICE_NS:
+            setServiceNS( ( ServiceNS ) null );
             return;
         }
         super.eUnset( featureID );
@@ -351,13 +617,17 @@ public class ChangesImpl extends NSDObjectWithVersionAndReleaseImpl implements C
     public boolean eIsSet( int featureID ) {
         switch( featureID ) {
         case NsdPackage.CHANGES__CHANGES_ID:
-            return CHANGES_ID_EDEFAULT == null ? changesID != null : !CHANGES_ID_EDEFAULT.equals( changesID );
+            return isSetChangesID();
         case NsdPackage.CHANGES__DATE:
-            return DATE_EDEFAULT == null ? date != null : !DATE_EDEFAULT.equals( date );
+            return isSetDate();
         case NsdPackage.CHANGES__REVISION:
             return isSetRevision();
         case NsdPackage.CHANGES__TISSUES:
-            return TISSUES_EDEFAULT == null ? tissues != null : !TISSUES_EDEFAULT.equals( tissues );
+            return isSetTissues();
+        case NsdPackage.CHANGES__NS:
+            return getNS() != null;
+        case NsdPackage.CHANGES__SERVICE_NS:
+            return getServiceNS() != null;
         }
         return super.eIsSet( featureID );
     }
@@ -373,16 +643,25 @@ public class ChangesImpl extends NSDObjectWithVersionAndReleaseImpl implements C
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (changesID: " );
-        result.append( changesID );
+        if( changesIDESet )
+            result.append( changesID );
+        else
+            result.append( "<unset>" );
         result.append( ", date: " );
-        result.append( date );
+        if( dateESet )
+            result.append( date );
+        else
+            result.append( "<unset>" );
         result.append( ", revision: " );
         if( revisionESet )
             result.append( revision );
         else
             result.append( "<unset>" );
         result.append( ", tissues: " );
-        result.append( tissues );
+        if( tissuesESet )
+            result.append( tissues );
+        else
+            result.append( "<unset>" );
         result.append( ')' );
         return result.toString();
     }

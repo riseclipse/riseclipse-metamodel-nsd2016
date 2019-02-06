@@ -28,16 +28,13 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Applicable Services</b></em>'.
  * <!-- end-user-doc -->
  *
- * <!-- begin-model-doc -->
- * Applicable services for a given functional constraint.
- * <!-- end-model-doc -->
- *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices#getService <em>Service</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices#getDataSetMemberOf <em>Data Set Member Of</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices#getFunctionalConstraint <em>Functional Constraint</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getApplicableServices()
@@ -48,33 +45,105 @@ public interface ApplicableServices extends EObject {
     /**
      * Returns the value of the '<em><b>Service</b></em>' containment reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType}.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType#getApplicableServices <em>Applicable Services</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * If present, indicates that the service with given name applies to attributes with the specified FC (otherwise it may not be used).
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Service</em>' containment reference list.
+     * @see #isSetService()
+     * @see #unsetService()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getApplicableServices_Service()
-     * @model containment="true"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType#getApplicableServices
+     * @model opposite="applicableServices" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='Service' namespace='##targetNamespace'"
      * @generated
      */
     EList< ServiceType > getService();
 
     /**
-     * Returns the value of the '<em><b>Data Set Member Of</b></em>' containment reference list.
-     * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataSetMemberOf}.
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices#getService <em>Service</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * An attribute of this FC can be member of a dataset for a control block type indicated by attribute cb if and only if this element is present.
-     * <!-- end-model-doc -->
+     * @see #isSetService()
+     * @see #getService()
+     * @generated
+     */
+    void unsetService();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices#getService <em>Service</em>}' containment reference list is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Service</em>' containment reference list is set.
+     * @see #unsetService()
+     * @see #getService()
+     * @generated
+     */
+    boolean isSetService();
+
+    /**
+     * Returns the value of the '<em><b>Data Set Member Of</b></em>' containment reference list.
+     * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataSetMemberOf}.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataSetMemberOf#getApplicableServices <em>Applicable Services</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @return the value of the '<em>Data Set Member Of</em>' containment reference list.
+     * @see #isSetDataSetMemberOf()
+     * @see #unsetDataSetMemberOf()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getApplicableServices_DataSetMemberOf()
-     * @model containment="true"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataSetMemberOf#getApplicableServices
+     * @model opposite="applicableServices" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='DataSetMemberOf' namespace='##targetNamespace'"
      * @generated
      */
     EList< DataSetMemberOf > getDataSetMemberOf();
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices#getDataSetMemberOf <em>Data Set Member Of</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetDataSetMemberOf()
+     * @see #getDataSetMemberOf()
+     * @generated
+     */
+    void unsetDataSetMemberOf();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices#getDataSetMemberOf <em>Data Set Member Of</em>}' containment reference list is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Data Set Member Of</em>' containment reference list is set.
+     * @see #unsetDataSetMemberOf()
+     * @see #getDataSetMemberOf()
+     * @generated
+     */
+    boolean isSetDataSetMemberOf();
+
+    /**
+     * Returns the value of the '<em><b>Functional Constraint</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getApplicableServices <em>Applicable Services</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Functional Constraint</em>' container reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Functional Constraint</em>' container reference.
+     * @see #setFunctionalConstraint(FunctionalConstraint)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getApplicableServices_FunctionalConstraint()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getApplicableServices
+     * @model opposite="applicableServices" resolveProxies="false" unsettable="true" ordered="false"
+     * @generated
+     */
+    FunctionalConstraint getFunctionalConstraint();
+
+    /**
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices#getFunctionalConstraint <em>Functional Constraint</em>}' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Functional Constraint</em>' container reference.
+     * @see #getFunctionalConstraint()
+     * @generated
+     */
+    void setFunctionalConstraint( FunctionalConstraint value );
 
 } // ApplicableServices

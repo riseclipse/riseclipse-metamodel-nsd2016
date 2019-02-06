@@ -24,10 +24,6 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
  * A representation of the model object '<em><b>Titled Class</b></em>'.
  * <!-- end-user-doc -->
  *
- * <!-- begin-model-doc -->
- * A tDocumentedClass with title.
- * <!-- end-model-doc -->
- *
  * <p>
  * The following features are supported:
  * </p>
@@ -44,13 +40,12 @@ public interface TitledClass extends DocumentedClass {
      * Returns the value of the '<em><b>Title ID</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Documentation identifier referring to the title (alias) of this object.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Title ID</em>' attribute.
+     * @see #isSetTitleID()
+     * @see #unsetTitleID()
      * @see #setTitleID(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getTitledClass_TitleID()
-     * @model required="true"
+     * @model unsettable="true"
      *        extendedMetaData="kind='attribute' name='titleID'"
      * @generated
      */
@@ -61,9 +56,34 @@ public interface TitledClass extends DocumentedClass {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Title ID</em>' attribute.
+     * @see #isSetTitleID()
+     * @see #unsetTitleID()
      * @see #getTitleID()
      * @generated
      */
     void setTitleID( String value );
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TitledClass#getTitleID <em>Title ID</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetTitleID()
+     * @see #getTitleID()
+     * @see #setTitleID(String)
+     * @generated
+     */
+    void unsetTitleID();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TitledClass#getTitleID <em>Title ID</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Title ID</em>' attribute is set.
+     * @see #unsetTitleID()
+     * @see #getTitleID()
+     * @see #setTitleID(String)
+     * @generated
+     */
+    boolean isSetTitleID();
 
 } // TitledClass

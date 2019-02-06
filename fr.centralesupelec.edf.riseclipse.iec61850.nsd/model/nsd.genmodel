@@ -111,34 +111,40 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AppliesToType/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AppliesToType/publicationStage"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AppliesToType/revision"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//AppliesToType/serviceNsUsage"/>
     </genClasses>
-    <genClasses ecoreClass="nsd.ecore#//DependsOnType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//DependsOnType/id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//DependsOnType/publicationStage"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//DependsOnType/revision"/>
+    <genClasses ecoreClass="nsd.ecore#//DependsOn">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//DependsOn/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//DependsOn/publicationStage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//DependsOn/revision"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//DependsOn/nS"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//DocumentRoot">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//DocumentRoot/mixed"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//DocumentRoot/xMLNSPrefixMap"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//DocumentRoot/xSISchemaLocation"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//DocumentRoot/applicableServiceNS"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//DocumentRoot/copyright"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//DocumentRoot/nS"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//DocumentRoot/nSDoc"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//DocumentRoot/serviceNS"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//ServiceType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//ServiceType/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//ServiceType/applicableServices"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//Abbreviation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//Abbreviation/descID"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//Abbreviation/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//Abbreviation/abbreviations"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//Abbreviations">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//Abbreviations/abbreviation"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//Abbreviations/nS"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//Abbreviations/serviceNS"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//AbstractLNClass">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AbstractLNClass/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//AbstractLNClass/lNClasses"/>
     </genClasses>
     <genClasses image="false" ecoreClass="nsd.ecore#//AnyLNClass">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//AnyLNClass/dataObject"/>
@@ -152,13 +158,16 @@
     <genClasses ecoreClass="nsd.ecore#//ApplicableServices">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//ApplicableServices/service"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//ApplicableServices/dataSetMemberOf"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//ApplicableServices/functionalConstraint"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//BasicType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//BasicType/descID"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//BasicType/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//BasicType/basicTypes"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//BasicTypes">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//BasicTypes/basicType"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//BasicTypes/nS"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//CDC">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//CDC/subDataObject"/>
@@ -169,22 +178,29 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//CDC/statistics"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//CDC/typeKindParameterized"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//CDC/variant"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//CDC/cDCs"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//CDCs">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//CDCs/cDC"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//CDCs/nS"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//Changes">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//Changes/changesID"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//Changes/date"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//Changes/revision"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//Changes/tissues"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//Changes/nS"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//Changes/serviceNS"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//ConstructedAttribute">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//ConstructedAttribute/subDataAttribute"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//ConstructedAttribute/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//ConstructedAttribute/constructedAttributes"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//ConstructedAttribute/serviceTypeRealizations"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//ConstructedAttributes">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//ConstructedAttributes/constructedAttribute"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//ConstructedAttributes/nS"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//Copyrighted">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//Copyrighted/copyright"/>
@@ -192,6 +208,7 @@
     <genClasses ecoreClass="nsd.ecore#//CopyrightNotice">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//CopyrightNotice/notice"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//CopyrightNotice/license"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//CopyrightNotice/copyrighted"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//DataAttribute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//DataAttribute/dchg"/>
@@ -211,6 +228,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//DataAttribute/sizeAttribute"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//DataAttribute/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//DataAttribute/typeKind"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//DataAttribute/cDC"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//DataObject">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//DataObject/dsPresCond"/>
@@ -224,15 +242,18 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//DataObject/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//DataObject/underlyingType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//DataObject/underlyingTypeKind"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//DataObject/anyLNClass"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//DataSetMemberOf">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//DataSetMemberOf/cb"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//DataSetMemberOf/applicableServices"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//Doc">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute nsd.ecore#//Doc/mixed"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//Doc/group"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//Doc/any"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//Doc/id"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//Doc/nSDoc"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//DocumentedClass">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//DocumentedClass/deprecated"/>
@@ -243,39 +264,49 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//Enumeration/literal"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//Enumeration/inheritedFrom"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//Enumeration/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//Enumeration/enumerations"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//Enumerations">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//Enumerations/enumeration"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//Enumerations/nS"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//FunctionalConstraint">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//FunctionalConstraint/applicableServices"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//FunctionalConstraint/abbreviation"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//FunctionalConstraint/descID"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//FunctionalConstraint/titleID"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//FunctionalConstraint/functionalConstraints"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//FunctionalConstraints">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//FunctionalConstraints/functionalConstraint"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//FunctionalConstraints/nS"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//FunctionalConstraints/serviceNS"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//License">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute nsd.ecore#//License/mixed"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//License/kind"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//License/uri"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//License/copyrightNotice"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//Literal">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//Literal/literalVal"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//Literal/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//Literal/enumeration"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//LNClass">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//LNClass/canHaveLOG"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//LNClass/isExtension"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//LNClass/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//LNClass/lNClasses"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//LNClasses">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//LNClasses/abstractLNClass"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//LNClasses/lNClass"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//LNClasses/nS"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//Notice">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute nsd.ecore#//Notice/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//Notice/copyrightNotice"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//NS">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//NS/changes"/>
@@ -309,23 +340,30 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//PresenceCondition/descID"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//PresenceCondition/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//PresenceCondition/titleID"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//PresenceCondition/presenceConditions"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//PresenceConditions">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//PresenceConditions/presenceCondition"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//PresenceConditions/nS"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//PresenceConditions/serviceNS"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//ServiceCDC">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//ServiceCDC/serviceDataAttribute"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//ServiceCDC/cdc"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//ServiceCDC/variant"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//ServiceCDC/serviceCDCs"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//ServiceCDCs">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//ServiceCDCs/serviceCDC"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//ServiceCDCs/serviceNS"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//ServiceConstructedAttribute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//ServiceConstructedAttribute/typeKindParameterized"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//ServiceConstructedAttribute/serviceConstructedAttribute"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//ServiceConstructedAttributes">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//ServiceConstructedAttributes/serviceConstructedAttribute"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//ServiceConstructedAttributes/serviceNS"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//ServiceDataAttribute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//ServiceDataAttribute/fc"/>
@@ -337,6 +375,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//ServiceDataAttribute/typeKind"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//ServiceDataAttribute/underlyingType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//ServiceDataAttribute/underlyingTypeKind"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//ServiceDataAttribute/serviceCDC"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//ServiceNS">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//ServiceNS/changes"/>
@@ -358,6 +397,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//ServiceNsUsage/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//ServiceNsUsage/publicationStage"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//ServiceNsUsage/revision"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//ServiceNsUsage/applicableServiceNS"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//ServiceParameter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//ServiceParameter/defaultValue"/>
@@ -366,18 +406,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//ServiceParameter/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//ServiceParameter/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//ServiceParameter/typeKind"/>
-    </genClasses>
-    <genClasses ecoreClass="nsd.ecore#//ServiceTypeRealization">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//ServiceTypeRealization/fc"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//ServiceTypeRealization/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//ServiceTypeRealization/presCond"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//ServiceTypeRealization/presCondArgs"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//ServiceTypeRealization/presCondArgsID"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//ServiceTypeRealization/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//ServiceTypeRealization/typeKind"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//ServiceParameter/cDC"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//ServiceTypeRealizations">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//ServiceTypeRealizations/serviceTypeRealization"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//ServiceTypeRealizations/serviceNS"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//SubDataAttribute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//SubDataAttribute/defaultValue"/>
@@ -393,6 +426,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//SubDataAttribute/sizeAttribute"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//SubDataAttribute/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//SubDataAttribute/typeKind"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//SubDataAttribute/constructedAttribute"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//SubDataObject">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//SubDataObject/isArray"/>
@@ -406,6 +440,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//SubDataObject/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//SubDataObject/underlyingType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//SubDataObject/underlyingTypeKind"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//SubDataObject/cDC"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//TitledClass">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//TitledClass/titleID"/>

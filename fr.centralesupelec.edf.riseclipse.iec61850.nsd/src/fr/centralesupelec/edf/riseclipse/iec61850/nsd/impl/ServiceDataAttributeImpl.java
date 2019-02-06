@@ -22,15 +22,19 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.Enumerator;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,6 +53,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceDataAttributeImpl#getTypeKind <em>Type Kind</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceDataAttributeImpl#getUnderlyingType <em>Underlying Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceDataAttributeImpl#getUnderlyingTypeKind <em>Underlying Type Kind</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceDataAttributeImpl#getServiceCDC <em>Service CDC</em>}</li>
  * </ul>
  *
  * @generated
@@ -75,6 +80,15 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
     protected String fc = FC_EDEFAULT;
 
     /**
+     * This is true if the Fc attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean fcESet;
+
+    /**
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -93,6 +107,15 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
      * @ordered
      */
     protected String name = NAME_EDEFAULT;
+
+    /**
+     * This is true if the Name attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean nameESet;
 
     /**
      * The default value of the '{@link #getPresCond() <em>Pres Cond</em>}' attribute.
@@ -144,6 +167,15 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
     protected String presCondArgs = PRES_COND_ARGS_EDEFAULT;
 
     /**
+     * This is true if the Pres Cond Args attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean presCondArgsESet;
+
+    /**
      * The default value of the '{@link #getPresCondArgsID() <em>Pres Cond Args ID</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -164,6 +196,15 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
     protected String presCondArgsID = PRES_COND_ARGS_ID_EDEFAULT;
 
     /**
+     * This is true if the Pres Cond Args ID attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean presCondArgsIDESet;
+
+    /**
      * The default value of the '{@link #getType() <em>Type</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -182,6 +223,15 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
      * @ordered
      */
     protected String type = TYPE_EDEFAULT;
+
+    /**
+     * This is true if the Type attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean typeESet;
 
     /**
      * The default value of the '{@link #getTypeKind() <em>Type Kind</em>}' attribute.
@@ -232,6 +282,15 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
      * @ordered
      */
     protected String underlyingType = UNDERLYING_TYPE_EDEFAULT;
+
+    /**
+     * This is true if the Underlying Type attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean underlyingTypeESet;
 
     /**
      * The default value of the '{@link #getUnderlyingTypeKind() <em>Underlying Type Kind</em>}' attribute.
@@ -300,8 +359,35 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
     public void setFc( String newFc ) {
         String oldFc = fc;
         fc = newFc;
-        if( eNotificationRequired() ) eNotify(
-                new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_DATA_ATTRIBUTE__FC, oldFc, fc ) );
+        boolean oldFcESet = fcESet;
+        fcESet = true;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.SERVICE_DATA_ATTRIBUTE__FC, oldFc, fc, !oldFcESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetFc() {
+        String oldFc = fc;
+        boolean oldFcESet = fcESet;
+        fc = FC_EDEFAULT;
+        fcESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.SERVICE_DATA_ATTRIBUTE__FC, oldFc, FC_EDEFAULT, oldFcESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetFc() {
+        return fcESet;
     }
 
     /**
@@ -323,8 +409,35 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
     public void setName( String newName ) {
         String oldName = name;
         name = newName;
+        boolean oldNameESet = nameESet;
+        nameESet = true;
         if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.SERVICE_DATA_ATTRIBUTE__NAME, oldName, name ) );
+                NsdPackage.SERVICE_DATA_ATTRIBUTE__NAME, oldName, name, !oldNameESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetName() {
+        String oldName = name;
+        boolean oldNameESet = nameESet;
+        name = NAME_EDEFAULT;
+        nameESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.SERVICE_DATA_ATTRIBUTE__NAME, oldName, NAME_EDEFAULT, oldNameESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetName() {
+        return nameESet;
     }
 
     /**
@@ -396,8 +509,37 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
     public void setPresCondArgs( String newPresCondArgs ) {
         String oldPresCondArgs = presCondArgs;
         presCondArgs = newPresCondArgs;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS, oldPresCondArgs, presCondArgs ) );
+        boolean oldPresCondArgsESet = presCondArgsESet;
+        presCondArgsESet = true;
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS,
+                    oldPresCondArgs, presCondArgs, !oldPresCondArgsESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetPresCondArgs() {
+        String oldPresCondArgs = presCondArgs;
+        boolean oldPresCondArgsESet = presCondArgsESet;
+        presCondArgs = PRES_COND_ARGS_EDEFAULT;
+        presCondArgsESet = false;
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS,
+                    oldPresCondArgs, PRES_COND_ARGS_EDEFAULT, oldPresCondArgsESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetPresCondArgs() {
+        return presCondArgsESet;
     }
 
     /**
@@ -419,8 +561,37 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
     public void setPresCondArgsID( String newPresCondArgsID ) {
         String oldPresCondArgsID = presCondArgsID;
         presCondArgsID = newPresCondArgsID;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS_ID, oldPresCondArgsID, presCondArgsID ) );
+        boolean oldPresCondArgsIDESet = presCondArgsIDESet;
+        presCondArgsIDESet = true;
+        if( eNotificationRequired() ) eNotify(
+                new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS_ID,
+                        oldPresCondArgsID, presCondArgsID, !oldPresCondArgsIDESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetPresCondArgsID() {
+        String oldPresCondArgsID = presCondArgsID;
+        boolean oldPresCondArgsIDESet = presCondArgsIDESet;
+        presCondArgsID = PRES_COND_ARGS_ID_EDEFAULT;
+        presCondArgsIDESet = false;
+        if( eNotificationRequired() ) eNotify(
+                new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS_ID,
+                        oldPresCondArgsID, PRES_COND_ARGS_ID_EDEFAULT, oldPresCondArgsIDESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetPresCondArgsID() {
+        return presCondArgsIDESet;
     }
 
     /**
@@ -442,8 +613,35 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
     public void setType( String newType ) {
         String oldType = type;
         type = newType;
+        boolean oldTypeESet = typeESet;
+        typeESet = true;
         if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.SERVICE_DATA_ATTRIBUTE__TYPE, oldType, type ) );
+                NsdPackage.SERVICE_DATA_ATTRIBUTE__TYPE, oldType, type, !oldTypeESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetType() {
+        String oldType = type;
+        boolean oldTypeESet = typeESet;
+        type = TYPE_EDEFAULT;
+        typeESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.SERVICE_DATA_ATTRIBUTE__TYPE, oldType, TYPE_EDEFAULT, oldTypeESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetType() {
+        return typeESet;
     }
 
     /**
@@ -515,8 +713,37 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
     public void setUnderlyingType( String newUnderlyingType ) {
         String oldUnderlyingType = underlyingType;
         underlyingType = newUnderlyingType;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE, oldUnderlyingType, underlyingType ) );
+        boolean oldUnderlyingTypeESet = underlyingTypeESet;
+        underlyingTypeESet = true;
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE,
+                    oldUnderlyingType, underlyingType, !oldUnderlyingTypeESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetUnderlyingType() {
+        String oldUnderlyingType = underlyingType;
+        boolean oldUnderlyingTypeESet = underlyingTypeESet;
+        underlyingType = UNDERLYING_TYPE_EDEFAULT;
+        underlyingTypeESet = false;
+        if( eNotificationRequired() ) eNotify(
+                new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE,
+                        oldUnderlyingType, UNDERLYING_TYPE_EDEFAULT, oldUnderlyingTypeESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetUnderlyingType() {
+        return underlyingTypeESet;
     }
 
     /**
@@ -577,6 +804,95 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
      * @generated
      */
     @Override
+    public ServiceCDC getServiceCDC() {
+        if( eContainerFeatureID() != NsdPackage.SERVICE_DATA_ATTRIBUTE__SERVICE_CDC ) return null;
+        return ( ServiceCDC ) eInternalContainer();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetServiceCDC( ServiceCDC newServiceCDC, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newServiceCDC, NsdPackage.SERVICE_DATA_ATTRIBUTE__SERVICE_CDC,
+                msgs );
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setServiceCDC( ServiceCDC newServiceCDC ) {
+        if( newServiceCDC != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.SERVICE_DATA_ATTRIBUTE__SERVICE_CDC
+                        && newServiceCDC != null ) ) {
+            if( EcoreUtil.isAncestor( this, newServiceCDC ) )
+                throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            NotificationChain msgs = null;
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( newServiceCDC != null ) msgs = ( ( InternalEObject ) newServiceCDC ).eInverseAdd( this,
+                    NsdPackage.SERVICE_CDC__SERVICE_DATA_ATTRIBUTE, ServiceCDC.class, msgs );
+            msgs = basicSetServiceCDC( newServiceCDC, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.SERVICE_DATA_ATTRIBUTE__SERVICE_CDC, newServiceCDC, newServiceCDC ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.SERVICE_DATA_ATTRIBUTE__SERVICE_CDC:
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            return basicSetServiceCDC( ( ServiceCDC ) otherEnd, msgs );
+        }
+        return super.eInverseAdd( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.SERVICE_DATA_ATTRIBUTE__SERVICE_CDC:
+            return basicSetServiceCDC( null, msgs );
+        }
+        return super.eInverseRemove( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
+        switch( eContainerFeatureID() ) {
+        case NsdPackage.SERVICE_DATA_ATTRIBUTE__SERVICE_CDC:
+            return eInternalContainer().eInverseRemove( this, NsdPackage.SERVICE_CDC__SERVICE_DATA_ATTRIBUTE,
+                    ServiceCDC.class, msgs );
+        }
+        return super.eBasicRemoveFromContainerFeature( msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__FC:
@@ -597,6 +913,8 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
             return getUnderlyingType();
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE_KIND:
             return getUnderlyingTypeKind();
+        case NsdPackage.SERVICE_DATA_ATTRIBUTE__SERVICE_CDC:
+            return getServiceCDC();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -636,6 +954,9 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE_KIND:
             setUnderlyingTypeKind( ( DefinedAttributeTypeKind ) newValue );
             return;
+        case NsdPackage.SERVICE_DATA_ATTRIBUTE__SERVICE_CDC:
+            setServiceCDC( ( ServiceCDC ) newValue );
+            return;
         }
         super.eSet( featureID, newValue );
     }
@@ -649,31 +970,34 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
     public void eUnset( int featureID ) {
         switch( featureID ) {
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__FC:
-            setFc( FC_EDEFAULT );
+            unsetFc();
             return;
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__NAME:
-            setName( NAME_EDEFAULT );
+            unsetName();
             return;
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND:
             unsetPresCond();
             return;
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS:
-            setPresCondArgs( PRES_COND_ARGS_EDEFAULT );
+            unsetPresCondArgs();
             return;
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS_ID:
-            setPresCondArgsID( PRES_COND_ARGS_ID_EDEFAULT );
+            unsetPresCondArgsID();
             return;
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__TYPE:
-            setType( TYPE_EDEFAULT );
+            unsetType();
             return;
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__TYPE_KIND:
             unsetTypeKind();
             return;
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE:
-            setUnderlyingType( UNDERLYING_TYPE_EDEFAULT );
+            unsetUnderlyingType();
             return;
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE_KIND:
             unsetUnderlyingTypeKind();
+            return;
+        case NsdPackage.SERVICE_DATA_ATTRIBUTE__SERVICE_CDC:
+            setServiceCDC( ( ServiceCDC ) null );
             return;
         }
         super.eUnset( featureID );
@@ -688,26 +1012,25 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
     public boolean eIsSet( int featureID ) {
         switch( featureID ) {
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__FC:
-            return FC_EDEFAULT == null ? fc != null : !FC_EDEFAULT.equals( fc );
+            return isSetFc();
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__NAME:
-            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals( name );
+            return isSetName();
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND:
             return isSetPresCond();
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS:
-            return PRES_COND_ARGS_EDEFAULT == null ? presCondArgs != null
-                    : !PRES_COND_ARGS_EDEFAULT.equals( presCondArgs );
+            return isSetPresCondArgs();
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS_ID:
-            return PRES_COND_ARGS_ID_EDEFAULT == null ? presCondArgsID != null
-                    : !PRES_COND_ARGS_ID_EDEFAULT.equals( presCondArgsID );
+            return isSetPresCondArgsID();
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__TYPE:
-            return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals( type );
+            return isSetType();
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__TYPE_KIND:
             return isSetTypeKind();
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE:
-            return UNDERLYING_TYPE_EDEFAULT == null ? underlyingType != null
-                    : !UNDERLYING_TYPE_EDEFAULT.equals( underlyingType );
+            return isSetUnderlyingType();
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE_KIND:
             return isSetUnderlyingTypeKind();
+        case NsdPackage.SERVICE_DATA_ATTRIBUTE__SERVICE_CDC:
+            return getServiceCDC() != null;
         }
         return super.eIsSet( featureID );
     }
@@ -723,27 +1046,45 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (fc: " );
-        result.append( fc );
+        if( fcESet )
+            result.append( fc );
+        else
+            result.append( "<unset>" );
         result.append( ", name: " );
-        result.append( name );
+        if( nameESet )
+            result.append( name );
+        else
+            result.append( "<unset>" );
         result.append( ", presCond: " );
         if( presCondESet )
             result.append( presCond );
         else
             result.append( "<unset>" );
         result.append( ", presCondArgs: " );
-        result.append( presCondArgs );
+        if( presCondArgsESet )
+            result.append( presCondArgs );
+        else
+            result.append( "<unset>" );
         result.append( ", presCondArgsID: " );
-        result.append( presCondArgsID );
+        if( presCondArgsIDESet )
+            result.append( presCondArgsID );
+        else
+            result.append( "<unset>" );
         result.append( ", type: " );
-        result.append( type );
+        if( typeESet )
+            result.append( type );
+        else
+            result.append( "<unset>" );
         result.append( ", typeKind: " );
         if( typeKindESet )
             result.append( typeKind );
         else
             result.append( "<unset>" );
         result.append( ", underlyingType: " );
-        result.append( underlyingType );
+        if( underlyingTypeESet )
+            result.append( underlyingType );
+        else
+            result.append( "<unset>" );
         result.append( ", underlyingTypeKind: " );
         if( underlyingTypeKindESet )
             result.append( underlyingTypeKind );

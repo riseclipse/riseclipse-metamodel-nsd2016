@@ -24,10 +24,6 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
  * A representation of the model object '<em><b>Data Object</b></em>'.
  * <!-- end-user-doc -->
  *
- * <!-- begin-model-doc -->
- * Definition of a Data Object of a logical node.
- * <!-- end-model-doc -->
- *
  * <p>
  * The following features are supported:
  * </p>
@@ -43,6 +39,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getType <em>Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getUnderlyingType <em>Underlying Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getUnderlyingTypeKind <em>Underlying Type Kind</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getAnyLNClass <em>Any LN Class</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataObject()
@@ -55,9 +52,6 @@ public interface DataObject extends DocumentedClass {
      * The default value is <code>"M"</code>.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Presence condition of the element. By default 'M' (mandatory).
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Ds Pres Cond</em>' attribute.
      * @see #isSetDsPresCond()
      * @see #unsetDsPresCond()
@@ -108,13 +102,13 @@ public interface DataObject extends DocumentedClass {
      * Returns the value of the '<em><b>Ds Pres Cond Args</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Optional argument to the presence condition. Can be a sibling element or a group number.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Ds Pres Cond Args</em>' attribute.
+     * @see #isSetDsPresCondArgs()
+     * @see #unsetDsPresCondArgs()
      * @see #setDsPresCondArgs(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataObject_DsPresCondArgs()
-     * @model extendedMetaData="kind='attribute' name='dsPresCondArgs'"
+     * @model unsettable="true"
+     *        extendedMetaData="kind='attribute' name='dsPresCondArgs'"
      * @generated
      */
     String getDsPresCondArgs();
@@ -124,22 +118,47 @@ public interface DataObject extends DocumentedClass {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Ds Pres Cond Args</em>' attribute.
+     * @see #isSetDsPresCondArgs()
+     * @see #unsetDsPresCondArgs()
      * @see #getDsPresCondArgs()
      * @generated
      */
     void setDsPresCondArgs( String value );
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getDsPresCondArgs <em>Ds Pres Cond Args</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetDsPresCondArgs()
+     * @see #getDsPresCondArgs()
+     * @see #setDsPresCondArgs(String)
+     * @generated
+     */
+    void unsetDsPresCondArgs();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getDsPresCondArgs <em>Ds Pres Cond Args</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Ds Pres Cond Args</em>' attribute is set.
+     * @see #unsetDsPresCondArgs()
+     * @see #getDsPresCondArgs()
+     * @see #setDsPresCondArgs(String)
+     * @generated
+     */
+    boolean isSetDsPresCondArgs();
+
+    /**
      * Returns the value of the '<em><b>Ds Pres Cond Args ID</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Optional argument to the presence condition: a documentation identifier referring to some free text.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Ds Pres Cond Args ID</em>' attribute.
+     * @see #isSetDsPresCondArgsID()
+     * @see #unsetDsPresCondArgsID()
      * @see #setDsPresCondArgsID(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataObject_DsPresCondArgsID()
-     * @model extendedMetaData="kind='attribute' name='dsPresCondArgsID'"
+     * @model unsettable="true"
+     *        extendedMetaData="kind='attribute' name='dsPresCondArgsID'"
      * @generated
      */
     String getDsPresCondArgsID();
@@ -149,22 +168,46 @@ public interface DataObject extends DocumentedClass {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Ds Pres Cond Args ID</em>' attribute.
+     * @see #isSetDsPresCondArgsID()
+     * @see #unsetDsPresCondArgsID()
      * @see #getDsPresCondArgsID()
      * @generated
      */
     void setDsPresCondArgsID( String value );
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getDsPresCondArgsID <em>Ds Pres Cond Args ID</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetDsPresCondArgsID()
+     * @see #getDsPresCondArgsID()
+     * @see #setDsPresCondArgsID(String)
+     * @generated
+     */
+    void unsetDsPresCondArgsID();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getDsPresCondArgsID <em>Ds Pres Cond Args ID</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Ds Pres Cond Args ID</em>' attribute is set.
+     * @see #unsetDsPresCondArgsID()
+     * @see #getDsPresCondArgsID()
+     * @see #setDsPresCondArgsID(String)
+     * @generated
+     */
+    boolean isSetDsPresCondArgsID();
+
+    /**
      * Returns the value of the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Name of the data object.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Name</em>' attribute.
+     * @see #isSetName()
+     * @see #unsetName()
      * @see #setName(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataObject_Name()
-     * @model required="true"
+     * @model unsettable="true"
      *        extendedMetaData="kind='attribute' name='name'"
      * @generated
      */
@@ -175,19 +218,41 @@ public interface DataObject extends DocumentedClass {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Name</em>' attribute.
+     * @see #isSetName()
+     * @see #unsetName()
      * @see #getName()
      * @generated
      */
     void setName( String value );
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getName <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetName()
+     * @see #getName()
+     * @see #setName(String)
+     * @generated
+     */
+    void unsetName();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getName <em>Name</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Name</em>' attribute is set.
+     * @see #unsetName()
+     * @see #getName()
+     * @see #setName(String)
+     * @generated
+     */
+    boolean isSetName();
+
+    /**
      * Returns the value of the '<em><b>Pres Cond</b></em>' attribute.
      * The default value is <code>"M"</code>.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Presence condition of the element. By default 'M' (mandatory).
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Pres Cond</em>' attribute.
      * @see #isSetPresCond()
      * @see #unsetPresCond()
@@ -238,13 +303,13 @@ public interface DataObject extends DocumentedClass {
      * Returns the value of the '<em><b>Pres Cond Args</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Optional argument to the presence condition. Can be a sibling element or a group number.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Pres Cond Args</em>' attribute.
+     * @see #isSetPresCondArgs()
+     * @see #unsetPresCondArgs()
      * @see #setPresCondArgs(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataObject_PresCondArgs()
-     * @model extendedMetaData="kind='attribute' name='presCondArgs'"
+     * @model unsettable="true"
+     *        extendedMetaData="kind='attribute' name='presCondArgs'"
      * @generated
      */
     String getPresCondArgs();
@@ -254,22 +319,47 @@ public interface DataObject extends DocumentedClass {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Pres Cond Args</em>' attribute.
+     * @see #isSetPresCondArgs()
+     * @see #unsetPresCondArgs()
      * @see #getPresCondArgs()
      * @generated
      */
     void setPresCondArgs( String value );
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getPresCondArgs <em>Pres Cond Args</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetPresCondArgs()
+     * @see #getPresCondArgs()
+     * @see #setPresCondArgs(String)
+     * @generated
+     */
+    void unsetPresCondArgs();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getPresCondArgs <em>Pres Cond Args</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Pres Cond Args</em>' attribute is set.
+     * @see #unsetPresCondArgs()
+     * @see #getPresCondArgs()
+     * @see #setPresCondArgs(String)
+     * @generated
+     */
+    boolean isSetPresCondArgs();
+
+    /**
      * Returns the value of the '<em><b>Pres Cond Args ID</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Optional argument to the presence condition: a documentation identifier referring to some free text.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Pres Cond Args ID</em>' attribute.
+     * @see #isSetPresCondArgsID()
+     * @see #unsetPresCondArgsID()
      * @see #setPresCondArgsID(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataObject_PresCondArgsID()
-     * @model extendedMetaData="kind='attribute' name='presCondArgsID'"
+     * @model unsettable="true"
+     *        extendedMetaData="kind='attribute' name='presCondArgsID'"
      * @generated
      */
     String getPresCondArgsID();
@@ -279,19 +369,41 @@ public interface DataObject extends DocumentedClass {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Pres Cond Args ID</em>' attribute.
+     * @see #isSetPresCondArgsID()
+     * @see #unsetPresCondArgsID()
      * @see #getPresCondArgsID()
      * @generated
      */
     void setPresCondArgsID( String value );
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getPresCondArgsID <em>Pres Cond Args ID</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetPresCondArgsID()
+     * @see #getPresCondArgsID()
+     * @see #setPresCondArgsID(String)
+     * @generated
+     */
+    void unsetPresCondArgsID();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getPresCondArgsID <em>Pres Cond Args ID</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Pres Cond Args ID</em>' attribute is set.
+     * @see #unsetPresCondArgsID()
+     * @see #getPresCondArgsID()
+     * @see #setPresCondArgsID(String)
+     * @generated
+     */
+    boolean isSetPresCondArgsID();
+
+    /**
      * Returns the value of the '<em><b>Transient</b></em>' attribute.
      * The default value is <code>"false"</code>.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Flag indicating whether this data object is transient. By default, it is not.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Transient</em>' attribute.
      * @see #isSetTransient()
      * @see #unsetTransient()
@@ -342,13 +454,12 @@ public interface DataObject extends DocumentedClass {
      * Returns the value of the '<em><b>Type</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Type of the data object, i.e., the name of the CDC.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Type</em>' attribute.
+     * @see #isSetType()
+     * @see #unsetType()
      * @see #setType(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataObject_Type()
-     * @model required="true"
+     * @model unsettable="true"
      *        extendedMetaData="kind='attribute' name='type'"
      * @generated
      */
@@ -359,22 +470,47 @@ public interface DataObject extends DocumentedClass {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Type</em>' attribute.
+     * @see #isSetType()
+     * @see #unsetType()
      * @see #getType()
      * @generated
      */
     void setType( String value );
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getType <em>Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetType()
+     * @see #getType()
+     * @see #setType(String)
+     * @generated
+     */
+    void unsetType();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getType <em>Type</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Type</em>' attribute is set.
+     * @see #unsetType()
+     * @see #getType()
+     * @see #setType(String)
+     * @generated
+     */
+    boolean isSetType();
+
+    /**
      * Returns the value of the '<em><b>Underlying Type</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Type to be used for type-open CDCs, e.g., enumeration to be used for enumeration-based CDCs (e.g., ENS, ENC, ENG).
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Underlying Type</em>' attribute.
+     * @see #isSetUnderlyingType()
+     * @see #unsetUnderlyingType()
      * @see #setUnderlyingType(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataObject_UnderlyingType()
-     * @model extendedMetaData="kind='attribute' name='underlyingType'"
+     * @model unsettable="true"
+     *        extendedMetaData="kind='attribute' name='underlyingType'"
      * @generated
      */
     String getUnderlyingType();
@@ -384,19 +520,41 @@ public interface DataObject extends DocumentedClass {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Underlying Type</em>' attribute.
+     * @see #isSetUnderlyingType()
+     * @see #unsetUnderlyingType()
      * @see #getUnderlyingType()
      * @generated
      */
     void setUnderlyingType( String value );
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getUnderlyingType <em>Underlying Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetUnderlyingType()
+     * @see #getUnderlyingType()
+     * @see #setUnderlyingType(String)
+     * @generated
+     */
+    void unsetUnderlyingType();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getUnderlyingType <em>Underlying Type</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Underlying Type</em>' attribute is set.
+     * @see #unsetUnderlyingType()
+     * @see #getUnderlyingType()
+     * @see #setUnderlyingType(String)
+     * @generated
+     */
+    boolean isSetUnderlyingType();
+
+    /**
      * Returns the value of the '<em><b>Underlying Type Kind</b></em>' attribute.
      * The literals are from the enumeration {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * The typeKind to be used for all "undefined" attributes of the CDC of this DataObject.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Underlying Type Kind</em>' attribute.
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind
      * @see #isSetUnderlyingTypeKind()
@@ -444,5 +602,33 @@ public interface DataObject extends DocumentedClass {
      * @generated
      */
     boolean isSetUnderlyingTypeKind();
+
+    /**
+     * Returns the value of the '<em><b>Any LN Class</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass#getDataObject <em>Data Object</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Any LN Class</em>' container reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Any LN Class</em>' container reference.
+     * @see #setAnyLNClass(AnyLNClass)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataObject_AnyLNClass()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass#getDataObject
+     * @model opposite="dataObject" resolveProxies="false" unsettable="true" ordered="false"
+     * @generated
+     */
+    AnyLNClass getAnyLNClass();
+
+    /**
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getAnyLNClass <em>Any LN Class</em>}' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Any LN Class</em>' container reference.
+     * @see #getAnyLNClass()
+     * @generated
+     */
+    void setAnyLNClass( AnyLNClass value );
 
 } // DataObject

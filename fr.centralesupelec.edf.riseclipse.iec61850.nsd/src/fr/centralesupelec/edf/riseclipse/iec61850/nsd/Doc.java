@@ -28,10 +28,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * A representation of the model object '<em><b>Doc</b></em>'.
  * <!-- end-user-doc -->
  *
- * <!-- begin-model-doc -->
- * A key-value pair for documentation. Attribute "id" is the key (the documentation string identifier) and the value of the element is the documentation string itself.
- * <!-- end-model-doc -->
- *
  * <p>
  * The following features are supported:
  * </p>
@@ -40,6 +36,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getGroup <em>Group</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getAny <em>Any</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getId <em>Id</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getNSDoc <em>NS Doc</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDoc()
@@ -102,13 +99,12 @@ public interface Doc extends EObject {
      * Returns the value of the '<em><b>Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Identifier of the documentation string.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Id</em>' attribute.
+     * @see #isSetId()
+     * @see #unsetId()
      * @see #setId(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDoc_Id()
-     * @model required="true"
+     * @model unsettable="true"
      *        extendedMetaData="kind='attribute' name='id'"
      * @generated
      */
@@ -119,9 +115,62 @@ public interface Doc extends EObject {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Id</em>' attribute.
+     * @see #isSetId()
+     * @see #unsetId()
      * @see #getId()
      * @generated
      */
     void setId( String value );
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getId <em>Id</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetId()
+     * @see #getId()
+     * @see #setId(String)
+     * @generated
+     */
+    void unsetId();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getId <em>Id</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Id</em>' attribute is set.
+     * @see #unsetId()
+     * @see #getId()
+     * @see #setId(String)
+     * @generated
+     */
+    boolean isSetId();
+
+    /**
+     * Returns the value of the '<em><b>NS Doc</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc#getDoc <em>Doc</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>NS Doc</em>' container reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>NS Doc</em>' container reference.
+     * @see #setNSDoc(NSDoc)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDoc_NSDoc()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc#getDoc
+     * @model opposite="doc" resolveProxies="false" unsettable="true" ordered="false"
+     * @generated
+     */
+    NSDoc getNSDoc();
+
+    /**
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getNSDoc <em>NS Doc</em>}' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>NS Doc</em>' container reference.
+     * @see #getNSDoc()
+     * @generated
+     */
+    void setNSDoc( NSDoc value );
 
 } // Doc

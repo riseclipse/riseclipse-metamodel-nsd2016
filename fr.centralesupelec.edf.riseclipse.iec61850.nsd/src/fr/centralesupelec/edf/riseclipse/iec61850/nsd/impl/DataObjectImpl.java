@@ -19,15 +19,19 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,6 +52,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getType <em>Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getUnderlyingType <em>Underlying Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getUnderlyingTypeKind <em>Underlying Type Kind</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getAnyLNClass <em>Any LN Class</em>}</li>
  * </ul>
  *
  * @generated
@@ -103,6 +108,15 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     protected String dsPresCondArgs = DS_PRES_COND_ARGS_EDEFAULT;
 
     /**
+     * This is true if the Ds Pres Cond Args attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean dsPresCondArgsESet;
+
+    /**
      * The default value of the '{@link #getDsPresCondArgsID() <em>Ds Pres Cond Args ID</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -123,6 +137,15 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     protected String dsPresCondArgsID = DS_PRES_COND_ARGS_ID_EDEFAULT;
 
     /**
+     * This is true if the Ds Pres Cond Args ID attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean dsPresCondArgsIDESet;
+
+    /**
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -141,6 +164,15 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
      * @ordered
      */
     protected String name = NAME_EDEFAULT;
+
+    /**
+     * This is true if the Name attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean nameESet;
 
     /**
      * The default value of the '{@link #getPresCond() <em>Pres Cond</em>}' attribute.
@@ -192,6 +224,15 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     protected String presCondArgs = PRES_COND_ARGS_EDEFAULT;
 
     /**
+     * This is true if the Pres Cond Args attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean presCondArgsESet;
+
+    /**
      * The default value of the '{@link #getPresCondArgsID() <em>Pres Cond Args ID</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -210,6 +251,15 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
      * @ordered
      */
     protected String presCondArgsID = PRES_COND_ARGS_ID_EDEFAULT;
+
+    /**
+     * This is true if the Pres Cond Args ID attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean presCondArgsIDESet;
 
     /**
      * The default value of the '{@link #isTransient() <em>Transient</em>}' attribute.
@@ -261,6 +311,15 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     protected String type = TYPE_EDEFAULT;
 
     /**
+     * This is true if the Type attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean typeESet;
+
+    /**
      * The default value of the '{@link #getUnderlyingType() <em>Underlying Type</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -279,6 +338,15 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
      * @ordered
      */
     protected String underlyingType = UNDERLYING_TYPE_EDEFAULT;
+
+    /**
+     * This is true if the Underlying Type attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean underlyingTypeESet;
 
     /**
      * The default value of the '{@link #getUnderlyingTypeKind() <em>Underlying Type Kind</em>}' attribute.
@@ -397,8 +465,37 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     public void setDsPresCondArgs( String newDsPresCondArgs ) {
         String oldDsPresCondArgs = dsPresCondArgs;
         dsPresCondArgs = newDsPresCondArgs;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS, oldDsPresCondArgs, dsPresCondArgs ) );
+        boolean oldDsPresCondArgsESet = dsPresCondArgsESet;
+        dsPresCondArgsESet = true;
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS,
+                    oldDsPresCondArgs, dsPresCondArgs, !oldDsPresCondArgsESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetDsPresCondArgs() {
+        String oldDsPresCondArgs = dsPresCondArgs;
+        boolean oldDsPresCondArgsESet = dsPresCondArgsESet;
+        dsPresCondArgs = DS_PRES_COND_ARGS_EDEFAULT;
+        dsPresCondArgsESet = false;
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS,
+                    oldDsPresCondArgs, DS_PRES_COND_ARGS_EDEFAULT, oldDsPresCondArgsESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetDsPresCondArgs() {
+        return dsPresCondArgsESet;
     }
 
     /**
@@ -420,8 +517,37 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     public void setDsPresCondArgsID( String newDsPresCondArgsID ) {
         String oldDsPresCondArgsID = dsPresCondArgsID;
         dsPresCondArgsID = newDsPresCondArgsID;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS_ID, oldDsPresCondArgsID, dsPresCondArgsID ) );
+        boolean oldDsPresCondArgsIDESet = dsPresCondArgsIDESet;
+        dsPresCondArgsIDESet = true;
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS_ID,
+                    oldDsPresCondArgsID, dsPresCondArgsID, !oldDsPresCondArgsIDESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetDsPresCondArgsID() {
+        String oldDsPresCondArgsID = dsPresCondArgsID;
+        boolean oldDsPresCondArgsIDESet = dsPresCondArgsIDESet;
+        dsPresCondArgsID = DS_PRES_COND_ARGS_ID_EDEFAULT;
+        dsPresCondArgsIDESet = false;
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS_ID,
+                    oldDsPresCondArgsID, DS_PRES_COND_ARGS_ID_EDEFAULT, oldDsPresCondArgsIDESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetDsPresCondArgsID() {
+        return dsPresCondArgsIDESet;
     }
 
     /**
@@ -443,8 +569,35 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     public void setName( String newName ) {
         String oldName = name;
         name = newName;
-        if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_OBJECT__NAME, oldName, name ) );
+        boolean oldNameESet = nameESet;
+        nameESet = true;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.DATA_OBJECT__NAME, oldName, name, !oldNameESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetName() {
+        String oldName = name;
+        boolean oldNameESet = nameESet;
+        name = NAME_EDEFAULT;
+        nameESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.DATA_OBJECT__NAME, oldName, NAME_EDEFAULT, oldNameESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetName() {
+        return nameESet;
     }
 
     /**
@@ -516,8 +669,36 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     public void setPresCondArgs( String newPresCondArgs ) {
         String oldPresCondArgs = presCondArgs;
         presCondArgs = newPresCondArgs;
+        boolean oldPresCondArgsESet = presCondArgsESet;
+        presCondArgsESet = true;
         if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.DATA_OBJECT__PRES_COND_ARGS, oldPresCondArgs, presCondArgs ) );
+                NsdPackage.DATA_OBJECT__PRES_COND_ARGS, oldPresCondArgs, presCondArgs, !oldPresCondArgsESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetPresCondArgs() {
+        String oldPresCondArgs = presCondArgs;
+        boolean oldPresCondArgsESet = presCondArgsESet;
+        presCondArgs = PRES_COND_ARGS_EDEFAULT;
+        presCondArgsESet = false;
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DATA_OBJECT__PRES_COND_ARGS,
+                    oldPresCondArgs, PRES_COND_ARGS_EDEFAULT, oldPresCondArgsESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetPresCondArgs() {
+        return presCondArgsESet;
     }
 
     /**
@@ -539,8 +720,37 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     public void setPresCondArgsID( String newPresCondArgsID ) {
         String oldPresCondArgsID = presCondArgsID;
         presCondArgsID = newPresCondArgsID;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.DATA_OBJECT__PRES_COND_ARGS_ID, oldPresCondArgsID, presCondArgsID ) );
+        boolean oldPresCondArgsIDESet = presCondArgsIDESet;
+        presCondArgsIDESet = true;
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_OBJECT__PRES_COND_ARGS_ID,
+                    oldPresCondArgsID, presCondArgsID, !oldPresCondArgsIDESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetPresCondArgsID() {
+        String oldPresCondArgsID = presCondArgsID;
+        boolean oldPresCondArgsIDESet = presCondArgsIDESet;
+        presCondArgsID = PRES_COND_ARGS_ID_EDEFAULT;
+        presCondArgsIDESet = false;
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DATA_OBJECT__PRES_COND_ARGS_ID,
+                    oldPresCondArgsID, PRES_COND_ARGS_ID_EDEFAULT, oldPresCondArgsIDESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetPresCondArgsID() {
+        return presCondArgsIDESet;
     }
 
     /**
@@ -612,8 +822,35 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     public void setType( String newType ) {
         String oldType = type;
         type = newType;
-        if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_OBJECT__TYPE, oldType, type ) );
+        boolean oldTypeESet = typeESet;
+        typeESet = true;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.DATA_OBJECT__TYPE, oldType, type, !oldTypeESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetType() {
+        String oldType = type;
+        boolean oldTypeESet = typeESet;
+        type = TYPE_EDEFAULT;
+        typeESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.DATA_OBJECT__TYPE, oldType, TYPE_EDEFAULT, oldTypeESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetType() {
+        return typeESet;
     }
 
     /**
@@ -635,8 +872,36 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     public void setUnderlyingType( String newUnderlyingType ) {
         String oldUnderlyingType = underlyingType;
         underlyingType = newUnderlyingType;
+        boolean oldUnderlyingTypeESet = underlyingTypeESet;
+        underlyingTypeESet = true;
         if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.DATA_OBJECT__UNDERLYING_TYPE, oldUnderlyingType, underlyingType ) );
+                NsdPackage.DATA_OBJECT__UNDERLYING_TYPE, oldUnderlyingType, underlyingType, !oldUnderlyingTypeESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetUnderlyingType() {
+        String oldUnderlyingType = underlyingType;
+        boolean oldUnderlyingTypeESet = underlyingTypeESet;
+        underlyingType = UNDERLYING_TYPE_EDEFAULT;
+        underlyingTypeESet = false;
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DATA_OBJECT__UNDERLYING_TYPE,
+                    oldUnderlyingType, UNDERLYING_TYPE_EDEFAULT, oldUnderlyingTypeESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetUnderlyingType() {
+        return underlyingTypeESet;
     }
 
     /**
@@ -697,6 +962,93 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
      * @generated
      */
     @Override
+    public AnyLNClass getAnyLNClass() {
+        if( eContainerFeatureID() != NsdPackage.DATA_OBJECT__ANY_LN_CLASS ) return null;
+        return ( AnyLNClass ) eInternalContainer();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetAnyLNClass( AnyLNClass newAnyLNClass, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newAnyLNClass, NsdPackage.DATA_OBJECT__ANY_LN_CLASS, msgs );
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setAnyLNClass( AnyLNClass newAnyLNClass ) {
+        if( newAnyLNClass != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.DATA_OBJECT__ANY_LN_CLASS && newAnyLNClass != null ) ) {
+            if( EcoreUtil.isAncestor( this, newAnyLNClass ) )
+                throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            NotificationChain msgs = null;
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( newAnyLNClass != null ) msgs = ( ( InternalEObject ) newAnyLNClass ).eInverseAdd( this,
+                    NsdPackage.ANY_LN_CLASS__DATA_OBJECT, AnyLNClass.class, msgs );
+            msgs = basicSetAnyLNClass( newAnyLNClass, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.DATA_OBJECT__ANY_LN_CLASS, newAnyLNClass, newAnyLNClass ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.DATA_OBJECT__ANY_LN_CLASS:
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            return basicSetAnyLNClass( ( AnyLNClass ) otherEnd, msgs );
+        }
+        return super.eInverseAdd( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.DATA_OBJECT__ANY_LN_CLASS:
+            return basicSetAnyLNClass( null, msgs );
+        }
+        return super.eInverseRemove( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
+        switch( eContainerFeatureID() ) {
+        case NsdPackage.DATA_OBJECT__ANY_LN_CLASS:
+            return eInternalContainer().eInverseRemove( this, NsdPackage.ANY_LN_CLASS__DATA_OBJECT, AnyLNClass.class,
+                    msgs );
+        }
+        return super.eBasicRemoveFromContainerFeature( msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
         case NsdPackage.DATA_OBJECT__DS_PRES_COND:
@@ -721,6 +1073,8 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             return getUnderlyingType();
         case NsdPackage.DATA_OBJECT__UNDERLYING_TYPE_KIND:
             return getUnderlyingTypeKind();
+        case NsdPackage.DATA_OBJECT__ANY_LN_CLASS:
+            return getAnyLNClass();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -766,6 +1120,9 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         case NsdPackage.DATA_OBJECT__UNDERLYING_TYPE_KIND:
             setUnderlyingTypeKind( ( DefinedAttributeTypeKind ) newValue );
             return;
+        case NsdPackage.DATA_OBJECT__ANY_LN_CLASS:
+            setAnyLNClass( ( AnyLNClass ) newValue );
+            return;
         }
         super.eSet( featureID, newValue );
     }
@@ -782,34 +1139,37 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             unsetDsPresCond();
             return;
         case NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS:
-            setDsPresCondArgs( DS_PRES_COND_ARGS_EDEFAULT );
+            unsetDsPresCondArgs();
             return;
         case NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS_ID:
-            setDsPresCondArgsID( DS_PRES_COND_ARGS_ID_EDEFAULT );
+            unsetDsPresCondArgsID();
             return;
         case NsdPackage.DATA_OBJECT__NAME:
-            setName( NAME_EDEFAULT );
+            unsetName();
             return;
         case NsdPackage.DATA_OBJECT__PRES_COND:
             unsetPresCond();
             return;
         case NsdPackage.DATA_OBJECT__PRES_COND_ARGS:
-            setPresCondArgs( PRES_COND_ARGS_EDEFAULT );
+            unsetPresCondArgs();
             return;
         case NsdPackage.DATA_OBJECT__PRES_COND_ARGS_ID:
-            setPresCondArgsID( PRES_COND_ARGS_ID_EDEFAULT );
+            unsetPresCondArgsID();
             return;
         case NsdPackage.DATA_OBJECT__TRANSIENT:
             unsetTransient();
             return;
         case NsdPackage.DATA_OBJECT__TYPE:
-            setType( TYPE_EDEFAULT );
+            unsetType();
             return;
         case NsdPackage.DATA_OBJECT__UNDERLYING_TYPE:
-            setUnderlyingType( UNDERLYING_TYPE_EDEFAULT );
+            unsetUnderlyingType();
             return;
         case NsdPackage.DATA_OBJECT__UNDERLYING_TYPE_KIND:
             unsetUnderlyingTypeKind();
+            return;
+        case NsdPackage.DATA_OBJECT__ANY_LN_CLASS:
+            setAnyLNClass( ( AnyLNClass ) null );
             return;
         }
         super.eUnset( featureID );
@@ -826,30 +1186,27 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         case NsdPackage.DATA_OBJECT__DS_PRES_COND:
             return isSetDsPresCond();
         case NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS:
-            return DS_PRES_COND_ARGS_EDEFAULT == null ? dsPresCondArgs != null
-                    : !DS_PRES_COND_ARGS_EDEFAULT.equals( dsPresCondArgs );
+            return isSetDsPresCondArgs();
         case NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS_ID:
-            return DS_PRES_COND_ARGS_ID_EDEFAULT == null ? dsPresCondArgsID != null
-                    : !DS_PRES_COND_ARGS_ID_EDEFAULT.equals( dsPresCondArgsID );
+            return isSetDsPresCondArgsID();
         case NsdPackage.DATA_OBJECT__NAME:
-            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals( name );
+            return isSetName();
         case NsdPackage.DATA_OBJECT__PRES_COND:
             return isSetPresCond();
         case NsdPackage.DATA_OBJECT__PRES_COND_ARGS:
-            return PRES_COND_ARGS_EDEFAULT == null ? presCondArgs != null
-                    : !PRES_COND_ARGS_EDEFAULT.equals( presCondArgs );
+            return isSetPresCondArgs();
         case NsdPackage.DATA_OBJECT__PRES_COND_ARGS_ID:
-            return PRES_COND_ARGS_ID_EDEFAULT == null ? presCondArgsID != null
-                    : !PRES_COND_ARGS_ID_EDEFAULT.equals( presCondArgsID );
+            return isSetPresCondArgsID();
         case NsdPackage.DATA_OBJECT__TRANSIENT:
             return isSetTransient();
         case NsdPackage.DATA_OBJECT__TYPE:
-            return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals( type );
+            return isSetType();
         case NsdPackage.DATA_OBJECT__UNDERLYING_TYPE:
-            return UNDERLYING_TYPE_EDEFAULT == null ? underlyingType != null
-                    : !UNDERLYING_TYPE_EDEFAULT.equals( underlyingType );
+            return isSetUnderlyingType();
         case NsdPackage.DATA_OBJECT__UNDERLYING_TYPE_KIND:
             return isSetUnderlyingTypeKind();
+        case NsdPackage.DATA_OBJECT__ANY_LN_CLASS:
+            return getAnyLNClass() != null;
         }
         return super.eIsSet( featureID );
     }
@@ -870,29 +1227,50 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         else
             result.append( "<unset>" );
         result.append( ", dsPresCondArgs: " );
-        result.append( dsPresCondArgs );
+        if( dsPresCondArgsESet )
+            result.append( dsPresCondArgs );
+        else
+            result.append( "<unset>" );
         result.append( ", dsPresCondArgsID: " );
-        result.append( dsPresCondArgsID );
+        if( dsPresCondArgsIDESet )
+            result.append( dsPresCondArgsID );
+        else
+            result.append( "<unset>" );
         result.append( ", name: " );
-        result.append( name );
+        if( nameESet )
+            result.append( name );
+        else
+            result.append( "<unset>" );
         result.append( ", presCond: " );
         if( presCondESet )
             result.append( presCond );
         else
             result.append( "<unset>" );
         result.append( ", presCondArgs: " );
-        result.append( presCondArgs );
+        if( presCondArgsESet )
+            result.append( presCondArgs );
+        else
+            result.append( "<unset>" );
         result.append( ", presCondArgsID: " );
-        result.append( presCondArgsID );
+        if( presCondArgsIDESet )
+            result.append( presCondArgsID );
+        else
+            result.append( "<unset>" );
         result.append( ", transient: " );
         if( transientESet )
             result.append( transient_ );
         else
             result.append( "<unset>" );
         result.append( ", type: " );
-        result.append( type );
+        if( typeESet )
+            result.append( type );
+        else
+            result.append( "<unset>" );
         result.append( ", underlyingType: " );
-        result.append( underlyingType );
+        if( underlyingTypeESet )
+            result.append( underlyingType );
+        else
+            result.append( "<unset>" );
         result.append( ", underlyingTypeKind: " );
         if( underlyingTypeKindESet )
             result.append( underlyingTypeKind );

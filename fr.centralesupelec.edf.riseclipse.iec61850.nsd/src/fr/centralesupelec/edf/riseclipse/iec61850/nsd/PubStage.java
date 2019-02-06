@@ -30,9 +30,6 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>Pub Stage</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * <!-- begin-model-doc -->
- * Publication stage of the namespace.
- * <!-- end-model-doc -->
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getPubStage()
  * @model extendedMetaData="name='tPubStage'"
  * @generated

@@ -21,6 +21,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDCs;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute;
 
 import java.util.Collection;
@@ -35,8 +36,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -50,6 +51,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceCDCImpl#getServiceDataAttribute <em>Service Data Attribute</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceCDCImpl#getCdc <em>Cdc</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceCDCImpl#getVariant <em>Variant</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceCDCImpl#getServiceCDCs <em>Service CD Cs</em>}</li>
  * </ul>
  *
  * @generated
@@ -86,6 +88,15 @@ public class ServiceCDCImpl extends MinimalEObjectImpl.Container implements Serv
     protected String cdc = CDC_EDEFAULT;
 
     /**
+     * This is true if the Cdc attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean cdcESet;
+
+    /**
      * The default value of the '{@link #getVariant() <em>Variant</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -104,6 +115,15 @@ public class ServiceCDCImpl extends MinimalEObjectImpl.Container implements Serv
      * @ordered
      */
     protected String variant = VARIANT_EDEFAULT;
+
+    /**
+     * This is true if the Variant attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean variantESet;
 
     /**
      * <!-- begin-user-doc -->
@@ -132,10 +152,31 @@ public class ServiceCDCImpl extends MinimalEObjectImpl.Container implements Serv
     @Override
     public EList< ServiceDataAttribute > getServiceDataAttribute() {
         if( serviceDataAttribute == null ) {
-            serviceDataAttribute = new EObjectContainmentEList< ServiceDataAttribute >( ServiceDataAttribute.class,
-                    this, NsdPackage.SERVICE_CDC__SERVICE_DATA_ATTRIBUTE );
+            serviceDataAttribute = new EObjectContainmentWithInverseEList.Unsettable< ServiceDataAttribute >(
+                    ServiceDataAttribute.class, this, NsdPackage.SERVICE_CDC__SERVICE_DATA_ATTRIBUTE,
+                    NsdPackage.SERVICE_DATA_ATTRIBUTE__SERVICE_CDC );
         }
         return serviceDataAttribute;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetServiceDataAttribute() {
+        if( serviceDataAttribute != null ) ( ( InternalEList.Unsettable< ? > ) serviceDataAttribute ).unset();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetServiceDataAttribute() {
+        return serviceDataAttribute != null && ( ( InternalEList.Unsettable< ? > ) serviceDataAttribute ).isSet();
     }
 
     /**
@@ -157,8 +198,35 @@ public class ServiceCDCImpl extends MinimalEObjectImpl.Container implements Serv
     public void setCdc( String newCdc ) {
         String oldCdc = cdc;
         cdc = newCdc;
-        if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_CDC__CDC, oldCdc, cdc ) );
+        boolean oldCdcESet = cdcESet;
+        cdcESet = true;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.SERVICE_CDC__CDC, oldCdc, cdc, !oldCdcESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetCdc() {
+        String oldCdc = cdc;
+        boolean oldCdcESet = cdcESet;
+        cdc = CDC_EDEFAULT;
+        cdcESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.SERVICE_CDC__CDC, oldCdc, CDC_EDEFAULT, oldCdcESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetCdc() {
+        return cdcESet;
     }
 
     /**
@@ -180,8 +248,97 @@ public class ServiceCDCImpl extends MinimalEObjectImpl.Container implements Serv
     public void setVariant( String newVariant ) {
         String oldVariant = variant;
         variant = newVariant;
-        if( eNotificationRequired() ) eNotify(
-                new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_CDC__VARIANT, oldVariant, variant ) );
+        boolean oldVariantESet = variantESet;
+        variantESet = true;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.SERVICE_CDC__VARIANT, oldVariant, variant, !oldVariantESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetVariant() {
+        String oldVariant = variant;
+        boolean oldVariantESet = variantESet;
+        variant = VARIANT_EDEFAULT;
+        variantESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.SERVICE_CDC__VARIANT, oldVariant, VARIANT_EDEFAULT, oldVariantESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetVariant() {
+        return variantESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public ServiceCDCs getServiceCDCs() {
+        if( eContainerFeatureID() != NsdPackage.SERVICE_CDC__SERVICE_CD_CS ) return null;
+        return ( ServiceCDCs ) eInternalContainer();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetServiceCDCs( ServiceCDCs newServiceCDCs, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newServiceCDCs, NsdPackage.SERVICE_CDC__SERVICE_CD_CS, msgs );
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setServiceCDCs( ServiceCDCs newServiceCDCs ) {
+        if( newServiceCDCs != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.SERVICE_CDC__SERVICE_CD_CS && newServiceCDCs != null ) ) {
+            if( EcoreUtil.isAncestor( this, newServiceCDCs ) )
+                throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            NotificationChain msgs = null;
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( newServiceCDCs != null ) msgs = ( ( InternalEObject ) newServiceCDCs ).eInverseAdd( this,
+                    NsdPackage.SERVICE_CD_CS__SERVICE_CDC, ServiceCDCs.class, msgs );
+            msgs = basicSetServiceCDCs( newServiceCDCs, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.SERVICE_CDC__SERVICE_CD_CS, newServiceCDCs, newServiceCDCs ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @SuppressWarnings( "unchecked" )
+    @Override
+    public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.SERVICE_CDC__SERVICE_DATA_ATTRIBUTE:
+            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getServiceDataAttribute() )
+                    .basicAdd( otherEnd, msgs );
+        case NsdPackage.SERVICE_CDC__SERVICE_CD_CS:
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            return basicSetServiceCDCs( ( ServiceCDCs ) otherEnd, msgs );
+        }
+        return super.eInverseAdd( otherEnd, featureID, msgs );
     }
 
     /**
@@ -194,8 +351,25 @@ public class ServiceCDCImpl extends MinimalEObjectImpl.Container implements Serv
         switch( featureID ) {
         case NsdPackage.SERVICE_CDC__SERVICE_DATA_ATTRIBUTE:
             return ( ( InternalEList< ? > ) getServiceDataAttribute() ).basicRemove( otherEnd, msgs );
+        case NsdPackage.SERVICE_CDC__SERVICE_CD_CS:
+            return basicSetServiceCDCs( null, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
+        switch( eContainerFeatureID() ) {
+        case NsdPackage.SERVICE_CDC__SERVICE_CD_CS:
+            return eInternalContainer().eInverseRemove( this, NsdPackage.SERVICE_CD_CS__SERVICE_CDC, ServiceCDCs.class,
+                    msgs );
+        }
+        return super.eBasicRemoveFromContainerFeature( msgs );
     }
 
     /**
@@ -212,6 +386,8 @@ public class ServiceCDCImpl extends MinimalEObjectImpl.Container implements Serv
             return getCdc();
         case NsdPackage.SERVICE_CDC__VARIANT:
             return getVariant();
+        case NsdPackage.SERVICE_CDC__SERVICE_CD_CS:
+            return getServiceCDCs();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -235,6 +411,9 @@ public class ServiceCDCImpl extends MinimalEObjectImpl.Container implements Serv
         case NsdPackage.SERVICE_CDC__VARIANT:
             setVariant( ( String ) newValue );
             return;
+        case NsdPackage.SERVICE_CDC__SERVICE_CD_CS:
+            setServiceCDCs( ( ServiceCDCs ) newValue );
+            return;
         }
         super.eSet( featureID, newValue );
     }
@@ -248,13 +427,16 @@ public class ServiceCDCImpl extends MinimalEObjectImpl.Container implements Serv
     public void eUnset( int featureID ) {
         switch( featureID ) {
         case NsdPackage.SERVICE_CDC__SERVICE_DATA_ATTRIBUTE:
-            getServiceDataAttribute().clear();
+            unsetServiceDataAttribute();
             return;
         case NsdPackage.SERVICE_CDC__CDC:
-            setCdc( CDC_EDEFAULT );
+            unsetCdc();
             return;
         case NsdPackage.SERVICE_CDC__VARIANT:
-            setVariant( VARIANT_EDEFAULT );
+            unsetVariant();
+            return;
+        case NsdPackage.SERVICE_CDC__SERVICE_CD_CS:
+            setServiceCDCs( ( ServiceCDCs ) null );
             return;
         }
         super.eUnset( featureID );
@@ -269,11 +451,13 @@ public class ServiceCDCImpl extends MinimalEObjectImpl.Container implements Serv
     public boolean eIsSet( int featureID ) {
         switch( featureID ) {
         case NsdPackage.SERVICE_CDC__SERVICE_DATA_ATTRIBUTE:
-            return serviceDataAttribute != null && !serviceDataAttribute.isEmpty();
+            return isSetServiceDataAttribute();
         case NsdPackage.SERVICE_CDC__CDC:
-            return CDC_EDEFAULT == null ? cdc != null : !CDC_EDEFAULT.equals( cdc );
+            return isSetCdc();
         case NsdPackage.SERVICE_CDC__VARIANT:
-            return VARIANT_EDEFAULT == null ? variant != null : !VARIANT_EDEFAULT.equals( variant );
+            return isSetVariant();
+        case NsdPackage.SERVICE_CDC__SERVICE_CD_CS:
+            return getServiceCDCs() != null;
         }
         return super.eIsSet( featureID );
     }
@@ -289,9 +473,15 @@ public class ServiceCDCImpl extends MinimalEObjectImpl.Container implements Serv
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (cdc: " );
-        result.append( cdc );
+        if( cdcESet )
+            result.append( cdc );
+        else
+            result.append( "<unset>" );
         result.append( ", variant: " );
-        result.append( variant );
+        if( variantESet )
+            result.append( variant );
+        else
+            result.append( "<unset>" );
         result.append( ')' );
         return result.toString();
     }

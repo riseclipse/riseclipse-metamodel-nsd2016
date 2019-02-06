@@ -19,6 +19,7 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceParameter;
@@ -27,11 +28,14 @@ import java.math.BigDecimal;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.Enumerator;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,6 +51,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceParameterImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceParameterImpl#getType <em>Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceParameterImpl#getTypeKind <em>Type Kind</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceParameterImpl#getCDC <em>CDC</em>}</li>
  * </ul>
  *
  * @generated
@@ -73,6 +78,15 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
     protected String defaultValue = DEFAULT_VALUE_EDEFAULT;
 
     /**
+     * This is true if the Default Value attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean defaultValueESet;
+
+    /**
      * The default value of the '{@link #getMaxValue() <em>Max Value</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -91,6 +105,15 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
      * @ordered
      */
     protected BigDecimal maxValue = MAX_VALUE_EDEFAULT;
+
+    /**
+     * This is true if the Max Value attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean maxValueESet;
 
     /**
      * The default value of the '{@link #getMinValue() <em>Min Value</em>}' attribute.
@@ -113,6 +136,15 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
     protected BigDecimal minValue = MIN_VALUE_EDEFAULT;
 
     /**
+     * This is true if the Min Value attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean minValueESet;
+
+    /**
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -133,6 +165,15 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
     protected String name = NAME_EDEFAULT;
 
     /**
+     * This is true if the Name attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean nameESet;
+
+    /**
      * The default value of the '{@link #getType() <em>Type</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -151,6 +192,15 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
      * @ordered
      */
     protected String type = TYPE_EDEFAULT;
+
+    /**
+     * This is true if the Type attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean typeESet;
 
     /**
      * The default value of the '{@link #getTypeKind() <em>Type Kind</em>}' attribute.
@@ -220,8 +270,36 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
     public void setDefaultValue( String newDefaultValue ) {
         String oldDefaultValue = defaultValue;
         defaultValue = newDefaultValue;
+        boolean oldDefaultValueESet = defaultValueESet;
+        defaultValueESet = true;
         if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.SERVICE_PARAMETER__DEFAULT_VALUE, oldDefaultValue, defaultValue ) );
+                NsdPackage.SERVICE_PARAMETER__DEFAULT_VALUE, oldDefaultValue, defaultValue, !oldDefaultValueESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetDefaultValue() {
+        String oldDefaultValue = defaultValue;
+        boolean oldDefaultValueESet = defaultValueESet;
+        defaultValue = DEFAULT_VALUE_EDEFAULT;
+        defaultValueESet = false;
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_PARAMETER__DEFAULT_VALUE,
+                    oldDefaultValue, DEFAULT_VALUE_EDEFAULT, oldDefaultValueESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetDefaultValue() {
+        return defaultValueESet;
     }
 
     /**
@@ -243,8 +321,35 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
     public void setMaxValue( BigDecimal newMaxValue ) {
         BigDecimal oldMaxValue = maxValue;
         maxValue = newMaxValue;
+        boolean oldMaxValueESet = maxValueESet;
+        maxValueESet = true;
         if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.SERVICE_PARAMETER__MAX_VALUE, oldMaxValue, maxValue ) );
+                NsdPackage.SERVICE_PARAMETER__MAX_VALUE, oldMaxValue, maxValue, !oldMaxValueESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetMaxValue() {
+        BigDecimal oldMaxValue = maxValue;
+        boolean oldMaxValueESet = maxValueESet;
+        maxValue = MAX_VALUE_EDEFAULT;
+        maxValueESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.SERVICE_PARAMETER__MAX_VALUE, oldMaxValue, MAX_VALUE_EDEFAULT, oldMaxValueESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetMaxValue() {
+        return maxValueESet;
     }
 
     /**
@@ -266,8 +371,35 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
     public void setMinValue( BigDecimal newMinValue ) {
         BigDecimal oldMinValue = minValue;
         minValue = newMinValue;
+        boolean oldMinValueESet = minValueESet;
+        minValueESet = true;
         if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.SERVICE_PARAMETER__MIN_VALUE, oldMinValue, minValue ) );
+                NsdPackage.SERVICE_PARAMETER__MIN_VALUE, oldMinValue, minValue, !oldMinValueESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetMinValue() {
+        BigDecimal oldMinValue = minValue;
+        boolean oldMinValueESet = minValueESet;
+        minValue = MIN_VALUE_EDEFAULT;
+        minValueESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.SERVICE_PARAMETER__MIN_VALUE, oldMinValue, MIN_VALUE_EDEFAULT, oldMinValueESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetMinValue() {
+        return minValueESet;
     }
 
     /**
@@ -289,8 +421,35 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
     public void setName( String newName ) {
         String oldName = name;
         name = newName;
-        if( eNotificationRequired() ) eNotify(
-                new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_PARAMETER__NAME, oldName, name ) );
+        boolean oldNameESet = nameESet;
+        nameESet = true;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.SERVICE_PARAMETER__NAME, oldName, name, !oldNameESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetName() {
+        String oldName = name;
+        boolean oldNameESet = nameESet;
+        name = NAME_EDEFAULT;
+        nameESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.SERVICE_PARAMETER__NAME, oldName, NAME_EDEFAULT, oldNameESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetName() {
+        return nameESet;
     }
 
     /**
@@ -312,8 +471,35 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
     public void setType( String newType ) {
         String oldType = type;
         type = newType;
-        if( eNotificationRequired() ) eNotify(
-                new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_PARAMETER__TYPE, oldType, type ) );
+        boolean oldTypeESet = typeESet;
+        typeESet = true;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.SERVICE_PARAMETER__TYPE, oldType, type, !oldTypeESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetType() {
+        String oldType = type;
+        boolean oldTypeESet = typeESet;
+        type = TYPE_EDEFAULT;
+        typeESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.SERVICE_PARAMETER__TYPE, oldType, TYPE_EDEFAULT, oldTypeESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetType() {
+        return typeESet;
     }
 
     /**
@@ -372,6 +558,92 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
      * @generated
      */
     @Override
+    public CDC getCDC() {
+        if( eContainerFeatureID() != NsdPackage.SERVICE_PARAMETER__CDC ) return null;
+        return ( CDC ) eInternalContainer();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetCDC( CDC newCDC, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newCDC, NsdPackage.SERVICE_PARAMETER__CDC, msgs );
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setCDC( CDC newCDC ) {
+        if( newCDC != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.SERVICE_PARAMETER__CDC && newCDC != null ) ) {
+            if( EcoreUtil.isAncestor( this, newCDC ) )
+                throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            NotificationChain msgs = null;
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( newCDC != null ) msgs = ( ( InternalEObject ) newCDC ).eInverseAdd( this,
+                    NsdPackage.CDC__SERVICE_PARAMETER, CDC.class, msgs );
+            msgs = basicSetCDC( newCDC, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else if( eNotificationRequired() ) eNotify(
+                new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_PARAMETER__CDC, newCDC, newCDC ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.SERVICE_PARAMETER__CDC:
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            return basicSetCDC( ( CDC ) otherEnd, msgs );
+        }
+        return super.eInverseAdd( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.SERVICE_PARAMETER__CDC:
+            return basicSetCDC( null, msgs );
+        }
+        return super.eInverseRemove( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
+        switch( eContainerFeatureID() ) {
+        case NsdPackage.SERVICE_PARAMETER__CDC:
+            return eInternalContainer().eInverseRemove( this, NsdPackage.CDC__SERVICE_PARAMETER, CDC.class, msgs );
+        }
+        return super.eBasicRemoveFromContainerFeature( msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
         case NsdPackage.SERVICE_PARAMETER__DEFAULT_VALUE:
@@ -386,6 +658,8 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
             return getType();
         case NsdPackage.SERVICE_PARAMETER__TYPE_KIND:
             return getTypeKind();
+        case NsdPackage.SERVICE_PARAMETER__CDC:
+            return getCDC();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -416,6 +690,9 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
         case NsdPackage.SERVICE_PARAMETER__TYPE_KIND:
             setTypeKind( ( Enumerator ) newValue );
             return;
+        case NsdPackage.SERVICE_PARAMETER__CDC:
+            setCDC( ( CDC ) newValue );
+            return;
         }
         super.eSet( featureID, newValue );
     }
@@ -429,22 +706,25 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
     public void eUnset( int featureID ) {
         switch( featureID ) {
         case NsdPackage.SERVICE_PARAMETER__DEFAULT_VALUE:
-            setDefaultValue( DEFAULT_VALUE_EDEFAULT );
+            unsetDefaultValue();
             return;
         case NsdPackage.SERVICE_PARAMETER__MAX_VALUE:
-            setMaxValue( MAX_VALUE_EDEFAULT );
+            unsetMaxValue();
             return;
         case NsdPackage.SERVICE_PARAMETER__MIN_VALUE:
-            setMinValue( MIN_VALUE_EDEFAULT );
+            unsetMinValue();
             return;
         case NsdPackage.SERVICE_PARAMETER__NAME:
-            setName( NAME_EDEFAULT );
+            unsetName();
             return;
         case NsdPackage.SERVICE_PARAMETER__TYPE:
-            setType( TYPE_EDEFAULT );
+            unsetType();
             return;
         case NsdPackage.SERVICE_PARAMETER__TYPE_KIND:
             unsetTypeKind();
+            return;
+        case NsdPackage.SERVICE_PARAMETER__CDC:
+            setCDC( ( CDC ) null );
             return;
         }
         super.eUnset( featureID );
@@ -459,18 +739,19 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
     public boolean eIsSet( int featureID ) {
         switch( featureID ) {
         case NsdPackage.SERVICE_PARAMETER__DEFAULT_VALUE:
-            return DEFAULT_VALUE_EDEFAULT == null ? defaultValue != null
-                    : !DEFAULT_VALUE_EDEFAULT.equals( defaultValue );
+            return isSetDefaultValue();
         case NsdPackage.SERVICE_PARAMETER__MAX_VALUE:
-            return MAX_VALUE_EDEFAULT == null ? maxValue != null : !MAX_VALUE_EDEFAULT.equals( maxValue );
+            return isSetMaxValue();
         case NsdPackage.SERVICE_PARAMETER__MIN_VALUE:
-            return MIN_VALUE_EDEFAULT == null ? minValue != null : !MIN_VALUE_EDEFAULT.equals( minValue );
+            return isSetMinValue();
         case NsdPackage.SERVICE_PARAMETER__NAME:
-            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals( name );
+            return isSetName();
         case NsdPackage.SERVICE_PARAMETER__TYPE:
-            return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals( type );
+            return isSetType();
         case NsdPackage.SERVICE_PARAMETER__TYPE_KIND:
             return isSetTypeKind();
+        case NsdPackage.SERVICE_PARAMETER__CDC:
+            return getCDC() != null;
         }
         return super.eIsSet( featureID );
     }
@@ -486,15 +767,30 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (defaultValue: " );
-        result.append( defaultValue );
+        if( defaultValueESet )
+            result.append( defaultValue );
+        else
+            result.append( "<unset>" );
         result.append( ", maxValue: " );
-        result.append( maxValue );
+        if( maxValueESet )
+            result.append( maxValue );
+        else
+            result.append( "<unset>" );
         result.append( ", minValue: " );
-        result.append( minValue );
+        if( minValueESet )
+            result.append( minValue );
+        else
+            result.append( "<unset>" );
         result.append( ", name: " );
-        result.append( name );
+        if( nameESet )
+            result.append( name );
+        else
+            result.append( "<unset>" );
         result.append( ", type: " );
-        result.append( type );
+        if( typeESet )
+            result.append( type );
+        else
+            result.append( "<unset>" );
         result.append( ", typeKind: " );
         if( typeKindESet )
             result.append( typeKind );

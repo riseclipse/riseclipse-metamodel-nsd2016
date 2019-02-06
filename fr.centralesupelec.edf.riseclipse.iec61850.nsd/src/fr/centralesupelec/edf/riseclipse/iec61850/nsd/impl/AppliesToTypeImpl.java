@@ -23,11 +23,15 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,6 +44,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AppliesToTypeImpl#getId <em>Id</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AppliesToTypeImpl#getPublicationStage <em>Publication Stage</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AppliesToTypeImpl#getRevision <em>Revision</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AppliesToTypeImpl#getServiceNsUsage <em>Service Ns Usage</em>}</li>
  * </ul>
  *
  * @generated
@@ -64,6 +69,15 @@ public class AppliesToTypeImpl extends NSDObjectWithVersionAndReleaseImpl implem
      * @ordered
      */
     protected String id = ID_EDEFAULT;
+
+    /**
+     * This is true if the Id attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean idESet;
 
     /**
      * The default value of the '{@link #getPublicationStage() <em>Publication Stage</em>}' attribute.
@@ -161,8 +175,35 @@ public class AppliesToTypeImpl extends NSDObjectWithVersionAndReleaseImpl implem
     public void setId( String newId ) {
         String oldId = id;
         id = newId;
-        if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.APPLIES_TO_TYPE__ID, oldId, id ) );
+        boolean oldIdESet = idESet;
+        idESet = true;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.APPLIES_TO_TYPE__ID, oldId, id, !oldIdESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetId() {
+        String oldId = id;
+        boolean oldIdESet = idESet;
+        id = ID_EDEFAULT;
+        idESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.APPLIES_TO_TYPE__ID, oldId, ID_EDEFAULT, oldIdESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetId() {
+        return idESet;
     }
 
     /**
@@ -273,6 +314,95 @@ public class AppliesToTypeImpl extends NSDObjectWithVersionAndReleaseImpl implem
      * @generated
      */
     @Override
+    public ServiceNsUsage getServiceNsUsage() {
+        if( eContainerFeatureID() != NsdPackage.APPLIES_TO_TYPE__SERVICE_NS_USAGE ) return null;
+        return ( ServiceNsUsage ) eInternalContainer();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetServiceNsUsage( ServiceNsUsage newServiceNsUsage, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newServiceNsUsage, NsdPackage.APPLIES_TO_TYPE__SERVICE_NS_USAGE,
+                msgs );
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setServiceNsUsage( ServiceNsUsage newServiceNsUsage ) {
+        if( newServiceNsUsage != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.APPLIES_TO_TYPE__SERVICE_NS_USAGE
+                        && newServiceNsUsage != null ) ) {
+            if( EcoreUtil.isAncestor( this, newServiceNsUsage ) )
+                throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            NotificationChain msgs = null;
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( newServiceNsUsage != null ) msgs = ( ( InternalEObject ) newServiceNsUsage ).eInverseAdd( this,
+                    NsdPackage.SERVICE_NS_USAGE__APPLIES_TO, ServiceNsUsage.class, msgs );
+            msgs = basicSetServiceNsUsage( newServiceNsUsage, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.APPLIES_TO_TYPE__SERVICE_NS_USAGE, newServiceNsUsage, newServiceNsUsage ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.APPLIES_TO_TYPE__SERVICE_NS_USAGE:
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            return basicSetServiceNsUsage( ( ServiceNsUsage ) otherEnd, msgs );
+        }
+        return super.eInverseAdd( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.APPLIES_TO_TYPE__SERVICE_NS_USAGE:
+            return basicSetServiceNsUsage( null, msgs );
+        }
+        return super.eInverseRemove( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
+        switch( eContainerFeatureID() ) {
+        case NsdPackage.APPLIES_TO_TYPE__SERVICE_NS_USAGE:
+            return eInternalContainer().eInverseRemove( this, NsdPackage.SERVICE_NS_USAGE__APPLIES_TO,
+                    ServiceNsUsage.class, msgs );
+        }
+        return super.eBasicRemoveFromContainerFeature( msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
         case NsdPackage.APPLIES_TO_TYPE__ID:
@@ -281,6 +411,8 @@ public class AppliesToTypeImpl extends NSDObjectWithVersionAndReleaseImpl implem
             return getPublicationStage();
         case NsdPackage.APPLIES_TO_TYPE__REVISION:
             return getRevision();
+        case NsdPackage.APPLIES_TO_TYPE__SERVICE_NS_USAGE:
+            return getServiceNsUsage();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -302,6 +434,9 @@ public class AppliesToTypeImpl extends NSDObjectWithVersionAndReleaseImpl implem
         case NsdPackage.APPLIES_TO_TYPE__REVISION:
             setRevision( ( String ) newValue );
             return;
+        case NsdPackage.APPLIES_TO_TYPE__SERVICE_NS_USAGE:
+            setServiceNsUsage( ( ServiceNsUsage ) newValue );
+            return;
         }
         super.eSet( featureID, newValue );
     }
@@ -315,13 +450,16 @@ public class AppliesToTypeImpl extends NSDObjectWithVersionAndReleaseImpl implem
     public void eUnset( int featureID ) {
         switch( featureID ) {
         case NsdPackage.APPLIES_TO_TYPE__ID:
-            setId( ID_EDEFAULT );
+            unsetId();
             return;
         case NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE:
             unsetPublicationStage();
             return;
         case NsdPackage.APPLIES_TO_TYPE__REVISION:
             unsetRevision();
+            return;
+        case NsdPackage.APPLIES_TO_TYPE__SERVICE_NS_USAGE:
+            setServiceNsUsage( ( ServiceNsUsage ) null );
             return;
         }
         super.eUnset( featureID );
@@ -336,11 +474,13 @@ public class AppliesToTypeImpl extends NSDObjectWithVersionAndReleaseImpl implem
     public boolean eIsSet( int featureID ) {
         switch( featureID ) {
         case NsdPackage.APPLIES_TO_TYPE__ID:
-            return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals( id );
+            return isSetId();
         case NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE:
             return isSetPublicationStage();
         case NsdPackage.APPLIES_TO_TYPE__REVISION:
             return isSetRevision();
+        case NsdPackage.APPLIES_TO_TYPE__SERVICE_NS_USAGE:
+            return getServiceNsUsage() != null;
         }
         return super.eIsSet( featureID );
     }
@@ -356,7 +496,10 @@ public class AppliesToTypeImpl extends NSDObjectWithVersionAndReleaseImpl implem
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (id: " );
-        result.append( id );
+        if( idESet )
+            result.append( id );
+        else
+            result.append( "<unset>" );
         result.append( ", publicationStage: " );
         if( publicationStageESet )
             result.append( publicationStage );

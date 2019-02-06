@@ -26,10 +26,6 @@ import org.eclipse.emf.common.util.EList;
  * A representation of the model object '<em><b>CDC</b></em>'.
  * <!-- end-user-doc -->
  *
- * <!-- begin-model-doc -->
- * Definition of a Common Data Class (CDC). It is always non-abstract.
- * <!-- end-model-doc -->
- *
  * <p>
  * The following features are supported:
  * </p>
@@ -42,6 +38,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#isStatistics <em>Statistics</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#isTypeKindParameterized <em>Type Kind Parameterized</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getVariant <em>Variant</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getCDCs <em>CD Cs</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCDC()
@@ -52,6 +49,7 @@ public interface CDC extends TitledClass {
     /**
      * Returns the value of the '<em><b>Sub Data Object</b></em>' containment reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject}.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getCDC <em>CDC</em>}'.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Sub Data Object</em>' containment reference list isn't clear,
@@ -59,16 +57,41 @@ public interface CDC extends TitledClass {
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Sub Data Object</em>' containment reference list.
+     * @see #isSetSubDataObject()
+     * @see #unsetSubDataObject()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCDC_SubDataObject()
-     * @model containment="true"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getCDC
+     * @model opposite="cDC" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='SubDataObject' namespace='##targetNamespace'"
      * @generated
      */
     EList< SubDataObject > getSubDataObject();
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getSubDataObject <em>Sub Data Object</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetSubDataObject()
+     * @see #getSubDataObject()
+     * @generated
+     */
+    void unsetSubDataObject();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getSubDataObject <em>Sub Data Object</em>}' containment reference list is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Sub Data Object</em>' containment reference list is set.
+     * @see #unsetSubDataObject()
+     * @see #getSubDataObject()
+     * @generated
+     */
+    boolean isSetSubDataObject();
+
+    /**
      * Returns the value of the '<em><b>Data Attribute</b></em>' containment reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute}.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getCDC <em>CDC</em>}'.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Data Attribute</em>' containment reference list isn't clear,
@@ -76,15 +99,40 @@ public interface CDC extends TitledClass {
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Data Attribute</em>' containment reference list.
+     * @see #isSetDataAttribute()
+     * @see #unsetDataAttribute()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCDC_DataAttribute()
-     * @model containment="true" required="true"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getCDC
+     * @model opposite="cDC" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='DataAttribute' namespace='##targetNamespace'"
      * @generated
      */
     EList< DataAttribute > getDataAttribute();
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getDataAttribute <em>Data Attribute</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetDataAttribute()
+     * @see #getDataAttribute()
+     * @generated
+     */
+    void unsetDataAttribute();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getDataAttribute <em>Data Attribute</em>}' containment reference list is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Data Attribute</em>' containment reference list is set.
+     * @see #unsetDataAttribute()
+     * @see #getDataAttribute()
+     * @generated
+     */
+    boolean isSetDataAttribute();
+
+    /**
      * Returns the value of the '<em><b>Service Parameter</b></em>' containment reference.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceParameter#getCDC <em>CDC</em>}'.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Service Parameter</em>' containment reference isn't clear,
@@ -92,9 +140,12 @@ public interface CDC extends TitledClass {
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Service Parameter</em>' containment reference.
+     * @see #isSetServiceParameter()
+     * @see #unsetServiceParameter()
      * @see #setServiceParameter(ServiceParameter)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCDC_ServiceParameter()
-     * @model containment="true"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceParameter#getCDC
+     * @model opposite="cDC" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='ServiceParameter' namespace='##targetNamespace'"
      * @generated
      */
@@ -105,19 +156,41 @@ public interface CDC extends TitledClass {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Service Parameter</em>' containment reference.
+     * @see #isSetServiceParameter()
+     * @see #unsetServiceParameter()
      * @see #getServiceParameter()
      * @generated
      */
     void setServiceParameter( ServiceParameter value );
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getServiceParameter <em>Service Parameter</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetServiceParameter()
+     * @see #getServiceParameter()
+     * @see #setServiceParameter(ServiceParameter)
+     * @generated
+     */
+    void unsetServiceParameter();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getServiceParameter <em>Service Parameter</em>}' containment reference is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Service Parameter</em>' containment reference is set.
+     * @see #unsetServiceParameter()
+     * @see #getServiceParameter()
+     * @see #setServiceParameter(ServiceParameter)
+     * @generated
+     */
+    boolean isSetServiceParameter();
+
+    /**
      * Returns the value of the '<em><b>Enum Parameterized</b></em>' attribute.
      * The default value is <code>"false"</code>.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Flag indicating whether this CDC has at least one child data attribute of typeKind ENUMERATION but its exact enumeration type is left open.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Enum Parameterized</em>' attribute.
      * @see #isSetEnumParameterized()
      * @see #unsetEnumParameterized()
@@ -168,13 +241,12 @@ public interface CDC extends TitledClass {
      * Returns the value of the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Name of the common data class.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Name</em>' attribute.
+     * @see #isSetName()
+     * @see #unsetName()
      * @see #setName(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCDC_Name()
-     * @model required="true"
+     * @model unsettable="true"
      *        extendedMetaData="kind='attribute' name='name'"
      * @generated
      */
@@ -185,19 +257,41 @@ public interface CDC extends TitledClass {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Name</em>' attribute.
+     * @see #isSetName()
+     * @see #unsetName()
      * @see #getName()
      * @generated
      */
     void setName( String value );
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getName <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetName()
+     * @see #getName()
+     * @see #setName(String)
+     * @generated
+     */
+    void unsetName();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getName <em>Name</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Name</em>' attribute is set.
+     * @see #unsetName()
+     * @see #getName()
+     * @see #setName(String)
+     * @generated
+     */
+    boolean isSetName();
+
+    /**
      * Returns the value of the '<em><b>Statistics</b></em>' attribute.
      * The default value is <code>"false"</code>.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Flag indicating whether DataObject of this CDC can be used for statistics.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Statistics</em>' attribute.
      * @see #isSetStatistics()
      * @see #unsetStatistics()
@@ -249,10 +343,6 @@ public interface CDC extends TitledClass {
      * The default value is <code>"false"</code>.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Flag indicating whether this CDC has at least one child data attribute with typeKind "undefined".
-     * Cannot be set to true at the same time as sibling attribute enumParameterized.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Type Kind Parameterized</em>' attribute.
      * @see #isSetTypeKindParameterized()
      * @see #unsetTypeKindParameterized()
@@ -303,13 +393,12 @@ public interface CDC extends TitledClass {
      * Returns the value of the '<em><b>Variant</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Identification of the variant of the CDC (e.g., SPG_SP).
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Variant</em>' attribute.
+     * @see #isSetVariant()
+     * @see #unsetVariant()
      * @see #setVariant(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCDC_Variant()
-     * @model dataType="org.eclipse.emf.ecore.xml.type.Token"
+     * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Token"
      *        extendedMetaData="kind='attribute' name='variant'"
      * @generated
      */
@@ -320,9 +409,62 @@ public interface CDC extends TitledClass {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Variant</em>' attribute.
+     * @see #isSetVariant()
+     * @see #unsetVariant()
      * @see #getVariant()
      * @generated
      */
     void setVariant( String value );
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getVariant <em>Variant</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetVariant()
+     * @see #getVariant()
+     * @see #setVariant(String)
+     * @generated
+     */
+    void unsetVariant();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getVariant <em>Variant</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Variant</em>' attribute is set.
+     * @see #unsetVariant()
+     * @see #getVariant()
+     * @see #setVariant(String)
+     * @generated
+     */
+    boolean isSetVariant();
+
+    /**
+     * Returns the value of the '<em><b>CD Cs</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs#getCDC <em>CDC</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>CD Cs</em>' container reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>CD Cs</em>' container reference.
+     * @see #setCDCs(CDCs)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCDC_CDCs()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs#getCDC
+     * @model opposite="cDC" resolveProxies="false" unsettable="true" ordered="false"
+     * @generated
+     */
+    CDCs getCDCs();
+
+    /**
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getCDCs <em>CD Cs</em>}' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>CD Cs</em>' container reference.
+     * @see #getCDCs()
+     * @generated
+     */
+    void setCDCs( CDCs value );
 
 } // CDC

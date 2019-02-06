@@ -26,10 +26,6 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the model object '<em><b>Service Data Attribute</b></em>'.
  * <!-- end-user-doc -->
  *
- * <!-- begin-model-doc -->
- * Definition of a service parameter as Data Attribute.
- * <!-- end-model-doc -->
- *
  * <p>
  * The following features are supported:
  * </p>
@@ -43,6 +39,7 @@ import org.eclipse.emf.common.util.Enumerator;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute#getTypeKind <em>Type Kind</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute#getUnderlyingType <em>Underlying Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute#getUnderlyingTypeKind <em>Underlying Type Kind</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute#getServiceCDC <em>Service CDC</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceDataAttribute()
@@ -54,13 +51,12 @@ public interface ServiceDataAttribute extends DocumentedClass {
      * Returns the value of the '<em><b>Fc</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Functional constraint of the data attribute.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Fc</em>' attribute.
+     * @see #isSetFc()
+     * @see #unsetFc()
      * @see #setFc(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceDataAttribute_Fc()
-     * @model required="true"
+     * @model unsettable="true"
      *        extendedMetaData="kind='attribute' name='fc'"
      * @generated
      */
@@ -71,22 +67,46 @@ public interface ServiceDataAttribute extends DocumentedClass {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Fc</em>' attribute.
+     * @see #isSetFc()
+     * @see #unsetFc()
      * @see #getFc()
      * @generated
      */
     void setFc( String value );
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute#getFc <em>Fc</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetFc()
+     * @see #getFc()
+     * @see #setFc(String)
+     * @generated
+     */
+    void unsetFc();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute#getFc <em>Fc</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Fc</em>' attribute is set.
+     * @see #unsetFc()
+     * @see #getFc()
+     * @see #setFc(String)
+     * @generated
+     */
+    boolean isSetFc();
+
+    /**
      * Returns the value of the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Name of the data attribute.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Name</em>' attribute.
+     * @see #isSetName()
+     * @see #unsetName()
      * @see #setName(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceDataAttribute_Name()
-     * @model required="true"
+     * @model unsettable="true"
      *        extendedMetaData="kind='attribute' name='name'"
      * @generated
      */
@@ -97,19 +117,41 @@ public interface ServiceDataAttribute extends DocumentedClass {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Name</em>' attribute.
+     * @see #isSetName()
+     * @see #unsetName()
      * @see #getName()
      * @generated
      */
     void setName( String value );
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute#getName <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetName()
+     * @see #getName()
+     * @see #setName(String)
+     * @generated
+     */
+    void unsetName();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute#getName <em>Name</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Name</em>' attribute is set.
+     * @see #unsetName()
+     * @see #getName()
+     * @see #setName(String)
+     * @generated
+     */
+    boolean isSetName();
+
+    /**
      * Returns the value of the '<em><b>Pres Cond</b></em>' attribute.
      * The default value is <code>"M"</code>.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Presence condition of the element. By default 'M' (mandatory).
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Pres Cond</em>' attribute.
      * @see #isSetPresCond()
      * @see #unsetPresCond()
@@ -160,13 +202,13 @@ public interface ServiceDataAttribute extends DocumentedClass {
      * Returns the value of the '<em><b>Pres Cond Args</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Optional argument to the presence condition. Can be a sibling element or a group number.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Pres Cond Args</em>' attribute.
+     * @see #isSetPresCondArgs()
+     * @see #unsetPresCondArgs()
      * @see #setPresCondArgs(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceDataAttribute_PresCondArgs()
-     * @model extendedMetaData="kind='attribute' name='presCondArgs'"
+     * @model unsettable="true"
+     *        extendedMetaData="kind='attribute' name='presCondArgs'"
      * @generated
      */
     String getPresCondArgs();
@@ -176,22 +218,47 @@ public interface ServiceDataAttribute extends DocumentedClass {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Pres Cond Args</em>' attribute.
+     * @see #isSetPresCondArgs()
+     * @see #unsetPresCondArgs()
      * @see #getPresCondArgs()
      * @generated
      */
     void setPresCondArgs( String value );
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute#getPresCondArgs <em>Pres Cond Args</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetPresCondArgs()
+     * @see #getPresCondArgs()
+     * @see #setPresCondArgs(String)
+     * @generated
+     */
+    void unsetPresCondArgs();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute#getPresCondArgs <em>Pres Cond Args</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Pres Cond Args</em>' attribute is set.
+     * @see #unsetPresCondArgs()
+     * @see #getPresCondArgs()
+     * @see #setPresCondArgs(String)
+     * @generated
+     */
+    boolean isSetPresCondArgs();
+
+    /**
      * Returns the value of the '<em><b>Pres Cond Args ID</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Optional argument to the presence condition: a documentation identifier referring to some free text.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Pres Cond Args ID</em>' attribute.
+     * @see #isSetPresCondArgsID()
+     * @see #unsetPresCondArgsID()
      * @see #setPresCondArgsID(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceDataAttribute_PresCondArgsID()
-     * @model extendedMetaData="kind='attribute' name='presCondArgsID'"
+     * @model unsettable="true"
+     *        extendedMetaData="kind='attribute' name='presCondArgsID'"
      * @generated
      */
     String getPresCondArgsID();
@@ -201,22 +268,47 @@ public interface ServiceDataAttribute extends DocumentedClass {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Pres Cond Args ID</em>' attribute.
+     * @see #isSetPresCondArgsID()
+     * @see #unsetPresCondArgsID()
      * @see #getPresCondArgsID()
      * @generated
      */
     void setPresCondArgsID( String value );
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute#getPresCondArgsID <em>Pres Cond Args ID</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetPresCondArgsID()
+     * @see #getPresCondArgsID()
+     * @see #setPresCondArgsID(String)
+     * @generated
+     */
+    void unsetPresCondArgsID();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute#getPresCondArgsID <em>Pres Cond Args ID</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Pres Cond Args ID</em>' attribute is set.
+     * @see #unsetPresCondArgsID()
+     * @see #getPresCondArgsID()
+     * @see #setPresCondArgsID(String)
+     * @generated
+     */
+    boolean isSetPresCondArgsID();
+
+    /**
      * Returns the value of the '<em><b>Type</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * The type of the data attribute, e.g., the name of a basic type like INT32, the name of an enumeration of a constructed data attribute - depending on the sibling typeKind. If not provided, shall be defined by the "parent" element.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Type</em>' attribute.
+     * @see #isSetType()
+     * @see #unsetType()
      * @see #setType(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceDataAttribute_Type()
-     * @model extendedMetaData="kind='attribute' name='type'"
+     * @model unsettable="true"
+     *        extendedMetaData="kind='attribute' name='type'"
      * @generated
      */
     String getType();
@@ -226,19 +318,41 @@ public interface ServiceDataAttribute extends DocumentedClass {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Type</em>' attribute.
+     * @see #isSetType()
+     * @see #unsetType()
      * @see #getType()
      * @generated
      */
     void setType( String value );
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute#getType <em>Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetType()
+     * @see #getType()
+     * @see #setType(String)
+     * @generated
+     */
+    void unsetType();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute#getType <em>Type</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Type</em>' attribute is set.
+     * @see #unsetType()
+     * @see #getType()
+     * @see #setType(String)
+     * @generated
+     */
+    boolean isSetType();
+
+    /**
      * Returns the value of the '<em><b>Type Kind</b></em>' attribute.
      * The default value is <code>"BASIC"</code>.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * The kind of the data attribute's type. By  default, "BASIC".
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Type Kind</em>' attribute.
      * @see #isSetTypeKind()
      * @see #unsetTypeKind()
@@ -289,13 +403,13 @@ public interface ServiceDataAttribute extends DocumentedClass {
      * Returns the value of the '<em><b>Underlying Type</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Type to be used for type-open CDCs, e.g., enumeration to be used for enumeration-based CDCs (e.g., ENS, ENC, ENG).
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Underlying Type</em>' attribute.
+     * @see #isSetUnderlyingType()
+     * @see #unsetUnderlyingType()
      * @see #setUnderlyingType(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceDataAttribute_UnderlyingType()
-     * @model extendedMetaData="kind='attribute' name='underlyingType'"
+     * @model unsettable="true"
+     *        extendedMetaData="kind='attribute' name='underlyingType'"
      * @generated
      */
     String getUnderlyingType();
@@ -305,19 +419,41 @@ public interface ServiceDataAttribute extends DocumentedClass {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Underlying Type</em>' attribute.
+     * @see #isSetUnderlyingType()
+     * @see #unsetUnderlyingType()
      * @see #getUnderlyingType()
      * @generated
      */
     void setUnderlyingType( String value );
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute#getUnderlyingType <em>Underlying Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetUnderlyingType()
+     * @see #getUnderlyingType()
+     * @see #setUnderlyingType(String)
+     * @generated
+     */
+    void unsetUnderlyingType();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute#getUnderlyingType <em>Underlying Type</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Underlying Type</em>' attribute is set.
+     * @see #unsetUnderlyingType()
+     * @see #getUnderlyingType()
+     * @see #setUnderlyingType(String)
+     * @generated
+     */
+    boolean isSetUnderlyingType();
+
+    /**
      * Returns the value of the '<em><b>Underlying Type Kind</b></em>' attribute.
      * The literals are from the enumeration {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * The typeKind to be used for all "undefined" attributes of the CDC of this DataObject.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Underlying Type Kind</em>' attribute.
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind
      * @see #isSetUnderlyingTypeKind()
@@ -365,5 +501,33 @@ public interface ServiceDataAttribute extends DocumentedClass {
      * @generated
      */
     boolean isSetUnderlyingTypeKind();
+
+    /**
+     * Returns the value of the '<em><b>Service CDC</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC#getServiceDataAttribute <em>Service Data Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Service CDC</em>' container reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Service CDC</em>' container reference.
+     * @see #setServiceCDC(ServiceCDC)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceDataAttribute_ServiceCDC()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC#getServiceDataAttribute
+     * @model opposite="serviceDataAttribute" resolveProxies="false" unsettable="true" ordered="false"
+     * @generated
+     */
+    ServiceCDC getServiceCDC();
+
+    /**
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute#getServiceCDC <em>Service CDC</em>}' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Service CDC</em>' container reference.
+     * @see #getServiceCDC()
+     * @generated
+     */
+    void setServiceCDC( ServiceCDC value );
 
 } // ServiceDataAttribute

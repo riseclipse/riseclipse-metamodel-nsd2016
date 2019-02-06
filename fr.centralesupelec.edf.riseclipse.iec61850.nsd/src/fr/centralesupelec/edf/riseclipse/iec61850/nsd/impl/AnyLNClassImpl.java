@@ -34,8 +34,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -84,6 +83,15 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
     protected String base = BASE_EDEFAULT;
 
     /**
+     * This is true if the Base attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean baseESet;
+
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -110,10 +118,30 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
     @Override
     public EList< DataObject > getDataObject() {
         if( dataObject == null ) {
-            dataObject = new EObjectContainmentEList< DataObject >( DataObject.class, this,
-                    NsdPackage.ANY_LN_CLASS__DATA_OBJECT );
+            dataObject = new EObjectContainmentWithInverseEList.Unsettable< DataObject >( DataObject.class, this,
+                    NsdPackage.ANY_LN_CLASS__DATA_OBJECT, NsdPackage.DATA_OBJECT__ANY_LN_CLASS );
         }
         return dataObject;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetDataObject() {
+        if( dataObject != null ) ( ( InternalEList.Unsettable< ? > ) dataObject ).unset();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetDataObject() {
+        return dataObject != null && ( ( InternalEList.Unsettable< ? > ) dataObject ).isSet();
     }
 
     /**
@@ -135,8 +163,51 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
     public void setBase( String newBase ) {
         String oldBase = base;
         base = newBase;
-        if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.ANY_LN_CLASS__BASE, oldBase, base ) );
+        boolean oldBaseESet = baseESet;
+        baseESet = true;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.ANY_LN_CLASS__BASE, oldBase, base, !oldBaseESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetBase() {
+        String oldBase = base;
+        boolean oldBaseESet = baseESet;
+        base = BASE_EDEFAULT;
+        baseESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.ANY_LN_CLASS__BASE, oldBase, BASE_EDEFAULT, oldBaseESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetBase() {
+        return baseESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @SuppressWarnings( "unchecked" )
+    @Override
+    public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.ANY_LN_CLASS__DATA_OBJECT:
+            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getDataObject() ).basicAdd( otherEnd,
+                    msgs );
+        }
+        return super.eInverseAdd( otherEnd, featureID, msgs );
     }
 
     /**
@@ -198,10 +269,10 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
     public void eUnset( int featureID ) {
         switch( featureID ) {
         case NsdPackage.ANY_LN_CLASS__DATA_OBJECT:
-            getDataObject().clear();
+            unsetDataObject();
             return;
         case NsdPackage.ANY_LN_CLASS__BASE:
-            setBase( BASE_EDEFAULT );
+            unsetBase();
             return;
         }
         super.eUnset( featureID );
@@ -216,9 +287,9 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
     public boolean eIsSet( int featureID ) {
         switch( featureID ) {
         case NsdPackage.ANY_LN_CLASS__DATA_OBJECT:
-            return dataObject != null && !dataObject.isEmpty();
+            return isSetDataObject();
         case NsdPackage.ANY_LN_CLASS__BASE:
-            return BASE_EDEFAULT == null ? base != null : !BASE_EDEFAULT.equals( base );
+            return isSetBase();
         }
         return super.eIsSet( featureID );
     }
@@ -234,7 +305,10 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (base: " );
-        result.append( base );
+        if( baseESet )
+            result.append( base );
+        else
+            result.append( "<unset>" );
         result.append( ')' );
         return result.toString();
     }

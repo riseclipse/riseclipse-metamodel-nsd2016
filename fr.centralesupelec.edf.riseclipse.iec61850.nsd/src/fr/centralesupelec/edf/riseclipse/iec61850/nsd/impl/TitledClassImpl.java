@@ -63,6 +63,15 @@ public class TitledClassImpl extends DocumentedClassImpl implements TitledClass 
     protected String titleID = TITLE_ID_EDEFAULT;
 
     /**
+     * This is true if the Title ID attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean titleIDESet;
+
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -100,8 +109,35 @@ public class TitledClassImpl extends DocumentedClassImpl implements TitledClass 
     public void setTitleID( String newTitleID ) {
         String oldTitleID = titleID;
         titleID = newTitleID;
+        boolean oldTitleIDESet = titleIDESet;
+        titleIDESet = true;
         if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.TITLED_CLASS__TITLE_ID, oldTitleID, titleID ) );
+                NsdPackage.TITLED_CLASS__TITLE_ID, oldTitleID, titleID, !oldTitleIDESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetTitleID() {
+        String oldTitleID = titleID;
+        boolean oldTitleIDESet = titleIDESet;
+        titleID = TITLE_ID_EDEFAULT;
+        titleIDESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.TITLED_CLASS__TITLE_ID, oldTitleID, TITLE_ID_EDEFAULT, oldTitleIDESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetTitleID() {
+        return titleIDESet;
     }
 
     /**
@@ -142,7 +178,7 @@ public class TitledClassImpl extends DocumentedClassImpl implements TitledClass 
     public void eUnset( int featureID ) {
         switch( featureID ) {
         case NsdPackage.TITLED_CLASS__TITLE_ID:
-            setTitleID( TITLE_ID_EDEFAULT );
+            unsetTitleID();
             return;
         }
         super.eUnset( featureID );
@@ -157,7 +193,7 @@ public class TitledClassImpl extends DocumentedClassImpl implements TitledClass 
     public boolean eIsSet( int featureID ) {
         switch( featureID ) {
         case NsdPackage.TITLED_CLASS__TITLE_ID:
-            return TITLE_ID_EDEFAULT == null ? titleID != null : !TITLE_ID_EDEFAULT.equals( titleID );
+            return isSetTitleID();
         }
         return super.eIsSet( featureID );
     }
@@ -173,7 +209,10 @@ public class TitledClassImpl extends DocumentedClassImpl implements TitledClass 
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (titleID: " );
-        result.append( titleID );
+        if( titleIDESet )
+            result.append( titleID );
+        else
+            result.append( "<unset>" );
         result.append( ')' );
         return result.toString();
     }

@@ -20,15 +20,19 @@
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ACSIServicesKind;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,6 +43,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceTypeImpl#getName <em>Name</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceTypeImpl#getApplicableServices <em>Applicable Services</em>}</li>
  * </ul>
  *
  * @generated
@@ -148,10 +153,102 @@ public class ServiceTypeImpl extends MinimalEObjectImpl.Container implements Ser
      * @generated
      */
     @Override
+    public ApplicableServices getApplicableServices() {
+        if( eContainerFeatureID() != NsdPackage.SERVICE_TYPE__APPLICABLE_SERVICES ) return null;
+        return ( ApplicableServices ) eInternalContainer();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetApplicableServices( ApplicableServices newApplicableServices,
+            NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newApplicableServices,
+                NsdPackage.SERVICE_TYPE__APPLICABLE_SERVICES, msgs );
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setApplicableServices( ApplicableServices newApplicableServices ) {
+        if( newApplicableServices != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.SERVICE_TYPE__APPLICABLE_SERVICES
+                        && newApplicableServices != null ) ) {
+            if( EcoreUtil.isAncestor( this, newApplicableServices ) )
+                throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            NotificationChain msgs = null;
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( newApplicableServices != null ) msgs = ( ( InternalEObject ) newApplicableServices ).eInverseAdd( this,
+                    NsdPackage.APPLICABLE_SERVICES__SERVICE, ApplicableServices.class, msgs );
+            msgs = basicSetApplicableServices( newApplicableServices, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.SERVICE_TYPE__APPLICABLE_SERVICES, newApplicableServices, newApplicableServices ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.SERVICE_TYPE__APPLICABLE_SERVICES:
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            return basicSetApplicableServices( ( ApplicableServices ) otherEnd, msgs );
+        }
+        return super.eInverseAdd( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.SERVICE_TYPE__APPLICABLE_SERVICES:
+            return basicSetApplicableServices( null, msgs );
+        }
+        return super.eInverseRemove( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
+        switch( eContainerFeatureID() ) {
+        case NsdPackage.SERVICE_TYPE__APPLICABLE_SERVICES:
+            return eInternalContainer().eInverseRemove( this, NsdPackage.APPLICABLE_SERVICES__SERVICE,
+                    ApplicableServices.class, msgs );
+        }
+        return super.eBasicRemoveFromContainerFeature( msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
         case NsdPackage.SERVICE_TYPE__NAME:
             return getName();
+        case NsdPackage.SERVICE_TYPE__APPLICABLE_SERVICES:
+            return getApplicableServices();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -166,6 +263,9 @@ public class ServiceTypeImpl extends MinimalEObjectImpl.Container implements Ser
         switch( featureID ) {
         case NsdPackage.SERVICE_TYPE__NAME:
             setName( ( ACSIServicesKind ) newValue );
+            return;
+        case NsdPackage.SERVICE_TYPE__APPLICABLE_SERVICES:
+            setApplicableServices( ( ApplicableServices ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -182,6 +282,9 @@ public class ServiceTypeImpl extends MinimalEObjectImpl.Container implements Ser
         case NsdPackage.SERVICE_TYPE__NAME:
             unsetName();
             return;
+        case NsdPackage.SERVICE_TYPE__APPLICABLE_SERVICES:
+            setApplicableServices( ( ApplicableServices ) null );
+            return;
         }
         super.eUnset( featureID );
     }
@@ -196,6 +299,8 @@ public class ServiceTypeImpl extends MinimalEObjectImpl.Container implements Ser
         switch( featureID ) {
         case NsdPackage.SERVICE_TYPE__NAME:
             return isSetName();
+        case NsdPackage.SERVICE_TYPE__APPLICABLE_SERVICES:
+            return getApplicableServices() != null;
         }
         return super.eIsSet( featureID );
     }

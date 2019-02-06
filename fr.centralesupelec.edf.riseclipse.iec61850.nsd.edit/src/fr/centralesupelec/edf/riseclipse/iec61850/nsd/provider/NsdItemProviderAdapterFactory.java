@@ -113,26 +113,26 @@ public class NsdItemProviderAdapterFactory extends NsdAdapterFactory
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOnType} instances.
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected DependsOnTypeItemProvider dependsOnTypeItemProvider;
+    protected DependsOnItemProvider dependsOnItemProvider;
 
     /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOnType}.
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createDependsOnTypeAdapter() {
-        if( dependsOnTypeItemProvider == null ) {
-            dependsOnTypeItemProvider = new DependsOnTypeItemProvider( this );
+    public Adapter createDependsOnAdapter() {
+        if( dependsOnItemProvider == null ) {
+            dependsOnItemProvider = new DependsOnItemProvider( this );
         }
 
-        return dependsOnTypeItemProvider;
+        return dependsOnItemProvider;
     }
 
     /**
@@ -1102,29 +1102,6 @@ public class NsdItemProviderAdapterFactory extends NsdAdapterFactory
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealization} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ServiceTypeRealizationItemProvider serviceTypeRealizationItemProvider;
-
-    /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealization}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createServiceTypeRealizationAdapter() {
-        if( serviceTypeRealizationItemProvider == null ) {
-            serviceTypeRealizationItemProvider = new ServiceTypeRealizationItemProvider( this );
-        }
-
-        return serviceTypeRealizationItemProvider;
-    }
-
-    /**
      * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1322,7 +1299,7 @@ public class NsdItemProviderAdapterFactory extends NsdAdapterFactory
     @Override
     public void dispose() {
         if( appliesToTypeItemProvider != null ) appliesToTypeItemProvider.dispose();
-        if( dependsOnTypeItemProvider != null ) dependsOnTypeItemProvider.dispose();
+        if( dependsOnItemProvider != null ) dependsOnItemProvider.dispose();
         if( documentRootItemProvider != null ) documentRootItemProvider.dispose();
         if( serviceTypeItemProvider != null ) serviceTypeItemProvider.dispose();
         if( abbreviationItemProvider != null ) abbreviationItemProvider.dispose();
@@ -1365,7 +1342,6 @@ public class NsdItemProviderAdapterFactory extends NsdAdapterFactory
         if( serviceNSItemProvider != null ) serviceNSItemProvider.dispose();
         if( serviceNsUsageItemProvider != null ) serviceNsUsageItemProvider.dispose();
         if( serviceParameterItemProvider != null ) serviceParameterItemProvider.dispose();
-        if( serviceTypeRealizationItemProvider != null ) serviceTypeRealizationItemProvider.dispose();
         if( serviceTypeRealizationsItemProvider != null ) serviceTypeRealizationsItemProvider.dispose();
         if( subDataAttributeItemProvider != null ) subDataAttributeItemProvider.dispose();
         if( subDataObjectItemProvider != null ) subDataObjectItemProvider.dispose();
