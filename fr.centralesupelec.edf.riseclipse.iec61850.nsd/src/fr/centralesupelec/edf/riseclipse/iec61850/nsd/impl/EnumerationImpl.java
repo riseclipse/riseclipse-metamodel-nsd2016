@@ -23,6 +23,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
+import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
 import java.util.Collection;
 
@@ -36,6 +37,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -51,6 +53,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationImpl#getInheritedFrom <em>Inherited From</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationImpl#getEnumerations <em>Enumerations</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationImpl#getRefersToBaseEnumeration <em>Refers To Base Enumeration</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationImpl#getReferredByEnumerationAsBase <em>Referred By Enumeration As Base</em>}</li>
  * </ul>
  *
  * @generated
@@ -123,6 +127,35 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
      * @ordered
      */
     protected boolean nameESet;
+
+    /**
+     * The cached value of the '{@link #getRefersToBaseEnumeration() <em>Refers To Base Enumeration</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRefersToBaseEnumeration()
+     * @generated
+     * @ordered
+     */
+    protected Enumeration refersToBaseEnumeration;
+
+    /**
+     * This is true if the Refers To Base Enumeration reference has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean refersToBaseEnumerationESet;
+
+    /**
+     * The cached value of the '{@link #getReferredByEnumerationAsBase() <em>Referred By Enumeration As Base</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getReferredByEnumerationAsBase()
+     * @generated
+     * @ordered
+     */
+    protected EList< Enumeration > referredByEnumerationAsBase;
 
     /**
      * <!-- begin-user-doc -->
@@ -326,6 +359,157 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
+    public Enumeration getRefersToBaseEnumeration() {
+        return refersToBaseEnumeration;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetRefersToBaseEnumeration( Enumeration newRefersToBaseEnumeration,
+            NotificationChain msgs ) {
+        Enumeration oldRefersToBaseEnumeration = refersToBaseEnumeration;
+        refersToBaseEnumeration = newRefersToBaseEnumeration;
+        boolean oldRefersToBaseEnumerationESet = refersToBaseEnumerationESet;
+        refersToBaseEnumerationESet = true;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.ENUMERATION__REFERS_TO_BASE_ENUMERATION, oldRefersToBaseEnumeration,
+                    newRefersToBaseEnumeration, !oldRefersToBaseEnumerationESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setRefersToBaseEnumeration( Enumeration newRefersToBaseEnumeration ) {
+        if( newRefersToBaseEnumeration != refersToBaseEnumeration ) {
+            NotificationChain msgs = null;
+            if( refersToBaseEnumeration != null )
+                msgs = ( ( InternalEObject ) refersToBaseEnumeration ).eInverseRemove( this,
+                        NsdPackage.ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE, Enumeration.class, msgs );
+            if( newRefersToBaseEnumeration != null )
+                msgs = ( ( InternalEObject ) newRefersToBaseEnumeration ).eInverseAdd( this,
+                        NsdPackage.ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE, Enumeration.class, msgs );
+            msgs = basicSetRefersToBaseEnumeration( newRefersToBaseEnumeration, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToBaseEnumerationESet = refersToBaseEnumerationESet;
+            refersToBaseEnumerationESet = true;
+            if( eNotificationRequired() ) eNotify(
+                    new ENotificationImpl( this, Notification.SET, NsdPackage.ENUMERATION__REFERS_TO_BASE_ENUMERATION,
+                            newRefersToBaseEnumeration, newRefersToBaseEnumeration, !oldRefersToBaseEnumerationESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicUnsetRefersToBaseEnumeration( NotificationChain msgs ) {
+        Enumeration oldRefersToBaseEnumeration = refersToBaseEnumeration;
+        refersToBaseEnumeration = null;
+        boolean oldRefersToBaseEnumerationESet = refersToBaseEnumerationESet;
+        refersToBaseEnumerationESet = false;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.ENUMERATION__REFERS_TO_BASE_ENUMERATION, oldRefersToBaseEnumeration, null,
+                    oldRefersToBaseEnumerationESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetRefersToBaseEnumeration() {
+        if( refersToBaseEnumeration != null ) {
+            NotificationChain msgs = null;
+            msgs = ( ( InternalEObject ) refersToBaseEnumeration ).eInverseRemove( this,
+                    NsdPackage.ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE, Enumeration.class, msgs );
+            msgs = basicUnsetRefersToBaseEnumeration( msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToBaseEnumerationESet = refersToBaseEnumerationESet;
+            refersToBaseEnumerationESet = false;
+            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.ENUMERATION__REFERS_TO_BASE_ENUMERATION, null, null, oldRefersToBaseEnumerationESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetRefersToBaseEnumeration() {
+        return refersToBaseEnumerationESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EList< Enumeration > getReferredByEnumerationAsBase() {
+        if( referredByEnumerationAsBase == null ) {
+            referredByEnumerationAsBase = new EObjectWithInverseEList.Unsettable< Enumeration >( Enumeration.class,
+                    this, NsdPackage.ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE,
+                    NsdPackage.ENUMERATION__REFERS_TO_BASE_ENUMERATION );
+        }
+        return referredByEnumerationAsBase;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetReferredByEnumerationAsBase() {
+        if( referredByEnumerationAsBase != null )
+            ( ( InternalEList.Unsettable< ? > ) referredByEnumerationAsBase ).unset();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetReferredByEnumerationAsBase() {
+        return referredByEnumerationAsBase != null
+                && ( ( InternalEList.Unsettable< ? > ) referredByEnumerationAsBase ).isSet();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @SuppressWarnings( "unchecked" )
     @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
@@ -336,6 +520,14 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
         case NsdPackage.ENUMERATION__ENUMERATIONS:
             if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
             return basicSetEnumerations( ( Enumerations ) otherEnd, msgs );
+        case NsdPackage.ENUMERATION__REFERS_TO_BASE_ENUMERATION:
+            if( refersToBaseEnumeration != null )
+                msgs = ( ( InternalEObject ) refersToBaseEnumeration ).eInverseRemove( this,
+                        NsdPackage.ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE, Enumeration.class, msgs );
+            return basicSetRefersToBaseEnumeration( ( Enumeration ) otherEnd, msgs );
+        case NsdPackage.ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE:
+            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByEnumerationAsBase() )
+                    .basicAdd( otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
     }
@@ -352,6 +544,10 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
             return ( ( InternalEList< ? > ) getLiteral() ).basicRemove( otherEnd, msgs );
         case NsdPackage.ENUMERATION__ENUMERATIONS:
             return basicSetEnumerations( null, msgs );
+        case NsdPackage.ENUMERATION__REFERS_TO_BASE_ENUMERATION:
+            return basicUnsetRefersToBaseEnumeration( msgs );
+        case NsdPackage.ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE:
+            return ( ( InternalEList< ? > ) getReferredByEnumerationAsBase() ).basicRemove( otherEnd, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -387,6 +583,10 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
             return getName();
         case NsdPackage.ENUMERATION__ENUMERATIONS:
             return getEnumerations();
+        case NsdPackage.ENUMERATION__REFERS_TO_BASE_ENUMERATION:
+            return getRefersToBaseEnumeration();
+        case NsdPackage.ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE:
+            return getReferredByEnumerationAsBase();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -413,6 +613,13 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
         case NsdPackage.ENUMERATION__ENUMERATIONS:
             setEnumerations( ( Enumerations ) newValue );
             return;
+        case NsdPackage.ENUMERATION__REFERS_TO_BASE_ENUMERATION:
+            setRefersToBaseEnumeration( ( Enumeration ) newValue );
+            return;
+        case NsdPackage.ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE:
+            getReferredByEnumerationAsBase().clear();
+            getReferredByEnumerationAsBase().addAll( ( Collection< ? extends Enumeration > ) newValue );
+            return;
         }
         super.eSet( featureID, newValue );
     }
@@ -437,6 +644,12 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
         case NsdPackage.ENUMERATION__ENUMERATIONS:
             setEnumerations( ( Enumerations ) null );
             return;
+        case NsdPackage.ENUMERATION__REFERS_TO_BASE_ENUMERATION:
+            unsetRefersToBaseEnumeration();
+            return;
+        case NsdPackage.ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE:
+            unsetReferredByEnumerationAsBase();
+            return;
         }
         super.eUnset( featureID );
     }
@@ -457,6 +670,10 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
             return isSetName();
         case NsdPackage.ENUMERATION__ENUMERATIONS:
             return getEnumerations() != null;
+        case NsdPackage.ENUMERATION__REFERS_TO_BASE_ENUMERATION:
+            return isSetRefersToBaseEnumeration();
+        case NsdPackage.ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE:
+            return isSetReferredByEnumerationAsBase();
         }
         return super.eIsSet( featureID );
     }
@@ -483,6 +700,29 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
             result.append( "<unset>" );
         result.append( ')' );
         return result.toString();
+    }
+
+    /* Implicit link
+     *   Enumeration.inheritedFrom          -> Enumeration.name
+     */
+    @Override
+    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
+        if( super.buildExplicitLinks( console ) ) return true;
+
+        if( isSetInheritedFrom() ) {
+            setRefersToBaseEnumeration( getEnumerations().getNS().findEnumeration( getInheritedFrom(), console ) );
+            if( getRefersToBaseEnumeration() == null ) {
+                console.error( "Enumeration (name: " + getInheritedFrom() + ") refers by Enumeration (name: "
+                        + getName() + ") in NS (id:" + getEnumerations().getNS().getId() + ") is unknown" );
+            }
+            else {
+                console.info( "Enumeration (name: " + getInheritedFrom() + ") refers by Enumeration (name: " + getName()
+                        + ") in NS (id:" + getEnumerations().getNS().getId() + ") found in NS (id:"
+                        + getRefersToBaseEnumeration().getEnumerations().getNS().getId() + ")" );
+            }
+        }
+
+        return false;
     }
 
 } //EnumerationImpl

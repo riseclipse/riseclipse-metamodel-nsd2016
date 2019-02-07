@@ -2898,29 +2898,27 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         if( super.buildExplicitLinks( console ) ) return true;
 
         if( isSetFc() ) {
-            setRefersToFunctionalConstraint( getCDC().getCDCs().getNS().findFunctionalConstraint( getFc(), console ));
+            setRefersToFunctionalConstraint( getCDC().getCDCs().getNS().findFunctionalConstraint( getFc(), console ) );
             if( getRefersToFunctionalConstraint() == null ) {
-                console.error( "FunctionalConstraint (abbreviation: " + getFc() + ") refers by DataAttribute (name: " + getName()
-                        + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") is unknown" );
+                console.error( "FunctionalConstraint (abbreviation: " + getFc() + ") refers by DataAttribute (name: "
+                        + getName() + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") is unknown" );
             }
             else {
-                console.info( "FunctionalConstraint (abbreviation: " + getFc() + ") refers by DataAttribute (name: " + getName()
-                        + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") found in NS (id:"
+                console.info( "FunctionalConstraint (abbreviation: " + getFc() + ") refers by DataAttribute (name: "
+                        + getName() + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") found in NS (id:"
                         + getRefersToFunctionalConstraint().getFunctionalConstraints().getNS().getId() + ")" );
             }
         }
 
         if( isSetPresCond() ) {
-            setRefersToPresenceCondition(
-                    getCDC().getCDCs().getNS().findPresenceCondition( getPresCond(), console ) );
+            setRefersToPresenceCondition( getCDC().getCDCs().getNS().findPresenceCondition( getPresCond(), console ) );
             if( getRefersToPresenceCondition() == null ) {
-                console.error(
-                        "PresenceCondition (name: " + getPresCond() + ") refers by DataAttribute (name: " + getName()
-                                + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") is unknown" );
+                console.error( "PresenceCondition (name: " + getPresCond() + ") refers by DataAttribute (name: "
+                        + getName() + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") is unknown" );
             }
             else {
-                console.info( "PresenceCondition (name: " + getPresCond() + ") refers by DataAttribute (name: " + getName()
-                        + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") found in NS (id:"
+                console.info( "PresenceCondition (name: " + getPresCond() + ") refers by DataAttribute (name: "
+                        + getName() + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") found in NS (id:"
                         + getRefersToPresenceCondition().getPresenceConditions().getNS().getId() + ")" );
             }
         }

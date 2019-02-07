@@ -39,6 +39,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getReferredByDataObjectForDerivedStatistics <em>Referred By Data Object For Derived Statistics</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getReferredBySubDataObject <em>Referred By Sub Data Object</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getReferredByDataAttribute <em>Referred By Data Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getReferredBySubDataAttribute <em>Referred By Sub Data Attribute</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getPresenceCondition()
@@ -437,5 +438,46 @@ public interface PresenceCondition extends NsdObject {
      * @generated
      */
     boolean isSetReferredByDataAttribute();
+
+    /**
+     * Returns the value of the '<em><b>Referred By Sub Data Attribute</b></em>' reference list.
+     * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute}.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute#getRefersToPresenceCondition <em>Refers To Presence Condition</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Referred By Sub Data Attribute</em>' reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Referred By Sub Data Attribute</em>' reference list.
+     * @see #isSetReferredBySubDataAttribute()
+     * @see #unsetReferredBySubDataAttribute()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getPresenceCondition_ReferredBySubDataAttribute()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute#getRefersToPresenceCondition
+     * @model opposite="refersToPresenceCondition" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @generated
+     */
+    EList< SubDataAttribute > getReferredBySubDataAttribute();
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getReferredBySubDataAttribute <em>Referred By Sub Data Attribute</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetReferredBySubDataAttribute()
+     * @see #getReferredBySubDataAttribute()
+     * @generated
+     */
+    void unsetReferredBySubDataAttribute();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getReferredBySubDataAttribute <em>Referred By Sub Data Attribute</em>}' reference list is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Referred By Sub Data Attribute</em>' reference list is set.
+     * @see #unsetReferredBySubDataAttribute()
+     * @see #getReferredBySubDataAttribute()
+     * @generated
+     */
+    boolean isSetReferredBySubDataAttribute();
 
 } // PresenceCondition

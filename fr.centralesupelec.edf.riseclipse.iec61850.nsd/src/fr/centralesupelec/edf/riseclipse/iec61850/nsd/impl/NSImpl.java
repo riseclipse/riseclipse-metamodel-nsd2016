@@ -29,6 +29,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints;
@@ -1712,13 +1713,35 @@ public class NSImpl extends CopyrightedImpl implements NS {
             IRiseClipseConsole console ) {
         if( isSetFunctionalConstraints() ) {
             FunctionalConstraint found = getFunctionalConstraints().getFunctionalConstraint().stream()
-                    .filter( fc -> fc.getAbbreviation().equals( functionalConstraintAbbreviation ) ).findAny().orElse( null );
+                    .filter( fc -> fc.getAbbreviation().equals( functionalConstraintAbbreviation ) ).findAny()
+                    .orElse( null );
             if( found != null ) return found;
         }
 
         if( isSetDependsOn() ) {
             getDependsOn().buildExplicitLinks( console );
             return getDependsOn().getRefersToNS().findFunctionalConstraint( functionalConstraintAbbreviation, console );
+        }
+
+        return null;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated NOT
+     */
+    @Override
+    public Enumeration findEnumeration( String enumerationName, IRiseClipseConsole console ) {
+        if( isSetEnumerations() ) {
+            Enumeration found = getEnumerations().getEnumeration().stream()
+                    .filter( en -> en.getName().equals( enumerationName ) ).findAny().orElse( null );
+            if( found != null ) return found;
+        }
+
+        if( isSetDependsOn() ) {
+            getDependsOn().buildExplicitLinks( console );
+            return getDependsOn().getRefersToNS().findEnumeration( enumerationName, console );
         }
 
         return null;
@@ -2557,6 +2580,8 @@ public class NSImpl extends CopyrightedImpl implements NS {
             return findPresenceCondition( ( String ) arguments.get( 0 ), ( IRiseClipseConsole ) arguments.get( 1 ) );
         case NsdPackage.NS___FIND_FUNCTIONAL_CONSTRAINT__STRING_IRISECLIPSECONSOLE:
             return findFunctionalConstraint( ( String ) arguments.get( 0 ), ( IRiseClipseConsole ) arguments.get( 1 ) );
+        case NsdPackage.NS___FIND_ENUMERATION__STRING_IRISECLIPSECONSOLE:
+            return findEnumeration( ( String ) arguments.get( 0 ), ( IRiseClipseConsole ) arguments.get( 1 ) );
         }
         return super.eInvoke( operationID, arguments );
     }

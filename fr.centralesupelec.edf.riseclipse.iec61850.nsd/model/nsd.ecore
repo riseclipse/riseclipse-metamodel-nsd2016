@@ -833,6 +833,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="enumerations" ordered="false"
         eType="#//Enumerations" transient="true" unsettable="true" resolveProxies="false"
         eOpposite="#//Enumerations/enumeration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refersToBaseEnumeration"
+        ordered="false" eType="#//Enumeration" transient="true" unsettable="true"
+        resolveProxies="false" eOpposite="#//Enumeration/referredByEnumerationAsBase"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referredByEnumerationAsBase"
+        ordered="false" upperBound="-1" eType="#//Enumeration" transient="true" unsettable="true"
+        resolveProxies="false" eOpposite="#//Enumeration/refersToBaseEnumeration"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Enumerations" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -1072,6 +1078,10 @@
       <eParameters name="functionalConstraintAbbreviation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="console" eType="#//IRiseClipseConsole"/>
     </eOperations>
+    <eOperations name="findEnumeration" eType="#//Enumeration">
+      <eParameters name="enumerationName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="console" eType="#//IRiseClipseConsole"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="changes" ordered="false"
         eType="#//Changes" unsettable="true" containment="true" resolveProxies="false"
         eOpposite="#//Changes/nS">
@@ -1235,6 +1245,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="referredByDataAttribute"
         ordered="false" upperBound="-1" eType="#//DataAttribute" transient="true"
         unsettable="true" resolveProxies="false" eOpposite="#//DataAttribute/refersToPresenceCondition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referredBySubDataAttribute"
+        ordered="false" upperBound="-1" eType="#//SubDataAttribute" transient="true"
+        unsettable="true" resolveProxies="false" eOpposite="#//SubDataAttribute/refersToPresenceCondition"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PresenceConditions" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -1554,6 +1567,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="constructedAttribute" ordered="false"
         eType="#//ConstructedAttribute" transient="true" unsettable="true" resolveProxies="false"
         eOpposite="#//ConstructedAttribute/subDataAttribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refersToPresenceCondition"
+        ordered="false" eType="#//PresenceCondition" transient="true" unsettable="true"
+        resolveProxies="false" eOpposite="#//PresenceCondition/referredBySubDataAttribute"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SubDataObject" eSuperTypes="#//DocumentedClass #//AgPresenceCondition #//AgArray #//AgUnderlyingType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">

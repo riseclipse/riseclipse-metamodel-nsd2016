@@ -154,21 +154,22 @@ public class NsdResourceSetImpl extends ResourceSetImpl {
      *   SubDataObject.presCond             -> PresenceCondition.name               DONE
      *   SubDataObject.sizeAttribute        -> DataAttribute.name                   DONE
      *   SubDataObject.maxIndexAttribute    -> DataAttribute.name                   DONE
-     *   DataAttribute.fc                   -> FunctionalConstraint.abbreviation
-     *   DataAttribute.presCond             -> PresenceCondition.name
-     *   DataAttribute.sizeAttribute        -> DataAttribute.name
-     *   DataAttribute.maxIndexAttribute    -> DataAttribute.name
-     *   ServiceParameter.name              -> DataAttribute.name                   ?
-     *   SubDataAttribute.presCond          -> PresenceCondition.name
-     *   SubDataAttribute.sizeAttribute     -> DataAttribute.name
-     *   SubDataAttribute.maxIndexAttribute -> DataAttribute.name
-     *   Enumeration.inheritedFrom          -> Enumeration.name
-     *   ServiceCDC.cdc                     -> CDC.name                             ?
-     *   ServiceDataAttribute.fc            -> FunctionalConstraint.abbreviation
-     *   ServiceDataAttribute.presCond      -> PresenceCondition.name
-     *   AppliesTo.id                       -> NS.id
-     *   ServiceTypeRealization.fc          -> FunctionalConstraint.abbreviation    ? ServiceTypeRealization is not a name of a type but a name of a refence
-     *   ServiceTypeRealization.presCond    -> PresenceCondition.name               ? idem
+     *   DataAttribute.fc                   -> FunctionalConstraint.abbreviation    DONE
+     *   DataAttribute.presCond             -> PresenceCondition.name               DONE
+     *   DataAttribute.sizeAttribute        -> DataAttribute.name                   DONE
+     *   DataAttribute.maxIndexAttribute    -> DataAttribute.name                   DONE
+     *   ServiceParameter.name              -> DataAttribute.name                   ? Name of the data attribute but may be not name of a DataAttribute ?
+     *   SubDataAttribute.presCond          -> PresenceCondition.name               DONE
+     *   SubDataAttribute.sizeAttribute     -> DataAttribute.name                   ? Which DataAttribute ?
+     *   SubDataAttribute.maxIndexAttribute -> DataAttribute.name                   ? Which DataAttribute ?
+     *   Enumeration.inheritedFrom          -> Enumeration.name                     DONE
+     *   ServiceCDC.cdc                     -> CDC.name                             ? not sure and in ServiceNS file
+     *   ServiceCDC.ServiceDataAttribute    -> DataAttribute.name                   ? not sure and in ServiceNS file
+     *   ServiceDataAttribute.fc            -> FunctionalConstraint.abbreviation    ? in ServiceNS file
+     *   ServiceDataAttribute.presCond      -> PresenceCondition.name               ? in ServiceNS file
+     *   AppliesTo.id                       -> NS.id                                ? in ServiceNS file
+     *   ServiceTypeRealization.fc          -> FunctionalConstraint.abbreviation    ? ServiceTypeRealization is not a name of a type but a name of a reference
+     *   ServiceTypeRealization.presCond    -> PresenceCondition.name               ? ServiceTypeRealization is not a name of a type but a name of a reference
      */
     public void buildExplicitLinks( IRiseClipseConsole console ) {
         for( Resource resource : getResources() ) {

@@ -1959,6 +1959,26 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EReference getEnumeration_RefersToBaseEnumeration() {
+        return ( EReference ) enumerationEClass.getEStructuralFeatures().get( 4 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getEnumeration_ReferredByEnumerationAsBase() {
+        return ( EReference ) enumerationEClass.getEStructuralFeatures().get( 5 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getEnumerations() {
         return enumerationsEClass;
     }
@@ -2459,6 +2479,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EOperation getNS__FindEnumeration__String_IRiseClipseConsole() {
+        return nsEClass.getEOperations().get( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getNSDoc() {
         return nsDocEClass;
     }
@@ -2581,6 +2611,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EReference getPresenceCondition_ReferredByDataAttribute() {
         return ( EReference ) presenceConditionEClass.getEStructuralFeatures().get( 8 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getPresenceCondition_ReferredBySubDataAttribute() {
+        return ( EReference ) presenceConditionEClass.getEStructuralFeatures().get( 9 );
     }
 
     /**
@@ -3001,6 +3041,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EReference getSubDataAttribute_ConstructedAttribute() {
         return ( EReference ) subDataAttributeEClass.getEStructuralFeatures().get( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getSubDataAttribute_RefersToPresenceCondition() {
+        return ( EReference ) subDataAttributeEClass.getEStructuralFeatures().get( 2 );
     }
 
     /**
@@ -3841,6 +3891,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEAttribute( enumerationEClass, ENUMERATION__INHERITED_FROM );
         createEAttribute( enumerationEClass, ENUMERATION__NAME );
         createEReference( enumerationEClass, ENUMERATION__ENUMERATIONS );
+        createEReference( enumerationEClass, ENUMERATION__REFERS_TO_BASE_ENUMERATION );
+        createEReference( enumerationEClass, ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE );
 
         enumerationsEClass = createEClass( ENUMERATIONS );
         createEReference( enumerationsEClass, ENUMERATIONS__ENUMERATION );
@@ -3900,6 +3952,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEOperation( nsEClass, NS___FIND_CDC__STRING_IRISECLIPSECONSOLE );
         createEOperation( nsEClass, NS___FIND_PRESENCE_CONDITION__STRING_IRISECLIPSECONSOLE );
         createEOperation( nsEClass, NS___FIND_FUNCTIONAL_CONSTRAINT__STRING_IRISECLIPSECONSOLE );
+        createEOperation( nsEClass, NS___FIND_ENUMERATION__STRING_IRISECLIPSECONSOLE );
 
         nsDocEClass = createEClass( NS_DOC );
         createEReference( nsDocEClass, NS_DOC__DOC );
@@ -3915,6 +3968,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEReference( presenceConditionEClass, PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT_FOR_DERIVED_STATISTICS );
         createEReference( presenceConditionEClass, PRESENCE_CONDITION__REFERRED_BY_SUB_DATA_OBJECT );
         createEReference( presenceConditionEClass, PRESENCE_CONDITION__REFERRED_BY_DATA_ATTRIBUTE );
+        createEReference( presenceConditionEClass, PRESENCE_CONDITION__REFERRED_BY_SUB_DATA_ATTRIBUTE );
 
         presenceConditionsEClass = createEClass( PRESENCE_CONDITIONS );
         createEReference( presenceConditionsEClass, PRESENCE_CONDITIONS__PRESENCE_CONDITION );
@@ -3970,6 +4024,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         subDataAttributeEClass = createEClass( SUB_DATA_ATTRIBUTE );
         createEAttribute( subDataAttributeEClass, SUB_DATA_ATTRIBUTE__NAME );
         createEReference( subDataAttributeEClass, SUB_DATA_ATTRIBUTE__CONSTRUCTED_ATTRIBUTE );
+        createEReference( subDataAttributeEClass, SUB_DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION );
 
         subDataObjectEClass = createEClass( SUB_DATA_OBJECT );
         createEAttribute( subDataObjectEClass, SUB_DATA_OBJECT__NAME );
@@ -4543,6 +4598,14 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEReference( getEnumeration_Enumerations(), this.getEnumerations(), this.getEnumerations_Enumeration(),
                 "enumerations", null, 0, 1, Enumeration.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getEnumeration_RefersToBaseEnumeration(), this.getEnumeration(),
+                this.getEnumeration_ReferredByEnumerationAsBase(), "refersToBaseEnumeration", null, 0, 1,
+                Enumeration.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getEnumeration_ReferredByEnumerationAsBase(), this.getEnumeration(),
+                this.getEnumeration_RefersToBaseEnumeration(), "referredByEnumerationAsBase", null, 0, -1,
+                Enumeration.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( enumerationsEClass, Enumerations.class, "Enumerations", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
@@ -4700,6 +4763,11 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         addEParameter( op, ecorePackage.getEString(), "functionalConstraintAbbreviation", 0, 1, IS_UNIQUE, IS_ORDERED );
         addEParameter( op, this.getIRiseClipseConsole(), "console", 0, 1, IS_UNIQUE, IS_ORDERED );
 
+        op = initEOperation( getNS__FindEnumeration__String_IRiseClipseConsole(), this.getEnumeration(),
+                "findEnumeration", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEString(), "enumerationName", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, this.getIRiseClipseConsole(), "console", 0, 1, IS_UNIQUE, IS_ORDERED );
+
         initEClass( nsDocEClass, NSDoc.class, "NSDoc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEReference( getNSDoc_Doc(), this.getDoc(), this.getDoc_NSDoc(), "doc", null, 0, -1, NSDoc.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
@@ -4740,6 +4808,10 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
         initEReference( getPresenceCondition_ReferredByDataAttribute(), this.getDataAttribute(),
                 this.getDataAttribute_RefersToPresenceCondition(), "referredByDataAttribute", null, 0, -1,
+                PresenceCondition.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getPresenceCondition_ReferredBySubDataAttribute(), this.getSubDataAttribute(),
+                this.getSubDataAttribute_RefersToPresenceCondition(), "referredBySubDataAttribute", null, 0, -1,
                 PresenceCondition.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
@@ -4882,6 +4954,10 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 this.getConstructedAttribute_SubDataAttribute(), "constructedAttribute", null, 0, 1,
                 SubDataAttribute.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getSubDataAttribute_RefersToPresenceCondition(), this.getPresenceCondition(),
+                this.getPresenceCondition_ReferredBySubDataAttribute(), "refersToPresenceCondition", null, 0, 1,
+                SubDataAttribute.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( subDataObjectEClass, SubDataObject.class, "SubDataObject", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );

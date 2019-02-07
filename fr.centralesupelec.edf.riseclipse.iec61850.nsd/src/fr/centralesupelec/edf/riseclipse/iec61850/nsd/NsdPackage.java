@@ -3362,13 +3362,31 @@ public interface NsdPackage extends EPackage {
     int ENUMERATION__ENUMERATIONS = TITLED_CLASS_FEATURE_COUNT + 3;
 
     /**
+     * The feature id for the '<em><b>Refers To Base Enumeration</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ENUMERATION__REFERS_TO_BASE_ENUMERATION = TITLED_CLASS_FEATURE_COUNT + 4;
+
+    /**
+     * The feature id for the '<em><b>Referred By Enumeration As Base</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE = TITLED_CLASS_FEATURE_COUNT + 5;
+
+    /**
      * The number of structural features of the '<em>Enumeration</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ENUMERATION_FEATURE_COUNT = TITLED_CLASS_FEATURE_COUNT + 4;
+    int ENUMERATION_FEATURE_COUNT = TITLED_CLASS_FEATURE_COUNT + 6;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -4343,13 +4361,22 @@ public interface NsdPackage extends EPackage {
     int NS___FIND_FUNCTIONAL_CONSTRAINT__STRING_IRISECLIPSECONSOLE = COPYRIGHTED_OPERATION_COUNT + 2;
 
     /**
+     * The operation id for the '<em>Find Enumeration</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NS___FIND_ENUMERATION__STRING_IRISECLIPSECONSOLE = COPYRIGHTED_OPERATION_COUNT + 3;
+
+    /**
      * The number of operations of the '<em>NS</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int NS_OPERATION_COUNT = COPYRIGHTED_OPERATION_COUNT + 3;
+    int NS_OPERATION_COUNT = COPYRIGHTED_OPERATION_COUNT + 4;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -4586,13 +4613,22 @@ public interface NsdPackage extends EPackage {
     int PRESENCE_CONDITION__REFERRED_BY_DATA_ATTRIBUTE = NSD_OBJECT_FEATURE_COUNT + 8;
 
     /**
+     * The feature id for the '<em><b>Referred By Sub Data Attribute</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PRESENCE_CONDITION__REFERRED_BY_SUB_DATA_ATTRIBUTE = NSD_OBJECT_FEATURE_COUNT + 9;
+
+    /**
      * The number of structural features of the '<em>Presence Condition</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PRESENCE_CONDITION_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 9;
+    int PRESENCE_CONDITION_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 10;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -5855,13 +5891,22 @@ public interface NsdPackage extends EPackage {
     int SUB_DATA_ATTRIBUTE__CONSTRUCTED_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 13;
 
     /**
+     * The feature id for the '<em><b>Refers To Presence Condition</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SUB_DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION = DOCUMENTED_CLASS_FEATURE_COUNT + 14;
+
+    /**
      * The number of structural features of the '<em>Sub Data Attribute</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SUB_DATA_ATTRIBUTE_FEATURE_COUNT = DOCUMENTED_CLASS_FEATURE_COUNT + 14;
+    int SUB_DATA_ATTRIBUTE_FEATURE_COUNT = DOCUMENTED_CLASS_FEATURE_COUNT + 15;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -8054,6 +8099,28 @@ public interface NsdPackage extends EPackage {
     EReference getEnumeration_Enumerations();
 
     /**
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getRefersToBaseEnumeration <em>Refers To Base Enumeration</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Refers To Base Enumeration</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getRefersToBaseEnumeration()
+     * @see #getEnumeration()
+     * @generated
+     */
+    EReference getEnumeration_RefersToBaseEnumeration();
+
+    /**
+     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getReferredByEnumerationAsBase <em>Referred By Enumeration As Base</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Referred By Enumeration As Base</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getReferredByEnumerationAsBase()
+     * @see #getEnumeration()
+     * @generated
+     */
+    EReference getEnumeration_ReferredByEnumerationAsBase();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations <em>Enumerations</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8592,6 +8659,16 @@ public interface NsdPackage extends EPackage {
     EOperation getNS__FindFunctionalConstraint__String_IRiseClipseConsole();
 
     /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findEnumeration(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole) <em>Find Enumeration</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Find Enumeration</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findEnumeration(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole)
+     * @generated
+     */
+    EOperation getNS__FindEnumeration__String_IRiseClipseConsole();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc <em>NS Doc</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8731,6 +8808,17 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EReference getPresenceCondition_ReferredByDataAttribute();
+
+    /**
+     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getReferredBySubDataAttribute <em>Referred By Sub Data Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Referred By Sub Data Attribute</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getReferredBySubDataAttribute()
+     * @see #getPresenceCondition()
+     * @generated
+     */
+    EReference getPresenceCondition_ReferredBySubDataAttribute();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions <em>Presence Conditions</em>}'.
@@ -9182,6 +9270,17 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EReference getSubDataAttribute_ConstructedAttribute();
+
+    /**
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute#getRefersToPresenceCondition <em>Refers To Presence Condition</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Refers To Presence Condition</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute#getRefersToPresenceCondition()
+     * @see #getSubDataAttribute()
+     * @generated
+     */
+    EReference getSubDataAttribute_RefersToPresenceCondition();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject <em>Sub Data Object</em>}'.
@@ -10981,6 +11080,23 @@ public interface NsdPackage extends EPackage {
         EReference ENUMERATION__ENUMERATIONS = eINSTANCE.getEnumeration_Enumerations();
 
         /**
+         * The meta object literal for the '<em><b>Refers To Base Enumeration</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference ENUMERATION__REFERS_TO_BASE_ENUMERATION = eINSTANCE.getEnumeration_RefersToBaseEnumeration();
+
+        /**
+         * The meta object literal for the '<em><b>Referred By Enumeration As Base</b></em>' reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE = eINSTANCE
+                .getEnumeration_ReferredByEnumerationAsBase();
+
+        /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationsImpl <em>Enumerations</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -11404,6 +11520,15 @@ public interface NsdPackage extends EPackage {
                 .getNS__FindFunctionalConstraint__String_IRiseClipseConsole();
 
         /**
+         * The meta object literal for the '<em><b>Find Enumeration</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation NS___FIND_ENUMERATION__STRING_IRISECLIPSECONSOLE = eINSTANCE
+                .getNS__FindEnumeration__String_IRiseClipseConsole();
+
+        /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl <em>NS Doc</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -11513,6 +11638,15 @@ public interface NsdPackage extends EPackage {
          */
         EReference PRESENCE_CONDITION__REFERRED_BY_DATA_ATTRIBUTE = eINSTANCE
                 .getPresenceCondition_ReferredByDataAttribute();
+
+        /**
+         * The meta object literal for the '<em><b>Referred By Sub Data Attribute</b></em>' reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference PRESENCE_CONDITION__REFERRED_BY_SUB_DATA_ATTRIBUTE = eINSTANCE
+                .getPresenceCondition_ReferredBySubDataAttribute();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.PresenceConditionsImpl <em>Presence Conditions</em>}' class.
@@ -11875,6 +12009,15 @@ public interface NsdPackage extends EPackage {
          * @generated
          */
         EReference SUB_DATA_ATTRIBUTE__CONSTRUCTED_ATTRIBUTE = eINSTANCE.getSubDataAttribute_ConstructedAttribute();
+
+        /**
+         * The meta object literal for the '<em><b>Refers To Presence Condition</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference SUB_DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION = eINSTANCE
+                .getSubDataAttribute_RefersToPresenceCondition();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl <em>Sub Data Object</em>}' class.
