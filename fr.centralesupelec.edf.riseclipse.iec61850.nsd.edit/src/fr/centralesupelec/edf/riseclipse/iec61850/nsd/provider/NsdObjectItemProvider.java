@@ -21,6 +21,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd.provider;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdObject;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
+
 import java.util.Collection;
 import java.util.List;
 
