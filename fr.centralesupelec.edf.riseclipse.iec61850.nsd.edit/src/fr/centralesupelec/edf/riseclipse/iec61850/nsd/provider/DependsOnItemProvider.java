@@ -20,18 +20,12 @@
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.provider;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn} object.
@@ -39,7 +33,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DependsOnItemProvider extends NSDObjectWithVersionAndReleaseItemProvider {
+public class DependsOnItemProvider extends AgNSIdentificationItemProvider {
     /**
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
@@ -61,59 +55,8 @@ public class DependsOnItemProvider extends NSDObjectWithVersionAndReleaseItemPro
         if( itemPropertyDescriptors == null ) {
             super.getPropertyDescriptors( object );
 
-            addIdPropertyDescriptor( object );
-            addPublicationStagePropertyDescriptor( object );
-            addRevisionPropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
-    }
-
-    /**
-     * This adds a property descriptor for the Id feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addIdPropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add(
-                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_DependsOn_id_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_DependsOn_id_feature",
-                                "_UI_DependsOn_type" ),
-                        NsdPackage.Literals.DEPENDS_ON__ID, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
-    }
-
-    /**
-     * This adds a property descriptor for the Publication Stage feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addPublicationStagePropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add(
-                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_DependsOn_publicationStage_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_DependsOn_publicationStage_feature",
-                                "_UI_DependsOn_type" ),
-                        NsdPackage.Literals.DEPENDS_ON__PUBLICATION_STAGE, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
-    }
-
-    /**
-     * This adds a property descriptor for the Revision feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addRevisionPropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add(
-                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_DependsOn_revision_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_DependsOn_revision_feature",
-                                "_UI_DependsOn_type" ),
-                        NsdPackage.Literals.DEPENDS_ON__REVISION, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -150,14 +93,6 @@ public class DependsOnItemProvider extends NSDObjectWithVersionAndReleaseItemPro
     @Override
     public void notifyChanged( Notification notification ) {
         updateChildren( notification );
-
-        switch( notification.getFeatureID( DependsOn.class ) ) {
-        case NsdPackage.DEPENDS_ON__ID:
-        case NsdPackage.DEPENDS_ON__PUBLICATION_STAGE:
-        case NsdPackage.DEPENDS_ON__REVISION:
-            fireNotifyChanged( new ViewerNotification( notification, notification.getNotifier(), false, true ) );
-            return;
-        }
         super.notifyChanged( notification );
     }
 

@@ -32,7 +32,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -50,7 +49,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *
  * @generated
  */
-public class CopyrightNoticeImpl extends MinimalEObjectImpl.Container implements CopyrightNotice {
+public class CopyrightNoticeImpl extends NsdObjectImpl implements CopyrightNotice {
     /**
      * The cached value of the '{@link #getNotice() <em>Notice</em>}' containment reference.
      * <!-- begin-user-doc -->

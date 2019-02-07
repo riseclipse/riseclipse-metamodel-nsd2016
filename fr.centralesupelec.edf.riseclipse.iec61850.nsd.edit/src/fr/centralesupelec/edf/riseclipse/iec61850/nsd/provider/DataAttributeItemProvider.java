@@ -61,23 +61,23 @@ public class DataAttributeItemProvider extends DocumentedClassItemProvider {
         if( itemPropertyDescriptors == null ) {
             super.getPropertyDescriptors( object );
 
-            addDchgPropertyDescriptor( object );
-            addDefaultValuePropertyDescriptor( object );
-            addDupdPropertyDescriptor( object );
-            addFcPropertyDescriptor( object );
-            addIsArrayPropertyDescriptor( object );
-            addMaxIndexAttributePropertyDescriptor( object );
-            addMaxValuePropertyDescriptor( object );
-            addMinIndexPropertyDescriptor( object );
-            addMinValuePropertyDescriptor( object );
-            addNamePropertyDescriptor( object );
             addPresCondPropertyDescriptor( object );
             addPresCondArgsPropertyDescriptor( object );
             addPresCondArgsIDPropertyDescriptor( object );
-            addQchgPropertyDescriptor( object );
+            addIsArrayPropertyDescriptor( object );
+            addMaxIndexAttributePropertyDescriptor( object );
+            addMinIndexPropertyDescriptor( object );
             addSizeAttributePropertyDescriptor( object );
+            addDchgPropertyDescriptor( object );
+            addDupdPropertyDescriptor( object );
+            addQchgPropertyDescriptor( object );
             addTypePropertyDescriptor( object );
             addTypeKindPropertyDescriptor( object );
+            addDefaultValuePropertyDescriptor( object );
+            addMaxValuePropertyDescriptor( object );
+            addMinValuePropertyDescriptor( object );
+            addFcPropertyDescriptor( object );
+            addNamePropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -91,10 +91,10 @@ public class DataAttributeItemProvider extends DocumentedClassItemProvider {
     protected void addDchgPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_DataAttribute_dchg_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_DataAttribute_dchg_feature",
-                                "_UI_DataAttribute_type" ),
-                        NsdPackage.Literals.DATA_ATTRIBUTE__DCHG, true, false, false,
+                        getResourceLocator(), getString( "_UI_AgTrgOp_dchg_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgTrgOp_dchg_feature",
+                                "_UI_AgTrgOp_type" ),
+                        NsdPackage.Literals.AG_TRG_OP__DCHG, true, false, false,
                         ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
     }
 
@@ -105,13 +105,13 @@ public class DataAttributeItemProvider extends DocumentedClassItemProvider {
      * @generated
      */
     protected void addDefaultValuePropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add(
-                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_DataAttribute_defaultValue_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_DataAttribute_defaultValue_feature",
-                                "_UI_DataAttribute_type" ),
-                        NsdPackage.Literals.DATA_ATTRIBUTE__DEFAULT_VALUE, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add( createItemPropertyDescriptor(
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
+                getString( "_UI_AgAttributeTypeAndValues_defaultValue_feature" ),
+                getString( "_UI_PropertyDescriptor_description", "_UI_AgAttributeTypeAndValues_defaultValue_feature",
+                        "_UI_AgAttributeTypeAndValues_type" ),
+                NsdPackage.Literals.AG_ATTRIBUTE_TYPE_AND_VALUES__DEFAULT_VALUE, true, false, false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -123,10 +123,10 @@ public class DataAttributeItemProvider extends DocumentedClassItemProvider {
     protected void addDupdPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_DataAttribute_dupd_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_DataAttribute_dupd_feature",
-                                "_UI_DataAttribute_type" ),
-                        NsdPackage.Literals.DATA_ATTRIBUTE__DUPD, true, false, false,
+                        getResourceLocator(), getString( "_UI_AgTrgOp_dupd_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgTrgOp_dupd_feature",
+                                "_UI_AgTrgOp_type" ),
+                        NsdPackage.Literals.AG_TRG_OP__DUPD, true, false, false,
                         ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
     }
 
@@ -155,10 +155,10 @@ public class DataAttributeItemProvider extends DocumentedClassItemProvider {
     protected void addIsArrayPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_DataAttribute_isArray_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_DataAttribute_isArray_feature",
-                                "_UI_DataAttribute_type" ),
-                        NsdPackage.Literals.DATA_ATTRIBUTE__IS_ARRAY, true, false, false,
+                        getResourceLocator(), getString( "_UI_AgArray_isArray_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgArray_isArray_feature",
+                                "_UI_AgArray_type" ),
+                        NsdPackage.Literals.AG_ARRAY__IS_ARRAY, true, false, false,
                         ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
     }
 
@@ -171,10 +171,10 @@ public class DataAttributeItemProvider extends DocumentedClassItemProvider {
     protected void addMaxIndexAttributePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_DataAttribute_maxIndexAttribute_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_DataAttribute_maxIndexAttribute_feature",
-                                "_UI_DataAttribute_type" ),
-                        NsdPackage.Literals.DATA_ATTRIBUTE__MAX_INDEX_ATTRIBUTE, true, false, false,
+                        getResourceLocator(), getString( "_UI_AgArray_maxIndexAttribute_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgArray_maxIndexAttribute_feature",
+                                "_UI_AgArray_type" ),
+                        NsdPackage.Literals.AG_ARRAY__MAX_INDEX_ATTRIBUTE, true, false, false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
@@ -187,10 +187,10 @@ public class DataAttributeItemProvider extends DocumentedClassItemProvider {
     protected void addMaxValuePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_DataAttribute_maxValue_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_DataAttribute_maxValue_feature",
-                                "_UI_DataAttribute_type" ),
-                        NsdPackage.Literals.DATA_ATTRIBUTE__MAX_VALUE, true, false, false,
+                        getResourceLocator(), getString( "_UI_AgAttributeTypeAndValues_maxValue_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_AgAttributeTypeAndValues_maxValue_feature", "_UI_AgAttributeTypeAndValues_type" ),
+                        NsdPackage.Literals.AG_ATTRIBUTE_TYPE_AND_VALUES__MAX_VALUE, true, false, false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
@@ -203,10 +203,10 @@ public class DataAttributeItemProvider extends DocumentedClassItemProvider {
     protected void addMinIndexPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_DataAttribute_minIndex_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_DataAttribute_minIndex_feature",
-                                "_UI_DataAttribute_type" ),
-                        NsdPackage.Literals.DATA_ATTRIBUTE__MIN_INDEX, true, false, false,
+                        getResourceLocator(), getString( "_UI_AgArray_minIndex_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgArray_minIndex_feature",
+                                "_UI_AgArray_type" ),
+                        NsdPackage.Literals.AG_ARRAY__MIN_INDEX, true, false, false,
                         ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
@@ -219,10 +219,10 @@ public class DataAttributeItemProvider extends DocumentedClassItemProvider {
     protected void addMinValuePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_DataAttribute_minValue_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_DataAttribute_minValue_feature",
-                                "_UI_DataAttribute_type" ),
-                        NsdPackage.Literals.DATA_ATTRIBUTE__MIN_VALUE, true, false, false,
+                        getResourceLocator(), getString( "_UI_AgAttributeTypeAndValues_minValue_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_AgAttributeTypeAndValues_minValue_feature", "_UI_AgAttributeTypeAndValues_type" ),
+                        NsdPackage.Literals.AG_ATTRIBUTE_TYPE_AND_VALUES__MIN_VALUE, true, false, false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
@@ -251,10 +251,10 @@ public class DataAttributeItemProvider extends DocumentedClassItemProvider {
     protected void addPresCondPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_DataAttribute_presCond_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_DataAttribute_presCond_feature",
-                                "_UI_DataAttribute_type" ),
-                        NsdPackage.Literals.DATA_ATTRIBUTE__PRES_COND, true, false, false,
+                        getResourceLocator(), getString( "_UI_AgPresenceCondition_presCond_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgPresenceCondition_presCond_feature",
+                                "_UI_AgPresenceCondition_type" ),
+                        NsdPackage.Literals.AG_PRESENCE_CONDITION__PRES_COND, true, false, false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
@@ -265,13 +265,13 @@ public class DataAttributeItemProvider extends DocumentedClassItemProvider {
      * @generated
      */
     protected void addPresCondArgsPropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add(
-                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_DataAttribute_presCondArgs_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_DataAttribute_presCondArgs_feature",
-                                "_UI_DataAttribute_type" ),
-                        NsdPackage.Literals.DATA_ATTRIBUTE__PRES_COND_ARGS, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add( createItemPropertyDescriptor(
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
+                getString( "_UI_AgPresenceCondition_presCondArgs_feature" ),
+                getString( "_UI_PropertyDescriptor_description", "_UI_AgPresenceCondition_presCondArgs_feature",
+                        "_UI_AgPresenceCondition_type" ),
+                NsdPackage.Literals.AG_PRESENCE_CONDITION__PRES_COND_ARGS, true, false, false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -281,13 +281,13 @@ public class DataAttributeItemProvider extends DocumentedClassItemProvider {
      * @generated
      */
     protected void addPresCondArgsIDPropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add(
-                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_DataAttribute_presCondArgsID_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_DataAttribute_presCondArgsID_feature",
-                                "_UI_DataAttribute_type" ),
-                        NsdPackage.Literals.DATA_ATTRIBUTE__PRES_COND_ARGS_ID, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add( createItemPropertyDescriptor(
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
+                getString( "_UI_AgPresenceCondition_presCondArgsID_feature" ),
+                getString( "_UI_PropertyDescriptor_description", "_UI_AgPresenceCondition_presCondArgsID_feature",
+                        "_UI_AgPresenceCondition_type" ),
+                NsdPackage.Literals.AG_PRESENCE_CONDITION__PRES_COND_ARGS_ID, true, false, false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -299,10 +299,10 @@ public class DataAttributeItemProvider extends DocumentedClassItemProvider {
     protected void addQchgPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_DataAttribute_qchg_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_DataAttribute_qchg_feature",
-                                "_UI_DataAttribute_type" ),
-                        NsdPackage.Literals.DATA_ATTRIBUTE__QCHG, true, false, false,
+                        getResourceLocator(), getString( "_UI_AgTrgOp_qchg_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgTrgOp_qchg_feature",
+                                "_UI_AgTrgOp_type" ),
+                        NsdPackage.Literals.AG_TRG_OP__QCHG, true, false, false,
                         ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
     }
 
@@ -315,10 +315,10 @@ public class DataAttributeItemProvider extends DocumentedClassItemProvider {
     protected void addSizeAttributePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_DataAttribute_sizeAttribute_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_DataAttribute_sizeAttribute_feature",
-                                "_UI_DataAttribute_type" ),
-                        NsdPackage.Literals.DATA_ATTRIBUTE__SIZE_ATTRIBUTE, true, false, false,
+                        getResourceLocator(), getString( "_UI_AgArray_sizeAttribute_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgArray_sizeAttribute_feature",
+                                "_UI_AgArray_type" ),
+                        NsdPackage.Literals.AG_ARRAY__SIZE_ATTRIBUTE, true, false, false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
@@ -331,10 +331,10 @@ public class DataAttributeItemProvider extends DocumentedClassItemProvider {
     protected void addTypePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_DataAttribute_type_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_DataAttribute_type_feature",
-                                "_UI_DataAttribute_type" ),
-                        NsdPackage.Literals.DATA_ATTRIBUTE__TYPE, true, false, false,
+                        getResourceLocator(), getString( "_UI_AgAttributeType_type_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgAttributeType_type_feature",
+                                "_UI_AgAttributeType_type" ),
+                        NsdPackage.Literals.AG_ATTRIBUTE_TYPE__TYPE, true, false, false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
@@ -347,10 +347,10 @@ public class DataAttributeItemProvider extends DocumentedClassItemProvider {
     protected void addTypeKindPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_DataAttribute_typeKind_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_DataAttribute_typeKind_feature",
-                                "_UI_DataAttribute_type" ),
-                        NsdPackage.Literals.DATA_ATTRIBUTE__TYPE_KIND, true, false, false,
+                        getResourceLocator(), getString( "_UI_AgAttributeType_typeKind_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgAttributeType_typeKind_feature",
+                                "_UI_AgAttributeType_type" ),
+                        NsdPackage.Literals.AG_ATTRIBUTE_TYPE__TYPE_KIND, true, false, false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
@@ -390,23 +390,23 @@ public class DataAttributeItemProvider extends DocumentedClassItemProvider {
         updateChildren( notification );
 
         switch( notification.getFeatureID( DataAttribute.class ) ) {
-        case NsdPackage.DATA_ATTRIBUTE__DCHG:
-        case NsdPackage.DATA_ATTRIBUTE__DEFAULT_VALUE:
-        case NsdPackage.DATA_ATTRIBUTE__DUPD:
-        case NsdPackage.DATA_ATTRIBUTE__FC:
-        case NsdPackage.DATA_ATTRIBUTE__IS_ARRAY:
-        case NsdPackage.DATA_ATTRIBUTE__MAX_INDEX_ATTRIBUTE:
-        case NsdPackage.DATA_ATTRIBUTE__MAX_VALUE:
-        case NsdPackage.DATA_ATTRIBUTE__MIN_INDEX:
-        case NsdPackage.DATA_ATTRIBUTE__MIN_VALUE:
-        case NsdPackage.DATA_ATTRIBUTE__NAME:
         case NsdPackage.DATA_ATTRIBUTE__PRES_COND:
         case NsdPackage.DATA_ATTRIBUTE__PRES_COND_ARGS:
         case NsdPackage.DATA_ATTRIBUTE__PRES_COND_ARGS_ID:
-        case NsdPackage.DATA_ATTRIBUTE__QCHG:
+        case NsdPackage.DATA_ATTRIBUTE__IS_ARRAY:
+        case NsdPackage.DATA_ATTRIBUTE__MAX_INDEX_ATTRIBUTE:
+        case NsdPackage.DATA_ATTRIBUTE__MIN_INDEX:
         case NsdPackage.DATA_ATTRIBUTE__SIZE_ATTRIBUTE:
+        case NsdPackage.DATA_ATTRIBUTE__DCHG:
+        case NsdPackage.DATA_ATTRIBUTE__DUPD:
+        case NsdPackage.DATA_ATTRIBUTE__QCHG:
         case NsdPackage.DATA_ATTRIBUTE__TYPE:
         case NsdPackage.DATA_ATTRIBUTE__TYPE_KIND:
+        case NsdPackage.DATA_ATTRIBUTE__DEFAULT_VALUE:
+        case NsdPackage.DATA_ATTRIBUTE__MAX_VALUE:
+        case NsdPackage.DATA_ATTRIBUTE__MIN_VALUE:
+        case NsdPackage.DATA_ATTRIBUTE__FC:
+        case NsdPackage.DATA_ATTRIBUTE__NAME:
             fireNotifyChanged( new ViewerNotification( notification, notification.getNotifier(), false, true ) );
             return;
         }

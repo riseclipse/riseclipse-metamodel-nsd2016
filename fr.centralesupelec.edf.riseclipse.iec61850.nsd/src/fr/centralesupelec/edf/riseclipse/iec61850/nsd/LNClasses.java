@@ -21,8 +21,6 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>LN Classes</b></em>'.
@@ -41,7 +39,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='tLNClasses' kind='elementOnly'"
  * @generated
  */
-public interface LNClasses extends EObject {
+public interface LNClasses extends NsdObject {
     /**
      * Returns the value of the '<em><b>Abstract LN Class</b></em>' containment reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass}.

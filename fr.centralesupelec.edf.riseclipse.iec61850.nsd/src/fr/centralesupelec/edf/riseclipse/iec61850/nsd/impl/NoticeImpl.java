@@ -30,8 +30,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.FeatureMap;
@@ -51,7 +49,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class NoticeImpl extends MinimalEObjectImpl.Container implements Notice {
+public class NoticeImpl extends NsdObjectImpl implements Notice {
     /**
      * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list.
      * <!-- begin-user-doc -->

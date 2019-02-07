@@ -86,14 +86,15 @@ public class NsdSwitch< T > extends Switch< T > {
         case NsdPackage.APPLIES_TO_TYPE: {
             AppliesToType appliesToType = ( AppliesToType ) theEObject;
             T result = caseAppliesToType( appliesToType );
-            if( result == null ) result = caseNSDObjectWithVersionAndRelease( appliesToType );
+            if( result == null ) result = caseAgNSIdentification( appliesToType );
+            if( result == null ) result = caseNsdObject( appliesToType );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
         case NsdPackage.DEPENDS_ON: {
             DependsOn dependsOn = ( DependsOn ) theEObject;
             T result = caseDependsOn( dependsOn );
-            if( result == null ) result = caseNSDObjectWithVersionAndRelease( dependsOn );
+            if( result == null ) result = caseAgNSIdentification( dependsOn );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
@@ -106,18 +107,21 @@ public class NsdSwitch< T > extends Switch< T > {
         case NsdPackage.SERVICE_TYPE: {
             ServiceType serviceType = ( ServiceType ) theEObject;
             T result = caseServiceType( serviceType );
+            if( result == null ) result = caseNsdObject( serviceType );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
         case NsdPackage.ABBREVIATION: {
             Abbreviation abbreviation = ( Abbreviation ) theEObject;
             T result = caseAbbreviation( abbreviation );
+            if( result == null ) result = caseNsdObject( abbreviation );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
         case NsdPackage.ABBREVIATIONS: {
             Abbreviations abbreviations = ( Abbreviations ) theEObject;
             T result = caseAbbreviations( abbreviations );
+            if( result == null ) result = caseNsdObject( abbreviations );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
@@ -127,6 +131,7 @@ public class NsdSwitch< T > extends Switch< T > {
             if( result == null ) result = caseAnyLNClass( abstractLNClass );
             if( result == null ) result = caseTitledClass( abstractLNClass );
             if( result == null ) result = caseDocumentedClass( abstractLNClass );
+            if( result == null ) result = caseNsdObject( abstractLNClass );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
@@ -135,6 +140,7 @@ public class NsdSwitch< T > extends Switch< T > {
             T result = caseAnyLNClass( anyLNClass );
             if( result == null ) result = caseTitledClass( anyLNClass );
             if( result == null ) result = caseDocumentedClass( anyLNClass );
+            if( result == null ) result = caseNsdObject( anyLNClass );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
@@ -142,24 +148,28 @@ public class NsdSwitch< T > extends Switch< T > {
             ApplicableServiceNS applicableServiceNS = ( ApplicableServiceNS ) theEObject;
             T result = caseApplicableServiceNS( applicableServiceNS );
             if( result == null ) result = caseCopyrighted( applicableServiceNS );
+            if( result == null ) result = caseNsdObject( applicableServiceNS );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
         case NsdPackage.APPLICABLE_SERVICES: {
             ApplicableServices applicableServices = ( ApplicableServices ) theEObject;
             T result = caseApplicableServices( applicableServices );
+            if( result == null ) result = caseNsdObject( applicableServices );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
         case NsdPackage.BASIC_TYPE: {
             BasicType basicType = ( BasicType ) theEObject;
             T result = caseBasicType( basicType );
+            if( result == null ) result = caseNsdObject( basicType );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
         case NsdPackage.BASIC_TYPES: {
             BasicTypes basicTypes = ( BasicTypes ) theEObject;
             T result = caseBasicTypes( basicTypes );
+            if( result == null ) result = caseNsdObject( basicTypes );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
@@ -168,19 +178,21 @@ public class NsdSwitch< T > extends Switch< T > {
             T result = caseCDC( cdc );
             if( result == null ) result = caseTitledClass( cdc );
             if( result == null ) result = caseDocumentedClass( cdc );
+            if( result == null ) result = caseNsdObject( cdc );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
         case NsdPackage.CD_CS: {
             CDCs cdCs = ( CDCs ) theEObject;
             T result = caseCDCs( cdCs );
+            if( result == null ) result = caseNsdObject( cdCs );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
         case NsdPackage.CHANGES: {
             Changes changes = ( Changes ) theEObject;
             T result = caseChanges( changes );
-            if( result == null ) result = caseNSDObjectWithVersionAndRelease( changes );
+            if( result == null ) result = caseNsdObject( changes );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
@@ -189,24 +201,28 @@ public class NsdSwitch< T > extends Switch< T > {
             T result = caseConstructedAttribute( constructedAttribute );
             if( result == null ) result = caseTitledClass( constructedAttribute );
             if( result == null ) result = caseDocumentedClass( constructedAttribute );
+            if( result == null ) result = caseNsdObject( constructedAttribute );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
         case NsdPackage.CONSTRUCTED_ATTRIBUTES: {
             ConstructedAttributes constructedAttributes = ( ConstructedAttributes ) theEObject;
             T result = caseConstructedAttributes( constructedAttributes );
+            if( result == null ) result = caseNsdObject( constructedAttributes );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
         case NsdPackage.COPYRIGHTED: {
             Copyrighted copyrighted = ( Copyrighted ) theEObject;
             T result = caseCopyrighted( copyrighted );
+            if( result == null ) result = caseNsdObject( copyrighted );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
         case NsdPackage.COPYRIGHT_NOTICE: {
             CopyrightNotice copyrightNotice = ( CopyrightNotice ) theEObject;
             T result = caseCopyrightNotice( copyrightNotice );
+            if( result == null ) result = caseNsdObject( copyrightNotice );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
@@ -214,6 +230,12 @@ public class NsdSwitch< T > extends Switch< T > {
             DataAttribute dataAttribute = ( DataAttribute ) theEObject;
             T result = caseDataAttribute( dataAttribute );
             if( result == null ) result = caseDocumentedClass( dataAttribute );
+            if( result == null ) result = caseAgPresenceCondition( dataAttribute );
+            if( result == null ) result = caseAgArray( dataAttribute );
+            if( result == null ) result = caseAgTrgOp( dataAttribute );
+            if( result == null ) result = caseAgAttributeTypeAndValues( dataAttribute );
+            if( result == null ) result = caseNsdObject( dataAttribute );
+            if( result == null ) result = caseAgAttributeType( dataAttribute );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
@@ -221,24 +243,31 @@ public class NsdSwitch< T > extends Switch< T > {
             DataObject dataObject = ( DataObject ) theEObject;
             T result = caseDataObject( dataObject );
             if( result == null ) result = caseDocumentedClass( dataObject );
+            if( result == null ) result = caseAgPresenceCondition( dataObject );
+            if( result == null ) result = caseAgPresenceConditionDerivedStatistics( dataObject );
+            if( result == null ) result = caseAgUnderlyingType( dataObject );
+            if( result == null ) result = caseNsdObject( dataObject );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
         case NsdPackage.DATA_SET_MEMBER_OF: {
             DataSetMemberOf dataSetMemberOf = ( DataSetMemberOf ) theEObject;
             T result = caseDataSetMemberOf( dataSetMemberOf );
+            if( result == null ) result = caseNsdObject( dataSetMemberOf );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
         case NsdPackage.DOC: {
             Doc doc = ( Doc ) theEObject;
             T result = caseDoc( doc );
+            if( result == null ) result = caseNsdObject( doc );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
         case NsdPackage.DOCUMENTED_CLASS: {
             DocumentedClass documentedClass = ( DocumentedClass ) theEObject;
             T result = caseDocumentedClass( documentedClass );
+            if( result == null ) result = caseNsdObject( documentedClass );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
@@ -247,30 +276,35 @@ public class NsdSwitch< T > extends Switch< T > {
             T result = caseEnumeration( enumeration );
             if( result == null ) result = caseTitledClass( enumeration );
             if( result == null ) result = caseDocumentedClass( enumeration );
+            if( result == null ) result = caseNsdObject( enumeration );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
         case NsdPackage.ENUMERATIONS: {
             Enumerations enumerations = ( Enumerations ) theEObject;
             T result = caseEnumerations( enumerations );
+            if( result == null ) result = caseNsdObject( enumerations );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
         case NsdPackage.FUNCTIONAL_CONSTRAINT: {
             FunctionalConstraint functionalConstraint = ( FunctionalConstraint ) theEObject;
             T result = caseFunctionalConstraint( functionalConstraint );
+            if( result == null ) result = caseNsdObject( functionalConstraint );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
         case NsdPackage.FUNCTIONAL_CONSTRAINTS: {
             FunctionalConstraints functionalConstraints = ( FunctionalConstraints ) theEObject;
             T result = caseFunctionalConstraints( functionalConstraints );
+            if( result == null ) result = caseNsdObject( functionalConstraints );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
         case NsdPackage.LICENSE: {
             License license = ( License ) theEObject;
             T result = caseLicense( license );
+            if( result == null ) result = caseNsdObject( license );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
@@ -278,6 +312,7 @@ public class NsdSwitch< T > extends Switch< T > {
             Literal literal = ( Literal ) theEObject;
             T result = caseLiteral( literal );
             if( result == null ) result = caseDocumentedClass( literal );
+            if( result == null ) result = caseNsdObject( literal );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
@@ -287,18 +322,21 @@ public class NsdSwitch< T > extends Switch< T > {
             if( result == null ) result = caseAnyLNClass( lnClass );
             if( result == null ) result = caseTitledClass( lnClass );
             if( result == null ) result = caseDocumentedClass( lnClass );
+            if( result == null ) result = caseNsdObject( lnClass );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
         case NsdPackage.LN_CLASSES: {
             LNClasses lnClasses = ( LNClasses ) theEObject;
             T result = caseLNClasses( lnClasses );
+            if( result == null ) result = caseNsdObject( lnClasses );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
         case NsdPackage.NOTICE: {
             Notice notice = ( Notice ) theEObject;
             T result = caseNotice( notice );
+            if( result == null ) result = caseNsdObject( notice );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
@@ -306,7 +344,10 @@ public class NsdSwitch< T > extends Switch< T > {
             NS ns = ( NS ) theEObject;
             T result = caseNS( ns );
             if( result == null ) result = caseCopyrighted( ns );
-            if( result == null ) result = caseNSDObjectWithVersionAndRelease( ns );
+            if( result == null ) result = caseAgNSIdentification( ns );
+            if( result == null ) result = caseAgUML( ns );
+            if( result == null ) result = caseAgNSdesc( ns );
+            if( result == null ) result = caseNsdObject( ns );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
@@ -314,31 +355,37 @@ public class NsdSwitch< T > extends Switch< T > {
             NSDoc nsDoc = ( NSDoc ) theEObject;
             T result = caseNSDoc( nsDoc );
             if( result == null ) result = caseCopyrighted( nsDoc );
-            if( result == null ) result = caseNSDObjectWithVersionAndRelease( nsDoc );
+            if( result == null ) result = caseAgNSIdentification( nsDoc );
+            if( result == null ) result = caseAgUML( nsDoc );
+            if( result == null ) result = caseNsdObject( nsDoc );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
         case NsdPackage.PRESENCE_CONDITION: {
             PresenceCondition presenceCondition = ( PresenceCondition ) theEObject;
             T result = casePresenceCondition( presenceCondition );
+            if( result == null ) result = caseNsdObject( presenceCondition );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
         case NsdPackage.PRESENCE_CONDITIONS: {
             PresenceConditions presenceConditions = ( PresenceConditions ) theEObject;
             T result = casePresenceConditions( presenceConditions );
+            if( result == null ) result = caseNsdObject( presenceConditions );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
         case NsdPackage.SERVICE_CDC: {
             ServiceCDC serviceCDC = ( ServiceCDC ) theEObject;
             T result = caseServiceCDC( serviceCDC );
+            if( result == null ) result = caseNsdObject( serviceCDC );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
         case NsdPackage.SERVICE_CD_CS: {
             ServiceCDCs serviceCDCs = ( ServiceCDCs ) theEObject;
             T result = caseServiceCDCs( serviceCDCs );
+            if( result == null ) result = caseNsdObject( serviceCDCs );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
@@ -348,12 +395,14 @@ public class NsdSwitch< T > extends Switch< T > {
             if( result == null ) result = caseConstructedAttribute( serviceConstructedAttribute );
             if( result == null ) result = caseTitledClass( serviceConstructedAttribute );
             if( result == null ) result = caseDocumentedClass( serviceConstructedAttribute );
+            if( result == null ) result = caseNsdObject( serviceConstructedAttribute );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
         case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES: {
             ServiceConstructedAttributes serviceConstructedAttributes = ( ServiceConstructedAttributes ) theEObject;
             T result = caseServiceConstructedAttributes( serviceConstructedAttributes );
+            if( result == null ) result = caseNsdObject( serviceConstructedAttributes );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
@@ -361,6 +410,10 @@ public class NsdSwitch< T > extends Switch< T > {
             ServiceDataAttribute serviceDataAttribute = ( ServiceDataAttribute ) theEObject;
             T result = caseServiceDataAttribute( serviceDataAttribute );
             if( result == null ) result = caseDocumentedClass( serviceDataAttribute );
+            if( result == null ) result = caseAgPresenceCondition( serviceDataAttribute );
+            if( result == null ) result = caseAgAttributeType( serviceDataAttribute );
+            if( result == null ) result = caseAgUnderlyingType( serviceDataAttribute );
+            if( result == null ) result = caseNsdObject( serviceDataAttribute );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
@@ -368,14 +421,18 @@ public class NsdSwitch< T > extends Switch< T > {
             ServiceNS serviceNS = ( ServiceNS ) theEObject;
             T result = caseServiceNS( serviceNS );
             if( result == null ) result = caseCopyrighted( serviceNS );
-            if( result == null ) result = caseNSDObjectWithVersionAndRelease( serviceNS );
+            if( result == null ) result = caseAgNSIdentification( serviceNS );
+            if( result == null ) result = caseAgUML( serviceNS );
+            if( result == null ) result = caseAgNSdesc( serviceNS );
+            if( result == null ) result = caseNsdObject( serviceNS );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
         case NsdPackage.SERVICE_NS_USAGE: {
             ServiceNsUsage serviceNsUsage = ( ServiceNsUsage ) theEObject;
             T result = caseServiceNsUsage( serviceNsUsage );
-            if( result == null ) result = caseNSDObjectWithVersionAndRelease( serviceNsUsage );
+            if( result == null ) result = caseNsdObject( serviceNsUsage );
+            if( result == null ) result = caseAgNSIdentification( serviceNsUsage );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
@@ -383,12 +440,16 @@ public class NsdSwitch< T > extends Switch< T > {
             ServiceParameter serviceParameter = ( ServiceParameter ) theEObject;
             T result = caseServiceParameter( serviceParameter );
             if( result == null ) result = caseDocumentedClass( serviceParameter );
+            if( result == null ) result = caseAgAttributeTypeAndValues( serviceParameter );
+            if( result == null ) result = caseNsdObject( serviceParameter );
+            if( result == null ) result = caseAgAttributeType( serviceParameter );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
         case NsdPackage.SERVICE_TYPE_REALIZATIONS: {
             ServiceTypeRealizations serviceTypeRealizations = ( ServiceTypeRealizations ) theEObject;
             T result = caseServiceTypeRealizations( serviceTypeRealizations );
+            if( result == null ) result = caseNsdObject( serviceTypeRealizations );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
@@ -396,6 +457,11 @@ public class NsdSwitch< T > extends Switch< T > {
             SubDataAttribute subDataAttribute = ( SubDataAttribute ) theEObject;
             T result = caseSubDataAttribute( subDataAttribute );
             if( result == null ) result = caseDocumentedClass( subDataAttribute );
+            if( result == null ) result = caseAgPresenceCondition( subDataAttribute );
+            if( result == null ) result = caseAgArray( subDataAttribute );
+            if( result == null ) result = caseAgAttributeTypeAndValues( subDataAttribute );
+            if( result == null ) result = caseNsdObject( subDataAttribute );
+            if( result == null ) result = caseAgAttributeType( subDataAttribute );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
@@ -403,6 +469,10 @@ public class NsdSwitch< T > extends Switch< T > {
             SubDataObject subDataObject = ( SubDataObject ) theEObject;
             T result = caseSubDataObject( subDataObject );
             if( result == null ) result = caseDocumentedClass( subDataObject );
+            if( result == null ) result = caseAgPresenceCondition( subDataObject );
+            if( result == null ) result = caseAgArray( subDataObject );
+            if( result == null ) result = caseAgUnderlyingType( subDataObject );
+            if( result == null ) result = caseNsdObject( subDataObject );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
@@ -410,12 +480,74 @@ public class NsdSwitch< T > extends Switch< T > {
             TitledClass titledClass = ( TitledClass ) theEObject;
             T result = caseTitledClass( titledClass );
             if( result == null ) result = caseDocumentedClass( titledClass );
+            if( result == null ) result = caseNsdObject( titledClass );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.NSD_OBJECT_WITH_VERSION_AND_RELEASE: {
-            NSDObjectWithVersionAndRelease nsdObjectWithVersionAndRelease = ( NSDObjectWithVersionAndRelease ) theEObject;
-            T result = caseNSDObjectWithVersionAndRelease( nsdObjectWithVersionAndRelease );
+        case NsdPackage.NSD_OBJECT: {
+            NsdObject nsdObject = ( NsdObject ) theEObject;
+            T result = caseNsdObject( nsdObject );
+            if( result == null ) result = defaultCase( theEObject );
+            return result;
+        }
+        case NsdPackage.AG_NS_IDENTIFICATION: {
+            AgNSIdentification agNSIdentification = ( AgNSIdentification ) theEObject;
+            T result = caseAgNSIdentification( agNSIdentification );
+            if( result == null ) result = defaultCase( theEObject );
+            return result;
+        }
+        case NsdPackage.AG_PRESENCE_CONDITION: {
+            AgPresenceCondition agPresenceCondition = ( AgPresenceCondition ) theEObject;
+            T result = caseAgPresenceCondition( agPresenceCondition );
+            if( result == null ) result = defaultCase( theEObject );
+            return result;
+        }
+        case NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS: {
+            AgPresenceConditionDerivedStatistics agPresenceConditionDerivedStatistics = ( AgPresenceConditionDerivedStatistics ) theEObject;
+            T result = caseAgPresenceConditionDerivedStatistics( agPresenceConditionDerivedStatistics );
+            if( result == null ) result = defaultCase( theEObject );
+            return result;
+        }
+        case NsdPackage.AG_ARRAY: {
+            AgArray agArray = ( AgArray ) theEObject;
+            T result = caseAgArray( agArray );
+            if( result == null ) result = defaultCase( theEObject );
+            return result;
+        }
+        case NsdPackage.AG_TRG_OP: {
+            AgTrgOp agTrgOp = ( AgTrgOp ) theEObject;
+            T result = caseAgTrgOp( agTrgOp );
+            if( result == null ) result = defaultCase( theEObject );
+            return result;
+        }
+        case NsdPackage.AG_ATTRIBUTE_TYPE: {
+            AgAttributeType agAttributeType = ( AgAttributeType ) theEObject;
+            T result = caseAgAttributeType( agAttributeType );
+            if( result == null ) result = defaultCase( theEObject );
+            return result;
+        }
+        case NsdPackage.AG_ATTRIBUTE_TYPE_AND_VALUES: {
+            AgAttributeTypeAndValues agAttributeTypeAndValues = ( AgAttributeTypeAndValues ) theEObject;
+            T result = caseAgAttributeTypeAndValues( agAttributeTypeAndValues );
+            if( result == null ) result = caseAgAttributeType( agAttributeTypeAndValues );
+            if( result == null ) result = defaultCase( theEObject );
+            return result;
+        }
+        case NsdPackage.AG_UNDERLYING_TYPE: {
+            AgUnderlyingType agUnderlyingType = ( AgUnderlyingType ) theEObject;
+            T result = caseAgUnderlyingType( agUnderlyingType );
+            if( result == null ) result = defaultCase( theEObject );
+            return result;
+        }
+        case NsdPackage.AG_UML: {
+            AgUML agUML = ( AgUML ) theEObject;
+            T result = caseAgUML( agUML );
+            if( result == null ) result = defaultCase( theEObject );
+            return result;
+        }
+        case NsdPackage.AG_NSDESC: {
+            AgNSdesc agNSdesc = ( AgNSdesc ) theEObject;
+            T result = caseAgNSdesc( agNSdesc );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
@@ -1160,17 +1292,167 @@ public class NsdSwitch< T > extends Switch< T > {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>NSD Object With Version And Release</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Object</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>NSD Object With Version And Release</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Object</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseNSDObjectWithVersionAndRelease( NSDObjectWithVersionAndRelease object ) {
+    public T caseNsdObject( NsdObject object ) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Ag NS Identification</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Ag NS Identification</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAgNSIdentification( AgNSIdentification object ) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Ag Presence Condition</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Ag Presence Condition</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAgPresenceCondition( AgPresenceCondition object ) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Ag Presence Condition Derived Statistics</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Ag Presence Condition Derived Statistics</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAgPresenceConditionDerivedStatistics( AgPresenceConditionDerivedStatistics object ) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Ag Array</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Ag Array</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAgArray( AgArray object ) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Ag Trg Op</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Ag Trg Op</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAgTrgOp( AgTrgOp object ) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Ag Attribute Type</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Ag Attribute Type</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAgAttributeType( AgAttributeType object ) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Ag Attribute Type And Values</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Ag Attribute Type And Values</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAgAttributeTypeAndValues( AgAttributeTypeAndValues object ) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Ag Underlying Type</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Ag Underlying Type</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAgUnderlyingType( AgUnderlyingType object ) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Ag UML</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Ag UML</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAgUML( AgUML object ) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Ag NSdesc</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Ag NSdesc</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAgNSdesc( AgNSdesc object ) {
         return null;
     }
 

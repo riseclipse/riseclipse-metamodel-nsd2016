@@ -20,9 +20,11 @@
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSdesc;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUML;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDObjectWithVersionAndRelease;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage;
@@ -51,6 +53,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getRelease <em>Release</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getVersion <em>Version</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getId <em>Id</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getRevision <em>Revision</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getPublicationStage <em>Publication Stage</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getUmlDate <em>Uml Date</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getUmlVersion <em>Uml Version</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getDescID <em>Desc ID</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getChanges <em>Changes</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getFunctionalConstraints <em>Functional Constraints</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getPresenceConditions <em>Presence Conditions</em>}</li>
@@ -58,12 +66,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getServiceTypeRealizations <em>Service Type Realizations</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getServiceConstructedAttributes <em>Service Constructed Attributes</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getServiceCDCs <em>Service CD Cs</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getDescID <em>Desc ID</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getId <em>Id</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getPublicationStage <em>Publication Stage</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getRevision <em>Revision</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getUmlDate <em>Uml Date</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getUmlVersion <em>Uml Version</em>}</li>
  * </ul>
  *
  * @generated
@@ -126,6 +128,180 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
      * @ordered
      */
     protected boolean versionESet;
+
+    /**
+     * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getId()
+     * @generated
+     * @ordered
+     */
+    protected static final String ID_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getId()
+     * @generated
+     * @ordered
+     */
+    protected String id = ID_EDEFAULT;
+
+    /**
+     * This is true if the Id attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean idESet;
+
+    /**
+     * The default value of the '{@link #getRevision() <em>Revision</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRevision()
+     * @generated
+     * @ordered
+     */
+    protected static final String REVISION_EDEFAULT = "A";
+
+    /**
+     * The cached value of the '{@link #getRevision() <em>Revision</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRevision()
+     * @generated
+     * @ordered
+     */
+    protected String revision = REVISION_EDEFAULT;
+
+    /**
+     * This is true if the Revision attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean revisionESet;
+
+    /**
+     * The default value of the '{@link #getPublicationStage() <em>Publication Stage</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getPublicationStage()
+     * @generated
+     * @ordered
+     */
+    protected static final PubStage PUBLICATION_STAGE_EDEFAULT = PubStage.IS;
+
+    /**
+     * The cached value of the '{@link #getPublicationStage() <em>Publication Stage</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getPublicationStage()
+     * @generated
+     * @ordered
+     */
+    protected PubStage publicationStage = PUBLICATION_STAGE_EDEFAULT;
+
+    /**
+     * This is true if the Publication Stage attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean publicationStageESet;
+
+    /**
+     * The default value of the '{@link #getUmlDate() <em>Uml Date</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getUmlDate()
+     * @generated
+     * @ordered
+     */
+    protected static final XMLGregorianCalendar UML_DATE_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getUmlDate() <em>Uml Date</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getUmlDate()
+     * @generated
+     * @ordered
+     */
+    protected XMLGregorianCalendar umlDate = UML_DATE_EDEFAULT;
+
+    /**
+     * This is true if the Uml Date attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean umlDateESet;
+
+    /**
+     * The default value of the '{@link #getUmlVersion() <em>Uml Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getUmlVersion()
+     * @generated
+     * @ordered
+     */
+    protected static final String UML_VERSION_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getUmlVersion() <em>Uml Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getUmlVersion()
+     * @generated
+     * @ordered
+     */
+    protected String umlVersion = UML_VERSION_EDEFAULT;
+
+    /**
+     * This is true if the Uml Version attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean umlVersionESet;
+
+    /**
+     * The default value of the '{@link #getDescID() <em>Desc ID</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getDescID()
+     * @generated
+     * @ordered
+     */
+    protected static final String DESC_ID_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getDescID() <em>Desc ID</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getDescID()
+     * @generated
+     * @ordered
+     */
+    protected String descID = DESC_ID_EDEFAULT;
+
+    /**
+     * This is true if the Desc ID attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean descIDESet;
 
     /**
      * The cached value of the '{@link #getChanges() <em>Changes</em>}' containment reference.
@@ -259,180 +435,6 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
      * @ordered
      */
     protected boolean serviceCDCsESet;
-
-    /**
-     * The default value of the '{@link #getDescID() <em>Desc ID</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getDescID()
-     * @generated
-     * @ordered
-     */
-    protected static final String DESC_ID_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getDescID() <em>Desc ID</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getDescID()
-     * @generated
-     * @ordered
-     */
-    protected String descID = DESC_ID_EDEFAULT;
-
-    /**
-     * This is true if the Desc ID attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean descIDESet;
-
-    /**
-     * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getId()
-     * @generated
-     * @ordered
-     */
-    protected static final String ID_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getId()
-     * @generated
-     * @ordered
-     */
-    protected String id = ID_EDEFAULT;
-
-    /**
-     * This is true if the Id attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean idESet;
-
-    /**
-     * The default value of the '{@link #getPublicationStage() <em>Publication Stage</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getPublicationStage()
-     * @generated
-     * @ordered
-     */
-    protected static final PubStage PUBLICATION_STAGE_EDEFAULT = PubStage.IS;
-
-    /**
-     * The cached value of the '{@link #getPublicationStage() <em>Publication Stage</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getPublicationStage()
-     * @generated
-     * @ordered
-     */
-    protected PubStage publicationStage = PUBLICATION_STAGE_EDEFAULT;
-
-    /**
-     * This is true if the Publication Stage attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean publicationStageESet;
-
-    /**
-     * The default value of the '{@link #getRevision() <em>Revision</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getRevision()
-     * @generated
-     * @ordered
-     */
-    protected static final String REVISION_EDEFAULT = "A";
-
-    /**
-     * The cached value of the '{@link #getRevision() <em>Revision</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getRevision()
-     * @generated
-     * @ordered
-     */
-    protected String revision = REVISION_EDEFAULT;
-
-    /**
-     * This is true if the Revision attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean revisionESet;
-
-    /**
-     * The default value of the '{@link #getUmlDate() <em>Uml Date</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getUmlDate()
-     * @generated
-     * @ordered
-     */
-    protected static final XMLGregorianCalendar UML_DATE_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getUmlDate() <em>Uml Date</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getUmlDate()
-     * @generated
-     * @ordered
-     */
-    protected XMLGregorianCalendar umlDate = UML_DATE_EDEFAULT;
-
-    /**
-     * This is true if the Uml Date attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean umlDateESet;
-
-    /**
-     * The default value of the '{@link #getUmlVersion() <em>Uml Version</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getUmlVersion()
-     * @generated
-     * @ordered
-     */
-    protected static final String UML_VERSION_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getUmlVersion() <em>Uml Version</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getUmlVersion()
-     * @generated
-     * @ordered
-     */
-    protected String umlVersion = UML_VERSION_EDEFAULT;
-
-    /**
-     * This is true if the Uml Version attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean umlVersionESet;
 
     /**
      * <!-- begin-user-doc -->
@@ -1717,6 +1719,18 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
             return getRelease();
         case NsdPackage.SERVICE_NS__VERSION:
             return getVersion();
+        case NsdPackage.SERVICE_NS__ID:
+            return getId();
+        case NsdPackage.SERVICE_NS__REVISION:
+            return getRevision();
+        case NsdPackage.SERVICE_NS__PUBLICATION_STAGE:
+            return getPublicationStage();
+        case NsdPackage.SERVICE_NS__UML_DATE:
+            return getUmlDate();
+        case NsdPackage.SERVICE_NS__UML_VERSION:
+            return getUmlVersion();
+        case NsdPackage.SERVICE_NS__DESC_ID:
+            return getDescID();
         case NsdPackage.SERVICE_NS__CHANGES:
             return getChanges();
         case NsdPackage.SERVICE_NS__FUNCTIONAL_CONSTRAINTS:
@@ -1731,18 +1745,6 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
             return getServiceConstructedAttributes();
         case NsdPackage.SERVICE_NS__SERVICE_CD_CS:
             return getServiceCDCs();
-        case NsdPackage.SERVICE_NS__DESC_ID:
-            return getDescID();
-        case NsdPackage.SERVICE_NS__ID:
-            return getId();
-        case NsdPackage.SERVICE_NS__PUBLICATION_STAGE:
-            return getPublicationStage();
-        case NsdPackage.SERVICE_NS__REVISION:
-            return getRevision();
-        case NsdPackage.SERVICE_NS__UML_DATE:
-            return getUmlDate();
-        case NsdPackage.SERVICE_NS__UML_VERSION:
-            return getUmlVersion();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -1760,6 +1762,24 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
             return;
         case NsdPackage.SERVICE_NS__VERSION:
             setVersion( ( Integer ) newValue );
+            return;
+        case NsdPackage.SERVICE_NS__ID:
+            setId( ( String ) newValue );
+            return;
+        case NsdPackage.SERVICE_NS__REVISION:
+            setRevision( ( String ) newValue );
+            return;
+        case NsdPackage.SERVICE_NS__PUBLICATION_STAGE:
+            setPublicationStage( ( PubStage ) newValue );
+            return;
+        case NsdPackage.SERVICE_NS__UML_DATE:
+            setUmlDate( ( XMLGregorianCalendar ) newValue );
+            return;
+        case NsdPackage.SERVICE_NS__UML_VERSION:
+            setUmlVersion( ( String ) newValue );
+            return;
+        case NsdPackage.SERVICE_NS__DESC_ID:
+            setDescID( ( String ) newValue );
             return;
         case NsdPackage.SERVICE_NS__CHANGES:
             setChanges( ( Changes ) newValue );
@@ -1782,24 +1802,6 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         case NsdPackage.SERVICE_NS__SERVICE_CD_CS:
             setServiceCDCs( ( ServiceCDCs ) newValue );
             return;
-        case NsdPackage.SERVICE_NS__DESC_ID:
-            setDescID( ( String ) newValue );
-            return;
-        case NsdPackage.SERVICE_NS__ID:
-            setId( ( String ) newValue );
-            return;
-        case NsdPackage.SERVICE_NS__PUBLICATION_STAGE:
-            setPublicationStage( ( PubStage ) newValue );
-            return;
-        case NsdPackage.SERVICE_NS__REVISION:
-            setRevision( ( String ) newValue );
-            return;
-        case NsdPackage.SERVICE_NS__UML_DATE:
-            setUmlDate( ( XMLGregorianCalendar ) newValue );
-            return;
-        case NsdPackage.SERVICE_NS__UML_VERSION:
-            setUmlVersion( ( String ) newValue );
-            return;
         }
         super.eSet( featureID, newValue );
     }
@@ -1817,6 +1819,24 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
             return;
         case NsdPackage.SERVICE_NS__VERSION:
             unsetVersion();
+            return;
+        case NsdPackage.SERVICE_NS__ID:
+            unsetId();
+            return;
+        case NsdPackage.SERVICE_NS__REVISION:
+            unsetRevision();
+            return;
+        case NsdPackage.SERVICE_NS__PUBLICATION_STAGE:
+            unsetPublicationStage();
+            return;
+        case NsdPackage.SERVICE_NS__UML_DATE:
+            unsetUmlDate();
+            return;
+        case NsdPackage.SERVICE_NS__UML_VERSION:
+            unsetUmlVersion();
+            return;
+        case NsdPackage.SERVICE_NS__DESC_ID:
+            unsetDescID();
             return;
         case NsdPackage.SERVICE_NS__CHANGES:
             unsetChanges();
@@ -1839,24 +1859,6 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         case NsdPackage.SERVICE_NS__SERVICE_CD_CS:
             unsetServiceCDCs();
             return;
-        case NsdPackage.SERVICE_NS__DESC_ID:
-            unsetDescID();
-            return;
-        case NsdPackage.SERVICE_NS__ID:
-            unsetId();
-            return;
-        case NsdPackage.SERVICE_NS__PUBLICATION_STAGE:
-            unsetPublicationStage();
-            return;
-        case NsdPackage.SERVICE_NS__REVISION:
-            unsetRevision();
-            return;
-        case NsdPackage.SERVICE_NS__UML_DATE:
-            unsetUmlDate();
-            return;
-        case NsdPackage.SERVICE_NS__UML_VERSION:
-            unsetUmlVersion();
-            return;
         }
         super.eUnset( featureID );
     }
@@ -1873,6 +1875,18 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
             return isSetRelease();
         case NsdPackage.SERVICE_NS__VERSION:
             return isSetVersion();
+        case NsdPackage.SERVICE_NS__ID:
+            return isSetId();
+        case NsdPackage.SERVICE_NS__REVISION:
+            return isSetRevision();
+        case NsdPackage.SERVICE_NS__PUBLICATION_STAGE:
+            return isSetPublicationStage();
+        case NsdPackage.SERVICE_NS__UML_DATE:
+            return isSetUmlDate();
+        case NsdPackage.SERVICE_NS__UML_VERSION:
+            return isSetUmlVersion();
+        case NsdPackage.SERVICE_NS__DESC_ID:
+            return isSetDescID();
         case NsdPackage.SERVICE_NS__CHANGES:
             return isSetChanges();
         case NsdPackage.SERVICE_NS__FUNCTIONAL_CONSTRAINTS:
@@ -1887,18 +1901,6 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
             return isSetServiceConstructedAttributes();
         case NsdPackage.SERVICE_NS__SERVICE_CD_CS:
             return isSetServiceCDCs();
-        case NsdPackage.SERVICE_NS__DESC_ID:
-            return isSetDescID();
-        case NsdPackage.SERVICE_NS__ID:
-            return isSetId();
-        case NsdPackage.SERVICE_NS__PUBLICATION_STAGE:
-            return isSetPublicationStage();
-        case NsdPackage.SERVICE_NS__REVISION:
-            return isSetRevision();
-        case NsdPackage.SERVICE_NS__UML_DATE:
-            return isSetUmlDate();
-        case NsdPackage.SERVICE_NS__UML_VERSION:
-            return isSetUmlVersion();
         }
         return super.eIsSet( featureID );
     }
@@ -1910,12 +1912,36 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
      */
     @Override
     public int eBaseStructuralFeatureID( int derivedFeatureID, Class< ? > baseClass ) {
-        if( baseClass == NSDObjectWithVersionAndRelease.class ) {
+        if( baseClass == AgNSIdentification.class ) {
             switch( derivedFeatureID ) {
             case NsdPackage.SERVICE_NS__RELEASE:
-                return NsdPackage.NSD_OBJECT_WITH_VERSION_AND_RELEASE__RELEASE;
+                return NsdPackage.AG_NS_IDENTIFICATION__RELEASE;
             case NsdPackage.SERVICE_NS__VERSION:
-                return NsdPackage.NSD_OBJECT_WITH_VERSION_AND_RELEASE__VERSION;
+                return NsdPackage.AG_NS_IDENTIFICATION__VERSION;
+            case NsdPackage.SERVICE_NS__ID:
+                return NsdPackage.AG_NS_IDENTIFICATION__ID;
+            case NsdPackage.SERVICE_NS__REVISION:
+                return NsdPackage.AG_NS_IDENTIFICATION__REVISION;
+            case NsdPackage.SERVICE_NS__PUBLICATION_STAGE:
+                return NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgUML.class ) {
+            switch( derivedFeatureID ) {
+            case NsdPackage.SERVICE_NS__UML_DATE:
+                return NsdPackage.AG_UML__UML_DATE;
+            case NsdPackage.SERVICE_NS__UML_VERSION:
+                return NsdPackage.AG_UML__UML_VERSION;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgNSdesc.class ) {
+            switch( derivedFeatureID ) {
+            case NsdPackage.SERVICE_NS__DESC_ID:
+                return NsdPackage.AG_NSDESC__DESC_ID;
             default:
                 return -1;
             }
@@ -1930,12 +1956,36 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
      */
     @Override
     public int eDerivedStructuralFeatureID( int baseFeatureID, Class< ? > baseClass ) {
-        if( baseClass == NSDObjectWithVersionAndRelease.class ) {
+        if( baseClass == AgNSIdentification.class ) {
             switch( baseFeatureID ) {
-            case NsdPackage.NSD_OBJECT_WITH_VERSION_AND_RELEASE__RELEASE:
+            case NsdPackage.AG_NS_IDENTIFICATION__RELEASE:
                 return NsdPackage.SERVICE_NS__RELEASE;
-            case NsdPackage.NSD_OBJECT_WITH_VERSION_AND_RELEASE__VERSION:
+            case NsdPackage.AG_NS_IDENTIFICATION__VERSION:
                 return NsdPackage.SERVICE_NS__VERSION;
+            case NsdPackage.AG_NS_IDENTIFICATION__ID:
+                return NsdPackage.SERVICE_NS__ID;
+            case NsdPackage.AG_NS_IDENTIFICATION__REVISION:
+                return NsdPackage.SERVICE_NS__REVISION;
+            case NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE:
+                return NsdPackage.SERVICE_NS__PUBLICATION_STAGE;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgUML.class ) {
+            switch( baseFeatureID ) {
+            case NsdPackage.AG_UML__UML_DATE:
+                return NsdPackage.SERVICE_NS__UML_DATE;
+            case NsdPackage.AG_UML__UML_VERSION:
+                return NsdPackage.SERVICE_NS__UML_VERSION;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgNSdesc.class ) {
+            switch( baseFeatureID ) {
+            case NsdPackage.AG_NSDESC__DESC_ID:
+                return NsdPackage.SERVICE_NS__DESC_ID;
             default:
                 return -1;
             }
@@ -1963,24 +2013,19 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
             result.append( version );
         else
             result.append( "<unset>" );
-        result.append( ", descID: " );
-        if( descIDESet )
-            result.append( descID );
-        else
-            result.append( "<unset>" );
         result.append( ", id: " );
         if( idESet )
             result.append( id );
         else
             result.append( "<unset>" );
-        result.append( ", publicationStage: " );
-        if( publicationStageESet )
-            result.append( publicationStage );
-        else
-            result.append( "<unset>" );
         result.append( ", revision: " );
         if( revisionESet )
             result.append( revision );
+        else
+            result.append( "<unset>" );
+        result.append( ", publicationStage: " );
+        if( publicationStageESet )
+            result.append( publicationStage );
         else
             result.append( "<unset>" );
         result.append( ", umlDate: " );
@@ -1991,6 +2036,11 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         result.append( ", umlVersion: " );
         if( umlVersionESet )
             result.append( umlVersion );
+        else
+            result.append( "<unset>" );
+        result.append( ", descID: " );
+        if( descIDESet )
+            result.append( descID );
         else
             result.append( "<unset>" );
         result.append( ')' );

@@ -19,8 +19,6 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Service Type</b></em>'.
@@ -38,7 +36,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='Service_._type' kind='empty'"
  * @generated
  */
-public interface ServiceType extends EObject {
+public interface ServiceType extends NsdObject {
     /**
      * Returns the value of the '<em><b>Name</b></em>' attribute.
      * The literals are from the enumeration {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ACSIServicesKind}.

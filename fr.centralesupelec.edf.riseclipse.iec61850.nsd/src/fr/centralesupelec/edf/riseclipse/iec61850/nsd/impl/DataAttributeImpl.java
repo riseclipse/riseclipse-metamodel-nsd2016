@@ -19,6 +19,11 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgArray;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeTypeAndValues;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceCondition;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgTrgOp;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
@@ -45,319 +50,29 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#isDchg <em>Dchg</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getDefaultValue <em>Default Value</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#isDupd <em>Dupd</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getFc <em>Fc</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#isIsArray <em>Is Array</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getMaxIndexAttribute <em>Max Index Attribute</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getMaxValue <em>Max Value</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getMinIndex <em>Min Index</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getMinValue <em>Min Value</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getPresCond <em>Pres Cond</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getPresCondArgs <em>Pres Cond Args</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getPresCondArgsID <em>Pres Cond Args ID</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#isQchg <em>Qchg</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#isIsArray <em>Is Array</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getMaxIndexAttribute <em>Max Index Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getMinIndex <em>Min Index</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getSizeAttribute <em>Size Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#isDchg <em>Dchg</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#isDupd <em>Dupd</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#isQchg <em>Qchg</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getType <em>Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getTypeKind <em>Type Kind</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getDefaultValue <em>Default Value</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getMaxValue <em>Max Value</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getMinValue <em>Min Value</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getFc <em>Fc</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getCDC <em>CDC</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class DataAttributeImpl extends DocumentedClassImpl implements DataAttribute {
-    /**
-     * The default value of the '{@link #isDchg() <em>Dchg</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isDchg()
-     * @generated
-     * @ordered
-     */
-    protected static final boolean DCHG_EDEFAULT = false;
-
-    /**
-     * The cached value of the '{@link #isDchg() <em>Dchg</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isDchg()
-     * @generated
-     * @ordered
-     */
-    protected boolean dchg = DCHG_EDEFAULT;
-
-    /**
-     * This is true if the Dchg attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean dchgESet;
-
-    /**
-     * The default value of the '{@link #getDefaultValue() <em>Default Value</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getDefaultValue()
-     * @generated
-     * @ordered
-     */
-    protected static final String DEFAULT_VALUE_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getDefaultValue() <em>Default Value</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getDefaultValue()
-     * @generated
-     * @ordered
-     */
-    protected String defaultValue = DEFAULT_VALUE_EDEFAULT;
-
-    /**
-     * This is true if the Default Value attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean defaultValueESet;
-
-    /**
-     * The default value of the '{@link #isDupd() <em>Dupd</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isDupd()
-     * @generated
-     * @ordered
-     */
-    protected static final boolean DUPD_EDEFAULT = false;
-
-    /**
-     * The cached value of the '{@link #isDupd() <em>Dupd</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isDupd()
-     * @generated
-     * @ordered
-     */
-    protected boolean dupd = DUPD_EDEFAULT;
-
-    /**
-     * This is true if the Dupd attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean dupdESet;
-
-    /**
-     * The default value of the '{@link #getFc() <em>Fc</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getFc()
-     * @generated
-     * @ordered
-     */
-    protected static final String FC_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getFc() <em>Fc</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getFc()
-     * @generated
-     * @ordered
-     */
-    protected String fc = FC_EDEFAULT;
-
-    /**
-     * This is true if the Fc attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean fcESet;
-
-    /**
-     * The default value of the '{@link #isIsArray() <em>Is Array</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isIsArray()
-     * @generated
-     * @ordered
-     */
-    protected static final boolean IS_ARRAY_EDEFAULT = false;
-
-    /**
-     * The cached value of the '{@link #isIsArray() <em>Is Array</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isIsArray()
-     * @generated
-     * @ordered
-     */
-    protected boolean isArray = IS_ARRAY_EDEFAULT;
-
-    /**
-     * This is true if the Is Array attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean isArrayESet;
-
-    /**
-     * The default value of the '{@link #getMaxIndexAttribute() <em>Max Index Attribute</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getMaxIndexAttribute()
-     * @generated
-     * @ordered
-     */
-    protected static final String MAX_INDEX_ATTRIBUTE_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getMaxIndexAttribute() <em>Max Index Attribute</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getMaxIndexAttribute()
-     * @generated
-     * @ordered
-     */
-    protected String maxIndexAttribute = MAX_INDEX_ATTRIBUTE_EDEFAULT;
-
-    /**
-     * This is true if the Max Index Attribute attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean maxIndexAttributeESet;
-
-    /**
-     * The default value of the '{@link #getMaxValue() <em>Max Value</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getMaxValue()
-     * @generated
-     * @ordered
-     */
-    protected static final BigDecimal MAX_VALUE_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getMaxValue() <em>Max Value</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getMaxValue()
-     * @generated
-     * @ordered
-     */
-    protected BigDecimal maxValue = MAX_VALUE_EDEFAULT;
-
-    /**
-     * This is true if the Max Value attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean maxValueESet;
-
-    /**
-     * The default value of the '{@link #getMinIndex() <em>Min Index</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getMinIndex()
-     * @generated
-     * @ordered
-     */
-    protected static final long MIN_INDEX_EDEFAULT = 0L;
-
-    /**
-     * The cached value of the '{@link #getMinIndex() <em>Min Index</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getMinIndex()
-     * @generated
-     * @ordered
-     */
-    protected long minIndex = MIN_INDEX_EDEFAULT;
-
-    /**
-     * This is true if the Min Index attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean minIndexESet;
-
-    /**
-     * The default value of the '{@link #getMinValue() <em>Min Value</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getMinValue()
-     * @generated
-     * @ordered
-     */
-    protected static final BigDecimal MIN_VALUE_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getMinValue() <em>Min Value</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getMinValue()
-     * @generated
-     * @ordered
-     */
-    protected BigDecimal minValue = MIN_VALUE_EDEFAULT;
-
-    /**
-     * This is true if the Min Value attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean minValueESet;
-
-    /**
-     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-    protected static final String NAME_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-    protected String name = NAME_EDEFAULT;
-
-    /**
-     * This is true if the Name attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean nameESet;
-
     /**
      * The default value of the '{@link #getPresCond() <em>Pres Cond</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -446,33 +161,91 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     protected boolean presCondArgsIDESet;
 
     /**
-     * The default value of the '{@link #isQchg() <em>Qchg</em>}' attribute.
+     * The default value of the '{@link #isIsArray() <em>Is Array</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #isQchg()
+     * @see #isIsArray()
      * @generated
      * @ordered
      */
-    protected static final boolean QCHG_EDEFAULT = false;
+    protected static final boolean IS_ARRAY_EDEFAULT = false;
 
     /**
-     * The cached value of the '{@link #isQchg() <em>Qchg</em>}' attribute.
+     * The cached value of the '{@link #isIsArray() <em>Is Array</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #isQchg()
+     * @see #isIsArray()
      * @generated
      * @ordered
      */
-    protected boolean qchg = QCHG_EDEFAULT;
+    protected boolean isArray = IS_ARRAY_EDEFAULT;
 
     /**
-     * This is true if the Qchg attribute has been set.
+     * This is true if the Is Array attribute has been set.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    protected boolean qchgESet;
+    protected boolean isArrayESet;
+
+    /**
+     * The default value of the '{@link #getMaxIndexAttribute() <em>Max Index Attribute</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getMaxIndexAttribute()
+     * @generated
+     * @ordered
+     */
+    protected static final String MAX_INDEX_ATTRIBUTE_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getMaxIndexAttribute() <em>Max Index Attribute</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getMaxIndexAttribute()
+     * @generated
+     * @ordered
+     */
+    protected String maxIndexAttribute = MAX_INDEX_ATTRIBUTE_EDEFAULT;
+
+    /**
+     * This is true if the Max Index Attribute attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean maxIndexAttributeESet;
+
+    /**
+     * The default value of the '{@link #getMinIndex() <em>Min Index</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getMinIndex()
+     * @generated
+     * @ordered
+     */
+    protected static final long MIN_INDEX_EDEFAULT = 0L;
+
+    /**
+     * The cached value of the '{@link #getMinIndex() <em>Min Index</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getMinIndex()
+     * @generated
+     * @ordered
+     */
+    protected long minIndex = MIN_INDEX_EDEFAULT;
+
+    /**
+     * This is true if the Min Index attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean minIndexESet;
 
     /**
      * The default value of the '{@link #getSizeAttribute() <em>Size Attribute</em>}' attribute.
@@ -502,6 +275,93 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
      * @ordered
      */
     protected boolean sizeAttributeESet;
+
+    /**
+     * The default value of the '{@link #isDchg() <em>Dchg</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isDchg()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean DCHG_EDEFAULT = false;
+
+    /**
+     * The cached value of the '{@link #isDchg() <em>Dchg</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isDchg()
+     * @generated
+     * @ordered
+     */
+    protected boolean dchg = DCHG_EDEFAULT;
+
+    /**
+     * This is true if the Dchg attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean dchgESet;
+
+    /**
+     * The default value of the '{@link #isDupd() <em>Dupd</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isDupd()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean DUPD_EDEFAULT = false;
+
+    /**
+     * The cached value of the '{@link #isDupd() <em>Dupd</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isDupd()
+     * @generated
+     * @ordered
+     */
+    protected boolean dupd = DUPD_EDEFAULT;
+
+    /**
+     * This is true if the Dupd attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean dupdESet;
+
+    /**
+     * The default value of the '{@link #isQchg() <em>Qchg</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isQchg()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean QCHG_EDEFAULT = false;
+
+    /**
+     * The cached value of the '{@link #isQchg() <em>Qchg</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isQchg()
+     * @generated
+     * @ordered
+     */
+    protected boolean qchg = QCHG_EDEFAULT;
+
+    /**
+     * This is true if the Qchg attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean qchgESet;
 
     /**
      * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -561,6 +421,151 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
      * @ordered
      */
     protected boolean typeKindESet;
+
+    /**
+     * The default value of the '{@link #getDefaultValue() <em>Default Value</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getDefaultValue()
+     * @generated
+     * @ordered
+     */
+    protected static final String DEFAULT_VALUE_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getDefaultValue() <em>Default Value</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getDefaultValue()
+     * @generated
+     * @ordered
+     */
+    protected String defaultValue = DEFAULT_VALUE_EDEFAULT;
+
+    /**
+     * This is true if the Default Value attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean defaultValueESet;
+
+    /**
+     * The default value of the '{@link #getMaxValue() <em>Max Value</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getMaxValue()
+     * @generated
+     * @ordered
+     */
+    protected static final BigDecimal MAX_VALUE_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getMaxValue() <em>Max Value</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getMaxValue()
+     * @generated
+     * @ordered
+     */
+    protected BigDecimal maxValue = MAX_VALUE_EDEFAULT;
+
+    /**
+     * This is true if the Max Value attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean maxValueESet;
+
+    /**
+     * The default value of the '{@link #getMinValue() <em>Min Value</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getMinValue()
+     * @generated
+     * @ordered
+     */
+    protected static final BigDecimal MIN_VALUE_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getMinValue() <em>Min Value</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getMinValue()
+     * @generated
+     * @ordered
+     */
+    protected BigDecimal minValue = MIN_VALUE_EDEFAULT;
+
+    /**
+     * This is true if the Min Value attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean minValueESet;
+
+    /**
+     * The default value of the '{@link #getFc() <em>Fc</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getFc()
+     * @generated
+     * @ordered
+     */
+    protected static final String FC_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getFc() <em>Fc</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getFc()
+     * @generated
+     * @ordered
+     */
+    protected String fc = FC_EDEFAULT;
+
+    /**
+     * This is true if the Fc attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean fcESet;
+
+    /**
+     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
+    protected static final String NAME_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
+    protected String name = NAME_EDEFAULT;
+
+    /**
+     * This is true if the Name attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean nameESet;
 
     /**
      * <!-- begin-user-doc -->
@@ -1532,40 +1537,40 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     @Override
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
-        case NsdPackage.DATA_ATTRIBUTE__DCHG:
-            return isDchg();
-        case NsdPackage.DATA_ATTRIBUTE__DEFAULT_VALUE:
-            return getDefaultValue();
-        case NsdPackage.DATA_ATTRIBUTE__DUPD:
-            return isDupd();
-        case NsdPackage.DATA_ATTRIBUTE__FC:
-            return getFc();
-        case NsdPackage.DATA_ATTRIBUTE__IS_ARRAY:
-            return isIsArray();
-        case NsdPackage.DATA_ATTRIBUTE__MAX_INDEX_ATTRIBUTE:
-            return getMaxIndexAttribute();
-        case NsdPackage.DATA_ATTRIBUTE__MAX_VALUE:
-            return getMaxValue();
-        case NsdPackage.DATA_ATTRIBUTE__MIN_INDEX:
-            return getMinIndex();
-        case NsdPackage.DATA_ATTRIBUTE__MIN_VALUE:
-            return getMinValue();
-        case NsdPackage.DATA_ATTRIBUTE__NAME:
-            return getName();
         case NsdPackage.DATA_ATTRIBUTE__PRES_COND:
             return getPresCond();
         case NsdPackage.DATA_ATTRIBUTE__PRES_COND_ARGS:
             return getPresCondArgs();
         case NsdPackage.DATA_ATTRIBUTE__PRES_COND_ARGS_ID:
             return getPresCondArgsID();
-        case NsdPackage.DATA_ATTRIBUTE__QCHG:
-            return isQchg();
+        case NsdPackage.DATA_ATTRIBUTE__IS_ARRAY:
+            return isIsArray();
+        case NsdPackage.DATA_ATTRIBUTE__MAX_INDEX_ATTRIBUTE:
+            return getMaxIndexAttribute();
+        case NsdPackage.DATA_ATTRIBUTE__MIN_INDEX:
+            return getMinIndex();
         case NsdPackage.DATA_ATTRIBUTE__SIZE_ATTRIBUTE:
             return getSizeAttribute();
+        case NsdPackage.DATA_ATTRIBUTE__DCHG:
+            return isDchg();
+        case NsdPackage.DATA_ATTRIBUTE__DUPD:
+            return isDupd();
+        case NsdPackage.DATA_ATTRIBUTE__QCHG:
+            return isQchg();
         case NsdPackage.DATA_ATTRIBUTE__TYPE:
             return getType();
         case NsdPackage.DATA_ATTRIBUTE__TYPE_KIND:
             return getTypeKind();
+        case NsdPackage.DATA_ATTRIBUTE__DEFAULT_VALUE:
+            return getDefaultValue();
+        case NsdPackage.DATA_ATTRIBUTE__MAX_VALUE:
+            return getMaxValue();
+        case NsdPackage.DATA_ATTRIBUTE__MIN_VALUE:
+            return getMinValue();
+        case NsdPackage.DATA_ATTRIBUTE__FC:
+            return getFc();
+        case NsdPackage.DATA_ATTRIBUTE__NAME:
+            return getName();
         case NsdPackage.DATA_ATTRIBUTE__CDC:
             return getCDC();
         }
@@ -1580,36 +1585,6 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     @Override
     public void eSet( int featureID, Object newValue ) {
         switch( featureID ) {
-        case NsdPackage.DATA_ATTRIBUTE__DCHG:
-            setDchg( ( Boolean ) newValue );
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__DEFAULT_VALUE:
-            setDefaultValue( ( String ) newValue );
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__DUPD:
-            setDupd( ( Boolean ) newValue );
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__FC:
-            setFc( ( String ) newValue );
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__IS_ARRAY:
-            setIsArray( ( Boolean ) newValue );
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__MAX_INDEX_ATTRIBUTE:
-            setMaxIndexAttribute( ( String ) newValue );
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__MAX_VALUE:
-            setMaxValue( ( BigDecimal ) newValue );
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__MIN_INDEX:
-            setMinIndex( ( Long ) newValue );
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__MIN_VALUE:
-            setMinValue( ( BigDecimal ) newValue );
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__NAME:
-            setName( ( String ) newValue );
-            return;
         case NsdPackage.DATA_ATTRIBUTE__PRES_COND:
             setPresCond( ( String ) newValue );
             return;
@@ -1619,17 +1594,47 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         case NsdPackage.DATA_ATTRIBUTE__PRES_COND_ARGS_ID:
             setPresCondArgsID( ( String ) newValue );
             return;
-        case NsdPackage.DATA_ATTRIBUTE__QCHG:
-            setQchg( ( Boolean ) newValue );
+        case NsdPackage.DATA_ATTRIBUTE__IS_ARRAY:
+            setIsArray( ( Boolean ) newValue );
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__MAX_INDEX_ATTRIBUTE:
+            setMaxIndexAttribute( ( String ) newValue );
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__MIN_INDEX:
+            setMinIndex( ( Long ) newValue );
             return;
         case NsdPackage.DATA_ATTRIBUTE__SIZE_ATTRIBUTE:
             setSizeAttribute( ( String ) newValue );
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__DCHG:
+            setDchg( ( Boolean ) newValue );
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__DUPD:
+            setDupd( ( Boolean ) newValue );
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__QCHG:
+            setQchg( ( Boolean ) newValue );
             return;
         case NsdPackage.DATA_ATTRIBUTE__TYPE:
             setType( ( String ) newValue );
             return;
         case NsdPackage.DATA_ATTRIBUTE__TYPE_KIND:
             setTypeKind( ( Enumerator ) newValue );
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__DEFAULT_VALUE:
+            setDefaultValue( ( String ) newValue );
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__MAX_VALUE:
+            setMaxValue( ( BigDecimal ) newValue );
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__MIN_VALUE:
+            setMinValue( ( BigDecimal ) newValue );
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__FC:
+            setFc( ( String ) newValue );
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__NAME:
+            setName( ( String ) newValue );
             return;
         case NsdPackage.DATA_ATTRIBUTE__CDC:
             setCDC( ( CDC ) newValue );
@@ -1646,36 +1651,6 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     @Override
     public void eUnset( int featureID ) {
         switch( featureID ) {
-        case NsdPackage.DATA_ATTRIBUTE__DCHG:
-            unsetDchg();
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__DEFAULT_VALUE:
-            unsetDefaultValue();
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__DUPD:
-            unsetDupd();
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__FC:
-            unsetFc();
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__IS_ARRAY:
-            unsetIsArray();
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__MAX_INDEX_ATTRIBUTE:
-            unsetMaxIndexAttribute();
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__MAX_VALUE:
-            unsetMaxValue();
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__MIN_INDEX:
-            unsetMinIndex();
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__MIN_VALUE:
-            unsetMinValue();
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__NAME:
-            unsetName();
-            return;
         case NsdPackage.DATA_ATTRIBUTE__PRES_COND:
             unsetPresCond();
             return;
@@ -1685,17 +1660,47 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         case NsdPackage.DATA_ATTRIBUTE__PRES_COND_ARGS_ID:
             unsetPresCondArgsID();
             return;
-        case NsdPackage.DATA_ATTRIBUTE__QCHG:
-            unsetQchg();
+        case NsdPackage.DATA_ATTRIBUTE__IS_ARRAY:
+            unsetIsArray();
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__MAX_INDEX_ATTRIBUTE:
+            unsetMaxIndexAttribute();
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__MIN_INDEX:
+            unsetMinIndex();
             return;
         case NsdPackage.DATA_ATTRIBUTE__SIZE_ATTRIBUTE:
             unsetSizeAttribute();
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__DCHG:
+            unsetDchg();
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__DUPD:
+            unsetDupd();
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__QCHG:
+            unsetQchg();
             return;
         case NsdPackage.DATA_ATTRIBUTE__TYPE:
             unsetType();
             return;
         case NsdPackage.DATA_ATTRIBUTE__TYPE_KIND:
             unsetTypeKind();
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__DEFAULT_VALUE:
+            unsetDefaultValue();
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__MAX_VALUE:
+            unsetMaxValue();
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__MIN_VALUE:
+            unsetMinValue();
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__FC:
+            unsetFc();
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__NAME:
+            unsetName();
             return;
         case NsdPackage.DATA_ATTRIBUTE__CDC:
             setCDC( ( CDC ) null );
@@ -1712,40 +1717,40 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     @Override
     public boolean eIsSet( int featureID ) {
         switch( featureID ) {
-        case NsdPackage.DATA_ATTRIBUTE__DCHG:
-            return isSetDchg();
-        case NsdPackage.DATA_ATTRIBUTE__DEFAULT_VALUE:
-            return isSetDefaultValue();
-        case NsdPackage.DATA_ATTRIBUTE__DUPD:
-            return isSetDupd();
-        case NsdPackage.DATA_ATTRIBUTE__FC:
-            return isSetFc();
-        case NsdPackage.DATA_ATTRIBUTE__IS_ARRAY:
-            return isSetIsArray();
-        case NsdPackage.DATA_ATTRIBUTE__MAX_INDEX_ATTRIBUTE:
-            return isSetMaxIndexAttribute();
-        case NsdPackage.DATA_ATTRIBUTE__MAX_VALUE:
-            return isSetMaxValue();
-        case NsdPackage.DATA_ATTRIBUTE__MIN_INDEX:
-            return isSetMinIndex();
-        case NsdPackage.DATA_ATTRIBUTE__MIN_VALUE:
-            return isSetMinValue();
-        case NsdPackage.DATA_ATTRIBUTE__NAME:
-            return isSetName();
         case NsdPackage.DATA_ATTRIBUTE__PRES_COND:
             return isSetPresCond();
         case NsdPackage.DATA_ATTRIBUTE__PRES_COND_ARGS:
             return isSetPresCondArgs();
         case NsdPackage.DATA_ATTRIBUTE__PRES_COND_ARGS_ID:
             return isSetPresCondArgsID();
-        case NsdPackage.DATA_ATTRIBUTE__QCHG:
-            return isSetQchg();
+        case NsdPackage.DATA_ATTRIBUTE__IS_ARRAY:
+            return isSetIsArray();
+        case NsdPackage.DATA_ATTRIBUTE__MAX_INDEX_ATTRIBUTE:
+            return isSetMaxIndexAttribute();
+        case NsdPackage.DATA_ATTRIBUTE__MIN_INDEX:
+            return isSetMinIndex();
         case NsdPackage.DATA_ATTRIBUTE__SIZE_ATTRIBUTE:
             return isSetSizeAttribute();
+        case NsdPackage.DATA_ATTRIBUTE__DCHG:
+            return isSetDchg();
+        case NsdPackage.DATA_ATTRIBUTE__DUPD:
+            return isSetDupd();
+        case NsdPackage.DATA_ATTRIBUTE__QCHG:
+            return isSetQchg();
         case NsdPackage.DATA_ATTRIBUTE__TYPE:
             return isSetType();
         case NsdPackage.DATA_ATTRIBUTE__TYPE_KIND:
             return isSetTypeKind();
+        case NsdPackage.DATA_ATTRIBUTE__DEFAULT_VALUE:
+            return isSetDefaultValue();
+        case NsdPackage.DATA_ATTRIBUTE__MAX_VALUE:
+            return isSetMaxValue();
+        case NsdPackage.DATA_ATTRIBUTE__MIN_VALUE:
+            return isSetMinValue();
+        case NsdPackage.DATA_ATTRIBUTE__FC:
+            return isSetFc();
+        case NsdPackage.DATA_ATTRIBUTE__NAME:
+            return isSetName();
         case NsdPackage.DATA_ATTRIBUTE__CDC:
             return getCDC() != null;
         }
@@ -1758,61 +1763,151 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
      * @generated
      */
     @Override
+    public int eBaseStructuralFeatureID( int derivedFeatureID, Class< ? > baseClass ) {
+        if( baseClass == AgPresenceCondition.class ) {
+            switch( derivedFeatureID ) {
+            case NsdPackage.DATA_ATTRIBUTE__PRES_COND:
+                return NsdPackage.AG_PRESENCE_CONDITION__PRES_COND;
+            case NsdPackage.DATA_ATTRIBUTE__PRES_COND_ARGS:
+                return NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS;
+            case NsdPackage.DATA_ATTRIBUTE__PRES_COND_ARGS_ID:
+                return NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS_ID;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgArray.class ) {
+            switch( derivedFeatureID ) {
+            case NsdPackage.DATA_ATTRIBUTE__IS_ARRAY:
+                return NsdPackage.AG_ARRAY__IS_ARRAY;
+            case NsdPackage.DATA_ATTRIBUTE__MAX_INDEX_ATTRIBUTE:
+                return NsdPackage.AG_ARRAY__MAX_INDEX_ATTRIBUTE;
+            case NsdPackage.DATA_ATTRIBUTE__MIN_INDEX:
+                return NsdPackage.AG_ARRAY__MIN_INDEX;
+            case NsdPackage.DATA_ATTRIBUTE__SIZE_ATTRIBUTE:
+                return NsdPackage.AG_ARRAY__SIZE_ATTRIBUTE;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgTrgOp.class ) {
+            switch( derivedFeatureID ) {
+            case NsdPackage.DATA_ATTRIBUTE__DCHG:
+                return NsdPackage.AG_TRG_OP__DCHG;
+            case NsdPackage.DATA_ATTRIBUTE__DUPD:
+                return NsdPackage.AG_TRG_OP__DUPD;
+            case NsdPackage.DATA_ATTRIBUTE__QCHG:
+                return NsdPackage.AG_TRG_OP__QCHG;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgAttributeType.class ) {
+            switch( derivedFeatureID ) {
+            case NsdPackage.DATA_ATTRIBUTE__TYPE:
+                return NsdPackage.AG_ATTRIBUTE_TYPE__TYPE;
+            case NsdPackage.DATA_ATTRIBUTE__TYPE_KIND:
+                return NsdPackage.AG_ATTRIBUTE_TYPE__TYPE_KIND;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgAttributeTypeAndValues.class ) {
+            switch( derivedFeatureID ) {
+            case NsdPackage.DATA_ATTRIBUTE__DEFAULT_VALUE:
+                return NsdPackage.AG_ATTRIBUTE_TYPE_AND_VALUES__DEFAULT_VALUE;
+            case NsdPackage.DATA_ATTRIBUTE__MAX_VALUE:
+                return NsdPackage.AG_ATTRIBUTE_TYPE_AND_VALUES__MAX_VALUE;
+            case NsdPackage.DATA_ATTRIBUTE__MIN_VALUE:
+                return NsdPackage.AG_ATTRIBUTE_TYPE_AND_VALUES__MIN_VALUE;
+            default:
+                return -1;
+            }
+        }
+        return super.eBaseStructuralFeatureID( derivedFeatureID, baseClass );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public int eDerivedStructuralFeatureID( int baseFeatureID, Class< ? > baseClass ) {
+        if( baseClass == AgPresenceCondition.class ) {
+            switch( baseFeatureID ) {
+            case NsdPackage.AG_PRESENCE_CONDITION__PRES_COND:
+                return NsdPackage.DATA_ATTRIBUTE__PRES_COND;
+            case NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS:
+                return NsdPackage.DATA_ATTRIBUTE__PRES_COND_ARGS;
+            case NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS_ID:
+                return NsdPackage.DATA_ATTRIBUTE__PRES_COND_ARGS_ID;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgArray.class ) {
+            switch( baseFeatureID ) {
+            case NsdPackage.AG_ARRAY__IS_ARRAY:
+                return NsdPackage.DATA_ATTRIBUTE__IS_ARRAY;
+            case NsdPackage.AG_ARRAY__MAX_INDEX_ATTRIBUTE:
+                return NsdPackage.DATA_ATTRIBUTE__MAX_INDEX_ATTRIBUTE;
+            case NsdPackage.AG_ARRAY__MIN_INDEX:
+                return NsdPackage.DATA_ATTRIBUTE__MIN_INDEX;
+            case NsdPackage.AG_ARRAY__SIZE_ATTRIBUTE:
+                return NsdPackage.DATA_ATTRIBUTE__SIZE_ATTRIBUTE;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgTrgOp.class ) {
+            switch( baseFeatureID ) {
+            case NsdPackage.AG_TRG_OP__DCHG:
+                return NsdPackage.DATA_ATTRIBUTE__DCHG;
+            case NsdPackage.AG_TRG_OP__DUPD:
+                return NsdPackage.DATA_ATTRIBUTE__DUPD;
+            case NsdPackage.AG_TRG_OP__QCHG:
+                return NsdPackage.DATA_ATTRIBUTE__QCHG;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgAttributeType.class ) {
+            switch( baseFeatureID ) {
+            case NsdPackage.AG_ATTRIBUTE_TYPE__TYPE:
+                return NsdPackage.DATA_ATTRIBUTE__TYPE;
+            case NsdPackage.AG_ATTRIBUTE_TYPE__TYPE_KIND:
+                return NsdPackage.DATA_ATTRIBUTE__TYPE_KIND;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgAttributeTypeAndValues.class ) {
+            switch( baseFeatureID ) {
+            case NsdPackage.AG_ATTRIBUTE_TYPE_AND_VALUES__DEFAULT_VALUE:
+                return NsdPackage.DATA_ATTRIBUTE__DEFAULT_VALUE;
+            case NsdPackage.AG_ATTRIBUTE_TYPE_AND_VALUES__MAX_VALUE:
+                return NsdPackage.DATA_ATTRIBUTE__MAX_VALUE;
+            case NsdPackage.AG_ATTRIBUTE_TYPE_AND_VALUES__MIN_VALUE:
+                return NsdPackage.DATA_ATTRIBUTE__MIN_VALUE;
+            default:
+                return -1;
+            }
+        }
+        return super.eDerivedStructuralFeatureID( baseFeatureID, baseClass );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public String toString() {
         if( eIsProxy() ) return super.toString();
 
         StringBuilder result = new StringBuilder( super.toString() );
-        result.append( " (dchg: " );
-        if( dchgESet )
-            result.append( dchg );
-        else
-            result.append( "<unset>" );
-        result.append( ", defaultValue: " );
-        if( defaultValueESet )
-            result.append( defaultValue );
-        else
-            result.append( "<unset>" );
-        result.append( ", dupd: " );
-        if( dupdESet )
-            result.append( dupd );
-        else
-            result.append( "<unset>" );
-        result.append( ", fc: " );
-        if( fcESet )
-            result.append( fc );
-        else
-            result.append( "<unset>" );
-        result.append( ", isArray: " );
-        if( isArrayESet )
-            result.append( isArray );
-        else
-            result.append( "<unset>" );
-        result.append( ", maxIndexAttribute: " );
-        if( maxIndexAttributeESet )
-            result.append( maxIndexAttribute );
-        else
-            result.append( "<unset>" );
-        result.append( ", maxValue: " );
-        if( maxValueESet )
-            result.append( maxValue );
-        else
-            result.append( "<unset>" );
-        result.append( ", minIndex: " );
-        if( minIndexESet )
-            result.append( minIndex );
-        else
-            result.append( "<unset>" );
-        result.append( ", minValue: " );
-        if( minValueESet )
-            result.append( minValue );
-        else
-            result.append( "<unset>" );
-        result.append( ", name: " );
-        if( nameESet )
-            result.append( name );
-        else
-            result.append( "<unset>" );
-        result.append( ", presCond: " );
+        result.append( " (presCond: " );
         if( presCondESet )
             result.append( presCond );
         else
@@ -1827,14 +1922,39 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
             result.append( presCondArgsID );
         else
             result.append( "<unset>" );
-        result.append( ", qchg: " );
-        if( qchgESet )
-            result.append( qchg );
+        result.append( ", isArray: " );
+        if( isArrayESet )
+            result.append( isArray );
+        else
+            result.append( "<unset>" );
+        result.append( ", maxIndexAttribute: " );
+        if( maxIndexAttributeESet )
+            result.append( maxIndexAttribute );
+        else
+            result.append( "<unset>" );
+        result.append( ", minIndex: " );
+        if( minIndexESet )
+            result.append( minIndex );
         else
             result.append( "<unset>" );
         result.append( ", sizeAttribute: " );
         if( sizeAttributeESet )
             result.append( sizeAttribute );
+        else
+            result.append( "<unset>" );
+        result.append( ", dchg: " );
+        if( dchgESet )
+            result.append( dchg );
+        else
+            result.append( "<unset>" );
+        result.append( ", dupd: " );
+        if( dupdESet )
+            result.append( dupd );
+        else
+            result.append( "<unset>" );
+        result.append( ", qchg: " );
+        if( qchgESet )
+            result.append( qchg );
         else
             result.append( "<unset>" );
         result.append( ", type: " );
@@ -1845,6 +1965,31 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         result.append( ", typeKind: " );
         if( typeKindESet )
             result.append( typeKind );
+        else
+            result.append( "<unset>" );
+        result.append( ", defaultValue: " );
+        if( defaultValueESet )
+            result.append( defaultValue );
+        else
+            result.append( "<unset>" );
+        result.append( ", maxValue: " );
+        if( maxValueESet )
+            result.append( maxValue );
+        else
+            result.append( "<unset>" );
+        result.append( ", minValue: " );
+        if( minValueESet )
+            result.append( minValue );
+        else
+            result.append( "<unset>" );
+        result.append( ", fc: " );
+        if( fcESet )
+            result.append( fc );
+        else
+            result.append( "<unset>" );
+        result.append( ", name: " );
+        if( nameESet )
+            result.append( name );
         else
             result.append( "<unset>" );
         result.append( ')' );

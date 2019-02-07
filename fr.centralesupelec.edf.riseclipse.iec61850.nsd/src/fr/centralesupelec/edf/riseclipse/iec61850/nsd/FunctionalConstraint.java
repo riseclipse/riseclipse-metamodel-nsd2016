@@ -19,8 +19,6 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Functional Constraint</b></em>'.
@@ -41,7 +39,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='tFunctionalConstraint' kind='elementOnly'"
  * @generated
  */
-public interface FunctionalConstraint extends EObject {
+public interface FunctionalConstraint extends NsdObject {
     /**
      * Returns the value of the '<em><b>Applicable Services</b></em>' containment reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices#getFunctionalConstraint <em>Functional Constraint</em>}'.

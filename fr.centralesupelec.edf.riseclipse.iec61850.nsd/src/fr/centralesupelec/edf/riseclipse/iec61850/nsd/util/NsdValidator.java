@@ -204,9 +204,29 @@ public class NsdValidator extends EObjectValidator {
             return validateSubDataObject( ( SubDataObject ) value, diagnostics, context );
         case NsdPackage.TITLED_CLASS:
             return validateTitledClass( ( TitledClass ) value, diagnostics, context );
-        case NsdPackage.NSD_OBJECT_WITH_VERSION_AND_RELEASE:
-            return validateNSDObjectWithVersionAndRelease( ( NSDObjectWithVersionAndRelease ) value, diagnostics,
-                    context );
+        case NsdPackage.NSD_OBJECT:
+            return validateNsdObject( ( NsdObject ) value, diagnostics, context );
+        case NsdPackage.AG_NS_IDENTIFICATION:
+            return validateAgNSIdentification( ( AgNSIdentification ) value, diagnostics, context );
+        case NsdPackage.AG_PRESENCE_CONDITION:
+            return validateAgPresenceCondition( ( AgPresenceCondition ) value, diagnostics, context );
+        case NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS:
+            return validateAgPresenceConditionDerivedStatistics( ( AgPresenceConditionDerivedStatistics ) value,
+                    diagnostics, context );
+        case NsdPackage.AG_ARRAY:
+            return validateAgArray( ( AgArray ) value, diagnostics, context );
+        case NsdPackage.AG_TRG_OP:
+            return validateAgTrgOp( ( AgTrgOp ) value, diagnostics, context );
+        case NsdPackage.AG_ATTRIBUTE_TYPE:
+            return validateAgAttributeType( ( AgAttributeType ) value, diagnostics, context );
+        case NsdPackage.AG_ATTRIBUTE_TYPE_AND_VALUES:
+            return validateAgAttributeTypeAndValues( ( AgAttributeTypeAndValues ) value, diagnostics, context );
+        case NsdPackage.AG_UNDERLYING_TYPE:
+            return validateAgUnderlyingType( ( AgUnderlyingType ) value, diagnostics, context );
+        case NsdPackage.AG_UML:
+            return validateAgUML( ( AgUML ) value, diagnostics, context );
+        case NsdPackage.AG_NSDESC:
+            return validateAgNSdesc( ( AgNSdesc ) value, diagnostics, context );
         case NsdPackage.ACSI_SERVICES_KIND:
             return validateACSIServicesKind( ( ACSIServicesKind ) value, diagnostics, context );
         case NsdPackage.CB_KIND:
@@ -724,10 +744,106 @@ public class NsdValidator extends EObjectValidator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean validateNSDObjectWithVersionAndRelease(
-            NSDObjectWithVersionAndRelease nsdObjectWithVersionAndRelease, DiagnosticChain diagnostics,
+    public boolean validateNsdObject( NsdObject nsdObject, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        return validate_EveryDefaultConstraint( nsdObjectWithVersionAndRelease, diagnostics, context );
+        return validate_EveryDefaultConstraint( nsdObject, diagnostics, context );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateAgNSIdentification( AgNSIdentification agNSIdentification, DiagnosticChain diagnostics,
+            Map< Object, Object > context ) {
+        return validate_EveryDefaultConstraint( agNSIdentification, diagnostics, context );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateAgPresenceCondition( AgPresenceCondition agPresenceCondition, DiagnosticChain diagnostics,
+            Map< Object, Object > context ) {
+        return validate_EveryDefaultConstraint( agPresenceCondition, diagnostics, context );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateAgPresenceConditionDerivedStatistics(
+            AgPresenceConditionDerivedStatistics agPresenceConditionDerivedStatistics, DiagnosticChain diagnostics,
+            Map< Object, Object > context ) {
+        return validate_EveryDefaultConstraint( agPresenceConditionDerivedStatistics, diagnostics, context );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateAgArray( AgArray agArray, DiagnosticChain diagnostics, Map< Object, Object > context ) {
+        return validate_EveryDefaultConstraint( agArray, diagnostics, context );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateAgTrgOp( AgTrgOp agTrgOp, DiagnosticChain diagnostics, Map< Object, Object > context ) {
+        return validate_EveryDefaultConstraint( agTrgOp, diagnostics, context );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateAgAttributeType( AgAttributeType agAttributeType, DiagnosticChain diagnostics,
+            Map< Object, Object > context ) {
+        return validate_EveryDefaultConstraint( agAttributeType, diagnostics, context );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateAgAttributeTypeAndValues( AgAttributeTypeAndValues agAttributeTypeAndValues,
+            DiagnosticChain diagnostics, Map< Object, Object > context ) {
+        return validate_EveryDefaultConstraint( agAttributeTypeAndValues, diagnostics, context );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateAgUnderlyingType( AgUnderlyingType agUnderlyingType, DiagnosticChain diagnostics,
+            Map< Object, Object > context ) {
+        return validate_EveryDefaultConstraint( agUnderlyingType, diagnostics, context );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateAgUML( AgUML agUML, DiagnosticChain diagnostics, Map< Object, Object > context ) {
+        return validate_EveryDefaultConstraint( agUML, diagnostics, context );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateAgNSdesc( AgNSdesc agNSdesc, DiagnosticChain diagnostics, Map< Object, Object > context ) {
+        return validate_EveryDefaultConstraint( agNSdesc, diagnostics, context );
     }
 
     /**

@@ -19,8 +19,6 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Copyrighted</b></em>'.
@@ -37,7 +35,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='tCopyrighted' kind='elementOnly'"
  * @generated
  */
-public interface Copyrighted extends EObject {
+public interface Copyrighted extends NsdObject {
     /**
      * Returns the value of the '<em><b>Copyright</b></em>' containment reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CopyrightNotice#getCopyrighted <em>Copyrighted</em>}'.

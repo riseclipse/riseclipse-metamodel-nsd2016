@@ -38,7 +38,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AppliesToTypeItemProvider extends NSDObjectWithVersionAndReleaseItemProvider {
+public class AppliesToTypeItemProvider extends AgNSIdentificationItemProvider {
     /**
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
@@ -60,59 +60,25 @@ public class AppliesToTypeItemProvider extends NSDObjectWithVersionAndReleaseIte
         if( itemPropertyDescriptors == null ) {
             super.getPropertyDescriptors( object );
 
-            addIdPropertyDescriptor( object );
-            addPublicationStagePropertyDescriptor( object );
-            addRevisionPropertyDescriptor( object );
+            addLineNumberPropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Id feature.
+     * This adds a property descriptor for the Line Number feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addIdPropertyDescriptor( Object object ) {
+    protected void addLineNumberPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_AppliesToType_id_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_AppliesToType_id_feature",
-                                "_UI_AppliesToType_type" ),
-                        NsdPackage.Literals.APPLIES_TO_TYPE__ID, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
-    }
-
-    /**
-     * This adds a property descriptor for the Publication Stage feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addPublicationStagePropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add(
-                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_AppliesToType_publicationStage_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_AppliesToType_publicationStage_feature",
-                                "_UI_AppliesToType_type" ),
-                        NsdPackage.Literals.APPLIES_TO_TYPE__PUBLICATION_STAGE, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
-    }
-
-    /**
-     * This adds a property descriptor for the Revision feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addRevisionPropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add(
-                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_AppliesToType_revision_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_AppliesToType_revision_feature",
-                                "_UI_AppliesToType_type" ),
-                        NsdPackage.Literals.APPLIES_TO_TYPE__REVISION, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        getResourceLocator(), getString( "_UI_NsdObject_lineNumber_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_NsdObject_lineNumber_feature",
+                                "_UI_NsdObject_type" ),
+                        NsdPackage.Literals.NSD_OBJECT__LINE_NUMBER, true, false, false,
+                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -151,9 +117,7 @@ public class AppliesToTypeItemProvider extends NSDObjectWithVersionAndReleaseIte
         updateChildren( notification );
 
         switch( notification.getFeatureID( AppliesToType.class ) ) {
-        case NsdPackage.APPLIES_TO_TYPE__ID:
-        case NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE:
-        case NsdPackage.APPLIES_TO_TYPE__REVISION:
+        case NsdPackage.APPLIES_TO_TYPE__LINE_NUMBER:
             fireNotifyChanged( new ViewerNotification( notification, notification.getNotifier(), false, true ) );
             return;
         }

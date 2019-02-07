@@ -31,7 +31,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -51,7 +50,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *
  * @generated
  */
-public class FunctionalConstraintImpl extends MinimalEObjectImpl.Container implements FunctionalConstraint {
+public class FunctionalConstraintImpl extends NsdObjectImpl implements FunctionalConstraint {
     /**
      * The cached value of the '{@link #getApplicableServices() <em>Applicable Services</em>}' containment reference.
      * <!-- begin-user-doc -->

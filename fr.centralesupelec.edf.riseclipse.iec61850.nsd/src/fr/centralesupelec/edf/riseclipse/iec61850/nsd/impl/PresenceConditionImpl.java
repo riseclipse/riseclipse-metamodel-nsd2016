@@ -30,7 +30,6 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -50,7 +49,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *
  * @generated
  */
-public class PresenceConditionImpl extends MinimalEObjectImpl.Container implements PresenceCondition {
+public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCondition {
     /**
      * The default value of the '{@link #getArgument() <em>Argument</em>}' attribute.
      * <!-- begin-user-doc -->

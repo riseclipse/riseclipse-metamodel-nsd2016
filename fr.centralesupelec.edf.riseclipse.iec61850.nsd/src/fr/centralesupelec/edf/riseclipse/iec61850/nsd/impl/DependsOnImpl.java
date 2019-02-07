@@ -22,11 +22,8 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -42,102 +39,12 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DependsOnImpl#getId <em>Id</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DependsOnImpl#getPublicationStage <em>Publication Stage</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DependsOnImpl#getRevision <em>Revision</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DependsOnImpl#getNS <em>NS</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DependsOnImpl extends NSDObjectWithVersionAndReleaseImpl implements DependsOn {
-    /**
-     * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getId()
-     * @generated
-     * @ordered
-     */
-    protected static final String ID_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getId()
-     * @generated
-     * @ordered
-     */
-    protected String id = ID_EDEFAULT;
-
-    /**
-     * This is true if the Id attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean idESet;
-
-    /**
-     * The default value of the '{@link #getPublicationStage() <em>Publication Stage</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getPublicationStage()
-     * @generated
-     * @ordered
-     */
-    protected static final PubStage PUBLICATION_STAGE_EDEFAULT = PubStage.IS;
-
-    /**
-     * The cached value of the '{@link #getPublicationStage() <em>Publication Stage</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getPublicationStage()
-     * @generated
-     * @ordered
-     */
-    protected PubStage publicationStage = PUBLICATION_STAGE_EDEFAULT;
-
-    /**
-     * This is true if the Publication Stage attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean publicationStageESet;
-
-    /**
-     * The default value of the '{@link #getRevision() <em>Revision</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getRevision()
-     * @generated
-     * @ordered
-     */
-    protected static final String REVISION_EDEFAULT = "A";
-
-    /**
-     * The cached value of the '{@link #getRevision() <em>Revision</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getRevision()
-     * @generated
-     * @ordered
-     */
-    protected String revision = REVISION_EDEFAULT;
-
-    /**
-     * This is true if the Revision attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean revisionESet;
-
+public class DependsOnImpl extends AgNSIdentificationImpl implements DependsOn {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -155,158 +62,6 @@ public class DependsOnImpl extends NSDObjectWithVersionAndReleaseImpl implements
     @Override
     protected EClass eStaticClass() {
         return NsdPackage.Literals.DEPENDS_ON;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setId( String newId ) {
-        String oldId = id;
-        id = newId;
-        boolean oldIdESet = idESet;
-        idESet = true;
-        if( eNotificationRequired() ) eNotify(
-                new ENotificationImpl( this, Notification.SET, NsdPackage.DEPENDS_ON__ID, oldId, id, !oldIdESet ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void unsetId() {
-        String oldId = id;
-        boolean oldIdESet = idESet;
-        id = ID_EDEFAULT;
-        idESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.DEPENDS_ON__ID, oldId, ID_EDEFAULT, oldIdESet ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean isSetId() {
-        return idESet;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public PubStage getPublicationStage() {
-        return publicationStage;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setPublicationStage( PubStage newPublicationStage ) {
-        PubStage oldPublicationStage = publicationStage;
-        publicationStage = newPublicationStage == null ? PUBLICATION_STAGE_EDEFAULT : newPublicationStage;
-        boolean oldPublicationStageESet = publicationStageESet;
-        publicationStageESet = true;
-        if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DEPENDS_ON__PUBLICATION_STAGE,
-                    oldPublicationStage, publicationStage, !oldPublicationStageESet ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void unsetPublicationStage() {
-        PubStage oldPublicationStage = publicationStage;
-        boolean oldPublicationStageESet = publicationStageESet;
-        publicationStage = PUBLICATION_STAGE_EDEFAULT;
-        publicationStageESet = false;
-        if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DEPENDS_ON__PUBLICATION_STAGE,
-                    oldPublicationStage, PUBLICATION_STAGE_EDEFAULT, oldPublicationStageESet ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean isSetPublicationStage() {
-        return publicationStageESet;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String getRevision() {
-        return revision;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setRevision( String newRevision ) {
-        String oldRevision = revision;
-        revision = newRevision;
-        boolean oldRevisionESet = revisionESet;
-        revisionESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.DEPENDS_ON__REVISION, oldRevision, revision, !oldRevisionESet ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void unsetRevision() {
-        String oldRevision = revision;
-        boolean oldRevisionESet = revisionESet;
-        revision = REVISION_EDEFAULT;
-        revisionESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.DEPENDS_ON__REVISION, oldRevision, REVISION_EDEFAULT, oldRevisionESet ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean isSetRevision() {
-        return revisionESet;
     }
 
     /**
@@ -402,12 +157,6 @@ public class DependsOnImpl extends NSDObjectWithVersionAndReleaseImpl implements
     @Override
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
-        case NsdPackage.DEPENDS_ON__ID:
-            return getId();
-        case NsdPackage.DEPENDS_ON__PUBLICATION_STAGE:
-            return getPublicationStage();
-        case NsdPackage.DEPENDS_ON__REVISION:
-            return getRevision();
         case NsdPackage.DEPENDS_ON__NS:
             return getNS();
         }
@@ -422,15 +171,6 @@ public class DependsOnImpl extends NSDObjectWithVersionAndReleaseImpl implements
     @Override
     public void eSet( int featureID, Object newValue ) {
         switch( featureID ) {
-        case NsdPackage.DEPENDS_ON__ID:
-            setId( ( String ) newValue );
-            return;
-        case NsdPackage.DEPENDS_ON__PUBLICATION_STAGE:
-            setPublicationStage( ( PubStage ) newValue );
-            return;
-        case NsdPackage.DEPENDS_ON__REVISION:
-            setRevision( ( String ) newValue );
-            return;
         case NsdPackage.DEPENDS_ON__NS:
             setNS( ( NS ) newValue );
             return;
@@ -446,15 +186,6 @@ public class DependsOnImpl extends NSDObjectWithVersionAndReleaseImpl implements
     @Override
     public void eUnset( int featureID ) {
         switch( featureID ) {
-        case NsdPackage.DEPENDS_ON__ID:
-            unsetId();
-            return;
-        case NsdPackage.DEPENDS_ON__PUBLICATION_STAGE:
-            unsetPublicationStage();
-            return;
-        case NsdPackage.DEPENDS_ON__REVISION:
-            unsetRevision();
-            return;
         case NsdPackage.DEPENDS_ON__NS:
             setNS( ( NS ) null );
             return;
@@ -470,45 +201,10 @@ public class DependsOnImpl extends NSDObjectWithVersionAndReleaseImpl implements
     @Override
     public boolean eIsSet( int featureID ) {
         switch( featureID ) {
-        case NsdPackage.DEPENDS_ON__ID:
-            return isSetId();
-        case NsdPackage.DEPENDS_ON__PUBLICATION_STAGE:
-            return isSetPublicationStage();
-        case NsdPackage.DEPENDS_ON__REVISION:
-            return isSetRevision();
         case NsdPackage.DEPENDS_ON__NS:
             return getNS() != null;
         }
         return super.eIsSet( featureID );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String toString() {
-        if( eIsProxy() ) return super.toString();
-
-        StringBuilder result = new StringBuilder( super.toString() );
-        result.append( " (id: " );
-        if( idESet )
-            result.append( id );
-        else
-            result.append( "<unset>" );
-        result.append( ", publicationStage: " );
-        if( publicationStageESet )
-            result.append( publicationStage );
-        else
-            result.append( "<unset>" );
-        result.append( ", revision: " );
-        if( revisionESet )
-            result.append( revision );
-        else
-            result.append( "<unset>" );
-        result.append( ')' );
-        return result.toString();
     }
 
 } //DependsOnImpl

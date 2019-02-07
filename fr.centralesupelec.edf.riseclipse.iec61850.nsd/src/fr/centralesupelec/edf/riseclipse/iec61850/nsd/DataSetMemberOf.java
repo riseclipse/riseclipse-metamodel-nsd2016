@@ -19,8 +19,6 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Data Set Member Of</b></em>'.
@@ -38,7 +36,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='tDataSetMemberOf' kind='empty'"
  * @generated
  */
-public interface DataSetMemberOf extends EObject {
+public interface DataSetMemberOf extends NsdObject {
     /**
      * Returns the value of the '<em><b>Cb</b></em>' attribute.
      * The literals are from the enumeration {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CBKind}.

@@ -19,6 +19,9 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgArray;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceCondition;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
@@ -41,139 +44,23 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#isIsArray <em>Is Array</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getMaxIndexAttribute <em>Max Index Attribute</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getMinIndex <em>Min Index</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getPresCond <em>Pres Cond</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getPresCondArgs <em>Pres Cond Args</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getPresCondArgsID <em>Pres Cond Args ID</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#isIsArray <em>Is Array</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getMaxIndexAttribute <em>Max Index Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getMinIndex <em>Min Index</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getSizeAttribute <em>Size Attribute</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getType <em>Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getUnderlyingType <em>Underlying Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getUnderlyingTypeKind <em>Underlying Type Kind</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getName <em>Name</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getType <em>Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getCDC <em>CDC</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObject {
-    /**
-     * The default value of the '{@link #isIsArray() <em>Is Array</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isIsArray()
-     * @generated
-     * @ordered
-     */
-    protected static final boolean IS_ARRAY_EDEFAULT = false;
-
-    /**
-     * The cached value of the '{@link #isIsArray() <em>Is Array</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isIsArray()
-     * @generated
-     * @ordered
-     */
-    protected boolean isArray = IS_ARRAY_EDEFAULT;
-
-    /**
-     * This is true if the Is Array attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean isArrayESet;
-
-    /**
-     * The default value of the '{@link #getMaxIndexAttribute() <em>Max Index Attribute</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getMaxIndexAttribute()
-     * @generated
-     * @ordered
-     */
-    protected static final String MAX_INDEX_ATTRIBUTE_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getMaxIndexAttribute() <em>Max Index Attribute</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getMaxIndexAttribute()
-     * @generated
-     * @ordered
-     */
-    protected String maxIndexAttribute = MAX_INDEX_ATTRIBUTE_EDEFAULT;
-
-    /**
-     * This is true if the Max Index Attribute attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean maxIndexAttributeESet;
-
-    /**
-     * The default value of the '{@link #getMinIndex() <em>Min Index</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getMinIndex()
-     * @generated
-     * @ordered
-     */
-    protected static final long MIN_INDEX_EDEFAULT = 0L;
-
-    /**
-     * The cached value of the '{@link #getMinIndex() <em>Min Index</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getMinIndex()
-     * @generated
-     * @ordered
-     */
-    protected long minIndex = MIN_INDEX_EDEFAULT;
-
-    /**
-     * This is true if the Min Index attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean minIndexESet;
-
-    /**
-     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-    protected static final String NAME_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-    protected String name = NAME_EDEFAULT;
-
-    /**
-     * This is true if the Name attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean nameESet;
-
     /**
      * The default value of the '{@link #getPresCond() <em>Pres Cond</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -262,6 +149,93 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
     protected boolean presCondArgsIDESet;
 
     /**
+     * The default value of the '{@link #isIsArray() <em>Is Array</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isIsArray()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean IS_ARRAY_EDEFAULT = false;
+
+    /**
+     * The cached value of the '{@link #isIsArray() <em>Is Array</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isIsArray()
+     * @generated
+     * @ordered
+     */
+    protected boolean isArray = IS_ARRAY_EDEFAULT;
+
+    /**
+     * This is true if the Is Array attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean isArrayESet;
+
+    /**
+     * The default value of the '{@link #getMaxIndexAttribute() <em>Max Index Attribute</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getMaxIndexAttribute()
+     * @generated
+     * @ordered
+     */
+    protected static final String MAX_INDEX_ATTRIBUTE_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getMaxIndexAttribute() <em>Max Index Attribute</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getMaxIndexAttribute()
+     * @generated
+     * @ordered
+     */
+    protected String maxIndexAttribute = MAX_INDEX_ATTRIBUTE_EDEFAULT;
+
+    /**
+     * This is true if the Max Index Attribute attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean maxIndexAttributeESet;
+
+    /**
+     * The default value of the '{@link #getMinIndex() <em>Min Index</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getMinIndex()
+     * @generated
+     * @ordered
+     */
+    protected static final long MIN_INDEX_EDEFAULT = 0L;
+
+    /**
+     * The cached value of the '{@link #getMinIndex() <em>Min Index</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getMinIndex()
+     * @generated
+     * @ordered
+     */
+    protected long minIndex = MIN_INDEX_EDEFAULT;
+
+    /**
+     * This is true if the Min Index attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean minIndexESet;
+
+    /**
      * The default value of the '{@link #getSizeAttribute() <em>Size Attribute</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -289,35 +263,6 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
      * @ordered
      */
     protected boolean sizeAttributeESet;
-
-    /**
-     * The default value of the '{@link #getType() <em>Type</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getType()
-     * @generated
-     * @ordered
-     */
-    protected static final String TYPE_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getType()
-     * @generated
-     * @ordered
-     */
-    protected String type = TYPE_EDEFAULT;
-
-    /**
-     * This is true if the Type attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean typeESet;
 
     /**
      * The default value of the '{@link #getUnderlyingType() <em>Underlying Type</em>}' attribute.
@@ -376,6 +321,64 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
      * @ordered
      */
     protected boolean underlyingTypeKindESet;
+
+    /**
+     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
+    protected static final String NAME_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
+    protected String name = NAME_EDEFAULT;
+
+    /**
+     * This is true if the Name attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean nameESet;
+
+    /**
+     * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getType()
+     * @generated
+     * @ordered
+     */
+    protected static final String TYPE_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getType()
+     * @generated
+     * @ordered
+     */
+    protected String type = TYPE_EDEFAULT;
+
+    /**
+     * This is true if the Type attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean typeESet;
 
     /**
      * <!-- begin-user-doc -->
@@ -1050,28 +1053,28 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
     @Override
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
-        case NsdPackage.SUB_DATA_OBJECT__IS_ARRAY:
-            return isIsArray();
-        case NsdPackage.SUB_DATA_OBJECT__MAX_INDEX_ATTRIBUTE:
-            return getMaxIndexAttribute();
-        case NsdPackage.SUB_DATA_OBJECT__MIN_INDEX:
-            return getMinIndex();
-        case NsdPackage.SUB_DATA_OBJECT__NAME:
-            return getName();
         case NsdPackage.SUB_DATA_OBJECT__PRES_COND:
             return getPresCond();
         case NsdPackage.SUB_DATA_OBJECT__PRES_COND_ARGS:
             return getPresCondArgs();
         case NsdPackage.SUB_DATA_OBJECT__PRES_COND_ARGS_ID:
             return getPresCondArgsID();
+        case NsdPackage.SUB_DATA_OBJECT__IS_ARRAY:
+            return isIsArray();
+        case NsdPackage.SUB_DATA_OBJECT__MAX_INDEX_ATTRIBUTE:
+            return getMaxIndexAttribute();
+        case NsdPackage.SUB_DATA_OBJECT__MIN_INDEX:
+            return getMinIndex();
         case NsdPackage.SUB_DATA_OBJECT__SIZE_ATTRIBUTE:
             return getSizeAttribute();
-        case NsdPackage.SUB_DATA_OBJECT__TYPE:
-            return getType();
         case NsdPackage.SUB_DATA_OBJECT__UNDERLYING_TYPE:
             return getUnderlyingType();
         case NsdPackage.SUB_DATA_OBJECT__UNDERLYING_TYPE_KIND:
             return getUnderlyingTypeKind();
+        case NsdPackage.SUB_DATA_OBJECT__NAME:
+            return getName();
+        case NsdPackage.SUB_DATA_OBJECT__TYPE:
+            return getType();
         case NsdPackage.SUB_DATA_OBJECT__CDC:
             return getCDC();
         }
@@ -1086,18 +1089,6 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
     @Override
     public void eSet( int featureID, Object newValue ) {
         switch( featureID ) {
-        case NsdPackage.SUB_DATA_OBJECT__IS_ARRAY:
-            setIsArray( ( Boolean ) newValue );
-            return;
-        case NsdPackage.SUB_DATA_OBJECT__MAX_INDEX_ATTRIBUTE:
-            setMaxIndexAttribute( ( String ) newValue );
-            return;
-        case NsdPackage.SUB_DATA_OBJECT__MIN_INDEX:
-            setMinIndex( ( Long ) newValue );
-            return;
-        case NsdPackage.SUB_DATA_OBJECT__NAME:
-            setName( ( String ) newValue );
-            return;
         case NsdPackage.SUB_DATA_OBJECT__PRES_COND:
             setPresCond( ( String ) newValue );
             return;
@@ -1107,17 +1098,29 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
         case NsdPackage.SUB_DATA_OBJECT__PRES_COND_ARGS_ID:
             setPresCondArgsID( ( String ) newValue );
             return;
+        case NsdPackage.SUB_DATA_OBJECT__IS_ARRAY:
+            setIsArray( ( Boolean ) newValue );
+            return;
+        case NsdPackage.SUB_DATA_OBJECT__MAX_INDEX_ATTRIBUTE:
+            setMaxIndexAttribute( ( String ) newValue );
+            return;
+        case NsdPackage.SUB_DATA_OBJECT__MIN_INDEX:
+            setMinIndex( ( Long ) newValue );
+            return;
         case NsdPackage.SUB_DATA_OBJECT__SIZE_ATTRIBUTE:
             setSizeAttribute( ( String ) newValue );
-            return;
-        case NsdPackage.SUB_DATA_OBJECT__TYPE:
-            setType( ( String ) newValue );
             return;
         case NsdPackage.SUB_DATA_OBJECT__UNDERLYING_TYPE:
             setUnderlyingType( ( String ) newValue );
             return;
         case NsdPackage.SUB_DATA_OBJECT__UNDERLYING_TYPE_KIND:
             setUnderlyingTypeKind( ( DefinedAttributeTypeKind ) newValue );
+            return;
+        case NsdPackage.SUB_DATA_OBJECT__NAME:
+            setName( ( String ) newValue );
+            return;
+        case NsdPackage.SUB_DATA_OBJECT__TYPE:
+            setType( ( String ) newValue );
             return;
         case NsdPackage.SUB_DATA_OBJECT__CDC:
             setCDC( ( CDC ) newValue );
@@ -1134,18 +1137,6 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
     @Override
     public void eUnset( int featureID ) {
         switch( featureID ) {
-        case NsdPackage.SUB_DATA_OBJECT__IS_ARRAY:
-            unsetIsArray();
-            return;
-        case NsdPackage.SUB_DATA_OBJECT__MAX_INDEX_ATTRIBUTE:
-            unsetMaxIndexAttribute();
-            return;
-        case NsdPackage.SUB_DATA_OBJECT__MIN_INDEX:
-            unsetMinIndex();
-            return;
-        case NsdPackage.SUB_DATA_OBJECT__NAME:
-            unsetName();
-            return;
         case NsdPackage.SUB_DATA_OBJECT__PRES_COND:
             unsetPresCond();
             return;
@@ -1155,17 +1146,29 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
         case NsdPackage.SUB_DATA_OBJECT__PRES_COND_ARGS_ID:
             unsetPresCondArgsID();
             return;
+        case NsdPackage.SUB_DATA_OBJECT__IS_ARRAY:
+            unsetIsArray();
+            return;
+        case NsdPackage.SUB_DATA_OBJECT__MAX_INDEX_ATTRIBUTE:
+            unsetMaxIndexAttribute();
+            return;
+        case NsdPackage.SUB_DATA_OBJECT__MIN_INDEX:
+            unsetMinIndex();
+            return;
         case NsdPackage.SUB_DATA_OBJECT__SIZE_ATTRIBUTE:
             unsetSizeAttribute();
-            return;
-        case NsdPackage.SUB_DATA_OBJECT__TYPE:
-            unsetType();
             return;
         case NsdPackage.SUB_DATA_OBJECT__UNDERLYING_TYPE:
             unsetUnderlyingType();
             return;
         case NsdPackage.SUB_DATA_OBJECT__UNDERLYING_TYPE_KIND:
             unsetUnderlyingTypeKind();
+            return;
+        case NsdPackage.SUB_DATA_OBJECT__NAME:
+            unsetName();
+            return;
+        case NsdPackage.SUB_DATA_OBJECT__TYPE:
+            unsetType();
             return;
         case NsdPackage.SUB_DATA_OBJECT__CDC:
             setCDC( ( CDC ) null );
@@ -1182,28 +1185,28 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
     @Override
     public boolean eIsSet( int featureID ) {
         switch( featureID ) {
-        case NsdPackage.SUB_DATA_OBJECT__IS_ARRAY:
-            return isSetIsArray();
-        case NsdPackage.SUB_DATA_OBJECT__MAX_INDEX_ATTRIBUTE:
-            return isSetMaxIndexAttribute();
-        case NsdPackage.SUB_DATA_OBJECT__MIN_INDEX:
-            return isSetMinIndex();
-        case NsdPackage.SUB_DATA_OBJECT__NAME:
-            return isSetName();
         case NsdPackage.SUB_DATA_OBJECT__PRES_COND:
             return isSetPresCond();
         case NsdPackage.SUB_DATA_OBJECT__PRES_COND_ARGS:
             return isSetPresCondArgs();
         case NsdPackage.SUB_DATA_OBJECT__PRES_COND_ARGS_ID:
             return isSetPresCondArgsID();
+        case NsdPackage.SUB_DATA_OBJECT__IS_ARRAY:
+            return isSetIsArray();
+        case NsdPackage.SUB_DATA_OBJECT__MAX_INDEX_ATTRIBUTE:
+            return isSetMaxIndexAttribute();
+        case NsdPackage.SUB_DATA_OBJECT__MIN_INDEX:
+            return isSetMinIndex();
         case NsdPackage.SUB_DATA_OBJECT__SIZE_ATTRIBUTE:
             return isSetSizeAttribute();
-        case NsdPackage.SUB_DATA_OBJECT__TYPE:
-            return isSetType();
         case NsdPackage.SUB_DATA_OBJECT__UNDERLYING_TYPE:
             return isSetUnderlyingType();
         case NsdPackage.SUB_DATA_OBJECT__UNDERLYING_TYPE_KIND:
             return isSetUnderlyingTypeKind();
+        case NsdPackage.SUB_DATA_OBJECT__NAME:
+            return isSetName();
+        case NsdPackage.SUB_DATA_OBJECT__TYPE:
+            return isSetType();
         case NsdPackage.SUB_DATA_OBJECT__CDC:
             return getCDC() != null;
         }
@@ -1216,31 +1219,103 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
      * @generated
      */
     @Override
+    public int eBaseStructuralFeatureID( int derivedFeatureID, Class< ? > baseClass ) {
+        if( baseClass == AgPresenceCondition.class ) {
+            switch( derivedFeatureID ) {
+            case NsdPackage.SUB_DATA_OBJECT__PRES_COND:
+                return NsdPackage.AG_PRESENCE_CONDITION__PRES_COND;
+            case NsdPackage.SUB_DATA_OBJECT__PRES_COND_ARGS:
+                return NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS;
+            case NsdPackage.SUB_DATA_OBJECT__PRES_COND_ARGS_ID:
+                return NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS_ID;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgArray.class ) {
+            switch( derivedFeatureID ) {
+            case NsdPackage.SUB_DATA_OBJECT__IS_ARRAY:
+                return NsdPackage.AG_ARRAY__IS_ARRAY;
+            case NsdPackage.SUB_DATA_OBJECT__MAX_INDEX_ATTRIBUTE:
+                return NsdPackage.AG_ARRAY__MAX_INDEX_ATTRIBUTE;
+            case NsdPackage.SUB_DATA_OBJECT__MIN_INDEX:
+                return NsdPackage.AG_ARRAY__MIN_INDEX;
+            case NsdPackage.SUB_DATA_OBJECT__SIZE_ATTRIBUTE:
+                return NsdPackage.AG_ARRAY__SIZE_ATTRIBUTE;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgUnderlyingType.class ) {
+            switch( derivedFeatureID ) {
+            case NsdPackage.SUB_DATA_OBJECT__UNDERLYING_TYPE:
+                return NsdPackage.AG_UNDERLYING_TYPE__UNDERLYING_TYPE;
+            case NsdPackage.SUB_DATA_OBJECT__UNDERLYING_TYPE_KIND:
+                return NsdPackage.AG_UNDERLYING_TYPE__UNDERLYING_TYPE_KIND;
+            default:
+                return -1;
+            }
+        }
+        return super.eBaseStructuralFeatureID( derivedFeatureID, baseClass );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public int eDerivedStructuralFeatureID( int baseFeatureID, Class< ? > baseClass ) {
+        if( baseClass == AgPresenceCondition.class ) {
+            switch( baseFeatureID ) {
+            case NsdPackage.AG_PRESENCE_CONDITION__PRES_COND:
+                return NsdPackage.SUB_DATA_OBJECT__PRES_COND;
+            case NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS:
+                return NsdPackage.SUB_DATA_OBJECT__PRES_COND_ARGS;
+            case NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS_ID:
+                return NsdPackage.SUB_DATA_OBJECT__PRES_COND_ARGS_ID;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgArray.class ) {
+            switch( baseFeatureID ) {
+            case NsdPackage.AG_ARRAY__IS_ARRAY:
+                return NsdPackage.SUB_DATA_OBJECT__IS_ARRAY;
+            case NsdPackage.AG_ARRAY__MAX_INDEX_ATTRIBUTE:
+                return NsdPackage.SUB_DATA_OBJECT__MAX_INDEX_ATTRIBUTE;
+            case NsdPackage.AG_ARRAY__MIN_INDEX:
+                return NsdPackage.SUB_DATA_OBJECT__MIN_INDEX;
+            case NsdPackage.AG_ARRAY__SIZE_ATTRIBUTE:
+                return NsdPackage.SUB_DATA_OBJECT__SIZE_ATTRIBUTE;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgUnderlyingType.class ) {
+            switch( baseFeatureID ) {
+            case NsdPackage.AG_UNDERLYING_TYPE__UNDERLYING_TYPE:
+                return NsdPackage.SUB_DATA_OBJECT__UNDERLYING_TYPE;
+            case NsdPackage.AG_UNDERLYING_TYPE__UNDERLYING_TYPE_KIND:
+                return NsdPackage.SUB_DATA_OBJECT__UNDERLYING_TYPE_KIND;
+            default:
+                return -1;
+            }
+        }
+        return super.eDerivedStructuralFeatureID( baseFeatureID, baseClass );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public String toString() {
         if( eIsProxy() ) return super.toString();
 
         StringBuilder result = new StringBuilder( super.toString() );
-        result.append( " (isArray: " );
-        if( isArrayESet )
-            result.append( isArray );
-        else
-            result.append( "<unset>" );
-        result.append( ", maxIndexAttribute: " );
-        if( maxIndexAttributeESet )
-            result.append( maxIndexAttribute );
-        else
-            result.append( "<unset>" );
-        result.append( ", minIndex: " );
-        if( minIndexESet )
-            result.append( minIndex );
-        else
-            result.append( "<unset>" );
-        result.append( ", name: " );
-        if( nameESet )
-            result.append( name );
-        else
-            result.append( "<unset>" );
-        result.append( ", presCond: " );
+        result.append( " (presCond: " );
         if( presCondESet )
             result.append( presCond );
         else
@@ -1255,14 +1330,24 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
             result.append( presCondArgsID );
         else
             result.append( "<unset>" );
+        result.append( ", isArray: " );
+        if( isArrayESet )
+            result.append( isArray );
+        else
+            result.append( "<unset>" );
+        result.append( ", maxIndexAttribute: " );
+        if( maxIndexAttributeESet )
+            result.append( maxIndexAttribute );
+        else
+            result.append( "<unset>" );
+        result.append( ", minIndex: " );
+        if( minIndexESet )
+            result.append( minIndex );
+        else
+            result.append( "<unset>" );
         result.append( ", sizeAttribute: " );
         if( sizeAttributeESet )
             result.append( sizeAttribute );
-        else
-            result.append( "<unset>" );
-        result.append( ", type: " );
-        if( typeESet )
-            result.append( type );
         else
             result.append( "<unset>" );
         result.append( ", underlyingType: " );
@@ -1273,6 +1358,16 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
         result.append( ", underlyingTypeKind: " );
         if( underlyingTypeKindESet )
             result.append( underlyingTypeKind );
+        else
+            result.append( "<unset>" );
+        result.append( ", name: " );
+        if( nameESet )
+            result.append( name );
+        else
+            result.append( "<unset>" );
+        result.append( ", type: " );
+        if( typeESet )
+            result.append( type );
         else
             result.append( "<unset>" );
         result.append( ')' );

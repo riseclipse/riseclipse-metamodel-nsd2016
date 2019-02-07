@@ -19,6 +19,9 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceCondition;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
@@ -44,8 +47,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceDataAttributeImpl#getFc <em>Fc</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceDataAttributeImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceDataAttributeImpl#getPresCond <em>Pres Cond</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceDataAttributeImpl#getPresCondArgs <em>Pres Cond Args</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceDataAttributeImpl#getPresCondArgsID <em>Pres Cond Args ID</em>}</li>
@@ -53,70 +54,14 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceDataAttributeImpl#getTypeKind <em>Type Kind</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceDataAttributeImpl#getUnderlyingType <em>Underlying Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceDataAttributeImpl#getUnderlyingTypeKind <em>Underlying Type Kind</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceDataAttributeImpl#getFc <em>Fc</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceDataAttributeImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceDataAttributeImpl#getServiceCDC <em>Service CDC</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ServiceDataAttributeImpl extends DocumentedClassImpl implements ServiceDataAttribute {
-    /**
-     * The default value of the '{@link #getFc() <em>Fc</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getFc()
-     * @generated
-     * @ordered
-     */
-    protected static final String FC_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getFc() <em>Fc</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getFc()
-     * @generated
-     * @ordered
-     */
-    protected String fc = FC_EDEFAULT;
-
-    /**
-     * This is true if the Fc attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean fcESet;
-
-    /**
-     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-    protected static final String NAME_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-    protected String name = NAME_EDEFAULT;
-
-    /**
-     * This is true if the Name attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean nameESet;
-
     /**
      * The default value of the '{@link #getPresCond() <em>Pres Cond</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -320,6 +265,64 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
      * @ordered
      */
     protected boolean underlyingTypeKindESet;
+
+    /**
+     * The default value of the '{@link #getFc() <em>Fc</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getFc()
+     * @generated
+     * @ordered
+     */
+    protected static final String FC_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getFc() <em>Fc</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getFc()
+     * @generated
+     * @ordered
+     */
+    protected String fc = FC_EDEFAULT;
+
+    /**
+     * This is true if the Fc attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean fcESet;
+
+    /**
+     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
+    protected static final String NAME_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
+    protected String name = NAME_EDEFAULT;
+
+    /**
+     * This is true if the Name attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean nameESet;
 
     /**
      * <!-- begin-user-doc -->
@@ -895,10 +898,6 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
     @Override
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
-        case NsdPackage.SERVICE_DATA_ATTRIBUTE__FC:
-            return getFc();
-        case NsdPackage.SERVICE_DATA_ATTRIBUTE__NAME:
-            return getName();
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND:
             return getPresCond();
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS:
@@ -913,6 +912,10 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
             return getUnderlyingType();
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE_KIND:
             return getUnderlyingTypeKind();
+        case NsdPackage.SERVICE_DATA_ATTRIBUTE__FC:
+            return getFc();
+        case NsdPackage.SERVICE_DATA_ATTRIBUTE__NAME:
+            return getName();
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__SERVICE_CDC:
             return getServiceCDC();
         }
@@ -927,12 +930,6 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
     @Override
     public void eSet( int featureID, Object newValue ) {
         switch( featureID ) {
-        case NsdPackage.SERVICE_DATA_ATTRIBUTE__FC:
-            setFc( ( String ) newValue );
-            return;
-        case NsdPackage.SERVICE_DATA_ATTRIBUTE__NAME:
-            setName( ( String ) newValue );
-            return;
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND:
             setPresCond( ( String ) newValue );
             return;
@@ -954,6 +951,12 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE_KIND:
             setUnderlyingTypeKind( ( DefinedAttributeTypeKind ) newValue );
             return;
+        case NsdPackage.SERVICE_DATA_ATTRIBUTE__FC:
+            setFc( ( String ) newValue );
+            return;
+        case NsdPackage.SERVICE_DATA_ATTRIBUTE__NAME:
+            setName( ( String ) newValue );
+            return;
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__SERVICE_CDC:
             setServiceCDC( ( ServiceCDC ) newValue );
             return;
@@ -969,12 +972,6 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
     @Override
     public void eUnset( int featureID ) {
         switch( featureID ) {
-        case NsdPackage.SERVICE_DATA_ATTRIBUTE__FC:
-            unsetFc();
-            return;
-        case NsdPackage.SERVICE_DATA_ATTRIBUTE__NAME:
-            unsetName();
-            return;
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND:
             unsetPresCond();
             return;
@@ -996,6 +993,12 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE_KIND:
             unsetUnderlyingTypeKind();
             return;
+        case NsdPackage.SERVICE_DATA_ATTRIBUTE__FC:
+            unsetFc();
+            return;
+        case NsdPackage.SERVICE_DATA_ATTRIBUTE__NAME:
+            unsetName();
+            return;
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__SERVICE_CDC:
             setServiceCDC( ( ServiceCDC ) null );
             return;
@@ -1011,10 +1014,6 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
     @Override
     public boolean eIsSet( int featureID ) {
         switch( featureID ) {
-        case NsdPackage.SERVICE_DATA_ATTRIBUTE__FC:
-            return isSetFc();
-        case NsdPackage.SERVICE_DATA_ATTRIBUTE__NAME:
-            return isSetName();
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND:
             return isSetPresCond();
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS:
@@ -1029,6 +1028,10 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
             return isSetUnderlyingType();
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE_KIND:
             return isSetUnderlyingTypeKind();
+        case NsdPackage.SERVICE_DATA_ATTRIBUTE__FC:
+            return isSetFc();
+        case NsdPackage.SERVICE_DATA_ATTRIBUTE__NAME:
+            return isSetName();
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__SERVICE_CDC:
             return getServiceCDC() != null;
         }
@@ -1041,21 +1044,95 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
      * @generated
      */
     @Override
+    public int eBaseStructuralFeatureID( int derivedFeatureID, Class< ? > baseClass ) {
+        if( baseClass == AgPresenceCondition.class ) {
+            switch( derivedFeatureID ) {
+            case NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND:
+                return NsdPackage.AG_PRESENCE_CONDITION__PRES_COND;
+            case NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS:
+                return NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS;
+            case NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS_ID:
+                return NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS_ID;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgAttributeType.class ) {
+            switch( derivedFeatureID ) {
+            case NsdPackage.SERVICE_DATA_ATTRIBUTE__TYPE:
+                return NsdPackage.AG_ATTRIBUTE_TYPE__TYPE;
+            case NsdPackage.SERVICE_DATA_ATTRIBUTE__TYPE_KIND:
+                return NsdPackage.AG_ATTRIBUTE_TYPE__TYPE_KIND;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgUnderlyingType.class ) {
+            switch( derivedFeatureID ) {
+            case NsdPackage.SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE:
+                return NsdPackage.AG_UNDERLYING_TYPE__UNDERLYING_TYPE;
+            case NsdPackage.SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE_KIND:
+                return NsdPackage.AG_UNDERLYING_TYPE__UNDERLYING_TYPE_KIND;
+            default:
+                return -1;
+            }
+        }
+        return super.eBaseStructuralFeatureID( derivedFeatureID, baseClass );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public int eDerivedStructuralFeatureID( int baseFeatureID, Class< ? > baseClass ) {
+        if( baseClass == AgPresenceCondition.class ) {
+            switch( baseFeatureID ) {
+            case NsdPackage.AG_PRESENCE_CONDITION__PRES_COND:
+                return NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND;
+            case NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS:
+                return NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS;
+            case NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS_ID:
+                return NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS_ID;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgAttributeType.class ) {
+            switch( baseFeatureID ) {
+            case NsdPackage.AG_ATTRIBUTE_TYPE__TYPE:
+                return NsdPackage.SERVICE_DATA_ATTRIBUTE__TYPE;
+            case NsdPackage.AG_ATTRIBUTE_TYPE__TYPE_KIND:
+                return NsdPackage.SERVICE_DATA_ATTRIBUTE__TYPE_KIND;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgUnderlyingType.class ) {
+            switch( baseFeatureID ) {
+            case NsdPackage.AG_UNDERLYING_TYPE__UNDERLYING_TYPE:
+                return NsdPackage.SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE;
+            case NsdPackage.AG_UNDERLYING_TYPE__UNDERLYING_TYPE_KIND:
+                return NsdPackage.SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE_KIND;
+            default:
+                return -1;
+            }
+        }
+        return super.eDerivedStructuralFeatureID( baseFeatureID, baseClass );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public String toString() {
         if( eIsProxy() ) return super.toString();
 
         StringBuilder result = new StringBuilder( super.toString() );
-        result.append( " (fc: " );
-        if( fcESet )
-            result.append( fc );
-        else
-            result.append( "<unset>" );
-        result.append( ", name: " );
-        if( nameESet )
-            result.append( name );
-        else
-            result.append( "<unset>" );
-        result.append( ", presCond: " );
+        result.append( " (presCond: " );
         if( presCondESet )
             result.append( presCond );
         else
@@ -1088,6 +1165,16 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         result.append( ", underlyingTypeKind: " );
         if( underlyingTypeKindESet )
             result.append( underlyingTypeKind );
+        else
+            result.append( "<unset>" );
+        result.append( ", fc: " );
+        if( fcESet )
+            result.append( fc );
+        else
+            result.append( "<unset>" );
+        result.append( ", name: " );
+        if( nameESet )
+            result.append( name );
         else
             result.append( "<unset>" );
         result.append( ')' );

@@ -19,8 +19,6 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Abbreviation</b></em>'.
@@ -39,7 +37,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='tAbbreviation' kind='empty'"
  * @generated
  */
-public interface Abbreviation extends EObject {
+public interface Abbreviation extends NsdObject {
     /**
      * Returns the value of the '<em><b>Desc ID</b></em>' attribute.
      * <!-- begin-user-doc -->

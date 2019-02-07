@@ -19,6 +19,7 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServiceNS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
@@ -48,25 +49,75 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getAppliesTo <em>Applies To</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getRelease <em>Release</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getId <em>Id</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getPublicationStage <em>Publication Stage</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getRevision <em>Revision</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getPublicationStage <em>Publication Stage</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getAppliesTo <em>Applies To</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getApplicableServiceNS <em>Applicable Service NS</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ServiceNsUsageImpl extends NSDObjectWithVersionAndReleaseImpl implements ServiceNsUsage {
+public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage {
     /**
-     * The cached value of the '{@link #getAppliesTo() <em>Applies To</em>}' containment reference list.
+     * The default value of the '{@link #getRelease() <em>Release</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getAppliesTo()
+     * @see #getRelease()
      * @generated
      * @ordered
      */
-    protected EList< AppliesToType > appliesTo;
+    protected static final Integer RELEASE_EDEFAULT = new Integer( 1 );
+
+    /**
+     * The cached value of the '{@link #getRelease() <em>Release</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRelease()
+     * @generated
+     * @ordered
+     */
+    protected Integer release = RELEASE_EDEFAULT;
+
+    /**
+     * This is true if the Release attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean releaseESet;
+
+    /**
+     * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getVersion()
+     * @generated
+     * @ordered
+     */
+    protected static final Integer VERSION_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getVersion()
+     * @generated
+     * @ordered
+     */
+    protected Integer version = VERSION_EDEFAULT;
+
+    /**
+     * This is true if the Version attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean versionESet;
 
     /**
      * The default value of the '{@link #getId() <em>Id</em>}' attribute.
@@ -98,35 +149,6 @@ public class ServiceNsUsageImpl extends NSDObjectWithVersionAndReleaseImpl imple
     protected boolean idESet;
 
     /**
-     * The default value of the '{@link #getPublicationStage() <em>Publication Stage</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getPublicationStage()
-     * @generated
-     * @ordered
-     */
-    protected static final PubStage PUBLICATION_STAGE_EDEFAULT = PubStage.IS;
-
-    /**
-     * The cached value of the '{@link #getPublicationStage() <em>Publication Stage</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getPublicationStage()
-     * @generated
-     * @ordered
-     */
-    protected PubStage publicationStage = PUBLICATION_STAGE_EDEFAULT;
-
-    /**
-     * This is true if the Publication Stage attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean publicationStageESet;
-
-    /**
      * The default value of the '{@link #getRevision() <em>Revision</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -156,6 +178,45 @@ public class ServiceNsUsageImpl extends NSDObjectWithVersionAndReleaseImpl imple
     protected boolean revisionESet;
 
     /**
+     * The default value of the '{@link #getPublicationStage() <em>Publication Stage</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getPublicationStage()
+     * @generated
+     * @ordered
+     */
+    protected static final PubStage PUBLICATION_STAGE_EDEFAULT = PubStage.IS;
+
+    /**
+     * The cached value of the '{@link #getPublicationStage() <em>Publication Stage</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getPublicationStage()
+     * @generated
+     * @ordered
+     */
+    protected PubStage publicationStage = PUBLICATION_STAGE_EDEFAULT;
+
+    /**
+     * This is true if the Publication Stage attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean publicationStageESet;
+
+    /**
+     * The cached value of the '{@link #getAppliesTo() <em>Applies To</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getAppliesTo()
+     * @generated
+     * @ordered
+     */
+    protected EList< AppliesToType > appliesTo;
+
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -172,6 +233,106 @@ public class ServiceNsUsageImpl extends NSDObjectWithVersionAndReleaseImpl imple
     @Override
     protected EClass eStaticClass() {
         return NsdPackage.Literals.SERVICE_NS_USAGE;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Integer getRelease() {
+        return release;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setRelease( Integer newRelease ) {
+        Integer oldRelease = release;
+        release = newRelease;
+        boolean oldReleaseESet = releaseESet;
+        releaseESet = true;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.SERVICE_NS_USAGE__RELEASE, oldRelease, release, !oldReleaseESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetRelease() {
+        Integer oldRelease = release;
+        boolean oldReleaseESet = releaseESet;
+        release = RELEASE_EDEFAULT;
+        releaseESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.SERVICE_NS_USAGE__RELEASE, oldRelease, RELEASE_EDEFAULT, oldReleaseESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetRelease() {
+        return releaseESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Integer getVersion() {
+        return version;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setVersion( Integer newVersion ) {
+        Integer oldVersion = version;
+        version = newVersion;
+        boolean oldVersionESet = versionESet;
+        versionESet = true;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.SERVICE_NS_USAGE__VERSION, oldVersion, version, !oldVersionESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetVersion() {
+        Integer oldVersion = version;
+        boolean oldVersionESet = versionESet;
+        version = VERSION_EDEFAULT;
+        versionESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.SERVICE_NS_USAGE__VERSION, oldVersion, VERSION_EDEFAULT, oldVersionESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetVersion() {
+        return versionESet;
     }
 
     /**
@@ -465,14 +626,18 @@ public class ServiceNsUsageImpl extends NSDObjectWithVersionAndReleaseImpl imple
     @Override
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
-        case NsdPackage.SERVICE_NS_USAGE__APPLIES_TO:
-            return getAppliesTo();
+        case NsdPackage.SERVICE_NS_USAGE__RELEASE:
+            return getRelease();
+        case NsdPackage.SERVICE_NS_USAGE__VERSION:
+            return getVersion();
         case NsdPackage.SERVICE_NS_USAGE__ID:
             return getId();
-        case NsdPackage.SERVICE_NS_USAGE__PUBLICATION_STAGE:
-            return getPublicationStage();
         case NsdPackage.SERVICE_NS_USAGE__REVISION:
             return getRevision();
+        case NsdPackage.SERVICE_NS_USAGE__PUBLICATION_STAGE:
+            return getPublicationStage();
+        case NsdPackage.SERVICE_NS_USAGE__APPLIES_TO:
+            return getAppliesTo();
         case NsdPackage.SERVICE_NS_USAGE__APPLICABLE_SERVICE_NS:
             return getApplicableServiceNS();
         }
@@ -488,18 +653,24 @@ public class ServiceNsUsageImpl extends NSDObjectWithVersionAndReleaseImpl imple
     @Override
     public void eSet( int featureID, Object newValue ) {
         switch( featureID ) {
-        case NsdPackage.SERVICE_NS_USAGE__APPLIES_TO:
-            getAppliesTo().clear();
-            getAppliesTo().addAll( ( Collection< ? extends AppliesToType > ) newValue );
+        case NsdPackage.SERVICE_NS_USAGE__RELEASE:
+            setRelease( ( Integer ) newValue );
+            return;
+        case NsdPackage.SERVICE_NS_USAGE__VERSION:
+            setVersion( ( Integer ) newValue );
             return;
         case NsdPackage.SERVICE_NS_USAGE__ID:
             setId( ( String ) newValue );
             return;
+        case NsdPackage.SERVICE_NS_USAGE__REVISION:
+            setRevision( ( String ) newValue );
+            return;
         case NsdPackage.SERVICE_NS_USAGE__PUBLICATION_STAGE:
             setPublicationStage( ( PubStage ) newValue );
             return;
-        case NsdPackage.SERVICE_NS_USAGE__REVISION:
-            setRevision( ( String ) newValue );
+        case NsdPackage.SERVICE_NS_USAGE__APPLIES_TO:
+            getAppliesTo().clear();
+            getAppliesTo().addAll( ( Collection< ? extends AppliesToType > ) newValue );
             return;
         case NsdPackage.SERVICE_NS_USAGE__APPLICABLE_SERVICE_NS:
             setApplicableServiceNS( ( ApplicableServiceNS ) newValue );
@@ -516,17 +687,23 @@ public class ServiceNsUsageImpl extends NSDObjectWithVersionAndReleaseImpl imple
     @Override
     public void eUnset( int featureID ) {
         switch( featureID ) {
-        case NsdPackage.SERVICE_NS_USAGE__APPLIES_TO:
-            unsetAppliesTo();
+        case NsdPackage.SERVICE_NS_USAGE__RELEASE:
+            unsetRelease();
+            return;
+        case NsdPackage.SERVICE_NS_USAGE__VERSION:
+            unsetVersion();
             return;
         case NsdPackage.SERVICE_NS_USAGE__ID:
             unsetId();
             return;
+        case NsdPackage.SERVICE_NS_USAGE__REVISION:
+            unsetRevision();
+            return;
         case NsdPackage.SERVICE_NS_USAGE__PUBLICATION_STAGE:
             unsetPublicationStage();
             return;
-        case NsdPackage.SERVICE_NS_USAGE__REVISION:
-            unsetRevision();
+        case NsdPackage.SERVICE_NS_USAGE__APPLIES_TO:
+            unsetAppliesTo();
             return;
         case NsdPackage.SERVICE_NS_USAGE__APPLICABLE_SERVICE_NS:
             setApplicableServiceNS( ( ApplicableServiceNS ) null );
@@ -543,14 +720,18 @@ public class ServiceNsUsageImpl extends NSDObjectWithVersionAndReleaseImpl imple
     @Override
     public boolean eIsSet( int featureID ) {
         switch( featureID ) {
-        case NsdPackage.SERVICE_NS_USAGE__APPLIES_TO:
-            return isSetAppliesTo();
+        case NsdPackage.SERVICE_NS_USAGE__RELEASE:
+            return isSetRelease();
+        case NsdPackage.SERVICE_NS_USAGE__VERSION:
+            return isSetVersion();
         case NsdPackage.SERVICE_NS_USAGE__ID:
             return isSetId();
-        case NsdPackage.SERVICE_NS_USAGE__PUBLICATION_STAGE:
-            return isSetPublicationStage();
         case NsdPackage.SERVICE_NS_USAGE__REVISION:
             return isSetRevision();
+        case NsdPackage.SERVICE_NS_USAGE__PUBLICATION_STAGE:
+            return isSetPublicationStage();
+        case NsdPackage.SERVICE_NS_USAGE__APPLIES_TO:
+            return isSetAppliesTo();
         case NsdPackage.SERVICE_NS_USAGE__APPLICABLE_SERVICE_NS:
             return getApplicableServiceNS() != null;
         }
@@ -563,23 +744,85 @@ public class ServiceNsUsageImpl extends NSDObjectWithVersionAndReleaseImpl imple
      * @generated
      */
     @Override
+    public int eBaseStructuralFeatureID( int derivedFeatureID, Class< ? > baseClass ) {
+        if( baseClass == AgNSIdentification.class ) {
+            switch( derivedFeatureID ) {
+            case NsdPackage.SERVICE_NS_USAGE__RELEASE:
+                return NsdPackage.AG_NS_IDENTIFICATION__RELEASE;
+            case NsdPackage.SERVICE_NS_USAGE__VERSION:
+                return NsdPackage.AG_NS_IDENTIFICATION__VERSION;
+            case NsdPackage.SERVICE_NS_USAGE__ID:
+                return NsdPackage.AG_NS_IDENTIFICATION__ID;
+            case NsdPackage.SERVICE_NS_USAGE__REVISION:
+                return NsdPackage.AG_NS_IDENTIFICATION__REVISION;
+            case NsdPackage.SERVICE_NS_USAGE__PUBLICATION_STAGE:
+                return NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE;
+            default:
+                return -1;
+            }
+        }
+        return super.eBaseStructuralFeatureID( derivedFeatureID, baseClass );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public int eDerivedStructuralFeatureID( int baseFeatureID, Class< ? > baseClass ) {
+        if( baseClass == AgNSIdentification.class ) {
+            switch( baseFeatureID ) {
+            case NsdPackage.AG_NS_IDENTIFICATION__RELEASE:
+                return NsdPackage.SERVICE_NS_USAGE__RELEASE;
+            case NsdPackage.AG_NS_IDENTIFICATION__VERSION:
+                return NsdPackage.SERVICE_NS_USAGE__VERSION;
+            case NsdPackage.AG_NS_IDENTIFICATION__ID:
+                return NsdPackage.SERVICE_NS_USAGE__ID;
+            case NsdPackage.AG_NS_IDENTIFICATION__REVISION:
+                return NsdPackage.SERVICE_NS_USAGE__REVISION;
+            case NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE:
+                return NsdPackage.SERVICE_NS_USAGE__PUBLICATION_STAGE;
+            default:
+                return -1;
+            }
+        }
+        return super.eDerivedStructuralFeatureID( baseFeatureID, baseClass );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public String toString() {
         if( eIsProxy() ) return super.toString();
 
         StringBuilder result = new StringBuilder( super.toString() );
-        result.append( " (id: " );
-        if( idESet )
-            result.append( id );
+        result.append( " (release: " );
+        if( releaseESet )
+            result.append( release );
         else
             result.append( "<unset>" );
-        result.append( ", publicationStage: " );
-        if( publicationStageESet )
-            result.append( publicationStage );
+        result.append( ", version: " );
+        if( versionESet )
+            result.append( version );
+        else
+            result.append( "<unset>" );
+        result.append( ", id: " );
+        if( idESet )
+            result.append( id );
         else
             result.append( "<unset>" );
         result.append( ", revision: " );
         if( revisionESet )
             result.append( revision );
+        else
+            result.append( "<unset>" );
+        result.append( ", publicationStage: " );
+        if( publicationStageESet )
+            result.append( publicationStage );
         else
             result.append( "<unset>" );
         result.append( ')' );

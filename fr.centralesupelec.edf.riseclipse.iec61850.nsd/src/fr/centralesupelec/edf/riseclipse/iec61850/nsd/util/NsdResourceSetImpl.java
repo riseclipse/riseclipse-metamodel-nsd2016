@@ -19,12 +19,55 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.util;
 
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
+import fr.centralesupelec.edf.riseclipse.util.AbstractRiseClipseConsole;
+
+
 public class NsdResourceSetImpl extends ResourceSetImpl {
+    
+    private Map< String, NsdResourceImpl > nsdResources;
 
     public NsdResourceSetImpl() {
         super();
+        
+        nsdResources = new HashMap< String, NsdResourceImpl >();
+    }
+
+    @Override
+    protected void demandLoad( Resource resource ) throws IOException {
+        super.demandLoad( resource );
+        
+        if( ! ( resource instanceof NsdResourceImpl )) {
+            AbstractRiseClipseConsole.getConsole().error( "The file " + resource.getURI() + " is not an NSD file" );
+            this.getResources().remove( resource );
+            return;
+        }
+        if( ! ( resource.getContents().get( 0 ) instanceof DocumentRoot )) {
+            AbstractRiseClipseConsole.getConsole().error( "The file " + resource.getURI() + " is not an NSD file" );
+            this.getResources().remove( resource );
+            return;
+        }
+        DocumentRoot root = (DocumentRoot) resource.getContents().get( 0 );
+        if( ! ( root.getNS() instanceof NS )) {
+            AbstractRiseClipseConsole.getConsole().error( "The file " + resource.getURI() + " is not an NSD file" );
+            this.getResources().remove( resource );
+            return;
+        }
+        NS ns = ( NS ) root.getNS();
+        if( nsdResources.get( ns.getId() ) != null ) {
+            AbstractRiseClipseConsole.getConsole().error( "There is already an NSD file with is " + ns.getId() + ", " + resource.getURI() + "is ignored" );
+            this.getResources().remove( resource );
+            return;
+        }
+        nsdResources.put( ns.getId(), ( NsdResourceImpl  ) resource );
     }
 
     /*
@@ -114,17 +157,17 @@ public class NsdResourceSetImpl extends ResourceSetImpl {
      *   DataAttribute.presCond             -> PresenceCondition.name
      *   DataAttribute.sizeAttribute        -> DataAttribute.name
      *   DataAttribute.maxIndexAttribute    -> DataAttribute.name
-     *   ServiceParameter.name              -> DataAttribute.name (?)
+     *   ServiceParameter.name              -> DataAttribute.name                   ?
      *   SubDataAttribute.presCond          -> PresenceCondition.name
      *   SubDataAttribute.sizeAttribute     -> DataAttribute.name
      *   SubDataAttribute.maxIndexAttribute -> DataAttribute.name
      *   Enumeration.inheritedFrom          -> Enumeration.name
-     *   ServiceCDC.cdc                     -> CDC.name (?)
+     *   ServiceCDC.cdc                     -> CDC.name                             ?
      *   ServiceDataAttribute.fc            -> FunctionalConstraint.abbreviation
      *   ServiceDataAttribute.presCond      -> PresenceCondition.name
      *   AppliesTo.id                       -> NS.id
-     *   ServiceTypeRealization.fc          -> FunctionalConstraint.abbreviation
-     *   ServiceTypeRealization.presCond    -> PresenceCondition.name
+     *   ServiceTypeRealization.fc          -> FunctionalConstraint.abbreviation    ? ServiceTypeRealization is not a name of a type but a name of a refence
+     *   ServiceTypeRealization.presCond    -> PresenceCondition.name               ? idem
      */
     public void createExplicitLinks() {
         //for( resource : get)

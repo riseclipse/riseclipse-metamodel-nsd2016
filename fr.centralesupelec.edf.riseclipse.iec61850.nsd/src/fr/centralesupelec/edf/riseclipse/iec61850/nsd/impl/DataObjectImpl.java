@@ -19,6 +19,9 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceCondition;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceConditionDerivedStatistics;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
@@ -41,139 +44,23 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getDsPresCond <em>Ds Pres Cond</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getDsPresCondArgs <em>Ds Pres Cond Args</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getDsPresCondArgsID <em>Ds Pres Cond Args ID</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getPresCond <em>Pres Cond</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getPresCondArgs <em>Pres Cond Args</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getPresCondArgsID <em>Pres Cond Args ID</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#isTransient <em>Transient</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getType <em>Type</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getDsPresCond <em>Ds Pres Cond</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getDsPresCondArgs <em>Ds Pres Cond Args</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getDsPresCondArgsID <em>Ds Pres Cond Args ID</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getUnderlyingType <em>Underlying Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getUnderlyingTypeKind <em>Underlying Type Kind</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getName <em>Name</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#isTransient <em>Transient</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getType <em>Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getAnyLNClass <em>Any LN Class</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
-    /**
-     * The default value of the '{@link #getDsPresCond() <em>Ds Pres Cond</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getDsPresCond()
-     * @generated
-     * @ordered
-     */
-    protected static final String DS_PRES_COND_EDEFAULT = "M";
-
-    /**
-     * The cached value of the '{@link #getDsPresCond() <em>Ds Pres Cond</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getDsPresCond()
-     * @generated
-     * @ordered
-     */
-    protected String dsPresCond = DS_PRES_COND_EDEFAULT;
-
-    /**
-     * This is true if the Ds Pres Cond attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean dsPresCondESet;
-
-    /**
-     * The default value of the '{@link #getDsPresCondArgs() <em>Ds Pres Cond Args</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getDsPresCondArgs()
-     * @generated
-     * @ordered
-     */
-    protected static final String DS_PRES_COND_ARGS_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getDsPresCondArgs() <em>Ds Pres Cond Args</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getDsPresCondArgs()
-     * @generated
-     * @ordered
-     */
-    protected String dsPresCondArgs = DS_PRES_COND_ARGS_EDEFAULT;
-
-    /**
-     * This is true if the Ds Pres Cond Args attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean dsPresCondArgsESet;
-
-    /**
-     * The default value of the '{@link #getDsPresCondArgsID() <em>Ds Pres Cond Args ID</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getDsPresCondArgsID()
-     * @generated
-     * @ordered
-     */
-    protected static final String DS_PRES_COND_ARGS_ID_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getDsPresCondArgsID() <em>Ds Pres Cond Args ID</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getDsPresCondArgsID()
-     * @generated
-     * @ordered
-     */
-    protected String dsPresCondArgsID = DS_PRES_COND_ARGS_ID_EDEFAULT;
-
-    /**
-     * This is true if the Ds Pres Cond Args ID attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean dsPresCondArgsIDESet;
-
-    /**
-     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-    protected static final String NAME_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-    protected String name = NAME_EDEFAULT;
-
-    /**
-     * This is true if the Name attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean nameESet;
-
     /**
      * The default value of the '{@link #getPresCond() <em>Pres Cond</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -262,62 +149,91 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     protected boolean presCondArgsIDESet;
 
     /**
-     * The default value of the '{@link #isTransient() <em>Transient</em>}' attribute.
+     * The default value of the '{@link #getDsPresCond() <em>Ds Pres Cond</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #isTransient()
+     * @see #getDsPresCond()
      * @generated
      * @ordered
      */
-    protected static final boolean TRANSIENT_EDEFAULT = false;
+    protected static final String DS_PRES_COND_EDEFAULT = "M";
 
     /**
-     * The cached value of the '{@link #isTransient() <em>Transient</em>}' attribute.
+     * The cached value of the '{@link #getDsPresCond() <em>Ds Pres Cond</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #isTransient()
+     * @see #getDsPresCond()
      * @generated
      * @ordered
      */
-    protected boolean transient_ = TRANSIENT_EDEFAULT;
+    protected String dsPresCond = DS_PRES_COND_EDEFAULT;
 
     /**
-     * This is true if the Transient attribute has been set.
+     * This is true if the Ds Pres Cond attribute has been set.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    protected boolean transientESet;
+    protected boolean dsPresCondESet;
 
     /**
-     * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+     * The default value of the '{@link #getDsPresCondArgs() <em>Ds Pres Cond Args</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getType()
+     * @see #getDsPresCondArgs()
      * @generated
      * @ordered
      */
-    protected static final String TYPE_EDEFAULT = null;
+    protected static final String DS_PRES_COND_ARGS_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+     * The cached value of the '{@link #getDsPresCondArgs() <em>Ds Pres Cond Args</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getType()
+     * @see #getDsPresCondArgs()
      * @generated
      * @ordered
      */
-    protected String type = TYPE_EDEFAULT;
+    protected String dsPresCondArgs = DS_PRES_COND_ARGS_EDEFAULT;
 
     /**
-     * This is true if the Type attribute has been set.
+     * This is true if the Ds Pres Cond Args attribute has been set.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    protected boolean typeESet;
+    protected boolean dsPresCondArgsESet;
+
+    /**
+     * The default value of the '{@link #getDsPresCondArgsID() <em>Ds Pres Cond Args ID</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getDsPresCondArgsID()
+     * @generated
+     * @ordered
+     */
+    protected static final String DS_PRES_COND_ARGS_ID_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getDsPresCondArgsID() <em>Ds Pres Cond Args ID</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getDsPresCondArgsID()
+     * @generated
+     * @ordered
+     */
+    protected String dsPresCondArgsID = DS_PRES_COND_ARGS_ID_EDEFAULT;
+
+    /**
+     * This is true if the Ds Pres Cond Args ID attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean dsPresCondArgsIDESet;
 
     /**
      * The default value of the '{@link #getUnderlyingType() <em>Underlying Type</em>}' attribute.
@@ -376,6 +292,93 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
      * @ordered
      */
     protected boolean underlyingTypeKindESet;
+
+    /**
+     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
+    protected static final String NAME_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
+    protected String name = NAME_EDEFAULT;
+
+    /**
+     * This is true if the Name attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean nameESet;
+
+    /**
+     * The default value of the '{@link #isTransient() <em>Transient</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isTransient()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean TRANSIENT_EDEFAULT = false;
+
+    /**
+     * The cached value of the '{@link #isTransient() <em>Transient</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isTransient()
+     * @generated
+     * @ordered
+     */
+    protected boolean transient_ = TRANSIENT_EDEFAULT;
+
+    /**
+     * This is true if the Transient attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean transientESet;
+
+    /**
+     * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getType()
+     * @generated
+     * @ordered
+     */
+    protected static final String TYPE_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getType()
+     * @generated
+     * @ordered
+     */
+    protected String type = TYPE_EDEFAULT;
+
+    /**
+     * This is true if the Type attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean typeESet;
 
     /**
      * <!-- begin-user-doc -->
@@ -1051,28 +1054,28 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     @Override
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
-        case NsdPackage.DATA_OBJECT__DS_PRES_COND:
-            return getDsPresCond();
-        case NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS:
-            return getDsPresCondArgs();
-        case NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS_ID:
-            return getDsPresCondArgsID();
-        case NsdPackage.DATA_OBJECT__NAME:
-            return getName();
         case NsdPackage.DATA_OBJECT__PRES_COND:
             return getPresCond();
         case NsdPackage.DATA_OBJECT__PRES_COND_ARGS:
             return getPresCondArgs();
         case NsdPackage.DATA_OBJECT__PRES_COND_ARGS_ID:
             return getPresCondArgsID();
-        case NsdPackage.DATA_OBJECT__TRANSIENT:
-            return isTransient();
-        case NsdPackage.DATA_OBJECT__TYPE:
-            return getType();
+        case NsdPackage.DATA_OBJECT__DS_PRES_COND:
+            return getDsPresCond();
+        case NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS:
+            return getDsPresCondArgs();
+        case NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS_ID:
+            return getDsPresCondArgsID();
         case NsdPackage.DATA_OBJECT__UNDERLYING_TYPE:
             return getUnderlyingType();
         case NsdPackage.DATA_OBJECT__UNDERLYING_TYPE_KIND:
             return getUnderlyingTypeKind();
+        case NsdPackage.DATA_OBJECT__NAME:
+            return getName();
+        case NsdPackage.DATA_OBJECT__TRANSIENT:
+            return isTransient();
+        case NsdPackage.DATA_OBJECT__TYPE:
+            return getType();
         case NsdPackage.DATA_OBJECT__ANY_LN_CLASS:
             return getAnyLNClass();
         }
@@ -1087,18 +1090,6 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     @Override
     public void eSet( int featureID, Object newValue ) {
         switch( featureID ) {
-        case NsdPackage.DATA_OBJECT__DS_PRES_COND:
-            setDsPresCond( ( String ) newValue );
-            return;
-        case NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS:
-            setDsPresCondArgs( ( String ) newValue );
-            return;
-        case NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS_ID:
-            setDsPresCondArgsID( ( String ) newValue );
-            return;
-        case NsdPackage.DATA_OBJECT__NAME:
-            setName( ( String ) newValue );
-            return;
         case NsdPackage.DATA_OBJECT__PRES_COND:
             setPresCond( ( String ) newValue );
             return;
@@ -1108,17 +1099,29 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         case NsdPackage.DATA_OBJECT__PRES_COND_ARGS_ID:
             setPresCondArgsID( ( String ) newValue );
             return;
-        case NsdPackage.DATA_OBJECT__TRANSIENT:
-            setTransient( ( Boolean ) newValue );
+        case NsdPackage.DATA_OBJECT__DS_PRES_COND:
+            setDsPresCond( ( String ) newValue );
             return;
-        case NsdPackage.DATA_OBJECT__TYPE:
-            setType( ( String ) newValue );
+        case NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS:
+            setDsPresCondArgs( ( String ) newValue );
+            return;
+        case NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS_ID:
+            setDsPresCondArgsID( ( String ) newValue );
             return;
         case NsdPackage.DATA_OBJECT__UNDERLYING_TYPE:
             setUnderlyingType( ( String ) newValue );
             return;
         case NsdPackage.DATA_OBJECT__UNDERLYING_TYPE_KIND:
             setUnderlyingTypeKind( ( DefinedAttributeTypeKind ) newValue );
+            return;
+        case NsdPackage.DATA_OBJECT__NAME:
+            setName( ( String ) newValue );
+            return;
+        case NsdPackage.DATA_OBJECT__TRANSIENT:
+            setTransient( ( Boolean ) newValue );
+            return;
+        case NsdPackage.DATA_OBJECT__TYPE:
+            setType( ( String ) newValue );
             return;
         case NsdPackage.DATA_OBJECT__ANY_LN_CLASS:
             setAnyLNClass( ( AnyLNClass ) newValue );
@@ -1135,18 +1138,6 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     @Override
     public void eUnset( int featureID ) {
         switch( featureID ) {
-        case NsdPackage.DATA_OBJECT__DS_PRES_COND:
-            unsetDsPresCond();
-            return;
-        case NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS:
-            unsetDsPresCondArgs();
-            return;
-        case NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS_ID:
-            unsetDsPresCondArgsID();
-            return;
-        case NsdPackage.DATA_OBJECT__NAME:
-            unsetName();
-            return;
         case NsdPackage.DATA_OBJECT__PRES_COND:
             unsetPresCond();
             return;
@@ -1156,17 +1147,29 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         case NsdPackage.DATA_OBJECT__PRES_COND_ARGS_ID:
             unsetPresCondArgsID();
             return;
-        case NsdPackage.DATA_OBJECT__TRANSIENT:
-            unsetTransient();
+        case NsdPackage.DATA_OBJECT__DS_PRES_COND:
+            unsetDsPresCond();
             return;
-        case NsdPackage.DATA_OBJECT__TYPE:
-            unsetType();
+        case NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS:
+            unsetDsPresCondArgs();
+            return;
+        case NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS_ID:
+            unsetDsPresCondArgsID();
             return;
         case NsdPackage.DATA_OBJECT__UNDERLYING_TYPE:
             unsetUnderlyingType();
             return;
         case NsdPackage.DATA_OBJECT__UNDERLYING_TYPE_KIND:
             unsetUnderlyingTypeKind();
+            return;
+        case NsdPackage.DATA_OBJECT__NAME:
+            unsetName();
+            return;
+        case NsdPackage.DATA_OBJECT__TRANSIENT:
+            unsetTransient();
+            return;
+        case NsdPackage.DATA_OBJECT__TYPE:
+            unsetType();
             return;
         case NsdPackage.DATA_OBJECT__ANY_LN_CLASS:
             setAnyLNClass( ( AnyLNClass ) null );
@@ -1183,28 +1186,28 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     @Override
     public boolean eIsSet( int featureID ) {
         switch( featureID ) {
-        case NsdPackage.DATA_OBJECT__DS_PRES_COND:
-            return isSetDsPresCond();
-        case NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS:
-            return isSetDsPresCondArgs();
-        case NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS_ID:
-            return isSetDsPresCondArgsID();
-        case NsdPackage.DATA_OBJECT__NAME:
-            return isSetName();
         case NsdPackage.DATA_OBJECT__PRES_COND:
             return isSetPresCond();
         case NsdPackage.DATA_OBJECT__PRES_COND_ARGS:
             return isSetPresCondArgs();
         case NsdPackage.DATA_OBJECT__PRES_COND_ARGS_ID:
             return isSetPresCondArgsID();
-        case NsdPackage.DATA_OBJECT__TRANSIENT:
-            return isSetTransient();
-        case NsdPackage.DATA_OBJECT__TYPE:
-            return isSetType();
+        case NsdPackage.DATA_OBJECT__DS_PRES_COND:
+            return isSetDsPresCond();
+        case NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS:
+            return isSetDsPresCondArgs();
+        case NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS_ID:
+            return isSetDsPresCondArgsID();
         case NsdPackage.DATA_OBJECT__UNDERLYING_TYPE:
             return isSetUnderlyingType();
         case NsdPackage.DATA_OBJECT__UNDERLYING_TYPE_KIND:
             return isSetUnderlyingTypeKind();
+        case NsdPackage.DATA_OBJECT__NAME:
+            return isSetName();
+        case NsdPackage.DATA_OBJECT__TRANSIENT:
+            return isSetTransient();
+        case NsdPackage.DATA_OBJECT__TYPE:
+            return isSetType();
         case NsdPackage.DATA_OBJECT__ANY_LN_CLASS:
             return getAnyLNClass() != null;
         }
@@ -1217,31 +1220,99 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
      * @generated
      */
     @Override
+    public int eBaseStructuralFeatureID( int derivedFeatureID, Class< ? > baseClass ) {
+        if( baseClass == AgPresenceCondition.class ) {
+            switch( derivedFeatureID ) {
+            case NsdPackage.DATA_OBJECT__PRES_COND:
+                return NsdPackage.AG_PRESENCE_CONDITION__PRES_COND;
+            case NsdPackage.DATA_OBJECT__PRES_COND_ARGS:
+                return NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS;
+            case NsdPackage.DATA_OBJECT__PRES_COND_ARGS_ID:
+                return NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS_ID;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgPresenceConditionDerivedStatistics.class ) {
+            switch( derivedFeatureID ) {
+            case NsdPackage.DATA_OBJECT__DS_PRES_COND:
+                return NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__DS_PRES_COND;
+            case NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS:
+                return NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__DS_PRES_COND_ARGS;
+            case NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS_ID:
+                return NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__DS_PRES_COND_ARGS_ID;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgUnderlyingType.class ) {
+            switch( derivedFeatureID ) {
+            case NsdPackage.DATA_OBJECT__UNDERLYING_TYPE:
+                return NsdPackage.AG_UNDERLYING_TYPE__UNDERLYING_TYPE;
+            case NsdPackage.DATA_OBJECT__UNDERLYING_TYPE_KIND:
+                return NsdPackage.AG_UNDERLYING_TYPE__UNDERLYING_TYPE_KIND;
+            default:
+                return -1;
+            }
+        }
+        return super.eBaseStructuralFeatureID( derivedFeatureID, baseClass );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public int eDerivedStructuralFeatureID( int baseFeatureID, Class< ? > baseClass ) {
+        if( baseClass == AgPresenceCondition.class ) {
+            switch( baseFeatureID ) {
+            case NsdPackage.AG_PRESENCE_CONDITION__PRES_COND:
+                return NsdPackage.DATA_OBJECT__PRES_COND;
+            case NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS:
+                return NsdPackage.DATA_OBJECT__PRES_COND_ARGS;
+            case NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS_ID:
+                return NsdPackage.DATA_OBJECT__PRES_COND_ARGS_ID;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgPresenceConditionDerivedStatistics.class ) {
+            switch( baseFeatureID ) {
+            case NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__DS_PRES_COND:
+                return NsdPackage.DATA_OBJECT__DS_PRES_COND;
+            case NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__DS_PRES_COND_ARGS:
+                return NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS;
+            case NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__DS_PRES_COND_ARGS_ID:
+                return NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS_ID;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgUnderlyingType.class ) {
+            switch( baseFeatureID ) {
+            case NsdPackage.AG_UNDERLYING_TYPE__UNDERLYING_TYPE:
+                return NsdPackage.DATA_OBJECT__UNDERLYING_TYPE;
+            case NsdPackage.AG_UNDERLYING_TYPE__UNDERLYING_TYPE_KIND:
+                return NsdPackage.DATA_OBJECT__UNDERLYING_TYPE_KIND;
+            default:
+                return -1;
+            }
+        }
+        return super.eDerivedStructuralFeatureID( baseFeatureID, baseClass );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public String toString() {
         if( eIsProxy() ) return super.toString();
 
         StringBuilder result = new StringBuilder( super.toString() );
-        result.append( " (dsPresCond: " );
-        if( dsPresCondESet )
-            result.append( dsPresCond );
-        else
-            result.append( "<unset>" );
-        result.append( ", dsPresCondArgs: " );
-        if( dsPresCondArgsESet )
-            result.append( dsPresCondArgs );
-        else
-            result.append( "<unset>" );
-        result.append( ", dsPresCondArgsID: " );
-        if( dsPresCondArgsIDESet )
-            result.append( dsPresCondArgsID );
-        else
-            result.append( "<unset>" );
-        result.append( ", name: " );
-        if( nameESet )
-            result.append( name );
-        else
-            result.append( "<unset>" );
-        result.append( ", presCond: " );
+        result.append( " (presCond: " );
         if( presCondESet )
             result.append( presCond );
         else
@@ -1256,14 +1327,19 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             result.append( presCondArgsID );
         else
             result.append( "<unset>" );
-        result.append( ", transient: " );
-        if( transientESet )
-            result.append( transient_ );
+        result.append( ", dsPresCond: " );
+        if( dsPresCondESet )
+            result.append( dsPresCond );
         else
             result.append( "<unset>" );
-        result.append( ", type: " );
-        if( typeESet )
-            result.append( type );
+        result.append( ", dsPresCondArgs: " );
+        if( dsPresCondArgsESet )
+            result.append( dsPresCondArgs );
+        else
+            result.append( "<unset>" );
+        result.append( ", dsPresCondArgsID: " );
+        if( dsPresCondArgsIDESet )
+            result.append( dsPresCondArgsID );
         else
             result.append( "<unset>" );
         result.append( ", underlyingType: " );
@@ -1274,6 +1350,21 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         result.append( ", underlyingTypeKind: " );
         if( underlyingTypeKindESet )
             result.append( underlyingTypeKind );
+        else
+            result.append( "<unset>" );
+        result.append( ", name: " );
+        if( nameESet )
+            result.append( name );
+        else
+            result.append( "<unset>" );
+        result.append( ", transient: " );
+        if( transientESet )
+            result.append( transient_ );
+        else
+            result.append( "<unset>" );
+        result.append( ", type: " );
+        if( typeESet )
+            result.append( type );
         else
             result.append( "<unset>" );
         result.append( ')' );

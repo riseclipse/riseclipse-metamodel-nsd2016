@@ -1,62 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="nsd" nsURI="http://www.iec.ch/61850/2016/NSD" nsPrefix="nsd">
-  <eClassifiers xsi:type="ecore:EClass" name="AppliesToType" eSuperTypes="#//NSDObjectWithVersionAndRelease">
+  <eClassifiers xsi:type="ecore:EClass" name="AppliesToType" eSuperTypes="#//AgNSIdentification #//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="AppliesTo_._type"/>
       <details key="kind" value="empty"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="id"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="publicationStage" eType="#//PubStage"
-        defaultValueLiteral="IS" unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="publicationStage"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="revision" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral="A" unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="revision"/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="serviceNsUsage" ordered="false"
         eType="#//ServiceNsUsage" transient="true" unsettable="true" resolveProxies="false"
         eOpposite="#//ServiceNsUsage/appliesTo"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DependsOn" eSuperTypes="#//NSDObjectWithVersionAndRelease">
+  <eClassifiers xsi:type="ecore:EClass" name="DependsOn" eSuperTypes="#//AgNSIdentification">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="DependsOn_._type"/>
       <details key="kind" value="empty"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="id"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="publicationStage" eType="#//PubStage"
-        defaultValueLiteral="IS" unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="publicationStage"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="revision" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral="A" unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="revision"/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nS" ordered="false" eType="#//NS"
         transient="true" unsettable="true" resolveProxies="false" eOpposite="#//NS/dependsOn"/>
   </eClassifiers>
@@ -124,7 +82,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ServiceType">
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceType" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="Service_._type"/>
       <details key="kind" value="empty"/>
@@ -140,7 +98,7 @@
         eType="#//ApplicableServices" transient="true" unsettable="true" resolveProxies="false"
         eOpposite="#//ApplicableServices/service"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Abbreviation">
+  <eClassifiers xsi:type="ecore:EClass" name="Abbreviation" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tAbbreviation"/>
       <details key="kind" value="empty"/>
@@ -162,7 +120,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="abbreviations" ordered="false"
         eType="#//Abbreviations" unsettable="true" resolveProxies="false" eOpposite="#//Abbreviations/abbreviation"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Abbreviations">
+  <eClassifiers xsi:type="ecore:EClass" name="Abbreviations" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tAbbreviations"/>
       <details key="kind" value="elementOnly"/>
@@ -319,7 +277,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ApplicableServices">
+  <eClassifiers xsi:type="ecore:EClass" name="ApplicableServices" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tApplicableServices"/>
       <details key="kind" value="elementOnly"/>
@@ -352,7 +310,7 @@
       <details key="memberTypes" value="tDefinedAttributeTypeKind tUndefinedAttributeTypeKind"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BasicType">
+  <eClassifiers xsi:type="ecore:EClass" name="BasicType" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tBasicType"/>
       <details key="kind" value="empty"/>
@@ -375,7 +333,7 @@
         eType="#//BasicTypes" transient="true" unsettable="true" resolveProxies="false"
         eOpposite="#//BasicTypes/basicType"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BasicTypes">
+  <eClassifiers xsi:type="ecore:EClass" name="BasicTypes" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tBasicTypes"/>
       <details key="kind" value="elementOnly"/>
@@ -478,7 +436,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="cDCs" ordered="false" eType="#//CDCs"
         transient="true" unsettable="true" resolveProxies="false" eOpposite="#//CDCs/cDC"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CDCs">
+  <eClassifiers xsi:type="ecore:EClass" name="CDCs" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tCDCs"/>
       <details key="kind" value="elementOnly"/>
@@ -495,7 +453,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="nS" ordered="false" eType="#//NS"
         transient="true" unsettable="true" resolveProxies="false" eOpposite="#//NS/cDCs"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Changes" eSuperTypes="#//NSDObjectWithVersionAndRelease">
+  <eClassifiers xsi:type="ecore:EClass" name="Changes" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tChanges"/>
       <details key="kind" value="empty"/>
@@ -533,6 +491,20 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="serviceNS" ordered="false"
         eType="#//ServiceNS" transient="true" unsettable="true" resolveProxies="false"
         eOpposite="#//ServiceNS/changes"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="release" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        defaultValueLiteral="1" unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="release"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="version"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConstructedAttribute" eSuperTypes="#//TitledClass">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -562,7 +534,7 @@
         ordered="false" eType="#//ServiceTypeRealizations" transient="true" unsettable="true"
         resolveProxies="false" eOpposite="#//ServiceTypeRealizations/serviceTypeRealization"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ConstructedAttributes">
+  <eClassifiers xsi:type="ecore:EClass" name="ConstructedAttributes" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tConstructedAttributes"/>
       <details key="kind" value="elementOnly"/>
@@ -579,7 +551,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="nS" ordered="false" eType="#//NS"
         transient="true" unsettable="true" resolveProxies="false" eOpposite="#//NS/constructedAttributes"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Copyrighted">
+  <eClassifiers xsi:type="ecore:EClass" name="Copyrighted" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tCopyrighted"/>
       <details key="kind" value="elementOnly"/>
@@ -594,7 +566,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CopyrightNotice">
+  <eClassifiers xsi:type="ecore:EClass" name="CopyrightNotice" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tCopyrightNotice"/>
       <details key="kind" value="elementOnly"/>
@@ -621,32 +593,11 @@
         eType="#//Copyrighted" transient="true" unsettable="true" resolveProxies="false"
         eOpposite="#//Copyrighted/copyright"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DataAttribute" eSuperTypes="#//DocumentedClass">
+  <eClassifiers xsi:type="ecore:EClass" name="DataAttribute" eSuperTypes="#//DocumentedClass #//AgPresenceCondition #//AgArray #//AgTrgOp #//AgAttributeTypeAndValues">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tDataAttribute"/>
       <details key="kind" value="empty"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dchg" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
-        defaultValueLiteral="false" unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="dchg"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//NormalizedString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="defaultValue"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dupd" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
-        defaultValueLiteral="false" unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="dupd"/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fc" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         unsettable="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -654,152 +605,26 @@
         <details key="name" value="fc"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isArray" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
-        defaultValueLiteral="false" unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="isArray"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxIndexAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="maxIndexAttribute"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxValue" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Decimal"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="maxValue"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minIndex" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//UnsignedInt"
-        defaultValueLiteral="0" unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="minIndex"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minValue" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Decimal"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="minValue"/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         unsettable="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="name"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCond" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral="M" unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="presCond"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="presCondArgs"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgsID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="presCondArgsID"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="qchg" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
-        defaultValueLiteral="false" unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="qchg"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sizeAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="sizeAttribute"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="type"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeKind" eType="#//AttributeTypeKind"
-        defaultValueLiteral="BASIC" unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="typeKind"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cDC" ordered="false" eType="#//CDC"
         transient="true" unsettable="true" resolveProxies="false" eOpposite="#//CDC/dataAttribute"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DataObject" eSuperTypes="#//DocumentedClass">
+  <eClassifiers xsi:type="ecore:EClass" name="DataObject" eSuperTypes="#//DocumentedClass #//AgPresenceCondition #//AgPresenceConditionDerivedStatistics #//AgUnderlyingType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tDataObject"/>
       <details key="kind" value="empty"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dsPresCond" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral="M" unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="dsPresCond"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dsPresCondArgs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="dsPresCondArgs"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dsPresCondArgsID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="dsPresCondArgsID"/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         unsettable="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="name"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCond" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral="M" unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="presCond"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="presCondArgs"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgsID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="presCondArgsID"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="transient" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
@@ -816,25 +641,11 @@
         <details key="name" value="type"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="underlyingType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="underlyingType"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="underlyingTypeKind" eType="#//DefinedAttributeTypeKind"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="underlyingTypeKind"/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="anyLNClass" ordered="false"
         eType="#//AnyLNClass" transient="true" unsettable="true" resolveProxies="false"
         eOpposite="#//AnyLNClass/dataObject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DataSetMemberOf">
+  <eClassifiers xsi:type="ecore:EClass" name="DataSetMemberOf" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tDataSetMemberOf"/>
       <details key="kind" value="empty"/>
@@ -875,7 +686,7 @@
       <details key="baseType" value="tDefinedAttributeTypeKind"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Doc">
+  <eClassifiers xsi:type="ecore:EClass" name="Doc" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tDoc"/>
       <details key="kind" value="mixed"/>
@@ -917,7 +728,7 @@
         eType="#//NSDoc" transient="true" unsettable="true" resolveProxies="false"
         eOpposite="#//NSDoc/doc"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DocumentedClass">
+  <eClassifiers xsi:type="ecore:EClass" name="DocumentedClass" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tDocumentedClass"/>
       <details key="kind" value="empty"/>
@@ -976,7 +787,7 @@
         eType="#//Enumerations" transient="true" unsettable="true" resolveProxies="false"
         eOpposite="#//Enumerations/enumeration"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Enumerations">
+  <eClassifiers xsi:type="ecore:EClass" name="Enumerations" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tEnumerations"/>
       <details key="kind" value="elementOnly"/>
@@ -993,7 +804,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="nS" ordered="false" eType="#//NS"
         transient="true" unsettable="true" resolveProxies="false" eOpposite="#//NS/enumerations"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FunctionalConstraint">
+  <eClassifiers xsi:type="ecore:EClass" name="FunctionalConstraint" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tFunctionalConstraint"/>
       <details key="kind" value="elementOnly"/>
@@ -1032,7 +843,7 @@
         ordered="false" eType="#//FunctionalConstraints" transient="true" unsettable="true"
         resolveProxies="false" eOpposite="#//FunctionalConstraints/functionalConstraint"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FunctionalConstraints">
+  <eClassifiers xsi:type="ecore:EClass" name="FunctionalConstraints" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tFunctionalConstraints"/>
       <details key="kind" value="elementOnly"/>
@@ -1052,7 +863,7 @@
         eType="#//ServiceNS" transient="true" unsettable="true" resolveProxies="false"
         eOpposite="#//ServiceNS/functionalConstraints"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="License">
+  <eClassifiers xsi:type="ecore:EClass" name="License" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tLicense"/>
       <details key="kind" value="mixed"/>
@@ -1152,7 +963,7 @@
         eType="#//LNClasses" transient="true" unsettable="true" resolveProxies="false"
         eOpposite="#//LNClasses/lNClass"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LNClasses">
+  <eClassifiers xsi:type="ecore:EClass" name="LNClasses" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tLNClasses"/>
       <details key="kind" value="elementOnly"/>
@@ -1178,7 +989,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="nS" ordered="false" eType="#//NS"
         transient="true" unsettable="true" resolveProxies="false" eOpposite="#//NS/lNClasses"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Notice">
+  <eClassifiers xsi:type="ecore:EClass" name="Notice" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tNotice"/>
       <details key="kind" value="mixed"/>
@@ -1194,7 +1005,7 @@
         eType="#//CopyrightNotice" transient="true" unsettable="true" resolveProxies="false"
         eOpposite="#//CopyrightNotice/notice"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NS" eSuperTypes="#//Copyrighted #//NSDObjectWithVersionAndRelease">
+  <eClassifiers xsi:type="ecore:EClass" name="NS" eSuperTypes="#//Copyrighted #//AgNSIdentification #//AgUML #//AgNSdesc">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tNS"/>
       <details key="kind" value="elementOnly"/>
@@ -1288,50 +1099,8 @@
         <details key="namespace" value="##targetNamespace"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="descID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="descID"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="id"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="publicationStage" eType="#//PubStage"
-        defaultValueLiteral="IS" unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="publicationStage"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="revision" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral="A" unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="revision"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="umlDate" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//DateTime"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="umlDate"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="umlVersion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="umlVersion"/>
-      </eAnnotations>
-    </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NSDoc" eSuperTypes="#//Copyrighted #//NSDObjectWithVersionAndRelease">
+  <eClassifiers xsi:type="ecore:EClass" name="NSDoc" eSuperTypes="#//Copyrighted #//AgNSIdentification #//AgUML">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tNSDoc"/>
       <details key="kind" value="elementOnly"/>
@@ -1345,13 +1114,6 @@
         <details key="namespace" value="##targetNamespace"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="id"/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="lang" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Language"
         unsettable="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -1359,36 +1121,8 @@
         <details key="name" value="lang"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="publicationStage" eType="#//PubStage"
-        defaultValueLiteral="IS" unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="publicationStage"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="revision" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral="A" unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="revision"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="umlDate" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//DateTime"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="umlDate"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="umlVersion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="umlVersion"/>
-      </eAnnotations>
-    </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PresenceCondition">
+  <eClassifiers xsi:type="ecore:EClass" name="PresenceCondition" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tPresenceCondition"/>
       <details key="kind" value="empty"/>
@@ -1425,7 +1159,7 @@
         eType="#//PresenceConditions" transient="true" unsettable="true" resolveProxies="false"
         eOpposite="#//PresenceConditions/presenceCondition"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PresenceConditions">
+  <eClassifiers xsi:type="ecore:EClass" name="PresenceConditions" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tPresenceConditions"/>
       <details key="kind" value="elementOnly"/>
@@ -1501,7 +1235,7 @@
       <details key="baseType" value="tPubStage"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ServiceCDC">
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceCDC" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tServiceCDC"/>
       <details key="kind" value="elementOnly"/>
@@ -1533,7 +1267,7 @@
         eType="#//ServiceCDCs" transient="true" unsettable="true" resolveProxies="false"
         eOpposite="#//ServiceCDCs/serviceCDC"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ServiceCDCs">
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceCDCs" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tServiceCDCs"/>
       <details key="kind" value="elementOnly"/>
@@ -1568,7 +1302,7 @@
         ordered="false" eType="#//ServiceConstructedAttributes" transient="true" unsettable="true"
         resolveProxies="false" eOpposite="#//ServiceConstructedAttributes/serviceConstructedAttribute"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ServiceConstructedAttributes">
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceConstructedAttributes" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tServiceConstructedAttributes"/>
       <details key="kind" value="elementOnly"/>
@@ -1586,7 +1320,7 @@
         eType="#//ServiceNS" transient="true" unsettable="true" resolveProxies="false"
         eOpposite="#//ServiceNS/serviceConstructedAttributes"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ServiceDataAttribute" eSuperTypes="#//DocumentedClass">
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceDataAttribute" eSuperTypes="#//DocumentedClass #//AgPresenceCondition #//AgAttributeType #//AgUnderlyingType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tServiceDataAttribute"/>
       <details key="kind" value="empty"/>
@@ -1605,60 +1339,11 @@
         <details key="name" value="name"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCond" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral="M" unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="presCond"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="presCondArgs"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgsID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="presCondArgsID"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="type"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeKind" eType="#//AttributeTypeKind"
-        defaultValueLiteral="BASIC" unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="typeKind"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="underlyingType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="underlyingType"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="underlyingTypeKind" eType="#//DefinedAttributeTypeKind"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="underlyingTypeKind"/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="serviceCDC" ordered="false"
         eType="#//ServiceCDC" transient="true" unsettable="true" resolveProxies="false"
         eOpposite="#//ServiceCDC/serviceDataAttribute"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ServiceNS" eSuperTypes="#//Copyrighted #//NSDObjectWithVersionAndRelease">
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceNS" eSuperTypes="#//Copyrighted #//AgNSIdentification #//AgUML #//AgNSdesc">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tServiceNS"/>
       <details key="kind" value="elementOnly"/>
@@ -1726,50 +1411,8 @@
         <details key="namespace" value="##targetNamespace"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="descID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="descID"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="id"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="publicationStage" eType="#//PubStage"
-        defaultValueLiteral="IS" unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="publicationStage"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="revision" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral="A" unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="revision"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="umlDate" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//DateTime"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="umlDate"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="umlVersion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="umlVersion"/>
-      </eAnnotations>
-    </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ServiceNsUsage" eSuperTypes="#//NSDObjectWithVersionAndRelease">
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceNsUsage" eSuperTypes="#//NsdObject #//AgNSIdentification">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tServiceNsUsage"/>
       <details key="kind" value="elementOnly"/>
@@ -1783,56 +1426,14 @@
         <details key="namespace" value="##targetNamespace"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="id"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="publicationStage" eType="#//PubStage"
-        defaultValueLiteral="IS" unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="publicationStage"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="revision" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral="A" unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="revision"/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="applicableServiceNS" ordered="false"
         eType="#//ApplicableServiceNS" transient="true" unsettable="true" eOpposite="#//ApplicableServiceNS/serviceNsUsage"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ServiceParameter" eSuperTypes="#//DocumentedClass">
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceParameter" eSuperTypes="#//DocumentedClass #//AgAttributeTypeAndValues">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tServiceParameter"/>
       <details key="kind" value="empty"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//NormalizedString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="defaultValue"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxValue" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Decimal"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="maxValue"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minValue" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Decimal"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="minValue"/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         unsettable="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -1840,24 +1441,10 @@
         <details key="name" value="name"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="type"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeKind" eType="#//AttributeTypeKind"
-        defaultValueLiteral="BASIC" unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="typeKind"/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cDC" ordered="false" eType="#//CDC"
         transient="true" unsettable="true" resolveProxies="false" eOpposite="#//CDC/serviceParameter"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ServiceTypeRealizations">
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceTypeRealizations" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tServiceTypeRealizations"/>
       <details key="kind" value="elementOnly"/>
@@ -1875,132 +1462,27 @@
         eType="#//ServiceNS" transient="true" unsettable="true" resolveProxies="false"
         eOpposite="#//ServiceNS/serviceTypeRealizations"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SubDataAttribute" eSuperTypes="#//DocumentedClass">
+  <eClassifiers xsi:type="ecore:EClass" name="SubDataAttribute" eSuperTypes="#//DocumentedClass #//AgPresenceCondition #//AgArray #//AgAttributeTypeAndValues">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tSubDataAttribute"/>
       <details key="kind" value="empty"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//NormalizedString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="defaultValue"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isArray" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
-        defaultValueLiteral="false" unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="isArray"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxIndexAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="maxIndexAttribute"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxValue" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Decimal"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="maxValue"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minIndex" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//UnsignedInt"
-        defaultValueLiteral="0" unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="minIndex"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minValue" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Decimal"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="minValue"/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         unsettable="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="name"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCond" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral="M" unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="presCond"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="presCondArgs"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgsID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="presCondArgsID"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sizeAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="sizeAttribute"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="type"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeKind" eType="#//AttributeTypeKind"
-        defaultValueLiteral="BASIC" unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="typeKind"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="constructedAttribute" ordered="false"
         eType="#//ConstructedAttribute" transient="true" unsettable="true" resolveProxies="false"
         eOpposite="#//ConstructedAttribute/subDataAttribute"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SubDataObject" eSuperTypes="#//DocumentedClass">
+  <eClassifiers xsi:type="ecore:EClass" name="SubDataObject" eSuperTypes="#//DocumentedClass #//AgPresenceCondition #//AgArray #//AgUnderlyingType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tSubDataObject"/>
       <details key="kind" value="empty"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isArray" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
-        defaultValueLiteral="false" unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="isArray"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxIndexAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="maxIndexAttribute"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minIndex" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//UnsignedInt"
-        defaultValueLiteral="0" unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="minIndex"/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         unsettable="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -2008,53 +1490,11 @@
         <details key="name" value="name"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCond" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral="M" unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="presCond"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="presCondArgs"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgsID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="presCondArgsID"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sizeAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="sizeAttribute"/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         unsettable="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="type"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="underlyingType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="underlyingType"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="underlyingTypeKind" eType="#//DefinedAttributeTypeKind"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="underlyingTypeKind"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cDC" ordered="false" eType="#//CDC"
@@ -2090,7 +1530,13 @@
       <details key="baseType" value="tUndefinedAttributeTypeKind"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NSDObjectWithVersionAndRelease" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="NsdObject" abstract="true">
+    <eOperations name="buildExplicitLinks"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lineNumber" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" transient="true"
+        defaultValueLiteral="-1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AgNSIdentification" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="release" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
         defaultValueLiteral="1" unsettable="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -2103,6 +1549,208 @@
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="version"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="id"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="revision" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="A" unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="revision"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="publicationStage" eType="#//PubStage"
+        defaultValueLiteral="IS" unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="publicationStage"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AgPresenceCondition" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCond" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="M" unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="presCond"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="presCondArgs"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCondArgsID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="presCondArgsID"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AgPresenceConditionDerivedStatistics"
+      abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dsPresCond" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="M" unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="dsPresCond"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dsPresCondArgs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="dsPresCondArgs"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dsPresCondArgsID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="dsPresCondArgsID"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AgArray" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isArray" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
+        defaultValueLiteral="false" unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="isArray"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxIndexAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="maxIndexAttribute"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minIndex" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//UnsignedInt"
+        defaultValueLiteral="0" unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="minIndex"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sizeAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="sizeAttribute"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AgTrgOp" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dchg" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
+        defaultValueLiteral="false" unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="dchg"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dupd" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
+        defaultValueLiteral="false" unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="dupd"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="qchg" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
+        defaultValueLiteral="false" unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="qchg"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AgAttributeType" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="type"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeKind" eType="#//AttributeTypeKind"
+        defaultValueLiteral="BASIC" unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="typeKind"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AgAttributeTypeAndValues" abstract="true"
+      eSuperTypes="#//AgAttributeType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//NormalizedString"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="defaultValue"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxValue" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Decimal"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="maxValue"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minValue" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Decimal"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="minValue"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AgUnderlyingType" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="underlyingType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="underlyingType"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="underlyingTypeKind" eType="#//DefinedAttributeTypeKind"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="underlyingTypeKind"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AgUML" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="umlDate" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//DateTime"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="umlDate"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="umlVersion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="umlVersion"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AgNSdesc" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="descID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="descID"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>

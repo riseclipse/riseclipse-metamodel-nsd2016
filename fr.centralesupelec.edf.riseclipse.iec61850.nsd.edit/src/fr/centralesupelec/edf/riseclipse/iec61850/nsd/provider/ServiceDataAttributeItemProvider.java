@@ -61,8 +61,6 @@ public class ServiceDataAttributeItemProvider extends DocumentedClassItemProvide
         if( itemPropertyDescriptors == null ) {
             super.getPropertyDescriptors( object );
 
-            addFcPropertyDescriptor( object );
-            addNamePropertyDescriptor( object );
             addPresCondPropertyDescriptor( object );
             addPresCondArgsPropertyDescriptor( object );
             addPresCondArgsIDPropertyDescriptor( object );
@@ -70,6 +68,8 @@ public class ServiceDataAttributeItemProvider extends DocumentedClassItemProvide
             addTypeKindPropertyDescriptor( object );
             addUnderlyingTypePropertyDescriptor( object );
             addUnderlyingTypeKindPropertyDescriptor( object );
+            addFcPropertyDescriptor( object );
+            addNamePropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -113,13 +113,13 @@ public class ServiceDataAttributeItemProvider extends DocumentedClassItemProvide
      * @generated
      */
     protected void addPresCondPropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add( createItemPropertyDescriptor(
-                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
-                getString( "_UI_ServiceDataAttribute_presCond_feature" ),
-                getString( "_UI_PropertyDescriptor_description", "_UI_ServiceDataAttribute_presCond_feature",
-                        "_UI_ServiceDataAttribute_type" ),
-                NsdPackage.Literals.SERVICE_DATA_ATTRIBUTE__PRES_COND, true, false, false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(), getString( "_UI_AgPresenceCondition_presCond_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgPresenceCondition_presCond_feature",
+                                "_UI_AgPresenceCondition_type" ),
+                        NsdPackage.Literals.AG_PRESENCE_CONDITION__PRES_COND, true, false, false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -131,10 +131,10 @@ public class ServiceDataAttributeItemProvider extends DocumentedClassItemProvide
     protected void addPresCondArgsPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add( createItemPropertyDescriptor(
                 ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
-                getString( "_UI_ServiceDataAttribute_presCondArgs_feature" ),
-                getString( "_UI_PropertyDescriptor_description", "_UI_ServiceDataAttribute_presCondArgs_feature",
-                        "_UI_ServiceDataAttribute_type" ),
-                NsdPackage.Literals.SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS, true, false, false,
+                getString( "_UI_AgPresenceCondition_presCondArgs_feature" ),
+                getString( "_UI_PropertyDescriptor_description", "_UI_AgPresenceCondition_presCondArgs_feature",
+                        "_UI_AgPresenceCondition_type" ),
+                NsdPackage.Literals.AG_PRESENCE_CONDITION__PRES_COND_ARGS, true, false, false,
                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
@@ -145,13 +145,13 @@ public class ServiceDataAttributeItemProvider extends DocumentedClassItemProvide
      * @generated
      */
     protected void addPresCondArgsIDPropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add(
-                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_ServiceDataAttribute_presCondArgsID_feature" ),
-                        getString( "_UI_PropertyDescriptor_description",
-                                "_UI_ServiceDataAttribute_presCondArgsID_feature", "_UI_ServiceDataAttribute_type" ),
-                        NsdPackage.Literals.SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS_ID, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add( createItemPropertyDescriptor(
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
+                getString( "_UI_AgPresenceCondition_presCondArgsID_feature" ),
+                getString( "_UI_PropertyDescriptor_description", "_UI_AgPresenceCondition_presCondArgsID_feature",
+                        "_UI_AgPresenceCondition_type" ),
+                NsdPackage.Literals.AG_PRESENCE_CONDITION__PRES_COND_ARGS_ID, true, false, false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -163,10 +163,10 @@ public class ServiceDataAttributeItemProvider extends DocumentedClassItemProvide
     protected void addTypePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_ServiceDataAttribute_type_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_ServiceDataAttribute_type_feature",
-                                "_UI_ServiceDataAttribute_type" ),
-                        NsdPackage.Literals.SERVICE_DATA_ATTRIBUTE__TYPE, true, false, false,
+                        getResourceLocator(), getString( "_UI_AgAttributeType_type_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgAttributeType_type_feature",
+                                "_UI_AgAttributeType_type" ),
+                        NsdPackage.Literals.AG_ATTRIBUTE_TYPE__TYPE, true, false, false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
@@ -177,13 +177,13 @@ public class ServiceDataAttributeItemProvider extends DocumentedClassItemProvide
      * @generated
      */
     protected void addTypeKindPropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add( createItemPropertyDescriptor(
-                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
-                getString( "_UI_ServiceDataAttribute_typeKind_feature" ),
-                getString( "_UI_PropertyDescriptor_description", "_UI_ServiceDataAttribute_typeKind_feature",
-                        "_UI_ServiceDataAttribute_type" ),
-                NsdPackage.Literals.SERVICE_DATA_ATTRIBUTE__TYPE_KIND, true, false, false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(), getString( "_UI_AgAttributeType_typeKind_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgAttributeType_typeKind_feature",
+                                "_UI_AgAttributeType_type" ),
+                        NsdPackage.Literals.AG_ATTRIBUTE_TYPE__TYPE_KIND, true, false, false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -193,13 +193,13 @@ public class ServiceDataAttributeItemProvider extends DocumentedClassItemProvide
      * @generated
      */
     protected void addUnderlyingTypePropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add( createItemPropertyDescriptor(
-                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
-                getString( "_UI_ServiceDataAttribute_underlyingType_feature" ),
-                getString( "_UI_PropertyDescriptor_description", "_UI_ServiceDataAttribute_underlyingType_feature",
-                        "_UI_ServiceDataAttribute_type" ),
-                NsdPackage.Literals.SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE, true, false, false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(), getString( "_UI_AgUnderlyingType_underlyingType_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgUnderlyingType_underlyingType_feature",
+                                "_UI_AgUnderlyingType_type" ),
+                        NsdPackage.Literals.AG_UNDERLYING_TYPE__UNDERLYING_TYPE, true, false, false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -211,10 +211,10 @@ public class ServiceDataAttributeItemProvider extends DocumentedClassItemProvide
     protected void addUnderlyingTypeKindPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add( createItemPropertyDescriptor(
                 ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
-                getString( "_UI_ServiceDataAttribute_underlyingTypeKind_feature" ),
-                getString( "_UI_PropertyDescriptor_description", "_UI_ServiceDataAttribute_underlyingTypeKind_feature",
-                        "_UI_ServiceDataAttribute_type" ),
-                NsdPackage.Literals.SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE_KIND, true, false, false,
+                getString( "_UI_AgUnderlyingType_underlyingTypeKind_feature" ),
+                getString( "_UI_PropertyDescriptor_description", "_UI_AgUnderlyingType_underlyingTypeKind_feature",
+                        "_UI_AgUnderlyingType_type" ),
+                NsdPackage.Literals.AG_UNDERLYING_TYPE__UNDERLYING_TYPE_KIND, true, false, false,
                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
@@ -254,8 +254,6 @@ public class ServiceDataAttributeItemProvider extends DocumentedClassItemProvide
         updateChildren( notification );
 
         switch( notification.getFeatureID( ServiceDataAttribute.class ) ) {
-        case NsdPackage.SERVICE_DATA_ATTRIBUTE__FC:
-        case NsdPackage.SERVICE_DATA_ATTRIBUTE__NAME:
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND:
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS:
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS_ID:
@@ -263,6 +261,8 @@ public class ServiceDataAttributeItemProvider extends DocumentedClassItemProvide
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__TYPE_KIND:
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE:
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE_KIND:
+        case NsdPackage.SERVICE_DATA_ATTRIBUTE__FC:
+        case NsdPackage.SERVICE_DATA_ATTRIBUTE__NAME:
             fireNotifyChanged( new ViewerNotification( notification, notification.getNotifier(), false, true ) );
             return;
         }

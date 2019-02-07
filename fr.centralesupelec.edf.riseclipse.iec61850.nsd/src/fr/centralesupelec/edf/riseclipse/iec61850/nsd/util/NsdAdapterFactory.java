@@ -329,8 +329,58 @@ public class NsdAdapterFactory extends AdapterFactoryImpl {
         }
 
         @Override
-        public Adapter caseNSDObjectWithVersionAndRelease( NSDObjectWithVersionAndRelease object ) {
-            return createNSDObjectWithVersionAndReleaseAdapter();
+        public Adapter caseNsdObject( NsdObject object ) {
+            return createNsdObjectAdapter();
+        }
+
+        @Override
+        public Adapter caseAgNSIdentification( AgNSIdentification object ) {
+            return createAgNSIdentificationAdapter();
+        }
+
+        @Override
+        public Adapter caseAgPresenceCondition( AgPresenceCondition object ) {
+            return createAgPresenceConditionAdapter();
+        }
+
+        @Override
+        public Adapter caseAgPresenceConditionDerivedStatistics( AgPresenceConditionDerivedStatistics object ) {
+            return createAgPresenceConditionDerivedStatisticsAdapter();
+        }
+
+        @Override
+        public Adapter caseAgArray( AgArray object ) {
+            return createAgArrayAdapter();
+        }
+
+        @Override
+        public Adapter caseAgTrgOp( AgTrgOp object ) {
+            return createAgTrgOpAdapter();
+        }
+
+        @Override
+        public Adapter caseAgAttributeType( AgAttributeType object ) {
+            return createAgAttributeTypeAdapter();
+        }
+
+        @Override
+        public Adapter caseAgAttributeTypeAndValues( AgAttributeTypeAndValues object ) {
+            return createAgAttributeTypeAndValuesAdapter();
+        }
+
+        @Override
+        public Adapter caseAgUnderlyingType( AgUnderlyingType object ) {
+            return createAgUnderlyingTypeAdapter();
+        }
+
+        @Override
+        public Adapter caseAgUML( AgUML object ) {
+            return createAgUMLAdapter();
+        }
+
+        @Override
+        public Adapter caseAgNSdesc( AgNSdesc object ) {
+            return createAgNSdescAdapter();
         }
 
         @Override
@@ -1039,16 +1089,156 @@ public class NsdAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDObjectWithVersionAndRelease <em>NSD Object With Version And Release</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdObject <em>Object</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDObjectWithVersionAndRelease
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdObject
      * @generated
      */
-    public Adapter createNSDObjectWithVersionAndReleaseAdapter() {
+    public Adapter createNsdObjectAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification <em>Ag NS Identification</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification
+     * @generated
+     */
+    public Adapter createAgNSIdentificationAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceCondition <em>Ag Presence Condition</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceCondition
+     * @generated
+     */
+    public Adapter createAgPresenceConditionAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceConditionDerivedStatistics <em>Ag Presence Condition Derived Statistics</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceConditionDerivedStatistics
+     * @generated
+     */
+    public Adapter createAgPresenceConditionDerivedStatisticsAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgArray <em>Ag Array</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgArray
+     * @generated
+     */
+    public Adapter createAgArrayAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgTrgOp <em>Ag Trg Op</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgTrgOp
+     * @generated
+     */
+    public Adapter createAgTrgOpAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType <em>Ag Attribute Type</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType
+     * @generated
+     */
+    public Adapter createAgAttributeTypeAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeTypeAndValues <em>Ag Attribute Type And Values</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeTypeAndValues
+     * @generated
+     */
+    public Adapter createAgAttributeTypeAndValuesAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType <em>Ag Underlying Type</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType
+     * @generated
+     */
+    public Adapter createAgUnderlyingTypeAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUML <em>Ag UML</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUML
+     * @generated
+     */
+    public Adapter createAgUMLAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSdesc <em>Ag NSdesc</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSdesc
+     * @generated
+     */
+    public Adapter createAgNSdescAdapter() {
         return null;
     }
 

@@ -21,8 +21,6 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>CD Cs</b></em>'.
@@ -40,7 +38,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='tCDCs' kind='elementOnly'"
  * @generated
  */
-public interface CDCs extends EObject {
+public interface CDCs extends NsdObject {
     /**
      * Returns the value of the '<em><b>CDC</b></em>' containment reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC}.

@@ -124,7 +124,7 @@ public class AnyLNClassItemProvider extends TitledClassItemProvider {
     @Override
     public String getText( Object object ) {
         AnyLNClass anyLNClass = ( AnyLNClass ) object;
-        return getString( "_UI_AnyLNClass_type" ) + " " + anyLNClass.isDeprecated();
+        return getString( "_UI_AnyLNClass_type" ) + " " + anyLNClass.getLineNumber();
     }
 
     /**

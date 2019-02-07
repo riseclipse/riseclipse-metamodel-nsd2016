@@ -19,8 +19,6 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
-import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.ecore.util.FeatureMap;
 
 /**
@@ -40,7 +38,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * @model extendedMetaData="name='tNotice' kind='mixed'"
  * @generated
  */
-public interface Notice extends EObject {
+public interface Notice extends NsdObject {
     /**
      * Returns the value of the '<em><b>Mixed</b></em>' attribute list.
      * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.

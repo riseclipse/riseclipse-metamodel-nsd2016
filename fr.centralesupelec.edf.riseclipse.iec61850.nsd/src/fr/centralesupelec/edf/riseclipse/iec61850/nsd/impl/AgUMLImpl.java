@@ -19,8 +19,10 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDObjectWithVersionAndRelease;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUML;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
+
+import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -31,84 +33,83 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>NSD Object With Version And Release</b></em>'.
+ * An implementation of the model object '<em><b>Ag UML</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDObjectWithVersionAndReleaseImpl#getRelease <em>Release</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDObjectWithVersionAndReleaseImpl#getVersion <em>Version</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AgUMLImpl#getUmlDate <em>Uml Date</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AgUMLImpl#getUmlVersion <em>Uml Version</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class NSDObjectWithVersionAndReleaseImpl extends MinimalEObjectImpl.Container
-        implements NSDObjectWithVersionAndRelease {
+public abstract class AgUMLImpl extends MinimalEObjectImpl.Container implements AgUML {
     /**
-     * The default value of the '{@link #getRelease() <em>Release</em>}' attribute.
+     * The default value of the '{@link #getUmlDate() <em>Uml Date</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getRelease()
+     * @see #getUmlDate()
      * @generated
      * @ordered
      */
-    protected static final Integer RELEASE_EDEFAULT = new Integer( 1 );
+    protected static final XMLGregorianCalendar UML_DATE_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getRelease() <em>Release</em>}' attribute.
+     * The cached value of the '{@link #getUmlDate() <em>Uml Date</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getRelease()
+     * @see #getUmlDate()
      * @generated
      * @ordered
      */
-    protected Integer release = RELEASE_EDEFAULT;
+    protected XMLGregorianCalendar umlDate = UML_DATE_EDEFAULT;
 
     /**
-     * This is true if the Release attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean releaseESet;
-
-    /**
-     * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getVersion()
-     * @generated
-     * @ordered
-     */
-    protected static final Integer VERSION_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getVersion()
-     * @generated
-     * @ordered
-     */
-    protected Integer version = VERSION_EDEFAULT;
-
-    /**
-     * This is true if the Version attribute has been set.
+     * This is true if the Uml Date attribute has been set.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    protected boolean versionESet;
+    protected boolean umlDateESet;
+
+    /**
+     * The default value of the '{@link #getUmlVersion() <em>Uml Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getUmlVersion()
+     * @generated
+     * @ordered
+     */
+    protected static final String UML_VERSION_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getUmlVersion() <em>Uml Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getUmlVersion()
+     * @generated
+     * @ordered
+     */
+    protected String umlVersion = UML_VERSION_EDEFAULT;
+
+    /**
+     * This is true if the Uml Version attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean umlVersionESet;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected NSDObjectWithVersionAndReleaseImpl() {
+    protected AgUMLImpl() {
         super();
     }
 
@@ -119,7 +120,7 @@ public abstract class NSDObjectWithVersionAndReleaseImpl extends MinimalEObjectI
      */
     @Override
     protected EClass eStaticClass() {
-        return NsdPackage.Literals.NSD_OBJECT_WITH_VERSION_AND_RELEASE;
+        return NsdPackage.Literals.AG_UML;
     }
 
     /**
@@ -128,8 +129,8 @@ public abstract class NSDObjectWithVersionAndReleaseImpl extends MinimalEObjectI
      * @generated
      */
     @Override
-    public Integer getRelease() {
-        return release;
+    public XMLGregorianCalendar getUmlDate() {
+        return umlDate;
     }
 
     /**
@@ -138,13 +139,13 @@ public abstract class NSDObjectWithVersionAndReleaseImpl extends MinimalEObjectI
      * @generated
      */
     @Override
-    public void setRelease( Integer newRelease ) {
-        Integer oldRelease = release;
-        release = newRelease;
-        boolean oldReleaseESet = releaseESet;
-        releaseESet = true;
+    public void setUmlDate( XMLGregorianCalendar newUmlDate ) {
+        XMLGregorianCalendar oldUmlDate = umlDate;
+        umlDate = newUmlDate;
+        boolean oldUmlDateESet = umlDateESet;
+        umlDateESet = true;
         if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.NSD_OBJECT_WITH_VERSION_AND_RELEASE__RELEASE, oldRelease, release, !oldReleaseESet ) );
+                NsdPackage.AG_UML__UML_DATE, oldUmlDate, umlDate, !oldUmlDateESet ) );
     }
 
     /**
@@ -153,14 +154,13 @@ public abstract class NSDObjectWithVersionAndReleaseImpl extends MinimalEObjectI
      * @generated
      */
     @Override
-    public void unsetRelease() {
-        Integer oldRelease = release;
-        boolean oldReleaseESet = releaseESet;
-        release = RELEASE_EDEFAULT;
-        releaseESet = false;
+    public void unsetUmlDate() {
+        XMLGregorianCalendar oldUmlDate = umlDate;
+        boolean oldUmlDateESet = umlDateESet;
+        umlDate = UML_DATE_EDEFAULT;
+        umlDateESet = false;
         if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.NSD_OBJECT_WITH_VERSION_AND_RELEASE__RELEASE, oldRelease, RELEASE_EDEFAULT,
-                oldReleaseESet ) );
+                NsdPackage.AG_UML__UML_DATE, oldUmlDate, UML_DATE_EDEFAULT, oldUmlDateESet ) );
     }
 
     /**
@@ -169,8 +169,8 @@ public abstract class NSDObjectWithVersionAndReleaseImpl extends MinimalEObjectI
      * @generated
      */
     @Override
-    public boolean isSetRelease() {
-        return releaseESet;
+    public boolean isSetUmlDate() {
+        return umlDateESet;
     }
 
     /**
@@ -179,8 +179,8 @@ public abstract class NSDObjectWithVersionAndReleaseImpl extends MinimalEObjectI
      * @generated
      */
     @Override
-    public Integer getVersion() {
-        return version;
+    public String getUmlVersion() {
+        return umlVersion;
     }
 
     /**
@@ -189,13 +189,13 @@ public abstract class NSDObjectWithVersionAndReleaseImpl extends MinimalEObjectI
      * @generated
      */
     @Override
-    public void setVersion( Integer newVersion ) {
-        Integer oldVersion = version;
-        version = newVersion;
-        boolean oldVersionESet = versionESet;
-        versionESet = true;
+    public void setUmlVersion( String newUmlVersion ) {
+        String oldUmlVersion = umlVersion;
+        umlVersion = newUmlVersion;
+        boolean oldUmlVersionESet = umlVersionESet;
+        umlVersionESet = true;
         if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.NSD_OBJECT_WITH_VERSION_AND_RELEASE__VERSION, oldVersion, version, !oldVersionESet ) );
+                NsdPackage.AG_UML__UML_VERSION, oldUmlVersion, umlVersion, !oldUmlVersionESet ) );
     }
 
     /**
@@ -204,14 +204,13 @@ public abstract class NSDObjectWithVersionAndReleaseImpl extends MinimalEObjectI
      * @generated
      */
     @Override
-    public void unsetVersion() {
-        Integer oldVersion = version;
-        boolean oldVersionESet = versionESet;
-        version = VERSION_EDEFAULT;
-        versionESet = false;
+    public void unsetUmlVersion() {
+        String oldUmlVersion = umlVersion;
+        boolean oldUmlVersionESet = umlVersionESet;
+        umlVersion = UML_VERSION_EDEFAULT;
+        umlVersionESet = false;
         if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.NSD_OBJECT_WITH_VERSION_AND_RELEASE__VERSION, oldVersion, VERSION_EDEFAULT,
-                oldVersionESet ) );
+                NsdPackage.AG_UML__UML_VERSION, oldUmlVersion, UML_VERSION_EDEFAULT, oldUmlVersionESet ) );
     }
 
     /**
@@ -220,8 +219,8 @@ public abstract class NSDObjectWithVersionAndReleaseImpl extends MinimalEObjectI
      * @generated
      */
     @Override
-    public boolean isSetVersion() {
-        return versionESet;
+    public boolean isSetUmlVersion() {
+        return umlVersionESet;
     }
 
     /**
@@ -232,10 +231,10 @@ public abstract class NSDObjectWithVersionAndReleaseImpl extends MinimalEObjectI
     @Override
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
-        case NsdPackage.NSD_OBJECT_WITH_VERSION_AND_RELEASE__RELEASE:
-            return getRelease();
-        case NsdPackage.NSD_OBJECT_WITH_VERSION_AND_RELEASE__VERSION:
-            return getVersion();
+        case NsdPackage.AG_UML__UML_DATE:
+            return getUmlDate();
+        case NsdPackage.AG_UML__UML_VERSION:
+            return getUmlVersion();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -248,11 +247,11 @@ public abstract class NSDObjectWithVersionAndReleaseImpl extends MinimalEObjectI
     @Override
     public void eSet( int featureID, Object newValue ) {
         switch( featureID ) {
-        case NsdPackage.NSD_OBJECT_WITH_VERSION_AND_RELEASE__RELEASE:
-            setRelease( ( Integer ) newValue );
+        case NsdPackage.AG_UML__UML_DATE:
+            setUmlDate( ( XMLGregorianCalendar ) newValue );
             return;
-        case NsdPackage.NSD_OBJECT_WITH_VERSION_AND_RELEASE__VERSION:
-            setVersion( ( Integer ) newValue );
+        case NsdPackage.AG_UML__UML_VERSION:
+            setUmlVersion( ( String ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -266,11 +265,11 @@ public abstract class NSDObjectWithVersionAndReleaseImpl extends MinimalEObjectI
     @Override
     public void eUnset( int featureID ) {
         switch( featureID ) {
-        case NsdPackage.NSD_OBJECT_WITH_VERSION_AND_RELEASE__RELEASE:
-            unsetRelease();
+        case NsdPackage.AG_UML__UML_DATE:
+            unsetUmlDate();
             return;
-        case NsdPackage.NSD_OBJECT_WITH_VERSION_AND_RELEASE__VERSION:
-            unsetVersion();
+        case NsdPackage.AG_UML__UML_VERSION:
+            unsetUmlVersion();
             return;
         }
         super.eUnset( featureID );
@@ -284,10 +283,10 @@ public abstract class NSDObjectWithVersionAndReleaseImpl extends MinimalEObjectI
     @Override
     public boolean eIsSet( int featureID ) {
         switch( featureID ) {
-        case NsdPackage.NSD_OBJECT_WITH_VERSION_AND_RELEASE__RELEASE:
-            return isSetRelease();
-        case NsdPackage.NSD_OBJECT_WITH_VERSION_AND_RELEASE__VERSION:
-            return isSetVersion();
+        case NsdPackage.AG_UML__UML_DATE:
+            return isSetUmlDate();
+        case NsdPackage.AG_UML__UML_VERSION:
+            return isSetUmlVersion();
         }
         return super.eIsSet( featureID );
     }
@@ -302,18 +301,18 @@ public abstract class NSDObjectWithVersionAndReleaseImpl extends MinimalEObjectI
         if( eIsProxy() ) return super.toString();
 
         StringBuilder result = new StringBuilder( super.toString() );
-        result.append( " (release: " );
-        if( releaseESet )
-            result.append( release );
+        result.append( " (umlDate: " );
+        if( umlDateESet )
+            result.append( umlDate );
         else
             result.append( "<unset>" );
-        result.append( ", version: " );
-        if( versionESet )
-            result.append( version );
+        result.append( ", umlVersion: " );
+        if( umlVersionESet )
+            result.append( umlVersion );
         else
             result.append( "<unset>" );
         result.append( ')' );
         return result.toString();
     }
 
-} //NSDObjectWithVersionAndReleaseImpl
+} //AgUMLImpl

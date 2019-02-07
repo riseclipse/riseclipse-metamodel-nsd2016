@@ -21,8 +21,6 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Basic Types</b></em>'.
@@ -40,7 +38,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='tBasicTypes' kind='elementOnly'"
  * @generated
  */
-public interface BasicTypes extends EObject {
+public interface BasicTypes extends NsdObject {
     /**
      * Returns the value of the '<em><b>Basic Type</b></em>' containment reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType}.

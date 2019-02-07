@@ -21,8 +21,6 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Service Type Realizations</b></em>'.
@@ -40,7 +38,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='tServiceTypeRealizations' kind='elementOnly'"
  * @generated
  */
-public interface ServiceTypeRealizations extends EObject {
+public interface ServiceTypeRealizations extends NsdObject {
     /**
      * Returns the value of the '<em><b>Service Type Realization</b></em>' containment reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute}.

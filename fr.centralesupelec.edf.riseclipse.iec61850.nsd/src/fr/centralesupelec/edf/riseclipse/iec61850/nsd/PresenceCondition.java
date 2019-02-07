@@ -19,8 +19,6 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Presence Condition</b></em>'.
@@ -41,7 +39,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='tPresenceCondition' kind='empty'"
  * @generated
  */
-public interface PresenceCondition extends EObject {
+public interface PresenceCondition extends NsdObject {
     /**
      * Returns the value of the '<em><b>Argument</b></em>' attribute.
      * <!-- begin-user-doc -->

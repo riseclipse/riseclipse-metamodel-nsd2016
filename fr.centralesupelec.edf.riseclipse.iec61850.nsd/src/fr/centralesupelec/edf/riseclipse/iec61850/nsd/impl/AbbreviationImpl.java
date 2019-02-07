@@ -30,7 +30,6 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -48,7 +47,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *
  * @generated
  */
-public class AbbreviationImpl extends MinimalEObjectImpl.Container implements Abbreviation {
+public class AbbreviationImpl extends NsdObjectImpl implements Abbreviation {
     /**
      * The default value of the '{@link #getDescID() <em>Desc ID</em>}' attribute.
      * <!-- begin-user-doc -->

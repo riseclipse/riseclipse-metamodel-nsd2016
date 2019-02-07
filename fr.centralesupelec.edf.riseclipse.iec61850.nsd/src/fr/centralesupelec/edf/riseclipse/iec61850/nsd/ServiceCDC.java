@@ -21,8 +21,6 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Service CDC</b></em>'.
@@ -42,7 +40,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='tServiceCDC' kind='elementOnly'"
  * @generated
  */
-public interface ServiceCDC extends EObject {
+public interface ServiceCDC extends NsdObject {
     /**
      * Returns the value of the '<em><b>Service Data Attribute</b></em>' containment reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute}.
