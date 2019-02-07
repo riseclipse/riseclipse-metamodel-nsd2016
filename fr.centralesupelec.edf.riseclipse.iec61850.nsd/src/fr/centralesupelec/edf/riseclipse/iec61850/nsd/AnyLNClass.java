@@ -32,6 +32,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass#getDataObject <em>Data Object</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass#getBase <em>Base</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass#getRefersToAbstractLNClass <em>Refers To Abstract LN Class</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAnyLNClass()
@@ -127,5 +128,68 @@ public interface AnyLNClass extends TitledClass {
      * @generated
      */
     boolean isSetBase();
+
+    /**
+     * Returns the value of the '<em><b>Refers To Abstract LN Class</b></em>' reference.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass#getReferredByAnyLNClass <em>Referred By Any LN Class</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Refers To Abstract LN Class</em>' reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Refers To Abstract LN Class</em>' reference.
+     * @see #isSetRefersToAbstractLNClass()
+     * @see #unsetRefersToAbstractLNClass()
+     * @see #setRefersToAbstractLNClass(AbstractLNClass)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAnyLNClass_RefersToAbstractLNClass()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass#getReferredByAnyLNClass
+     * @model opposite="referredByAnyLNClass" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @generated
+     */
+    AbstractLNClass getRefersToAbstractLNClass();
+
+    /**
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass#getRefersToAbstractLNClass <em>Refers To Abstract LN Class</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Refers To Abstract LN Class</em>' reference.
+     * @see #isSetRefersToAbstractLNClass()
+     * @see #unsetRefersToAbstractLNClass()
+     * @see #getRefersToAbstractLNClass()
+     * @generated
+     */
+    void setRefersToAbstractLNClass( AbstractLNClass value );
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass#getRefersToAbstractLNClass <em>Refers To Abstract LN Class</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetRefersToAbstractLNClass()
+     * @see #getRefersToAbstractLNClass()
+     * @see #setRefersToAbstractLNClass(AbstractLNClass)
+     * @generated
+     */
+    void unsetRefersToAbstractLNClass();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass#getRefersToAbstractLNClass <em>Refers To Abstract LN Class</em>}' reference is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Refers To Abstract LN Class</em>' reference is set.
+     * @see #unsetRefersToAbstractLNClass()
+     * @see #getRefersToAbstractLNClass()
+     * @see #setRefersToAbstractLNClass(AbstractLNClass)
+     * @generated
+     */
+    boolean isSetRefersToAbstractLNClass();
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model kind="operation" dataType="org.eclipse.emf.ecore.xml.type.String"
+     * @generated
+     */
+    String getName();
 
 } // AnyLNClass

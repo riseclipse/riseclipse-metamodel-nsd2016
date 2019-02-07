@@ -19,15 +19,14 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdObject;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage;
-import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
@@ -42,32 +41,161 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AppliesToTypeImpl#getLineNumber <em>Line Number</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AppliesToTypeImpl#getRelease <em>Release</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AppliesToTypeImpl#getVersion <em>Version</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AppliesToTypeImpl#getId <em>Id</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AppliesToTypeImpl#getRevision <em>Revision</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AppliesToTypeImpl#getPublicationStage <em>Publication Stage</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AppliesToTypeImpl#getServiceNsUsage <em>Service Ns Usage</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AppliesToTypeImpl extends AgNSIdentificationImpl implements AppliesToType {
+public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
     /**
-     * The default value of the '{@link #getLineNumber() <em>Line Number</em>}' attribute.
+     * The default value of the '{@link #getRelease() <em>Release</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getLineNumber()
+     * @see #getRelease()
      * @generated
      * @ordered
      */
-    protected static final int LINE_NUMBER_EDEFAULT = -1;
+    protected static final Integer RELEASE_EDEFAULT = new Integer( 1 );
 
     /**
-     * The cached value of the '{@link #getLineNumber() <em>Line Number</em>}' attribute.
+     * The cached value of the '{@link #getRelease() <em>Release</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getLineNumber()
+     * @see #getRelease()
      * @generated
      * @ordered
      */
-    protected int lineNumber = LINE_NUMBER_EDEFAULT;
+    protected Integer release = RELEASE_EDEFAULT;
+
+    /**
+     * This is true if the Release attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean releaseESet;
+
+    /**
+     * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getVersion()
+     * @generated
+     * @ordered
+     */
+    protected static final Integer VERSION_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getVersion()
+     * @generated
+     * @ordered
+     */
+    protected Integer version = VERSION_EDEFAULT;
+
+    /**
+     * This is true if the Version attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean versionESet;
+
+    /**
+     * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getId()
+     * @generated
+     * @ordered
+     */
+    protected static final String ID_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getId()
+     * @generated
+     * @ordered
+     */
+    protected String id = ID_EDEFAULT;
+
+    /**
+     * This is true if the Id attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean idESet;
+
+    /**
+     * The default value of the '{@link #getRevision() <em>Revision</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRevision()
+     * @generated
+     * @ordered
+     */
+    protected static final String REVISION_EDEFAULT = "A";
+
+    /**
+     * The cached value of the '{@link #getRevision() <em>Revision</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRevision()
+     * @generated
+     * @ordered
+     */
+    protected String revision = REVISION_EDEFAULT;
+
+    /**
+     * This is true if the Revision attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean revisionESet;
+
+    /**
+     * The default value of the '{@link #getPublicationStage() <em>Publication Stage</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getPublicationStage()
+     * @generated
+     * @ordered
+     */
+    protected static final PubStage PUBLICATION_STAGE_EDEFAULT = PubStage.IS;
+
+    /**
+     * The cached value of the '{@link #getPublicationStage() <em>Publication Stage</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getPublicationStage()
+     * @generated
+     * @ordered
+     */
+    protected PubStage publicationStage = PUBLICATION_STAGE_EDEFAULT;
+
+    /**
+     * This is true if the Publication Stage attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean publicationStageESet;
 
     /**
      * <!-- begin-user-doc -->
@@ -94,8 +222,8 @@ public class AppliesToTypeImpl extends AgNSIdentificationImpl implements Applies
      * @generated
      */
     @Override
-    public int getLineNumber() {
-        return lineNumber;
+    public Integer getRelease() {
+        return release;
     }
 
     /**
@@ -104,11 +232,240 @@ public class AppliesToTypeImpl extends AgNSIdentificationImpl implements Applies
      * @generated
      */
     @Override
-    public void setLineNumber( int newLineNumber ) {
-        int oldLineNumber = lineNumber;
-        lineNumber = newLineNumber;
+    public void setRelease( Integer newRelease ) {
+        Integer oldRelease = release;
+        release = newRelease;
+        boolean oldReleaseESet = releaseESet;
+        releaseESet = true;
         if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.APPLIES_TO_TYPE__LINE_NUMBER, oldLineNumber, lineNumber ) );
+                NsdPackage.APPLIES_TO_TYPE__RELEASE, oldRelease, release, !oldReleaseESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetRelease() {
+        Integer oldRelease = release;
+        boolean oldReleaseESet = releaseESet;
+        release = RELEASE_EDEFAULT;
+        releaseESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.APPLIES_TO_TYPE__RELEASE, oldRelease, RELEASE_EDEFAULT, oldReleaseESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetRelease() {
+        return releaseESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Integer getVersion() {
+        return version;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setVersion( Integer newVersion ) {
+        Integer oldVersion = version;
+        version = newVersion;
+        boolean oldVersionESet = versionESet;
+        versionESet = true;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.APPLIES_TO_TYPE__VERSION, oldVersion, version, !oldVersionESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetVersion() {
+        Integer oldVersion = version;
+        boolean oldVersionESet = versionESet;
+        version = VERSION_EDEFAULT;
+        versionESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.APPLIES_TO_TYPE__VERSION, oldVersion, VERSION_EDEFAULT, oldVersionESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetVersion() {
+        return versionESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setId( String newId ) {
+        String oldId = id;
+        id = newId;
+        boolean oldIdESet = idESet;
+        idESet = true;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.APPLIES_TO_TYPE__ID, oldId, id, !oldIdESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetId() {
+        String oldId = id;
+        boolean oldIdESet = idESet;
+        id = ID_EDEFAULT;
+        idESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.APPLIES_TO_TYPE__ID, oldId, ID_EDEFAULT, oldIdESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetId() {
+        return idESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String getRevision() {
+        return revision;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setRevision( String newRevision ) {
+        String oldRevision = revision;
+        revision = newRevision;
+        boolean oldRevisionESet = revisionESet;
+        revisionESet = true;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.APPLIES_TO_TYPE__REVISION, oldRevision, revision, !oldRevisionESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetRevision() {
+        String oldRevision = revision;
+        boolean oldRevisionESet = revisionESet;
+        revision = REVISION_EDEFAULT;
+        revisionESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.APPLIES_TO_TYPE__REVISION, oldRevision, REVISION_EDEFAULT, oldRevisionESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetRevision() {
+        return revisionESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public PubStage getPublicationStage() {
+        return publicationStage;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setPublicationStage( PubStage newPublicationStage ) {
+        PubStage oldPublicationStage = publicationStage;
+        publicationStage = newPublicationStage == null ? PUBLICATION_STAGE_EDEFAULT : newPublicationStage;
+        boolean oldPublicationStageESet = publicationStageESet;
+        publicationStageESet = true;
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE,
+                    oldPublicationStage, publicationStage, !oldPublicationStageESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetPublicationStage() {
+        PubStage oldPublicationStage = publicationStage;
+        boolean oldPublicationStageESet = publicationStageESet;
+        publicationStage = PUBLICATION_STAGE_EDEFAULT;
+        publicationStageESet = false;
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE,
+                    oldPublicationStage, PUBLICATION_STAGE_EDEFAULT, oldPublicationStageESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetPublicationStage() {
+        return publicationStageESet;
     }
 
     /**
@@ -154,18 +511,6 @@ public class AppliesToTypeImpl extends AgNSIdentificationImpl implements Applies
         }
         else if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
                 NsdPackage.APPLIES_TO_TYPE__SERVICE_NS_USAGE, newServiceNsUsage, newServiceNsUsage ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void buildExplicitLinks() {
-        // TODO: implement this method
-        // Ensure that you remove @generated or mark it @generated NOT
-        throw new UnsupportedOperationException();
     }
 
     /**
@@ -220,8 +565,16 @@ public class AppliesToTypeImpl extends AgNSIdentificationImpl implements Applies
     @Override
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
-        case NsdPackage.APPLIES_TO_TYPE__LINE_NUMBER:
-            return getLineNumber();
+        case NsdPackage.APPLIES_TO_TYPE__RELEASE:
+            return getRelease();
+        case NsdPackage.APPLIES_TO_TYPE__VERSION:
+            return getVersion();
+        case NsdPackage.APPLIES_TO_TYPE__ID:
+            return getId();
+        case NsdPackage.APPLIES_TO_TYPE__REVISION:
+            return getRevision();
+        case NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE:
+            return getPublicationStage();
         case NsdPackage.APPLIES_TO_TYPE__SERVICE_NS_USAGE:
             return getServiceNsUsage();
         }
@@ -236,8 +589,20 @@ public class AppliesToTypeImpl extends AgNSIdentificationImpl implements Applies
     @Override
     public void eSet( int featureID, Object newValue ) {
         switch( featureID ) {
-        case NsdPackage.APPLIES_TO_TYPE__LINE_NUMBER:
-            setLineNumber( ( Integer ) newValue );
+        case NsdPackage.APPLIES_TO_TYPE__RELEASE:
+            setRelease( ( Integer ) newValue );
+            return;
+        case NsdPackage.APPLIES_TO_TYPE__VERSION:
+            setVersion( ( Integer ) newValue );
+            return;
+        case NsdPackage.APPLIES_TO_TYPE__ID:
+            setId( ( String ) newValue );
+            return;
+        case NsdPackage.APPLIES_TO_TYPE__REVISION:
+            setRevision( ( String ) newValue );
+            return;
+        case NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE:
+            setPublicationStage( ( PubStage ) newValue );
             return;
         case NsdPackage.APPLIES_TO_TYPE__SERVICE_NS_USAGE:
             setServiceNsUsage( ( ServiceNsUsage ) newValue );
@@ -254,8 +619,20 @@ public class AppliesToTypeImpl extends AgNSIdentificationImpl implements Applies
     @Override
     public void eUnset( int featureID ) {
         switch( featureID ) {
-        case NsdPackage.APPLIES_TO_TYPE__LINE_NUMBER:
-            setLineNumber( LINE_NUMBER_EDEFAULT );
+        case NsdPackage.APPLIES_TO_TYPE__RELEASE:
+            unsetRelease();
+            return;
+        case NsdPackage.APPLIES_TO_TYPE__VERSION:
+            unsetVersion();
+            return;
+        case NsdPackage.APPLIES_TO_TYPE__ID:
+            unsetId();
+            return;
+        case NsdPackage.APPLIES_TO_TYPE__REVISION:
+            unsetRevision();
+            return;
+        case NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE:
+            unsetPublicationStage();
             return;
         case NsdPackage.APPLIES_TO_TYPE__SERVICE_NS_USAGE:
             setServiceNsUsage( ( ServiceNsUsage ) null );
@@ -272,8 +649,16 @@ public class AppliesToTypeImpl extends AgNSIdentificationImpl implements Applies
     @Override
     public boolean eIsSet( int featureID ) {
         switch( featureID ) {
-        case NsdPackage.APPLIES_TO_TYPE__LINE_NUMBER:
-            return lineNumber != LINE_NUMBER_EDEFAULT;
+        case NsdPackage.APPLIES_TO_TYPE__RELEASE:
+            return isSetRelease();
+        case NsdPackage.APPLIES_TO_TYPE__VERSION:
+            return isSetVersion();
+        case NsdPackage.APPLIES_TO_TYPE__ID:
+            return isSetId();
+        case NsdPackage.APPLIES_TO_TYPE__REVISION:
+            return isSetRevision();
+        case NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE:
+            return isSetPublicationStage();
         case NsdPackage.APPLIES_TO_TYPE__SERVICE_NS_USAGE:
             return getServiceNsUsage() != null;
         }
@@ -287,10 +672,18 @@ public class AppliesToTypeImpl extends AgNSIdentificationImpl implements Applies
      */
     @Override
     public int eBaseStructuralFeatureID( int derivedFeatureID, Class< ? > baseClass ) {
-        if( baseClass == NsdObject.class ) {
+        if( baseClass == AgNSIdentification.class ) {
             switch( derivedFeatureID ) {
-            case NsdPackage.APPLIES_TO_TYPE__LINE_NUMBER:
-                return NsdPackage.NSD_OBJECT__LINE_NUMBER;
+            case NsdPackage.APPLIES_TO_TYPE__RELEASE:
+                return NsdPackage.AG_NS_IDENTIFICATION__RELEASE;
+            case NsdPackage.APPLIES_TO_TYPE__VERSION:
+                return NsdPackage.AG_NS_IDENTIFICATION__VERSION;
+            case NsdPackage.APPLIES_TO_TYPE__ID:
+                return NsdPackage.AG_NS_IDENTIFICATION__ID;
+            case NsdPackage.APPLIES_TO_TYPE__REVISION:
+                return NsdPackage.AG_NS_IDENTIFICATION__REVISION;
+            case NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE:
+                return NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE;
             default:
                 return -1;
             }
@@ -305,10 +698,18 @@ public class AppliesToTypeImpl extends AgNSIdentificationImpl implements Applies
      */
     @Override
     public int eDerivedStructuralFeatureID( int baseFeatureID, Class< ? > baseClass ) {
-        if( baseClass == NsdObject.class ) {
+        if( baseClass == AgNSIdentification.class ) {
             switch( baseFeatureID ) {
-            case NsdPackage.NSD_OBJECT__LINE_NUMBER:
-                return NsdPackage.APPLIES_TO_TYPE__LINE_NUMBER;
+            case NsdPackage.AG_NS_IDENTIFICATION__RELEASE:
+                return NsdPackage.APPLIES_TO_TYPE__RELEASE;
+            case NsdPackage.AG_NS_IDENTIFICATION__VERSION:
+                return NsdPackage.APPLIES_TO_TYPE__VERSION;
+            case NsdPackage.AG_NS_IDENTIFICATION__ID:
+                return NsdPackage.APPLIES_TO_TYPE__ID;
+            case NsdPackage.AG_NS_IDENTIFICATION__REVISION:
+                return NsdPackage.APPLIES_TO_TYPE__REVISION;
+            case NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE:
+                return NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE;
             default:
                 return -1;
             }
@@ -322,45 +723,35 @@ public class AppliesToTypeImpl extends AgNSIdentificationImpl implements Applies
      * @generated
      */
     @Override
-    public int eDerivedOperationID( int baseOperationID, Class< ? > baseClass ) {
-        if( baseClass == NsdObject.class ) {
-            switch( baseOperationID ) {
-            case NsdPackage.NSD_OBJECT___BUILD_EXPLICIT_LINKS:
-                return NsdPackage.APPLIES_TO_TYPE___BUILD_EXPLICIT_LINKS;
-            default:
-                return -1;
-            }
-        }
-        return super.eDerivedOperationID( baseOperationID, baseClass );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object eInvoke( int operationID, EList< ? > arguments ) throws InvocationTargetException {
-        switch( operationID ) {
-        case NsdPackage.APPLIES_TO_TYPE___BUILD_EXPLICIT_LINKS:
-            buildExplicitLinks();
-            return null;
-        }
-        return super.eInvoke( operationID, arguments );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public String toString() {
         if( eIsProxy() ) return super.toString();
 
         StringBuilder result = new StringBuilder( super.toString() );
-        result.append( " (lineNumber: " );
-        result.append( lineNumber );
+        result.append( " (release: " );
+        if( releaseESet )
+            result.append( release );
+        else
+            result.append( "<unset>" );
+        result.append( ", version: " );
+        if( versionESet )
+            result.append( version );
+        else
+            result.append( "<unset>" );
+        result.append( ", id: " );
+        if( idESet )
+            result.append( id );
+        else
+            result.append( "<unset>" );
+        result.append( ", revision: " );
+        if( revisionESet )
+            result.append( revision );
+        else
+            result.append( "<unset>" );
+        result.append( ", publicationStage: " );
+        if( publicationStageESet )
+            result.append( publicationStage );
+        else
+            result.append( "<unset>" );
         result.append( ')' );
         return result.toString();
     }

@@ -22,11 +22,13 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdObject;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
+import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
-
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -108,13 +110,18 @@ public abstract class NsdObjectImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     * @generated NOT
      */
     @Override
-    public void buildExplicitLinks() {
-        // TODO: implement this method
-        // Ensure that you remove @generated or mark it @generated NOT
-        throw new UnsupportedOperationException();
+    public void buildExplicitLinks( IRiseClipseConsole console ) {
+        TreeIterator< EObject > it = eAllContents();
+        while( it.hasNext() ) {
+            EObject o = it.next();
+            if( o instanceof NsdObject ) {
+                ( ( NsdObject ) o ).buildExplicitLinks( console );
+            }
+        }
+        return;
     }
 
     /**
@@ -183,8 +190,8 @@ public abstract class NsdObjectImpl extends MinimalEObjectImpl.Container impleme
     @Override
     public Object eInvoke( int operationID, EList< ? > arguments ) throws InvocationTargetException {
         switch( operationID ) {
-        case NsdPackage.NSD_OBJECT___BUILD_EXPLICIT_LINKS:
-            buildExplicitLinks();
+        case NsdPackage.NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE:
+            buildExplicitLinks( ( IRiseClipseConsole ) arguments.get( 0 ) );
             return null;
         }
         return super.eInvoke( operationID, arguments );

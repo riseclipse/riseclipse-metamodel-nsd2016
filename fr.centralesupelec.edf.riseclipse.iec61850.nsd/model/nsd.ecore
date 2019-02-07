@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="nsd" nsURI="http://www.iec.ch/61850/2016/NSD" nsPrefix="nsd">
-  <eClassifiers xsi:type="ecore:EClass" name="AppliesToType" eSuperTypes="#//AgNSIdentification #//NsdObject">
+  <eClassifiers xsi:type="ecore:EClass" name="AppliesToType" eSuperTypes="#//NsdObject #//AgNSIdentification">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="AppliesTo_._type"/>
       <details key="kind" value="empty"/>
@@ -10,13 +10,15 @@
         eType="#//ServiceNsUsage" transient="true" unsettable="true" resolveProxies="false"
         eOpposite="#//ServiceNsUsage/appliesTo"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DependsOn" eSuperTypes="#//AgNSIdentification">
+  <eClassifiers xsi:type="ecore:EClass" name="DependsOn" eSuperTypes="#//NsdObject #//AgNSIdentification">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="DependsOn_._type"/>
       <details key="kind" value="empty"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nS" ordered="false" eType="#//NS"
         transient="true" unsettable="true" resolveProxies="false" eOpposite="#//NS/dependsOn"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refersToNS" ordered="false"
+        eType="#//NS" transient="true" unsettable="true" resolveProxies="false" eOpposite="#//NS/referredByDependsOn"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DocumentRoot">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -155,6 +157,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="lNClasses" ordered="false"
         eType="#//LNClasses" transient="true" unsettable="true" resolveProxies="false"
         eOpposite="#//LNClasses/abstractLNClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referredByAnyLNClass" ordered="false"
+        upperBound="-1" eType="#//AnyLNClass" transient="true" unsettable="true" eOpposite="#//AnyLNClass/refersToAbstractLNClass"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ACSIServicesKind">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -231,6 +235,7 @@
       <details key="name" value="tAnyLNClass"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
+    <eOperations name="getName" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataObject" ordered="false"
         upperBound="-1" eType="#//DataObject" unsettable="true" containment="true"
         resolveProxies="false" eOpposite="#//DataObject/anyLNClass">
@@ -247,6 +252,9 @@
         <details key="name" value="base"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refersToAbstractLNClass"
+        ordered="false" eType="#//AbstractLNClass" transient="true" unsettable="true"
+        resolveProxies="false" eOpposite="#//AbstractLNClass/referredByAnyLNClass"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ApplicableServiceNS" eSuperTypes="#//Copyrighted">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -1099,6 +1107,9 @@
         <details key="namespace" value="##targetNamespace"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referredByDependsOn" ordered="false"
+        upperBound="-1" eType="#//DependsOn" transient="true" unsettable="true" resolveProxies="false"
+        eOpposite="#//DependsOn/refersToNS"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NSDoc" eSuperTypes="#//Copyrighted #//AgNSIdentification #//AgUML">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -1531,7 +1542,9 @@
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NsdObject" abstract="true">
-    <eOperations name="buildExplicitLinks"/>
+    <eOperations name="buildExplicitLinks">
+      <eParameters name="console" eType="#//IRiseClipseConsole"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="lineNumber" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" transient="true"
         defaultValueLiteral="-1"/>
@@ -1754,4 +1767,6 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IRiseClipseConsole" instanceClassName="fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole"
+      abstract="true" interface="true"/>
 </ecore:EPackage>

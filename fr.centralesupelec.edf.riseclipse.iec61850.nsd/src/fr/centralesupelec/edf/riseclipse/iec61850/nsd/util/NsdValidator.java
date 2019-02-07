@@ -21,6 +21,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd.util;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.*;
 
+import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.BasicDiagnostic;
@@ -29,6 +30,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.Enumerator;
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.EObjectValidator;
@@ -227,6 +229,8 @@ public class NsdValidator extends EObjectValidator {
             return validateAgUML( ( AgUML ) value, diagnostics, context );
         case NsdPackage.AG_NSDESC:
             return validateAgNSdesc( ( AgNSdesc ) value, diagnostics, context );
+        case NsdPackage.IRISE_CLIPSE_CONSOLE:
+            return validateIRiseClipseConsole( ( IRiseClipseConsole ) value, diagnostics, context );
         case NsdPackage.ACSI_SERVICES_KIND:
             return validateACSIServicesKind( ( ACSIServicesKind ) value, diagnostics, context );
         case NsdPackage.CB_KIND:
@@ -844,6 +848,16 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateAgNSdesc( AgNSdesc agNSdesc, DiagnosticChain diagnostics, Map< Object, Object > context ) {
         return validate_EveryDefaultConstraint( agNSdesc, diagnostics, context );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateIRiseClipseConsole( IRiseClipseConsole iRiseClipseConsole, DiagnosticChain diagnostics,
+            Map< Object, Object > context ) {
+        return validate_EveryDefaultConstraint( ( EObject ) iRiseClipseConsole, diagnostics, context );
     }
 
     /**

@@ -20,17 +20,22 @@
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,6 +47,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AbstractLNClassImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AbstractLNClassImpl#getLNClasses <em>LN Classes</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AbstractLNClassImpl#getReferredByAnyLNClass <em>Referred By Any LN Class</em>}</li>
  * </ul>
  *
  * @generated
@@ -75,6 +81,16 @@ public class AbstractLNClassImpl extends AnyLNClassImpl implements AbstractLNCla
      * @ordered
      */
     protected boolean nameESet;
+
+    /**
+     * The cached value of the '{@link #getReferredByAnyLNClass() <em>Referred By Any LN Class</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getReferredByAnyLNClass()
+     * @generated
+     * @ordered
+     */
+    protected EList< AnyLNClass > referredByAnyLNClass;
 
     /**
      * <!-- begin-user-doc -->
@@ -194,11 +210,50 @@ public class AbstractLNClassImpl extends AnyLNClassImpl implements AbstractLNCla
      * @generated
      */
     @Override
+    public EList< AnyLNClass > getReferredByAnyLNClass() {
+        if( referredByAnyLNClass == null ) {
+            referredByAnyLNClass = new EObjectWithInverseResolvingEList.Unsettable< AnyLNClass >( AnyLNClass.class,
+                    this, NsdPackage.ABSTRACT_LN_CLASS__REFERRED_BY_ANY_LN_CLASS,
+                    NsdPackage.ANY_LN_CLASS__REFERS_TO_ABSTRACT_LN_CLASS );
+        }
+        return referredByAnyLNClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetReferredByAnyLNClass() {
+        if( referredByAnyLNClass != null ) ( ( InternalEList.Unsettable< ? > ) referredByAnyLNClass ).unset();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetReferredByAnyLNClass() {
+        return referredByAnyLNClass != null && ( ( InternalEList.Unsettable< ? > ) referredByAnyLNClass ).isSet();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @SuppressWarnings( "unchecked" )
+    @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.ABSTRACT_LN_CLASS__LN_CLASSES:
             if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
             return basicSetLNClasses( ( LNClasses ) otherEnd, msgs );
+        case NsdPackage.ABSTRACT_LN_CLASS__REFERRED_BY_ANY_LN_CLASS:
+            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByAnyLNClass() )
+                    .basicAdd( otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
     }
@@ -213,6 +268,8 @@ public class AbstractLNClassImpl extends AnyLNClassImpl implements AbstractLNCla
         switch( featureID ) {
         case NsdPackage.ABSTRACT_LN_CLASS__LN_CLASSES:
             return basicSetLNClasses( null, msgs );
+        case NsdPackage.ABSTRACT_LN_CLASS__REFERRED_BY_ANY_LN_CLASS:
+            return ( ( InternalEList< ? > ) getReferredByAnyLNClass() ).basicRemove( otherEnd, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -244,6 +301,8 @@ public class AbstractLNClassImpl extends AnyLNClassImpl implements AbstractLNCla
             return getName();
         case NsdPackage.ABSTRACT_LN_CLASS__LN_CLASSES:
             return getLNClasses();
+        case NsdPackage.ABSTRACT_LN_CLASS__REFERRED_BY_ANY_LN_CLASS:
+            return getReferredByAnyLNClass();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -253,6 +312,7 @@ public class AbstractLNClassImpl extends AnyLNClassImpl implements AbstractLNCla
      * <!-- end-user-doc -->
      * @generated
      */
+    @SuppressWarnings( "unchecked" )
     @Override
     public void eSet( int featureID, Object newValue ) {
         switch( featureID ) {
@@ -261,6 +321,10 @@ public class AbstractLNClassImpl extends AnyLNClassImpl implements AbstractLNCla
             return;
         case NsdPackage.ABSTRACT_LN_CLASS__LN_CLASSES:
             setLNClasses( ( LNClasses ) newValue );
+            return;
+        case NsdPackage.ABSTRACT_LN_CLASS__REFERRED_BY_ANY_LN_CLASS:
+            getReferredByAnyLNClass().clear();
+            getReferredByAnyLNClass().addAll( ( Collection< ? extends AnyLNClass > ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -280,6 +344,9 @@ public class AbstractLNClassImpl extends AnyLNClassImpl implements AbstractLNCla
         case NsdPackage.ABSTRACT_LN_CLASS__LN_CLASSES:
             setLNClasses( ( LNClasses ) null );
             return;
+        case NsdPackage.ABSTRACT_LN_CLASS__REFERRED_BY_ANY_LN_CLASS:
+            unsetReferredByAnyLNClass();
+            return;
         }
         super.eUnset( featureID );
     }
@@ -296,6 +363,8 @@ public class AbstractLNClassImpl extends AnyLNClassImpl implements AbstractLNCla
             return isSetName();
         case NsdPackage.ABSTRACT_LN_CLASS__LN_CLASSES:
             return getLNClasses() != null;
+        case NsdPackage.ABSTRACT_LN_CLASS__REFERRED_BY_ANY_LN_CLASS:
+            return isSetReferredByAnyLNClass();
         }
         return super.eIsSet( featureID );
     }

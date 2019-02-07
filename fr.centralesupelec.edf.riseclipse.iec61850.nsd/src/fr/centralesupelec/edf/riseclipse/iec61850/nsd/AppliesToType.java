@@ -35,7 +35,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
  * @model extendedMetaData="name='AppliesTo_._type' kind='empty'"
  * @generated
  */
-public interface AppliesToType extends AgNSIdentification, NsdObject {
+public interface AppliesToType extends NsdObject, AgNSIdentification {
     /**
      * Returns the value of the '<em><b>Service Ns Usage</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getAppliesTo <em>Applies To</em>}'.

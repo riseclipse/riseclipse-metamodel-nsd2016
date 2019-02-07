@@ -21,6 +21,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd.util;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.*;
 
+import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -86,14 +87,15 @@ public class NsdSwitch< T > extends Switch< T > {
         case NsdPackage.APPLIES_TO_TYPE: {
             AppliesToType appliesToType = ( AppliesToType ) theEObject;
             T result = caseAppliesToType( appliesToType );
-            if( result == null ) result = caseAgNSIdentification( appliesToType );
             if( result == null ) result = caseNsdObject( appliesToType );
+            if( result == null ) result = caseAgNSIdentification( appliesToType );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
         case NsdPackage.DEPENDS_ON: {
             DependsOn dependsOn = ( DependsOn ) theEObject;
             T result = caseDependsOn( dependsOn );
+            if( result == null ) result = caseNsdObject( dependsOn );
             if( result == null ) result = caseAgNSIdentification( dependsOn );
             if( result == null ) result = defaultCase( theEObject );
             return result;
@@ -548,6 +550,12 @@ public class NsdSwitch< T > extends Switch< T > {
         case NsdPackage.AG_NSDESC: {
             AgNSdesc agNSdesc = ( AgNSdesc ) theEObject;
             T result = caseAgNSdesc( agNSdesc );
+            if( result == null ) result = defaultCase( theEObject );
+            return result;
+        }
+        case NsdPackage.IRISE_CLIPSE_CONSOLE: {
+            IRiseClipseConsole iRiseClipseConsole = ( IRiseClipseConsole ) theEObject;
+            T result = caseIRiseClipseConsole( iRiseClipseConsole );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
@@ -1453,6 +1461,21 @@ public class NsdSwitch< T > extends Switch< T > {
      * @generated
      */
     public T caseAgNSdesc( AgNSdesc object ) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>IRise Clipse Console</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>IRise Clipse Console</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseIRiseClipseConsole( IRiseClipseConsole object ) {
         return null;
     }
 

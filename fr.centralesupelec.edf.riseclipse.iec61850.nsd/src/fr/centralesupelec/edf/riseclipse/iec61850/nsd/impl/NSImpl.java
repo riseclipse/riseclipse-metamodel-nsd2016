@@ -35,16 +35,19 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage;
-
+import java.util.Collection;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectWithInverseEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -72,6 +75,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSImpl#getConstructedAttributes <em>Constructed Attributes</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSImpl#getCDCs <em>CD Cs</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSImpl#getLNClasses <em>LN Classes</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSImpl#getReferredByDependsOn <em>Referred By Depends On</em>}</li>
  * </ul>
  *
  * @generated
@@ -498,6 +502,16 @@ public class NSImpl extends CopyrightedImpl implements NS {
      * @ordered
      */
     protected boolean lNClassesESet;
+
+    /**
+     * The cached value of the '{@link #getReferredByDependsOn() <em>Referred By Depends On</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getReferredByDependsOn()
+     * @generated
+     * @ordered
+     */
+    protected EList< DependsOn > referredByDependsOn;
 
     /**
      * <!-- begin-user-doc -->
@@ -1613,6 +1627,40 @@ public class NSImpl extends CopyrightedImpl implements NS {
      * @generated
      */
     @Override
+    public EList< DependsOn > getReferredByDependsOn() {
+        if( referredByDependsOn == null ) {
+            referredByDependsOn = new EObjectWithInverseEList.Unsettable< DependsOn >( DependsOn.class, this,
+                    NsdPackage.NS__REFERRED_BY_DEPENDS_ON, NsdPackage.DEPENDS_ON__REFERS_TO_NS );
+        }
+        return referredByDependsOn;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetReferredByDependsOn() {
+        if( referredByDependsOn != null ) ( ( InternalEList.Unsettable< ? > ) referredByDependsOn ).unset();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetReferredByDependsOn() {
+        return referredByDependsOn != null && ( ( InternalEList.Unsettable< ? > ) referredByDependsOn ).isSet();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public String getDescID() {
         return descID;
     }
@@ -1963,6 +2011,7 @@ public class NSImpl extends CopyrightedImpl implements NS {
      * <!-- end-user-doc -->
      * @generated
      */
+    @SuppressWarnings( "unchecked" )
     @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
@@ -2006,6 +2055,9 @@ public class NSImpl extends CopyrightedImpl implements NS {
             if( lNClasses != null ) msgs = ( ( InternalEObject ) lNClasses ).eInverseRemove( this,
                     EOPPOSITE_FEATURE_BASE - NsdPackage.NS__LN_CLASSES, null, msgs );
             return basicSetLNClasses( ( LNClasses ) otherEnd, msgs );
+        case NsdPackage.NS__REFERRED_BY_DEPENDS_ON:
+            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByDependsOn() )
+                    .basicAdd( otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
     }
@@ -2088,6 +2140,8 @@ public class NSImpl extends CopyrightedImpl implements NS {
             return basicUnsetCDCs( msgs );
         case NsdPackage.NS__LN_CLASSES:
             return basicUnsetLNClasses( msgs );
+        case NsdPackage.NS__REFERRED_BY_DEPENDS_ON:
+            return ( ( InternalEList< ? > ) getReferredByDependsOn() ).basicRemove( otherEnd, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -2136,6 +2190,8 @@ public class NSImpl extends CopyrightedImpl implements NS {
             return getCDCs();
         case NsdPackage.NS__LN_CLASSES:
             return getLNClasses();
+        case NsdPackage.NS__REFERRED_BY_DEPENDS_ON:
+            return getReferredByDependsOn();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -2145,6 +2201,7 @@ public class NSImpl extends CopyrightedImpl implements NS {
      * <!-- end-user-doc -->
      * @generated
      */
+    @SuppressWarnings( "unchecked" )
     @Override
     public void eSet( int featureID, Object newValue ) {
         switch( featureID ) {
@@ -2201,6 +2258,10 @@ public class NSImpl extends CopyrightedImpl implements NS {
             return;
         case NsdPackage.NS__LN_CLASSES:
             setLNClasses( ( LNClasses ) newValue );
+            return;
+        case NsdPackage.NS__REFERRED_BY_DEPENDS_ON:
+            getReferredByDependsOn().clear();
+            getReferredByDependsOn().addAll( ( Collection< ? extends DependsOn > ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -2268,6 +2329,9 @@ public class NSImpl extends CopyrightedImpl implements NS {
         case NsdPackage.NS__LN_CLASSES:
             unsetLNClasses();
             return;
+        case NsdPackage.NS__REFERRED_BY_DEPENDS_ON:
+            unsetReferredByDependsOn();
+            return;
         }
         super.eUnset( featureID );
     }
@@ -2316,6 +2380,8 @@ public class NSImpl extends CopyrightedImpl implements NS {
             return isSetCDCs();
         case NsdPackage.NS__LN_CLASSES:
             return isSetLNClasses();
+        case NsdPackage.NS__REFERRED_BY_DEPENDS_ON:
+            return isSetReferredByDependsOn();
         }
         return super.eIsSet( featureID );
     }

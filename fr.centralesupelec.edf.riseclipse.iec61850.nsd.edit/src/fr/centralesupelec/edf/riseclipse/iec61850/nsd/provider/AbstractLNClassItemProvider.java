@@ -62,6 +62,7 @@ public class AbstractLNClassItemProvider extends AnyLNClassItemProvider {
             super.getPropertyDescriptors( object );
 
             addNamePropertyDescriptor( object );
+            addReferredByAnyLNClassPropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -80,6 +81,22 @@ public class AbstractLNClassItemProvider extends AnyLNClassItemProvider {
                                 "_UI_AbstractLNClass_type" ),
                         NsdPackage.Literals.ABSTRACT_LN_CLASS__NAME, true, false, false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Referred By Any LN Class feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReferredByAnyLNClassPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add( createItemPropertyDescriptor(
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
+                getString( "_UI_AbstractLNClass_referredByAnyLNClass_feature" ),
+                getString( "_UI_PropertyDescriptor_description", "_UI_AbstractLNClass_referredByAnyLNClass_feature",
+                        "_UI_AbstractLNClass_type" ),
+                NsdPackage.Literals.ABSTRACT_LN_CLASS__REFERRED_BY_ANY_LN_CLASS, true, false, true, null, null,
+                null ) );
     }
 
     /**

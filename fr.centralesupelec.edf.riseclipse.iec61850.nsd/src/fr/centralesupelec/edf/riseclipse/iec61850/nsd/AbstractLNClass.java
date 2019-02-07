@@ -19,6 +19,8 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Abstract LN Class</b></em>'.
@@ -30,6 +32,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass#getName <em>Name</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass#getLNClasses <em>LN Classes</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass#getReferredByAnyLNClass <em>Referred By Any LN Class</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAbstractLNClass()
@@ -114,5 +117,46 @@ public interface AbstractLNClass extends AnyLNClass {
      * @generated
      */
     void setLNClasses( LNClasses value );
+
+    /**
+     * Returns the value of the '<em><b>Referred By Any LN Class</b></em>' reference list.
+     * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass}.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass#getRefersToAbstractLNClass <em>Refers To Abstract LN Class</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Referred By Any LN Class</em>' reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Referred By Any LN Class</em>' reference list.
+     * @see #isSetReferredByAnyLNClass()
+     * @see #unsetReferredByAnyLNClass()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAbstractLNClass_ReferredByAnyLNClass()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass#getRefersToAbstractLNClass
+     * @model opposite="refersToAbstractLNClass" unsettable="true" transient="true" ordered="false"
+     * @generated
+     */
+    EList< AnyLNClass > getReferredByAnyLNClass();
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass#getReferredByAnyLNClass <em>Referred By Any LN Class</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetReferredByAnyLNClass()
+     * @see #getReferredByAnyLNClass()
+     * @generated
+     */
+    void unsetReferredByAnyLNClass();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass#getReferredByAnyLNClass <em>Referred By Any LN Class</em>}' reference list is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Referred By Any LN Class</em>' reference list is set.
+     * @see #unsetReferredByAnyLNClass()
+     * @see #getReferredByAnyLNClass()
+     * @generated
+     */
+    boolean isSetReferredByAnyLNClass();
 
 } // AbstractLNClass

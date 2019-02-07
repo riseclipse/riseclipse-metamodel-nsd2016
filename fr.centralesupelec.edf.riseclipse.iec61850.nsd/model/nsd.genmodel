@@ -112,6 +112,7 @@
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//DependsOn">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//DependsOn/nS"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//DependsOn/refersToNS"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//DocumentRoot">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//DocumentRoot/mixed"/>
@@ -139,10 +140,13 @@
     <genClasses ecoreClass="nsd.ecore#//AbstractLNClass">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AbstractLNClass/name"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//AbstractLNClass/lNClasses"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//AbstractLNClass/referredByAnyLNClass"/>
     </genClasses>
     <genClasses image="false" ecoreClass="nsd.ecore#//AnyLNClass">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//AnyLNClass/dataObject"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AnyLNClass/base"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//AnyLNClass/refersToAbstractLNClass"/>
+      <genOperations ecoreOperation="nsd.ecore#//AnyLNClass/getName"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//ApplicableServiceNS">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//ApplicableServiceNS/serviceNsUsage"/>
@@ -292,6 +296,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//NS/constructedAttributes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//NS/cDCs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//NS/lNClasses"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//NS/referredByDependsOn"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//NSDoc">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//NSDoc/doc"/>
@@ -367,7 +372,9 @@
     </genClasses>
     <genClasses image="false" ecoreClass="nsd.ecore#//NsdObject">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//NsdObject/lineNumber"/>
-      <genOperations ecoreOperation="nsd.ecore#//NsdObject/buildExplicitLinks"/>
+      <genOperations ecoreOperation="nsd.ecore#//NsdObject/buildExplicitLinks">
+        <genParameters ecoreParameter="nsd.ecore#//NsdObject/buildExplicitLinks/console"/>
+      </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="nsd.ecore#//AgNSIdentification">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgNSIdentification/release"/>
@@ -417,5 +424,6 @@
     <genClasses image="false" ecoreClass="nsd.ecore#//AgNSdesc">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgNSdesc/descID"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="nsd.ecore#//IRiseClipseConsole"/>
   </genPackages>
 </genmodel:GenModel>

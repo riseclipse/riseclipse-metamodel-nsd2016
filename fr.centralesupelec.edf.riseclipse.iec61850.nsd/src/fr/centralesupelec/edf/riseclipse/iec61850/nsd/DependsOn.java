@@ -29,13 +29,14 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
  * </p>
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getNS <em>NS</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getRefersToNS <em>Refers To NS</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDependsOn()
  * @model extendedMetaData="name='DependsOn_._type' kind='empty'"
  * @generated
  */
-public interface DependsOn extends AgNSIdentification {
+public interface DependsOn extends NsdObject, AgNSIdentification {
     /**
      * Returns the value of the '<em><b>NS</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getDependsOn <em>Depends On</em>}'.
@@ -63,5 +64,60 @@ public interface DependsOn extends AgNSIdentification {
      * @generated
      */
     void setNS( NS value );
+
+    /**
+     * Returns the value of the '<em><b>Refers To NS</b></em>' reference.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getReferredByDependsOn <em>Referred By Depends On</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Refers To NS</em>' reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Refers To NS</em>' reference.
+     * @see #isSetRefersToNS()
+     * @see #unsetRefersToNS()
+     * @see #setRefersToNS(NS)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDependsOn_RefersToNS()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getReferredByDependsOn
+     * @model opposite="referredByDependsOn" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @generated
+     */
+    NS getRefersToNS();
+
+    /**
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getRefersToNS <em>Refers To NS</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Refers To NS</em>' reference.
+     * @see #isSetRefersToNS()
+     * @see #unsetRefersToNS()
+     * @see #getRefersToNS()
+     * @generated
+     */
+    void setRefersToNS( NS value );
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getRefersToNS <em>Refers To NS</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetRefersToNS()
+     * @see #getRefersToNS()
+     * @see #setRefersToNS(NS)
+     * @generated
+     */
+    void unsetRefersToNS();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getRefersToNS <em>Refers To NS</em>}' reference is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Refers To NS</em>' reference is set.
+     * @see #unsetRefersToNS()
+     * @see #getRefersToNS()
+     * @see #setRefersToNS(NS)
+     * @generated
+     */
+    boolean isSetRefersToNS();
 
 } // DependsOn

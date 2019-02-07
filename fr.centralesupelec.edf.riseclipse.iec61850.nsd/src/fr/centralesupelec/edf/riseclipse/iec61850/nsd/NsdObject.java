@@ -19,6 +19,7 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
+import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -69,8 +70,8 @@ public interface NsdObject extends EObject {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @model
+     * @model consoleType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.IRiseClipseConsole"
      * @generated
      */
-    void buildExplicitLinks();
+    void buildExplicitLinks( IRiseClipseConsole console );
 } // NsdObject

@@ -29,16 +29,17 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.util.AbstractRiseClipseConsole;
+import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
 
 public class NsdResourceSetImpl extends ResourceSetImpl {
     
-    private Map< String, NsdResourceImpl > nsdResources;
+    private Map< String, NS > nsdResources;
 
     public NsdResourceSetImpl() {
         super();
         
-        nsdResources = new HashMap< String, NsdResourceImpl >();
+        nsdResources = new HashMap< String, NS >();
     }
 
     @Override
@@ -67,7 +68,7 @@ public class NsdResourceSetImpl extends ResourceSetImpl {
             this.getResources().remove( resource );
             return;
         }
-        nsdResources.put( ns.getId(), ( NsdResourceImpl  ) resource );
+        nsdResources.put( ns.getId(), ns );
     }
 
     /*
@@ -144,8 +145,8 @@ public class NsdResourceSetImpl extends ResourceSetImpl {
      *   
      *   
      * The following links are implicit:
-     *   DependsOn.id                       -> NS.id
-     *   AnyLNClass.base                    -> AbstractLNClass  
+     *   DependsOn.id                       -> NS.id                                DONE
+     *   AnyLNClass.base                    -> AbstractLNClass                      DONE
      *   DataObject.type                    -> CDC.name
      *   DataObject.presCond                -> PresenceCondition.name
      *   DataObject.dsPresCond              -> PresenceCondition.name
@@ -169,9 +170,17 @@ public class NsdResourceSetImpl extends ResourceSetImpl {
      *   ServiceTypeRealization.fc          -> FunctionalConstraint.abbreviation    ? ServiceTypeRealization is not a name of a type but a name of a refence
      *   ServiceTypeRealization.presCond    -> PresenceCondition.name               ? idem
      */
-    public void createExplicitLinks() {
-        //for( resource : get)
+    public void buildExplicitLinks( IRiseClipseConsole console ) {
+        for( Resource resource : getResources() ) {
+            DocumentRoot root = (DocumentRoot) resource.getContents().get( 0 );
+            NS ns = ( NS ) root.getNS();
+            ns.buildExplicitLinks( console );
+        }
         
+    }
+
+    public NS getNS( String id ) {
+        return nsdResources.get( id );
     }
 
 }

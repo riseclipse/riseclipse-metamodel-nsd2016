@@ -72,6 +72,7 @@ public class NSItemProvider extends CopyrightedItemProvider {
             addUmlDatePropertyDescriptor( object );
             addUmlVersionPropertyDescriptor( object );
             addDescIDPropertyDescriptor( object );
+            addReferredByDependsOnPropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -90,6 +91,21 @@ public class NSItemProvider extends CopyrightedItemProvider {
                                 "_UI_AgNSdesc_type" ),
                         NsdPackage.Literals.AG_NSDESC__DESC_ID, true, false, false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Referred By Depends On feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReferredByDependsOnPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(), getString( "_UI_NS_referredByDependsOn_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_NS_referredByDependsOn_feature",
+                                "_UI_NS_type" ),
+                        NsdPackage.Literals.NS__REFERRED_BY_DEPENDS_ON, true, false, true, null, null, null ) );
     }
 
     /**

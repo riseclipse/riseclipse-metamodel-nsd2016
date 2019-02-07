@@ -88,6 +88,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.UndefinedAttributeTypeKind
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdValidator;
 
+import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 import org.eclipse.emf.common.util.Enumerator;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -535,6 +536,13 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    private EClass iRiseClipseConsoleEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     private EEnum acsiServicesKindEEnum = null;
 
     /**
@@ -733,6 +741,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EReference getDependsOn_NS() {
         return ( EReference ) dependsOnEClass.getEStructuralFeatures().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getDependsOn_RefersToNS() {
+        return ( EReference ) dependsOnEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -961,6 +979,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EReference getAbstractLNClass_ReferredByAnyLNClass() {
+        return ( EReference ) abstractLNClassEClass.getEStructuralFeatures().get( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getAnyLNClass() {
         return anyLNClassEClass;
     }
@@ -983,6 +1011,26 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EAttribute getAnyLNClass_Base() {
         return ( EAttribute ) anyLNClassEClass.getEStructuralFeatures().get( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getAnyLNClass_RefersToAbstractLNClass() {
+        return ( EReference ) anyLNClassEClass.getEStructuralFeatures().get( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getAnyLNClass__GetName() {
+        return anyLNClassEClass.getEOperations().get( 0 );
     }
 
     /**
@@ -2221,6 +2269,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EReference getNS_ReferredByDependsOn() {
+        return ( EReference ) nsEClass.getEStructuralFeatures().get( 10 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getNSDoc() {
         return nsDocEClass;
     }
@@ -2811,7 +2869,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EOperation getNsdObject__BuildExplicitLinks() {
+    public EOperation getNsdObject__BuildExplicitLinks__IRiseClipseConsole() {
         return nsdObjectEClass.getEOperations().get( 0 );
     }
 
@@ -3201,6 +3259,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EClass getIRiseClipseConsole() {
+        return iRiseClipseConsoleEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EEnum getACSIServicesKind() {
         return acsiServicesKindEEnum;
     }
@@ -3359,6 +3427,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
 
         dependsOnEClass = createEClass( DEPENDS_ON );
         createEReference( dependsOnEClass, DEPENDS_ON__NS );
+        createEReference( dependsOnEClass, DEPENDS_ON__REFERS_TO_NS );
 
         documentRootEClass = createEClass( DOCUMENT_ROOT );
         createEAttribute( documentRootEClass, DOCUMENT_ROOT__MIXED );
@@ -3386,10 +3455,13 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         abstractLNClassEClass = createEClass( ABSTRACT_LN_CLASS );
         createEAttribute( abstractLNClassEClass, ABSTRACT_LN_CLASS__NAME );
         createEReference( abstractLNClassEClass, ABSTRACT_LN_CLASS__LN_CLASSES );
+        createEReference( abstractLNClassEClass, ABSTRACT_LN_CLASS__REFERRED_BY_ANY_LN_CLASS );
 
         anyLNClassEClass = createEClass( ANY_LN_CLASS );
         createEReference( anyLNClassEClass, ANY_LN_CLASS__DATA_OBJECT );
         createEAttribute( anyLNClassEClass, ANY_LN_CLASS__BASE );
+        createEReference( anyLNClassEClass, ANY_LN_CLASS__REFERS_TO_ABSTRACT_LN_CLASS );
+        createEOperation( anyLNClassEClass, ANY_LN_CLASS___GET_NAME );
 
         applicableServiceNSEClass = createEClass( APPLICABLE_SERVICE_NS );
         createEReference( applicableServiceNSEClass, APPLICABLE_SERVICE_NS__SERVICE_NS_USAGE );
@@ -3539,6 +3611,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEReference( nsEClass, NS__CONSTRUCTED_ATTRIBUTES );
         createEReference( nsEClass, NS__CD_CS );
         createEReference( nsEClass, NS__LN_CLASSES );
+        createEReference( nsEClass, NS__REFERRED_BY_DEPENDS_ON );
 
         nsDocEClass = createEClass( NS_DOC );
         createEReference( nsDocEClass, NS_DOC__DOC );
@@ -3616,7 +3689,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
 
         nsdObjectEClass = createEClass( NSD_OBJECT );
         createEAttribute( nsdObjectEClass, NSD_OBJECT__LINE_NUMBER );
-        createEOperation( nsdObjectEClass, NSD_OBJECT___BUILD_EXPLICIT_LINKS );
+        createEOperation( nsdObjectEClass, NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE );
 
         agNSIdentificationEClass = createEClass( AG_NS_IDENTIFICATION );
         createEAttribute( agNSIdentificationEClass, AG_NS_IDENTIFICATION__RELEASE );
@@ -3669,6 +3742,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         agNSdescEClass = createEClass( AG_NSDESC );
         createEAttribute( agNSdescEClass, AG_NSDESC__DESC_ID );
 
+        iRiseClipseConsoleEClass = createEClass( IRISE_CLIPSE_CONSOLE );
+
         // Create enums
         acsiServicesKindEEnum = createEEnum( ACSI_SERVICES_KIND );
         cbKindEEnum = createEEnum( CB_KIND );
@@ -3719,8 +3794,9 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        appliesToTypeEClass.getESuperTypes().add( this.getAgNSIdentification() );
         appliesToTypeEClass.getESuperTypes().add( this.getNsdObject() );
+        appliesToTypeEClass.getESuperTypes().add( this.getAgNSIdentification() );
+        dependsOnEClass.getESuperTypes().add( this.getNsdObject() );
         dependsOnEClass.getESuperTypes().add( this.getAgNSIdentification() );
         serviceTypeEClass.getESuperTypes().add( this.getNsdObject() );
         abbreviationEClass.getESuperTypes().add( this.getNsdObject() );
@@ -3808,6 +3884,9 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEReference( getDependsOn_NS(), this.getNS(), this.getNS_DependsOn(), "nS", null, 0, 1, DependsOn.class,
                 IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getDependsOn_RefersToNS(), this.getNS(), this.getNS_ReferredByDependsOn(), "refersToNS", null,
+                0, 1, DependsOn.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( documentRootEClass, DocumentRoot.class, "DocumentRoot", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
@@ -3870,6 +3949,10 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEReference( getAbstractLNClass_LNClasses(), this.getLNClasses(), this.getLNClasses_AbstractLNClass(),
                 "lNClasses", null, 0, 1, AbstractLNClass.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getAbstractLNClass_ReferredByAnyLNClass(), this.getAnyLNClass(),
+                this.getAnyLNClass_RefersToAbstractLNClass(), "referredByAnyLNClass", null, 0, -1,
+                AbstractLNClass.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+                IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( anyLNClassEClass, AnyLNClass.class, "AnyLNClass", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
@@ -3878,6 +3961,13 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
         initEAttribute( getAnyLNClass_Base(), ecorePackage.getEString(), "base", null, 0, 1, AnyLNClass.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getAnyLNClass_RefersToAbstractLNClass(), this.getAbstractLNClass(),
+                this.getAbstractLNClass_ReferredByAnyLNClass(), "refersToAbstractLNClass", null, 0, 1, AnyLNClass.class,
+                IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
+                !IS_DERIVED, !IS_ORDERED );
+
+        initEOperation( getAnyLNClass__GetName(), theXMLTypePackage.getString(), "getName", 0, 1, IS_UNIQUE,
+                IS_ORDERED );
 
         initEClass( applicableServiceNSEClass, ApplicableServiceNS.class, "ApplicableServiceNS", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
@@ -4235,6 +4325,10 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEReference( getNS_LNClasses(), this.getLNClasses(), this.getLNClasses_NS(), "lNClasses", null, 0, 1,
                 fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getNS_ReferredByDependsOn(), this.getDependsOn(), this.getDependsOn_RefersToNS(),
+                "referredByDependsOn", null, 0, -1, fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class,
+                IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
+                !IS_DERIVED, !IS_ORDERED );
 
         initEClass( nsDocEClass, NSDoc.class, "NSDoc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEReference( getNSDoc_Doc(), this.getDoc(), this.getDoc_NSDoc(), "doc", null, 0, -1, NSDoc.class,
@@ -4422,7 +4516,9 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getNsdObject_LineNumber(), ecorePackage.getEInt(), "lineNumber", "-1", 1, 1, NsdObject.class,
                 IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        initEOperation( getNsdObject__BuildExplicitLinks(), null, "buildExplicitLinks", 0, 1, IS_UNIQUE, IS_ORDERED );
+        EOperation op = initEOperation( getNsdObject__BuildExplicitLinks__IRiseClipseConsole(), null,
+                "buildExplicitLinks", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, this.getIRiseClipseConsole(), "console", 0, 1, IS_UNIQUE, IS_ORDERED );
 
         initEClass( agNSIdentificationEClass, AgNSIdentification.class, "AgNSIdentification", IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
@@ -4525,6 +4621,9 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 IS_GENERATED_INSTANCE_CLASS );
         initEAttribute( getAgNSdesc_DescID(), ecorePackage.getEString(), "descID", null, 0, 1, AgNSdesc.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        initEClass( iRiseClipseConsoleEClass, IRiseClipseConsole.class, "IRiseClipseConsole", IS_ABSTRACT, IS_INTERFACE,
+                !IS_GENERATED_INSTANCE_CLASS );
 
         // Initialize enums and add enum literals
         initEEnum( acsiServicesKindEEnum, ACSIServicesKind.class, "ACSIServicesKind" );
