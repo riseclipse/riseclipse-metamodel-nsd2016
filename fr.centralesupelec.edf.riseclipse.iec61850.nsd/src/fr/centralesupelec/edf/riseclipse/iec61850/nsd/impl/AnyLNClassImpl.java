@@ -336,12 +336,22 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     * @generated NOT
      */
     @Override
     public String getName() {
-        // TODO: implement this method
-        // Ensure that you remove @generated or mark it @generated NOT
+        // TODO: use a RiseClipseException ?
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated NOT
+     */
+    @Override
+    public LNClasses getLNClasses() {
+        // TODO: use a RiseClipseException ?
         throw new UnsupportedOperationException();
     }
 
@@ -472,6 +482,8 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
         switch( operationID ) {
         case NsdPackage.ANY_LN_CLASS___GET_NAME:
             return getName();
+        case NsdPackage.ANY_LN_CLASS___GET_LN_CLASSES:
+            return getLNClasses();
         }
         return super.eInvoke( operationID, arguments );
     }
@@ -499,10 +511,12 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
      *   AnyLNClass.base                    -> AbstractLNClass  
      */
     @Override
-    public void buildExplicitLinks( IRiseClipseConsole console ) {
-        super.buildExplicitLinks( console );
-        if( !baseESet ) return;
+    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
+        if( super.buildExplicitLinks( console ) ) return true;
+        if( !isSetBase() ) return false;
 
+        // This code assumes that the referred AbstractLNClass is in the same NS
+        // TODO: check that it is right
         LNClasses lNClasses = ( LNClasses ) eContainer();
         EList< AbstractLNClass > l = lNClasses.getAbstractLNClass();
         setRefersToAbstractLNClass( l.stream()
@@ -513,8 +527,10 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
         }
         else {
             console.info( "AbstractLNClass (name: " + getBase() + ") refers by AnyLNClass (name: " + getName()
-                    + ") in NS (id:" + lNClasses.getNS().getId() + ") found" );
+                    + ") in NS (id:" + lNClasses.getNS().getId() + ") found in NS (id:"
+                    + getRefersToAbstractLNClass().getLNClasses().getNS().getId() + ")" );
         }
+        return false;
     }
 
 } //AnyLNClassImpl

@@ -24,6 +24,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSdesc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUML;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes;
@@ -33,8 +34,11 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage;
+import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import javax.xml.datatype.XMLGregorianCalendar;
 
@@ -1658,6 +1662,48 @@ public class NSImpl extends CopyrightedImpl implements NS {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @generated NOT
+     */
+    @Override
+    public CDC findCDC( String cDCName, IRiseClipseConsole console ) {
+        if( cDCsESet ) {
+            CDC found = getCDCs().getCDC().stream().filter( cdc -> cdc.getName().equals( cDCName ) ).findAny()
+                    .orElse( null );
+            if( found != null ) return found;
+        }
+
+        if( dependsOnESet ) {
+            getDependsOn().buildExplicitLinks( console );
+            return getDependsOn().getRefersToNS().findCDC( cDCName, console );
+        }
+
+        return null;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated NOT
+     */
+    @Override
+    public PresenceCondition findPresenceCondition( String presenceConditionName, IRiseClipseConsole console ) {
+        if( presenceConditionsESet ) {
+            PresenceCondition found = getPresenceConditions().getPresenceCondition().stream()
+                    .filter( cond -> cond.getName().equals( presenceConditionName ) ).findAny().orElse( null );
+            if( found != null ) return found;
+        }
+
+        if( dependsOnESet ) {
+            getDependsOn().buildExplicitLinks( console );
+            return getDependsOn().getRefersToNS().findPresenceCondition( presenceConditionName, console );
+        }
+
+        return null;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     @Override
@@ -2472,6 +2518,22 @@ public class NSImpl extends CopyrightedImpl implements NS {
             }
         }
         return super.eDerivedStructuralFeatureID( baseFeatureID, baseClass );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object eInvoke( int operationID, EList< ? > arguments ) throws InvocationTargetException {
+        switch( operationID ) {
+        case NsdPackage.NS___FIND_CDC__STRING_IRISECLIPSECONSOLE:
+            return findCDC( ( String ) arguments.get( 0 ), ( IRiseClipseConsole ) arguments.get( 1 ) );
+        case NsdPackage.NS___FIND_PRESENCE_CONDITION__STRING_IRISECLIPSECONSOLE:
+            return findPresenceCondition( ( String ) arguments.get( 0 ), ( IRiseClipseConsole ) arguments.get( 1 ) );
+        }
+        return super.eInvoke( operationID, arguments );
     }
 
     /**

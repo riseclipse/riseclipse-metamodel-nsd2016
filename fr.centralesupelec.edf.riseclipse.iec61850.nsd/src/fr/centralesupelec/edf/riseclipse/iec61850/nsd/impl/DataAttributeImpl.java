@@ -29,18 +29,23 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject;
 import java.math.BigDecimal;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.Enumerator;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -68,6 +73,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getFc <em>Fc</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getCDC <em>CDC</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getReferredBySubDataObjectAsSizeAttribute <em>Referred By Sub Data Object As Size Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getReferredBySubDataObjectAsMaxIndexAttribute <em>Referred By Sub Data Object As Max Index Attribute</em>}</li>
  * </ul>
  *
  * @generated
@@ -566,6 +573,26 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
      * @ordered
      */
     protected boolean nameESet;
+
+    /**
+     * The cached value of the '{@link #getReferredBySubDataObjectAsSizeAttribute() <em>Referred By Sub Data Object As Size Attribute</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getReferredBySubDataObjectAsSizeAttribute()
+     * @generated
+     * @ordered
+     */
+    protected EList< SubDataObject > referredBySubDataObjectAsSizeAttribute;
+
+    /**
+     * The cached value of the '{@link #getReferredBySubDataObjectAsMaxIndexAttribute() <em>Referred By Sub Data Object As Max Index Attribute</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getReferredBySubDataObjectAsMaxIndexAttribute()
+     * @generated
+     * @ordered
+     */
+    protected EList< SubDataObject > referredBySubDataObjectAsMaxIndexAttribute;
 
     /**
      * <!-- begin-user-doc -->
@@ -1492,11 +1519,93 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
      * @generated
      */
     @Override
+    public EList< SubDataObject > getReferredBySubDataObjectAsSizeAttribute() {
+        if( referredBySubDataObjectAsSizeAttribute == null ) {
+            referredBySubDataObjectAsSizeAttribute = new EObjectWithInverseEList.Unsettable< SubDataObject >(
+                    SubDataObject.class, this, NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_SIZE_ATTRIBUTE,
+                    NsdPackage.SUB_DATA_OBJECT__REFERS_TO_SIZE_ATTRIBUTE );
+        }
+        return referredBySubDataObjectAsSizeAttribute;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetReferredBySubDataObjectAsSizeAttribute() {
+        if( referredBySubDataObjectAsSizeAttribute != null )
+            ( ( InternalEList.Unsettable< ? > ) referredBySubDataObjectAsSizeAttribute ).unset();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetReferredBySubDataObjectAsSizeAttribute() {
+        return referredBySubDataObjectAsSizeAttribute != null
+                && ( ( InternalEList.Unsettable< ? > ) referredBySubDataObjectAsSizeAttribute ).isSet();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EList< SubDataObject > getReferredBySubDataObjectAsMaxIndexAttribute() {
+        if( referredBySubDataObjectAsMaxIndexAttribute == null ) {
+            referredBySubDataObjectAsMaxIndexAttribute = new EObjectWithInverseEList.Unsettable< SubDataObject >(
+                    SubDataObject.class, this,
+                    NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_MAX_INDEX_ATTRIBUTE,
+                    NsdPackage.SUB_DATA_OBJECT__REFERS_TO_MAX_INDEX_ATTRIBUTE );
+        }
+        return referredBySubDataObjectAsMaxIndexAttribute;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetReferredBySubDataObjectAsMaxIndexAttribute() {
+        if( referredBySubDataObjectAsMaxIndexAttribute != null )
+            ( ( InternalEList.Unsettable< ? > ) referredBySubDataObjectAsMaxIndexAttribute ).unset();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetReferredBySubDataObjectAsMaxIndexAttribute() {
+        return referredBySubDataObjectAsMaxIndexAttribute != null
+                && ( ( InternalEList.Unsettable< ? > ) referredBySubDataObjectAsMaxIndexAttribute ).isSet();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @SuppressWarnings( "unchecked" )
+    @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.DATA_ATTRIBUTE__CDC:
             if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
             return basicSetCDC( ( CDC ) otherEnd, msgs );
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_SIZE_ATTRIBUTE:
+            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredBySubDataObjectAsSizeAttribute() )
+                    .basicAdd( otherEnd, msgs );
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_MAX_INDEX_ATTRIBUTE:
+            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredBySubDataObjectAsMaxIndexAttribute() )
+                    .basicAdd( otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
     }
@@ -1511,6 +1620,11 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         switch( featureID ) {
         case NsdPackage.DATA_ATTRIBUTE__CDC:
             return basicSetCDC( null, msgs );
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_SIZE_ATTRIBUTE:
+            return ( ( InternalEList< ? > ) getReferredBySubDataObjectAsSizeAttribute() ).basicRemove( otherEnd, msgs );
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_MAX_INDEX_ATTRIBUTE:
+            return ( ( InternalEList< ? > ) getReferredBySubDataObjectAsMaxIndexAttribute() ).basicRemove( otherEnd,
+                    msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -1573,6 +1687,10 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
             return getName();
         case NsdPackage.DATA_ATTRIBUTE__CDC:
             return getCDC();
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_SIZE_ATTRIBUTE:
+            return getReferredBySubDataObjectAsSizeAttribute();
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_MAX_INDEX_ATTRIBUTE:
+            return getReferredBySubDataObjectAsMaxIndexAttribute();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -1582,6 +1700,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
      * <!-- end-user-doc -->
      * @generated
      */
+    @SuppressWarnings( "unchecked" )
     @Override
     public void eSet( int featureID, Object newValue ) {
         switch( featureID ) {
@@ -1638,6 +1757,15 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
             return;
         case NsdPackage.DATA_ATTRIBUTE__CDC:
             setCDC( ( CDC ) newValue );
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_SIZE_ATTRIBUTE:
+            getReferredBySubDataObjectAsSizeAttribute().clear();
+            getReferredBySubDataObjectAsSizeAttribute().addAll( ( Collection< ? extends SubDataObject > ) newValue );
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_MAX_INDEX_ATTRIBUTE:
+            getReferredBySubDataObjectAsMaxIndexAttribute().clear();
+            getReferredBySubDataObjectAsMaxIndexAttribute()
+                    .addAll( ( Collection< ? extends SubDataObject > ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -1705,6 +1833,12 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         case NsdPackage.DATA_ATTRIBUTE__CDC:
             setCDC( ( CDC ) null );
             return;
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_SIZE_ATTRIBUTE:
+            unsetReferredBySubDataObjectAsSizeAttribute();
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_MAX_INDEX_ATTRIBUTE:
+            unsetReferredBySubDataObjectAsMaxIndexAttribute();
+            return;
         }
         super.eUnset( featureID );
     }
@@ -1753,6 +1887,10 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
             return isSetName();
         case NsdPackage.DATA_ATTRIBUTE__CDC:
             return getCDC() != null;
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_SIZE_ATTRIBUTE:
+            return isSetReferredBySubDataObjectAsSizeAttribute();
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_MAX_INDEX_ATTRIBUTE:
+            return isSetReferredBySubDataObjectAsMaxIndexAttribute();
         }
         return super.eIsSet( featureID );
     }

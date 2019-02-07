@@ -72,6 +72,9 @@ public class DataObjectItemProvider extends DocumentedClassItemProvider {
             addNamePropertyDescriptor( object );
             addTransientPropertyDescriptor( object );
             addTypePropertyDescriptor( object );
+            addRefersToCDCPropertyDescriptor( object );
+            addRefersToPresenceConditionPropertyDescriptor( object );
+            addRefersToPresenceConditionDerivedStatisticsPropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -221,6 +224,52 @@ public class DataObjectItemProvider extends DocumentedClassItemProvider {
                                 "_UI_DataObject_type" ),
                         NsdPackage.Literals.DATA_OBJECT__TYPE, true, false, false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Refers To CDC feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addRefersToCDCPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(), getString( "_UI_DataObject_refersToCDC_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_DataObject_refersToCDC_feature",
+                                "_UI_DataObject_type" ),
+                        NsdPackage.Literals.DATA_OBJECT__REFERS_TO_CDC, true, false, true, null, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Refers To Presence Condition feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addRefersToPresenceConditionPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add( createItemPropertyDescriptor(
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
+                getString( "_UI_DataObject_refersToPresenceCondition_feature" ),
+                getString( "_UI_PropertyDescriptor_description", "_UI_DataObject_refersToPresenceCondition_feature",
+                        "_UI_DataObject_type" ),
+                NsdPackage.Literals.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION, true, false, true, null, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Refers To Presence Condition Derived Statistics feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addRefersToPresenceConditionDerivedStatisticsPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add( createItemPropertyDescriptor(
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
+                getString( "_UI_DataObject_refersToPresenceConditionDerivedStatistics_feature" ),
+                getString( "_UI_PropertyDescriptor_description",
+                        "_UI_DataObject_refersToPresenceConditionDerivedStatistics_feature", "_UI_DataObject_type" ),
+                NsdPackage.Literals.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION_DERIVED_STATISTICS, true, false, true,
+                null, null, null ) );
     }
 
     /**

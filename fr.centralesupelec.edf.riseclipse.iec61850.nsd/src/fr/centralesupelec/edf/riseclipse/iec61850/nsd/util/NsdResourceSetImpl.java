@@ -147,13 +147,13 @@ public class NsdResourceSetImpl extends ResourceSetImpl {
      * The following links are implicit:
      *   DependsOn.id                       -> NS.id                                DONE
      *   AnyLNClass.base                    -> AbstractLNClass                      DONE
-     *   DataObject.type                    -> CDC.name
-     *   DataObject.presCond                -> PresenceCondition.name
-     *   DataObject.dsPresCond              -> PresenceCondition.name
-     *   SubDataObject.type                 -> CDC.name
-     *   SubDataObject.presCond             -> PresenceCondition.name
-     *   SubDataObject.sizeAttribute        -> DataAttribute.name
-     *   SubDataObject.maxIndexAttribute    -> DataAttribute.name
+     *   DataObject.type                    -> CDC.name                             DONE
+     *   DataObject.presCond                -> PresenceCondition.name               DONE
+     *   DataObject.dsPresCond              -> PresenceCondition.name               DONE
+     *   SubDataObject.type                 -> CDC.name                             DONE
+     *   SubDataObject.presCond             -> PresenceCondition.name               DONE
+     *   SubDataObject.sizeAttribute        -> DataAttribute.name                   DONE
+     *   SubDataObject.maxIndexAttribute    -> DataAttribute.name                   DONE
      *   DataAttribute.fc                   -> FunctionalConstraint.abbreviation
      *   DataAttribute.presCond             -> PresenceCondition.name
      *   DataAttribute.sizeAttribute        -> DataAttribute.name

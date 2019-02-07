@@ -22,6 +22,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceParameter;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject;
@@ -38,6 +39,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -58,6 +60,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CDCImpl#isTypeKindParameterized <em>Type Kind Parameterized</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CDCImpl#getVariant <em>Variant</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CDCImpl#getCDCs <em>CD Cs</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CDCImpl#getReferredByDataObject <em>Referred By Data Object</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CDCImpl#getReferredBySubDataObject <em>Referred By Sub Data Object</em>}</li>
  * </ul>
  *
  * @generated
@@ -246,6 +250,26 @@ public class CDCImpl extends TitledClassImpl implements CDC {
      * @ordered
      */
     protected boolean variantESet;
+
+    /**
+     * The cached value of the '{@link #getReferredByDataObject() <em>Referred By Data Object</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getReferredByDataObject()
+     * @generated
+     * @ordered
+     */
+    protected EList< DataObject > referredByDataObject;
+
+    /**
+     * The cached value of the '{@link #getReferredBySubDataObject() <em>Referred By Sub Data Object</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getReferredBySubDataObject()
+     * @generated
+     * @ordered
+     */
+    protected EList< SubDataObject > referredBySubDataObject;
 
     /**
      * <!-- begin-user-doc -->
@@ -745,6 +769,74 @@ public class CDCImpl extends TitledClassImpl implements CDC {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
+    public EList< DataObject > getReferredByDataObject() {
+        if( referredByDataObject == null ) {
+            referredByDataObject = new EObjectWithInverseEList.Unsettable< DataObject >( DataObject.class, this,
+                    NsdPackage.CDC__REFERRED_BY_DATA_OBJECT, NsdPackage.DATA_OBJECT__REFERS_TO_CDC );
+        }
+        return referredByDataObject;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetReferredByDataObject() {
+        if( referredByDataObject != null ) ( ( InternalEList.Unsettable< ? > ) referredByDataObject ).unset();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetReferredByDataObject() {
+        return referredByDataObject != null && ( ( InternalEList.Unsettable< ? > ) referredByDataObject ).isSet();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EList< SubDataObject > getReferredBySubDataObject() {
+        if( referredBySubDataObject == null ) {
+            referredBySubDataObject = new EObjectWithInverseEList.Unsettable< SubDataObject >( SubDataObject.class,
+                    this, NsdPackage.CDC__REFERRED_BY_SUB_DATA_OBJECT, NsdPackage.SUB_DATA_OBJECT__REFERS_TO_CDC );
+        }
+        return referredBySubDataObject;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetReferredBySubDataObject() {
+        if( referredBySubDataObject != null ) ( ( InternalEList.Unsettable< ? > ) referredBySubDataObject ).unset();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetReferredBySubDataObject() {
+        return referredBySubDataObject != null && ( ( InternalEList.Unsettable< ? > ) referredBySubDataObject ).isSet();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @SuppressWarnings( "unchecked" )
     @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
@@ -762,6 +854,12 @@ public class CDCImpl extends TitledClassImpl implements CDC {
         case NsdPackage.CDC__CD_CS:
             if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
             return basicSetCDCs( ( CDCs ) otherEnd, msgs );
+        case NsdPackage.CDC__REFERRED_BY_DATA_OBJECT:
+            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByDataObject() )
+                    .basicAdd( otherEnd, msgs );
+        case NsdPackage.CDC__REFERRED_BY_SUB_DATA_OBJECT:
+            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredBySubDataObject() )
+                    .basicAdd( otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
     }
@@ -782,6 +880,10 @@ public class CDCImpl extends TitledClassImpl implements CDC {
             return basicUnsetServiceParameter( msgs );
         case NsdPackage.CDC__CD_CS:
             return basicSetCDCs( null, msgs );
+        case NsdPackage.CDC__REFERRED_BY_DATA_OBJECT:
+            return ( ( InternalEList< ? > ) getReferredByDataObject() ).basicRemove( otherEnd, msgs );
+        case NsdPackage.CDC__REFERRED_BY_SUB_DATA_OBJECT:
+            return ( ( InternalEList< ? > ) getReferredBySubDataObject() ).basicRemove( otherEnd, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -826,6 +928,10 @@ public class CDCImpl extends TitledClassImpl implements CDC {
             return getVariant();
         case NsdPackage.CDC__CD_CS:
             return getCDCs();
+        case NsdPackage.CDC__REFERRED_BY_DATA_OBJECT:
+            return getReferredByDataObject();
+        case NsdPackage.CDC__REFERRED_BY_SUB_DATA_OBJECT:
+            return getReferredBySubDataObject();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -868,6 +974,14 @@ public class CDCImpl extends TitledClassImpl implements CDC {
         case NsdPackage.CDC__CD_CS:
             setCDCs( ( CDCs ) newValue );
             return;
+        case NsdPackage.CDC__REFERRED_BY_DATA_OBJECT:
+            getReferredByDataObject().clear();
+            getReferredByDataObject().addAll( ( Collection< ? extends DataObject > ) newValue );
+            return;
+        case NsdPackage.CDC__REFERRED_BY_SUB_DATA_OBJECT:
+            getReferredBySubDataObject().clear();
+            getReferredBySubDataObject().addAll( ( Collection< ? extends SubDataObject > ) newValue );
+            return;
         }
         super.eSet( featureID, newValue );
     }
@@ -907,6 +1021,12 @@ public class CDCImpl extends TitledClassImpl implements CDC {
         case NsdPackage.CDC__CD_CS:
             setCDCs( ( CDCs ) null );
             return;
+        case NsdPackage.CDC__REFERRED_BY_DATA_OBJECT:
+            unsetReferredByDataObject();
+            return;
+        case NsdPackage.CDC__REFERRED_BY_SUB_DATA_OBJECT:
+            unsetReferredBySubDataObject();
+            return;
         }
         super.eUnset( featureID );
     }
@@ -937,6 +1057,10 @@ public class CDCImpl extends TitledClassImpl implements CDC {
             return isSetVariant();
         case NsdPackage.CDC__CD_CS:
             return getCDCs() != null;
+        case NsdPackage.CDC__REFERRED_BY_DATA_OBJECT:
+            return isSetReferredByDataObject();
+        case NsdPackage.CDC__REFERRED_BY_SUB_DATA_OBJECT:
+            return isSetReferredBySubDataObject();
         }
         return super.eIsSet( featureID );
     }

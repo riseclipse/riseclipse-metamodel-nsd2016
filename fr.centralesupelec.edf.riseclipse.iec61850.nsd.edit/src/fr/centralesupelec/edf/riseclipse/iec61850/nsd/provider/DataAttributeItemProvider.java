@@ -78,6 +78,8 @@ public class DataAttributeItemProvider extends DocumentedClassItemProvider {
             addMinValuePropertyDescriptor( object );
             addFcPropertyDescriptor( object );
             addNamePropertyDescriptor( object );
+            addReferredBySubDataObjectAsSizeAttributePropertyDescriptor( object );
+            addReferredBySubDataObjectAsMaxIndexAttributePropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -240,6 +242,39 @@ public class DataAttributeItemProvider extends DocumentedClassItemProvider {
                                 "_UI_DataAttribute_type" ),
                         NsdPackage.Literals.DATA_ATTRIBUTE__NAME, true, false, false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Referred By Sub Data Object As Size Attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReferredBySubDataObjectAsSizeAttributePropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add( createItemPropertyDescriptor(
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
+                getString( "_UI_DataAttribute_referredBySubDataObjectAsSizeAttribute_feature" ),
+                getString( "_UI_PropertyDescriptor_description",
+                        "_UI_DataAttribute_referredBySubDataObjectAsSizeAttribute_feature", "_UI_DataAttribute_type" ),
+                NsdPackage.Literals.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_SIZE_ATTRIBUTE, true, false, true,
+                null, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Referred By Sub Data Object As Max Index Attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReferredBySubDataObjectAsMaxIndexAttributePropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add( createItemPropertyDescriptor(
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
+                getString( "_UI_DataAttribute_referredBySubDataObjectAsMaxIndexAttribute_feature" ),
+                getString( "_UI_PropertyDescriptor_description",
+                        "_UI_DataAttribute_referredBySubDataObjectAsMaxIndexAttribute_feature",
+                        "_UI_DataAttribute_type" ),
+                NsdPackage.Literals.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_MAX_INDEX_ATTRIBUTE, true, false,
+                true, null, null, null ) );
     }
 
     /**

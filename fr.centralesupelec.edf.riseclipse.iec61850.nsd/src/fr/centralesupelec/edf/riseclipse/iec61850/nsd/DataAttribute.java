@@ -19,6 +19,8 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Data Attribute</b></em>'.
@@ -31,6 +33,8 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getFc <em>Fc</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getName <em>Name</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getCDC <em>CDC</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredBySubDataObjectAsSizeAttribute <em>Referred By Sub Data Object As Size Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredBySubDataObjectAsMaxIndexAttribute <em>Referred By Sub Data Object As Max Index Attribute</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute()
@@ -166,5 +170,87 @@ public interface DataAttribute
      * @generated
      */
     void setCDC( CDC value );
+
+    /**
+     * Returns the value of the '<em><b>Referred By Sub Data Object As Size Attribute</b></em>' reference list.
+     * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject}.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getRefersToSizeAttribute <em>Refers To Size Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Referred By Sub Data Object As Size Attribute</em>' reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Referred By Sub Data Object As Size Attribute</em>' reference list.
+     * @see #isSetReferredBySubDataObjectAsSizeAttribute()
+     * @see #unsetReferredBySubDataObjectAsSizeAttribute()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_ReferredBySubDataObjectAsSizeAttribute()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getRefersToSizeAttribute
+     * @model opposite="refersToSizeAttribute" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @generated
+     */
+    EList< SubDataObject > getReferredBySubDataObjectAsSizeAttribute();
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredBySubDataObjectAsSizeAttribute <em>Referred By Sub Data Object As Size Attribute</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetReferredBySubDataObjectAsSizeAttribute()
+     * @see #getReferredBySubDataObjectAsSizeAttribute()
+     * @generated
+     */
+    void unsetReferredBySubDataObjectAsSizeAttribute();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredBySubDataObjectAsSizeAttribute <em>Referred By Sub Data Object As Size Attribute</em>}' reference list is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Referred By Sub Data Object As Size Attribute</em>' reference list is set.
+     * @see #unsetReferredBySubDataObjectAsSizeAttribute()
+     * @see #getReferredBySubDataObjectAsSizeAttribute()
+     * @generated
+     */
+    boolean isSetReferredBySubDataObjectAsSizeAttribute();
+
+    /**
+     * Returns the value of the '<em><b>Referred By Sub Data Object As Max Index Attribute</b></em>' reference list.
+     * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject}.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getRefersToMaxIndexAttribute <em>Refers To Max Index Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Referred By Sub Data Object As Max Index Attribute</em>' reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Referred By Sub Data Object As Max Index Attribute</em>' reference list.
+     * @see #isSetReferredBySubDataObjectAsMaxIndexAttribute()
+     * @see #unsetReferredBySubDataObjectAsMaxIndexAttribute()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_ReferredBySubDataObjectAsMaxIndexAttribute()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getRefersToMaxIndexAttribute
+     * @model opposite="refersToMaxIndexAttribute" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @generated
+     */
+    EList< SubDataObject > getReferredBySubDataObjectAsMaxIndexAttribute();
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredBySubDataObjectAsMaxIndexAttribute <em>Referred By Sub Data Object As Max Index Attribute</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetReferredBySubDataObjectAsMaxIndexAttribute()
+     * @see #getReferredBySubDataObjectAsMaxIndexAttribute()
+     * @generated
+     */
+    void unsetReferredBySubDataObjectAsMaxIndexAttribute();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredBySubDataObjectAsMaxIndexAttribute <em>Referred By Sub Data Object As Max Index Attribute</em>}' reference list is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Referred By Sub Data Object As Max Index Attribute</em>' reference list is set.
+     * @see #unsetReferredBySubDataObjectAsMaxIndexAttribute()
+     * @see #getReferredBySubDataObjectAsMaxIndexAttribute()
+     * @generated
+     */
+    boolean isSetReferredBySubDataObjectAsMaxIndexAttribute();
 
 } // DataAttribute

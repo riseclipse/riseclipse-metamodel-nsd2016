@@ -19,6 +19,7 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
+import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -608,5 +609,21 @@ public interface NS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
      * @generated
      */
     boolean isSetReferredByDependsOn();
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model consoleType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.IRiseClipseConsole"
+     * @generated
+     */
+    CDC findCDC( String cDCName, IRiseClipseConsole console );
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model consoleType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.IRiseClipseConsole"
+     * @generated
+     */
+    PresenceCondition findPresenceCondition( String presenceConditionName, IRiseClipseConsole console );
 
 } // NS

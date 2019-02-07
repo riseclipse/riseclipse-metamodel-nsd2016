@@ -689,13 +689,22 @@ public interface NsdPackage extends EPackage {
     int NSD_OBJECT__LINE_NUMBER = 0;
 
     /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NSD_OBJECT__EXPLICIT_LINKS_BUILT = 1;
+
+    /**
      * The number of structural features of the '<em>Object</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int NSD_OBJECT_FEATURE_COUNT = 1;
+    int NSD_OBJECT_FEATURE_COUNT = 2;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -723,6 +732,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int APPLIES_TO_TYPE__LINE_NUMBER = NSD_OBJECT__LINE_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int APPLIES_TO_TYPE__EXPLICIT_LINKS_BUILT = NSD_OBJECT__EXPLICIT_LINKS_BUILT;
 
     /**
      * The feature id for the '<em><b>Release</b></em>' attribute.
@@ -813,6 +831,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int DEPENDS_ON__LINE_NUMBER = NSD_OBJECT__LINE_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DEPENDS_ON__EXPLICIT_LINKS_BUILT = NSD_OBJECT__EXPLICIT_LINKS_BUILT;
 
     /**
      * The feature id for the '<em><b>Release</b></em>' attribute.
@@ -995,6 +1022,15 @@ public interface NsdPackage extends EPackage {
     int SERVICE_TYPE__LINE_NUMBER = NSD_OBJECT__LINE_NUMBER;
 
     /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_TYPE__EXPLICIT_LINKS_BUILT = NSD_OBJECT__EXPLICIT_LINKS_BUILT;
+
+    /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1047,6 +1083,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int ABBREVIATION__LINE_NUMBER = NSD_OBJECT__LINE_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABBREVIATION__EXPLICIT_LINKS_BUILT = NSD_OBJECT__EXPLICIT_LINKS_BUILT;
 
     /**
      * The feature id for the '<em><b>Desc ID</b></em>' attribute.
@@ -1112,6 +1157,15 @@ public interface NsdPackage extends EPackage {
     int ABBREVIATIONS__LINE_NUMBER = NSD_OBJECT__LINE_NUMBER;
 
     /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABBREVIATIONS__EXPLICIT_LINKS_BUILT = NSD_OBJECT__EXPLICIT_LINKS_BUILT;
+
+    /**
      * The feature id for the '<em><b>Abbreviation</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1175,6 +1229,15 @@ public interface NsdPackage extends EPackage {
     int DOCUMENTED_CLASS__LINE_NUMBER = NSD_OBJECT__LINE_NUMBER;
 
     /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DOCUMENTED_CLASS__EXPLICIT_LINKS_BUILT = NSD_OBJECT__EXPLICIT_LINKS_BUILT;
+
+    /**
      * The feature id for the '<em><b>Deprecated</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1236,6 +1299,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int TITLED_CLASS__LINE_NUMBER = DOCUMENTED_CLASS__LINE_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TITLED_CLASS__EXPLICIT_LINKS_BUILT = DOCUMENTED_CLASS__EXPLICIT_LINKS_BUILT;
 
     /**
      * The feature id for the '<em><b>Deprecated</b></em>' attribute.
@@ -1308,6 +1380,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int ANY_LN_CLASS__LINE_NUMBER = TITLED_CLASS__LINE_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ANY_LN_CLASS__EXPLICIT_LINKS_BUILT = TITLED_CLASS__EXPLICIT_LINKS_BUILT;
 
     /**
      * The feature id for the '<em><b>Deprecated</b></em>' attribute.
@@ -1400,13 +1481,22 @@ public interface NsdPackage extends EPackage {
     int ANY_LN_CLASS___GET_NAME = TITLED_CLASS_OPERATION_COUNT + 0;
 
     /**
+     * The operation id for the '<em>Get LN Classes</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ANY_LN_CLASS___GET_LN_CLASSES = TITLED_CLASS_OPERATION_COUNT + 1;
+
+    /**
      * The number of operations of the '<em>Any LN Class</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ANY_LN_CLASS_OPERATION_COUNT = TITLED_CLASS_OPERATION_COUNT + 1;
+    int ANY_LN_CLASS_OPERATION_COUNT = TITLED_CLASS_OPERATION_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -1416,6 +1506,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int ABSTRACT_LN_CLASS__LINE_NUMBER = ANY_LN_CLASS__LINE_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_LN_CLASS__EXPLICIT_LINKS_BUILT = ANY_LN_CLASS__EXPLICIT_LINKS_BUILT;
 
     /**
      * The feature id for the '<em><b>Deprecated</b></em>' attribute.
@@ -1535,6 +1634,15 @@ public interface NsdPackage extends EPackage {
     int ABSTRACT_LN_CLASS___GET_NAME = ANY_LN_CLASS___GET_NAME;
 
     /**
+     * The operation id for the '<em>Get LN Classes</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_LN_CLASS___GET_LN_CLASSES = ANY_LN_CLASS___GET_LN_CLASSES;
+
+    /**
      * The number of operations of the '<em>Abstract LN Class</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1551,6 +1659,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int COPYRIGHTED__LINE_NUMBER = NSD_OBJECT__LINE_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COPYRIGHTED__EXPLICIT_LINKS_BUILT = NSD_OBJECT__EXPLICIT_LINKS_BUILT;
 
     /**
      * The feature id for the '<em><b>Copyright</b></em>' containment reference.
@@ -1596,6 +1713,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int APPLICABLE_SERVICE_NS__LINE_NUMBER = COPYRIGHTED__LINE_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int APPLICABLE_SERVICE_NS__EXPLICIT_LINKS_BUILT = COPYRIGHTED__EXPLICIT_LINKS_BUILT;
 
     /**
      * The feature id for the '<em><b>Copyright</b></em>' containment reference.
@@ -1670,6 +1796,15 @@ public interface NsdPackage extends EPackage {
     int APPLICABLE_SERVICES__LINE_NUMBER = NSD_OBJECT__LINE_NUMBER;
 
     /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int APPLICABLE_SERVICES__EXPLICIT_LINKS_BUILT = NSD_OBJECT__EXPLICIT_LINKS_BUILT;
+
+    /**
      * The feature id for the '<em><b>Service</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1731,6 +1866,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int BASIC_TYPE__LINE_NUMBER = NSD_OBJECT__LINE_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BASIC_TYPE__EXPLICIT_LINKS_BUILT = NSD_OBJECT__EXPLICIT_LINKS_BUILT;
 
     /**
      * The feature id for the '<em><b>Desc ID</b></em>' attribute.
@@ -1796,6 +1940,15 @@ public interface NsdPackage extends EPackage {
     int BASIC_TYPES__LINE_NUMBER = NSD_OBJECT__LINE_NUMBER;
 
     /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BASIC_TYPES__EXPLICIT_LINKS_BUILT = NSD_OBJECT__EXPLICIT_LINKS_BUILT;
+
+    /**
      * The feature id for the '<em><b>Basic Type</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1848,6 +2001,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int CDC__LINE_NUMBER = TITLED_CLASS__LINE_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CDC__EXPLICIT_LINKS_BUILT = TITLED_CLASS__EXPLICIT_LINKS_BUILT;
 
     /**
      * The feature id for the '<em><b>Deprecated</b></em>' attribute.
@@ -1967,13 +2129,31 @@ public interface NsdPackage extends EPackage {
     int CDC__CD_CS = TITLED_CLASS_FEATURE_COUNT + 8;
 
     /**
+     * The feature id for the '<em><b>Referred By Data Object</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CDC__REFERRED_BY_DATA_OBJECT = TITLED_CLASS_FEATURE_COUNT + 9;
+
+    /**
+     * The feature id for the '<em><b>Referred By Sub Data Object</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CDC__REFERRED_BY_SUB_DATA_OBJECT = TITLED_CLASS_FEATURE_COUNT + 10;
+
+    /**
      * The number of structural features of the '<em>CDC</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CDC_FEATURE_COUNT = TITLED_CLASS_FEATURE_COUNT + 9;
+    int CDC_FEATURE_COUNT = TITLED_CLASS_FEATURE_COUNT + 11;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -2001,6 +2181,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int CD_CS__LINE_NUMBER = NSD_OBJECT__LINE_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CD_CS__EXPLICIT_LINKS_BUILT = NSD_OBJECT__EXPLICIT_LINKS_BUILT;
 
     /**
      * The feature id for the '<em><b>CDC</b></em>' containment reference list.
@@ -2055,6 +2244,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int CHANGES__LINE_NUMBER = NSD_OBJECT__LINE_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGES__EXPLICIT_LINKS_BUILT = NSD_OBJECT__EXPLICIT_LINKS_BUILT;
 
     /**
      * The feature id for the '<em><b>Changes ID</b></em>' attribute.
@@ -2165,6 +2363,15 @@ public interface NsdPackage extends EPackage {
     int CONSTRUCTED_ATTRIBUTE__LINE_NUMBER = TITLED_CLASS__LINE_NUMBER;
 
     /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONSTRUCTED_ATTRIBUTE__EXPLICIT_LINKS_BUILT = TITLED_CLASS__EXPLICIT_LINKS_BUILT;
+
+    /**
      * The feature id for the '<em><b>Deprecated</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2273,6 +2480,15 @@ public interface NsdPackage extends EPackage {
     int CONSTRUCTED_ATTRIBUTES__LINE_NUMBER = NSD_OBJECT__LINE_NUMBER;
 
     /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONSTRUCTED_ATTRIBUTES__EXPLICIT_LINKS_BUILT = NSD_OBJECT__EXPLICIT_LINKS_BUILT;
+
+    /**
      * The feature id for the '<em><b>Constructed Attribute</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2325,6 +2541,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int COPYRIGHT_NOTICE__LINE_NUMBER = NSD_OBJECT__LINE_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COPYRIGHT_NOTICE__EXPLICIT_LINKS_BUILT = NSD_OBJECT__EXPLICIT_LINKS_BUILT;
 
     /**
      * The feature id for the '<em><b>Notice</b></em>' containment reference.
@@ -2388,6 +2613,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int DATA_ATTRIBUTE__LINE_NUMBER = DOCUMENTED_CLASS__LINE_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_ATTRIBUTE__EXPLICIT_LINKS_BUILT = DOCUMENTED_CLASS__EXPLICIT_LINKS_BUILT;
 
     /**
      * The feature id for the '<em><b>Deprecated</b></em>' attribute.
@@ -2579,13 +2813,31 @@ public interface NsdPackage extends EPackage {
     int DATA_ATTRIBUTE__CDC = DOCUMENTED_CLASS_FEATURE_COUNT + 17;
 
     /**
+     * The feature id for the '<em><b>Referred By Sub Data Object As Size Attribute</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_SIZE_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 18;
+
+    /**
+     * The feature id for the '<em><b>Referred By Sub Data Object As Max Index Attribute</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_MAX_INDEX_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 19;
+
+    /**
      * The number of structural features of the '<em>Data Attribute</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE_FEATURE_COUNT = DOCUMENTED_CLASS_FEATURE_COUNT + 18;
+    int DATA_ATTRIBUTE_FEATURE_COUNT = DOCUMENTED_CLASS_FEATURE_COUNT + 20;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -2613,6 +2865,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int DATA_OBJECT__LINE_NUMBER = DOCUMENTED_CLASS__LINE_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_OBJECT__EXPLICIT_LINKS_BUILT = DOCUMENTED_CLASS__EXPLICIT_LINKS_BUILT;
 
     /**
      * The feature id for the '<em><b>Deprecated</b></em>' attribute.
@@ -2750,13 +3011,40 @@ public interface NsdPackage extends EPackage {
     int DATA_OBJECT__ANY_LN_CLASS = DOCUMENTED_CLASS_FEATURE_COUNT + 11;
 
     /**
+     * The feature id for the '<em><b>Refers To CDC</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_OBJECT__REFERS_TO_CDC = DOCUMENTED_CLASS_FEATURE_COUNT + 12;
+
+    /**
+     * The feature id for the '<em><b>Refers To Presence Condition</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION = DOCUMENTED_CLASS_FEATURE_COUNT + 13;
+
+    /**
+     * The feature id for the '<em><b>Refers To Presence Condition Derived Statistics</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION_DERIVED_STATISTICS = DOCUMENTED_CLASS_FEATURE_COUNT + 14;
+
+    /**
      * The number of structural features of the '<em>Data Object</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DATA_OBJECT_FEATURE_COUNT = DOCUMENTED_CLASS_FEATURE_COUNT + 12;
+    int DATA_OBJECT_FEATURE_COUNT = DOCUMENTED_CLASS_FEATURE_COUNT + 15;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -2784,6 +3072,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int DATA_SET_MEMBER_OF__LINE_NUMBER = NSD_OBJECT__LINE_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_SET_MEMBER_OF__EXPLICIT_LINKS_BUILT = NSD_OBJECT__EXPLICIT_LINKS_BUILT;
 
     /**
      * The feature id for the '<em><b>Cb</b></em>' attribute.
@@ -2838,6 +3135,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int DOC__LINE_NUMBER = NSD_OBJECT__LINE_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DOC__EXPLICIT_LINKS_BUILT = NSD_OBJECT__EXPLICIT_LINKS_BUILT;
 
     /**
      * The feature id for the '<em><b>Mixed</b></em>' attribute list.
@@ -2919,6 +3225,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int ENUMERATION__LINE_NUMBER = TITLED_CLASS__LINE_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ENUMERATION__EXPLICIT_LINKS_BUILT = TITLED_CLASS__EXPLICIT_LINKS_BUILT;
 
     /**
      * The feature id for the '<em><b>Deprecated</b></em>' attribute.
@@ -3029,6 +3344,15 @@ public interface NsdPackage extends EPackage {
     int ENUMERATIONS__LINE_NUMBER = NSD_OBJECT__LINE_NUMBER;
 
     /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ENUMERATIONS__EXPLICIT_LINKS_BUILT = NSD_OBJECT__EXPLICIT_LINKS_BUILT;
+
+    /**
      * The feature id for the '<em><b>Enumeration</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3081,6 +3405,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int FUNCTIONAL_CONSTRAINT__LINE_NUMBER = NSD_OBJECT__LINE_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FUNCTIONAL_CONSTRAINT__EXPLICIT_LINKS_BUILT = NSD_OBJECT__EXPLICIT_LINKS_BUILT;
 
     /**
      * The feature id for the '<em><b>Applicable Services</b></em>' containment reference.
@@ -3164,6 +3497,15 @@ public interface NsdPackage extends EPackage {
     int FUNCTIONAL_CONSTRAINTS__LINE_NUMBER = NSD_OBJECT__LINE_NUMBER;
 
     /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FUNCTIONAL_CONSTRAINTS__EXPLICIT_LINKS_BUILT = NSD_OBJECT__EXPLICIT_LINKS_BUILT;
+
+    /**
      * The feature id for the '<em><b>Functional Constraint</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3225,6 +3567,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int LICENSE__LINE_NUMBER = NSD_OBJECT__LINE_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LICENSE__EXPLICIT_LINKS_BUILT = NSD_OBJECT__EXPLICIT_LINKS_BUILT;
 
     /**
      * The feature id for the '<em><b>Mixed</b></em>' attribute list.
@@ -3297,6 +3648,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int LITERAL__LINE_NUMBER = DOCUMENTED_CLASS__LINE_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LITERAL__EXPLICIT_LINKS_BUILT = DOCUMENTED_CLASS__EXPLICIT_LINKS_BUILT;
 
     /**
      * The feature id for the '<em><b>Deprecated</b></em>' attribute.
@@ -3387,6 +3747,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int LN_CLASS__LINE_NUMBER = ANY_LN_CLASS__LINE_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LN_CLASS__EXPLICIT_LINKS_BUILT = ANY_LN_CLASS__EXPLICIT_LINKS_BUILT;
 
     /**
      * The feature id for the '<em><b>Deprecated</b></em>' attribute.
@@ -3515,6 +3884,15 @@ public interface NsdPackage extends EPackage {
     int LN_CLASS___GET_NAME = ANY_LN_CLASS___GET_NAME;
 
     /**
+     * The operation id for the '<em>Get LN Classes</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LN_CLASS___GET_LN_CLASSES = ANY_LN_CLASS___GET_LN_CLASSES;
+
+    /**
      * The number of operations of the '<em>LN Class</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3531,6 +3909,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int LN_CLASSES__LINE_NUMBER = NSD_OBJECT__LINE_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LN_CLASSES__EXPLICIT_LINKS_BUILT = NSD_OBJECT__EXPLICIT_LINKS_BUILT;
 
     /**
      * The feature id for the '<em><b>Abstract LN Class</b></em>' containment reference list.
@@ -3596,6 +3983,15 @@ public interface NsdPackage extends EPackage {
     int NOTICE__LINE_NUMBER = NSD_OBJECT__LINE_NUMBER;
 
     /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NOTICE__EXPLICIT_LINKS_BUILT = NSD_OBJECT__EXPLICIT_LINKS_BUILT;
+
+    /**
      * The feature id for the '<em><b>Mixed</b></em>' attribute list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3648,6 +4044,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int NS__LINE_NUMBER = COPYRIGHTED__LINE_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NS__EXPLICIT_LINKS_BUILT = COPYRIGHTED__EXPLICIT_LINKS_BUILT;
 
     /**
      * The feature id for the '<em><b>Copyright</b></em>' containment reference.
@@ -3848,13 +4253,31 @@ public interface NsdPackage extends EPackage {
     int NS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = COPYRIGHTED___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
+     * The operation id for the '<em>Find CDC</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NS___FIND_CDC__STRING_IRISECLIPSECONSOLE = COPYRIGHTED_OPERATION_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Find Presence Condition</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NS___FIND_PRESENCE_CONDITION__STRING_IRISECLIPSECONSOLE = COPYRIGHTED_OPERATION_COUNT + 1;
+
+    /**
      * The number of operations of the '<em>NS</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int NS_OPERATION_COUNT = COPYRIGHTED_OPERATION_COUNT + 0;
+    int NS_OPERATION_COUNT = COPYRIGHTED_OPERATION_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -3864,6 +4287,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int NS_DOC__LINE_NUMBER = COPYRIGHTED__LINE_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NS_DOC__EXPLICIT_LINKS_BUILT = COPYRIGHTED__EXPLICIT_LINKS_BUILT;
 
     /**
      * The feature id for the '<em><b>Copyright</b></em>' containment reference.
@@ -3992,6 +4424,15 @@ public interface NsdPackage extends EPackage {
     int PRESENCE_CONDITION__LINE_NUMBER = NSD_OBJECT__LINE_NUMBER;
 
     /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PRESENCE_CONDITION__EXPLICIT_LINKS_BUILT = NSD_OBJECT__EXPLICIT_LINKS_BUILT;
+
+    /**
      * The feature id for the '<em><b>Argument</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4037,13 +4478,40 @@ public interface NsdPackage extends EPackage {
     int PRESENCE_CONDITION__PRESENCE_CONDITIONS = NSD_OBJECT_FEATURE_COUNT + 4;
 
     /**
+     * The feature id for the '<em><b>Referred By Data Object</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT = NSD_OBJECT_FEATURE_COUNT + 5;
+
+    /**
+     * The feature id for the '<em><b>Referred By Data Object For Derived Statistics</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT_FOR_DERIVED_STATISTICS = NSD_OBJECT_FEATURE_COUNT + 6;
+
+    /**
+     * The feature id for the '<em><b>Referred By Sub Data Object</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PRESENCE_CONDITION__REFERRED_BY_SUB_DATA_OBJECT = NSD_OBJECT_FEATURE_COUNT + 7;
+
+    /**
      * The number of structural features of the '<em>Presence Condition</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PRESENCE_CONDITION_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 5;
+    int PRESENCE_CONDITION_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 8;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -4071,6 +4539,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int PRESENCE_CONDITIONS__LINE_NUMBER = NSD_OBJECT__LINE_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PRESENCE_CONDITIONS__EXPLICIT_LINKS_BUILT = NSD_OBJECT__EXPLICIT_LINKS_BUILT;
 
     /**
      * The feature id for the '<em><b>Presence Condition</b></em>' containment reference list.
@@ -4134,6 +4611,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int SERVICE_CDC__LINE_NUMBER = NSD_OBJECT__LINE_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_CDC__EXPLICIT_LINKS_BUILT = NSD_OBJECT__EXPLICIT_LINKS_BUILT;
 
     /**
      * The feature id for the '<em><b>Service Data Attribute</b></em>' containment reference list.
@@ -4208,6 +4694,15 @@ public interface NsdPackage extends EPackage {
     int SERVICE_CD_CS__LINE_NUMBER = NSD_OBJECT__LINE_NUMBER;
 
     /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_CD_CS__EXPLICIT_LINKS_BUILT = NSD_OBJECT__EXPLICIT_LINKS_BUILT;
+
+    /**
      * The feature id for the '<em><b>Service CDC</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4260,6 +4755,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int SERVICE_CONSTRUCTED_ATTRIBUTE__LINE_NUMBER = CONSTRUCTED_ATTRIBUTE__LINE_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_CONSTRUCTED_ATTRIBUTE__EXPLICIT_LINKS_BUILT = CONSTRUCTED_ATTRIBUTE__EXPLICIT_LINKS_BUILT;
 
     /**
      * The feature id for the '<em><b>Deprecated</b></em>' attribute.
@@ -4388,6 +4892,15 @@ public interface NsdPackage extends EPackage {
     int SERVICE_CONSTRUCTED_ATTRIBUTES__LINE_NUMBER = NSD_OBJECT__LINE_NUMBER;
 
     /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_CONSTRUCTED_ATTRIBUTES__EXPLICIT_LINKS_BUILT = NSD_OBJECT__EXPLICIT_LINKS_BUILT;
+
+    /**
      * The feature id for the '<em><b>Service Constructed Attribute</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4440,6 +4953,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int SERVICE_DATA_ATTRIBUTE__LINE_NUMBER = DOCUMENTED_CLASS__LINE_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_DATA_ATTRIBUTE__EXPLICIT_LINKS_BUILT = DOCUMENTED_CLASS__EXPLICIT_LINKS_BUILT;
 
     /**
      * The feature id for the '<em><b>Deprecated</b></em>' attribute.
@@ -4593,6 +5115,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int SERVICE_NS__LINE_NUMBER = COPYRIGHTED__LINE_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_NS__EXPLICIT_LINKS_BUILT = COPYRIGHTED__EXPLICIT_LINKS_BUILT;
 
     /**
      * The feature id for the '<em><b>Copyright</b></em>' containment reference.
@@ -4775,6 +5306,15 @@ public interface NsdPackage extends EPackage {
     int SERVICE_NS_USAGE__LINE_NUMBER = NSD_OBJECT__LINE_NUMBER;
 
     /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_NS_USAGE__EXPLICIT_LINKS_BUILT = NSD_OBJECT__EXPLICIT_LINKS_BUILT;
+
+    /**
      * The feature id for the '<em><b>Release</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4872,6 +5412,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int SERVICE_PARAMETER__LINE_NUMBER = DOCUMENTED_CLASS__LINE_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_PARAMETER__EXPLICIT_LINKS_BUILT = DOCUMENTED_CLASS__EXPLICIT_LINKS_BUILT;
 
     /**
      * The feature id for the '<em><b>Deprecated</b></em>' attribute.
@@ -5000,6 +5549,15 @@ public interface NsdPackage extends EPackage {
     int SERVICE_TYPE_REALIZATIONS__LINE_NUMBER = NSD_OBJECT__LINE_NUMBER;
 
     /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_TYPE_REALIZATIONS__EXPLICIT_LINKS_BUILT = NSD_OBJECT__EXPLICIT_LINKS_BUILT;
+
+    /**
      * The feature id for the '<em><b>Service Type Realization</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5052,6 +5610,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int SUB_DATA_ATTRIBUTE__LINE_NUMBER = DOCUMENTED_CLASS__LINE_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SUB_DATA_ATTRIBUTE__EXPLICIT_LINKS_BUILT = DOCUMENTED_CLASS__EXPLICIT_LINKS_BUILT;
 
     /**
      * The feature id for the '<em><b>Deprecated</b></em>' attribute.
@@ -5243,6 +5810,15 @@ public interface NsdPackage extends EPackage {
     int SUB_DATA_OBJECT__LINE_NUMBER = DOCUMENTED_CLASS__LINE_NUMBER;
 
     /**
+     * The feature id for the '<em><b>Explicit Links Built</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SUB_DATA_OBJECT__EXPLICIT_LINKS_BUILT = DOCUMENTED_CLASS__EXPLICIT_LINKS_BUILT;
+
+    /**
      * The feature id for the '<em><b>Deprecated</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5378,13 +5954,49 @@ public interface NsdPackage extends EPackage {
     int SUB_DATA_OBJECT__CDC = DOCUMENTED_CLASS_FEATURE_COUNT + 11;
 
     /**
+     * The feature id for the '<em><b>Refers To CDC</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SUB_DATA_OBJECT__REFERS_TO_CDC = DOCUMENTED_CLASS_FEATURE_COUNT + 12;
+
+    /**
+     * The feature id for the '<em><b>Refers To Presence Condition</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SUB_DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION = DOCUMENTED_CLASS_FEATURE_COUNT + 13;
+
+    /**
+     * The feature id for the '<em><b>Refers To Size Attribute</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SUB_DATA_OBJECT__REFERS_TO_SIZE_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 14;
+
+    /**
+     * The feature id for the '<em><b>Refers To Max Index Attribute</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SUB_DATA_OBJECT__REFERS_TO_MAX_INDEX_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 15;
+
+    /**
      * The number of structural features of the '<em>Sub Data Object</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SUB_DATA_OBJECT_FEATURE_COUNT = DOCUMENTED_CLASS_FEATURE_COUNT + 12;
+    int SUB_DATA_OBJECT_FEATURE_COUNT = DOCUMENTED_CLASS_FEATURE_COUNT + 16;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -6367,6 +6979,16 @@ public interface NsdPackage extends EPackage {
     EOperation getAnyLNClass__GetName();
 
     /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass#getLNClasses() <em>Get LN Classes</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Get LN Classes</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass#getLNClasses()
+     * @generated
+     */
+    EOperation getAnyLNClass__GetLNClasses();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServiceNS <em>Applicable Service NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6635,6 +7257,28 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EReference getCDC_CDCs();
+
+    /**
+     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getReferredByDataObject <em>Referred By Data Object</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Referred By Data Object</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getReferredByDataObject()
+     * @see #getCDC()
+     * @generated
+     */
+    EReference getCDC_ReferredByDataObject();
+
+    /**
+     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getReferredBySubDataObject <em>Referred By Sub Data Object</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Referred By Sub Data Object</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getReferredBySubDataObject()
+     * @see #getCDC()
+     * @generated
+     */
+    EReference getCDC_ReferredBySubDataObject();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs <em>CD Cs</em>}'.
@@ -6960,6 +7604,28 @@ public interface NsdPackage extends EPackage {
     EReference getDataAttribute_CDC();
 
     /**
+     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredBySubDataObjectAsSizeAttribute <em>Referred By Sub Data Object As Size Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Referred By Sub Data Object As Size Attribute</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredBySubDataObjectAsSizeAttribute()
+     * @see #getDataAttribute()
+     * @generated
+     */
+    EReference getDataAttribute_ReferredBySubDataObjectAsSizeAttribute();
+
+    /**
+     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredBySubDataObjectAsMaxIndexAttribute <em>Referred By Sub Data Object As Max Index Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Referred By Sub Data Object As Max Index Attribute</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredBySubDataObjectAsMaxIndexAttribute()
+     * @see #getDataAttribute()
+     * @generated
+     */
+    EReference getDataAttribute_ReferredBySubDataObjectAsMaxIndexAttribute();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject <em>Data Object</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7012,6 +7678,39 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EReference getDataObject_AnyLNClass();
+
+    /**
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getRefersToCDC <em>Refers To CDC</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Refers To CDC</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getRefersToCDC()
+     * @see #getDataObject()
+     * @generated
+     */
+    EReference getDataObject_RefersToCDC();
+
+    /**
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getRefersToPresenceCondition <em>Refers To Presence Condition</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Refers To Presence Condition</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getRefersToPresenceCondition()
+     * @see #getDataObject()
+     * @generated
+     */
+    EReference getDataObject_RefersToPresenceCondition();
+
+    /**
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getRefersToPresenceConditionDerivedStatistics <em>Refers To Presence Condition Derived Statistics</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Refers To Presence Condition Derived Statistics</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getRefersToPresenceConditionDerivedStatistics()
+     * @see #getDataObject()
+     * @generated
+     */
+    EReference getDataObject_RefersToPresenceConditionDerivedStatistics();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataSetMemberOf <em>Data Set Member Of</em>}'.
@@ -7705,6 +8404,26 @@ public interface NsdPackage extends EPackage {
     EReference getNS_ReferredByDependsOn();
 
     /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findCDC(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole) <em>Find CDC</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Find CDC</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findCDC(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole)
+     * @generated
+     */
+    EOperation getNS__FindCDC__String_IRiseClipseConsole();
+
+    /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findPresenceCondition(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole) <em>Find Presence Condition</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Find Presence Condition</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findPresenceCondition(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole)
+     * @generated
+     */
+    EOperation getNS__FindPresenceCondition__String_IRiseClipseConsole();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc <em>NS Doc</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7800,6 +8519,39 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EReference getPresenceCondition_PresenceConditions();
+
+    /**
+     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getReferredByDataObject <em>Referred By Data Object</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Referred By Data Object</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getReferredByDataObject()
+     * @see #getPresenceCondition()
+     * @generated
+     */
+    EReference getPresenceCondition_ReferredByDataObject();
+
+    /**
+     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getReferredByDataObjectForDerivedStatistics <em>Referred By Data Object For Derived Statistics</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Referred By Data Object For Derived Statistics</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getReferredByDataObjectForDerivedStatistics()
+     * @see #getPresenceCondition()
+     * @generated
+     */
+    EReference getPresenceCondition_ReferredByDataObjectForDerivedStatistics();
+
+    /**
+     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getReferredBySubDataObject <em>Referred By Sub Data Object</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Referred By Sub Data Object</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getReferredBySubDataObject()
+     * @see #getPresenceCondition()
+     * @generated
+     */
+    EReference getPresenceCondition_ReferredBySubDataObject();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions <em>Presence Conditions</em>}'.
@@ -8296,6 +9048,50 @@ public interface NsdPackage extends EPackage {
     EReference getSubDataObject_CDC();
 
     /**
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getRefersToCDC <em>Refers To CDC</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Refers To CDC</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getRefersToCDC()
+     * @see #getSubDataObject()
+     * @generated
+     */
+    EReference getSubDataObject_RefersToCDC();
+
+    /**
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getRefersToPresenceCondition <em>Refers To Presence Condition</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Refers To Presence Condition</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getRefersToPresenceCondition()
+     * @see #getSubDataObject()
+     * @generated
+     */
+    EReference getSubDataObject_RefersToPresenceCondition();
+
+    /**
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getRefersToSizeAttribute <em>Refers To Size Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Refers To Size Attribute</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getRefersToSizeAttribute()
+     * @see #getSubDataObject()
+     * @generated
+     */
+    EReference getSubDataObject_RefersToSizeAttribute();
+
+    /**
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getRefersToMaxIndexAttribute <em>Refers To Max Index Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Refers To Max Index Attribute</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getRefersToMaxIndexAttribute()
+     * @see #getSubDataObject()
+     * @generated
+     */
+    EReference getSubDataObject_RefersToMaxIndexAttribute();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TitledClass <em>Titled Class</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8336,6 +9132,17 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EAttribute getNsdObject_LineNumber();
+
+    /**
+     * Returns the meta object for the attribute '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdObject#isExplicitLinksBuilt <em>Explicit Links Built</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Explicit Links Built</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdObject#isExplicitLinksBuilt()
+     * @see #getNsdObject()
+     * @generated
+     */
+    EAttribute getNsdObject_ExplicitLinksBuilt();
 
     /**
      * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdObject#buildExplicitLinks(fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole) <em>Build Explicit Links</em>}' operation.
@@ -9214,6 +10021,14 @@ public interface NsdPackage extends EPackage {
         EOperation ANY_LN_CLASS___GET_NAME = eINSTANCE.getAnyLNClass__GetName();
 
         /**
+         * The meta object literal for the '<em><b>Get LN Classes</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation ANY_LN_CLASS___GET_LN_CLASSES = eINSTANCE.getAnyLNClass__GetLNClasses();
+
+        /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ApplicableServiceNSImpl <em>Applicable Service NS</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -9422,6 +10237,22 @@ public interface NsdPackage extends EPackage {
          * @generated
          */
         EReference CDC__CD_CS = eINSTANCE.getCDC_CDCs();
+
+        /**
+         * The meta object literal for the '<em><b>Referred By Data Object</b></em>' reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference CDC__REFERRED_BY_DATA_OBJECT = eINSTANCE.getCDC_ReferredByDataObject();
+
+        /**
+         * The meta object literal for the '<em><b>Referred By Sub Data Object</b></em>' reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference CDC__REFERRED_BY_SUB_DATA_OBJECT = eINSTANCE.getCDC_ReferredBySubDataObject();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CDCsImpl <em>CD Cs</em>}' class.
@@ -9681,6 +10512,24 @@ public interface NsdPackage extends EPackage {
         EReference DATA_ATTRIBUTE__CDC = eINSTANCE.getDataAttribute_CDC();
 
         /**
+         * The meta object literal for the '<em><b>Referred By Sub Data Object As Size Attribute</b></em>' reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_SIZE_ATTRIBUTE = eINSTANCE
+                .getDataAttribute_ReferredBySubDataObjectAsSizeAttribute();
+
+        /**
+         * The meta object literal for the '<em><b>Referred By Sub Data Object As Max Index Attribute</b></em>' reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_MAX_INDEX_ATTRIBUTE = eINSTANCE
+                .getDataAttribute_ReferredBySubDataObjectAsMaxIndexAttribute();
+
+        /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl <em>Data Object</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -9721,6 +10570,31 @@ public interface NsdPackage extends EPackage {
          * @generated
          */
         EReference DATA_OBJECT__ANY_LN_CLASS = eINSTANCE.getDataObject_AnyLNClass();
+
+        /**
+         * The meta object literal for the '<em><b>Refers To CDC</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DATA_OBJECT__REFERS_TO_CDC = eINSTANCE.getDataObject_RefersToCDC();
+
+        /**
+         * The meta object literal for the '<em><b>Refers To Presence Condition</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION = eINSTANCE.getDataObject_RefersToPresenceCondition();
+
+        /**
+         * The meta object literal for the '<em><b>Refers To Presence Condition Derived Statistics</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION_DERIVED_STATISTICS = eINSTANCE
+                .getDataObject_RefersToPresenceConditionDerivedStatistics();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataSetMemberOfImpl <em>Data Set Member Of</em>}' class.
@@ -10263,6 +11137,23 @@ public interface NsdPackage extends EPackage {
         EReference NS__REFERRED_BY_DEPENDS_ON = eINSTANCE.getNS_ReferredByDependsOn();
 
         /**
+         * The meta object literal for the '<em><b>Find CDC</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation NS___FIND_CDC__STRING_IRISECLIPSECONSOLE = eINSTANCE.getNS__FindCDC__String_IRiseClipseConsole();
+
+        /**
+         * The meta object literal for the '<em><b>Find Presence Condition</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation NS___FIND_PRESENCE_CONDITION__STRING_IRISECLIPSECONSOLE = eINSTANCE
+                .getNS__FindPresenceCondition__String_IRiseClipseConsole();
+
+        /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl <em>NS Doc</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -10337,6 +11228,32 @@ public interface NsdPackage extends EPackage {
          * @generated
          */
         EReference PRESENCE_CONDITION__PRESENCE_CONDITIONS = eINSTANCE.getPresenceCondition_PresenceConditions();
+
+        /**
+         * The meta object literal for the '<em><b>Referred By Data Object</b></em>' reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT = eINSTANCE.getPresenceCondition_ReferredByDataObject();
+
+        /**
+         * The meta object literal for the '<em><b>Referred By Data Object For Derived Statistics</b></em>' reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT_FOR_DERIVED_STATISTICS = eINSTANCE
+                .getPresenceCondition_ReferredByDataObjectForDerivedStatistics();
+
+        /**
+         * The meta object literal for the '<em><b>Referred By Sub Data Object</b></em>' reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference PRESENCE_CONDITION__REFERRED_BY_SUB_DATA_OBJECT = eINSTANCE
+                .getPresenceCondition_ReferredBySubDataObject();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.PresenceConditionsImpl <em>Presence Conditions</em>}' class.
@@ -10735,6 +11652,40 @@ public interface NsdPackage extends EPackage {
         EReference SUB_DATA_OBJECT__CDC = eINSTANCE.getSubDataObject_CDC();
 
         /**
+         * The meta object literal for the '<em><b>Refers To CDC</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference SUB_DATA_OBJECT__REFERS_TO_CDC = eINSTANCE.getSubDataObject_RefersToCDC();
+
+        /**
+         * The meta object literal for the '<em><b>Refers To Presence Condition</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference SUB_DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION = eINSTANCE
+                .getSubDataObject_RefersToPresenceCondition();
+
+        /**
+         * The meta object literal for the '<em><b>Refers To Size Attribute</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference SUB_DATA_OBJECT__REFERS_TO_SIZE_ATTRIBUTE = eINSTANCE.getSubDataObject_RefersToSizeAttribute();
+
+        /**
+         * The meta object literal for the '<em><b>Refers To Max Index Attribute</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference SUB_DATA_OBJECT__REFERS_TO_MAX_INDEX_ATTRIBUTE = eINSTANCE
+                .getSubDataObject_RefersToMaxIndexAttribute();
+
+        /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.TitledClassImpl <em>Titled Class</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -10769,6 +11720,14 @@ public interface NsdPackage extends EPackage {
          * @generated
          */
         EAttribute NSD_OBJECT__LINE_NUMBER = eINSTANCE.getNsdObject_LineNumber();
+
+        /**
+         * The meta object literal for the '<em><b>Explicit Links Built</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute NSD_OBJECT__EXPLICIT_LINKS_BUILT = eINSTANCE.getNsdObject_ExplicitLinksBuilt();
 
         /**
          * The meta object literal for the '<em><b>Build Explicit Links</b></em>' operation.

@@ -41,6 +41,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdObjectImpl#getLineNumber <em>Line Number</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdObjectImpl#isExplicitLinksBuilt <em>Explicit Links Built</em>}</li>
  * </ul>
  *
  * @generated
@@ -64,6 +65,25 @@ public abstract class NsdObjectImpl extends MinimalEObjectImpl.Container impleme
      * @ordered
      */
     protected int lineNumber = LINE_NUMBER_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #isExplicitLinksBuilt() <em>Explicit Links Built</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isExplicitLinksBuilt()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean EXPLICIT_LINKS_BUILT_EDEFAULT = false;
+    /**
+     * The cached value of the '{@link #isExplicitLinksBuilt() <em>Explicit Links Built</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isExplicitLinksBuilt()
+     * @generated
+     * @ordered
+     */
+    protected boolean explicitLinksBuilt = EXPLICIT_LINKS_BUILT_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -110,10 +130,36 @@ public abstract class NsdObjectImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isExplicitLinksBuilt() {
+        return explicitLinksBuilt;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setExplicitLinksBuilt( boolean newExplicitLinksBuilt ) {
+        boolean oldExplicitLinksBuilt = explicitLinksBuilt;
+        explicitLinksBuilt = newExplicitLinksBuilt;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.NSD_OBJECT__EXPLICIT_LINKS_BUILT, oldExplicitLinksBuilt, explicitLinksBuilt ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return true if explicit links were already built, false otherwise
      * @generated NOT
      */
     @Override
-    public void buildExplicitLinks( IRiseClipseConsole console ) {
+    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
+        if( isExplicitLinksBuilt() ) return true;
+
         TreeIterator< EObject > it = eAllContents();
         while( it.hasNext() ) {
             EObject o = it.next();
@@ -121,7 +167,9 @@ public abstract class NsdObjectImpl extends MinimalEObjectImpl.Container impleme
                 ( ( NsdObject ) o ).buildExplicitLinks( console );
             }
         }
-        return;
+
+        setExplicitLinksBuilt( true );
+        return false;
     }
 
     /**
@@ -134,6 +182,8 @@ public abstract class NsdObjectImpl extends MinimalEObjectImpl.Container impleme
         switch( featureID ) {
         case NsdPackage.NSD_OBJECT__LINE_NUMBER:
             return getLineNumber();
+        case NsdPackage.NSD_OBJECT__EXPLICIT_LINKS_BUILT:
+            return isExplicitLinksBuilt();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -148,6 +198,9 @@ public abstract class NsdObjectImpl extends MinimalEObjectImpl.Container impleme
         switch( featureID ) {
         case NsdPackage.NSD_OBJECT__LINE_NUMBER:
             setLineNumber( ( Integer ) newValue );
+            return;
+        case NsdPackage.NSD_OBJECT__EXPLICIT_LINKS_BUILT:
+            setExplicitLinksBuilt( ( Boolean ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -164,6 +217,9 @@ public abstract class NsdObjectImpl extends MinimalEObjectImpl.Container impleme
         case NsdPackage.NSD_OBJECT__LINE_NUMBER:
             setLineNumber( LINE_NUMBER_EDEFAULT );
             return;
+        case NsdPackage.NSD_OBJECT__EXPLICIT_LINKS_BUILT:
+            setExplicitLinksBuilt( EXPLICIT_LINKS_BUILT_EDEFAULT );
+            return;
         }
         super.eUnset( featureID );
     }
@@ -178,6 +234,8 @@ public abstract class NsdObjectImpl extends MinimalEObjectImpl.Container impleme
         switch( featureID ) {
         case NsdPackage.NSD_OBJECT__LINE_NUMBER:
             return lineNumber != LINE_NUMBER_EDEFAULT;
+        case NsdPackage.NSD_OBJECT__EXPLICIT_LINKS_BUILT:
+            return explicitLinksBuilt != EXPLICIT_LINKS_BUILT_EDEFAULT;
         }
         return super.eIsSet( featureID );
     }
@@ -191,8 +249,7 @@ public abstract class NsdObjectImpl extends MinimalEObjectImpl.Container impleme
     public Object eInvoke( int operationID, EList< ? > arguments ) throws InvocationTargetException {
         switch( operationID ) {
         case NsdPackage.NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE:
-            buildExplicitLinks( ( IRiseClipseConsole ) arguments.get( 0 ) );
-            return null;
+            return buildExplicitLinks( ( IRiseClipseConsole ) arguments.get( 0 ) );
         }
         return super.eInvoke( operationID, arguments );
     }
@@ -209,6 +266,8 @@ public abstract class NsdObjectImpl extends MinimalEObjectImpl.Container impleme
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (lineNumber: " );
         result.append( lineNumber );
+        result.append( ", explicitLinksBuilt: " );
+        result.append( explicitLinksBuilt );
         result.append( ')' );
         return result.toString();
     }

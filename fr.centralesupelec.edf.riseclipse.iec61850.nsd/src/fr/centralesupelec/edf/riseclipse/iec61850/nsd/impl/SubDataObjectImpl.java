@@ -23,9 +23,12 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgArray;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceCondition;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject;
+import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -56,6 +59,10 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getType <em>Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getCDC <em>CDC</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getRefersToCDC <em>Refers To CDC</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getRefersToPresenceCondition <em>Refers To Presence Condition</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getRefersToSizeAttribute <em>Refers To Size Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getRefersToMaxIndexAttribute <em>Refers To Max Index Attribute</em>}</li>
  * </ul>
  *
  * @generated
@@ -379,6 +386,82 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
      * @ordered
      */
     protected boolean typeESet;
+
+    /**
+     * The cached value of the '{@link #getRefersToCDC() <em>Refers To CDC</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRefersToCDC()
+     * @generated
+     * @ordered
+     */
+    protected CDC refersToCDC;
+
+    /**
+     * This is true if the Refers To CDC reference has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean refersToCDCESet;
+
+    /**
+     * The cached value of the '{@link #getRefersToPresenceCondition() <em>Refers To Presence Condition</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRefersToPresenceCondition()
+     * @generated
+     * @ordered
+     */
+    protected PresenceCondition refersToPresenceCondition;
+
+    /**
+     * This is true if the Refers To Presence Condition reference has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean refersToPresenceConditionESet;
+
+    /**
+     * The cached value of the '{@link #getRefersToSizeAttribute() <em>Refers To Size Attribute</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRefersToSizeAttribute()
+     * @generated
+     * @ordered
+     */
+    protected DataAttribute refersToSizeAttribute;
+
+    /**
+     * This is true if the Refers To Size Attribute reference has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean refersToSizeAttributeESet;
+
+    /**
+     * The cached value of the '{@link #getRefersToMaxIndexAttribute() <em>Refers To Max Index Attribute</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRefersToMaxIndexAttribute()
+     * @generated
+     * @ordered
+     */
+    protected DataAttribute refersToMaxIndexAttribute;
+
+    /**
+     * This is true if the Refers To Max Index Attribute reference has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean refersToMaxIndexAttributeESet;
 
     /**
      * <!-- begin-user-doc -->
@@ -1008,11 +1091,490 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
      * @generated
      */
     @Override
+    public CDC getRefersToCDC() {
+        return refersToCDC;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetRefersToCDC( CDC newRefersToCDC, NotificationChain msgs ) {
+        CDC oldRefersToCDC = refersToCDC;
+        refersToCDC = newRefersToCDC;
+        boolean oldRefersToCDCESet = refersToCDCESet;
+        refersToCDCESet = true;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.SUB_DATA_OBJECT__REFERS_TO_CDC, oldRefersToCDC, newRefersToCDC, !oldRefersToCDCESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setRefersToCDC( CDC newRefersToCDC ) {
+        if( newRefersToCDC != refersToCDC ) {
+            NotificationChain msgs = null;
+            if( refersToCDC != null ) msgs = ( ( InternalEObject ) refersToCDC ).eInverseRemove( this,
+                    NsdPackage.CDC__REFERRED_BY_SUB_DATA_OBJECT, CDC.class, msgs );
+            if( newRefersToCDC != null ) msgs = ( ( InternalEObject ) newRefersToCDC ).eInverseAdd( this,
+                    NsdPackage.CDC__REFERRED_BY_SUB_DATA_OBJECT, CDC.class, msgs );
+            msgs = basicSetRefersToCDC( newRefersToCDC, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToCDCESet = refersToCDCESet;
+            refersToCDCESet = true;
+            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.SUB_DATA_OBJECT__REFERS_TO_CDC, newRefersToCDC, newRefersToCDC, !oldRefersToCDCESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicUnsetRefersToCDC( NotificationChain msgs ) {
+        CDC oldRefersToCDC = refersToCDC;
+        refersToCDC = null;
+        boolean oldRefersToCDCESet = refersToCDCESet;
+        refersToCDCESet = false;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.SUB_DATA_OBJECT__REFERS_TO_CDC, oldRefersToCDC, null, oldRefersToCDCESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetRefersToCDC() {
+        if( refersToCDC != null ) {
+            NotificationChain msgs = null;
+            msgs = ( ( InternalEObject ) refersToCDC ).eInverseRemove( this,
+                    NsdPackage.CDC__REFERRED_BY_SUB_DATA_OBJECT, CDC.class, msgs );
+            msgs = basicUnsetRefersToCDC( msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToCDCESet = refersToCDCESet;
+            refersToCDCESet = false;
+            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.SUB_DATA_OBJECT__REFERS_TO_CDC, null, null, oldRefersToCDCESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetRefersToCDC() {
+        return refersToCDCESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public PresenceCondition getRefersToPresenceCondition() {
+        return refersToPresenceCondition;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetRefersToPresenceCondition( PresenceCondition newRefersToPresenceCondition,
+            NotificationChain msgs ) {
+        PresenceCondition oldRefersToPresenceCondition = refersToPresenceCondition;
+        refersToPresenceCondition = newRefersToPresenceCondition;
+        boolean oldRefersToPresenceConditionESet = refersToPresenceConditionESet;
+        refersToPresenceConditionESet = true;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.SUB_DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION, oldRefersToPresenceCondition,
+                    newRefersToPresenceCondition, !oldRefersToPresenceConditionESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setRefersToPresenceCondition( PresenceCondition newRefersToPresenceCondition ) {
+        if( newRefersToPresenceCondition != refersToPresenceCondition ) {
+            NotificationChain msgs = null;
+            if( refersToPresenceCondition != null )
+                msgs = ( ( InternalEObject ) refersToPresenceCondition ).eInverseRemove( this,
+                        NsdPackage.PRESENCE_CONDITION__REFERRED_BY_SUB_DATA_OBJECT, PresenceCondition.class, msgs );
+            if( newRefersToPresenceCondition != null )
+                msgs = ( ( InternalEObject ) newRefersToPresenceCondition ).eInverseAdd( this,
+                        NsdPackage.PRESENCE_CONDITION__REFERRED_BY_SUB_DATA_OBJECT, PresenceCondition.class, msgs );
+            msgs = basicSetRefersToPresenceCondition( newRefersToPresenceCondition, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToPresenceConditionESet = refersToPresenceConditionESet;
+            refersToPresenceConditionESet = true;
+            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.SUB_DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION, newRefersToPresenceCondition,
+                    newRefersToPresenceCondition, !oldRefersToPresenceConditionESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicUnsetRefersToPresenceCondition( NotificationChain msgs ) {
+        PresenceCondition oldRefersToPresenceCondition = refersToPresenceCondition;
+        refersToPresenceCondition = null;
+        boolean oldRefersToPresenceConditionESet = refersToPresenceConditionESet;
+        refersToPresenceConditionESet = false;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.SUB_DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION, oldRefersToPresenceCondition, null,
+                    oldRefersToPresenceConditionESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetRefersToPresenceCondition() {
+        if( refersToPresenceCondition != null ) {
+            NotificationChain msgs = null;
+            msgs = ( ( InternalEObject ) refersToPresenceCondition ).eInverseRemove( this,
+                    NsdPackage.PRESENCE_CONDITION__REFERRED_BY_SUB_DATA_OBJECT, PresenceCondition.class, msgs );
+            msgs = basicUnsetRefersToPresenceCondition( msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToPresenceConditionESet = refersToPresenceConditionESet;
+            refersToPresenceConditionESet = false;
+            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.SUB_DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION, null, null,
+                    oldRefersToPresenceConditionESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetRefersToPresenceCondition() {
+        return refersToPresenceConditionESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public DataAttribute getRefersToSizeAttribute() {
+        return refersToSizeAttribute;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetRefersToSizeAttribute( DataAttribute newRefersToSizeAttribute,
+            NotificationChain msgs ) {
+        DataAttribute oldRefersToSizeAttribute = refersToSizeAttribute;
+        refersToSizeAttribute = newRefersToSizeAttribute;
+        boolean oldRefersToSizeAttributeESet = refersToSizeAttributeESet;
+        refersToSizeAttributeESet = true;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.SUB_DATA_OBJECT__REFERS_TO_SIZE_ATTRIBUTE, oldRefersToSizeAttribute,
+                    newRefersToSizeAttribute, !oldRefersToSizeAttributeESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setRefersToSizeAttribute( DataAttribute newRefersToSizeAttribute ) {
+        if( newRefersToSizeAttribute != refersToSizeAttribute ) {
+            NotificationChain msgs = null;
+            if( refersToSizeAttribute != null )
+                msgs = ( ( InternalEObject ) refersToSizeAttribute ).eInverseRemove( this,
+                        NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_SIZE_ATTRIBUTE, DataAttribute.class,
+                        msgs );
+            if( newRefersToSizeAttribute != null )
+                msgs = ( ( InternalEObject ) newRefersToSizeAttribute ).eInverseAdd( this,
+                        NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_SIZE_ATTRIBUTE, DataAttribute.class,
+                        msgs );
+            msgs = basicSetRefersToSizeAttribute( newRefersToSizeAttribute, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToSizeAttributeESet = refersToSizeAttributeESet;
+            refersToSizeAttributeESet = true;
+            if( eNotificationRequired() ) eNotify(
+                    new ENotificationImpl( this, Notification.SET, NsdPackage.SUB_DATA_OBJECT__REFERS_TO_SIZE_ATTRIBUTE,
+                            newRefersToSizeAttribute, newRefersToSizeAttribute, !oldRefersToSizeAttributeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicUnsetRefersToSizeAttribute( NotificationChain msgs ) {
+        DataAttribute oldRefersToSizeAttribute = refersToSizeAttribute;
+        refersToSizeAttribute = null;
+        boolean oldRefersToSizeAttributeESet = refersToSizeAttributeESet;
+        refersToSizeAttributeESet = false;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.SUB_DATA_OBJECT__REFERS_TO_SIZE_ATTRIBUTE, oldRefersToSizeAttribute, null,
+                    oldRefersToSizeAttributeESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetRefersToSizeAttribute() {
+        if( refersToSizeAttribute != null ) {
+            NotificationChain msgs = null;
+            msgs = ( ( InternalEObject ) refersToSizeAttribute ).eInverseRemove( this,
+                    NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_SIZE_ATTRIBUTE, DataAttribute.class,
+                    msgs );
+            msgs = basicUnsetRefersToSizeAttribute( msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToSizeAttributeESet = refersToSizeAttributeESet;
+            refersToSizeAttributeESet = false;
+            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.SUB_DATA_OBJECT__REFERS_TO_SIZE_ATTRIBUTE, null, null, oldRefersToSizeAttributeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetRefersToSizeAttribute() {
+        return refersToSizeAttributeESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public DataAttribute getRefersToMaxIndexAttribute() {
+        return refersToMaxIndexAttribute;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetRefersToMaxIndexAttribute( DataAttribute newRefersToMaxIndexAttribute,
+            NotificationChain msgs ) {
+        DataAttribute oldRefersToMaxIndexAttribute = refersToMaxIndexAttribute;
+        refersToMaxIndexAttribute = newRefersToMaxIndexAttribute;
+        boolean oldRefersToMaxIndexAttributeESet = refersToMaxIndexAttributeESet;
+        refersToMaxIndexAttributeESet = true;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.SUB_DATA_OBJECT__REFERS_TO_MAX_INDEX_ATTRIBUTE, oldRefersToMaxIndexAttribute,
+                    newRefersToMaxIndexAttribute, !oldRefersToMaxIndexAttributeESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setRefersToMaxIndexAttribute( DataAttribute newRefersToMaxIndexAttribute ) {
+        if( newRefersToMaxIndexAttribute != refersToMaxIndexAttribute ) {
+            NotificationChain msgs = null;
+            if( refersToMaxIndexAttribute != null )
+                msgs = ( ( InternalEObject ) refersToMaxIndexAttribute ).eInverseRemove( this,
+                        NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_MAX_INDEX_ATTRIBUTE,
+                        DataAttribute.class, msgs );
+            if( newRefersToMaxIndexAttribute != null )
+                msgs = ( ( InternalEObject ) newRefersToMaxIndexAttribute ).eInverseAdd( this,
+                        NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_MAX_INDEX_ATTRIBUTE,
+                        DataAttribute.class, msgs );
+            msgs = basicSetRefersToMaxIndexAttribute( newRefersToMaxIndexAttribute, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToMaxIndexAttributeESet = refersToMaxIndexAttributeESet;
+            refersToMaxIndexAttributeESet = true;
+            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.SUB_DATA_OBJECT__REFERS_TO_MAX_INDEX_ATTRIBUTE, newRefersToMaxIndexAttribute,
+                    newRefersToMaxIndexAttribute, !oldRefersToMaxIndexAttributeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicUnsetRefersToMaxIndexAttribute( NotificationChain msgs ) {
+        DataAttribute oldRefersToMaxIndexAttribute = refersToMaxIndexAttribute;
+        refersToMaxIndexAttribute = null;
+        boolean oldRefersToMaxIndexAttributeESet = refersToMaxIndexAttributeESet;
+        refersToMaxIndexAttributeESet = false;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.SUB_DATA_OBJECT__REFERS_TO_MAX_INDEX_ATTRIBUTE, oldRefersToMaxIndexAttribute, null,
+                    oldRefersToMaxIndexAttributeESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetRefersToMaxIndexAttribute() {
+        if( refersToMaxIndexAttribute != null ) {
+            NotificationChain msgs = null;
+            msgs = ( ( InternalEObject ) refersToMaxIndexAttribute ).eInverseRemove( this,
+                    NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_MAX_INDEX_ATTRIBUTE, DataAttribute.class,
+                    msgs );
+            msgs = basicUnsetRefersToMaxIndexAttribute( msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToMaxIndexAttributeESet = refersToMaxIndexAttributeESet;
+            refersToMaxIndexAttributeESet = false;
+            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.SUB_DATA_OBJECT__REFERS_TO_MAX_INDEX_ATTRIBUTE, null, null,
+                    oldRefersToMaxIndexAttributeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetRefersToMaxIndexAttribute() {
+        return refersToMaxIndexAttributeESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.SUB_DATA_OBJECT__CDC:
             if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
             return basicSetCDC( ( CDC ) otherEnd, msgs );
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_CDC:
+            if( refersToCDC != null ) msgs = ( ( InternalEObject ) refersToCDC ).eInverseRemove( this,
+                    NsdPackage.CDC__REFERRED_BY_SUB_DATA_OBJECT, CDC.class, msgs );
+            return basicSetRefersToCDC( ( CDC ) otherEnd, msgs );
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION:
+            if( refersToPresenceCondition != null )
+                msgs = ( ( InternalEObject ) refersToPresenceCondition ).eInverseRemove( this,
+                        NsdPackage.PRESENCE_CONDITION__REFERRED_BY_SUB_DATA_OBJECT, PresenceCondition.class, msgs );
+            return basicSetRefersToPresenceCondition( ( PresenceCondition ) otherEnd, msgs );
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_SIZE_ATTRIBUTE:
+            if( refersToSizeAttribute != null )
+                msgs = ( ( InternalEObject ) refersToSizeAttribute ).eInverseRemove( this,
+                        NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_SIZE_ATTRIBUTE, DataAttribute.class,
+                        msgs );
+            return basicSetRefersToSizeAttribute( ( DataAttribute ) otherEnd, msgs );
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_MAX_INDEX_ATTRIBUTE:
+            if( refersToMaxIndexAttribute != null )
+                msgs = ( ( InternalEObject ) refersToMaxIndexAttribute ).eInverseRemove( this,
+                        NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_MAX_INDEX_ATTRIBUTE,
+                        DataAttribute.class, msgs );
+            return basicSetRefersToMaxIndexAttribute( ( DataAttribute ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
     }
@@ -1027,6 +1589,14 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
         switch( featureID ) {
         case NsdPackage.SUB_DATA_OBJECT__CDC:
             return basicSetCDC( null, msgs );
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_CDC:
+            return basicUnsetRefersToCDC( msgs );
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION:
+            return basicUnsetRefersToPresenceCondition( msgs );
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_SIZE_ATTRIBUTE:
+            return basicUnsetRefersToSizeAttribute( msgs );
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_MAX_INDEX_ATTRIBUTE:
+            return basicUnsetRefersToMaxIndexAttribute( msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -1077,6 +1647,14 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
             return getType();
         case NsdPackage.SUB_DATA_OBJECT__CDC:
             return getCDC();
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_CDC:
+            return getRefersToCDC();
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION:
+            return getRefersToPresenceCondition();
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_SIZE_ATTRIBUTE:
+            return getRefersToSizeAttribute();
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_MAX_INDEX_ATTRIBUTE:
+            return getRefersToMaxIndexAttribute();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -1124,6 +1702,18 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
             return;
         case NsdPackage.SUB_DATA_OBJECT__CDC:
             setCDC( ( CDC ) newValue );
+            return;
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_CDC:
+            setRefersToCDC( ( CDC ) newValue );
+            return;
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION:
+            setRefersToPresenceCondition( ( PresenceCondition ) newValue );
+            return;
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_SIZE_ATTRIBUTE:
+            setRefersToSizeAttribute( ( DataAttribute ) newValue );
+            return;
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_MAX_INDEX_ATTRIBUTE:
+            setRefersToMaxIndexAttribute( ( DataAttribute ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -1173,6 +1763,18 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
         case NsdPackage.SUB_DATA_OBJECT__CDC:
             setCDC( ( CDC ) null );
             return;
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_CDC:
+            unsetRefersToCDC();
+            return;
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION:
+            unsetRefersToPresenceCondition();
+            return;
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_SIZE_ATTRIBUTE:
+            unsetRefersToSizeAttribute();
+            return;
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_MAX_INDEX_ATTRIBUTE:
+            unsetRefersToMaxIndexAttribute();
+            return;
         }
         super.eUnset( featureID );
     }
@@ -1209,6 +1811,14 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
             return isSetType();
         case NsdPackage.SUB_DATA_OBJECT__CDC:
             return getCDC() != null;
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_CDC:
+            return isSetRefersToCDC();
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION:
+            return isSetRefersToPresenceCondition();
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_SIZE_ATTRIBUTE:
+            return isSetRefersToSizeAttribute();
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_MAX_INDEX_ATTRIBUTE:
+            return isSetRefersToMaxIndexAttribute();
         }
         return super.eIsSet( featureID );
     }
@@ -1372,6 +1982,75 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
             result.append( "<unset>" );
         result.append( ')' );
         return result.toString();
+    }
+
+    /* Implicit link
+     *   SubDataObject.type                 -> CDC.name
+     *   SubDataObject.presCond             -> PresenceCondition.name
+     *   SubDataObject.sizeAttribute        -> DataAttribute.name
+     *   SubDataObject.maxIndexAttribute    -> DataAttribute.name
+     */
+    @Override
+    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
+        if( super.buildExplicitLinks( console ) ) return true;
+
+        if( isSetType() ) {
+            setRefersToCDC( getCDC().getCDCs().getNS().findCDC( getType(), console ) );
+            if( getRefersToCDC() == null ) {
+                console.error( "CDC (name: " + getType() + ") refers by SubDataObject (name: " + getName()
+                        + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") is unknown" );
+            }
+            else {
+                console.info( "CDC (name: " + getType() + ") refers by SubDataObject (name: " + getName()
+                        + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") found in NS (id:"
+                        + getRefersToCDC().getCDCs().getNS().getId() + ")" );
+            }
+        }
+
+        if( isSetPresCond() ) {
+            setRefersToPresenceCondition( getCDC().getCDCs().getNS().findPresenceCondition( getPresCond(), console ) );
+            if( getRefersToPresenceCondition() == null ) {
+                console.error( "PresenceCondition (name: " + getPresCond() + ") refers by SubDataObject (name: "
+                        + getName() + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") is unknown" );
+            }
+            else {
+                console.info( "PresenceCondition (name: " + getPresCond() + ") refers by SubDataObject (name: "
+                        + getName() + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") found in NS (id:"
+                        + getRefersToPresenceCondition().getPresenceConditions().getNS().getId() + ")" );
+            }
+        }
+
+        if( isSetSizeAttribute() ) {
+            setRefersToSizeAttribute( getCDC().getDataAttribute().stream()
+                    .filter( att -> att.getName().equals( getSizeAttribute() ) ).findAny().orElse( null ) );
+            if( getRefersToSizeAttribute() == null ) {
+                console.error( "DataAttribute (name: " + getSizeAttribute()
+                        + ") refers as sizeAttribute by SubDataObject (name: " + getName() + ") in NS (id:"
+                        + getCDC().getCDCs().getNS().getId() + ") is unknown" );
+            }
+            else {
+                console.info( "DataAttribute (name: " + getSizeAttribute()
+                        + ") refers as sizeAttribute by SubDataObject (name: " + getName() + ") in NS (id:"
+                        + getCDC().getCDCs().getNS().getId() + ") found" );
+            }
+        }
+
+        if( isSetMaxIndexAttribute() ) {
+            setRefersToMaxIndexAttribute( getCDC().getDataAttribute().stream()
+                    .filter( att -> att.getName().equals( getMaxIndexAttribute() ) ).findAny().orElse( null ) );
+            if( getRefersToMaxIndexAttribute() == null ) {
+                console.error( "DataAttribute (name: " + getMaxIndexAttribute()
+                        + ") refers as maxIndexAttribute by SubDataObject (name: " + getName() + ") in NS (id:"
+                        + getCDC().getCDCs().getNS().getId() + ") is unknown" );
+            }
+            else {
+                console.info( "DataAttribute (name: " + getMaxIndexAttribute()
+                        + ") refers as maxIndexAttribute by SubDataObject (name: " + getName() + ") in NS (id:"
+                        + getCDC().getCDCs().getNS().getId() + ") found" );
+            }
+        }
+
+        return false;
     }
 
 } //SubDataObjectImpl

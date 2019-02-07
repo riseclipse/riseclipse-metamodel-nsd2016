@@ -192,4 +192,12 @@ public interface AnyLNClass extends TitledClass {
      */
     String getName();
 
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model kind="operation"
+     * @generated
+     */
+    LNClasses getLNClasses();
+
 } // AnyLNClass

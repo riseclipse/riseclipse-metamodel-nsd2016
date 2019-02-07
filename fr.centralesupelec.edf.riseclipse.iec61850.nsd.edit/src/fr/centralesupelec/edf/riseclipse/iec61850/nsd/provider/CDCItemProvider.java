@@ -69,6 +69,8 @@ public class CDCItemProvider extends TitledClassItemProvider {
             addStatisticsPropertyDescriptor( object );
             addTypeKindParameterizedPropertyDescriptor( object );
             addVariantPropertyDescriptor( object );
+            addReferredByDataObjectPropertyDescriptor( object );
+            addReferredBySubDataObjectPropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -148,6 +150,36 @@ public class CDCItemProvider extends TitledClassItemProvider {
                         getString( "_UI_PropertyDescriptor_description", "_UI_CDC_variant_feature", "_UI_CDC_type" ),
                         NsdPackage.Literals.CDC__VARIANT, true, false, false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Referred By Data Object feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReferredByDataObjectPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(), getString( "_UI_CDC_referredByDataObject_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_CDC_referredByDataObject_feature",
+                                "_UI_CDC_type" ),
+                        NsdPackage.Literals.CDC__REFERRED_BY_DATA_OBJECT, true, false, true, null, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Referred By Sub Data Object feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReferredBySubDataObjectPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(), getString( "_UI_CDC_referredBySubDataObject_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_CDC_referredBySubDataObject_feature",
+                                "_UI_CDC_type" ),
+                        NsdPackage.Literals.CDC__REFERRED_BY_SUB_DATA_OBJECT, true, false, true, null, null, null ) );
     }
 
     /**

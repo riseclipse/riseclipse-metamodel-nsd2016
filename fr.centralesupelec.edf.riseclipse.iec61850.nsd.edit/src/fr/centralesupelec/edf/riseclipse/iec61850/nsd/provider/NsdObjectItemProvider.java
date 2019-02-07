@@ -70,6 +70,7 @@ public class NsdObjectItemProvider extends ItemProviderAdapter implements IEditi
             super.getPropertyDescriptors( object );
 
             addLineNumberPropertyDescriptor( object );
+            addExplicitLinksBuiltPropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -88,6 +89,22 @@ public class NsdObjectItemProvider extends ItemProviderAdapter implements IEditi
                                 "_UI_NsdObject_type" ),
                         NsdPackage.Literals.NSD_OBJECT__LINE_NUMBER, true, false, false,
                         ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Explicit Links Built feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addExplicitLinksBuiltPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(), getString( "_UI_NsdObject_explicitLinksBuilt_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_NsdObject_explicitLinksBuilt_feature",
+                                "_UI_NsdObject_type" ),
+                        NsdPackage.Literals.NSD_OBJECT__EXPLICIT_LINKS_BUILT, true, false, false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -115,6 +132,7 @@ public class NsdObjectItemProvider extends ItemProviderAdapter implements IEditi
 
         switch( notification.getFeatureID( NsdObject.class ) ) {
         case NsdPackage.NSD_OBJECT__LINE_NUMBER:
+        case NsdPackage.NSD_OBJECT__EXPLICIT_LINKS_BUILT:
             fireNotifyChanged( new ViewerNotification( notification, notification.getNotifier(), false, true ) );
             return;
         }

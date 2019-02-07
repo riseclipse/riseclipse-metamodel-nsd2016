@@ -72,6 +72,10 @@ public class SubDataObjectItemProvider extends DocumentedClassItemProvider {
             addUnderlyingTypeKindPropertyDescriptor( object );
             addNamePropertyDescriptor( object );
             addTypePropertyDescriptor( object );
+            addRefersToCDCPropertyDescriptor( object );
+            addRefersToPresenceConditionPropertyDescriptor( object );
+            addRefersToSizeAttributePropertyDescriptor( object );
+            addRefersToMaxIndexAttributePropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -218,6 +222,68 @@ public class SubDataObjectItemProvider extends DocumentedClassItemProvider {
                                 "_UI_SubDataObject_type" ),
                         NsdPackage.Literals.SUB_DATA_OBJECT__TYPE, true, false, false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Refers To CDC feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addRefersToCDCPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(), getString( "_UI_SubDataObject_refersToCDC_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_SubDataObject_refersToCDC_feature",
+                                "_UI_SubDataObject_type" ),
+                        NsdPackage.Literals.SUB_DATA_OBJECT__REFERS_TO_CDC, true, false, true, null, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Refers To Presence Condition feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addRefersToPresenceConditionPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add( createItemPropertyDescriptor(
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
+                getString( "_UI_SubDataObject_refersToPresenceCondition_feature" ),
+                getString( "_UI_PropertyDescriptor_description", "_UI_SubDataObject_refersToPresenceCondition_feature",
+                        "_UI_SubDataObject_type" ),
+                NsdPackage.Literals.SUB_DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION, true, false, true, null, null,
+                null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Refers To Size Attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addRefersToSizeAttributePropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add( createItemPropertyDescriptor(
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
+                getString( "_UI_SubDataObject_refersToSizeAttribute_feature" ),
+                getString( "_UI_PropertyDescriptor_description", "_UI_SubDataObject_refersToSizeAttribute_feature",
+                        "_UI_SubDataObject_type" ),
+                NsdPackage.Literals.SUB_DATA_OBJECT__REFERS_TO_SIZE_ATTRIBUTE, true, false, true, null, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Refers To Max Index Attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addRefersToMaxIndexAttributePropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add( createItemPropertyDescriptor(
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
+                getString( "_UI_SubDataObject_refersToMaxIndexAttribute_feature" ),
+                getString( "_UI_PropertyDescriptor_description", "_UI_SubDataObject_refersToMaxIndexAttribute_feature",
+                        "_UI_SubDataObject_type" ),
+                NsdPackage.Literals.SUB_DATA_OBJECT__REFERS_TO_MAX_INDEX_ATTRIBUTE, true, false, true, null, null,
+                null ) );
     }
 
     /**

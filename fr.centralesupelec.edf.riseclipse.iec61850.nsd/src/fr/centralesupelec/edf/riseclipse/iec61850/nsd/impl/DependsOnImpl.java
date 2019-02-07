@@ -888,8 +888,8 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
      *   DependsOn.id                       -> NS.id
      */
     @Override
-    public void buildExplicitLinks( IRiseClipseConsole console ) {
-        super.buildExplicitLinks( console );
+    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
+        if( super.buildExplicitLinks( console ) ) return true;
 
         NsdResourceSetImpl resourceSet = ( NsdResourceSetImpl ) eResource().getResourceSet();
         setRefersToNS( resourceSet.getNS( getId() ) );
@@ -900,6 +900,7 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         else {
             console.info( "NS (id: " + getId() + ") and refers by DependsOn in NS (id:" + getNS().getId() + ") found" );
         }
+        return false;
     }
 
 } //DependsOnImpl

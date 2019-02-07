@@ -23,9 +23,13 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceCondition;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceConditionDerivedStatistics;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
+
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
+import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -56,6 +60,9 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#isTransient <em>Transient</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getType <em>Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getAnyLNClass <em>Any LN Class</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getRefersToCDC <em>Refers To CDC</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getRefersToPresenceCondition <em>Refers To Presence Condition</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getRefersToPresenceConditionDerivedStatistics <em>Refers To Presence Condition Derived Statistics</em>}</li>
  * </ul>
  *
  * @generated
@@ -379,6 +386,63 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
      * @ordered
      */
     protected boolean typeESet;
+
+    /**
+     * The cached value of the '{@link #getRefersToCDC() <em>Refers To CDC</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRefersToCDC()
+     * @generated
+     * @ordered
+     */
+    protected CDC refersToCDC;
+
+    /**
+     * This is true if the Refers To CDC reference has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean refersToCDCESet;
+
+    /**
+     * The cached value of the '{@link #getRefersToPresenceCondition() <em>Refers To Presence Condition</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRefersToPresenceCondition()
+     * @generated
+     * @ordered
+     */
+    protected PresenceCondition refersToPresenceCondition;
+
+    /**
+     * This is true if the Refers To Presence Condition reference has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean refersToPresenceConditionESet;
+
+    /**
+     * The cached value of the '{@link #getRefersToPresenceConditionDerivedStatistics() <em>Refers To Presence Condition Derived Statistics</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRefersToPresenceConditionDerivedStatistics()
+     * @generated
+     * @ordered
+     */
+    protected PresenceCondition refersToPresenceConditionDerivedStatistics;
+
+    /**
+     * This is true if the Refers To Presence Condition Derived Statistics reference has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean refersToPresenceConditionDerivedStatisticsESet;
 
     /**
      * <!-- begin-user-doc -->
@@ -1008,11 +1072,372 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
      * @generated
      */
     @Override
+    public CDC getRefersToCDC() {
+        return refersToCDC;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetRefersToCDC( CDC newRefersToCDC, NotificationChain msgs ) {
+        CDC oldRefersToCDC = refersToCDC;
+        refersToCDC = newRefersToCDC;
+        boolean oldRefersToCDCESet = refersToCDCESet;
+        refersToCDCESet = true;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.DATA_OBJECT__REFERS_TO_CDC, oldRefersToCDC, newRefersToCDC, !oldRefersToCDCESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setRefersToCDC( CDC newRefersToCDC ) {
+        if( newRefersToCDC != refersToCDC ) {
+            NotificationChain msgs = null;
+            if( refersToCDC != null ) msgs = ( ( InternalEObject ) refersToCDC ).eInverseRemove( this,
+                    NsdPackage.CDC__REFERRED_BY_DATA_OBJECT, CDC.class, msgs );
+            if( newRefersToCDC != null ) msgs = ( ( InternalEObject ) newRefersToCDC ).eInverseAdd( this,
+                    NsdPackage.CDC__REFERRED_BY_DATA_OBJECT, CDC.class, msgs );
+            msgs = basicSetRefersToCDC( newRefersToCDC, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToCDCESet = refersToCDCESet;
+            refersToCDCESet = true;
+            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.DATA_OBJECT__REFERS_TO_CDC, newRefersToCDC, newRefersToCDC, !oldRefersToCDCESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicUnsetRefersToCDC( NotificationChain msgs ) {
+        CDC oldRefersToCDC = refersToCDC;
+        refersToCDC = null;
+        boolean oldRefersToCDCESet = refersToCDCESet;
+        refersToCDCESet = false;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.DATA_OBJECT__REFERS_TO_CDC, oldRefersToCDC, null, oldRefersToCDCESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetRefersToCDC() {
+        if( refersToCDC != null ) {
+            NotificationChain msgs = null;
+            msgs = ( ( InternalEObject ) refersToCDC ).eInverseRemove( this, NsdPackage.CDC__REFERRED_BY_DATA_OBJECT,
+                    CDC.class, msgs );
+            msgs = basicUnsetRefersToCDC( msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToCDCESet = refersToCDCESet;
+            refersToCDCESet = false;
+            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.DATA_OBJECT__REFERS_TO_CDC, null, null, oldRefersToCDCESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetRefersToCDC() {
+        return refersToCDCESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public PresenceCondition getRefersToPresenceCondition() {
+        return refersToPresenceCondition;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetRefersToPresenceCondition( PresenceCondition newRefersToPresenceCondition,
+            NotificationChain msgs ) {
+        PresenceCondition oldRefersToPresenceCondition = refersToPresenceCondition;
+        refersToPresenceCondition = newRefersToPresenceCondition;
+        boolean oldRefersToPresenceConditionESet = refersToPresenceConditionESet;
+        refersToPresenceConditionESet = true;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION, oldRefersToPresenceCondition,
+                    newRefersToPresenceCondition, !oldRefersToPresenceConditionESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setRefersToPresenceCondition( PresenceCondition newRefersToPresenceCondition ) {
+        if( newRefersToPresenceCondition != refersToPresenceCondition ) {
+            NotificationChain msgs = null;
+            if( refersToPresenceCondition != null )
+                msgs = ( ( InternalEObject ) refersToPresenceCondition ).eInverseRemove( this,
+                        NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT, PresenceCondition.class, msgs );
+            if( newRefersToPresenceCondition != null )
+                msgs = ( ( InternalEObject ) newRefersToPresenceCondition ).eInverseAdd( this,
+                        NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT, PresenceCondition.class, msgs );
+            msgs = basicSetRefersToPresenceCondition( newRefersToPresenceCondition, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToPresenceConditionESet = refersToPresenceConditionESet;
+            refersToPresenceConditionESet = true;
+            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION, newRefersToPresenceCondition,
+                    newRefersToPresenceCondition, !oldRefersToPresenceConditionESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicUnsetRefersToPresenceCondition( NotificationChain msgs ) {
+        PresenceCondition oldRefersToPresenceCondition = refersToPresenceCondition;
+        refersToPresenceCondition = null;
+        boolean oldRefersToPresenceConditionESet = refersToPresenceConditionESet;
+        refersToPresenceConditionESet = false;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION, oldRefersToPresenceCondition, null,
+                    oldRefersToPresenceConditionESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetRefersToPresenceCondition() {
+        if( refersToPresenceCondition != null ) {
+            NotificationChain msgs = null;
+            msgs = ( ( InternalEObject ) refersToPresenceCondition ).eInverseRemove( this,
+                    NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT, PresenceCondition.class, msgs );
+            msgs = basicUnsetRefersToPresenceCondition( msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToPresenceConditionESet = refersToPresenceConditionESet;
+            refersToPresenceConditionESet = false;
+            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION, null, null,
+                    oldRefersToPresenceConditionESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetRefersToPresenceCondition() {
+        return refersToPresenceConditionESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public PresenceCondition getRefersToPresenceConditionDerivedStatistics() {
+        return refersToPresenceConditionDerivedStatistics;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetRefersToPresenceConditionDerivedStatistics(
+            PresenceCondition newRefersToPresenceConditionDerivedStatistics, NotificationChain msgs ) {
+        PresenceCondition oldRefersToPresenceConditionDerivedStatistics = refersToPresenceConditionDerivedStatistics;
+        refersToPresenceConditionDerivedStatistics = newRefersToPresenceConditionDerivedStatistics;
+        boolean oldRefersToPresenceConditionDerivedStatisticsESet = refersToPresenceConditionDerivedStatisticsESet;
+        refersToPresenceConditionDerivedStatisticsESet = true;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION_DERIVED_STATISTICS,
+                    oldRefersToPresenceConditionDerivedStatistics, newRefersToPresenceConditionDerivedStatistics,
+                    !oldRefersToPresenceConditionDerivedStatisticsESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setRefersToPresenceConditionDerivedStatistics(
+            PresenceCondition newRefersToPresenceConditionDerivedStatistics ) {
+        if( newRefersToPresenceConditionDerivedStatistics != refersToPresenceConditionDerivedStatistics ) {
+            NotificationChain msgs = null;
+            if( refersToPresenceConditionDerivedStatistics != null )
+                msgs = ( ( InternalEObject ) refersToPresenceConditionDerivedStatistics ).eInverseRemove( this,
+                        NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT_FOR_DERIVED_STATISTICS,
+                        PresenceCondition.class, msgs );
+            if( newRefersToPresenceConditionDerivedStatistics != null )
+                msgs = ( ( InternalEObject ) newRefersToPresenceConditionDerivedStatistics ).eInverseAdd( this,
+                        NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT_FOR_DERIVED_STATISTICS,
+                        PresenceCondition.class, msgs );
+            msgs = basicSetRefersToPresenceConditionDerivedStatistics( newRefersToPresenceConditionDerivedStatistics,
+                    msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToPresenceConditionDerivedStatisticsESet = refersToPresenceConditionDerivedStatisticsESet;
+            refersToPresenceConditionDerivedStatisticsESet = true;
+            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION_DERIVED_STATISTICS,
+                    newRefersToPresenceConditionDerivedStatistics, newRefersToPresenceConditionDerivedStatistics,
+                    !oldRefersToPresenceConditionDerivedStatisticsESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicUnsetRefersToPresenceConditionDerivedStatistics( NotificationChain msgs ) {
+        PresenceCondition oldRefersToPresenceConditionDerivedStatistics = refersToPresenceConditionDerivedStatistics;
+        refersToPresenceConditionDerivedStatistics = null;
+        boolean oldRefersToPresenceConditionDerivedStatisticsESet = refersToPresenceConditionDerivedStatisticsESet;
+        refersToPresenceConditionDerivedStatisticsESet = false;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION_DERIVED_STATISTICS,
+                    oldRefersToPresenceConditionDerivedStatistics, null,
+                    oldRefersToPresenceConditionDerivedStatisticsESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetRefersToPresenceConditionDerivedStatistics() {
+        if( refersToPresenceConditionDerivedStatistics != null ) {
+            NotificationChain msgs = null;
+            msgs = ( ( InternalEObject ) refersToPresenceConditionDerivedStatistics ).eInverseRemove( this,
+                    NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT_FOR_DERIVED_STATISTICS,
+                    PresenceCondition.class, msgs );
+            msgs = basicUnsetRefersToPresenceConditionDerivedStatistics( msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToPresenceConditionDerivedStatisticsESet = refersToPresenceConditionDerivedStatisticsESet;
+            refersToPresenceConditionDerivedStatisticsESet = false;
+            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION_DERIVED_STATISTICS, null, null,
+                    oldRefersToPresenceConditionDerivedStatisticsESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetRefersToPresenceConditionDerivedStatistics() {
+        return refersToPresenceConditionDerivedStatisticsESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.DATA_OBJECT__ANY_LN_CLASS:
             if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
             return basicSetAnyLNClass( ( AnyLNClass ) otherEnd, msgs );
+        case NsdPackage.DATA_OBJECT__REFERS_TO_CDC:
+            if( refersToCDC != null ) msgs = ( ( InternalEObject ) refersToCDC ).eInverseRemove( this,
+                    NsdPackage.CDC__REFERRED_BY_DATA_OBJECT, CDC.class, msgs );
+            return basicSetRefersToCDC( ( CDC ) otherEnd, msgs );
+        case NsdPackage.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION:
+            if( refersToPresenceCondition != null )
+                msgs = ( ( InternalEObject ) refersToPresenceCondition ).eInverseRemove( this,
+                        NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT, PresenceCondition.class, msgs );
+            return basicSetRefersToPresenceCondition( ( PresenceCondition ) otherEnd, msgs );
+        case NsdPackage.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION_DERIVED_STATISTICS:
+            if( refersToPresenceConditionDerivedStatistics != null )
+                msgs = ( ( InternalEObject ) refersToPresenceConditionDerivedStatistics ).eInverseRemove( this,
+                        NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT_FOR_DERIVED_STATISTICS,
+                        PresenceCondition.class, msgs );
+            return basicSetRefersToPresenceConditionDerivedStatistics( ( PresenceCondition ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
     }
@@ -1027,6 +1452,12 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         switch( featureID ) {
         case NsdPackage.DATA_OBJECT__ANY_LN_CLASS:
             return basicSetAnyLNClass( null, msgs );
+        case NsdPackage.DATA_OBJECT__REFERS_TO_CDC:
+            return basicUnsetRefersToCDC( msgs );
+        case NsdPackage.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION:
+            return basicUnsetRefersToPresenceCondition( msgs );
+        case NsdPackage.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION_DERIVED_STATISTICS:
+            return basicUnsetRefersToPresenceConditionDerivedStatistics( msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -1078,6 +1509,12 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             return getType();
         case NsdPackage.DATA_OBJECT__ANY_LN_CLASS:
             return getAnyLNClass();
+        case NsdPackage.DATA_OBJECT__REFERS_TO_CDC:
+            return getRefersToCDC();
+        case NsdPackage.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION:
+            return getRefersToPresenceCondition();
+        case NsdPackage.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION_DERIVED_STATISTICS:
+            return getRefersToPresenceConditionDerivedStatistics();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -1125,6 +1562,15 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             return;
         case NsdPackage.DATA_OBJECT__ANY_LN_CLASS:
             setAnyLNClass( ( AnyLNClass ) newValue );
+            return;
+        case NsdPackage.DATA_OBJECT__REFERS_TO_CDC:
+            setRefersToCDC( ( CDC ) newValue );
+            return;
+        case NsdPackage.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION:
+            setRefersToPresenceCondition( ( PresenceCondition ) newValue );
+            return;
+        case NsdPackage.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION_DERIVED_STATISTICS:
+            setRefersToPresenceConditionDerivedStatistics( ( PresenceCondition ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -1174,6 +1620,15 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         case NsdPackage.DATA_OBJECT__ANY_LN_CLASS:
             setAnyLNClass( ( AnyLNClass ) null );
             return;
+        case NsdPackage.DATA_OBJECT__REFERS_TO_CDC:
+            unsetRefersToCDC();
+            return;
+        case NsdPackage.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION:
+            unsetRefersToPresenceCondition();
+            return;
+        case NsdPackage.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION_DERIVED_STATISTICS:
+            unsetRefersToPresenceConditionDerivedStatistics();
+            return;
         }
         super.eUnset( featureID );
     }
@@ -1210,6 +1665,12 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             return isSetType();
         case NsdPackage.DATA_OBJECT__ANY_LN_CLASS:
             return getAnyLNClass() != null;
+        case NsdPackage.DATA_OBJECT__REFERS_TO_CDC:
+            return isSetRefersToCDC();
+        case NsdPackage.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION:
+            return isSetRefersToPresenceCondition();
+        case NsdPackage.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION_DERIVED_STATISTICS:
+            return isSetRefersToPresenceConditionDerivedStatistics();
         }
         return super.eIsSet( featureID );
     }
@@ -1369,6 +1830,62 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             result.append( "<unset>" );
         result.append( ')' );
         return result.toString();
+    }
+
+    /* Implicit link
+     *   DataObject.type                    -> CDC.name
+     *   DataObject.presCond                -> PresenceCondition.name
+     *   DataObject.dsPresCond              -> PresenceCondition.name
+     */
+    @Override
+    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
+        if( super.buildExplicitLinks( console ) ) return true;
+
+        if( isSetType() ) {
+            setRefersToCDC( getAnyLNClass().getLNClasses().getNS().findCDC( getType(), console ) );
+            if( getRefersToCDC() == null ) {
+                console.error( "CDC (name: " + getType() + ") refers by DataObject (name: " + getName() + ") in NS (id:"
+                        + getAnyLNClass().getLNClasses().getNS().getId() + ") is unknown" );
+            }
+            else {
+                console.info( "CDC (name: " + getType() + ") refers by DataObject (name: " + getName() + ") in NS (id:"
+                        + getAnyLNClass().getLNClasses().getNS().getId() + ") found in NS (id:"
+                        + getRefersToCDC().getCDCs().getNS().getId() + ")" );
+            }
+        }
+
+        if( isSetPresCond() ) {
+            setRefersToPresenceCondition(
+                    getAnyLNClass().getLNClasses().getNS().findPresenceCondition( getPresCond(), console ) );
+            if( getRefersToPresenceCondition() == null ) {
+                console.error(
+                        "PresenceCondition (name: " + getPresCond() + ") refers by DataObject (name: " + getName()
+                                + ") in NS (id:" + getAnyLNClass().getLNClasses().getNS().getId() + ") is unknown" );
+            }
+            else {
+                console.info( "PresenceCondition (name: " + getPresCond() + ") refers by DataObject (name: " + getName()
+                        + ") in NS (id:" + getAnyLNClass().getLNClasses().getNS().getId() + ") found in NS (id:"
+                        + getRefersToPresenceCondition().getPresenceConditions().getNS().getId() + ")" );
+            }
+        }
+
+        if( isSetDsPresCond() ) {
+            setRefersToPresenceConditionDerivedStatistics(
+                    getAnyLNClass().getLNClasses().getNS().findPresenceCondition( getDsPresCond(), console ) );
+            if( getRefersToPresenceConditionDerivedStatistics() == null ) {
+                console.error(
+                        "PresenceCondition (name: " + getDsPresCond() + ") refers by DataObject (name: " + getName()
+                                + ") in NS (id:" + getAnyLNClass().getLNClasses().getNS().getId() + ") is unknown" );
+            }
+            else {
+                console.info( "PresenceCondition (name: " + getDsPresCond() + ") refers by DataObject (name: "
+                        + getName() + ") in NS (id:" + getAnyLNClass().getLNClasses().getNS().getId()
+                        + ") found in NS (id:"
+                        + getRefersToPresenceConditionDerivedStatistics().getPresenceConditions().getNS().getId()
+                        + ")" );
+            }
+        }
+        return false;
     }
 
 } //DataObjectImpl
