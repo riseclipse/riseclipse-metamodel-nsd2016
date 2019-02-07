@@ -2831,13 +2831,67 @@ public interface NsdPackage extends EPackage {
     int DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_MAX_INDEX_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 19;
 
     /**
+     * The feature id for the '<em><b>Refers To Functional Constraint</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_ATTRIBUTE__REFERS_TO_FUNCTIONAL_CONSTRAINT = DOCUMENTED_CLASS_FEATURE_COUNT + 20;
+
+    /**
+     * The feature id for the '<em><b>Refers To Presence Condition</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION = DOCUMENTED_CLASS_FEATURE_COUNT + 21;
+
+    /**
+     * The feature id for the '<em><b>Refers To Size Attribute</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_ATTRIBUTE__REFERS_TO_SIZE_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 22;
+
+    /**
+     * The feature id for the '<em><b>Refers To Max Index Attribute</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_ATTRIBUTE__REFERS_TO_MAX_INDEX_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 23;
+
+    /**
+     * The feature id for the '<em><b>Referred By Data Attribute As Size Attribute</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_SIZE_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 24;
+
+    /**
+     * The feature id for the '<em><b>Referred By Data Attribute As Max Index Attribute</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_MAX_INDEX_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 25;
+
+    /**
      * The number of structural features of the '<em>Data Attribute</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE_FEATURE_COUNT = DOCUMENTED_CLASS_FEATURE_COUNT + 20;
+    int DATA_ATTRIBUTE_FEATURE_COUNT = DOCUMENTED_CLASS_FEATURE_COUNT + 26;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -3461,13 +3515,22 @@ public interface NsdPackage extends EPackage {
     int FUNCTIONAL_CONSTRAINT__FUNCTIONAL_CONSTRAINTS = NSD_OBJECT_FEATURE_COUNT + 4;
 
     /**
+     * The feature id for the '<em><b>Referred By Data Attribute</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE = NSD_OBJECT_FEATURE_COUNT + 5;
+
+    /**
      * The number of structural features of the '<em>Functional Constraint</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int FUNCTIONAL_CONSTRAINT_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 5;
+    int FUNCTIONAL_CONSTRAINT_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 6;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -4271,13 +4334,22 @@ public interface NsdPackage extends EPackage {
     int NS___FIND_PRESENCE_CONDITION__STRING_IRISECLIPSECONSOLE = COPYRIGHTED_OPERATION_COUNT + 1;
 
     /**
+     * The operation id for the '<em>Find Functional Constraint</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NS___FIND_FUNCTIONAL_CONSTRAINT__STRING_IRISECLIPSECONSOLE = COPYRIGHTED_OPERATION_COUNT + 2;
+
+    /**
      * The number of operations of the '<em>NS</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int NS_OPERATION_COUNT = COPYRIGHTED_OPERATION_COUNT + 2;
+    int NS_OPERATION_COUNT = COPYRIGHTED_OPERATION_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -4505,13 +4577,22 @@ public interface NsdPackage extends EPackage {
     int PRESENCE_CONDITION__REFERRED_BY_SUB_DATA_OBJECT = NSD_OBJECT_FEATURE_COUNT + 7;
 
     /**
+     * The feature id for the '<em><b>Referred By Data Attribute</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PRESENCE_CONDITION__REFERRED_BY_DATA_ATTRIBUTE = NSD_OBJECT_FEATURE_COUNT + 8;
+
+    /**
      * The number of structural features of the '<em>Presence Condition</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PRESENCE_CONDITION_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 8;
+    int PRESENCE_CONDITION_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 9;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -7626,6 +7707,72 @@ public interface NsdPackage extends EPackage {
     EReference getDataAttribute_ReferredBySubDataObjectAsMaxIndexAttribute();
 
     /**
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToFunctionalConstraint <em>Refers To Functional Constraint</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Refers To Functional Constraint</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToFunctionalConstraint()
+     * @see #getDataAttribute()
+     * @generated
+     */
+    EReference getDataAttribute_RefersToFunctionalConstraint();
+
+    /**
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToPresenceCondition <em>Refers To Presence Condition</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Refers To Presence Condition</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToPresenceCondition()
+     * @see #getDataAttribute()
+     * @generated
+     */
+    EReference getDataAttribute_RefersToPresenceCondition();
+
+    /**
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToSizeAttribute <em>Refers To Size Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Refers To Size Attribute</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToSizeAttribute()
+     * @see #getDataAttribute()
+     * @generated
+     */
+    EReference getDataAttribute_RefersToSizeAttribute();
+
+    /**
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToMaxIndexAttribute <em>Refers To Max Index Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Refers To Max Index Attribute</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToMaxIndexAttribute()
+     * @see #getDataAttribute()
+     * @generated
+     */
+    EReference getDataAttribute_RefersToMaxIndexAttribute();
+
+    /**
+     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredByDataAttributeAsSizeAttribute <em>Referred By Data Attribute As Size Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Referred By Data Attribute As Size Attribute</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredByDataAttributeAsSizeAttribute()
+     * @see #getDataAttribute()
+     * @generated
+     */
+    EReference getDataAttribute_ReferredByDataAttributeAsSizeAttribute();
+
+    /**
+     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredByDataAttributeAsMaxIndexAttribute <em>Referred By Data Attribute As Max Index Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Referred By Data Attribute As Max Index Attribute</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredByDataAttributeAsMaxIndexAttribute()
+     * @see #getDataAttribute()
+     * @generated
+     */
+    EReference getDataAttribute_ReferredByDataAttributeAsMaxIndexAttribute();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject <em>Data Object</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8002,6 +8149,17 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EReference getFunctionalConstraint_FunctionalConstraints();
+
+    /**
+     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getReferredByDataAttribute <em>Referred By Data Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Referred By Data Attribute</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getReferredByDataAttribute()
+     * @see #getFunctionalConstraint()
+     * @generated
+     */
+    EReference getFunctionalConstraint_ReferredByDataAttribute();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints <em>Functional Constraints</em>}'.
@@ -8424,6 +8582,16 @@ public interface NsdPackage extends EPackage {
     EOperation getNS__FindPresenceCondition__String_IRiseClipseConsole();
 
     /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findFunctionalConstraint(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole) <em>Find Functional Constraint</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Find Functional Constraint</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findFunctionalConstraint(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole)
+     * @generated
+     */
+    EOperation getNS__FindFunctionalConstraint__String_IRiseClipseConsole();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc <em>NS Doc</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8552,6 +8720,17 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EReference getPresenceCondition_ReferredBySubDataObject();
+
+    /**
+     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getReferredByDataAttribute <em>Referred By Data Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Referred By Data Attribute</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getReferredByDataAttribute()
+     * @see #getPresenceCondition()
+     * @generated
+     */
+    EReference getPresenceCondition_ReferredByDataAttribute();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions <em>Presence Conditions</em>}'.
@@ -10530,6 +10709,59 @@ public interface NsdPackage extends EPackage {
                 .getDataAttribute_ReferredBySubDataObjectAsMaxIndexAttribute();
 
         /**
+         * The meta object literal for the '<em><b>Refers To Functional Constraint</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DATA_ATTRIBUTE__REFERS_TO_FUNCTIONAL_CONSTRAINT = eINSTANCE
+                .getDataAttribute_RefersToFunctionalConstraint();
+
+        /**
+         * The meta object literal for the '<em><b>Refers To Presence Condition</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION = eINSTANCE
+                .getDataAttribute_RefersToPresenceCondition();
+
+        /**
+         * The meta object literal for the '<em><b>Refers To Size Attribute</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DATA_ATTRIBUTE__REFERS_TO_SIZE_ATTRIBUTE = eINSTANCE.getDataAttribute_RefersToSizeAttribute();
+
+        /**
+         * The meta object literal for the '<em><b>Refers To Max Index Attribute</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DATA_ATTRIBUTE__REFERS_TO_MAX_INDEX_ATTRIBUTE = eINSTANCE
+                .getDataAttribute_RefersToMaxIndexAttribute();
+
+        /**
+         * The meta object literal for the '<em><b>Referred By Data Attribute As Size Attribute</b></em>' reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_SIZE_ATTRIBUTE = eINSTANCE
+                .getDataAttribute_ReferredByDataAttributeAsSizeAttribute();
+
+        /**
+         * The meta object literal for the '<em><b>Referred By Data Attribute As Max Index Attribute</b></em>' reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_MAX_INDEX_ATTRIBUTE = eINSTANCE
+                .getDataAttribute_ReferredByDataAttributeAsMaxIndexAttribute();
+
+        /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl <em>Data Object</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -10824,6 +11056,15 @@ public interface NsdPackage extends EPackage {
          */
         EReference FUNCTIONAL_CONSTRAINT__FUNCTIONAL_CONSTRAINTS = eINSTANCE
                 .getFunctionalConstraint_FunctionalConstraints();
+
+        /**
+         * The meta object literal for the '<em><b>Referred By Data Attribute</b></em>' reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE = eINSTANCE
+                .getFunctionalConstraint_ReferredByDataAttribute();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.FunctionalConstraintsImpl <em>Functional Constraints</em>}' class.
@@ -11154,6 +11395,15 @@ public interface NsdPackage extends EPackage {
                 .getNS__FindPresenceCondition__String_IRiseClipseConsole();
 
         /**
+         * The meta object literal for the '<em><b>Find Functional Constraint</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation NS___FIND_FUNCTIONAL_CONSTRAINT__STRING_IRISECLIPSECONSOLE = eINSTANCE
+                .getNS__FindFunctionalConstraint__String_IRiseClipseConsole();
+
+        /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl <em>NS Doc</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -11254,6 +11504,15 @@ public interface NsdPackage extends EPackage {
          */
         EReference PRESENCE_CONDITION__REFERRED_BY_SUB_DATA_OBJECT = eINSTANCE
                 .getPresenceCondition_ReferredBySubDataObject();
+
+        /**
+         * The meta object literal for the '<em><b>Referred By Data Attribute</b></em>' reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference PRESENCE_CONDITION__REFERRED_BY_DATA_ATTRIBUTE = eINSTANCE
+                .getPresenceCondition_ReferredByDataAttribute();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.PresenceConditionsImpl <em>Presence Conditions</em>}' class.

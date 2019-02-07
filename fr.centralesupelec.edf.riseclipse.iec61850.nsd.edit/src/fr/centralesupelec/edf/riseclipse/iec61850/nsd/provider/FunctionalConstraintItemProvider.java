@@ -66,6 +66,7 @@ public class FunctionalConstraintItemProvider extends NsdObjectItemProvider {
             addAbbreviationPropertyDescriptor( object );
             addDescIDPropertyDescriptor( object );
             addTitleIDPropertyDescriptor( object );
+            addReferredByDataAttributePropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -116,6 +117,22 @@ public class FunctionalConstraintItemProvider extends NsdObjectItemProvider {
                                 "_UI_FunctionalConstraint_type" ),
                         NsdPackage.Literals.FUNCTIONAL_CONSTRAINT__TITLE_ID, true, false, false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Referred By Data Attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReferredByDataAttributePropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add( createItemPropertyDescriptor(
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
+                getString( "_UI_FunctionalConstraint_referredByDataAttribute_feature" ),
+                getString( "_UI_PropertyDescriptor_description",
+                        "_UI_FunctionalConstraint_referredByDataAttribute_feature", "_UI_FunctionalConstraint_type" ),
+                NsdPackage.Literals.FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE, true, false, true, null, null,
+                null ) );
     }
 
     /**

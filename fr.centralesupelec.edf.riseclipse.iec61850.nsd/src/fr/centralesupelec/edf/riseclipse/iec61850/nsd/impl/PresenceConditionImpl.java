@@ -19,6 +19,7 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
@@ -54,6 +55,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.PresenceConditionImpl#getReferredByDataObject <em>Referred By Data Object</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.PresenceConditionImpl#getReferredByDataObjectForDerivedStatistics <em>Referred By Data Object For Derived Statistics</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.PresenceConditionImpl#getReferredBySubDataObject <em>Referred By Sub Data Object</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.PresenceConditionImpl#getReferredByDataAttribute <em>Referred By Data Attribute</em>}</li>
  * </ul>
  *
  * @generated
@@ -204,6 +206,16 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
      * @ordered
      */
     protected EList< SubDataObject > referredBySubDataObject;
+
+    /**
+     * The cached value of the '{@link #getReferredByDataAttribute() <em>Referred By Data Attribute</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getReferredByDataAttribute()
+     * @generated
+     * @ordered
+     */
+    protected EList< DataAttribute > referredByDataAttribute;
 
     /**
      * <!-- begin-user-doc -->
@@ -583,6 +595,41 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
+    public EList< DataAttribute > getReferredByDataAttribute() {
+        if( referredByDataAttribute == null ) {
+            referredByDataAttribute = new EObjectWithInverseEList.Unsettable< DataAttribute >( DataAttribute.class,
+                    this, NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_ATTRIBUTE,
+                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION );
+        }
+        return referredByDataAttribute;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetReferredByDataAttribute() {
+        if( referredByDataAttribute != null ) ( ( InternalEList.Unsettable< ? > ) referredByDataAttribute ).unset();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetReferredByDataAttribute() {
+        return referredByDataAttribute != null && ( ( InternalEList.Unsettable< ? > ) referredByDataAttribute ).isSet();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @SuppressWarnings( "unchecked" )
     @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
@@ -598,6 +645,9 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
                     .basicAdd( otherEnd, msgs );
         case NsdPackage.PRESENCE_CONDITION__REFERRED_BY_SUB_DATA_OBJECT:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredBySubDataObject() )
+                    .basicAdd( otherEnd, msgs );
+        case NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_ATTRIBUTE:
+            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByDataAttribute() )
                     .basicAdd( otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
@@ -620,6 +670,8 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
                     msgs );
         case NsdPackage.PRESENCE_CONDITION__REFERRED_BY_SUB_DATA_OBJECT:
             return ( ( InternalEList< ? > ) getReferredBySubDataObject() ).basicRemove( otherEnd, msgs );
+        case NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_ATTRIBUTE:
+            return ( ( InternalEList< ? > ) getReferredByDataAttribute() ).basicRemove( otherEnd, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -663,6 +715,8 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
             return getReferredByDataObjectForDerivedStatistics();
         case NsdPackage.PRESENCE_CONDITION__REFERRED_BY_SUB_DATA_OBJECT:
             return getReferredBySubDataObject();
+        case NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_ATTRIBUTE:
+            return getReferredByDataAttribute();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -703,6 +757,10 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
             getReferredBySubDataObject().clear();
             getReferredBySubDataObject().addAll( ( Collection< ? extends SubDataObject > ) newValue );
             return;
+        case NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_ATTRIBUTE:
+            getReferredByDataAttribute().clear();
+            getReferredByDataAttribute().addAll( ( Collection< ? extends DataAttribute > ) newValue );
+            return;
         }
         super.eSet( featureID, newValue );
     }
@@ -739,6 +797,9 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
         case NsdPackage.PRESENCE_CONDITION__REFERRED_BY_SUB_DATA_OBJECT:
             unsetReferredBySubDataObject();
             return;
+        case NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_ATTRIBUTE:
+            unsetReferredByDataAttribute();
+            return;
         }
         super.eUnset( featureID );
     }
@@ -767,6 +828,8 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
             return isSetReferredByDataObjectForDerivedStatistics();
         case NsdPackage.PRESENCE_CONDITION__REFERRED_BY_SUB_DATA_OBJECT:
             return isSetReferredBySubDataObject();
+        case NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_ATTRIBUTE:
+            return isSetReferredByDataAttribute();
         }
         return super.eIsSet( featureID );
     }

@@ -80,6 +80,12 @@ public class DataAttributeItemProvider extends DocumentedClassItemProvider {
             addNamePropertyDescriptor( object );
             addReferredBySubDataObjectAsSizeAttributePropertyDescriptor( object );
             addReferredBySubDataObjectAsMaxIndexAttributePropertyDescriptor( object );
+            addRefersToFunctionalConstraintPropertyDescriptor( object );
+            addRefersToPresenceConditionPropertyDescriptor( object );
+            addRefersToSizeAttributePropertyDescriptor( object );
+            addRefersToMaxIndexAttributePropertyDescriptor( object );
+            addReferredByDataAttributeAsSizeAttributePropertyDescriptor( object );
+            addReferredByDataAttributeAsMaxIndexAttributePropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -274,6 +280,102 @@ public class DataAttributeItemProvider extends DocumentedClassItemProvider {
                         "_UI_DataAttribute_referredBySubDataObjectAsMaxIndexAttribute_feature",
                         "_UI_DataAttribute_type" ),
                 NsdPackage.Literals.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_MAX_INDEX_ATTRIBUTE, true, false,
+                true, null, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Refers To Functional Constraint feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addRefersToFunctionalConstraintPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(), getString( "_UI_DataAttribute_refersToFunctionalConstraint_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_DataAttribute_refersToFunctionalConstraint_feature", "_UI_DataAttribute_type" ),
+                        NsdPackage.Literals.DATA_ATTRIBUTE__REFERS_TO_FUNCTIONAL_CONSTRAINT, true, false, true, null,
+                        null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Refers To Presence Condition feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addRefersToPresenceConditionPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add( createItemPropertyDescriptor(
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
+                getString( "_UI_DataAttribute_refersToPresenceCondition_feature" ),
+                getString( "_UI_PropertyDescriptor_description", "_UI_DataAttribute_refersToPresenceCondition_feature",
+                        "_UI_DataAttribute_type" ),
+                NsdPackage.Literals.DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION, true, false, true, null, null,
+                null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Refers To Size Attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addRefersToSizeAttributePropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add( createItemPropertyDescriptor(
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
+                getString( "_UI_DataAttribute_refersToSizeAttribute_feature" ),
+                getString( "_UI_PropertyDescriptor_description", "_UI_DataAttribute_refersToSizeAttribute_feature",
+                        "_UI_DataAttribute_type" ),
+                NsdPackage.Literals.DATA_ATTRIBUTE__REFERS_TO_SIZE_ATTRIBUTE, true, false, true, null, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Refers To Max Index Attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addRefersToMaxIndexAttributePropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add( createItemPropertyDescriptor(
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
+                getString( "_UI_DataAttribute_refersToMaxIndexAttribute_feature" ),
+                getString( "_UI_PropertyDescriptor_description", "_UI_DataAttribute_refersToMaxIndexAttribute_feature",
+                        "_UI_DataAttribute_type" ),
+                NsdPackage.Literals.DATA_ATTRIBUTE__REFERS_TO_MAX_INDEX_ATTRIBUTE, true, false, true, null, null,
+                null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Referred By Data Attribute As Size Attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReferredByDataAttributeAsSizeAttributePropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add( createItemPropertyDescriptor(
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
+                getString( "_UI_DataAttribute_referredByDataAttributeAsSizeAttribute_feature" ),
+                getString( "_UI_PropertyDescriptor_description",
+                        "_UI_DataAttribute_referredByDataAttributeAsSizeAttribute_feature", "_UI_DataAttribute_type" ),
+                NsdPackage.Literals.DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_SIZE_ATTRIBUTE, true, false, true,
+                null, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Referred By Data Attribute As Max Index Attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReferredByDataAttributeAsMaxIndexAttributePropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add( createItemPropertyDescriptor(
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
+                getString( "_UI_DataAttribute_referredByDataAttributeAsMaxIndexAttribute_feature" ),
+                getString( "_UI_PropertyDescriptor_description",
+                        "_UI_DataAttribute_referredByDataAttributeAsMaxIndexAttribute_feature",
+                        "_UI_DataAttribute_type" ),
+                NsdPackage.Literals.DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_MAX_INDEX_ATTRIBUTE, true, false,
                 true, null, null, null ) );
     }
 

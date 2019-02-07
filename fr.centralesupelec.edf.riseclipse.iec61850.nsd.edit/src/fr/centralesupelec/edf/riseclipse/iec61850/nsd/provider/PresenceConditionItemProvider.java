@@ -67,6 +67,7 @@ public class PresenceConditionItemProvider extends NsdObjectItemProvider {
             addReferredByDataObjectPropertyDescriptor( object );
             addReferredByDataObjectForDerivedStatisticsPropertyDescriptor( object );
             addReferredBySubDataObjectPropertyDescriptor( object );
+            addReferredByDataAttributePropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -181,6 +182,22 @@ public class PresenceConditionItemProvider extends NsdObjectItemProvider {
                         getString( "_UI_PropertyDescriptor_description",
                                 "_UI_PresenceCondition_referredBySubDataObject_feature", "_UI_PresenceCondition_type" ),
                         NsdPackage.Literals.PRESENCE_CONDITION__REFERRED_BY_SUB_DATA_OBJECT, true, false, true, null,
+                        null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Referred By Data Attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReferredByDataAttributePropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(), getString( "_UI_PresenceCondition_referredByDataAttribute_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_PresenceCondition_referredByDataAttribute_feature", "_UI_PresenceCondition_type" ),
+                        NsdPackage.Literals.PRESENCE_CONDITION__REFERRED_BY_DATA_ATTRIBUTE, true, false, true, null,
                         null, null ) );
     }
 

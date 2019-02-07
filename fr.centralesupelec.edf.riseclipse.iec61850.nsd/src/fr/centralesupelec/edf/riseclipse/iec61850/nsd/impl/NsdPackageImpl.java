@@ -1639,6 +1639,66 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EReference getDataAttribute_RefersToFunctionalConstraint() {
+        return ( EReference ) dataAttributeEClass.getEStructuralFeatures().get( 5 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getDataAttribute_RefersToPresenceCondition() {
+        return ( EReference ) dataAttributeEClass.getEStructuralFeatures().get( 6 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getDataAttribute_RefersToSizeAttribute() {
+        return ( EReference ) dataAttributeEClass.getEStructuralFeatures().get( 7 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getDataAttribute_RefersToMaxIndexAttribute() {
+        return ( EReference ) dataAttributeEClass.getEStructuralFeatures().get( 8 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getDataAttribute_ReferredByDataAttributeAsSizeAttribute() {
+        return ( EReference ) dataAttributeEClass.getEStructuralFeatures().get( 9 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getDataAttribute_ReferredByDataAttributeAsMaxIndexAttribute() {
+        return ( EReference ) dataAttributeEClass.getEStructuralFeatures().get( 10 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getDataObject() {
         return dataObjectEClass;
     }
@@ -1981,6 +2041,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EReference getFunctionalConstraint_FunctionalConstraints() {
         return ( EReference ) functionalConstraintEClass.getEStructuralFeatures().get( 4 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getFunctionalConstraint_ReferredByDataAttribute() {
+        return ( EReference ) functionalConstraintEClass.getEStructuralFeatures().get( 5 );
     }
 
     /**
@@ -2379,6 +2449,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EOperation getNS__FindFunctionalConstraint__String_IRiseClipseConsole() {
+        return nsEClass.getEOperations().get( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getNSDoc() {
         return nsDocEClass;
     }
@@ -2491,6 +2571,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EReference getPresenceCondition_ReferredBySubDataObject() {
         return ( EReference ) presenceConditionEClass.getEStructuralFeatures().get( 7 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getPresenceCondition_ReferredByDataAttribute() {
+        return ( EReference ) presenceConditionEClass.getEStructuralFeatures().get( 8 );
     }
 
     /**
@@ -3714,6 +3804,12 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEReference( dataAttributeEClass, DATA_ATTRIBUTE__CDC );
         createEReference( dataAttributeEClass, DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_SIZE_ATTRIBUTE );
         createEReference( dataAttributeEClass, DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_MAX_INDEX_ATTRIBUTE );
+        createEReference( dataAttributeEClass, DATA_ATTRIBUTE__REFERS_TO_FUNCTIONAL_CONSTRAINT );
+        createEReference( dataAttributeEClass, DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION );
+        createEReference( dataAttributeEClass, DATA_ATTRIBUTE__REFERS_TO_SIZE_ATTRIBUTE );
+        createEReference( dataAttributeEClass, DATA_ATTRIBUTE__REFERS_TO_MAX_INDEX_ATTRIBUTE );
+        createEReference( dataAttributeEClass, DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_SIZE_ATTRIBUTE );
+        createEReference( dataAttributeEClass, DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_MAX_INDEX_ATTRIBUTE );
 
         dataObjectEClass = createEClass( DATA_OBJECT );
         createEAttribute( dataObjectEClass, DATA_OBJECT__NAME );
@@ -3756,6 +3852,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEAttribute( functionalConstraintEClass, FUNCTIONAL_CONSTRAINT__DESC_ID );
         createEAttribute( functionalConstraintEClass, FUNCTIONAL_CONSTRAINT__TITLE_ID );
         createEReference( functionalConstraintEClass, FUNCTIONAL_CONSTRAINT__FUNCTIONAL_CONSTRAINTS );
+        createEReference( functionalConstraintEClass, FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE );
 
         functionalConstraintsEClass = createEClass( FUNCTIONAL_CONSTRAINTS );
         createEReference( functionalConstraintsEClass, FUNCTIONAL_CONSTRAINTS__FUNCTIONAL_CONSTRAINT );
@@ -3802,6 +3899,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEReference( nsEClass, NS__REFERRED_BY_DEPENDS_ON );
         createEOperation( nsEClass, NS___FIND_CDC__STRING_IRISECLIPSECONSOLE );
         createEOperation( nsEClass, NS___FIND_PRESENCE_CONDITION__STRING_IRISECLIPSECONSOLE );
+        createEOperation( nsEClass, NS___FIND_FUNCTIONAL_CONSTRAINT__STRING_IRISECLIPSECONSOLE );
 
         nsDocEClass = createEClass( NS_DOC );
         createEReference( nsDocEClass, NS_DOC__DOC );
@@ -3816,6 +3914,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEReference( presenceConditionEClass, PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT );
         createEReference( presenceConditionEClass, PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT_FOR_DERIVED_STATISTICS );
         createEReference( presenceConditionEClass, PRESENCE_CONDITION__REFERRED_BY_SUB_DATA_OBJECT );
+        createEReference( presenceConditionEClass, PRESENCE_CONDITION__REFERRED_BY_DATA_ATTRIBUTE );
 
         presenceConditionsEClass = createEClass( PRESENCE_CONDITIONS );
         createEReference( presenceConditionsEClass, PRESENCE_CONDITIONS__PRESENCE_CONDITION );
@@ -4347,6 +4446,30 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 this.getSubDataObject_RefersToMaxIndexAttribute(), "referredBySubDataObjectAsMaxIndexAttribute", null,
                 0, -1, DataAttribute.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getDataAttribute_RefersToFunctionalConstraint(), this.getFunctionalConstraint(),
+                this.getFunctionalConstraint_ReferredByDataAttribute(), "refersToFunctionalConstraint", null, 0, 1,
+                DataAttribute.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getDataAttribute_RefersToPresenceCondition(), this.getPresenceCondition(),
+                this.getPresenceCondition_ReferredByDataAttribute(), "refersToPresenceCondition", null, 0, 1,
+                DataAttribute.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getDataAttribute_RefersToSizeAttribute(), this.getDataAttribute(),
+                this.getDataAttribute_ReferredByDataAttributeAsSizeAttribute(), "refersToSizeAttribute", null, 0, 1,
+                DataAttribute.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getDataAttribute_RefersToMaxIndexAttribute(), this.getDataAttribute(),
+                this.getDataAttribute_ReferredByDataAttributeAsMaxIndexAttribute(), "refersToMaxIndexAttribute", null,
+                0, 1, DataAttribute.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getDataAttribute_ReferredByDataAttributeAsSizeAttribute(), this.getDataAttribute(),
+                this.getDataAttribute_RefersToSizeAttribute(), "referredByDataAttributeAsSizeAttribute", null, 0, -1,
+                DataAttribute.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getDataAttribute_ReferredByDataAttributeAsMaxIndexAttribute(), this.getDataAttribute(),
+                this.getDataAttribute_RefersToMaxIndexAttribute(), "referredByDataAttributeAsMaxIndexAttribute", null,
+                0, -1, DataAttribute.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( dataObjectEClass, DataObject.class, "DataObject", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
@@ -4449,6 +4572,10 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 this.getFunctionalConstraints_FunctionalConstraint(), "functionalConstraints", null, 0, 1,
                 FunctionalConstraint.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getFunctionalConstraint_ReferredByDataAttribute(), this.getDataAttribute(),
+                this.getDataAttribute_RefersToFunctionalConstraint(), "referredByDataAttribute", null, 0, -1,
+                FunctionalConstraint.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( functionalConstraintsEClass, FunctionalConstraints.class, "FunctionalConstraints", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
@@ -4568,6 +4695,11 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         addEParameter( op, ecorePackage.getEString(), "presenceConditionName", 0, 1, IS_UNIQUE, IS_ORDERED );
         addEParameter( op, this.getIRiseClipseConsole(), "console", 0, 1, IS_UNIQUE, IS_ORDERED );
 
+        op = initEOperation( getNS__FindFunctionalConstraint__String_IRiseClipseConsole(),
+                this.getFunctionalConstraint(), "findFunctionalConstraint", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEString(), "functionalConstraintAbbreviation", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, this.getIRiseClipseConsole(), "console", 0, 1, IS_UNIQUE, IS_ORDERED );
+
         initEClass( nsDocEClass, NSDoc.class, "NSDoc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEReference( getNSDoc_Doc(), this.getDoc(), this.getDoc_NSDoc(), "doc", null, 0, -1, NSDoc.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
@@ -4604,6 +4736,10 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 !IS_ORDERED );
         initEReference( getPresenceCondition_ReferredBySubDataObject(), this.getSubDataObject(),
                 this.getSubDataObject_RefersToPresenceCondition(), "referredBySubDataObject", null, 0, -1,
+                PresenceCondition.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getPresenceCondition_ReferredByDataAttribute(), this.getDataAttribute(),
+                this.getDataAttribute_RefersToPresenceCondition(), "referredByDataAttribute", null, 0, -1,
                 PresenceCondition.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 

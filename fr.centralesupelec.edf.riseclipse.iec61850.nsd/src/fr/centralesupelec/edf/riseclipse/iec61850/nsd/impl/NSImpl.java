@@ -30,6 +30,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
@@ -1666,13 +1667,13 @@ public class NSImpl extends CopyrightedImpl implements NS {
      */
     @Override
     public CDC findCDC( String cDCName, IRiseClipseConsole console ) {
-        if( cDCsESet ) {
+        if( isSetCDCs() ) {
             CDC found = getCDCs().getCDC().stream().filter( cdc -> cdc.getName().equals( cDCName ) ).findAny()
                     .orElse( null );
             if( found != null ) return found;
         }
 
-        if( dependsOnESet ) {
+        if( isSetDependsOn() ) {
             getDependsOn().buildExplicitLinks( console );
             return getDependsOn().getRefersToNS().findCDC( cDCName, console );
         }
@@ -1687,15 +1688,37 @@ public class NSImpl extends CopyrightedImpl implements NS {
      */
     @Override
     public PresenceCondition findPresenceCondition( String presenceConditionName, IRiseClipseConsole console ) {
-        if( presenceConditionsESet ) {
+        if( isSetPresenceConditions() ) {
             PresenceCondition found = getPresenceConditions().getPresenceCondition().stream()
                     .filter( cond -> cond.getName().equals( presenceConditionName ) ).findAny().orElse( null );
             if( found != null ) return found;
         }
 
-        if( dependsOnESet ) {
+        if( isSetDependsOn() ) {
             getDependsOn().buildExplicitLinks( console );
             return getDependsOn().getRefersToNS().findPresenceCondition( presenceConditionName, console );
+        }
+
+        return null;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated NOT
+     */
+    @Override
+    public FunctionalConstraint findFunctionalConstraint( String functionalConstraintAbbreviation,
+            IRiseClipseConsole console ) {
+        if( isSetFunctionalConstraints() ) {
+            FunctionalConstraint found = getFunctionalConstraints().getFunctionalConstraint().stream()
+                    .filter( fc -> fc.getAbbreviation().equals( functionalConstraintAbbreviation ) ).findAny().orElse( null );
+            if( found != null ) return found;
+        }
+
+        if( isSetDependsOn() ) {
+            getDependsOn().buildExplicitLinks( console );
+            return getDependsOn().getRefersToNS().findFunctionalConstraint( functionalConstraintAbbreviation, console );
         }
 
         return null;
@@ -2532,6 +2555,8 @@ public class NSImpl extends CopyrightedImpl implements NS {
             return findCDC( ( String ) arguments.get( 0 ), ( IRiseClipseConsole ) arguments.get( 1 ) );
         case NsdPackage.NS___FIND_PRESENCE_CONDITION__STRING_IRISECLIPSECONSOLE:
             return findPresenceCondition( ( String ) arguments.get( 0 ), ( IRiseClipseConsole ) arguments.get( 1 ) );
+        case NsdPackage.NS___FIND_FUNCTIONAL_CONSTRAINT__STRING_IRISECLIPSECONSOLE:
+            return findFunctionalConstraint( ( String ) arguments.get( 0 ), ( IRiseClipseConsole ) arguments.get( 1 ) );
         }
         return super.eInvoke( operationID, arguments );
     }

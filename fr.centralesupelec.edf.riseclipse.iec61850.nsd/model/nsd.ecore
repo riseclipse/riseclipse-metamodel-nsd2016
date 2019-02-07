@@ -635,6 +635,24 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="referredBySubDataObjectAsMaxIndexAttribute"
         ordered="false" upperBound="-1" eType="#//SubDataObject" transient="true"
         unsettable="true" resolveProxies="false" eOpposite="#//SubDataObject/refersToMaxIndexAttribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refersToFunctionalConstraint"
+        ordered="false" eType="#//FunctionalConstraint" transient="true" unsettable="true"
+        resolveProxies="false" eOpposite="#//FunctionalConstraint/referredByDataAttribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refersToPresenceCondition"
+        ordered="false" eType="#//PresenceCondition" transient="true" unsettable="true"
+        resolveProxies="false" eOpposite="#//PresenceCondition/referredByDataAttribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refersToSizeAttribute"
+        ordered="false" eType="#//DataAttribute" transient="true" unsettable="true"
+        resolveProxies="false" eOpposite="#//DataAttribute/referredByDataAttributeAsSizeAttribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refersToMaxIndexAttribute"
+        ordered="false" eType="#//DataAttribute" transient="true" unsettable="true"
+        resolveProxies="false" eOpposite="#//DataAttribute/referredByDataAttributeAsMaxIndexAttribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referredByDataAttributeAsSizeAttribute"
+        ordered="false" upperBound="-1" eType="#//DataAttribute" transient="true"
+        unsettable="true" resolveProxies="false" eOpposite="#//DataAttribute/refersToSizeAttribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referredByDataAttributeAsMaxIndexAttribute"
+        ordered="false" upperBound="-1" eType="#//DataAttribute" transient="true"
+        unsettable="true" resolveProxies="false" eOpposite="#//DataAttribute/refersToMaxIndexAttribute"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataObject" eSuperTypes="#//DocumentedClass #//AgPresenceCondition #//AgPresenceConditionDerivedStatistics #//AgUnderlyingType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -871,6 +889,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="functionalConstraints"
         ordered="false" eType="#//FunctionalConstraints" transient="true" unsettable="true"
         resolveProxies="false" eOpposite="#//FunctionalConstraints/functionalConstraint"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referredByDataAttribute"
+        ordered="false" upperBound="-1" eType="#//DataAttribute" transient="true"
+        unsettable="true" resolveProxies="false" eOpposite="#//DataAttribute/refersToFunctionalConstraint"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FunctionalConstraints" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -1047,6 +1068,10 @@
       <eParameters name="presenceConditionName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="console" eType="#//IRiseClipseConsole"/>
     </eOperations>
+    <eOperations name="findFunctionalConstraint" eType="#//FunctionalConstraint">
+      <eParameters name="functionalConstraintAbbreviation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="console" eType="#//IRiseClipseConsole"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="changes" ordered="false"
         eType="#//Changes" unsettable="true" containment="true" resolveProxies="false"
         eOpposite="#//Changes/nS">
@@ -1207,6 +1232,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="referredBySubDataObject"
         ordered="false" upperBound="-1" eType="#//SubDataObject" transient="true"
         unsettable="true" resolveProxies="false" eOpposite="#//SubDataObject/refersToPresenceCondition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referredByDataAttribute"
+        ordered="false" upperBound="-1" eType="#//DataAttribute" transient="true"
+        unsettable="true" resolveProxies="false" eOpposite="#//DataAttribute/refersToPresenceCondition"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PresenceConditions" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
