@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="nsd" nsURI="http://www.iec.ch/61850/2016/NSD" nsPrefix="nsd">
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    name="nsd" nsURI="http://www.iec.ch/61850/2016/NSD" nsPrefix="nsd">
+  <eAnnotations source="http://www.eclipse.org/OCL/Import">
+    <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
+    <details key="ecore.xml.type" value="http://www.eclipse.org/emf/2003/XMLType"/>
+  </eAnnotations>
+  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+  </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="AppliesToType" eSuperTypes="#//NsdObject #//AgNSIdentification">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="AppliesTo_._type"/>
@@ -379,6 +388,12 @@
       <details key="name" value="tCDC"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="uniqueCDCChild"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="uniqueCDCChild" value="Tuple {&#xA;&#x9;message : String = 'For a CDC, there shall not be two sub-elements (SubDataObject or DataAttribute) with same name.',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;let names : Bag(String) = self.subDataObject.name->union(self.dataAttribute.name) in names->size() = names->asSet()->size()&#xA;}.status"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subDataObject" ordered="false"
         upperBound="-1" eType="#//SubDataObject" unsettable="true" containment="true"
         resolveProxies="false" eOpposite="#//SubDataObject/cDC">
@@ -525,6 +540,12 @@
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tConstructedAttribute"/>
       <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="uniqueSubDataAttribute"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="uniqueSubDataAttribute" value="Tuple {&#xA;&#x9;message : String = 'For a ConstructedAttribute, there shall not be two SubDataAttribute sub-elements with same name',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.subDataAttribute->isUnique( s : SubDataAttribute | s.name )&#xA;}.status"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subDataAttribute" ordered="false"
         upperBound="-1" eType="#//SubDataAttribute" unsettable="true" containment="true"
@@ -806,6 +827,13 @@
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tEnumeration"/>
       <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="uniqueLiteralName uniqueLiteralVal"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="uniqueLiteralName" value="Tuple {&#xA;&#x9;message : String = 'For an Enumeration, there shall not be two Literal sub-elements with same name.',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;-- TODO: inherited literals should be taken into account&#xA;&#x9;&#x9;&#x9;-- For this, explicit links have to be created first&#xA;&#x9;&#x9;&#x9;self.literal->isUnique( l : Literal | l.name )&#xA;}.status"/>
+      <details key="uniqueLiteralVal" value="Tuple {&#xA;&#x9;message : String = 'For an Enumeration, there shall not be two Literal sub-elements with same liiteralVal.',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.literal->isUnique( l : Literal | l.literalVal )&#xA;}.status"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="literal" ordered="false"
         upperBound="-1" eType="#//Literal" unsettable="true" containment="true" resolveProxies="false"

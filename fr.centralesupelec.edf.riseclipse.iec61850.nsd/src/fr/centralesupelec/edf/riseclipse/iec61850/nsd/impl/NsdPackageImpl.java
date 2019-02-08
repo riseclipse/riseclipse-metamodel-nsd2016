@@ -5218,8 +5218,44 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createResource( eNS_URI );
 
         // Create annotations
+        // http://www.eclipse.org/OCL/Import
+        createImportAnnotations();
+        // http://www.eclipse.org/emf/2002/Ecore
+        createEcoreAnnotations();
         // http:///org/eclipse/emf/ecore/util/ExtendedMetaData
         createExtendedMetaDataAnnotations();
+        // http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
+        createPivotAnnotations();
+    }
+
+    /**
+     * Initializes the annotations for <b>http://www.eclipse.org/OCL/Import</b>.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void createImportAnnotations() {
+        String source = "http://www.eclipse.org/OCL/Import";
+        addAnnotation( this, source, new String[] { "ecore", "http://www.eclipse.org/emf/2002/Ecore", "ecore.xml.type",
+                "http://www.eclipse.org/emf/2003/XMLType" } );
+    }
+
+    /**
+     * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void createEcoreAnnotations() {
+        String source = "http://www.eclipse.org/emf/2002/Ecore";
+        addAnnotation( this, source,
+                new String[] { "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+                        "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", "validationDelegates",
+                        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" } );
+        addAnnotation( cdcEClass, source, new String[] { "constraints", "uniqueCDCChild" } );
+        addAnnotation( constructedAttributeEClass, source, new String[] { "constraints", "uniqueSubDataAttribute" } );
+        addAnnotation( enumerationEClass, source,
+                new String[] { "constraints", "uniqueLiteralName uniqueLiteralVal" } );
     }
 
     /**
@@ -5540,6 +5576,24 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         addAnnotation( getAgUML_UmlDate(), source, new String[] { "kind", "attribute", "name", "umlDate" } );
         addAnnotation( getAgUML_UmlVersion(), source, new String[] { "kind", "attribute", "name", "umlVersion" } );
         addAnnotation( getAgNSdesc_DescID(), source, new String[] { "kind", "attribute", "name", "descID" } );
+    }
+
+    /**
+     * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot</b>.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void createPivotAnnotations() {
+        String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";
+        addAnnotation( cdcEClass, source, new String[] { "uniqueCDCChild",
+                "Tuple {\n\tmessage : String = \'For a CDC, there shall not be two sub-elements (SubDataObject or DataAttribute) with same name.\',\n\tstatus : Boolean = \n\t\t\tlet names : Bag(String) = self.subDataObject.name->union(self.dataAttribute.name) in names->size() = names->asSet()->size()\n}.status" } );
+        addAnnotation( constructedAttributeEClass, source, new String[] { "uniqueSubDataAttribute",
+                "Tuple {\n\tmessage : String = \'For a ConstructedAttribute, there shall not be two SubDataAttribute sub-elements with same name\',\n\tstatus : Boolean = \n\t\t\tself.subDataAttribute->isUnique( s : SubDataAttribute | s.name )\n}.status" } );
+        addAnnotation( enumerationEClass, source, new String[] { "uniqueLiteralName",
+                "Tuple {\n\tmessage : String = \'For an Enumeration, there shall not be two Literal sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: inherited literals should be taken into account\n\t\t\t-- For this, explicit links have to be created first\n\t\t\tself.literal->isUnique( l : Literal | l.name )\n}.status",
+                "uniqueLiteralVal",
+                "Tuple {\n\tmessage : String = \'For an Enumeration, there shall not be two Literal sub-elements with same liiteralVal.\',\n\tstatus : Boolean = \n\t\t\tself.literal->isUnique( l : Literal | l.literalVal )\n}.status" } );
     }
 
 } //NsdPackageImpl

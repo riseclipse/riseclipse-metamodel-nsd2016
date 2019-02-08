@@ -389,7 +389,42 @@ public class NsdValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateCDC( CDC cdc, DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        return validate_EveryDefaultConstraint( cdc, diagnostics, context );
+        if( !validate_NoCircularContainment( cdc, diagnostics, context ) ) return false;
+        boolean result = validate_EveryMultiplicityConforms( cdc, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_EveryDataValueConforms( cdc, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_EveryReferenceIsContained( cdc, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryBidirectionalReferenceIsPaired( cdc, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_EveryProxyResolves( cdc, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_UniqueID( cdc, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( cdc, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_EveryMapEntryUnique( cdc, diagnostics, context );
+        if( result || diagnostics != null ) result &= validateCDC_uniqueCDCChild( cdc, diagnostics, context );
+        return result;
+    }
+
+    /**
+     * The cached validation expression for the uniqueCDCChild constraint of '<em>CDC</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected static final String CDC__UNIQUE_CDC_CHILD__EEXPRESSION = "Tuple {\n"
+            + "\tmessage : String = 'For a CDC, there shall not be two sub-elements (SubDataObject or DataAttribute) with same name.',\n"
+            + "\tstatus : Boolean = \n"
+            + "\t\t\tlet names : Bag(String) = self.subDataObject.name->union(self.dataAttribute.name) in names->size() = names->asSet()->size()\n"
+            + "}.status";
+
+    /**
+     * Validates the uniqueCDCChild constraint of '<em>CDC</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateCDC_uniqueCDCChild( CDC cdc, DiagnosticChain diagnostics, Map< Object, Object > context ) {
+        return validate( NsdPackage.Literals.CDC, cdc, diagnostics, context,
+                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", "uniqueCDCChild", CDC__UNIQUE_CDC_CHILD__EEXPRESSION,
+                Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0 );
     }
 
     /**
@@ -417,7 +452,48 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateConstructedAttribute( ConstructedAttribute constructedAttribute, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        return validate_EveryDefaultConstraint( constructedAttribute, diagnostics, context );
+        if( !validate_NoCircularContainment( constructedAttribute, diagnostics, context ) ) return false;
+        boolean result = validate_EveryMultiplicityConforms( constructedAttribute, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryDataValueConforms( constructedAttribute, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryReferenceIsContained( constructedAttribute, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryBidirectionalReferenceIsPaired( constructedAttribute, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryProxyResolves( constructedAttribute, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_UniqueID( constructedAttribute, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryKeyUnique( constructedAttribute, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryMapEntryUnique( constructedAttribute, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validateConstructedAttribute_uniqueSubDataAttribute( constructedAttribute, diagnostics, context );
+        return result;
+    }
+
+    /**
+     * The cached validation expression for the uniqueSubDataAttribute constraint of '<em>Constructed Attribute</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected static final String CONSTRUCTED_ATTRIBUTE__UNIQUE_SUB_DATA_ATTRIBUTE__EEXPRESSION = "Tuple {\n"
+            + "\tmessage : String = 'For a ConstructedAttribute, there shall not be two SubDataAttribute sub-elements with same name',\n"
+            + "\tstatus : Boolean = \n" + "\t\t\tself.subDataAttribute->isUnique( s : SubDataAttribute | s.name )\n"
+            + "}.status";
+
+    /**
+     * Validates the uniqueSubDataAttribute constraint of '<em>Constructed Attribute</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateConstructedAttribute_uniqueSubDataAttribute( ConstructedAttribute constructedAttribute,
+            DiagnosticChain diagnostics, Map< Object, Object > context ) {
+        return validate( NsdPackage.Literals.CONSTRUCTED_ATTRIBUTE, constructedAttribute, diagnostics, context,
+                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", "uniqueSubDataAttribute",
+                CONSTRUCTED_ATTRIBUTE__UNIQUE_SUB_DATA_ATTRIBUTE__EEXPRESSION, Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0 );
     }
 
     /**
@@ -506,7 +582,71 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateEnumeration( Enumeration enumeration, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        return validate_EveryDefaultConstraint( enumeration, diagnostics, context );
+        if( !validate_NoCircularContainment( enumeration, diagnostics, context ) ) return false;
+        boolean result = validate_EveryMultiplicityConforms( enumeration, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryDataValueConforms( enumeration, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryReferenceIsContained( enumeration, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryBidirectionalReferenceIsPaired( enumeration, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_EveryProxyResolves( enumeration, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_UniqueID( enumeration, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( enumeration, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_EveryMapEntryUnique( enumeration, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validateEnumeration_uniqueLiteralName( enumeration, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validateEnumeration_uniqueLiteralVal( enumeration, diagnostics, context );
+        return result;
+    }
+
+    /**
+     * The cached validation expression for the uniqueLiteralName constraint of '<em>Enumeration</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected static final String ENUMERATION__UNIQUE_LITERAL_NAME__EEXPRESSION = "Tuple {\n"
+            + "\tmessage : String = 'For an Enumeration, there shall not be two Literal sub-elements with same name.',\n"
+            + "\tstatus : Boolean = \n" + "\t\t\t-- TODO: inherited literals should be taken into account\n"
+            + "\t\t\t-- For this, explicit links have to be created first\n"
+            + "\t\t\tself.literal->isUnique( l : Literal | l.name )\n" + "}.status";
+
+    /**
+     * Validates the uniqueLiteralName constraint of '<em>Enumeration</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateEnumeration_uniqueLiteralName( Enumeration enumeration, DiagnosticChain diagnostics,
+            Map< Object, Object > context ) {
+        return validate( NsdPackage.Literals.ENUMERATION, enumeration, diagnostics, context,
+                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", "uniqueLiteralName",
+                ENUMERATION__UNIQUE_LITERAL_NAME__EEXPRESSION, Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0 );
+    }
+
+    /**
+     * The cached validation expression for the uniqueLiteralVal constraint of '<em>Enumeration</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected static final String ENUMERATION__UNIQUE_LITERAL_VAL__EEXPRESSION = "Tuple {\n"
+            + "\tmessage : String = 'For an Enumeration, there shall not be two Literal sub-elements with same liiteralVal.',\n"
+            + "\tstatus : Boolean = \n" + "\t\t\tself.literal->isUnique( l : Literal | l.literalVal )\n" + "}.status";
+
+    /**
+     * Validates the uniqueLiteralVal constraint of '<em>Enumeration</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateEnumeration_uniqueLiteralVal( Enumeration enumeration, DiagnosticChain diagnostics,
+            Map< Object, Object > context ) {
+        return validate( NsdPackage.Literals.ENUMERATION, enumeration, diagnostics, context,
+                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", "uniqueLiteralVal",
+                ENUMERATION__UNIQUE_LITERAL_VAL__EEXPRESSION, Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0 );
     }
 
     /**
@@ -650,7 +790,26 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateServiceConstructedAttribute( ServiceConstructedAttribute serviceConstructedAttribute,
             DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        return validate_EveryDefaultConstraint( serviceConstructedAttribute, diagnostics, context );
+        if( !validate_NoCircularContainment( serviceConstructedAttribute, diagnostics, context ) ) return false;
+        boolean result = validate_EveryMultiplicityConforms( serviceConstructedAttribute, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryDataValueConforms( serviceConstructedAttribute, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryReferenceIsContained( serviceConstructedAttribute, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryBidirectionalReferenceIsPaired( serviceConstructedAttribute, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryProxyResolves( serviceConstructedAttribute, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_UniqueID( serviceConstructedAttribute, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryKeyUnique( serviceConstructedAttribute, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryMapEntryUnique( serviceConstructedAttribute, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validateConstructedAttribute_uniqueSubDataAttribute( serviceConstructedAttribute, diagnostics,
+                    context );
+        return result;
     }
 
     /**

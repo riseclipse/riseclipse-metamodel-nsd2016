@@ -38,6 +38,8 @@ import org.eclipse.emf.common.util.EList;
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getConstructedAttribute()
  * @model extendedMetaData="name='tConstructedAttribute' kind='elementOnly'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='uniqueSubDataAttribute'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot uniqueSubDataAttribute='Tuple {\n\tmessage : String = \'For a ConstructedAttribute, there shall not be two SubDataAttribute sub-elements with same name\',\n\tstatus : Boolean = \n\t\t\tself.subDataAttribute-&gt;isUnique( s : SubDataAttribute | s.name )\n}.status'"
  * @generated
  */
 public interface ConstructedAttribute extends TitledClass {

@@ -76,18 +76,27 @@ public class NsdResourceSetImpl extends ResourceSetImpl {
      *   NSDoc:
      *     Name: uniqueDocID                           Selector: nsd:Doc                           Field: @id
      *     Within an NSDoc element, there shall not be two Doc sub-elements with same id.
+     *     
      *   CDCs/CDC:
      *     Name: uniqueCDCChild                        Selector: *                                 Field: @name
      *     For a CDC, there shall not be two sub-elements (SubDataObject or DataAttribute) with same name.
+     *   DONE
+     *     
      *   ConstructedAttributes/ConstructedAttribute:
      *     Name: uniqueSubDataAttribute                Selector: nsd:SubDataAttribute              Field: @name
      *     For a ConstructedAttribute, there shall not be two SubDataAttribute sub-elements with same name.
+     *   DONE
+     *     
      *   Enumerations/Enumeration:
      *     Name: uniqueLiteralName                     Selector: nsd:Literal                       Field: @name
      *     For an Enumeration, there shall not be two Literal sub-elements with same name.
+     *   DONE
+     *     
      *   Enumerations/Enumeration:
      *     Name: uniqueLiteralVal                      Selector: nsd:Literal                       Field: @literalVal
      *     For an Enumeration, there shall not be two Literal sub-elements with same liiteralVal.
+     *   DONE
+     *     
      *   FunctionalConstraint/ApplicableServices:
      *     Name: uniqueDataSetMemberOf                 Selector: nsd:DataSetMemberOf               Field: @cb
      *   FunctionalConstraint/ApplicableServices:
