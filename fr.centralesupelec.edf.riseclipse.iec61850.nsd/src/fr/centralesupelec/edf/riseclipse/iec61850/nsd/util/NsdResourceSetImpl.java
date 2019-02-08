@@ -94,22 +94,32 @@ public class NsdResourceSetImpl extends ResourceSetImpl {
      *     
      *   Enumerations/Enumeration:
      *     Name: uniqueLiteralVal                      Selector: nsd:Literal                       Field: @literalVal
-     *     For an Enumeration, there shall not be two Literal sub-elements with same liiteralVal.
+     *     For an Enumeration, there shall not be two Literal sub-elements with same literalVal.
      *   DONE
      *     
      *   FunctionalConstraint/ApplicableServices:
      *     Name: uniqueDataSetMemberOf                 Selector: nsd:DataSetMemberOf               Field: @cb
+     *   DONE
+     *     
      *   FunctionalConstraint/ApplicableServices:
      *     Name: uniqueService                         Selector: nsd:Service                       Field: @name
+     *   DONE
+     *     
      *   LNClasses/AbstractLNClass:
      *     Name: uniqueDataObjectAbstractLNClass       Selector: nsd:DataObject                    Field: @name
      *     For a AbstractLNClass, there shall not be two DataObject sub-elements with same name.
+     *   DONE
+     *     
      *   LNClasses/LNClass:
      *     Name: uniqueDataObject                      Selector: nsd:DataObject                    Field: @name
      *     For a LNClass, there shall not be two DataObject sub-elements with same name.
+     *   DONE
+     *     
      *   NS/FunctionalConstraints:
      *     Name: uniqueFunctionalConstraint            Selector: nsd:FunctionalConstraint          Field: @abbreviation
      *     There shall not be two FunctionalConstraint elements with same abbreviation.
+     *   DONE
+     *     
      *   NS/PresenceConditions:
      *     Name: uniquePresenceCondition               Selector: nsd:PresenceCondition             Field: @name
      *     There shall not be two PresenceCondition elements with same name.

@@ -38,6 +38,8 @@ import org.eclipse.emf.common.util.EList;
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAnyLNClass()
  * @model abstract="true"
  *        extendedMetaData="name='tAnyLNClass' kind='elementOnly'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='uniqueDataObject'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot uniqueDataObject='Tuple {\n\tmessage : String = \'For an AnyLNClass, there shall not be two DataObject sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.dataObject-&gt;isUnique( d : DataObject | d.name )\n}.status'"
  * @generated
  */
 public interface AnyLNClass extends TitledClass {

@@ -92,9 +92,6 @@ public interface Literal extends DocumentedClass {
      * Returns the value of the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Name of the enumeration's literal.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Name</em>' attribute.
      * @see #isSetName()
      * @see #unsetName()

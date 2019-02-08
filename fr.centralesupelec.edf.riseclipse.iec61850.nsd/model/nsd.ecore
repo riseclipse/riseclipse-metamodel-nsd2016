@@ -244,6 +244,12 @@
       <details key="name" value="tAnyLNClass"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="uniqueDataObject"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="uniqueDataObject" value="Tuple {&#xA;&#x9;message : String = 'For an AnyLNClass, there shall not be two DataObject sub-elements with same name.',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.dataObject->isUnique( d : DataObject | d.name )&#xA;}.status"/>
+    </eAnnotations>
     <eOperations name="getName" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
     <eOperations name="getLNClasses" eType="#//LNClasses"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataObject" ordered="false"
@@ -299,6 +305,13 @@
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tApplicableServices"/>
       <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="uniqueDataSetMemberOf uniqueService"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="uniqueDataSetMemberOf" value="Tuple {&#xA;&#x9;message : String = 'For an ApplicableServices, there shall not be two DataSetMemberOf sub-elements with same cb.',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.dataSetMemberOf->isUnique( d : DataSetMemberOf | d.cb )&#xA;}.status"/>
+      <details key="uniqueService" value="Tuple {&#xA;&#x9;message : String = 'For an ApplicableServices, there shall not be two ServiceType sub-elements with same name.',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.service->isUnique( s : ServiceType | s.name )&#xA;}.status"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="service" ordered="false"
         upperBound="-1" eType="#//ServiceType" unsettable="true" containment="true"
@@ -833,7 +846,7 @@
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
       <details key="uniqueLiteralName" value="Tuple {&#xA;&#x9;message : String = 'For an Enumeration, there shall not be two Literal sub-elements with same name.',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;-- TODO: inherited literals should be taken into account&#xA;&#x9;&#x9;&#x9;-- For this, explicit links have to be created first&#xA;&#x9;&#x9;&#x9;self.literal->isUnique( l : Literal | l.name )&#xA;}.status"/>
-      <details key="uniqueLiteralVal" value="Tuple {&#xA;&#x9;message : String = 'For an Enumeration, there shall not be two Literal sub-elements with same liiteralVal.',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.literal->isUnique( l : Literal | l.literalVal )&#xA;}.status"/>
+      <details key="uniqueLiteralVal" value="Tuple {&#xA;&#x9;message : String = 'For an Enumeration, there shall not be two Literal sub-elements with same literalVal.',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.literal->isUnique( l : Literal | l.literalVal )&#xA;}.status"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="literal" ordered="false"
         upperBound="-1" eType="#//Literal" unsettable="true" containment="true" resolveProxies="false"
@@ -932,6 +945,12 @@
       <details key="name" value="tFunctionalConstraints"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="uniqueFunctionalConstraint"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="uniqueFunctionalConstraint" value="Tuple {&#xA;&#x9;message : String = 'There shall not be two FunctionalConstraint elements with same abbreviation.',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.functionalConstraint->isUnique( f : FunctionalConstraint | f.abbreviation )&#xA;}.status"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="functionalConstraint" ordered="false"
         upperBound="-1" eType="#//FunctionalConstraint" unsettable="true" containment="true"
         resolveProxies="false" eOpposite="#//FunctionalConstraint/functionalConstraints">
@@ -1005,9 +1024,6 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         unsettable="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Name of the enumeration's literal."/>
-      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="name"/>

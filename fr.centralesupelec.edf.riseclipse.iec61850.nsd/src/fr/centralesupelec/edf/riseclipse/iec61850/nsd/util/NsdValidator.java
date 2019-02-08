@@ -330,7 +330,23 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateAbstractLNClass( AbstractLNClass abstractLNClass, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        return validate_EveryDefaultConstraint( abstractLNClass, diagnostics, context );
+        if( !validate_NoCircularContainment( abstractLNClass, diagnostics, context ) ) return false;
+        boolean result = validate_EveryMultiplicityConforms( abstractLNClass, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryDataValueConforms( abstractLNClass, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryReferenceIsContained( abstractLNClass, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryBidirectionalReferenceIsPaired( abstractLNClass, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryProxyResolves( abstractLNClass, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_UniqueID( abstractLNClass, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( abstractLNClass, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryMapEntryUnique( abstractLNClass, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validateAnyLNClass_uniqueDataObject( abstractLNClass, diagnostics, context );
+        return result;
     }
 
     /**
@@ -340,7 +356,44 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateAnyLNClass( AnyLNClass anyLNClass, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        return validate_EveryDefaultConstraint( anyLNClass, diagnostics, context );
+        if( !validate_NoCircularContainment( anyLNClass, diagnostics, context ) ) return false;
+        boolean result = validate_EveryMultiplicityConforms( anyLNClass, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryDataValueConforms( anyLNClass, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryReferenceIsContained( anyLNClass, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryBidirectionalReferenceIsPaired( anyLNClass, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_EveryProxyResolves( anyLNClass, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_UniqueID( anyLNClass, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( anyLNClass, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_EveryMapEntryUnique( anyLNClass, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validateAnyLNClass_uniqueDataObject( anyLNClass, diagnostics, context );
+        return result;
+    }
+
+    /**
+     * The cached validation expression for the uniqueDataObject constraint of '<em>Any LN Class</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected static final String ANY_LN_CLASS__UNIQUE_DATA_OBJECT__EEXPRESSION = "Tuple {\n"
+            + "\tmessage : String = 'For an AnyLNClass, there shall not be two DataObject sub-elements with same name.',\n"
+            + "\tstatus : Boolean = \n" + "\t\t\tself.dataObject->isUnique( d : DataObject | d.name )\n" + "}.status";
+
+    /**
+     * Validates the uniqueDataObject constraint of '<em>Any LN Class</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateAnyLNClass_uniqueDataObject( AnyLNClass anyLNClass, DiagnosticChain diagnostics,
+            Map< Object, Object > context ) {
+        return validate( NsdPackage.Literals.ANY_LN_CLASS, anyLNClass, diagnostics, context,
+                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", "uniqueDataObject",
+                ANY_LN_CLASS__UNIQUE_DATA_OBJECT__EEXPRESSION, Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0 );
     }
 
     /**
@@ -360,7 +413,73 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateApplicableServices( ApplicableServices applicableServices, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        return validate_EveryDefaultConstraint( applicableServices, diagnostics, context );
+        if( !validate_NoCircularContainment( applicableServices, diagnostics, context ) ) return false;
+        boolean result = validate_EveryMultiplicityConforms( applicableServices, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryDataValueConforms( applicableServices, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryReferenceIsContained( applicableServices, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryBidirectionalReferenceIsPaired( applicableServices, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryProxyResolves( applicableServices, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_UniqueID( applicableServices, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryKeyUnique( applicableServices, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryMapEntryUnique( applicableServices, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validateApplicableServices_uniqueDataSetMemberOf( applicableServices, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validateApplicableServices_uniqueService( applicableServices, diagnostics, context );
+        return result;
+    }
+
+    /**
+     * The cached validation expression for the uniqueDataSetMemberOf constraint of '<em>Applicable Services</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected static final String APPLICABLE_SERVICES__UNIQUE_DATA_SET_MEMBER_OF__EEXPRESSION = "Tuple {\n"
+            + "\tmessage : String = 'For an ApplicableServices, there shall not be two DataSetMemberOf sub-elements with same cb.',\n"
+            + "\tstatus : Boolean = \n" + "\t\t\tself.dataSetMemberOf->isUnique( d : DataSetMemberOf | d.cb )\n"
+            + "}.status";
+
+    /**
+     * Validates the uniqueDataSetMemberOf constraint of '<em>Applicable Services</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateApplicableServices_uniqueDataSetMemberOf( ApplicableServices applicableServices,
+            DiagnosticChain diagnostics, Map< Object, Object > context ) {
+        return validate( NsdPackage.Literals.APPLICABLE_SERVICES, applicableServices, diagnostics, context,
+                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", "uniqueDataSetMemberOf",
+                APPLICABLE_SERVICES__UNIQUE_DATA_SET_MEMBER_OF__EEXPRESSION, Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0 );
+    }
+
+    /**
+     * The cached validation expression for the uniqueService constraint of '<em>Applicable Services</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected static final String APPLICABLE_SERVICES__UNIQUE_SERVICE__EEXPRESSION = "Tuple {\n"
+            + "\tmessage : String = 'For an ApplicableServices, there shall not be two ServiceType sub-elements with same name.',\n"
+            + "\tstatus : Boolean = \n" + "\t\t\tself.service->isUnique( s : ServiceType | s.name )\n" + "}.status";
+
+    /**
+     * Validates the uniqueService constraint of '<em>Applicable Services</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateApplicableServices_uniqueService( ApplicableServices applicableServices,
+            DiagnosticChain diagnostics, Map< Object, Object > context ) {
+        return validate( NsdPackage.Literals.APPLICABLE_SERVICES, applicableServices, diagnostics, context,
+                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", "uniqueService",
+                APPLICABLE_SERVICES__UNIQUE_SERVICE__EEXPRESSION, Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0 );
     }
 
     /**
@@ -633,7 +752,7 @@ public class NsdValidator extends EObjectValidator {
      * @generated
      */
     protected static final String ENUMERATION__UNIQUE_LITERAL_VAL__EEXPRESSION = "Tuple {\n"
-            + "\tmessage : String = 'For an Enumeration, there shall not be two Literal sub-elements with same liiteralVal.',\n"
+            + "\tmessage : String = 'For an Enumeration, there shall not be two Literal sub-elements with same literalVal.',\n"
             + "\tstatus : Boolean = \n" + "\t\t\tself.literal->isUnique( l : Literal | l.literalVal )\n" + "}.status";
 
     /**
@@ -676,7 +795,50 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateFunctionalConstraints( FunctionalConstraints functionalConstraints,
             DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        return validate_EveryDefaultConstraint( functionalConstraints, diagnostics, context );
+        if( !validate_NoCircularContainment( functionalConstraints, diagnostics, context ) ) return false;
+        boolean result = validate_EveryMultiplicityConforms( functionalConstraints, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryDataValueConforms( functionalConstraints, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryReferenceIsContained( functionalConstraints, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryBidirectionalReferenceIsPaired( functionalConstraints, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryProxyResolves( functionalConstraints, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_UniqueID( functionalConstraints, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryKeyUnique( functionalConstraints, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryMapEntryUnique( functionalConstraints, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validateFunctionalConstraints_uniqueFunctionalConstraint( functionalConstraints, diagnostics,
+                    context );
+        return result;
+    }
+
+    /**
+     * The cached validation expression for the uniqueFunctionalConstraint constraint of '<em>Functional Constraints</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected static final String FUNCTIONAL_CONSTRAINTS__UNIQUE_FUNCTIONAL_CONSTRAINT__EEXPRESSION = "Tuple {\n"
+            + "\tmessage : String = 'There shall not be two FunctionalConstraint elements with same abbreviation.',\n"
+            + "\tstatus : Boolean = \n"
+            + "\t\t\tself.functionalConstraint->isUnique( f : FunctionalConstraint | f.abbreviation )\n" + "}.status";
+
+    /**
+     * Validates the uniqueFunctionalConstraint constraint of '<em>Functional Constraints</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateFunctionalConstraints_uniqueFunctionalConstraint(
+            FunctionalConstraints functionalConstraints, DiagnosticChain diagnostics, Map< Object, Object > context ) {
+        return validate( NsdPackage.Literals.FUNCTIONAL_CONSTRAINTS, functionalConstraints, diagnostics, context,
+                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", "uniqueFunctionalConstraint",
+                FUNCTIONAL_CONSTRAINTS__UNIQUE_FUNCTIONAL_CONSTRAINT__EEXPRESSION, Diagnostic.ERROR, DIAGNOSTIC_SOURCE,
+                0 );
     }
 
     /**
@@ -703,7 +865,20 @@ public class NsdValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateLNClass( LNClass lnClass, DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        return validate_EveryDefaultConstraint( lnClass, diagnostics, context );
+        if( !validate_NoCircularContainment( lnClass, diagnostics, context ) ) return false;
+        boolean result = validate_EveryMultiplicityConforms( lnClass, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_EveryDataValueConforms( lnClass, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryReferenceIsContained( lnClass, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryBidirectionalReferenceIsPaired( lnClass, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_EveryProxyResolves( lnClass, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_UniqueID( lnClass, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( lnClass, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_EveryMapEntryUnique( lnClass, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validateAnyLNClass_uniqueDataObject( lnClass, diagnostics, context );
+        return result;
     }
 
     /**

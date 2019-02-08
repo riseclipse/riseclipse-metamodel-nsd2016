@@ -37,6 +37,8 @@ import org.eclipse.emf.common.util.EList;
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getFunctionalConstraints()
  * @model extendedMetaData="name='tFunctionalConstraints' kind='elementOnly'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='uniqueFunctionalConstraint'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot uniqueFunctionalConstraint='Tuple {\n\tmessage : String = \'There shall not be two FunctionalConstraint elements with same abbreviation.\',\n\tstatus : Boolean = \n\t\t\tself.functionalConstraint-&gt;isUnique( f : FunctionalConstraint | f.abbreviation )\n}.status'"
  * @generated
  */
 public interface FunctionalConstraints extends NsdObject {

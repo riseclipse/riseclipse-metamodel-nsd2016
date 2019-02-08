@@ -5252,10 +5252,15 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 new String[] { "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
                         "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", "validationDelegates",
                         "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" } );
+        addAnnotation( anyLNClassEClass, source, new String[] { "constraints", "uniqueDataObject" } );
+        addAnnotation( applicableServicesEClass, source,
+                new String[] { "constraints", "uniqueDataSetMemberOf uniqueService" } );
         addAnnotation( cdcEClass, source, new String[] { "constraints", "uniqueCDCChild" } );
         addAnnotation( constructedAttributeEClass, source, new String[] { "constraints", "uniqueSubDataAttribute" } );
         addAnnotation( enumerationEClass, source,
                 new String[] { "constraints", "uniqueLiteralName uniqueLiteralVal" } );
+        addAnnotation( functionalConstraintsEClass, source,
+                new String[] { "constraints", "uniqueFunctionalConstraint" } );
     }
 
     /**
@@ -5586,6 +5591,12 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      */
     protected void createPivotAnnotations() {
         String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";
+        addAnnotation( anyLNClassEClass, source, new String[] { "uniqueDataObject",
+                "Tuple {\n\tmessage : String = \'For an AnyLNClass, there shall not be two DataObject sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.dataObject->isUnique( d : DataObject | d.name )\n}.status" } );
+        addAnnotation( applicableServicesEClass, source, new String[] { "uniqueDataSetMemberOf",
+                "Tuple {\n\tmessage : String = \'For an ApplicableServices, there shall not be two DataSetMemberOf sub-elements with same cb.\',\n\tstatus : Boolean = \n\t\t\tself.dataSetMemberOf->isUnique( d : DataSetMemberOf | d.cb )\n}.status",
+                "uniqueService",
+                "Tuple {\n\tmessage : String = \'For an ApplicableServices, there shall not be two ServiceType sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.service->isUnique( s : ServiceType | s.name )\n}.status" } );
         addAnnotation( cdcEClass, source, new String[] { "uniqueCDCChild",
                 "Tuple {\n\tmessage : String = \'For a CDC, there shall not be two sub-elements (SubDataObject or DataAttribute) with same name.\',\n\tstatus : Boolean = \n\t\t\tlet names : Bag(String) = self.subDataObject.name->union(self.dataAttribute.name) in names->size() = names->asSet()->size()\n}.status" } );
         addAnnotation( constructedAttributeEClass, source, new String[] { "uniqueSubDataAttribute",
@@ -5593,7 +5604,9 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         addAnnotation( enumerationEClass, source, new String[] { "uniqueLiteralName",
                 "Tuple {\n\tmessage : String = \'For an Enumeration, there shall not be two Literal sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: inherited literals should be taken into account\n\t\t\t-- For this, explicit links have to be created first\n\t\t\tself.literal->isUnique( l : Literal | l.name )\n}.status",
                 "uniqueLiteralVal",
-                "Tuple {\n\tmessage : String = \'For an Enumeration, there shall not be two Literal sub-elements with same liiteralVal.\',\n\tstatus : Boolean = \n\t\t\tself.literal->isUnique( l : Literal | l.literalVal )\n}.status" } );
+                "Tuple {\n\tmessage : String = \'For an Enumeration, there shall not be two Literal sub-elements with same literalVal.\',\n\tstatus : Boolean = \n\t\t\tself.literal->isUnique( l : Literal | l.literalVal )\n}.status" } );
+        addAnnotation( functionalConstraintsEClass, source, new String[] { "uniqueFunctionalConstraint",
+                "Tuple {\n\tmessage : String = \'There shall not be two FunctionalConstraint elements with same abbreviation.\',\n\tstatus : Boolean = \n\t\t\tself.functionalConstraint->isUnique( f : FunctionalConstraint | f.abbreviation )\n}.status" } );
     }
 
 } //NsdPackageImpl
