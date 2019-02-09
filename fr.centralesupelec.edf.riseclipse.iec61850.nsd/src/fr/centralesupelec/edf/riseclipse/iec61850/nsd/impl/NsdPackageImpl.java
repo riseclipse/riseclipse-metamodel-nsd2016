@@ -5252,22 +5252,53 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 new String[] { "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
                         "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", "validationDelegates",
                         "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" } );
+        addAnnotation( serviceTypeEClass, source, new String[] { "constraints", "nameAttributeRequired" } );
+        addAnnotation( abbreviationEClass, source, new String[] { "constraints", "nameAttributeRequired" } );
         addAnnotation( abbreviationsEClass, source, new String[] { "constraints", "uniqueAbbreviation" } );
+        addAnnotation( abstractLNClassEClass, source, new String[] { "constraints", "nameAttributeRequired" } );
         addAnnotation( anyLNClassEClass, source, new String[] { "constraints", "uniqueDataObject" } );
+        addAnnotation( applicableServiceNSEClass, source,
+                new String[] { "constraints", "versionAttributeRequired dateAttributeRequired" } );
         addAnnotation( applicableServicesEClass, source,
                 new String[] { "constraints", "uniqueDataSetMemberOf uniqueService" } );
-        addAnnotation( cdcEClass, source, new String[] { "constraints", "uniqueCDCChild" } );
+        addAnnotation( basicTypeEClass, source, new String[] { "constraints", "nameAttributeRequired" } );
+        addAnnotation( cdcEClass, source, new String[] { "constraints", "uniqueCDCChild nameAttributeRequired" } );
         addAnnotation( cdCsEClass, source, new String[] { "constraints", "uniqueCDC" } );
-        addAnnotation( constructedAttributeEClass, source, new String[] { "constraints", "uniqueSubDataAttribute" } );
+        addAnnotation( changesEClass, source, new String[] { "constraints", "versionAttributeRequired" } );
+        addAnnotation( constructedAttributeEClass, source,
+                new String[] { "constraints", "uniqueSubDataAttribute nameAttributeRequired" } );
         addAnnotation( constructedAttributesEClass, source,
                 new String[] { "constraints", "uniqueConstructedAttribute" } );
+        addAnnotation( dataAttributeEClass, source,
+                new String[] { "constraints", "nameAttributeRequired fcAttributeRequired" } );
+        addAnnotation( dataObjectEClass, source,
+                new String[] { "constraints", "nameAttributeRequired typeAttributeRequired" } );
+        addAnnotation( dataSetMemberOfEClass, source, new String[] { "constraints", "cbAttributeRequired" } );
+        addAnnotation( docEClass, source, new String[] { "constraints", "idAttributeRequired" } );
         addAnnotation( enumerationEClass, source,
-                new String[] { "constraints", "uniqueLiteralName uniqueLiteralVal" } );
+                new String[] { "constraints", "uniqueLiteralName uniqueLiteralVal nameAttributeRequired" } );
         addAnnotation( enumerationsEClass, source, new String[] { "constraints", "uniqueEnumeration" } );
+        addAnnotation( functionalConstraintEClass, source,
+                new String[] { "constraints", "abbreviationAttributeRequired" } );
         addAnnotation( functionalConstraintsEClass, source,
                 new String[] { "constraints", "uniqueFunctionalConstraint" } );
+        addAnnotation( literalEClass, source,
+                new String[] { "constraints", "nameAttributeRequired literalValAttributeRequired" } );
+        addAnnotation( lnClassEClass, source, new String[] { "constraints", "nameAttributeRequired" } );
         addAnnotation( lnClassesEClass, source, new String[] { "constraints", "uniqueAbstractLNClass uniqueLNClass" } );
+        addAnnotation( nsDocEClass, source, new String[] { "constraints", "langAttributeRequired" } );
+        addAnnotation( presenceConditionEClass, source, new String[] { "constraints", "nameAttributeRequired" } );
         addAnnotation( presenceConditionsEClass, source, new String[] { "constraints", "uniquePresenceCondition" } );
+        addAnnotation( serviceCDCEClass, source, new String[] { "constraints", "cdcAttributeRequired" } );
+        addAnnotation( serviceDataAttributeEClass, source,
+                new String[] { "constraints", "nameAttributeRequired fcAttributeRequired" } );
+        addAnnotation( serviceParameterEClass, source, new String[] { "constraints", "nameAttributeRequired" } );
+        addAnnotation( subDataAttributeEClass, source, new String[] { "constraints", "nameAttributeRequired" } );
+        addAnnotation( subDataObjectEClass, source,
+                new String[] { "constraints", "nameAttributeRequired typeAttributeRequired" } );
+        addAnnotation( titledClassEClass, source, new String[] { "constraints", "titleIDAttributeRequired" } );
+        addAnnotation( agNSIdentificationEClass, source,
+                new String[] { "constraints", "idAttributeRequired versionAttributeRequired" } );
     }
 
     /**
@@ -5598,36 +5629,100 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      */
     protected void createPivotAnnotations() {
         String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";
+        addAnnotation( serviceTypeEClass, source, new String[] { "nameAttributeRequired",
+                "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status" } );
+        addAnnotation( abbreviationEClass, source, new String[] { "nameAttributeRequired",
+                "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status" } );
         addAnnotation( abbreviationsEClass, source, new String[] { "uniqueAbbreviation",
                 "Tuple {\n\tmessage : String = \'There shall not be two Abbreviations elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.abbreviation->isUnique( a : Abbreviation | a.name )\n}.status" } );
+        addAnnotation( abstractLNClassEClass, source, new String[] { "nameAttributeRequired",
+                "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status" } );
         addAnnotation( anyLNClassEClass, source, new String[] { "uniqueDataObject",
                 "Tuple {\n\tmessage : String = \'For an AnyLNClass, there shall not be two DataObject sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: base AbstractLNClass should be taken into account\n\t\t\t-- For this, explicit links have to be created first\n\t\t\tself.dataObject->isUnique( d : DataObject | d.name )\n}.status" } );
+        addAnnotation( applicableServiceNSEClass, source, new String[] { "versionAttributeRequired",
+                "Tuple {\n\tmessage : String = \'The version attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.version <> null\n}.status",
+                "dateAttributeRequired",
+                "Tuple {\n\tmessage : String = \'The date attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.date <> null\n}.status" } );
         addAnnotation( applicableServicesEClass, source, new String[] { "uniqueDataSetMemberOf",
                 "Tuple {\n\tmessage : String = \'For an ApplicableServices, there shall not be two DataSetMemberOf sub-elements with same cb.\',\n\tstatus : Boolean = \n\t\t\tself.dataSetMemberOf->isUnique( d : DataSetMemberOf | d.cb )\n}.status",
                 "uniqueService",
                 "Tuple {\n\tmessage : String = \'For an ApplicableServices, there shall not be two ServiceType sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.service->isUnique( s : ServiceType | s.name )\n}.status" } );
+        addAnnotation( basicTypeEClass, source, new String[] { "nameAttributeRequired",
+                "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status" } );
         addAnnotation( cdcEClass, source, new String[] { "uniqueCDCChild",
-                "Tuple {\n\tmessage : String = \'For a CDC, there shall not be two sub-elements (SubDataObject or DataAttribute) with same name.\',\n\tstatus : Boolean = \n\t\t\tlet names : Bag(String) = self.subDataObject.name->union(self.dataAttribute.name) in names->size() = names->asSet()->size()\n}.status" } );
+                "Tuple {\n\tmessage : String = \'For a CDC, there shall not be two sub-elements (SubDataObject or DataAttribute) with same name.\',\n\tstatus : Boolean = \n\t\t\tlet names : Bag(String) = self.subDataObject.name->union(self.dataAttribute.name) in names->size() = names->asSet()->size()\n}.status",
+                "nameAttributeRequired",
+                "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status" } );
         addAnnotation( cdCsEClass, source, new String[] { "uniqueCDC",
                 "Tuple {\n\tmessage : String = \'Within an NS, there shall not be two CDC sub-elements with same name and (if defined) variant.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: DependsOn NS should be taken into account ?\n\t\t\t-- For this, explicit links have to be created first\n\t\t\t-- Then, may be this constraint should be in NS and not in Enumerations ?\n\t\t\tself.cDC->select( c : CDC | c.variant = null )->isUnique( c : CDC | c.name )\n\t     or self.cDC->select( c : CDC | c.variant <> null )->forAll( c1, c2 : CDC | c1 <> c2 implies c1.name <> c2.name or c1.variant <> c2.variant )\n}.status" } );
+        addAnnotation( changesEClass, source, new String[] { "versionAttributeRequired",
+                "Tuple {\n\tmessage : String = \'The version attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.version <> null\n}.status" } );
         addAnnotation( constructedAttributeEClass, source, new String[] { "uniqueSubDataAttribute",
-                "Tuple {\n\tmessage : String = \'For a ConstructedAttribute, there shall not be two SubDataAttribute sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.subDataAttribute->isUnique( s : SubDataAttribute | s.name )\n}.status" } );
+                "Tuple {\n\tmessage : String = \'For a ConstructedAttribute, there shall not be two SubDataAttribute sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.subDataAttribute->isUnique( s : SubDataAttribute | s.name )\n}.status",
+                "nameAttributeRequired",
+                "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status" } );
         addAnnotation( constructedAttributesEClass, source, new String[] { "uniqueConstructedAttribute",
                 "Tuple {\n\tmessage : String = \'Within an NS, there shall not be two ConstructedAttribute sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: DependsOn NS should be taken into account ?\n\t\t\t-- For this, explicit links have to be created first\n\t\t\t-- Then, may be this constraint should be in NS and not in Enumerations ?\n\t\t\tself.constructedAttribute->isUnique( c : ConstructedAttribute | c.name )\n}.status" } );
+        addAnnotation( dataAttributeEClass, source, new String[] { "nameAttributeRequired",
+                "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status",
+                "fcAttributeRequired",
+                "Tuple {\n\tmessage : String = \'The fc attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.fc <> null\n}.status" } );
+        addAnnotation( dataObjectEClass, source, new String[] { "nameAttributeRequired",
+                "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status",
+                "typeAttributeRequired",
+                "Tuple {\n\tmessage : String = \'The type attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.type <> null\n}.status" } );
+        addAnnotation( dataSetMemberOfEClass, source, new String[] { "cbAttributeRequired",
+                "Tuple {\n\tmessage : String = \'The cb attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.cb <> null\n}.status" } );
+        addAnnotation( docEClass, source, new String[] { "idAttributeRequired",
+                "Tuple {\n\tmessage : String = \'The id attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.id <> null\n}.status" } );
         addAnnotation( enumerationEClass, source, new String[] { "uniqueLiteralName",
                 "Tuple {\n\tmessage : String = \'For an Enumeration, there shall not be two Literal sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: inherited literals should be taken into account\n\t\t\t-- For this, explicit links have to be created first\n\t\t\tself.literal->isUnique( l : Literal | l.name )\n}.status",
                 "uniqueLiteralVal",
-                "Tuple {\n\tmessage : String = \'For an Enumeration, there shall not be two Literal sub-elements with same literalVal.\',\n\tstatus : Boolean = \n\t\t\tself.literal->isUnique( l : Literal | l.literalVal )\n}.status" } );
+                "Tuple {\n\tmessage : String = \'For an Enumeration, there shall not be two Literal sub-elements with same literalVal.\',\n\tstatus : Boolean = \n\t\t\tself.literal->isUnique( l : Literal | l.literalVal )\n}.status",
+                "nameAttributeRequired",
+                "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status" } );
         addAnnotation( enumerationsEClass, source, new String[] { "uniqueEnumeration",
                 "Tuple {\n\tmessage : String = \'Within an NS, there shall not be two Enumeration sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: DependsOn NS should be taken into account ?\n\t\t\t-- For this, explicit links have to be created first\n\t\t\t-- Then, may be this constraint should be in NS and not in Enumerations ?\n\t\t\tself.enumeration->isUnique( e : Enumeration | e.name )\n}.status" } );
+        addAnnotation( functionalConstraintEClass, source, new String[] { "abbreviationAttributeRequired",
+                "Tuple {\n\tmessage : String = \'The abbreviation attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.abbreviation <> null\n}.status" } );
         addAnnotation( functionalConstraintsEClass, source, new String[] { "uniqueFunctionalConstraint",
                 "Tuple {\n\tmessage : String = \'There shall not be two FunctionalConstraint elements with same abbreviation.\',\n\tstatus : Boolean = \n\t\t\tself.functionalConstraint->isUnique( f : FunctionalConstraint | f.abbreviation )\n}.status" } );
+        addAnnotation( literalEClass, source, new String[] { "nameAttributeRequired",
+                "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status",
+                "literalValAttributeRequired",
+                "Tuple {\n\tmessage : String = \'The literalVal attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.literalVal <> null\n}.status" } );
+        addAnnotation( lnClassEClass, source, new String[] { "nameAttributeRequired",
+                "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status" } );
         addAnnotation( lnClassesEClass, source, new String[] { "uniqueAbstractLNClass",
                 "Tuple {\n\tmessage : String = \'Within an NS, there shall not be two AbstractLNClass sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.abstractLNClass->isUnique( c : AbstractLNClass | c.name )\n}.status",
                 "uniqueLNClass",
                 "Tuple {\n\tmessage : String = \'Within an NS, there shall not be two LNClass sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.lNClass->isUnique( c : LNClass | c.name )\n}.status" } );
+        addAnnotation( nsDocEClass, source, new String[] { "langAttributeRequired",
+                "Tuple {\n\tmessage : String = \'The lang attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.lang <> null\n}.status" } );
+        addAnnotation( presenceConditionEClass, source, new String[] { "nameAttributeRequired",
+                "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status" } );
         addAnnotation( presenceConditionsEClass, source, new String[] { "uniquePresenceCondition",
                 "Tuple {\n\tmessage : String = \'There shall not be two PresenceCondition elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.presenceCondition->isUnique( p : PresenceCondition | p.name )\n}.status" } );
+        addAnnotation( serviceCDCEClass, source, new String[] { "cdcAttributeRequired",
+                "Tuple {\n\tmessage : String = \'The cdc attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.cdc <> null\n}.status" } );
+        addAnnotation( serviceDataAttributeEClass, source, new String[] { "nameAttributeRequired",
+                "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status",
+                "fcAttributeRequired",
+                "Tuple {\n\tmessage : String = \'The fc attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.fc <> null\n}.status" } );
+        addAnnotation( serviceParameterEClass, source, new String[] { "nameAttributeRequired",
+                "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status" } );
+        addAnnotation( subDataAttributeEClass, source, new String[] { "nameAttributeRequired",
+                "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status" } );
+        addAnnotation( subDataObjectEClass, source, new String[] { "nameAttributeRequired",
+                "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status",
+                "typeAttributeRequired",
+                "Tuple {\n\tmessage : String = \'The type attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.type <> null\n}.status" } );
+        addAnnotation( titledClassEClass, source, new String[] { "titleIDAttributeRequired",
+                "Tuple {\n\tmessage : String = \'The titleID attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.titleID <> null\n}.status" } );
+        addAnnotation( agNSIdentificationEClass, source, new String[] { "idAttributeRequired",
+                "Tuple {\n\tmessage : String = \'The id attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.id <> null\n}.status",
+                "versionAttributeRequired",
+                "Tuple {\n\tmessage : String = \'The version attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.version <> null\n}.status" } );
     }
 
 } //NsdPackageImpl

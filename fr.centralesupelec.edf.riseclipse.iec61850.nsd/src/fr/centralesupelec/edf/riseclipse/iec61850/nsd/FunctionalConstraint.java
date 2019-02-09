@@ -40,6 +40,8 @@ import org.eclipse.emf.common.util.EList;
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getFunctionalConstraint()
  * @model extendedMetaData="name='tFunctionalConstraint' kind='elementOnly'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='abbreviationAttributeRequired'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot abbreviationAttributeRequired='Tuple {\n\tmessage : String = \'The abbreviation attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.abbreviation &lt;&gt; null\n}.status'"
  * @generated
  */
 public interface FunctionalConstraint extends NsdObject {

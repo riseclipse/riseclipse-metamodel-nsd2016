@@ -34,6 +34,8 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceType()
  * @model extendedMetaData="name='Service_._type' kind='empty'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='nameAttributeRequired'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot nameAttributeRequired='Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name &lt;&gt; null\n}.status'"
  * @generated
  */
 public interface ServiceType extends NsdObject {

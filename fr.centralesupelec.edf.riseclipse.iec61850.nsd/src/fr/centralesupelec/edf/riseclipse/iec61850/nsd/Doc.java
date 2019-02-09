@@ -39,6 +39,8 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDoc()
  * @model extendedMetaData="name='tDoc' kind='mixed'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='idAttributeRequired'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot idAttributeRequired='Tuple {\n\tmessage : String = \'The id attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.id &lt;&gt; null\n}.status'"
  * @generated
  */
 public interface Doc extends NsdObject {

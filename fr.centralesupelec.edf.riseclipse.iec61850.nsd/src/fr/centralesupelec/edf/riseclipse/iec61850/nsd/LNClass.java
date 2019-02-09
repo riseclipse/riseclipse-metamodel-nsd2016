@@ -36,6 +36,8 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getLNClass()
  * @model extendedMetaData="name='tLNClass' kind='elementOnly'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='nameAttributeRequired'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot nameAttributeRequired='Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name &lt;&gt; null\n}.status'"
  * @generated
  */
 public interface LNClass extends AnyLNClass {
@@ -154,6 +156,7 @@ public interface LNClass extends AnyLNClass {
      *        extendedMetaData="kind='attribute' name='name'"
      * @generated
      */
+    @Override
     String getName();
 
     /**
@@ -207,6 +210,7 @@ public interface LNClass extends AnyLNClass {
      * @model opposite="lNClass" resolveProxies="false" unsettable="true" ordered="false"
      * @generated
      */
+    @Override
     LNClasses getLNClasses();
 
     /**

@@ -98,6 +98,12 @@
       <details key="name" value="Service_._type"/>
       <details key="kind" value="empty"/>
     </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="nameAttributeRequired"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="nameAttributeRequired" value="Tuple {&#xA;&#x9;message : String = 'The name attribute is required',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.name &lt;> null&#xA;}.status"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="#//ACSIServicesKind"
         unsettable="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -113,6 +119,12 @@
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tAbbreviation"/>
       <details key="kind" value="empty"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="nameAttributeRequired"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="nameAttributeRequired" value="Tuple {&#xA;&#x9;message : String = 'The name attribute is required',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.name &lt;> null&#xA;}.status"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="descID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         unsettable="true">
@@ -161,6 +173,12 @@
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tAbstractLNClass"/>
       <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="nameAttributeRequired"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="nameAttributeRequired" value="Tuple {&#xA;&#x9;message : String = 'The name attribute is required',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.name &lt;> null&#xA;}.status"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         unsettable="true">
@@ -283,6 +301,13 @@
       <details key="name" value="tApplicableServiceNS"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="versionAttributeRequired dateAttributeRequired"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="versionAttributeRequired" value="Tuple {&#xA;&#x9;message : String = 'The version attribute is required',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.version &lt;> null&#xA;}.status"/>
+      <details key="dateAttributeRequired" value="Tuple {&#xA;&#x9;message : String = 'The date attribute is required',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.date &lt;> null&#xA;}.status"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="serviceNsUsage" ordered="false"
         upperBound="-1" eType="#//ServiceNsUsage" unsettable="true" containment="true"
         resolveProxies="false" eOpposite="#//ServiceNsUsage/applicableServiceNS">
@@ -352,6 +377,12 @@
       <details key="name" value="tBasicType"/>
       <details key="kind" value="empty"/>
     </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="nameAttributeRequired"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="nameAttributeRequired" value="Tuple {&#xA;&#x9;message : String = 'The name attribute is required',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.name &lt;> null&#xA;}.status"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="descID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         unsettable="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -408,10 +439,11 @@
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="uniqueCDCChild"/>
+      <details key="constraints" value="uniqueCDCChild nameAttributeRequired"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
       <details key="uniqueCDCChild" value="Tuple {&#xA;&#x9;message : String = 'For a CDC, there shall not be two sub-elements (SubDataObject or DataAttribute) with same name.',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;let names : Bag(String) = self.subDataObject.name->union(self.dataAttribute.name) in names->size() = names->asSet()->size()&#xA;}.status"/>
+      <details key="nameAttributeRequired" value="Tuple {&#xA;&#x9;message : String = 'The name attribute is required',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.name &lt;> null&#xA;}.status"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subDataObject" ordered="false"
         upperBound="-1" eType="#//SubDataObject" unsettable="true" containment="true"
@@ -513,6 +545,12 @@
       <details key="name" value="tChanges"/>
       <details key="kind" value="empty"/>
     </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="versionAttributeRequired"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="versionAttributeRequired" value="Tuple {&#xA;&#x9;message : String = 'The version attribute is required',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.version &lt;> null&#xA;}.status"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="changesID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         unsettable="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -567,10 +605,11 @@
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="uniqueSubDataAttribute"/>
+      <details key="constraints" value="uniqueSubDataAttribute nameAttributeRequired"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
       <details key="uniqueSubDataAttribute" value="Tuple {&#xA;&#x9;message : String = 'For a ConstructedAttribute, there shall not be two SubDataAttribute sub-elements with same name.',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.subDataAttribute->isUnique( s : SubDataAttribute | s.name )&#xA;}.status"/>
+      <details key="nameAttributeRequired" value="Tuple {&#xA;&#x9;message : String = 'The name attribute is required',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.name &lt;> null&#xA;}.status"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subDataAttribute" ordered="false"
         upperBound="-1" eType="#//SubDataAttribute" unsettable="true" containment="true"
@@ -665,6 +704,13 @@
       <details key="name" value="tDataAttribute"/>
       <details key="kind" value="empty"/>
     </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="nameAttributeRequired fcAttributeRequired"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="nameAttributeRequired" value="Tuple {&#xA;&#x9;message : String = 'The name attribute is required',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.name &lt;> null&#xA;}.status"/>
+      <details key="fcAttributeRequired" value="Tuple {&#xA;&#x9;message : String = 'The fc attribute is required',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.fc &lt;> null&#xA;}.status"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fc" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         unsettable="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -711,6 +757,13 @@
       <details key="name" value="tDataObject"/>
       <details key="kind" value="empty"/>
     </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="nameAttributeRequired typeAttributeRequired"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="nameAttributeRequired" value="Tuple {&#xA;&#x9;message : String = 'The name attribute is required',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.name &lt;> null&#xA;}.status"/>
+      <details key="typeAttributeRequired" value="Tuple {&#xA;&#x9;message : String = 'The type attribute is required',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.type &lt;> null&#xA;}.status"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         unsettable="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -748,6 +801,12 @@
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tDataSetMemberOf"/>
       <details key="kind" value="empty"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="cbAttributeRequired"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="cbAttributeRequired" value="Tuple {&#xA;&#x9;message : String = 'The cb attribute is required',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.cb &lt;> null&#xA;}.status"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="cb" eType="#//CBKind" unsettable="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -789,6 +848,12 @@
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tDoc"/>
       <details key="kind" value="mixed"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="idAttributeRequired"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="idAttributeRequired" value="Tuple {&#xA;&#x9;message : String = 'The id attribute is required',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.id &lt;> null&#xA;}.status"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
@@ -860,11 +925,12 @@
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="uniqueLiteralName uniqueLiteralVal"/>
+      <details key="constraints" value="uniqueLiteralName uniqueLiteralVal nameAttributeRequired"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
       <details key="uniqueLiteralName" value="Tuple {&#xA;&#x9;message : String = 'For an Enumeration, there shall not be two Literal sub-elements with same name.',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;-- TODO: inherited literals should be taken into account&#xA;&#x9;&#x9;&#x9;-- For this, explicit links have to be created first&#xA;&#x9;&#x9;&#x9;self.literal->isUnique( l : Literal | l.name )&#xA;}.status"/>
       <details key="uniqueLiteralVal" value="Tuple {&#xA;&#x9;message : String = 'For an Enumeration, there shall not be two Literal sub-elements with same literalVal.',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.literal->isUnique( l : Literal | l.literalVal )&#xA;}.status"/>
+      <details key="nameAttributeRequired" value="Tuple {&#xA;&#x9;message : String = 'The name attribute is required',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.name &lt;> null&#xA;}.status"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="literal" ordered="false"
         upperBound="-1" eType="#//Literal" unsettable="true" containment="true" resolveProxies="false"
@@ -926,6 +992,12 @@
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tFunctionalConstraint"/>
       <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="abbreviationAttributeRequired"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="abbreviationAttributeRequired" value="Tuple {&#xA;&#x9;message : String = 'The abbreviation attribute is required',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.abbreviation &lt;> null&#xA;}.status"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="applicableServices" ordered="false"
         eType="#//ApplicableServices" unsettable="true" containment="true" resolveProxies="false"
@@ -1039,6 +1111,13 @@
       <details key="name" value="tLiteral"/>
       <details key="kind" value="empty"/>
     </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="nameAttributeRequired literalValAttributeRequired"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="nameAttributeRequired" value="Tuple {&#xA;&#x9;message : String = 'The name attribute is required',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.name &lt;> null&#xA;}.status"/>
+      <details key="literalValAttributeRequired" value="Tuple {&#xA;&#x9;message : String = 'The literalVal attribute is required',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.literalVal &lt;> null&#xA;}.status"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="literalVal" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"
         unsettable="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -1061,6 +1140,12 @@
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tLNClass"/>
       <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="nameAttributeRequired"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="nameAttributeRequired" value="Tuple {&#xA;&#x9;message : String = 'The name attribute is required',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.name &lt;> null&#xA;}.status"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="canHaveLOG" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
         defaultValueLiteral="false" unsettable="true">
@@ -1255,6 +1340,12 @@
       <details key="name" value="tNSDoc"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="langAttributeRequired"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="langAttributeRequired" value="Tuple {&#xA;&#x9;message : String = 'The lang attribute is required',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.lang &lt;> null&#xA;}.status"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="doc" ordered="false" upperBound="-1"
         eType="#//Doc" unsettable="true" containment="true" resolveProxies="false"
         eOpposite="#//Doc/nSDoc">
@@ -1276,6 +1367,12 @@
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tPresenceCondition"/>
       <details key="kind" value="empty"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="nameAttributeRequired"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="nameAttributeRequired" value="Tuple {&#xA;&#x9;message : String = 'The name attribute is required',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.name &lt;> null&#xA;}.status"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="argument" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         unsettable="true">
@@ -1411,6 +1508,12 @@
       <details key="name" value="tServiceCDC"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="cdcAttributeRequired"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="cdcAttributeRequired" value="Tuple {&#xA;&#x9;message : String = 'The cdc attribute is required',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.cdc &lt;> null&#xA;}.status"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="serviceDataAttribute" ordered="false"
         upperBound="-1" eType="#//ServiceDataAttribute" unsettable="true" containment="true"
         resolveProxies="false" eOpposite="#//ServiceDataAttribute/serviceCDC">
@@ -1495,6 +1598,13 @@
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tServiceDataAttribute"/>
       <details key="kind" value="empty"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="nameAttributeRequired fcAttributeRequired"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="nameAttributeRequired" value="Tuple {&#xA;&#x9;message : String = 'The name attribute is required',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.name &lt;> null&#xA;}.status"/>
+      <details key="fcAttributeRequired" value="Tuple {&#xA;&#x9;message : String = 'The fc attribute is required',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.fc &lt;> null&#xA;}.status"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fc" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         unsettable="true">
@@ -1605,6 +1715,12 @@
       <details key="name" value="tServiceParameter"/>
       <details key="kind" value="empty"/>
     </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="nameAttributeRequired"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="nameAttributeRequired" value="Tuple {&#xA;&#x9;message : String = 'The name attribute is required',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.name &lt;> null&#xA;}.status"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         unsettable="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -1638,6 +1754,12 @@
       <details key="name" value="tSubDataAttribute"/>
       <details key="kind" value="empty"/>
     </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="nameAttributeRequired"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="nameAttributeRequired" value="Tuple {&#xA;&#x9;message : String = 'The name attribute is required',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.name &lt;> null&#xA;}.status"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         unsettable="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -1656,6 +1778,13 @@
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tSubDataObject"/>
       <details key="kind" value="empty"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="nameAttributeRequired typeAttributeRequired"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="nameAttributeRequired" value="Tuple {&#xA;&#x9;message : String = 'The name attribute is required',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.name &lt;> null&#xA;}.status"/>
+      <details key="typeAttributeRequired" value="Tuple {&#xA;&#x9;message : String = 'The type attribute is required',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.type &lt;> null&#xA;}.status"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         unsettable="true">
@@ -1689,6 +1818,12 @@
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tTitledClass"/>
       <details key="kind" value="empty"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="titleIDAttributeRequired"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="titleIDAttributeRequired" value="Tuple {&#xA;&#x9;message : String = 'The titleID attribute is required',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.titleID &lt;> null&#xA;}.status"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="titleID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         unsettable="true">
@@ -1727,6 +1862,13 @@
         defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AgNSIdentification" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="idAttributeRequired versionAttributeRequired"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="idAttributeRequired" value="Tuple {&#xA;&#x9;message : String = 'The id attribute is required',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.id &lt;> null&#xA;}.status"/>
+      <details key="versionAttributeRequired" value="Tuple {&#xA;&#x9;message : String = 'The version attribute is required',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.version &lt;> null&#xA;}.status"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="release" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
         defaultValueLiteral="1" unsettable="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">

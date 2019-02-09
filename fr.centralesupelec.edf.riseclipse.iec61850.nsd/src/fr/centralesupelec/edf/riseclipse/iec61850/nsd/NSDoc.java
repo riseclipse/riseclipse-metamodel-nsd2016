@@ -36,6 +36,8 @@ import org.eclipse.emf.common.util.EList;
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNSDoc()
  * @model extendedMetaData="name='tNSDoc' kind='elementOnly'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='langAttributeRequired'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot langAttributeRequired='Tuple {\n\tmessage : String = \'The lang attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.lang &lt;&gt; null\n}.status'"
  * @generated
  */
 public interface NSDoc extends Copyrighted, AgNSIdentification, AgUML {

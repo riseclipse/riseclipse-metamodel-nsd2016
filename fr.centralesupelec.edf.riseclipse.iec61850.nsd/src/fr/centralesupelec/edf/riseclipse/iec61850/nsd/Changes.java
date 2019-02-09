@@ -42,6 +42,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getChanges()
  * @model extendedMetaData="name='tChanges' kind='empty'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='versionAttributeRequired'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot versionAttributeRequired='Tuple {\n\tmessage : String = \'The version attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.version &lt;&gt; null\n}.status'"
  * @generated
  */
 public interface Changes extends NsdObject {

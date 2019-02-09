@@ -45,8 +45,8 @@ import org.eclipse.emf.common.util.EList;
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCDC()
  * @model extendedMetaData="name='tCDC' kind='elementOnly'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='uniqueCDCChild'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot uniqueCDCChild='Tuple {\n\tmessage : String = \'For a CDC, there shall not be two sub-elements (SubDataObject or DataAttribute) with same name.\',\n\tstatus : Boolean = \n\t\t\tlet names : Bag(String) = self.subDataObject.name-&gt;union(self.dataAttribute.name) in names-&gt;size() = names-&gt;asSet()-&gt;size()\n}.status'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='uniqueCDCChild nameAttributeRequired'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot uniqueCDCChild='Tuple {\n\tmessage : String = \'For a CDC, there shall not be two sub-elements (SubDataObject or DataAttribute) with same name.\',\n\tstatus : Boolean = \n\t\t\tlet names : Bag(String) = self.subDataObject.name-&gt;union(self.dataAttribute.name) in names-&gt;size() = names-&gt;asSet()-&gt;size()\n}.status' nameAttributeRequired='Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name &lt;&gt; null\n}.status'"
  * @generated
  */
 public interface CDC extends TitledClass {
