@@ -136,6 +136,12 @@
       <details key="name" value="tAbbreviations"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="uniqueAbbreviation"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="uniqueAbbreviation" value="Tuple {&#xA;&#x9;message : String = 'There shall not be two Abbreviations elements with same name.',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.abbreviation->isUnique( a : Abbreviation | a.name )&#xA;}.status"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="abbreviation" ordered="false"
         upperBound="-1" eType="#//Abbreviation" unsettable="true" containment="true"
         resolveProxies="false" eOpposite="#//Abbreviation/abbreviations">
@@ -248,7 +254,7 @@
       <details key="constraints" value="uniqueDataObject"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="uniqueDataObject" value="Tuple {&#xA;&#x9;message : String = 'For an AnyLNClass, there shall not be two DataObject sub-elements with same name.',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.dataObject->isUnique( d : DataObject | d.name )&#xA;}.status"/>
+      <details key="uniqueDataObject" value="Tuple {&#xA;&#x9;message : String = 'For an AnyLNClass, there shall not be two DataObject sub-elements with same name.',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;-- TODO: base AbstractLNClass should be taken into account&#xA;&#x9;&#x9;&#x9;-- For this, explicit links have to be created first&#xA;&#x9;&#x9;&#x9;self.dataObject->isUnique( d : DataObject | d.name )&#xA;}.status"/>
     </eAnnotations>
     <eOperations name="getName" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
     <eOperations name="getLNClasses" eType="#//LNClasses"/>
@@ -484,6 +490,12 @@
       <details key="name" value="tCDCs"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="uniqueCDC"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="uniqueCDC" value="Tuple {&#xA;&#x9;message : String = 'Within an NS, there shall not be two CDC sub-elements with same name and (if defined) variant.',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;-- TODO: DependsOn NS should be taken into account ?&#xA;&#x9;&#x9;&#x9;-- For this, explicit links have to be created first&#xA;&#x9;&#x9;&#x9;-- Then, may be this constraint should be in NS and not in Enumerations ?&#xA;&#x9;&#x9;&#x9;self.cDC->select( c : CDC | c.variant = null )->isUnique( c : CDC | c.name )&#xA;&#x9;     or self.cDC->select( c : CDC | c.variant &lt;> null )->forAll( c1, c2 : CDC | c1 &lt;> c2 implies c1.name &lt;> c2.name or c1.variant &lt;> c2.variant )&#xA;}.status"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cDC" ordered="false" upperBound="-1"
         eType="#//CDC" unsettable="true" containment="true" resolveProxies="false"
         eOpposite="#//CDC/cDCs">
@@ -558,7 +570,7 @@
       <details key="constraints" value="uniqueSubDataAttribute"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="uniqueSubDataAttribute" value="Tuple {&#xA;&#x9;message : String = 'For a ConstructedAttribute, there shall not be two SubDataAttribute sub-elements with same name',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.subDataAttribute->isUnique( s : SubDataAttribute | s.name )&#xA;}.status"/>
+      <details key="uniqueSubDataAttribute" value="Tuple {&#xA;&#x9;message : String = 'For a ConstructedAttribute, there shall not be two SubDataAttribute sub-elements with same name.',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.subDataAttribute->isUnique( s : SubDataAttribute | s.name )&#xA;}.status"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subDataAttribute" ordered="false"
         upperBound="-1" eType="#//SubDataAttribute" unsettable="true" containment="true"
@@ -587,6 +599,12 @@
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tConstructedAttributes"/>
       <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="uniqueConstructedAttribute"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="uniqueConstructedAttribute" value="Tuple {&#xA;&#x9;message : String = 'Within an NS, there shall not be two ConstructedAttribute sub-elements with same name.',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;-- TODO: DependsOn NS should be taken into account ?&#xA;&#x9;&#x9;&#x9;-- For this, explicit links have to be created first&#xA;&#x9;&#x9;&#x9;-- Then, may be this constraint should be in NS and not in Enumerations ?&#xA;&#x9;&#x9;&#x9;self.constructedAttribute->isUnique( c : ConstructedAttribute | c.name )&#xA;}.status"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="constructedAttribute" ordered="false"
         upperBound="-1" eType="#//ConstructedAttribute" unsettable="true" containment="true"
@@ -886,6 +904,12 @@
       <details key="name" value="tEnumerations"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="uniqueEnumeration"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="uniqueEnumeration" value="Tuple {&#xA;&#x9;message : String = 'Within an NS, there shall not be two Enumeration sub-elements with same name.',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;-- TODO: DependsOn NS should be taken into account ?&#xA;&#x9;&#x9;&#x9;-- For this, explicit links have to be created first&#xA;&#x9;&#x9;&#x9;-- Then, may be this constraint should be in NS and not in Enumerations ?&#xA;&#x9;&#x9;&#x9;self.enumeration->isUnique( e : Enumeration | e.name )&#xA;}.status"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="enumeration" upperBound="-1"
         eType="#//Enumeration" unsettable="true" containment="true" resolveProxies="false"
         eOpposite="#//Enumeration/enumerations">
@@ -1067,6 +1091,13 @@
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tLNClasses"/>
       <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="uniqueAbstractLNClass uniqueLNClass"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="uniqueAbstractLNClass" value="Tuple {&#xA;&#x9;message : String = 'Within an NS, there shall not be two AbstractLNClass sub-elements with same name.',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.abstractLNClass->isUnique( c : AbstractLNClass | c.name )&#xA;}.status"/>
+      <details key="uniqueLNClass" value="Tuple {&#xA;&#x9;message : String = 'Within an NS, there shall not be two LNClass sub-elements with same name.',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.lNClass->isUnique( c : LNClass | c.name )&#xA;}.status"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="abstractLNClass" ordered="false"
         upperBound="-1" eType="#//AbstractLNClass" unsettable="true" containment="true"
@@ -1297,6 +1328,12 @@
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tPresenceConditions"/>
       <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="uniquePresenceCondition"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="uniquePresenceCondition" value="Tuple {&#xA;&#x9;message : String = 'There shall not be two PresenceCondition elements with same name.',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.presenceCondition->isUnique( p : PresenceCondition | p.name )&#xA;}.status"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="presenceCondition" ordered="false"
         upperBound="-1" eType="#//PresenceCondition" unsettable="true" containment="true"

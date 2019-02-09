@@ -64,7 +64,7 @@ public class NsdResourceSetImpl extends ResourceSetImpl {
         }
         NS ns = ( NS ) root.getNS();
         if( nsdResources.get( ns.getId() ) != null ) {
-            AbstractRiseClipseConsole.getConsole().error( "There is already an NSD file with is " + ns.getId() + ", " + resource.getURI() + "is ignored" );
+            AbstractRiseClipseConsole.getConsole().error( "There is already an NSD file with is " + ns.getId() + ", " + resource.getURI() + " is ignored" );
             this.getResources().remove( resource );
             return;
         }
@@ -123,23 +123,35 @@ public class NsdResourceSetImpl extends ResourceSetImpl {
      *   NS/PresenceConditions:
      *     Name: uniquePresenceCondition               Selector: nsd:PresenceCondition             Field: @name
      *     There shall not be two PresenceCondition elements with same name.
+     *   DONE
+     *     
      *   NS/Abbreviations:
      *     Name: uniqueAbbreviation                    Selector: nsd:Abbreviation                  Field: @name
      *     There shall not be two Abbreviations elements with same name.
+     *   DONE
+     *     
      *   NS/Enumerations:
      *     Name: uniqueEnumeration                     Selector: nsd:Enumeration                   Field: @name
      *     Within an NS, there shall not be two Enumeration sub-elements with same name.
+     *   DONE
+     *     
      *   NS/ConstructedAttributes
      *     Name: uniqueConstructedAttribute            Selector: nsd:ConstructedAttribute          Field: @name
      *     Within an NS, there shall not be two ConstructedAttribute sub-elements with same name.
+     *   DONE
+     *     
      *   NS/CDCs:
      *     Name: uniqueCDC                             Selector: nsd:CDC                           Field: @name @variant
      *     Within an NS, there shall not be two CDC sub-elements with same name and (if defined) variant.
+     *   DONE
+     *     
      *   NS/LNClasses:
      *     Name: uniqueAbstractLNClass                 Selector: nsd:AbstractLNClass               Field: @name
      *     Within an NS, there shall not be two AbstractLNClass sub-elements with same name.
      *     Name: uniqueLNClass              Selector: nsd:LNClass        Field: @name
      *     Within an NS, there shall not be two LNClass sub-elements with same name.
+     *   DONE
+     *     
      *   ServiceCDCs/ServiceCDC:
      *     Name: uniqueServiceCDCChild                 Selector: nsd:ServiceDataAttribute          Field: @name
      *     For a CDC, there shall not be two ServiceDataAttribute sub-elements with same name.

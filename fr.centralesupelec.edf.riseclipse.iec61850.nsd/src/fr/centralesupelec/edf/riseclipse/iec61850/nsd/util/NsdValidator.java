@@ -320,7 +320,47 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateAbbreviations( Abbreviations abbreviations, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        return validate_EveryDefaultConstraint( abbreviations, diagnostics, context );
+        if( !validate_NoCircularContainment( abbreviations, diagnostics, context ) ) return false;
+        boolean result = validate_EveryMultiplicityConforms( abbreviations, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryDataValueConforms( abbreviations, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryReferenceIsContained( abbreviations, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryBidirectionalReferenceIsPaired( abbreviations, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryProxyResolves( abbreviations, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_UniqueID( abbreviations, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( abbreviations, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryMapEntryUnique( abbreviations, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validateAbbreviations_uniqueAbbreviation( abbreviations, diagnostics, context );
+        return result;
+    }
+
+    /**
+     * The cached validation expression for the uniqueAbbreviation constraint of '<em>Abbreviations</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected static final String ABBREVIATIONS__UNIQUE_ABBREVIATION__EEXPRESSION = "Tuple {\n"
+            + "\tmessage : String = 'There shall not be two Abbreviations elements with same name.',\n"
+            + "\tstatus : Boolean = \n" + "\t\t\tself.abbreviation->isUnique( a : Abbreviation | a.name )\n"
+            + "}.status";
+
+    /**
+     * Validates the uniqueAbbreviation constraint of '<em>Abbreviations</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateAbbreviations_uniqueAbbreviation( Abbreviations abbreviations, DiagnosticChain diagnostics,
+            Map< Object, Object > context ) {
+        return validate( NsdPackage.Literals.ABBREVIATIONS, abbreviations, diagnostics, context,
+                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", "uniqueAbbreviation",
+                ABBREVIATIONS__UNIQUE_ABBREVIATION__EEXPRESSION, Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0 );
     }
 
     /**
@@ -381,7 +421,9 @@ public class NsdValidator extends EObjectValidator {
      */
     protected static final String ANY_LN_CLASS__UNIQUE_DATA_OBJECT__EEXPRESSION = "Tuple {\n"
             + "\tmessage : String = 'For an AnyLNClass, there shall not be two DataObject sub-elements with same name.',\n"
-            + "\tstatus : Boolean = \n" + "\t\t\tself.dataObject->isUnique( d : DataObject | d.name )\n" + "}.status";
+            + "\tstatus : Boolean = \n" + "\t\t\t-- TODO: base AbstractLNClass should be taken into account\n"
+            + "\t\t\t-- For this, explicit links have to be created first\n"
+            + "\t\t\tself.dataObject->isUnique( d : DataObject | d.name )\n" + "}.status";
 
     /**
      * Validates the uniqueDataObject constraint of '<em>Any LN Class</em>'.
@@ -552,7 +594,45 @@ public class NsdValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateCDCs( CDCs cdCs, DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        return validate_EveryDefaultConstraint( cdCs, diagnostics, context );
+        if( !validate_NoCircularContainment( cdCs, diagnostics, context ) ) return false;
+        boolean result = validate_EveryMultiplicityConforms( cdCs, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_EveryDataValueConforms( cdCs, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_EveryReferenceIsContained( cdCs, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryBidirectionalReferenceIsPaired( cdCs, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_EveryProxyResolves( cdCs, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_UniqueID( cdCs, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( cdCs, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_EveryMapEntryUnique( cdCs, diagnostics, context );
+        if( result || diagnostics != null ) result &= validateCDCs_uniqueCDC( cdCs, diagnostics, context );
+        return result;
+    }
+
+    /**
+     * The cached validation expression for the uniqueCDC constraint of '<em>CD Cs</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected static final String CD_CS__UNIQUE_CDC__EEXPRESSION = "Tuple {\n"
+            + "\tmessage : String = 'Within an NS, there shall not be two CDC sub-elements with same name and (if defined) variant.',\n"
+            + "\tstatus : Boolean = \n" + "\t\t\t-- TODO: DependsOn NS should be taken into account ?\n"
+            + "\t\t\t-- For this, explicit links have to be created first\n"
+            + "\t\t\t-- Then, may be this constraint should be in NS and not in Enumerations ?\n"
+            + "\t\t\tself.cDC->select( c : CDC | c.variant = null )->isUnique( c : CDC | c.name )\n"
+            + "\t     or self.cDC->select( c : CDC | c.variant <> null )->forAll( c1, c2 : CDC | c1 <> c2 implies c1.name <> c2.name or c1.variant <> c2.variant )\n"
+            + "}.status";
+
+    /**
+     * Validates the uniqueCDC constraint of '<em>CD Cs</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateCDCs_uniqueCDC( CDCs cdCs, DiagnosticChain diagnostics, Map< Object, Object > context ) {
+        return validate( NsdPackage.Literals.CD_CS, cdCs, diagnostics, context,
+                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", "uniqueCDC", CD_CS__UNIQUE_CDC__EEXPRESSION,
+                Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0 );
     }
 
     /**
@@ -598,7 +678,7 @@ public class NsdValidator extends EObjectValidator {
      * @generated
      */
     protected static final String CONSTRUCTED_ATTRIBUTE__UNIQUE_SUB_DATA_ATTRIBUTE__EEXPRESSION = "Tuple {\n"
-            + "\tmessage : String = 'For a ConstructedAttribute, there shall not be two SubDataAttribute sub-elements with same name',\n"
+            + "\tmessage : String = 'For a ConstructedAttribute, there shall not be two SubDataAttribute sub-elements with same name.',\n"
             + "\tstatus : Boolean = \n" + "\t\t\tself.subDataAttribute->isUnique( s : SubDataAttribute | s.name )\n"
             + "}.status";
 
@@ -622,7 +702,52 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateConstructedAttributes( ConstructedAttributes constructedAttributes,
             DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        return validate_EveryDefaultConstraint( constructedAttributes, diagnostics, context );
+        if( !validate_NoCircularContainment( constructedAttributes, diagnostics, context ) ) return false;
+        boolean result = validate_EveryMultiplicityConforms( constructedAttributes, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryDataValueConforms( constructedAttributes, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryReferenceIsContained( constructedAttributes, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryBidirectionalReferenceIsPaired( constructedAttributes, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryProxyResolves( constructedAttributes, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_UniqueID( constructedAttributes, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryKeyUnique( constructedAttributes, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryMapEntryUnique( constructedAttributes, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validateConstructedAttributes_uniqueConstructedAttribute( constructedAttributes, diagnostics,
+                    context );
+        return result;
+    }
+
+    /**
+     * The cached validation expression for the uniqueConstructedAttribute constraint of '<em>Constructed Attributes</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected static final String CONSTRUCTED_ATTRIBUTES__UNIQUE_CONSTRUCTED_ATTRIBUTE__EEXPRESSION = "Tuple {\n"
+            + "\tmessage : String = 'Within an NS, there shall not be two ConstructedAttribute sub-elements with same name.',\n"
+            + "\tstatus : Boolean = \n" + "\t\t\t-- TODO: DependsOn NS should be taken into account ?\n"
+            + "\t\t\t-- For this, explicit links have to be created first\n"
+            + "\t\t\t-- Then, may be this constraint should be in NS and not in Enumerations ?\n"
+            + "\t\t\tself.constructedAttribute->isUnique( c : ConstructedAttribute | c.name )\n" + "}.status";
+
+    /**
+     * Validates the uniqueConstructedAttribute constraint of '<em>Constructed Attributes</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateConstructedAttributes_uniqueConstructedAttribute(
+            ConstructedAttributes constructedAttributes, DiagnosticChain diagnostics, Map< Object, Object > context ) {
+        return validate( NsdPackage.Literals.CONSTRUCTED_ATTRIBUTES, constructedAttributes, diagnostics, context,
+                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", "uniqueConstructedAttribute",
+                CONSTRUCTED_ATTRIBUTES__UNIQUE_CONSTRUCTED_ATTRIBUTE__EEXPRESSION, Diagnostic.ERROR, DIAGNOSTIC_SOURCE,
+                0 );
     }
 
     /**
@@ -775,7 +900,48 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateEnumerations( Enumerations enumerations, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        return validate_EveryDefaultConstraint( enumerations, diagnostics, context );
+        if( !validate_NoCircularContainment( enumerations, diagnostics, context ) ) return false;
+        boolean result = validate_EveryMultiplicityConforms( enumerations, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryDataValueConforms( enumerations, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryReferenceIsContained( enumerations, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryBidirectionalReferenceIsPaired( enumerations, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_EveryProxyResolves( enumerations, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_UniqueID( enumerations, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( enumerations, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryMapEntryUnique( enumerations, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validateEnumerations_uniqueEnumeration( enumerations, diagnostics, context );
+        return result;
+    }
+
+    /**
+     * The cached validation expression for the uniqueEnumeration constraint of '<em>Enumerations</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected static final String ENUMERATIONS__UNIQUE_ENUMERATION__EEXPRESSION = "Tuple {\n"
+            + "\tmessage : String = 'Within an NS, there shall not be two Enumeration sub-elements with same name.',\n"
+            + "\tstatus : Boolean = \n" + "\t\t\t-- TODO: DependsOn NS should be taken into account ?\n"
+            + "\t\t\t-- For this, explicit links have to be created first\n"
+            + "\t\t\t-- Then, may be this constraint should be in NS and not in Enumerations ?\n"
+            + "\t\t\tself.enumeration->isUnique( e : Enumeration | e.name )\n" + "}.status";
+
+    /**
+     * Validates the uniqueEnumeration constraint of '<em>Enumerations</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateEnumerations_uniqueEnumeration( Enumerations enumerations, DiagnosticChain diagnostics,
+            Map< Object, Object > context ) {
+        return validate( NsdPackage.Literals.ENUMERATIONS, enumerations, diagnostics, context,
+                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", "uniqueEnumeration",
+                ENUMERATIONS__UNIQUE_ENUMERATION__EEXPRESSION, Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0 );
     }
 
     /**
@@ -888,7 +1054,70 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateLNClasses( LNClasses lnClasses, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        return validate_EveryDefaultConstraint( lnClasses, diagnostics, context );
+        if( !validate_NoCircularContainment( lnClasses, diagnostics, context ) ) return false;
+        boolean result = validate_EveryMultiplicityConforms( lnClasses, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryDataValueConforms( lnClasses, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryReferenceIsContained( lnClasses, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryBidirectionalReferenceIsPaired( lnClasses, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_EveryProxyResolves( lnClasses, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_UniqueID( lnClasses, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( lnClasses, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_EveryMapEntryUnique( lnClasses, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validateLNClasses_uniqueAbstractLNClass( lnClasses, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validateLNClasses_uniqueLNClass( lnClasses, diagnostics, context );
+        return result;
+    }
+
+    /**
+     * The cached validation expression for the uniqueAbstractLNClass constraint of '<em>LN Classes</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected static final String LN_CLASSES__UNIQUE_ABSTRACT_LN_CLASS__EEXPRESSION = "Tuple {\n"
+            + "\tmessage : String = 'Within an NS, there shall not be two AbstractLNClass sub-elements with same name.',\n"
+            + "\tstatus : Boolean = \n" + "\t\t\tself.abstractLNClass->isUnique( c : AbstractLNClass | c.name )\n"
+            + "}.status";
+
+    /**
+     * Validates the uniqueAbstractLNClass constraint of '<em>LN Classes</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateLNClasses_uniqueAbstractLNClass( LNClasses lnClasses, DiagnosticChain diagnostics,
+            Map< Object, Object > context ) {
+        return validate( NsdPackage.Literals.LN_CLASSES, lnClasses, diagnostics, context,
+                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", "uniqueAbstractLNClass",
+                LN_CLASSES__UNIQUE_ABSTRACT_LN_CLASS__EEXPRESSION, Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0 );
+    }
+
+    /**
+     * The cached validation expression for the uniqueLNClass constraint of '<em>LN Classes</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected static final String LN_CLASSES__UNIQUE_LN_CLASS__EEXPRESSION = "Tuple {\n"
+            + "\tmessage : String = 'Within an NS, there shall not be two LNClass sub-elements with same name.',\n"
+            + "\tstatus : Boolean = \n" + "\t\t\tself.lNClass->isUnique( c : LNClass | c.name )\n" + "}.status";
+
+    /**
+     * Validates the uniqueLNClass constraint of '<em>LN Classes</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateLNClasses_uniqueLNClass( LNClasses lnClasses, DiagnosticChain diagnostics,
+            Map< Object, Object > context ) {
+        return validate( NsdPackage.Literals.LN_CLASSES, lnClasses, diagnostics, context,
+                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", "uniqueLNClass",
+                LN_CLASSES__UNIQUE_LN_CLASS__EEXPRESSION, Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0 );
     }
 
     /**
@@ -935,7 +1164,48 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validatePresenceConditions( PresenceConditions presenceConditions, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        return validate_EveryDefaultConstraint( presenceConditions, diagnostics, context );
+        if( !validate_NoCircularContainment( presenceConditions, diagnostics, context ) ) return false;
+        boolean result = validate_EveryMultiplicityConforms( presenceConditions, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryDataValueConforms( presenceConditions, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryReferenceIsContained( presenceConditions, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryBidirectionalReferenceIsPaired( presenceConditions, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryProxyResolves( presenceConditions, diagnostics, context );
+        if( result || diagnostics != null ) result &= validate_UniqueID( presenceConditions, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryKeyUnique( presenceConditions, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validate_EveryMapEntryUnique( presenceConditions, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validatePresenceConditions_uniquePresenceCondition( presenceConditions, diagnostics, context );
+        return result;
+    }
+
+    /**
+     * The cached validation expression for the uniquePresenceCondition constraint of '<em>Presence Conditions</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected static final String PRESENCE_CONDITIONS__UNIQUE_PRESENCE_CONDITION__EEXPRESSION = "Tuple {\n"
+            + "\tmessage : String = 'There shall not be two PresenceCondition elements with same name.',\n"
+            + "\tstatus : Boolean = \n" + "\t\t\tself.presenceCondition->isUnique( p : PresenceCondition | p.name )\n"
+            + "}.status";
+
+    /**
+     * Validates the uniquePresenceCondition constraint of '<em>Presence Conditions</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validatePresenceConditions_uniquePresenceCondition( PresenceConditions presenceConditions,
+            DiagnosticChain diagnostics, Map< Object, Object > context ) {
+        return validate( NsdPackage.Literals.PRESENCE_CONDITIONS, presenceConditions, diagnostics, context,
+                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", "uniquePresenceCondition",
+                PRESENCE_CONDITIONS__UNIQUE_PRESENCE_CONDITION__EEXPRESSION, Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0 );
     }
 
     /**

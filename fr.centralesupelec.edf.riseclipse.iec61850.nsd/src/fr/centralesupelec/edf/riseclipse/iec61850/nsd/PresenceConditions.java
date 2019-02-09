@@ -37,6 +37,8 @@ import org.eclipse.emf.common.util.EList;
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getPresenceConditions()
  * @model extendedMetaData="name='tPresenceConditions' kind='elementOnly'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='uniquePresenceCondition'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot uniquePresenceCondition='Tuple {\n\tmessage : String = \'There shall not be two PresenceCondition elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.presenceCondition-&gt;isUnique( p : PresenceCondition | p.name )\n}.status'"
  * @generated
  */
 public interface PresenceConditions extends NsdObject {

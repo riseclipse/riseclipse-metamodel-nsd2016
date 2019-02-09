@@ -37,6 +37,8 @@ import org.eclipse.emf.common.util.EList;
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getLNClasses()
  * @model extendedMetaData="name='tLNClasses' kind='elementOnly'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='uniqueAbstractLNClass uniqueLNClass'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot uniqueAbstractLNClass='Tuple {\n\tmessage : String = \'Within an NS, there shall not be two AbstractLNClass sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.abstractLNClass-&gt;isUnique( c : AbstractLNClass | c.name )\n}.status' uniqueLNClass='Tuple {\n\tmessage : String = \'Within an NS, there shall not be two LNClass sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.lNClass-&gt;isUnique( c : LNClass | c.name )\n}.status'"
  * @generated
  */
 public interface LNClasses extends NsdObject {

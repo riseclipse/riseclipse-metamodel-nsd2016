@@ -5252,15 +5252,22 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 new String[] { "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
                         "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", "validationDelegates",
                         "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" } );
+        addAnnotation( abbreviationsEClass, source, new String[] { "constraints", "uniqueAbbreviation" } );
         addAnnotation( anyLNClassEClass, source, new String[] { "constraints", "uniqueDataObject" } );
         addAnnotation( applicableServicesEClass, source,
                 new String[] { "constraints", "uniqueDataSetMemberOf uniqueService" } );
         addAnnotation( cdcEClass, source, new String[] { "constraints", "uniqueCDCChild" } );
+        addAnnotation( cdCsEClass, source, new String[] { "constraints", "uniqueCDC" } );
         addAnnotation( constructedAttributeEClass, source, new String[] { "constraints", "uniqueSubDataAttribute" } );
+        addAnnotation( constructedAttributesEClass, source,
+                new String[] { "constraints", "uniqueConstructedAttribute" } );
         addAnnotation( enumerationEClass, source,
                 new String[] { "constraints", "uniqueLiteralName uniqueLiteralVal" } );
+        addAnnotation( enumerationsEClass, source, new String[] { "constraints", "uniqueEnumeration" } );
         addAnnotation( functionalConstraintsEClass, source,
                 new String[] { "constraints", "uniqueFunctionalConstraint" } );
+        addAnnotation( lnClassesEClass, source, new String[] { "constraints", "uniqueAbstractLNClass uniqueLNClass" } );
+        addAnnotation( presenceConditionsEClass, source, new String[] { "constraints", "uniquePresenceCondition" } );
     }
 
     /**
@@ -5591,22 +5598,36 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      */
     protected void createPivotAnnotations() {
         String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";
+        addAnnotation( abbreviationsEClass, source, new String[] { "uniqueAbbreviation",
+                "Tuple {\n\tmessage : String = \'There shall not be two Abbreviations elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.abbreviation->isUnique( a : Abbreviation | a.name )\n}.status" } );
         addAnnotation( anyLNClassEClass, source, new String[] { "uniqueDataObject",
-                "Tuple {\n\tmessage : String = \'For an AnyLNClass, there shall not be two DataObject sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.dataObject->isUnique( d : DataObject | d.name )\n}.status" } );
+                "Tuple {\n\tmessage : String = \'For an AnyLNClass, there shall not be two DataObject sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: base AbstractLNClass should be taken into account\n\t\t\t-- For this, explicit links have to be created first\n\t\t\tself.dataObject->isUnique( d : DataObject | d.name )\n}.status" } );
         addAnnotation( applicableServicesEClass, source, new String[] { "uniqueDataSetMemberOf",
                 "Tuple {\n\tmessage : String = \'For an ApplicableServices, there shall not be two DataSetMemberOf sub-elements with same cb.\',\n\tstatus : Boolean = \n\t\t\tself.dataSetMemberOf->isUnique( d : DataSetMemberOf | d.cb )\n}.status",
                 "uniqueService",
                 "Tuple {\n\tmessage : String = \'For an ApplicableServices, there shall not be two ServiceType sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.service->isUnique( s : ServiceType | s.name )\n}.status" } );
         addAnnotation( cdcEClass, source, new String[] { "uniqueCDCChild",
                 "Tuple {\n\tmessage : String = \'For a CDC, there shall not be two sub-elements (SubDataObject or DataAttribute) with same name.\',\n\tstatus : Boolean = \n\t\t\tlet names : Bag(String) = self.subDataObject.name->union(self.dataAttribute.name) in names->size() = names->asSet()->size()\n}.status" } );
+        addAnnotation( cdCsEClass, source, new String[] { "uniqueCDC",
+                "Tuple {\n\tmessage : String = \'Within an NS, there shall not be two CDC sub-elements with same name and (if defined) variant.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: DependsOn NS should be taken into account ?\n\t\t\t-- For this, explicit links have to be created first\n\t\t\t-- Then, may be this constraint should be in NS and not in Enumerations ?\n\t\t\tself.cDC->select( c : CDC | c.variant = null )->isUnique( c : CDC | c.name )\n\t     or self.cDC->select( c : CDC | c.variant <> null )->forAll( c1, c2 : CDC | c1 <> c2 implies c1.name <> c2.name or c1.variant <> c2.variant )\n}.status" } );
         addAnnotation( constructedAttributeEClass, source, new String[] { "uniqueSubDataAttribute",
-                "Tuple {\n\tmessage : String = \'For a ConstructedAttribute, there shall not be two SubDataAttribute sub-elements with same name\',\n\tstatus : Boolean = \n\t\t\tself.subDataAttribute->isUnique( s : SubDataAttribute | s.name )\n}.status" } );
+                "Tuple {\n\tmessage : String = \'For a ConstructedAttribute, there shall not be two SubDataAttribute sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.subDataAttribute->isUnique( s : SubDataAttribute | s.name )\n}.status" } );
+        addAnnotation( constructedAttributesEClass, source, new String[] { "uniqueConstructedAttribute",
+                "Tuple {\n\tmessage : String = \'Within an NS, there shall not be two ConstructedAttribute sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: DependsOn NS should be taken into account ?\n\t\t\t-- For this, explicit links have to be created first\n\t\t\t-- Then, may be this constraint should be in NS and not in Enumerations ?\n\t\t\tself.constructedAttribute->isUnique( c : ConstructedAttribute | c.name )\n}.status" } );
         addAnnotation( enumerationEClass, source, new String[] { "uniqueLiteralName",
                 "Tuple {\n\tmessage : String = \'For an Enumeration, there shall not be two Literal sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: inherited literals should be taken into account\n\t\t\t-- For this, explicit links have to be created first\n\t\t\tself.literal->isUnique( l : Literal | l.name )\n}.status",
                 "uniqueLiteralVal",
                 "Tuple {\n\tmessage : String = \'For an Enumeration, there shall not be two Literal sub-elements with same literalVal.\',\n\tstatus : Boolean = \n\t\t\tself.literal->isUnique( l : Literal | l.literalVal )\n}.status" } );
+        addAnnotation( enumerationsEClass, source, new String[] { "uniqueEnumeration",
+                "Tuple {\n\tmessage : String = \'Within an NS, there shall not be two Enumeration sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: DependsOn NS should be taken into account ?\n\t\t\t-- For this, explicit links have to be created first\n\t\t\t-- Then, may be this constraint should be in NS and not in Enumerations ?\n\t\t\tself.enumeration->isUnique( e : Enumeration | e.name )\n}.status" } );
         addAnnotation( functionalConstraintsEClass, source, new String[] { "uniqueFunctionalConstraint",
                 "Tuple {\n\tmessage : String = \'There shall not be two FunctionalConstraint elements with same abbreviation.\',\n\tstatus : Boolean = \n\t\t\tself.functionalConstraint->isUnique( f : FunctionalConstraint | f.abbreviation )\n}.status" } );
+        addAnnotation( lnClassesEClass, source, new String[] { "uniqueAbstractLNClass",
+                "Tuple {\n\tmessage : String = \'Within an NS, there shall not be two AbstractLNClass sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.abstractLNClass->isUnique( c : AbstractLNClass | c.name )\n}.status",
+                "uniqueLNClass",
+                "Tuple {\n\tmessage : String = \'Within an NS, there shall not be two LNClass sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.lNClass->isUnique( c : LNClass | c.name )\n}.status" } );
+        addAnnotation( presenceConditionsEClass, source, new String[] { "uniquePresenceCondition",
+                "Tuple {\n\tmessage : String = \'There shall not be two PresenceCondition elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.presenceCondition->isUnique( p : PresenceCondition | p.name )\n}.status" } );
     }
 
 } //NsdPackageImpl

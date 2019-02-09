@@ -39,7 +39,7 @@ import org.eclipse.emf.common.util.EList;
  * @model abstract="true"
  *        extendedMetaData="name='tAnyLNClass' kind='elementOnly'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='uniqueDataObject'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot uniqueDataObject='Tuple {\n\tmessage : String = \'For an AnyLNClass, there shall not be two DataObject sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.dataObject-&gt;isUnique( d : DataObject | d.name )\n}.status'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot uniqueDataObject='Tuple {\n\tmessage : String = \'For an AnyLNClass, there shall not be two DataObject sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: base AbstractLNClass should be taken into account\n\t\t\t-- For this, explicit links have to be created first\n\t\t\tself.dataObject-&gt;isUnique( d : DataObject | d.name )\n}.status'"
  * @generated
  */
 public interface AnyLNClass extends TitledClass {
