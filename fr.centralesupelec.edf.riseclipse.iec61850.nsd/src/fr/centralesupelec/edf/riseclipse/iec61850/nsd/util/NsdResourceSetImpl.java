@@ -21,12 +21,16 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd.util;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.stream.Stream;
 
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.util.AbstractRiseClipseConsole;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
@@ -214,5 +218,30 @@ public class NsdResourceSetImpl extends ResourceSetImpl {
     public NS getNS( String id ) {
         return nsdResources.get( id );
     }
+    
+    public Stream< LNClass > getLNClassStream() {
+        if( nsdResources.isEmpty() ) {
+            return null;
+        }
+        Stream< LNClass > lnClassStream = null;
+        Iterator< NS > it = nsdResources.values().iterator();
+        while( it.hasNext() ) {
+            LNClasses lnClasses = it.next().getLNClasses();
+            if( lnClasses != null ) {
+                if( lnClassStream == null ) {
+                    lnClassStream = lnClasses.getLNClass().stream();
+                }
+                else {
+                    // Warning: Resource leak: 'lnClassStream' is not closed at this location ??
+                    //lnClassStream = Stream.concat( lnClassStream, lnClasses.getLNClass().stream() );
+                    Stream< LNClass > tmp = Stream.concat( lnClassStream, lnClasses.getLNClass().stream() );
+                    lnClassStream = tmp;
+                }
+            }
+        }
+        return lnClassStream;
+    }
 
 }
+
+
