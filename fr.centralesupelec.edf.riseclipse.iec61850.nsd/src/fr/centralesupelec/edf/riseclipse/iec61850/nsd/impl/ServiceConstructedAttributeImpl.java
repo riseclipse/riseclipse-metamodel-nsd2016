@@ -22,11 +22,15 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttributes;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,6 +41,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceConstructedAttributeImpl#isTypeKindParameterized <em>Type Kind Parameterized</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceConstructedAttributeImpl#getServiceConstructedAttribute <em>Service Constructed Attribute</em>}</li>
  * </ul>
  *
  * @generated
@@ -148,10 +153,107 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
      * @generated
      */
     @Override
+    public ServiceConstructedAttributes getServiceConstructedAttribute() {
+        if( eContainerFeatureID() != NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__SERVICE_CONSTRUCTED_ATTRIBUTE )
+            return null;
+        return ( ServiceConstructedAttributes ) eInternalContainer();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetServiceConstructedAttribute(
+            ServiceConstructedAttributes newServiceConstructedAttribute, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newServiceConstructedAttribute,
+                NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__SERVICE_CONSTRUCTED_ATTRIBUTE, msgs );
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setServiceConstructedAttribute( ServiceConstructedAttributes newServiceConstructedAttribute ) {
+        if( newServiceConstructedAttribute != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__SERVICE_CONSTRUCTED_ATTRIBUTE
+                        && newServiceConstructedAttribute != null ) ) {
+            if( EcoreUtil.isAncestor( this, newServiceConstructedAttribute ) )
+                throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            NotificationChain msgs = null;
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( newServiceConstructedAttribute != null )
+                msgs = ( ( InternalEObject ) newServiceConstructedAttribute ).eInverseAdd( this,
+                        NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_CONSTRUCTED_ATTRIBUTE,
+                        ServiceConstructedAttributes.class, msgs );
+            msgs = basicSetServiceConstructedAttribute( newServiceConstructedAttribute, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__SERVICE_CONSTRUCTED_ATTRIBUTE, newServiceConstructedAttribute,
+                newServiceConstructedAttribute ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__SERVICE_CONSTRUCTED_ATTRIBUTE:
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            return basicSetServiceConstructedAttribute( ( ServiceConstructedAttributes ) otherEnd, msgs );
+        }
+        return super.eInverseAdd( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__SERVICE_CONSTRUCTED_ATTRIBUTE:
+            return basicSetServiceConstructedAttribute( null, msgs );
+        }
+        return super.eInverseRemove( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
+        switch( eContainerFeatureID() ) {
+        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__SERVICE_CONSTRUCTED_ATTRIBUTE:
+            return eInternalContainer().eInverseRemove( this,
+                    NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_CONSTRUCTED_ATTRIBUTE,
+                    ServiceConstructedAttributes.class, msgs );
+        }
+        return super.eBasicRemoveFromContainerFeature( msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
         case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__TYPE_KIND_PARAMETERIZED:
             return isTypeKindParameterized();
+        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__SERVICE_CONSTRUCTED_ATTRIBUTE:
+            return getServiceConstructedAttribute();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -166,6 +268,9 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
         switch( featureID ) {
         case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__TYPE_KIND_PARAMETERIZED:
             setTypeKindParameterized( ( Boolean ) newValue );
+            return;
+        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__SERVICE_CONSTRUCTED_ATTRIBUTE:
+            setServiceConstructedAttribute( ( ServiceConstructedAttributes ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -182,6 +287,9 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
         case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__TYPE_KIND_PARAMETERIZED:
             unsetTypeKindParameterized();
             return;
+        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__SERVICE_CONSTRUCTED_ATTRIBUTE:
+            setServiceConstructedAttribute( ( ServiceConstructedAttributes ) null );
+            return;
         }
         super.eUnset( featureID );
     }
@@ -196,6 +304,8 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
         switch( featureID ) {
         case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__TYPE_KIND_PARAMETERIZED:
             return isSetTypeKindParameterized();
+        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__SERVICE_CONSTRUCTED_ATTRIBUTE:
+            return getServiceConstructedAttribute() != null;
         }
         return super.eIsSet( featureID );
     }

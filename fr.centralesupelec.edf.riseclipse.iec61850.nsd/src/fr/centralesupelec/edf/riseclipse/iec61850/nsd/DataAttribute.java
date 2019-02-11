@@ -28,10 +28,6 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the model object '<em><b>Data Attribute</b></em>'.
  * <!-- end-user-doc -->
  *
- * <!-- begin-model-doc -->
- * Definition of a Data Attribute.
- * <!-- end-model-doc -->
- *
  * <p>
  * The following features are supported:
  * </p>
@@ -53,6 +49,7 @@ import org.eclipse.emf.common.util.Enumerator;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getSizeAttribute <em>Size Attribute</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getType <em>Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getTypeKind <em>Type Kind</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getCDC <em>CDC</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute()
@@ -119,13 +116,12 @@ public interface DataAttribute extends DocumentedClass {
      * Returns the value of the '<em><b>Default Value</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Default value for the data attribute. May only be defined for data attributes with typeKind="BASIC" or "ENUMERATED".
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Default Value</em>' attribute.
+     * @see #isSetDefaultValue()
+     * @see #unsetDefaultValue()
      * @see #setDefaultValue(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_DefaultValue()
-     * @model dataType="org.eclipse.emf.ecore.xml.type.NormalizedString"
+     * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.NormalizedString"
      *        extendedMetaData="kind='attribute' name='defaultValue'"
      * @generated
      */
@@ -136,10 +132,35 @@ public interface DataAttribute extends DocumentedClass {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Default Value</em>' attribute.
+     * @see #isSetDefaultValue()
+     * @see #unsetDefaultValue()
      * @see #getDefaultValue()
      * @generated
      */
     void setDefaultValue( String value );
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getDefaultValue <em>Default Value</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetDefaultValue()
+     * @see #getDefaultValue()
+     * @see #setDefaultValue(String)
+     * @generated
+     */
+    void unsetDefaultValue();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getDefaultValue <em>Default Value</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Default Value</em>' attribute is set.
+     * @see #unsetDefaultValue()
+     * @see #getDefaultValue()
+     * @see #setDefaultValue(String)
+     * @generated
+     */
+    boolean isSetDefaultValue();
 
     /**
      * Returns the value of the '<em><b>Dupd</b></em>' attribute.
@@ -200,13 +221,12 @@ public interface DataAttribute extends DocumentedClass {
      * Returns the value of the '<em><b>Fc</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Functional constraint of the data attribute.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Fc</em>' attribute.
+     * @see #isSetFc()
+     * @see #unsetFc()
      * @see #setFc(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_Fc()
-     * @model required="true"
+     * @model unsettable="true"
      *        extendedMetaData="kind='attribute' name='fc'"
      * @generated
      */
@@ -217,19 +237,41 @@ public interface DataAttribute extends DocumentedClass {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Fc</em>' attribute.
+     * @see #isSetFc()
+     * @see #unsetFc()
      * @see #getFc()
      * @generated
      */
     void setFc( String value );
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getFc <em>Fc</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetFc()
+     * @see #getFc()
+     * @see #setFc(String)
+     * @generated
+     */
+    void unsetFc();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getFc <em>Fc</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Fc</em>' attribute is set.
+     * @see #unsetFc()
+     * @see #getFc()
+     * @see #setFc(String)
+     * @generated
+     */
+    boolean isSetFc();
+
+    /**
      * Returns the value of the '<em><b>Is Array</b></em>' attribute.
      * The default value is <code>"false"</code>.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Flag indicating whether the element is an array. By default, not an array.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Is Array</em>' attribute.
      * @see #isSetIsArray()
      * @see #unsetIsArray()
@@ -280,14 +322,13 @@ public interface DataAttribute extends DocumentedClass {
      * Returns the value of the '<em><b>Max Index Attribute</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Name of the Attribute holding the maximal index of the array.
-     * Is relevant information if and only if isArray=true. One and only one of sizeAttribute and maxIndexAttribute shall be used.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Max Index Attribute</em>' attribute.
+     * @see #isSetMaxIndexAttribute()
+     * @see #unsetMaxIndexAttribute()
      * @see #setMaxIndexAttribute(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_MaxIndexAttribute()
-     * @model extendedMetaData="kind='attribute' name='maxIndexAttribute'"
+     * @model unsettable="true"
+     *        extendedMetaData="kind='attribute' name='maxIndexAttribute'"
      * @generated
      */
     String getMaxIndexAttribute();
@@ -297,22 +338,46 @@ public interface DataAttribute extends DocumentedClass {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Max Index Attribute</em>' attribute.
+     * @see #isSetMaxIndexAttribute()
+     * @see #unsetMaxIndexAttribute()
      * @see #getMaxIndexAttribute()
      * @generated
      */
     void setMaxIndexAttribute( String value );
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getMaxIndexAttribute <em>Max Index Attribute</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetMaxIndexAttribute()
+     * @see #getMaxIndexAttribute()
+     * @see #setMaxIndexAttribute(String)
+     * @generated
+     */
+    void unsetMaxIndexAttribute();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getMaxIndexAttribute <em>Max Index Attribute</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Max Index Attribute</em>' attribute is set.
+     * @see #unsetMaxIndexAttribute()
+     * @see #getMaxIndexAttribute()
+     * @see #setMaxIndexAttribute(String)
+     * @generated
+     */
+    boolean isSetMaxIndexAttribute();
+
+    /**
      * Returns the value of the '<em><b>Max Value</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Allowed maximal value (inclusive) for the data attribute. If not provided the minimal value according to the type is allowed. May only be defined for data attributes with typeKind="BASIC" and corresponding to a number.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Max Value</em>' attribute.
+     * @see #isSetMaxValue()
+     * @see #unsetMaxValue()
      * @see #setMaxValue(BigDecimal)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_MaxValue()
-     * @model dataType="org.eclipse.emf.ecore.xml.type.Decimal"
+     * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Decimal"
      *        extendedMetaData="kind='attribute' name='maxValue'"
      * @generated
      */
@@ -323,21 +388,41 @@ public interface DataAttribute extends DocumentedClass {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Max Value</em>' attribute.
+     * @see #isSetMaxValue()
+     * @see #unsetMaxValue()
      * @see #getMaxValue()
      * @generated
      */
     void setMaxValue( BigDecimal value );
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getMaxValue <em>Max Value</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetMaxValue()
+     * @see #getMaxValue()
+     * @see #setMaxValue(BigDecimal)
+     * @generated
+     */
+    void unsetMaxValue();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getMaxValue <em>Max Value</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Max Value</em>' attribute is set.
+     * @see #unsetMaxValue()
+     * @see #getMaxValue()
+     * @see #setMaxValue(BigDecimal)
+     * @generated
+     */
+    boolean isSetMaxValue();
+
+    /**
      * Returns the value of the '<em><b>Min Index</b></em>' attribute.
      * The default value is <code>"0"</code>.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Lowest index of the array.
-     * Is relevant information if and only if isArray=true.
-     * By default 0.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Min Index</em>' attribute.
      * @see #isSetMinIndex()
      * @see #unsetMinIndex()
@@ -388,13 +473,12 @@ public interface DataAttribute extends DocumentedClass {
      * Returns the value of the '<em><b>Min Value</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Allowed minimal value (inclusive) for the data attribute. If not provided the minimal value according to the type is allowed. May only be defined for data attributes with typeKind="BASIC" and corresponding to a number.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Min Value</em>' attribute.
+     * @see #isSetMinValue()
+     * @see #unsetMinValue()
      * @see #setMinValue(BigDecimal)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_MinValue()
-     * @model dataType="org.eclipse.emf.ecore.xml.type.Decimal"
+     * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Decimal"
      *        extendedMetaData="kind='attribute' name='minValue'"
      * @generated
      */
@@ -405,22 +489,46 @@ public interface DataAttribute extends DocumentedClass {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Min Value</em>' attribute.
+     * @see #isSetMinValue()
+     * @see #unsetMinValue()
      * @see #getMinValue()
      * @generated
      */
     void setMinValue( BigDecimal value );
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getMinValue <em>Min Value</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetMinValue()
+     * @see #getMinValue()
+     * @see #setMinValue(BigDecimal)
+     * @generated
+     */
+    void unsetMinValue();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getMinValue <em>Min Value</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Min Value</em>' attribute is set.
+     * @see #unsetMinValue()
+     * @see #getMinValue()
+     * @see #setMinValue(BigDecimal)
+     * @generated
+     */
+    boolean isSetMinValue();
+
+    /**
      * Returns the value of the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Name of the data attribute.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Name</em>' attribute.
+     * @see #isSetName()
+     * @see #unsetName()
      * @see #setName(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_Name()
-     * @model required="true"
+     * @model unsettable="true"
      *        extendedMetaData="kind='attribute' name='name'"
      * @generated
      */
@@ -431,19 +539,41 @@ public interface DataAttribute extends DocumentedClass {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Name</em>' attribute.
+     * @see #isSetName()
+     * @see #unsetName()
      * @see #getName()
      * @generated
      */
     void setName( String value );
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getName <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetName()
+     * @see #getName()
+     * @see #setName(String)
+     * @generated
+     */
+    void unsetName();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getName <em>Name</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Name</em>' attribute is set.
+     * @see #unsetName()
+     * @see #getName()
+     * @see #setName(String)
+     * @generated
+     */
+    boolean isSetName();
+
+    /**
      * Returns the value of the '<em><b>Pres Cond</b></em>' attribute.
      * The default value is <code>"M"</code>.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Presence condition of the element. By default 'M' (mandatory).
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Pres Cond</em>' attribute.
      * @see #isSetPresCond()
      * @see #unsetPresCond()
@@ -494,13 +624,13 @@ public interface DataAttribute extends DocumentedClass {
      * Returns the value of the '<em><b>Pres Cond Args</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Optional argument to the presence condition. Can be a sibling element or a group number.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Pres Cond Args</em>' attribute.
+     * @see #isSetPresCondArgs()
+     * @see #unsetPresCondArgs()
      * @see #setPresCondArgs(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_PresCondArgs()
-     * @model extendedMetaData="kind='attribute' name='presCondArgs'"
+     * @model unsettable="true"
+     *        extendedMetaData="kind='attribute' name='presCondArgs'"
      * @generated
      */
     String getPresCondArgs();
@@ -510,22 +640,47 @@ public interface DataAttribute extends DocumentedClass {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Pres Cond Args</em>' attribute.
+     * @see #isSetPresCondArgs()
+     * @see #unsetPresCondArgs()
      * @see #getPresCondArgs()
      * @generated
      */
     void setPresCondArgs( String value );
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getPresCondArgs <em>Pres Cond Args</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetPresCondArgs()
+     * @see #getPresCondArgs()
+     * @see #setPresCondArgs(String)
+     * @generated
+     */
+    void unsetPresCondArgs();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getPresCondArgs <em>Pres Cond Args</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Pres Cond Args</em>' attribute is set.
+     * @see #unsetPresCondArgs()
+     * @see #getPresCondArgs()
+     * @see #setPresCondArgs(String)
+     * @generated
+     */
+    boolean isSetPresCondArgs();
+
+    /**
      * Returns the value of the '<em><b>Pres Cond Args ID</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Optional argument to the presence condition: a documentation identifier referring to some free text.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Pres Cond Args ID</em>' attribute.
+     * @see #isSetPresCondArgsID()
+     * @see #unsetPresCondArgsID()
      * @see #setPresCondArgsID(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_PresCondArgsID()
-     * @model extendedMetaData="kind='attribute' name='presCondArgsID'"
+     * @model unsettable="true"
+     *        extendedMetaData="kind='attribute' name='presCondArgsID'"
      * @generated
      */
     String getPresCondArgsID();
@@ -535,10 +690,35 @@ public interface DataAttribute extends DocumentedClass {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Pres Cond Args ID</em>' attribute.
+     * @see #isSetPresCondArgsID()
+     * @see #unsetPresCondArgsID()
      * @see #getPresCondArgsID()
      * @generated
      */
     void setPresCondArgsID( String value );
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getPresCondArgsID <em>Pres Cond Args ID</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetPresCondArgsID()
+     * @see #getPresCondArgsID()
+     * @see #setPresCondArgsID(String)
+     * @generated
+     */
+    void unsetPresCondArgsID();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getPresCondArgsID <em>Pres Cond Args ID</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Pres Cond Args ID</em>' attribute is set.
+     * @see #unsetPresCondArgsID()
+     * @see #getPresCondArgsID()
+     * @see #setPresCondArgsID(String)
+     * @generated
+     */
+    boolean isSetPresCondArgsID();
 
     /**
      * Returns the value of the '<em><b>Qchg</b></em>' attribute.
@@ -599,14 +779,13 @@ public interface DataAttribute extends DocumentedClass {
      * Returns the value of the '<em><b>Size Attribute</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Sibling data attribute name holding the size of the array.
-     * Is relevant information if and only if isArray=true. One and only one of sizeAttribute and maxIndexAttribute shall be used.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Size Attribute</em>' attribute.
+     * @see #isSetSizeAttribute()
+     * @see #unsetSizeAttribute()
      * @see #setSizeAttribute(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_SizeAttribute()
-     * @model extendedMetaData="kind='attribute' name='sizeAttribute'"
+     * @model unsettable="true"
+     *        extendedMetaData="kind='attribute' name='sizeAttribute'"
      * @generated
      */
     String getSizeAttribute();
@@ -616,22 +795,47 @@ public interface DataAttribute extends DocumentedClass {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Size Attribute</em>' attribute.
+     * @see #isSetSizeAttribute()
+     * @see #unsetSizeAttribute()
      * @see #getSizeAttribute()
      * @generated
      */
     void setSizeAttribute( String value );
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getSizeAttribute <em>Size Attribute</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetSizeAttribute()
+     * @see #getSizeAttribute()
+     * @see #setSizeAttribute(String)
+     * @generated
+     */
+    void unsetSizeAttribute();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getSizeAttribute <em>Size Attribute</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Size Attribute</em>' attribute is set.
+     * @see #unsetSizeAttribute()
+     * @see #getSizeAttribute()
+     * @see #setSizeAttribute(String)
+     * @generated
+     */
+    boolean isSetSizeAttribute();
+
+    /**
      * Returns the value of the '<em><b>Type</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * The type of the data attribute, e.g., the name of a basic type like INT32, the name of an enumeration of a constructed data attribute - depending on the sibling typeKind. If not provided, shall be defined by the "parent" element.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Type</em>' attribute.
+     * @see #isSetType()
+     * @see #unsetType()
      * @see #setType(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_Type()
-     * @model extendedMetaData="kind='attribute' name='type'"
+     * @model unsettable="true"
+     *        extendedMetaData="kind='attribute' name='type'"
      * @generated
      */
     String getType();
@@ -641,19 +845,41 @@ public interface DataAttribute extends DocumentedClass {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Type</em>' attribute.
+     * @see #isSetType()
+     * @see #unsetType()
      * @see #getType()
      * @generated
      */
     void setType( String value );
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getType <em>Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetType()
+     * @see #getType()
+     * @see #setType(String)
+     * @generated
+     */
+    void unsetType();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getType <em>Type</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Type</em>' attribute is set.
+     * @see #unsetType()
+     * @see #getType()
+     * @see #setType(String)
+     * @generated
+     */
+    boolean isSetType();
+
+    /**
      * Returns the value of the '<em><b>Type Kind</b></em>' attribute.
      * The default value is <code>"BASIC"</code>.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * The kind of the data attribute's type. By  default, "BASIC".
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Type Kind</em>' attribute.
      * @see #isSetTypeKind()
      * @see #unsetTypeKind()
@@ -699,5 +925,33 @@ public interface DataAttribute extends DocumentedClass {
      * @generated
      */
     boolean isSetTypeKind();
+
+    /**
+     * Returns the value of the '<em><b>CDC</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getDataAttribute <em>Data Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>CDC</em>' container reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>CDC</em>' container reference.
+     * @see #setCDC(CDC)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_CDC()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getDataAttribute
+     * @model opposite="dataAttribute" resolveProxies="false" unsettable="true" ordered="false"
+     * @generated
+     */
+    CDC getCDC();
+
+    /**
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getCDC <em>CDC</em>}' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>CDC</em>' container reference.
+     * @see #getCDC()
+     * @generated
+     */
+    void setCDC( CDC value );
 
 } // DataAttribute

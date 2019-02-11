@@ -19,6 +19,7 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CopyrightNotice;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.License;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LicenseKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
@@ -33,6 +34,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.BasicFeatureMap;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -47,6 +49,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.LicenseImpl#getMixed <em>Mixed</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.LicenseImpl#getKind <em>Kind</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.LicenseImpl#getUri <em>Uri</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.LicenseImpl#getCopyrightNotice <em>Copyright Notice</em>}</li>
  * </ul>
  *
  * @generated
@@ -110,6 +113,15 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
      * @ordered
      */
     protected String uri = URI_EDEFAULT;
+
+    /**
+     * This is true if the Uri attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean uriESet;
 
     /**
      * <!-- begin-user-doc -->
@@ -212,8 +224,93 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
     public void setUri( String newUri ) {
         String oldUri = uri;
         uri = newUri;
-        if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.LICENSE__URI, oldUri, uri ) );
+        boolean oldUriESet = uriESet;
+        uriESet = true;
+        if( eNotificationRequired() ) eNotify(
+                new ENotificationImpl( this, Notification.SET, NsdPackage.LICENSE__URI, oldUri, uri, !oldUriESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetUri() {
+        String oldUri = uri;
+        boolean oldUriESet = uriESet;
+        uri = URI_EDEFAULT;
+        uriESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.LICENSE__URI,
+                oldUri, URI_EDEFAULT, oldUriESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetUri() {
+        return uriESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public CopyrightNotice getCopyrightNotice() {
+        if( eContainerFeatureID() != NsdPackage.LICENSE__COPYRIGHT_NOTICE ) return null;
+        return ( CopyrightNotice ) eInternalContainer();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetCopyrightNotice( CopyrightNotice newCopyrightNotice, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newCopyrightNotice, NsdPackage.LICENSE__COPYRIGHT_NOTICE, msgs );
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setCopyrightNotice( CopyrightNotice newCopyrightNotice ) {
+        if( newCopyrightNotice != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.LICENSE__COPYRIGHT_NOTICE && newCopyrightNotice != null ) ) {
+            if( EcoreUtil.isAncestor( this, newCopyrightNotice ) )
+                throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            NotificationChain msgs = null;
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( newCopyrightNotice != null ) msgs = ( ( InternalEObject ) newCopyrightNotice ).eInverseAdd( this,
+                    NsdPackage.COPYRIGHT_NOTICE__LICENSE, CopyrightNotice.class, msgs );
+            msgs = basicSetCopyrightNotice( newCopyrightNotice, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.LICENSE__COPYRIGHT_NOTICE, newCopyrightNotice, newCopyrightNotice ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.LICENSE__COPYRIGHT_NOTICE:
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            return basicSetCopyrightNotice( ( CopyrightNotice ) otherEnd, msgs );
+        }
+        return super.eInverseAdd( otherEnd, featureID, msgs );
     }
 
     /**
@@ -226,8 +323,25 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
         switch( featureID ) {
         case NsdPackage.LICENSE__MIXED:
             return ( ( InternalEList< ? > ) getMixed() ).basicRemove( otherEnd, msgs );
+        case NsdPackage.LICENSE__COPYRIGHT_NOTICE:
+            return basicSetCopyrightNotice( null, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
+        switch( eContainerFeatureID() ) {
+        case NsdPackage.LICENSE__COPYRIGHT_NOTICE:
+            return eInternalContainer().eInverseRemove( this, NsdPackage.COPYRIGHT_NOTICE__LICENSE,
+                    CopyrightNotice.class, msgs );
+        }
+        return super.eBasicRemoveFromContainerFeature( msgs );
     }
 
     /**
@@ -245,6 +359,8 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
             return getKind();
         case NsdPackage.LICENSE__URI:
             return getUri();
+        case NsdPackage.LICENSE__COPYRIGHT_NOTICE:
+            return getCopyrightNotice();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -266,6 +382,9 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
         case NsdPackage.LICENSE__URI:
             setUri( ( String ) newValue );
             return;
+        case NsdPackage.LICENSE__COPYRIGHT_NOTICE:
+            setCopyrightNotice( ( CopyrightNotice ) newValue );
+            return;
         }
         super.eSet( featureID, newValue );
     }
@@ -285,7 +404,10 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
             unsetKind();
             return;
         case NsdPackage.LICENSE__URI:
-            setUri( URI_EDEFAULT );
+            unsetUri();
+            return;
+        case NsdPackage.LICENSE__COPYRIGHT_NOTICE:
+            setCopyrightNotice( ( CopyrightNotice ) null );
             return;
         }
         super.eUnset( featureID );
@@ -304,7 +426,9 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
         case NsdPackage.LICENSE__KIND:
             return isSetKind();
         case NsdPackage.LICENSE__URI:
-            return URI_EDEFAULT == null ? uri != null : !URI_EDEFAULT.equals( uri );
+            return isSetUri();
+        case NsdPackage.LICENSE__COPYRIGHT_NOTICE:
+            return getCopyrightNotice() != null;
         }
         return super.eIsSet( featureID );
     }
@@ -327,7 +451,10 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
         else
             result.append( "<unset>" );
         result.append( ", uri: " );
-        result.append( uri );
+        if( uriESet )
+            result.append( uri );
+        else
+            result.append( "<unset>" );
         result.append( ')' );
         return result.toString();
     }

@@ -21,33 +21,37 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Applies To Type</b></em>'.
+ * A representation of the model object '<em><b>Depends On</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getId <em>Id</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getPublicationStage <em>Publication Stage</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getRevision <em>Revision</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getServiceNsUsage <em>Service Ns Usage</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getId <em>Id</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getPublicationStage <em>Publication Stage</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getRevision <em>Revision</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getNS <em>NS</em>}</li>
  * </ul>
  *
- * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAppliesToType()
- * @model extendedMetaData="name='AppliesTo_._type' kind='empty'"
+ * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDependsOn()
+ * @model extendedMetaData="name='DependsOn_._type' kind='empty'"
  * @generated
  */
-public interface AppliesToType extends NSDObjectWithVersionAndRelease {
+public interface DependsOn extends NSDObjectWithVersionAndRelease {
     /**
      * Returns the value of the '<em><b>Id</b></em>' attribute.
      * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Id</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Id</em>' attribute.
      * @see #isSetId()
      * @see #unsetId()
      * @see #setId(String)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAppliesToType_Id()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDependsOn_Id()
      * @model unsettable="true"
      *        extendedMetaData="kind='attribute' name='id'"
      * @generated
@@ -55,7 +59,7 @@ public interface AppliesToType extends NSDObjectWithVersionAndRelease {
     String getId();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getId <em>Id</em>}' attribute.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getId <em>Id</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Id</em>' attribute.
@@ -67,7 +71,7 @@ public interface AppliesToType extends NSDObjectWithVersionAndRelease {
     void setId( String value );
 
     /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getId <em>Id</em>}' attribute.
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getId <em>Id</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @see #isSetId()
@@ -78,7 +82,7 @@ public interface AppliesToType extends NSDObjectWithVersionAndRelease {
     void unsetId();
 
     /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getId <em>Id</em>}' attribute is set.
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getId <em>Id</em>}' attribute is set.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return whether the value of the '<em>Id</em>' attribute is set.
@@ -94,13 +98,17 @@ public interface AppliesToType extends NSDObjectWithVersionAndRelease {
      * The default value is <code>"IS"</code>.
      * The literals are from the enumeration {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage}.
      * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Publication Stage</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Publication Stage</em>' attribute.
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage
      * @see #isSetPublicationStage()
      * @see #unsetPublicationStage()
      * @see #setPublicationStage(PubStage)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAppliesToType_PublicationStage()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDependsOn_PublicationStage()
      * @model default="IS" unsettable="true"
      *        extendedMetaData="kind='attribute' name='publicationStage'"
      * @generated
@@ -108,7 +116,7 @@ public interface AppliesToType extends NSDObjectWithVersionAndRelease {
     PubStage getPublicationStage();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getPublicationStage <em>Publication Stage</em>}' attribute.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getPublicationStage <em>Publication Stage</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Publication Stage</em>' attribute.
@@ -121,7 +129,7 @@ public interface AppliesToType extends NSDObjectWithVersionAndRelease {
     void setPublicationStage( PubStage value );
 
     /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getPublicationStage <em>Publication Stage</em>}' attribute.
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getPublicationStage <em>Publication Stage</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @see #isSetPublicationStage()
@@ -132,7 +140,7 @@ public interface AppliesToType extends NSDObjectWithVersionAndRelease {
     void unsetPublicationStage();
 
     /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getPublicationStage <em>Publication Stage</em>}' attribute is set.
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getPublicationStage <em>Publication Stage</em>}' attribute is set.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return whether the value of the '<em>Publication Stage</em>' attribute is set.
@@ -147,12 +155,16 @@ public interface AppliesToType extends NSDObjectWithVersionAndRelease {
      * Returns the value of the '<em><b>Revision</b></em>' attribute.
      * The default value is <code>"A"</code>.
      * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Revision</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Revision</em>' attribute.
      * @see #isSetRevision()
      * @see #unsetRevision()
      * @see #setRevision(String)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAppliesToType_Revision()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDependsOn_Revision()
      * @model default="A" unsettable="true"
      *        extendedMetaData="kind='attribute' name='revision'"
      * @generated
@@ -160,7 +172,7 @@ public interface AppliesToType extends NSDObjectWithVersionAndRelease {
     String getRevision();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getRevision <em>Revision</em>}' attribute.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getRevision <em>Revision</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Revision</em>' attribute.
@@ -172,7 +184,7 @@ public interface AppliesToType extends NSDObjectWithVersionAndRelease {
     void setRevision( String value );
 
     /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getRevision <em>Revision</em>}' attribute.
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getRevision <em>Revision</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @see #isSetRevision()
@@ -183,7 +195,7 @@ public interface AppliesToType extends NSDObjectWithVersionAndRelease {
     void unsetRevision();
 
     /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getRevision <em>Revision</em>}' attribute is set.
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getRevision <em>Revision</em>}' attribute is set.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return whether the value of the '<em>Revision</em>' attribute is set.
@@ -195,31 +207,31 @@ public interface AppliesToType extends NSDObjectWithVersionAndRelease {
     boolean isSetRevision();
 
     /**
-     * Returns the value of the '<em><b>Service Ns Usage</b></em>' container reference.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getAppliesTo <em>Applies To</em>}'.
+     * Returns the value of the '<em><b>NS</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getDependsOn <em>Depends On</em>}'.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Service Ns Usage</em>' container reference isn't clear,
+     * If the meaning of the '<em>NS</em>' container reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Service Ns Usage</em>' container reference.
-     * @see #setServiceNsUsage(ServiceNsUsage)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAppliesToType_ServiceNsUsage()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getAppliesTo
-     * @model opposite="appliesTo" resolveProxies="false" unsettable="true" ordered="false"
+     * @return the value of the '<em>NS</em>' container reference.
+     * @see #setNS(NS)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDependsOn_NS()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getDependsOn
+     * @model opposite="dependsOn" resolveProxies="false" unsettable="true" ordered="false"
      * @generated
      */
-    ServiceNsUsage getServiceNsUsage();
+    NS getNS();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getServiceNsUsage <em>Service Ns Usage</em>}' container reference.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getNS <em>NS</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Service Ns Usage</em>' container reference.
-     * @see #getServiceNsUsage()
+     * @param value the new value of the '<em>NS</em>' container reference.
+     * @see #getNS()
      * @generated
      */
-    void setServiceNsUsage( ServiceNsUsage value );
+    void setNS( NS value );
 
-} // AppliesToType
+} // DependsOn

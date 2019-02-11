@@ -20,7 +20,6 @@
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServiceNS;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CopyrightNotice;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc;
@@ -56,7 +55,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DocumentRootImpl#getXMLNSPrefixMap <em>XMLNS Prefix Map</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DocumentRootImpl#getXSISchemaLocation <em>XSI Schema Location</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DocumentRootImpl#getApplicableServiceNS <em>Applicable Service NS</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DocumentRootImpl#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DocumentRootImpl#getNS <em>NS</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DocumentRootImpl#getNSDoc <em>NS Doc</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DocumentRootImpl#getServiceNS <em>Service NS</em>}</li>
@@ -192,19 +190,13 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public CopyrightNotice getCopyright() {
-        return ( CopyrightNotice ) getMixed().get( NsdPackage.Literals.DOCUMENT_ROOT__COPYRIGHT, true );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public NotificationChain basicSetCopyright( CopyrightNotice newCopyright, NotificationChain msgs ) {
-        return ( ( FeatureMap.Internal ) getMixed() ).basicAdd( NsdPackage.Literals.DOCUMENT_ROOT__COPYRIGHT,
-                newCopyright, msgs );
+    public NotificationChain basicUnsetApplicableServiceNS( NotificationChain msgs ) {
+        // TODO: implement this method to unset the contained 'Applicable Service NS' containment reference
+        // -> this method is automatically invoked to keep the containment relationship in synch
+        // -> do not modify other features
+        // -> return msgs, after adding any generated Notification to it (if it is null, a NotificationChain object must be created first)
+        // Ensure that you remove @generated or mark it @generated NOT
+        throw new UnsupportedOperationException();
     }
 
     /**
@@ -213,8 +205,19 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
      * @generated
      */
     @Override
-    public void setCopyright( CopyrightNotice newCopyright ) {
-        ( ( FeatureMap.Internal ) getMixed() ).set( NsdPackage.Literals.DOCUMENT_ROOT__COPYRIGHT, newCopyright );
+    public void unsetApplicableServiceNS() {
+        ( ( FeatureMap.Internal ) getMixed() ).clear( NsdPackage.Literals.DOCUMENT_ROOT__APPLICABLE_SERVICE_NS );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetApplicableServiceNS() {
+        return !( ( FeatureMap.Internal ) getMixed() )
+                .isEmpty( NsdPackage.Literals.DOCUMENT_ROOT__APPLICABLE_SERVICE_NS );
     }
 
     /**
@@ -244,6 +247,40 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
     @Override
     public void setNS( NS newNS ) {
         ( ( FeatureMap.Internal ) getMixed() ).set( NsdPackage.Literals.DOCUMENT_ROOT__NS, newNS );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicUnsetNS( NotificationChain msgs ) {
+        // TODO: implement this method to unset the contained 'NS' containment reference
+        // -> this method is automatically invoked to keep the containment relationship in synch
+        // -> do not modify other features
+        // -> return msgs, after adding any generated Notification to it (if it is null, a NotificationChain object must be created first)
+        // Ensure that you remove @generated or mark it @generated NOT
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetNS() {
+        ( ( FeatureMap.Internal ) getMixed() ).clear( NsdPackage.Literals.DOCUMENT_ROOT__NS );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetNS() {
+        return !( ( FeatureMap.Internal ) getMixed() ).isEmpty( NsdPackage.Literals.DOCUMENT_ROOT__NS );
     }
 
     /**
@@ -281,6 +318,40 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
      * <!-- end-user-doc -->
      * @generated
      */
+    public NotificationChain basicUnsetNSDoc( NotificationChain msgs ) {
+        // TODO: implement this method to unset the contained 'NS Doc' containment reference
+        // -> this method is automatically invoked to keep the containment relationship in synch
+        // -> do not modify other features
+        // -> return msgs, after adding any generated Notification to it (if it is null, a NotificationChain object must be created first)
+        // Ensure that you remove @generated or mark it @generated NOT
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetNSDoc() {
+        ( ( FeatureMap.Internal ) getMixed() ).clear( NsdPackage.Literals.DOCUMENT_ROOT__NS_DOC );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetNSDoc() {
+        return !( ( FeatureMap.Internal ) getMixed() ).isEmpty( NsdPackage.Literals.DOCUMENT_ROOT__NS_DOC );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public ServiceNS getServiceNS() {
         return ( ServiceNS ) getMixed().get( NsdPackage.Literals.DOCUMENT_ROOT__SERVICE_NS, true );
@@ -311,6 +382,40 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
      * <!-- end-user-doc -->
      * @generated
      */
+    public NotificationChain basicUnsetServiceNS( NotificationChain msgs ) {
+        // TODO: implement this method to unset the contained 'Service NS' containment reference
+        // -> this method is automatically invoked to keep the containment relationship in synch
+        // -> do not modify other features
+        // -> return msgs, after adding any generated Notification to it (if it is null, a NotificationChain object must be created first)
+        // Ensure that you remove @generated or mark it @generated NOT
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetServiceNS() {
+        ( ( FeatureMap.Internal ) getMixed() ).clear( NsdPackage.Literals.DOCUMENT_ROOT__SERVICE_NS );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetServiceNS() {
+        return !( ( FeatureMap.Internal ) getMixed() ).isEmpty( NsdPackage.Literals.DOCUMENT_ROOT__SERVICE_NS );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
@@ -321,15 +426,13 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
         case NsdPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
             return ( ( InternalEList< ? > ) getXSISchemaLocation() ).basicRemove( otherEnd, msgs );
         case NsdPackage.DOCUMENT_ROOT__APPLICABLE_SERVICE_NS:
-            return basicSetApplicableServiceNS( null, msgs );
-        case NsdPackage.DOCUMENT_ROOT__COPYRIGHT:
-            return basicSetCopyright( null, msgs );
+            return basicUnsetApplicableServiceNS( msgs );
         case NsdPackage.DOCUMENT_ROOT__NS:
-            return basicSetNS( null, msgs );
+            return basicUnsetNS( msgs );
         case NsdPackage.DOCUMENT_ROOT__NS_DOC:
-            return basicSetNSDoc( null, msgs );
+            return basicUnsetNSDoc( msgs );
         case NsdPackage.DOCUMENT_ROOT__SERVICE_NS:
-            return basicSetServiceNS( null, msgs );
+            return basicUnsetServiceNS( msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -357,8 +460,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
                 return getXSISchemaLocation().map();
         case NsdPackage.DOCUMENT_ROOT__APPLICABLE_SERVICE_NS:
             return getApplicableServiceNS();
-        case NsdPackage.DOCUMENT_ROOT__COPYRIGHT:
-            return getCopyright();
         case NsdPackage.DOCUMENT_ROOT__NS:
             return getNS();
         case NsdPackage.DOCUMENT_ROOT__NS_DOC:
@@ -388,9 +489,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
             return;
         case NsdPackage.DOCUMENT_ROOT__APPLICABLE_SERVICE_NS:
             setApplicableServiceNS( ( ApplicableServiceNS ) newValue );
-            return;
-        case NsdPackage.DOCUMENT_ROOT__COPYRIGHT:
-            setCopyright( ( CopyrightNotice ) newValue );
             return;
         case NsdPackage.DOCUMENT_ROOT__NS:
             setNS( ( NS ) newValue );
@@ -423,19 +521,16 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
             getXSISchemaLocation().clear();
             return;
         case NsdPackage.DOCUMENT_ROOT__APPLICABLE_SERVICE_NS:
-            setApplicableServiceNS( ( ApplicableServiceNS ) null );
-            return;
-        case NsdPackage.DOCUMENT_ROOT__COPYRIGHT:
-            setCopyright( ( CopyrightNotice ) null );
+            unsetApplicableServiceNS();
             return;
         case NsdPackage.DOCUMENT_ROOT__NS:
-            setNS( ( NS ) null );
+            unsetNS();
             return;
         case NsdPackage.DOCUMENT_ROOT__NS_DOC:
-            setNSDoc( ( NSDoc ) null );
+            unsetNSDoc();
             return;
         case NsdPackage.DOCUMENT_ROOT__SERVICE_NS:
-            setServiceNS( ( ServiceNS ) null );
+            unsetServiceNS();
             return;
         }
         super.eUnset( featureID );
@@ -456,15 +551,13 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
         case NsdPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
             return xSISchemaLocation != null && !xSISchemaLocation.isEmpty();
         case NsdPackage.DOCUMENT_ROOT__APPLICABLE_SERVICE_NS:
-            return getApplicableServiceNS() != null;
-        case NsdPackage.DOCUMENT_ROOT__COPYRIGHT:
-            return getCopyright() != null;
+            return isSetApplicableServiceNS();
         case NsdPackage.DOCUMENT_ROOT__NS:
-            return getNS() != null;
+            return isSetNS();
         case NsdPackage.DOCUMENT_ROOT__NS_DOC:
-            return getNSDoc() != null;
+            return isSetNSDoc();
         case NsdPackage.DOCUMENT_ROOT__SERVICE_NS:
-            return getServiceNS() != null;
+            return isSetServiceNS();
         }
         return super.eIsSet( featureID );
     }

@@ -89,8 +89,8 @@ public class NsdAdapterFactory extends AdapterFactoryImpl {
         }
 
         @Override
-        public Adapter caseDependsOnType( DependsOnType object ) {
-            return createDependsOnTypeAdapter();
+        public Adapter caseDependsOn( DependsOn object ) {
+            return createDependsOnAdapter();
         }
 
         @Override
@@ -309,11 +309,6 @@ public class NsdAdapterFactory extends AdapterFactoryImpl {
         }
 
         @Override
-        public Adapter caseServiceTypeRealization( ServiceTypeRealization object ) {
-            return createServiceTypeRealizationAdapter();
-        }
-
-        @Override
         public Adapter caseServiceTypeRealizations( ServiceTypeRealizations object ) {
             return createServiceTypeRealizationsAdapter();
         }
@@ -372,16 +367,16 @@ public class NsdAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOnType <em>Depends On Type</em>}'.
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn <em>Depends On</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOnType
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn
      * @generated
      */
-    public Adapter createDependsOnTypeAdapter() {
+    public Adapter createDependsOnAdapter() {
         return null;
     }
 
@@ -984,20 +979,6 @@ public class NsdAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createServiceParameterAdapter() {
-        return null;
-    }
-
-    /**
-     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealization <em>Service Type Realization</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealization
-     * @generated
-     */
-    public Adapter createServiceTypeRealizationAdapter() {
         return null;
     }
 

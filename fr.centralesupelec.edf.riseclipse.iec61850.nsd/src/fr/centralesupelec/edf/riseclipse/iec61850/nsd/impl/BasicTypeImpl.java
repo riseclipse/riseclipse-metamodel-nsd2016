@@ -20,14 +20,18 @@
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,6 +43,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.BasicTypeImpl#getDescID <em>Desc ID</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.BasicTypeImpl#getName <em>Name</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.BasicTypeImpl#getBasicTypes <em>Basic Types</em>}</li>
  * </ul>
  *
  * @generated
@@ -65,6 +70,15 @@ public class BasicTypeImpl extends MinimalEObjectImpl.Container implements Basic
     protected String descID = DESC_ID_EDEFAULT;
 
     /**
+     * This is true if the Desc ID attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean descIDESet;
+
+    /**
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -83,6 +97,15 @@ public class BasicTypeImpl extends MinimalEObjectImpl.Container implements Basic
      * @ordered
      */
     protected String name = NAME_EDEFAULT;
+
+    /**
+     * This is true if the Name attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean nameESet;
 
     /**
      * <!-- begin-user-doc -->
@@ -122,8 +145,35 @@ public class BasicTypeImpl extends MinimalEObjectImpl.Container implements Basic
     public void setDescID( String newDescID ) {
         String oldDescID = descID;
         descID = newDescID;
-        if( eNotificationRequired() ) eNotify(
-                new ENotificationImpl( this, Notification.SET, NsdPackage.BASIC_TYPE__DESC_ID, oldDescID, descID ) );
+        boolean oldDescIDESet = descIDESet;
+        descIDESet = true;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.BASIC_TYPE__DESC_ID, oldDescID, descID, !oldDescIDESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetDescID() {
+        String oldDescID = descID;
+        boolean oldDescIDESet = descIDESet;
+        descID = DESC_ID_EDEFAULT;
+        descIDESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.BASIC_TYPE__DESC_ID, oldDescID, DESC_ID_EDEFAULT, oldDescIDESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetDescID() {
+        return descIDESet;
     }
 
     /**
@@ -145,8 +195,122 @@ public class BasicTypeImpl extends MinimalEObjectImpl.Container implements Basic
     public void setName( String newName ) {
         String oldName = name;
         name = newName;
-        if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.BASIC_TYPE__NAME, oldName, name ) );
+        boolean oldNameESet = nameESet;
+        nameESet = true;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.BASIC_TYPE__NAME, oldName, name, !oldNameESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetName() {
+        String oldName = name;
+        boolean oldNameESet = nameESet;
+        name = NAME_EDEFAULT;
+        nameESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.BASIC_TYPE__NAME, oldName, NAME_EDEFAULT, oldNameESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetName() {
+        return nameESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public BasicTypes getBasicTypes() {
+        if( eContainerFeatureID() != NsdPackage.BASIC_TYPE__BASIC_TYPES ) return null;
+        return ( BasicTypes ) eInternalContainer();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetBasicTypes( BasicTypes newBasicTypes, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newBasicTypes, NsdPackage.BASIC_TYPE__BASIC_TYPES, msgs );
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setBasicTypes( BasicTypes newBasicTypes ) {
+        if( newBasicTypes != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.BASIC_TYPE__BASIC_TYPES && newBasicTypes != null ) ) {
+            if( EcoreUtil.isAncestor( this, newBasicTypes ) )
+                throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            NotificationChain msgs = null;
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( newBasicTypes != null ) msgs = ( ( InternalEObject ) newBasicTypes ).eInverseAdd( this,
+                    NsdPackage.BASIC_TYPES__BASIC_TYPE, BasicTypes.class, msgs );
+            msgs = basicSetBasicTypes( newBasicTypes, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.BASIC_TYPE__BASIC_TYPES, newBasicTypes, newBasicTypes ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.BASIC_TYPE__BASIC_TYPES:
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            return basicSetBasicTypes( ( BasicTypes ) otherEnd, msgs );
+        }
+        return super.eInverseAdd( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.BASIC_TYPE__BASIC_TYPES:
+            return basicSetBasicTypes( null, msgs );
+        }
+        return super.eInverseRemove( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
+        switch( eContainerFeatureID() ) {
+        case NsdPackage.BASIC_TYPE__BASIC_TYPES:
+            return eInternalContainer().eInverseRemove( this, NsdPackage.BASIC_TYPES__BASIC_TYPE, BasicTypes.class,
+                    msgs );
+        }
+        return super.eBasicRemoveFromContainerFeature( msgs );
     }
 
     /**
@@ -161,6 +325,8 @@ public class BasicTypeImpl extends MinimalEObjectImpl.Container implements Basic
             return getDescID();
         case NsdPackage.BASIC_TYPE__NAME:
             return getName();
+        case NsdPackage.BASIC_TYPE__BASIC_TYPES:
+            return getBasicTypes();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -179,6 +345,9 @@ public class BasicTypeImpl extends MinimalEObjectImpl.Container implements Basic
         case NsdPackage.BASIC_TYPE__NAME:
             setName( ( String ) newValue );
             return;
+        case NsdPackage.BASIC_TYPE__BASIC_TYPES:
+            setBasicTypes( ( BasicTypes ) newValue );
+            return;
         }
         super.eSet( featureID, newValue );
     }
@@ -192,10 +361,13 @@ public class BasicTypeImpl extends MinimalEObjectImpl.Container implements Basic
     public void eUnset( int featureID ) {
         switch( featureID ) {
         case NsdPackage.BASIC_TYPE__DESC_ID:
-            setDescID( DESC_ID_EDEFAULT );
+            unsetDescID();
             return;
         case NsdPackage.BASIC_TYPE__NAME:
-            setName( NAME_EDEFAULT );
+            unsetName();
+            return;
+        case NsdPackage.BASIC_TYPE__BASIC_TYPES:
+            setBasicTypes( ( BasicTypes ) null );
             return;
         }
         super.eUnset( featureID );
@@ -210,9 +382,11 @@ public class BasicTypeImpl extends MinimalEObjectImpl.Container implements Basic
     public boolean eIsSet( int featureID ) {
         switch( featureID ) {
         case NsdPackage.BASIC_TYPE__DESC_ID:
-            return DESC_ID_EDEFAULT == null ? descID != null : !DESC_ID_EDEFAULT.equals( descID );
+            return isSetDescID();
         case NsdPackage.BASIC_TYPE__NAME:
-            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals( name );
+            return isSetName();
+        case NsdPackage.BASIC_TYPE__BASIC_TYPES:
+            return getBasicTypes() != null;
         }
         return super.eIsSet( featureID );
     }
@@ -228,9 +402,15 @@ public class BasicTypeImpl extends MinimalEObjectImpl.Container implements Basic
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (descID: " );
-        result.append( descID );
+        if( descIDESet )
+            result.append( descID );
+        else
+            result.append( "<unset>" );
         result.append( ", name: " );
-        result.append( name );
+        if( nameESet )
+            result.append( name );
+        else
+            result.append( "<unset>" );
         result.append( ')' );
         return result.toString();
     }

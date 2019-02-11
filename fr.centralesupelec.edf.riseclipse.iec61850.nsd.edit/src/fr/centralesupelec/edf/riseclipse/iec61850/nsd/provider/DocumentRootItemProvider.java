@@ -88,7 +88,6 @@ public class DocumentRootItemProvider extends ItemProviderAdapter implements IEd
         if( childrenFeatures == null ) {
             super.getChildrenFeatures( object );
             childrenFeatures.add( NsdPackage.Literals.DOCUMENT_ROOT__APPLICABLE_SERVICE_NS );
-            childrenFeatures.add( NsdPackage.Literals.DOCUMENT_ROOT__COPYRIGHT );
             childrenFeatures.add( NsdPackage.Literals.DOCUMENT_ROOT__NS );
             childrenFeatures.add( NsdPackage.Literals.DOCUMENT_ROOT__NS_DOC );
             childrenFeatures.add( NsdPackage.Literals.DOCUMENT_ROOT__SERVICE_NS );
@@ -144,7 +143,6 @@ public class DocumentRootItemProvider extends ItemProviderAdapter implements IEd
 
         switch( notification.getFeatureID( DocumentRoot.class ) ) {
         case NsdPackage.DOCUMENT_ROOT__APPLICABLE_SERVICE_NS:
-        case NsdPackage.DOCUMENT_ROOT__COPYRIGHT:
         case NsdPackage.DOCUMENT_ROOT__NS:
         case NsdPackage.DOCUMENT_ROOT__NS_DOC:
         case NsdPackage.DOCUMENT_ROOT__SERVICE_NS:
@@ -167,9 +165,6 @@ public class DocumentRootItemProvider extends ItemProviderAdapter implements IEd
 
         newChildDescriptors.add( createChildParameter( NsdPackage.Literals.DOCUMENT_ROOT__APPLICABLE_SERVICE_NS,
                 NsdFactory.eINSTANCE.createApplicableServiceNS() ) );
-
-        newChildDescriptors.add( createChildParameter( NsdPackage.Literals.DOCUMENT_ROOT__COPYRIGHT,
-                NsdFactory.eINSTANCE.createCopyrightNotice() ) );
 
         newChildDescriptors
                 .add( createChildParameter( NsdPackage.Literals.DOCUMENT_ROOT__NS, NsdFactory.eINSTANCE.createNS() ) );

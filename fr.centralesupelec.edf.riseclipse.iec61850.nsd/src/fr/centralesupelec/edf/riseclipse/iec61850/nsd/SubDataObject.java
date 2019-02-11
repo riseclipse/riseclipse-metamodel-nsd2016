@@ -24,10 +24,6 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
  * A representation of the model object '<em><b>Sub Data Object</b></em>'.
  * <!-- end-user-doc -->
  *
- * <!-- begin-model-doc -->
- * Definition of a Sub-Data Object.
- * <!-- end-model-doc -->
- *
  * <p>
  * The following features are supported:
  * </p>
@@ -43,6 +39,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getType <em>Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getUnderlyingType <em>Underlying Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getUnderlyingTypeKind <em>Underlying Type Kind</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getCDC <em>CDC</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getSubDataObject()
@@ -55,9 +52,6 @@ public interface SubDataObject extends DocumentedClass {
      * The default value is <code>"false"</code>.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Flag indicating whether the element is an array. By default, not an array.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Is Array</em>' attribute.
      * @see #isSetIsArray()
      * @see #unsetIsArray()
@@ -108,14 +102,13 @@ public interface SubDataObject extends DocumentedClass {
      * Returns the value of the '<em><b>Max Index Attribute</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Name of the Attribute holding the maximal index of the array.
-     * Is relevant information if and only if isArray=true. One and only one of sizeAttribute and maxIndexAttribute shall be used.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Max Index Attribute</em>' attribute.
+     * @see #isSetMaxIndexAttribute()
+     * @see #unsetMaxIndexAttribute()
      * @see #setMaxIndexAttribute(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getSubDataObject_MaxIndexAttribute()
-     * @model extendedMetaData="kind='attribute' name='maxIndexAttribute'"
+     * @model unsettable="true"
+     *        extendedMetaData="kind='attribute' name='maxIndexAttribute'"
      * @generated
      */
     String getMaxIndexAttribute();
@@ -125,21 +118,41 @@ public interface SubDataObject extends DocumentedClass {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Max Index Attribute</em>' attribute.
+     * @see #isSetMaxIndexAttribute()
+     * @see #unsetMaxIndexAttribute()
      * @see #getMaxIndexAttribute()
      * @generated
      */
     void setMaxIndexAttribute( String value );
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getMaxIndexAttribute <em>Max Index Attribute</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetMaxIndexAttribute()
+     * @see #getMaxIndexAttribute()
+     * @see #setMaxIndexAttribute(String)
+     * @generated
+     */
+    void unsetMaxIndexAttribute();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getMaxIndexAttribute <em>Max Index Attribute</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Max Index Attribute</em>' attribute is set.
+     * @see #unsetMaxIndexAttribute()
+     * @see #getMaxIndexAttribute()
+     * @see #setMaxIndexAttribute(String)
+     * @generated
+     */
+    boolean isSetMaxIndexAttribute();
+
+    /**
      * Returns the value of the '<em><b>Min Index</b></em>' attribute.
      * The default value is <code>"0"</code>.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Lowest index of the array.
-     * Is relevant information if and only if isArray=true.
-     * By default 0.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Min Index</em>' attribute.
      * @see #isSetMinIndex()
      * @see #unsetMinIndex()
@@ -190,13 +203,12 @@ public interface SubDataObject extends DocumentedClass {
      * Returns the value of the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Name of the Sub-Data Object.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Name</em>' attribute.
+     * @see #isSetName()
+     * @see #unsetName()
      * @see #setName(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getSubDataObject_Name()
-     * @model required="true"
+     * @model unsettable="true"
      *        extendedMetaData="kind='attribute' name='name'"
      * @generated
      */
@@ -207,19 +219,41 @@ public interface SubDataObject extends DocumentedClass {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Name</em>' attribute.
+     * @see #isSetName()
+     * @see #unsetName()
      * @see #getName()
      * @generated
      */
     void setName( String value );
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getName <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetName()
+     * @see #getName()
+     * @see #setName(String)
+     * @generated
+     */
+    void unsetName();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getName <em>Name</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Name</em>' attribute is set.
+     * @see #unsetName()
+     * @see #getName()
+     * @see #setName(String)
+     * @generated
+     */
+    boolean isSetName();
+
+    /**
      * Returns the value of the '<em><b>Pres Cond</b></em>' attribute.
      * The default value is <code>"M"</code>.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Presence condition of the element. By default 'M' (mandatory).
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Pres Cond</em>' attribute.
      * @see #isSetPresCond()
      * @see #unsetPresCond()
@@ -270,13 +304,13 @@ public interface SubDataObject extends DocumentedClass {
      * Returns the value of the '<em><b>Pres Cond Args</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Optional argument to the presence condition. Can be a sibling element or a group number.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Pres Cond Args</em>' attribute.
+     * @see #isSetPresCondArgs()
+     * @see #unsetPresCondArgs()
      * @see #setPresCondArgs(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getSubDataObject_PresCondArgs()
-     * @model extendedMetaData="kind='attribute' name='presCondArgs'"
+     * @model unsettable="true"
+     *        extendedMetaData="kind='attribute' name='presCondArgs'"
      * @generated
      */
     String getPresCondArgs();
@@ -286,22 +320,47 @@ public interface SubDataObject extends DocumentedClass {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Pres Cond Args</em>' attribute.
+     * @see #isSetPresCondArgs()
+     * @see #unsetPresCondArgs()
      * @see #getPresCondArgs()
      * @generated
      */
     void setPresCondArgs( String value );
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getPresCondArgs <em>Pres Cond Args</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetPresCondArgs()
+     * @see #getPresCondArgs()
+     * @see #setPresCondArgs(String)
+     * @generated
+     */
+    void unsetPresCondArgs();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getPresCondArgs <em>Pres Cond Args</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Pres Cond Args</em>' attribute is set.
+     * @see #unsetPresCondArgs()
+     * @see #getPresCondArgs()
+     * @see #setPresCondArgs(String)
+     * @generated
+     */
+    boolean isSetPresCondArgs();
+
+    /**
      * Returns the value of the '<em><b>Pres Cond Args ID</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Optional argument to the presence condition: a documentation identifier referring to some free text.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Pres Cond Args ID</em>' attribute.
+     * @see #isSetPresCondArgsID()
+     * @see #unsetPresCondArgsID()
      * @see #setPresCondArgsID(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getSubDataObject_PresCondArgsID()
-     * @model extendedMetaData="kind='attribute' name='presCondArgsID'"
+     * @model unsettable="true"
+     *        extendedMetaData="kind='attribute' name='presCondArgsID'"
      * @generated
      */
     String getPresCondArgsID();
@@ -311,23 +370,47 @@ public interface SubDataObject extends DocumentedClass {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Pres Cond Args ID</em>' attribute.
+     * @see #isSetPresCondArgsID()
+     * @see #unsetPresCondArgsID()
      * @see #getPresCondArgsID()
      * @generated
      */
     void setPresCondArgsID( String value );
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getPresCondArgsID <em>Pres Cond Args ID</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetPresCondArgsID()
+     * @see #getPresCondArgsID()
+     * @see #setPresCondArgsID(String)
+     * @generated
+     */
+    void unsetPresCondArgsID();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getPresCondArgsID <em>Pres Cond Args ID</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Pres Cond Args ID</em>' attribute is set.
+     * @see #unsetPresCondArgsID()
+     * @see #getPresCondArgsID()
+     * @see #setPresCondArgsID(String)
+     * @generated
+     */
+    boolean isSetPresCondArgsID();
+
+    /**
      * Returns the value of the '<em><b>Size Attribute</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Sibling data attribute name holding the size of the array.
-     * Is relevant information if and only if isArray=true. One and only one of sizeAttribute and maxIndexAttribute shall be used.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Size Attribute</em>' attribute.
+     * @see #isSetSizeAttribute()
+     * @see #unsetSizeAttribute()
      * @see #setSizeAttribute(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getSubDataObject_SizeAttribute()
-     * @model extendedMetaData="kind='attribute' name='sizeAttribute'"
+     * @model unsettable="true"
+     *        extendedMetaData="kind='attribute' name='sizeAttribute'"
      * @generated
      */
     String getSizeAttribute();
@@ -337,22 +420,46 @@ public interface SubDataObject extends DocumentedClass {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Size Attribute</em>' attribute.
+     * @see #isSetSizeAttribute()
+     * @see #unsetSizeAttribute()
      * @see #getSizeAttribute()
      * @generated
      */
     void setSizeAttribute( String value );
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getSizeAttribute <em>Size Attribute</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetSizeAttribute()
+     * @see #getSizeAttribute()
+     * @see #setSizeAttribute(String)
+     * @generated
+     */
+    void unsetSizeAttribute();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getSizeAttribute <em>Size Attribute</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Size Attribute</em>' attribute is set.
+     * @see #unsetSizeAttribute()
+     * @see #getSizeAttribute()
+     * @see #setSizeAttribute(String)
+     * @generated
+     */
+    boolean isSetSizeAttribute();
+
+    /**
      * Returns the value of the '<em><b>Type</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Type of the SubDataObject, i.e., its CDC.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Type</em>' attribute.
+     * @see #isSetType()
+     * @see #unsetType()
      * @see #setType(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getSubDataObject_Type()
-     * @model required="true"
+     * @model unsettable="true"
      *        extendedMetaData="kind='attribute' name='type'"
      * @generated
      */
@@ -363,22 +470,47 @@ public interface SubDataObject extends DocumentedClass {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Type</em>' attribute.
+     * @see #isSetType()
+     * @see #unsetType()
      * @see #getType()
      * @generated
      */
     void setType( String value );
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getType <em>Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetType()
+     * @see #getType()
+     * @see #setType(String)
+     * @generated
+     */
+    void unsetType();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getType <em>Type</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Type</em>' attribute is set.
+     * @see #unsetType()
+     * @see #getType()
+     * @see #setType(String)
+     * @generated
+     */
+    boolean isSetType();
+
+    /**
      * Returns the value of the '<em><b>Underlying Type</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Type to be used for type-open CDCs, e.g., enumeration to be used for enumeration-based CDCs (e.g., ENS, ENC, ENG).
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Underlying Type</em>' attribute.
+     * @see #isSetUnderlyingType()
+     * @see #unsetUnderlyingType()
      * @see #setUnderlyingType(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getSubDataObject_UnderlyingType()
-     * @model extendedMetaData="kind='attribute' name='underlyingType'"
+     * @model unsettable="true"
+     *        extendedMetaData="kind='attribute' name='underlyingType'"
      * @generated
      */
     String getUnderlyingType();
@@ -388,19 +520,41 @@ public interface SubDataObject extends DocumentedClass {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Underlying Type</em>' attribute.
+     * @see #isSetUnderlyingType()
+     * @see #unsetUnderlyingType()
      * @see #getUnderlyingType()
      * @generated
      */
     void setUnderlyingType( String value );
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getUnderlyingType <em>Underlying Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetUnderlyingType()
+     * @see #getUnderlyingType()
+     * @see #setUnderlyingType(String)
+     * @generated
+     */
+    void unsetUnderlyingType();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getUnderlyingType <em>Underlying Type</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Underlying Type</em>' attribute is set.
+     * @see #unsetUnderlyingType()
+     * @see #getUnderlyingType()
+     * @see #setUnderlyingType(String)
+     * @generated
+     */
+    boolean isSetUnderlyingType();
+
+    /**
      * Returns the value of the '<em><b>Underlying Type Kind</b></em>' attribute.
      * The literals are from the enumeration {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * The typeKind to be used for all "undefined" attributes of the CDC of this DataObject.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Underlying Type Kind</em>' attribute.
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind
      * @see #isSetUnderlyingTypeKind()
@@ -448,5 +602,33 @@ public interface SubDataObject extends DocumentedClass {
      * @generated
      */
     boolean isSetUnderlyingTypeKind();
+
+    /**
+     * Returns the value of the '<em><b>CDC</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getSubDataObject <em>Sub Data Object</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>CDC</em>' container reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>CDC</em>' container reference.
+     * @see #setCDC(CDC)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getSubDataObject_CDC()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getSubDataObject
+     * @model opposite="subDataObject" resolveProxies="false" unsettable="true" ordered="false"
+     * @generated
+     */
+    CDC getCDC();
+
+    /**
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getCDC <em>CDC</em>}' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>CDC</em>' container reference.
+     * @see #getCDC()
+     * @generated
+     */
+    void setCDC( CDC value );
 
 } // SubDataObject

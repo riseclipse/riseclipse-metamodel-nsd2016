@@ -20,13 +20,17 @@
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,6 +41,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AbstractLNClassImpl#getName <em>Name</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AbstractLNClassImpl#getLNClasses <em>LN Classes</em>}</li>
  * </ul>
  *
  * @generated
@@ -61,6 +66,15 @@ public class AbstractLNClassImpl extends AnyLNClassImpl implements AbstractLNCla
      * @ordered
      */
     protected String name = NAME_EDEFAULT;
+
+    /**
+     * This is true if the Name attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean nameESet;
 
     /**
      * <!-- begin-user-doc -->
@@ -100,8 +114,122 @@ public class AbstractLNClassImpl extends AnyLNClassImpl implements AbstractLNCla
     public void setName( String newName ) {
         String oldName = name;
         name = newName;
-        if( eNotificationRequired() ) eNotify(
-                new ENotificationImpl( this, Notification.SET, NsdPackage.ABSTRACT_LN_CLASS__NAME, oldName, name ) );
+        boolean oldNameESet = nameESet;
+        nameESet = true;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.ABSTRACT_LN_CLASS__NAME, oldName, name, !oldNameESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetName() {
+        String oldName = name;
+        boolean oldNameESet = nameESet;
+        name = NAME_EDEFAULT;
+        nameESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.ABSTRACT_LN_CLASS__NAME, oldName, NAME_EDEFAULT, oldNameESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetName() {
+        return nameESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public LNClasses getLNClasses() {
+        if( eContainerFeatureID() != NsdPackage.ABSTRACT_LN_CLASS__LN_CLASSES ) return null;
+        return ( LNClasses ) eInternalContainer();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetLNClasses( LNClasses newLNClasses, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newLNClasses, NsdPackage.ABSTRACT_LN_CLASS__LN_CLASSES, msgs );
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setLNClasses( LNClasses newLNClasses ) {
+        if( newLNClasses != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.ABSTRACT_LN_CLASS__LN_CLASSES && newLNClasses != null ) ) {
+            if( EcoreUtil.isAncestor( this, newLNClasses ) )
+                throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            NotificationChain msgs = null;
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( newLNClasses != null ) msgs = ( ( InternalEObject ) newLNClasses ).eInverseAdd( this,
+                    NsdPackage.LN_CLASSES__ABSTRACT_LN_CLASS, LNClasses.class, msgs );
+            msgs = basicSetLNClasses( newLNClasses, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.ABSTRACT_LN_CLASS__LN_CLASSES, newLNClasses, newLNClasses ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.ABSTRACT_LN_CLASS__LN_CLASSES:
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            return basicSetLNClasses( ( LNClasses ) otherEnd, msgs );
+        }
+        return super.eInverseAdd( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.ABSTRACT_LN_CLASS__LN_CLASSES:
+            return basicSetLNClasses( null, msgs );
+        }
+        return super.eInverseRemove( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
+        switch( eContainerFeatureID() ) {
+        case NsdPackage.ABSTRACT_LN_CLASS__LN_CLASSES:
+            return eInternalContainer().eInverseRemove( this, NsdPackage.LN_CLASSES__ABSTRACT_LN_CLASS, LNClasses.class,
+                    msgs );
+        }
+        return super.eBasicRemoveFromContainerFeature( msgs );
     }
 
     /**
@@ -114,6 +242,8 @@ public class AbstractLNClassImpl extends AnyLNClassImpl implements AbstractLNCla
         switch( featureID ) {
         case NsdPackage.ABSTRACT_LN_CLASS__NAME:
             return getName();
+        case NsdPackage.ABSTRACT_LN_CLASS__LN_CLASSES:
+            return getLNClasses();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -129,6 +259,9 @@ public class AbstractLNClassImpl extends AnyLNClassImpl implements AbstractLNCla
         case NsdPackage.ABSTRACT_LN_CLASS__NAME:
             setName( ( String ) newValue );
             return;
+        case NsdPackage.ABSTRACT_LN_CLASS__LN_CLASSES:
+            setLNClasses( ( LNClasses ) newValue );
+            return;
         }
         super.eSet( featureID, newValue );
     }
@@ -142,7 +275,10 @@ public class AbstractLNClassImpl extends AnyLNClassImpl implements AbstractLNCla
     public void eUnset( int featureID ) {
         switch( featureID ) {
         case NsdPackage.ABSTRACT_LN_CLASS__NAME:
-            setName( NAME_EDEFAULT );
+            unsetName();
+            return;
+        case NsdPackage.ABSTRACT_LN_CLASS__LN_CLASSES:
+            setLNClasses( ( LNClasses ) null );
             return;
         }
         super.eUnset( featureID );
@@ -157,7 +293,9 @@ public class AbstractLNClassImpl extends AnyLNClassImpl implements AbstractLNCla
     public boolean eIsSet( int featureID ) {
         switch( featureID ) {
         case NsdPackage.ABSTRACT_LN_CLASS__NAME:
-            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals( name );
+            return isSetName();
+        case NsdPackage.ABSTRACT_LN_CLASS__LN_CLASSES:
+            return getLNClasses() != null;
         }
         return super.eIsSet( featureID );
     }
@@ -173,7 +311,10 @@ public class AbstractLNClassImpl extends AnyLNClassImpl implements AbstractLNCla
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (name: " );
-        result.append( name );
+        if( nameESet )
+            result.append( name );
+        else
+            result.append( "<unset>" );
         result.append( ')' );
         return result.toString();
     }

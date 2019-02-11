@@ -80,8 +80,8 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
         switch( eClass.getClassifierID() ) {
         case NsdPackage.APPLIES_TO_TYPE:
             return createAppliesToType();
-        case NsdPackage.DEPENDS_ON_TYPE:
-            return createDependsOnType();
+        case NsdPackage.DEPENDS_ON:
+            return createDependsOn();
         case NsdPackage.DOCUMENT_ROOT:
             return createDocumentRoot();
         case NsdPackage.SERVICE_TYPE:
@@ -166,8 +166,6 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
             return createServiceNsUsage();
         case NsdPackage.SERVICE_PARAMETER:
             return createServiceParameter();
-        case NsdPackage.SERVICE_TYPE_REALIZATION:
-            return createServiceTypeRealization();
         case NsdPackage.SERVICE_TYPE_REALIZATIONS:
             return createServiceTypeRealizations();
         case NsdPackage.SUB_DATA_ATTRIBUTE:
@@ -278,9 +276,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public DependsOnType createDependsOnType() {
-        DependsOnTypeImpl dependsOnType = new DependsOnTypeImpl();
-        return dependsOnType;
+    public DependsOn createDependsOn() {
+        DependsOnImpl dependsOn = new DependsOnImpl();
+        return dependsOn;
     }
 
     /**
@@ -743,17 +741,6 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
     public ServiceParameter createServiceParameter() {
         ServiceParameterImpl serviceParameter = new ServiceParameterImpl();
         return serviceParameter;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public ServiceTypeRealization createServiceTypeRealization() {
-        ServiceTypeRealizationImpl serviceTypeRealization = new ServiceTypeRealizationImpl();
-        return serviceTypeRealization;
     }
 
     /**

@@ -19,32 +19,38 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOnType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EcoreUtil;
+
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Depends On Type</b></em>'.
+ * An implementation of the model object '<em><b>Depends On</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DependsOnTypeImpl#getId <em>Id</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DependsOnTypeImpl#getPublicationStage <em>Publication Stage</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DependsOnTypeImpl#getRevision <em>Revision</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DependsOnImpl#getId <em>Id</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DependsOnImpl#getPublicationStage <em>Publication Stage</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DependsOnImpl#getRevision <em>Revision</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DependsOnImpl#getNS <em>NS</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DependsOnTypeImpl extends NSDObjectWithVersionAndReleaseImpl implements DependsOnType {
+public class DependsOnImpl extends NSDObjectWithVersionAndReleaseImpl implements DependsOn {
     /**
      * The default value of the '{@link #getId() <em>Id</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -64,6 +70,15 @@ public class DependsOnTypeImpl extends NSDObjectWithVersionAndReleaseImpl implem
      * @ordered
      */
     protected String id = ID_EDEFAULT;
+
+    /**
+     * This is true if the Id attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean idESet;
 
     /**
      * The default value of the '{@link #getPublicationStage() <em>Publication Stage</em>}' attribute.
@@ -128,7 +143,7 @@ public class DependsOnTypeImpl extends NSDObjectWithVersionAndReleaseImpl implem
      * <!-- end-user-doc -->
      * @generated
      */
-    protected DependsOnTypeImpl() {
+    protected DependsOnImpl() {
         super();
     }
 
@@ -139,7 +154,7 @@ public class DependsOnTypeImpl extends NSDObjectWithVersionAndReleaseImpl implem
      */
     @Override
     protected EClass eStaticClass() {
-        return NsdPackage.Literals.DEPENDS_ON_TYPE;
+        return NsdPackage.Literals.DEPENDS_ON;
     }
 
     /**
@@ -161,8 +176,35 @@ public class DependsOnTypeImpl extends NSDObjectWithVersionAndReleaseImpl implem
     public void setId( String newId ) {
         String oldId = id;
         id = newId;
-        if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DEPENDS_ON_TYPE__ID, oldId, id ) );
+        boolean oldIdESet = idESet;
+        idESet = true;
+        if( eNotificationRequired() ) eNotify(
+                new ENotificationImpl( this, Notification.SET, NsdPackage.DEPENDS_ON__ID, oldId, id, !oldIdESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetId() {
+        String oldId = id;
+        boolean oldIdESet = idESet;
+        id = ID_EDEFAULT;
+        idESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.DEPENDS_ON__ID, oldId, ID_EDEFAULT, oldIdESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetId() {
+        return idESet;
     }
 
     /**
@@ -187,7 +229,7 @@ public class DependsOnTypeImpl extends NSDObjectWithVersionAndReleaseImpl implem
         boolean oldPublicationStageESet = publicationStageESet;
         publicationStageESet = true;
         if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DEPENDS_ON_TYPE__PUBLICATION_STAGE,
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DEPENDS_ON__PUBLICATION_STAGE,
                     oldPublicationStage, publicationStage, !oldPublicationStageESet ) );
     }
 
@@ -203,7 +245,7 @@ public class DependsOnTypeImpl extends NSDObjectWithVersionAndReleaseImpl implem
         publicationStage = PUBLICATION_STAGE_EDEFAULT;
         publicationStageESet = false;
         if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DEPENDS_ON_TYPE__PUBLICATION_STAGE,
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DEPENDS_ON__PUBLICATION_STAGE,
                     oldPublicationStage, PUBLICATION_STAGE_EDEFAULT, oldPublicationStageESet ) );
     }
 
@@ -239,7 +281,7 @@ public class DependsOnTypeImpl extends NSDObjectWithVersionAndReleaseImpl implem
         boolean oldRevisionESet = revisionESet;
         revisionESet = true;
         if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.DEPENDS_ON_TYPE__REVISION, oldRevision, revision, !oldRevisionESet ) );
+                NsdPackage.DEPENDS_ON__REVISION, oldRevision, revision, !oldRevisionESet ) );
     }
 
     /**
@@ -254,7 +296,7 @@ public class DependsOnTypeImpl extends NSDObjectWithVersionAndReleaseImpl implem
         revision = REVISION_EDEFAULT;
         revisionESet = false;
         if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.DEPENDS_ON_TYPE__REVISION, oldRevision, REVISION_EDEFAULT, oldRevisionESet ) );
+                NsdPackage.DEPENDS_ON__REVISION, oldRevision, REVISION_EDEFAULT, oldRevisionESet ) );
     }
 
     /**
@@ -273,14 +315,101 @@ public class DependsOnTypeImpl extends NSDObjectWithVersionAndReleaseImpl implem
      * @generated
      */
     @Override
+    public NS getNS() {
+        if( eContainerFeatureID() != NsdPackage.DEPENDS_ON__NS ) return null;
+        return ( NS ) eInternalContainer();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetNS( NS newNS, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newNS, NsdPackage.DEPENDS_ON__NS, msgs );
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setNS( NS newNS ) {
+        if( newNS != eInternalContainer() || ( eContainerFeatureID() != NsdPackage.DEPENDS_ON__NS && newNS != null ) ) {
+            if( EcoreUtil.isAncestor( this, newNS ) )
+                throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            NotificationChain msgs = null;
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( newNS != null )
+                msgs = ( ( InternalEObject ) newNS ).eInverseAdd( this, NsdPackage.NS__DEPENDS_ON, NS.class, msgs );
+            msgs = basicSetNS( newNS, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DEPENDS_ON__NS, newNS, newNS ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.DEPENDS_ON__NS:
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            return basicSetNS( ( NS ) otherEnd, msgs );
+        }
+        return super.eInverseAdd( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.DEPENDS_ON__NS:
+            return basicSetNS( null, msgs );
+        }
+        return super.eInverseRemove( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
+        switch( eContainerFeatureID() ) {
+        case NsdPackage.DEPENDS_ON__NS:
+            return eInternalContainer().eInverseRemove( this, NsdPackage.NS__DEPENDS_ON, NS.class, msgs );
+        }
+        return super.eBasicRemoveFromContainerFeature( msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
-        case NsdPackage.DEPENDS_ON_TYPE__ID:
+        case NsdPackage.DEPENDS_ON__ID:
             return getId();
-        case NsdPackage.DEPENDS_ON_TYPE__PUBLICATION_STAGE:
+        case NsdPackage.DEPENDS_ON__PUBLICATION_STAGE:
             return getPublicationStage();
-        case NsdPackage.DEPENDS_ON_TYPE__REVISION:
+        case NsdPackage.DEPENDS_ON__REVISION:
             return getRevision();
+        case NsdPackage.DEPENDS_ON__NS:
+            return getNS();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -293,14 +422,17 @@ public class DependsOnTypeImpl extends NSDObjectWithVersionAndReleaseImpl implem
     @Override
     public void eSet( int featureID, Object newValue ) {
         switch( featureID ) {
-        case NsdPackage.DEPENDS_ON_TYPE__ID:
+        case NsdPackage.DEPENDS_ON__ID:
             setId( ( String ) newValue );
             return;
-        case NsdPackage.DEPENDS_ON_TYPE__PUBLICATION_STAGE:
+        case NsdPackage.DEPENDS_ON__PUBLICATION_STAGE:
             setPublicationStage( ( PubStage ) newValue );
             return;
-        case NsdPackage.DEPENDS_ON_TYPE__REVISION:
+        case NsdPackage.DEPENDS_ON__REVISION:
             setRevision( ( String ) newValue );
+            return;
+        case NsdPackage.DEPENDS_ON__NS:
+            setNS( ( NS ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -314,14 +446,17 @@ public class DependsOnTypeImpl extends NSDObjectWithVersionAndReleaseImpl implem
     @Override
     public void eUnset( int featureID ) {
         switch( featureID ) {
-        case NsdPackage.DEPENDS_ON_TYPE__ID:
-            setId( ID_EDEFAULT );
+        case NsdPackage.DEPENDS_ON__ID:
+            unsetId();
             return;
-        case NsdPackage.DEPENDS_ON_TYPE__PUBLICATION_STAGE:
+        case NsdPackage.DEPENDS_ON__PUBLICATION_STAGE:
             unsetPublicationStage();
             return;
-        case NsdPackage.DEPENDS_ON_TYPE__REVISION:
+        case NsdPackage.DEPENDS_ON__REVISION:
             unsetRevision();
+            return;
+        case NsdPackage.DEPENDS_ON__NS:
+            setNS( ( NS ) null );
             return;
         }
         super.eUnset( featureID );
@@ -335,12 +470,14 @@ public class DependsOnTypeImpl extends NSDObjectWithVersionAndReleaseImpl implem
     @Override
     public boolean eIsSet( int featureID ) {
         switch( featureID ) {
-        case NsdPackage.DEPENDS_ON_TYPE__ID:
-            return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals( id );
-        case NsdPackage.DEPENDS_ON_TYPE__PUBLICATION_STAGE:
+        case NsdPackage.DEPENDS_ON__ID:
+            return isSetId();
+        case NsdPackage.DEPENDS_ON__PUBLICATION_STAGE:
             return isSetPublicationStage();
-        case NsdPackage.DEPENDS_ON_TYPE__REVISION:
+        case NsdPackage.DEPENDS_ON__REVISION:
             return isSetRevision();
+        case NsdPackage.DEPENDS_ON__NS:
+            return getNS() != null;
         }
         return super.eIsSet( featureID );
     }
@@ -356,7 +493,10 @@ public class DependsOnTypeImpl extends NSDObjectWithVersionAndReleaseImpl implem
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (id: " );
-        result.append( id );
+        if( idESet )
+            result.append( id );
+        else
+            result.append( "<unset>" );
         result.append( ", publicationStage: " );
         if( publicationStageESet )
             result.append( publicationStage );
@@ -371,4 +511,4 @@ public class DependsOnTypeImpl extends NSDObjectWithVersionAndReleaseImpl implem
         return result.toString();
     }
 
-} //DependsOnTypeImpl
+} //DependsOnImpl

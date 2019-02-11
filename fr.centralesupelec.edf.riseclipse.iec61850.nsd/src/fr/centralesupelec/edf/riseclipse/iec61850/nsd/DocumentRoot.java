@@ -38,7 +38,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot#getXMLNSPrefixMap <em>XMLNS Prefix Map</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot#getXSISchemaLocation <em>XSI Schema Location</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot#getApplicableServiceNS <em>Applicable Service NS</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot#getNS <em>NS</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot#getNSDoc <em>NS Doc</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot#getServiceNS <em>Service NS</em>}</li>
@@ -106,13 +105,12 @@ public interface DocumentRoot extends EObject {
      * Returns the value of the '<em><b>Applicable Service NS</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Root element of a file holding the allowed usages of ServiceNS-es.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Applicable Service NS</em>' containment reference.
+     * @see #isSetApplicableServiceNS()
+     * @see #unsetApplicableServiceNS()
      * @see #setApplicableServiceNS(ApplicableServiceNS)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDocumentRoot_ApplicableServiceNS()
-     * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+     * @model containment="true" unsettable="true" transient="true" volatile="true" derived="true"
      *        extendedMetaData="kind='element' name='ApplicableServiceNS' namespace='##targetNamespace'"
      * @generated
      */
@@ -123,48 +121,46 @@ public interface DocumentRoot extends EObject {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Applicable Service NS</em>' containment reference.
+     * @see #isSetApplicableServiceNS()
+     * @see #unsetApplicableServiceNS()
      * @see #getApplicableServiceNS()
      * @generated
      */
     void setApplicableServiceNS( ApplicableServiceNS value );
 
     /**
-     * Returns the value of the '<em><b>Copyright</b></em>' containment reference.
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot#getApplicableServiceNS <em>Applicable Service NS</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * The copyright notice attached to the XML
-     * <!-- end-model-doc -->
-     * @return the value of the '<em>Copyright</em>' containment reference.
-     * @see #setCopyright(CopyrightNotice)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDocumentRoot_Copyright()
-     * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-     *        extendedMetaData="kind='element' name='Copyright' namespace='##targetNamespace'"
+     * @see #isSetApplicableServiceNS()
+     * @see #getApplicableServiceNS()
+     * @see #setApplicableServiceNS(ApplicableServiceNS)
      * @generated
      */
-    CopyrightNotice getCopyright();
+    void unsetApplicableServiceNS();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot#getCopyright <em>Copyright</em>}' containment reference.
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot#getApplicableServiceNS <em>Applicable Service NS</em>}' containment reference is set.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Copyright</em>' containment reference.
-     * @see #getCopyright()
+     * @return whether the value of the '<em>Applicable Service NS</em>' containment reference is set.
+     * @see #unsetApplicableServiceNS()
+     * @see #getApplicableServiceNS()
+     * @see #setApplicableServiceNS(ApplicableServiceNS)
      * @generated
      */
-    void setCopyright( CopyrightNotice value );
+    boolean isSetApplicableServiceNS();
 
     /**
      * Returns the value of the '<em><b>NS</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Root element of a namespace definition (NSD) file.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>NS</em>' containment reference.
+     * @see #isSetNS()
+     * @see #unsetNS()
      * @see #setNS(NS)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDocumentRoot_NS()
-     * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+     * @model containment="true" unsettable="true" transient="true" volatile="true" derived="true"
      *        extendedMetaData="kind='element' name='NS' namespace='##targetNamespace'"
      * @generated
      */
@@ -175,22 +171,46 @@ public interface DocumentRoot extends EObject {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>NS</em>' containment reference.
+     * @see #isSetNS()
+     * @see #unsetNS()
      * @see #getNS()
      * @generated
      */
     void setNS( NS value );
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot#getNS <em>NS</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetNS()
+     * @see #getNS()
+     * @see #setNS(NS)
+     * @generated
+     */
+    void unsetNS();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot#getNS <em>NS</em>}' containment reference is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>NS</em>' containment reference is set.
+     * @see #unsetNS()
+     * @see #getNS()
+     * @see #setNS(NS)
+     * @generated
+     */
+    boolean isSetNS();
+
+    /**
      * Returns the value of the '<em><b>NS Doc</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Root element of a file holding the documentation strings of an NSD file (NSDOC).
-     * <!-- end-model-doc -->
      * @return the value of the '<em>NS Doc</em>' containment reference.
+     * @see #isSetNSDoc()
+     * @see #unsetNSDoc()
      * @see #setNSDoc(NSDoc)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDocumentRoot_NSDoc()
-     * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+     * @model containment="true" unsettable="true" transient="true" volatile="true" derived="true"
      *        extendedMetaData="kind='element' name='NSDoc' namespace='##targetNamespace'"
      * @generated
      */
@@ -201,22 +221,46 @@ public interface DocumentRoot extends EObject {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>NS Doc</em>' containment reference.
+     * @see #isSetNSDoc()
+     * @see #unsetNSDoc()
      * @see #getNSDoc()
      * @generated
      */
     void setNSDoc( NSDoc value );
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot#getNSDoc <em>NS Doc</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetNSDoc()
+     * @see #getNSDoc()
+     * @see #setNSDoc(NSDoc)
+     * @generated
+     */
+    void unsetNSDoc();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot#getNSDoc <em>NS Doc</em>}' containment reference is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>NS Doc</em>' containment reference is set.
+     * @see #unsetNSDoc()
+     * @see #getNSDoc()
+     * @see #setNSDoc(NSDoc)
+     * @generated
+     */
+    boolean isSetNSDoc();
+
+    /**
      * Returns the value of the '<em><b>Service NS</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Root element of a service namespace definition (SNSD) file.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Service NS</em>' containment reference.
+     * @see #isSetServiceNS()
+     * @see #unsetServiceNS()
      * @see #setServiceNS(ServiceNS)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDocumentRoot_ServiceNS()
-     * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+     * @model containment="true" unsettable="true" transient="true" volatile="true" derived="true"
      *        extendedMetaData="kind='element' name='ServiceNS' namespace='##targetNamespace'"
      * @generated
      */
@@ -227,9 +271,34 @@ public interface DocumentRoot extends EObject {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Service NS</em>' containment reference.
+     * @see #isSetServiceNS()
+     * @see #unsetServiceNS()
      * @see #getServiceNS()
      * @generated
      */
     void setServiceNS( ServiceNS value );
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot#getServiceNS <em>Service NS</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetServiceNS()
+     * @see #getServiceNS()
+     * @see #setServiceNS(ServiceNS)
+     * @generated
+     */
+    void unsetServiceNS();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot#getServiceNS <em>Service NS</em>}' containment reference is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Service NS</em>' containment reference is set.
+     * @see #unsetServiceNS()
+     * @see #getServiceNS()
+     * @see #setServiceNS(ServiceNS)
+     * @generated
+     */
+    boolean isSetServiceNS();
 
 } // DocumentRoot

@@ -107,7 +107,7 @@ public interface NSDObjectWithVersionAndRelease extends EObject {
      * @see #unsetVersion()
      * @see #setVersion(Integer)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNSDObjectWithVersionAndRelease_Version()
-     * @model unsettable="true" required="true"
+     * @model unsettable="true"
      *        extendedMetaData="kind='attribute' name='version'"
      * @generated
      */

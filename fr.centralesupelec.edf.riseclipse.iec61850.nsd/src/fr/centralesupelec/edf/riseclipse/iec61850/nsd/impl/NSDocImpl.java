@@ -38,8 +38,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -153,6 +152,15 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
     protected String id = ID_EDEFAULT;
 
     /**
+     * This is true if the Id attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean idESet;
+
+    /**
      * The default value of the '{@link #getLang() <em>Lang</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -171,6 +179,15 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
      * @ordered
      */
     protected String lang = LANG_EDEFAULT;
+
+    /**
+     * This is true if the Lang attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean langESet;
 
     /**
      * The default value of the '{@link #getPublicationStage() <em>Publication Stage</em>}' attribute.
@@ -251,6 +268,15 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
     protected XMLGregorianCalendar umlDate = UML_DATE_EDEFAULT;
 
     /**
+     * This is true if the Uml Date attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean umlDateESet;
+
+    /**
      * The default value of the '{@link #getUmlVersion() <em>Uml Version</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -269,6 +295,15 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
      * @ordered
      */
     protected String umlVersion = UML_VERSION_EDEFAULT;
+
+    /**
+     * This is true if the Uml Version attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean umlVersionESet;
 
     /**
      * <!-- begin-user-doc -->
@@ -297,9 +332,30 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
     @Override
     public EList< Doc > getDoc() {
         if( doc == null ) {
-            doc = new EObjectContainmentEList< Doc >( Doc.class, this, NsdPackage.NS_DOC__DOC );
+            doc = new EObjectContainmentWithInverseEList.Unsettable< Doc >( Doc.class, this, NsdPackage.NS_DOC__DOC,
+                    NsdPackage.DOC__NS_DOC );
         }
         return doc;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetDoc() {
+        if( doc != null ) ( ( InternalEList.Unsettable< ? > ) doc ).unset();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetDoc() {
+        return doc != null && ( ( InternalEList.Unsettable< ? > ) doc ).isSet();
     }
 
     /**
@@ -321,8 +377,35 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
     public void setId( String newId ) {
         String oldId = id;
         id = newId;
+        boolean oldIdESet = idESet;
+        idESet = true;
         if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS_DOC__ID, oldId, id ) );
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS_DOC__ID, oldId, id, !oldIdESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetId() {
+        String oldId = id;
+        boolean oldIdESet = idESet;
+        id = ID_EDEFAULT;
+        idESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS_DOC__ID,
+                oldId, ID_EDEFAULT, oldIdESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetId() {
+        return idESet;
     }
 
     /**
@@ -344,8 +427,35 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
     public void setLang( String newLang ) {
         String oldLang = lang;
         lang = newLang;
-        if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS_DOC__LANG, oldLang, lang ) );
+        boolean oldLangESet = langESet;
+        langESet = true;
+        if( eNotificationRequired() ) eNotify(
+                new ENotificationImpl( this, Notification.SET, NsdPackage.NS_DOC__LANG, oldLang, lang, !oldLangESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetLang() {
+        String oldLang = lang;
+        boolean oldLangESet = langESet;
+        lang = LANG_EDEFAULT;
+        langESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS_DOC__LANG,
+                oldLang, LANG_EDEFAULT, oldLangESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetLang() {
+        return langESet;
     }
 
     /**
@@ -519,8 +629,35 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
     public void setUmlDate( XMLGregorianCalendar newUmlDate ) {
         XMLGregorianCalendar oldUmlDate = umlDate;
         umlDate = newUmlDate;
-        if( eNotificationRequired() ) eNotify(
-                new ENotificationImpl( this, Notification.SET, NsdPackage.NS_DOC__UML_DATE, oldUmlDate, umlDate ) );
+        boolean oldUmlDateESet = umlDateESet;
+        umlDateESet = true;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.NS_DOC__UML_DATE, oldUmlDate, umlDate, !oldUmlDateESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetUmlDate() {
+        XMLGregorianCalendar oldUmlDate = umlDate;
+        boolean oldUmlDateESet = umlDateESet;
+        umlDate = UML_DATE_EDEFAULT;
+        umlDateESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.NS_DOC__UML_DATE, oldUmlDate, UML_DATE_EDEFAULT, oldUmlDateESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetUmlDate() {
+        return umlDateESet;
     }
 
     /**
@@ -542,8 +679,50 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
     public void setUmlVersion( String newUmlVersion ) {
         String oldUmlVersion = umlVersion;
         umlVersion = newUmlVersion;
+        boolean oldUmlVersionESet = umlVersionESet;
+        umlVersionESet = true;
         if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.NS_DOC__UML_VERSION, oldUmlVersion, umlVersion ) );
+                NsdPackage.NS_DOC__UML_VERSION, oldUmlVersion, umlVersion, !oldUmlVersionESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetUmlVersion() {
+        String oldUmlVersion = umlVersion;
+        boolean oldUmlVersionESet = umlVersionESet;
+        umlVersion = UML_VERSION_EDEFAULT;
+        umlVersionESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.NS_DOC__UML_VERSION, oldUmlVersion, UML_VERSION_EDEFAULT, oldUmlVersionESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetUmlVersion() {
+        return umlVersionESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @SuppressWarnings( "unchecked" )
+    @Override
+    public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.NS_DOC__DOC:
+            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getDoc() ).basicAdd( otherEnd, msgs );
+        }
+        return super.eInverseAdd( otherEnd, featureID, msgs );
     }
 
     /**
@@ -696,13 +875,13 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
             unsetVersion();
             return;
         case NsdPackage.NS_DOC__DOC:
-            getDoc().clear();
+            unsetDoc();
             return;
         case NsdPackage.NS_DOC__ID:
-            setId( ID_EDEFAULT );
+            unsetId();
             return;
         case NsdPackage.NS_DOC__LANG:
-            setLang( LANG_EDEFAULT );
+            unsetLang();
             return;
         case NsdPackage.NS_DOC__PUBLICATION_STAGE:
             unsetPublicationStage();
@@ -711,10 +890,10 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
             unsetRevision();
             return;
         case NsdPackage.NS_DOC__UML_DATE:
-            setUmlDate( UML_DATE_EDEFAULT );
+            unsetUmlDate();
             return;
         case NsdPackage.NS_DOC__UML_VERSION:
-            setUmlVersion( UML_VERSION_EDEFAULT );
+            unsetUmlVersion();
             return;
         }
         super.eUnset( featureID );
@@ -733,19 +912,19 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         case NsdPackage.NS_DOC__VERSION:
             return isSetVersion();
         case NsdPackage.NS_DOC__DOC:
-            return doc != null && !doc.isEmpty();
+            return isSetDoc();
         case NsdPackage.NS_DOC__ID:
-            return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals( id );
+            return isSetId();
         case NsdPackage.NS_DOC__LANG:
-            return LANG_EDEFAULT == null ? lang != null : !LANG_EDEFAULT.equals( lang );
+            return isSetLang();
         case NsdPackage.NS_DOC__PUBLICATION_STAGE:
             return isSetPublicationStage();
         case NsdPackage.NS_DOC__REVISION:
             return isSetRevision();
         case NsdPackage.NS_DOC__UML_DATE:
-            return UML_DATE_EDEFAULT == null ? umlDate != null : !UML_DATE_EDEFAULT.equals( umlDate );
+            return isSetUmlDate();
         case NsdPackage.NS_DOC__UML_VERSION:
-            return UML_VERSION_EDEFAULT == null ? umlVersion != null : !UML_VERSION_EDEFAULT.equals( umlVersion );
+            return isSetUmlVersion();
         }
         return super.eIsSet( featureID );
     }
@@ -811,9 +990,15 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         else
             result.append( "<unset>" );
         result.append( ", id: " );
-        result.append( id );
+        if( idESet )
+            result.append( id );
+        else
+            result.append( "<unset>" );
         result.append( ", lang: " );
-        result.append( lang );
+        if( langESet )
+            result.append( lang );
+        else
+            result.append( "<unset>" );
         result.append( ", publicationStage: " );
         if( publicationStageESet )
             result.append( publicationStage );
@@ -825,9 +1010,15 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         else
             result.append( "<unset>" );
         result.append( ", umlDate: " );
-        result.append( umlDate );
+        if( umlDateESet )
+            result.append( umlDate );
+        else
+            result.append( "<unset>" );
         result.append( ", umlVersion: " );
-        result.append( umlVersion );
+        if( umlVersionESet )
+            result.append( umlVersion );
+        else
+            result.append( "<unset>" );
         result.append( ')' );
         return result.toString();
     }

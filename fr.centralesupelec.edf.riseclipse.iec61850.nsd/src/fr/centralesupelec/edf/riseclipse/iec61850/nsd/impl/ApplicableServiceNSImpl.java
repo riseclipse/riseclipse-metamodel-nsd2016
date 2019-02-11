@@ -36,8 +36,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -85,6 +84,15 @@ public class ApplicableServiceNSImpl extends CopyrightedImpl implements Applicab
      * @ordered
      */
     protected XMLGregorianCalendar date = DATE_EDEFAULT;
+
+    /**
+     * This is true if the Date attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean dateESet;
 
     /**
      * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
@@ -142,10 +150,31 @@ public class ApplicableServiceNSImpl extends CopyrightedImpl implements Applicab
     @Override
     public EList< ServiceNsUsage > getServiceNsUsage() {
         if( serviceNsUsage == null ) {
-            serviceNsUsage = new EObjectContainmentEList< ServiceNsUsage >( ServiceNsUsage.class, this,
-                    NsdPackage.APPLICABLE_SERVICE_NS__SERVICE_NS_USAGE );
+            serviceNsUsage = new EObjectContainmentWithInverseEList.Unsettable< ServiceNsUsage >( ServiceNsUsage.class,
+                    this, NsdPackage.APPLICABLE_SERVICE_NS__SERVICE_NS_USAGE,
+                    NsdPackage.SERVICE_NS_USAGE__APPLICABLE_SERVICE_NS );
         }
         return serviceNsUsage;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetServiceNsUsage() {
+        if( serviceNsUsage != null ) ( ( InternalEList.Unsettable< ? > ) serviceNsUsage ).unset();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetServiceNsUsage() {
+        return serviceNsUsage != null && ( ( InternalEList.Unsettable< ? > ) serviceNsUsage ).isSet();
     }
 
     /**
@@ -167,8 +196,35 @@ public class ApplicableServiceNSImpl extends CopyrightedImpl implements Applicab
     public void setDate( XMLGregorianCalendar newDate ) {
         XMLGregorianCalendar oldDate = date;
         date = newDate;
+        boolean oldDateESet = dateESet;
+        dateESet = true;
         if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.APPLICABLE_SERVICE_NS__DATE, oldDate, date ) );
+                NsdPackage.APPLICABLE_SERVICE_NS__DATE, oldDate, date, !oldDateESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetDate() {
+        XMLGregorianCalendar oldDate = date;
+        boolean oldDateESet = dateESet;
+        date = DATE_EDEFAULT;
+        dateESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.APPLICABLE_SERVICE_NS__DATE, oldDate, DATE_EDEFAULT, oldDateESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetDate() {
+        return dateESet;
     }
 
     /**
@@ -219,6 +275,22 @@ public class ApplicableServiceNSImpl extends CopyrightedImpl implements Applicab
     @Override
     public boolean isSetVersion() {
         return versionESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @SuppressWarnings( "unchecked" )
+    @Override
+    public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.APPLICABLE_SERVICE_NS__SERVICE_NS_USAGE:
+            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getServiceNsUsage() )
+                    .basicAdd( otherEnd, msgs );
+        }
+        return super.eInverseAdd( otherEnd, featureID, msgs );
     }
 
     /**
@@ -285,10 +357,10 @@ public class ApplicableServiceNSImpl extends CopyrightedImpl implements Applicab
     public void eUnset( int featureID ) {
         switch( featureID ) {
         case NsdPackage.APPLICABLE_SERVICE_NS__SERVICE_NS_USAGE:
-            getServiceNsUsage().clear();
+            unsetServiceNsUsage();
             return;
         case NsdPackage.APPLICABLE_SERVICE_NS__DATE:
-            setDate( DATE_EDEFAULT );
+            unsetDate();
             return;
         case NsdPackage.APPLICABLE_SERVICE_NS__VERSION:
             unsetVersion();
@@ -306,9 +378,9 @@ public class ApplicableServiceNSImpl extends CopyrightedImpl implements Applicab
     public boolean eIsSet( int featureID ) {
         switch( featureID ) {
         case NsdPackage.APPLICABLE_SERVICE_NS__SERVICE_NS_USAGE:
-            return serviceNsUsage != null && !serviceNsUsage.isEmpty();
+            return isSetServiceNsUsage();
         case NsdPackage.APPLICABLE_SERVICE_NS__DATE:
-            return DATE_EDEFAULT == null ? date != null : !DATE_EDEFAULT.equals( date );
+            return isSetDate();
         case NsdPackage.APPLICABLE_SERVICE_NS__VERSION:
             return isSetVersion();
         }
@@ -326,7 +398,10 @@ public class ApplicableServiceNSImpl extends CopyrightedImpl implements Applicab
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (date: " );
-        result.append( date );
+        if( dateESet )
+            result.append( date );
+        else
+            result.append( "<unset>" );
         result.append( ", version: " );
         if( versionESet )
             result.append( version );

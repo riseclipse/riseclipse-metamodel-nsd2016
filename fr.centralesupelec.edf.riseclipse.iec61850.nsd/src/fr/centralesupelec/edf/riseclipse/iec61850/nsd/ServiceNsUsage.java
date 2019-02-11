@@ -26,10 +26,6 @@ import org.eclipse.emf.common.util.EList;
  * A representation of the model object '<em><b>Service Ns Usage</b></em>'.
  * <!-- end-user-doc -->
  *
- * <!-- begin-model-doc -->
- * Describes the list of (domain) NS for which a ServiceNS is applicable.
- * <!-- end-model-doc -->
- *
  * <p>
  * The following features are supported:
  * </p>
@@ -38,6 +34,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getId <em>Id</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getPublicationStage <em>Publication Stage</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getRevision <em>Revision</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getApplicableServiceNS <em>Applicable Service NS</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceNsUsage()
@@ -48,30 +45,51 @@ public interface ServiceNsUsage extends NSDObjectWithVersionAndRelease {
     /**
      * Returns the value of the '<em><b>Applies To</b></em>' containment reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType}.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getServiceNsUsage <em>Service Ns Usage</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * References to namespaces this ServiceNS can be used with.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Applies To</em>' containment reference list.
+     * @see #isSetAppliesTo()
+     * @see #unsetAppliesTo()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceNsUsage_AppliesTo()
-     * @model containment="true" required="true"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getServiceNsUsage
+     * @model opposite="serviceNsUsage" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='AppliesTo' namespace='##targetNamespace'"
      * @generated
      */
     EList< AppliesToType > getAppliesTo();
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getAppliesTo <em>Applies To</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetAppliesTo()
+     * @see #getAppliesTo()
+     * @generated
+     */
+    void unsetAppliesTo();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getAppliesTo <em>Applies To</em>}' containment reference list is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Applies To</em>' containment reference list is set.
+     * @see #unsetAppliesTo()
+     * @see #getAppliesTo()
+     * @generated
+     */
+    boolean isSetAppliesTo();
+
+    /**
      * Returns the value of the '<em><b>Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Identifier of the namespace, e.g., "IEC 61850-7-4", "(Tr)IEC 61850-90-4".
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Id</em>' attribute.
+     * @see #isSetId()
+     * @see #unsetId()
      * @see #setId(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceNsUsage_Id()
-     * @model required="true"
+     * @model unsettable="true"
      *        extendedMetaData="kind='attribute' name='id'"
      * @generated
      */
@@ -82,10 +100,35 @@ public interface ServiceNsUsage extends NSDObjectWithVersionAndRelease {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Id</em>' attribute.
+     * @see #isSetId()
+     * @see #unsetId()
      * @see #getId()
      * @generated
      */
     void setId( String value );
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getId <em>Id</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetId()
+     * @see #getId()
+     * @see #setId(String)
+     * @generated
+     */
+    void unsetId();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getId <em>Id</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Id</em>' attribute is set.
+     * @see #unsetId()
+     * @see #getId()
+     * @see #setId(String)
+     * @generated
+     */
+    boolean isSetId();
 
     /**
      * Returns the value of the '<em><b>Publication Stage</b></em>' attribute.
@@ -93,9 +136,6 @@ public interface ServiceNsUsage extends NSDObjectWithVersionAndRelease {
      * The literals are from the enumeration {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * The publication stage of the namespace, by default IS.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Publication Stage</em>' attribute.
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage
      * @see #isSetPublicationStage()
@@ -149,9 +189,6 @@ public interface ServiceNsUsage extends NSDObjectWithVersionAndRelease {
      * The default value is <code>"A"</code>.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Revision of the namespace version, by default 'A'.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Revision</em>' attribute.
      * @see #isSetRevision()
      * @see #unsetRevision()
@@ -197,5 +234,33 @@ public interface ServiceNsUsage extends NSDObjectWithVersionAndRelease {
      * @generated
      */
     boolean isSetRevision();
+
+    /**
+     * Returns the value of the '<em><b>Applicable Service NS</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServiceNS#getServiceNsUsage <em>Service Ns Usage</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Applicable Service NS</em>' container reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Applicable Service NS</em>' container reference.
+     * @see #setApplicableServiceNS(ApplicableServiceNS)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceNsUsage_ApplicableServiceNS()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServiceNS#getServiceNsUsage
+     * @model opposite="serviceNsUsage" unsettable="true" ordered="false"
+     * @generated
+     */
+    ApplicableServiceNS getApplicableServiceNS();
+
+    /**
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getApplicableServiceNS <em>Applicable Service NS</em>}' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Applicable Service NS</em>' container reference.
+     * @see #getApplicableServiceNS()
+     * @generated
+     */
+    void setApplicableServiceNS( ApplicableServiceNS value );
 
 } // ServiceNsUsage

@@ -95,6 +95,15 @@ public class DocumentedClassImpl extends MinimalEObjectImpl.Container implements
     protected String descID = DESC_ID_EDEFAULT;
 
     /**
+     * This is true if the Desc ID attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean descIDESet;
+
+    /**
      * The default value of the '{@link #isInformative() <em>Informative</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -211,8 +220,35 @@ public class DocumentedClassImpl extends MinimalEObjectImpl.Container implements
     public void setDescID( String newDescID ) {
         String oldDescID = descID;
         descID = newDescID;
+        boolean oldDescIDESet = descIDESet;
+        descIDESet = true;
         if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.DOCUMENTED_CLASS__DESC_ID, oldDescID, descID ) );
+                NsdPackage.DOCUMENTED_CLASS__DESC_ID, oldDescID, descID, !oldDescIDESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetDescID() {
+        String oldDescID = descID;
+        boolean oldDescIDESet = descIDESet;
+        descID = DESC_ID_EDEFAULT;
+        descIDESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.DOCUMENTED_CLASS__DESC_ID, oldDescID, DESC_ID_EDEFAULT, oldDescIDESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetDescID() {
+        return descIDESet;
     }
 
     /**
@@ -316,7 +352,7 @@ public class DocumentedClassImpl extends MinimalEObjectImpl.Container implements
             unsetDeprecated();
             return;
         case NsdPackage.DOCUMENTED_CLASS__DESC_ID:
-            setDescID( DESC_ID_EDEFAULT );
+            unsetDescID();
             return;
         case NsdPackage.DOCUMENTED_CLASS__INFORMATIVE:
             unsetInformative();
@@ -336,7 +372,7 @@ public class DocumentedClassImpl extends MinimalEObjectImpl.Container implements
         case NsdPackage.DOCUMENTED_CLASS__DEPRECATED:
             return isSetDeprecated();
         case NsdPackage.DOCUMENTED_CLASS__DESC_ID:
-            return DESC_ID_EDEFAULT == null ? descID != null : !DESC_ID_EDEFAULT.equals( descID );
+            return isSetDescID();
         case NsdPackage.DOCUMENTED_CLASS__INFORMATIVE:
             return isSetInformative();
         }
@@ -359,7 +395,10 @@ public class DocumentedClassImpl extends MinimalEObjectImpl.Container implements
         else
             result.append( "<unset>" );
         result.append( ", descID: " );
-        result.append( descID );
+        if( descIDESet )
+            result.append( descID );
+        else
+            result.append( "<unset>" );
         result.append( ", informative: " );
         if( informativeESet )
             result.append( informative );

@@ -28,10 +28,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * A representation of the model object '<em><b>License</b></em>'.
  * <!-- end-user-doc -->
  *
- * <!-- begin-model-doc -->
- * Describe the license definition.
- * <!-- end-model-doc -->
- *
  * <p>
  * The following features are supported:
  * </p>
@@ -39,6 +35,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.License#getMixed <em>Mixed</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.License#getKind <em>Kind</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.License#getUri <em>Uri</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.License#getCopyrightNotice <em>Copyright Notice</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getLicense()
@@ -68,9 +65,6 @@ public interface License extends EObject {
      * The literals are from the enumeration {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LicenseKind}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * kind of license
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Kind</em>' attribute.
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.LicenseKind
      * @see #isSetKind()
@@ -123,13 +117,12 @@ public interface License extends EObject {
      * Returns the value of the '<em><b>Uri</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * path to the license file
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Uri</em>' attribute.
+     * @see #isSetUri()
+     * @see #unsetUri()
      * @see #setUri(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getLicense_Uri()
-     * @model dataType="org.eclipse.emf.ecore.xml.type.NormalizedString"
+     * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.NormalizedString"
      *        extendedMetaData="kind='attribute' name='uri'"
      * @generated
      */
@@ -140,9 +133,62 @@ public interface License extends EObject {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Uri</em>' attribute.
+     * @see #isSetUri()
+     * @see #unsetUri()
      * @see #getUri()
      * @generated
      */
     void setUri( String value );
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.License#getUri <em>Uri</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetUri()
+     * @see #getUri()
+     * @see #setUri(String)
+     * @generated
+     */
+    void unsetUri();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.License#getUri <em>Uri</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Uri</em>' attribute is set.
+     * @see #unsetUri()
+     * @see #getUri()
+     * @see #setUri(String)
+     * @generated
+     */
+    boolean isSetUri();
+
+    /**
+     * Returns the value of the '<em><b>Copyright Notice</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CopyrightNotice#getLicense <em>License</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Copyright Notice</em>' container reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Copyright Notice</em>' container reference.
+     * @see #setCopyrightNotice(CopyrightNotice)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getLicense_CopyrightNotice()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CopyrightNotice#getLicense
+     * @model opposite="license" resolveProxies="false" unsettable="true" ordered="false"
+     * @generated
+     */
+    CopyrightNotice getCopyrightNotice();
+
+    /**
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.License#getCopyrightNotice <em>Copyright Notice</em>}' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Copyright Notice</em>' container reference.
+     * @see #getCopyrightNotice()
+     * @generated
+     */
+    void setCopyrightNotice( CopyrightNotice value );
 
 } // License

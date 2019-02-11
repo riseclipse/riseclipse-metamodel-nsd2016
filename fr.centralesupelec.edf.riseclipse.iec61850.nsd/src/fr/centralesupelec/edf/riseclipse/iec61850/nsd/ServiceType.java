@@ -31,6 +31,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType#getName <em>Name</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType#getApplicableServices <em>Applicable Services</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceType()
@@ -53,7 +54,7 @@ public interface ServiceType extends EObject {
      * @see #unsetName()
      * @see #setName(ACSIServicesKind)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceType_Name()
-     * @model unsettable="true" required="true"
+     * @model unsettable="true"
      *        extendedMetaData="kind='attribute' name='name'"
      * @generated
      */
@@ -94,5 +95,33 @@ public interface ServiceType extends EObject {
      * @generated
      */
     boolean isSetName();
+
+    /**
+     * Returns the value of the '<em><b>Applicable Services</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices#getService <em>Service</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Applicable Services</em>' container reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Applicable Services</em>' container reference.
+     * @see #setApplicableServices(ApplicableServices)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceType_ApplicableServices()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices#getService
+     * @model opposite="service" resolveProxies="false" unsettable="true" ordered="false"
+     * @generated
+     */
+    ApplicableServices getApplicableServices();
+
+    /**
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType#getApplicableServices <em>Applicable Services</em>}' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Applicable Services</em>' container reference.
+     * @see #getApplicableServices()
+     * @generated
+     */
+    void setApplicableServices( ApplicableServices value );
 
 } // ServiceType

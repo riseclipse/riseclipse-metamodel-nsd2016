@@ -203,9 +203,6 @@ public class DocItemProvider extends ItemProviderAdapter implements IEditingDoma
                 FeatureMapUtil.createEntry( NsdPackage.Literals.DOCUMENT_ROOT__APPLICABLE_SERVICE_NS,
                         NsdFactory.eINSTANCE.createApplicableServiceNS() ) ) );
 
-        newChildDescriptors.add( createChildParameter( NsdPackage.Literals.DOC__MIXED, FeatureMapUtil.createEntry(
-                NsdPackage.Literals.DOCUMENT_ROOT__COPYRIGHT, NsdFactory.eINSTANCE.createCopyrightNotice() ) ) );
-
         newChildDescriptors.add( createChildParameter( NsdPackage.Literals.DOC__MIXED, FeatureMapUtil
                 .createEntry( NsdPackage.Literals.DOCUMENT_ROOT__NS, NsdFactory.eINSTANCE.createNS() ) ) );
 
@@ -235,7 +232,6 @@ public class DocItemProvider extends ItemProviderAdapter implements IEditingDoma
         }
 
         boolean qualify = childFeature == NsdPackage.Literals.DOCUMENT_ROOT__APPLICABLE_SERVICE_NS
-                || childFeature == NsdPackage.Literals.DOCUMENT_ROOT__COPYRIGHT
                 || childFeature == NsdPackage.Literals.DOCUMENT_ROOT__NS
                 || childFeature == NsdPackage.Literals.DOCUMENT_ROOT__NS_DOC
                 || childFeature == NsdPackage.Literals.DOCUMENT_ROOT__SERVICE_NS;

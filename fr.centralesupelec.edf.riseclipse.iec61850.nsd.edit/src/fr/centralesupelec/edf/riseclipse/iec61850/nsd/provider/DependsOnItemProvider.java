@@ -19,7 +19,7 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.provider;
 
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOnType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
 import java.util.Collection;
@@ -27,25 +27,26 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOnType} object.
+ * This is the item provider adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class DependsOnTypeItemProvider extends NSDObjectWithVersionAndReleaseItemProvider {
+public class DependsOnItemProvider extends NSDObjectWithVersionAndReleaseItemProvider {
     /**
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public DependsOnTypeItemProvider( AdapterFactory adapterFactory ) {
+    public DependsOnItemProvider( AdapterFactory adapterFactory ) {
         super( adapterFactory );
     }
 
@@ -76,10 +77,10 @@ public class DependsOnTypeItemProvider extends NSDObjectWithVersionAndReleaseIte
     protected void addIdPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_DependsOnType_id_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_DependsOnType_id_feature",
-                                "_UI_DependsOnType_type" ),
-                        NsdPackage.Literals.DEPENDS_ON_TYPE__ID, true, false, false,
+                        getResourceLocator(), getString( "_UI_DependsOn_id_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_DependsOn_id_feature",
+                                "_UI_DependsOn_type" ),
+                        NsdPackage.Literals.DEPENDS_ON__ID, true, false, false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
@@ -92,10 +93,10 @@ public class DependsOnTypeItemProvider extends NSDObjectWithVersionAndReleaseIte
     protected void addPublicationStagePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_DependsOnType_publicationStage_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_DependsOnType_publicationStage_feature",
-                                "_UI_DependsOnType_type" ),
-                        NsdPackage.Literals.DEPENDS_ON_TYPE__PUBLICATION_STAGE, true, false, false,
+                        getResourceLocator(), getString( "_UI_DependsOn_publicationStage_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_DependsOn_publicationStage_feature",
+                                "_UI_DependsOn_type" ),
+                        NsdPackage.Literals.DEPENDS_ON__PUBLICATION_STAGE, true, false, false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
@@ -108,22 +109,22 @@ public class DependsOnTypeItemProvider extends NSDObjectWithVersionAndReleaseIte
     protected void addRevisionPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_DependsOnType_revision_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_DependsOnType_revision_feature",
-                                "_UI_DependsOnType_type" ),
-                        NsdPackage.Literals.DEPENDS_ON_TYPE__REVISION, true, false, false,
+                        getResourceLocator(), getString( "_UI_DependsOn_revision_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_DependsOn_revision_feature",
+                                "_UI_DependsOn_type" ),
+                        NsdPackage.Literals.DEPENDS_ON__REVISION, true, false, false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
-     * This returns DependsOnType.gif.
+     * This returns DependsOn.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
     public Object getImage( Object object ) {
-        return overlayImage( object, getResourceLocator().getImage( "full/obj16/DependsOnType" ) );
+        return overlayImage( object, getResourceLocator().getImage( "full/obj16/DependsOn" ) );
     }
 
     /**
@@ -134,9 +135,9 @@ public class DependsOnTypeItemProvider extends NSDObjectWithVersionAndReleaseIte
      */
     @Override
     public String getText( Object object ) {
-        String label = ( ( DependsOnType ) object ).getId();
-        return label == null || label.length() == 0 ? getString( "_UI_DependsOnType_type" )
-                : getString( "_UI_DependsOnType_type" ) + " " + label;
+        String label = ( ( DependsOn ) object ).getId();
+        return label == null || label.length() == 0 ? getString( "_UI_DependsOn_type" )
+                : getString( "_UI_DependsOn_type" ) + " " + label;
     }
 
     /**
@@ -150,10 +151,10 @@ public class DependsOnTypeItemProvider extends NSDObjectWithVersionAndReleaseIte
     public void notifyChanged( Notification notification ) {
         updateChildren( notification );
 
-        switch( notification.getFeatureID( DependsOnType.class ) ) {
-        case NsdPackage.DEPENDS_ON_TYPE__ID:
-        case NsdPackage.DEPENDS_ON_TYPE__PUBLICATION_STAGE:
-        case NsdPackage.DEPENDS_ON_TYPE__REVISION:
+        switch( notification.getFeatureID( DependsOn.class ) ) {
+        case NsdPackage.DEPENDS_ON__ID:
+        case NsdPackage.DEPENDS_ON__PUBLICATION_STAGE:
+        case NsdPackage.DEPENDS_ON__REVISION:
             fireNotifyChanged( new ViewerNotification( notification, notification.getNotifier(), false, true ) );
             return;
         }

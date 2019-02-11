@@ -20,6 +20,7 @@
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CopyrightNotice;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Copyrighted;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.License;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Notice;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
@@ -32,6 +33,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,6 +45,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CopyrightNoticeImpl#getNotice <em>Notice</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CopyrightNoticeImpl#getLicense <em>License</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CopyrightNoticeImpl#getCopyrighted <em>Copyrighted</em>}</li>
  * </ul>
  *
  * @generated
@@ -59,6 +62,15 @@ public class CopyrightNoticeImpl extends MinimalEObjectImpl.Container implements
     protected Notice notice;
 
     /**
+     * This is true if the Notice containment reference has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean noticeESet;
+
+    /**
      * The cached value of the '{@link #getLicense() <em>License</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -67,6 +79,15 @@ public class CopyrightNoticeImpl extends MinimalEObjectImpl.Container implements
      * @ordered
      */
     protected License license;
+
+    /**
+     * This is true if the License containment reference has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean licenseESet;
 
     /**
      * <!-- begin-user-doc -->
@@ -105,9 +126,11 @@ public class CopyrightNoticeImpl extends MinimalEObjectImpl.Container implements
     public NotificationChain basicSetNotice( Notice newNotice, NotificationChain msgs ) {
         Notice oldNotice = notice;
         notice = newNotice;
+        boolean oldNoticeESet = noticeESet;
+        noticeESet = true;
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
-                    NsdPackage.COPYRIGHT_NOTICE__NOTICE, oldNotice, newNotice );
+                    NsdPackage.COPYRIGHT_NOTICE__NOTICE, oldNotice, newNotice, !oldNoticeESet );
             if( msgs == null )
                 msgs = notification;
             else
@@ -126,14 +149,71 @@ public class CopyrightNoticeImpl extends MinimalEObjectImpl.Container implements
         if( newNotice != notice ) {
             NotificationChain msgs = null;
             if( notice != null ) msgs = ( ( InternalEObject ) notice ).eInverseRemove( this,
-                    EOPPOSITE_FEATURE_BASE - NsdPackage.COPYRIGHT_NOTICE__NOTICE, null, msgs );
+                    NsdPackage.NOTICE__COPYRIGHT_NOTICE, Notice.class, msgs );
             if( newNotice != null ) msgs = ( ( InternalEObject ) newNotice ).eInverseAdd( this,
-                    EOPPOSITE_FEATURE_BASE - NsdPackage.COPYRIGHT_NOTICE__NOTICE, null, msgs );
+                    NsdPackage.NOTICE__COPYRIGHT_NOTICE, Notice.class, msgs );
             msgs = basicSetNotice( newNotice, msgs );
             if( msgs != null ) msgs.dispatch();
         }
-        else if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.COPYRIGHT_NOTICE__NOTICE, newNotice, newNotice ) );
+        else {
+            boolean oldNoticeESet = noticeESet;
+            noticeESet = true;
+            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.COPYRIGHT_NOTICE__NOTICE, newNotice, newNotice, !oldNoticeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicUnsetNotice( NotificationChain msgs ) {
+        Notice oldNotice = notice;
+        notice = null;
+        boolean oldNoticeESet = noticeESet;
+        noticeESet = false;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.COPYRIGHT_NOTICE__NOTICE, oldNotice, null, oldNoticeESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetNotice() {
+        if( notice != null ) {
+            NotificationChain msgs = null;
+            msgs = ( ( InternalEObject ) notice ).eInverseRemove( this, NsdPackage.NOTICE__COPYRIGHT_NOTICE,
+                    Notice.class, msgs );
+            msgs = basicUnsetNotice( msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldNoticeESet = noticeESet;
+            noticeESet = false;
+            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.COPYRIGHT_NOTICE__NOTICE, null, null, oldNoticeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetNotice() {
+        return noticeESet;
     }
 
     /**
@@ -154,9 +234,11 @@ public class CopyrightNoticeImpl extends MinimalEObjectImpl.Container implements
     public NotificationChain basicSetLicense( License newLicense, NotificationChain msgs ) {
         License oldLicense = license;
         license = newLicense;
+        boolean oldLicenseESet = licenseESet;
+        licenseESet = true;
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
-                    NsdPackage.COPYRIGHT_NOTICE__LICENSE, oldLicense, newLicense );
+                    NsdPackage.COPYRIGHT_NOTICE__LICENSE, oldLicense, newLicense, !oldLicenseESet );
             if( msgs == null )
                 msgs = notification;
             else
@@ -175,14 +257,137 @@ public class CopyrightNoticeImpl extends MinimalEObjectImpl.Container implements
         if( newLicense != license ) {
             NotificationChain msgs = null;
             if( license != null ) msgs = ( ( InternalEObject ) license ).eInverseRemove( this,
-                    EOPPOSITE_FEATURE_BASE - NsdPackage.COPYRIGHT_NOTICE__LICENSE, null, msgs );
+                    NsdPackage.LICENSE__COPYRIGHT_NOTICE, License.class, msgs );
             if( newLicense != null ) msgs = ( ( InternalEObject ) newLicense ).eInverseAdd( this,
-                    EOPPOSITE_FEATURE_BASE - NsdPackage.COPYRIGHT_NOTICE__LICENSE, null, msgs );
+                    NsdPackage.LICENSE__COPYRIGHT_NOTICE, License.class, msgs );
             msgs = basicSetLicense( newLicense, msgs );
             if( msgs != null ) msgs.dispatch();
         }
+        else {
+            boolean oldLicenseESet = licenseESet;
+            licenseESet = true;
+            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.COPYRIGHT_NOTICE__LICENSE, newLicense, newLicense, !oldLicenseESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicUnsetLicense( NotificationChain msgs ) {
+        License oldLicense = license;
+        license = null;
+        boolean oldLicenseESet = licenseESet;
+        licenseESet = false;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.COPYRIGHT_NOTICE__LICENSE, oldLicense, null, oldLicenseESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetLicense() {
+        if( license != null ) {
+            NotificationChain msgs = null;
+            msgs = ( ( InternalEObject ) license ).eInverseRemove( this, NsdPackage.LICENSE__COPYRIGHT_NOTICE,
+                    License.class, msgs );
+            msgs = basicUnsetLicense( msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldLicenseESet = licenseESet;
+            licenseESet = false;
+            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.COPYRIGHT_NOTICE__LICENSE, null, null, oldLicenseESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetLicense() {
+        return licenseESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Copyrighted getCopyrighted() {
+        if( eContainerFeatureID() != NsdPackage.COPYRIGHT_NOTICE__COPYRIGHTED ) return null;
+        return ( Copyrighted ) eInternalContainer();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetCopyrighted( Copyrighted newCopyrighted, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newCopyrighted, NsdPackage.COPYRIGHT_NOTICE__COPYRIGHTED, msgs );
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setCopyrighted( Copyrighted newCopyrighted ) {
+        if( newCopyrighted != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.COPYRIGHT_NOTICE__COPYRIGHTED && newCopyrighted != null ) ) {
+            if( EcoreUtil.isAncestor( this, newCopyrighted ) )
+                throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            NotificationChain msgs = null;
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( newCopyrighted != null ) msgs = ( ( InternalEObject ) newCopyrighted ).eInverseAdd( this,
+                    NsdPackage.COPYRIGHTED__COPYRIGHT, Copyrighted.class, msgs );
+            msgs = basicSetCopyrighted( newCopyrighted, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
         else if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.COPYRIGHT_NOTICE__LICENSE, newLicense, newLicense ) );
+                NsdPackage.COPYRIGHT_NOTICE__COPYRIGHTED, newCopyrighted, newCopyrighted ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.COPYRIGHT_NOTICE__NOTICE:
+            if( notice != null ) msgs = ( ( InternalEObject ) notice ).eInverseRemove( this,
+                    EOPPOSITE_FEATURE_BASE - NsdPackage.COPYRIGHT_NOTICE__NOTICE, null, msgs );
+            return basicSetNotice( ( Notice ) otherEnd, msgs );
+        case NsdPackage.COPYRIGHT_NOTICE__LICENSE:
+            if( license != null ) msgs = ( ( InternalEObject ) license ).eInverseRemove( this,
+                    EOPPOSITE_FEATURE_BASE - NsdPackage.COPYRIGHT_NOTICE__LICENSE, null, msgs );
+            return basicSetLicense( ( License ) otherEnd, msgs );
+        case NsdPackage.COPYRIGHT_NOTICE__COPYRIGHTED:
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            return basicSetCopyrighted( ( Copyrighted ) otherEnd, msgs );
+        }
+        return super.eInverseAdd( otherEnd, featureID, msgs );
     }
 
     /**
@@ -194,11 +399,28 @@ public class CopyrightNoticeImpl extends MinimalEObjectImpl.Container implements
     public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.COPYRIGHT_NOTICE__NOTICE:
-            return basicSetNotice( null, msgs );
+            return basicUnsetNotice( msgs );
         case NsdPackage.COPYRIGHT_NOTICE__LICENSE:
-            return basicSetLicense( null, msgs );
+            return basicUnsetLicense( msgs );
+        case NsdPackage.COPYRIGHT_NOTICE__COPYRIGHTED:
+            return basicSetCopyrighted( null, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
+        switch( eContainerFeatureID() ) {
+        case NsdPackage.COPYRIGHT_NOTICE__COPYRIGHTED:
+            return eInternalContainer().eInverseRemove( this, NsdPackage.COPYRIGHTED__COPYRIGHT, Copyrighted.class,
+                    msgs );
+        }
+        return super.eBasicRemoveFromContainerFeature( msgs );
     }
 
     /**
@@ -213,6 +435,8 @@ public class CopyrightNoticeImpl extends MinimalEObjectImpl.Container implements
             return getNotice();
         case NsdPackage.COPYRIGHT_NOTICE__LICENSE:
             return getLicense();
+        case NsdPackage.COPYRIGHT_NOTICE__COPYRIGHTED:
+            return getCopyrighted();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -231,6 +455,9 @@ public class CopyrightNoticeImpl extends MinimalEObjectImpl.Container implements
         case NsdPackage.COPYRIGHT_NOTICE__LICENSE:
             setLicense( ( License ) newValue );
             return;
+        case NsdPackage.COPYRIGHT_NOTICE__COPYRIGHTED:
+            setCopyrighted( ( Copyrighted ) newValue );
+            return;
         }
         super.eSet( featureID, newValue );
     }
@@ -244,10 +471,13 @@ public class CopyrightNoticeImpl extends MinimalEObjectImpl.Container implements
     public void eUnset( int featureID ) {
         switch( featureID ) {
         case NsdPackage.COPYRIGHT_NOTICE__NOTICE:
-            setNotice( ( Notice ) null );
+            unsetNotice();
             return;
         case NsdPackage.COPYRIGHT_NOTICE__LICENSE:
-            setLicense( ( License ) null );
+            unsetLicense();
+            return;
+        case NsdPackage.COPYRIGHT_NOTICE__COPYRIGHTED:
+            setCopyrighted( ( Copyrighted ) null );
             return;
         }
         super.eUnset( featureID );
@@ -262,9 +492,11 @@ public class CopyrightNoticeImpl extends MinimalEObjectImpl.Container implements
     public boolean eIsSet( int featureID ) {
         switch( featureID ) {
         case NsdPackage.COPYRIGHT_NOTICE__NOTICE:
-            return notice != null;
+            return isSetNotice();
         case NsdPackage.COPYRIGHT_NOTICE__LICENSE:
-            return license != null;
+            return isSetLicense();
+        case NsdPackage.COPYRIGHT_NOTICE__COPYRIGHTED:
+            return getCopyrighted() != null;
         }
         return super.eIsSet( featureID );
     }

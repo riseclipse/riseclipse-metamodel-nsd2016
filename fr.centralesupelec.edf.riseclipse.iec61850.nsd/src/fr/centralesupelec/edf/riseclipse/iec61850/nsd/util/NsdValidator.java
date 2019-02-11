@@ -108,8 +108,8 @@ public class NsdValidator extends EObjectValidator {
         switch( classifierID ) {
         case NsdPackage.APPLIES_TO_TYPE:
             return validateAppliesToType( ( AppliesToType ) value, diagnostics, context );
-        case NsdPackage.DEPENDS_ON_TYPE:
-            return validateDependsOnType( ( DependsOnType ) value, diagnostics, context );
+        case NsdPackage.DEPENDS_ON:
+            return validateDependsOn( ( DependsOn ) value, diagnostics, context );
         case NsdPackage.DOCUMENT_ROOT:
             return validateDocumentRoot( ( DocumentRoot ) value, diagnostics, context );
         case NsdPackage.SERVICE_TYPE:
@@ -196,8 +196,6 @@ public class NsdValidator extends EObjectValidator {
             return validateServiceNsUsage( ( ServiceNsUsage ) value, diagnostics, context );
         case NsdPackage.SERVICE_PARAMETER:
             return validateServiceParameter( ( ServiceParameter ) value, diagnostics, context );
-        case NsdPackage.SERVICE_TYPE_REALIZATION:
-            return validateServiceTypeRealization( ( ServiceTypeRealization ) value, diagnostics, context );
         case NsdPackage.SERVICE_TYPE_REALIZATIONS:
             return validateServiceTypeRealizations( ( ServiceTypeRealizations ) value, diagnostics, context );
         case NsdPackage.SUB_DATA_ATTRIBUTE:
@@ -256,9 +254,9 @@ public class NsdValidator extends EObjectValidator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean validateDependsOnType( DependsOnType dependsOnType, DiagnosticChain diagnostics,
+    public boolean validateDependsOn( DependsOn dependsOn, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        return validate_EveryDefaultConstraint( dependsOnType, diagnostics, context );
+        return validate_EveryDefaultConstraint( dependsOn, diagnostics, context );
     }
 
     /**
@@ -679,16 +677,6 @@ public class NsdValidator extends EObjectValidator {
     public boolean validateServiceParameter( ServiceParameter serviceParameter, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
         return validate_EveryDefaultConstraint( serviceParameter, diagnostics, context );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateServiceTypeRealization( ServiceTypeRealization serviceTypeRealization,
-            DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        return validate_EveryDefaultConstraint( serviceTypeRealization, diagnostics, context );
     }
 
     /**

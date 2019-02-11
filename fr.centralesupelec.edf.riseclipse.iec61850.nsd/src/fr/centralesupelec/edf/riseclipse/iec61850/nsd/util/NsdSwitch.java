@@ -90,10 +90,10 @@ public class NsdSwitch< T > extends Switch< T > {
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.DEPENDS_ON_TYPE: {
-            DependsOnType dependsOnType = ( DependsOnType ) theEObject;
-            T result = caseDependsOnType( dependsOnType );
-            if( result == null ) result = caseNSDObjectWithVersionAndRelease( dependsOnType );
+        case NsdPackage.DEPENDS_ON: {
+            DependsOn dependsOn = ( DependsOn ) theEObject;
+            T result = caseDependsOn( dependsOn );
+            if( result == null ) result = caseNSDObjectWithVersionAndRelease( dependsOn );
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
@@ -386,12 +386,6 @@ public class NsdSwitch< T > extends Switch< T > {
             if( result == null ) result = defaultCase( theEObject );
             return result;
         }
-        case NsdPackage.SERVICE_TYPE_REALIZATION: {
-            ServiceTypeRealization serviceTypeRealization = ( ServiceTypeRealization ) theEObject;
-            T result = caseServiceTypeRealization( serviceTypeRealization );
-            if( result == null ) result = defaultCase( theEObject );
-            return result;
-        }
         case NsdPackage.SERVICE_TYPE_REALIZATIONS: {
             ServiceTypeRealizations serviceTypeRealizations = ( ServiceTypeRealizations ) theEObject;
             T result = caseServiceTypeRealizations( serviceTypeRealizations );
@@ -446,17 +440,17 @@ public class NsdSwitch< T > extends Switch< T > {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Depends On Type</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Depends On</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Depends On Type</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Depends On</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseDependsOnType( DependsOnType object ) {
+    public T caseDependsOn( DependsOn object ) {
         return null;
     }
 
@@ -1102,21 +1096,6 @@ public class NsdSwitch< T > extends Switch< T > {
      * @generated
      */
     public T caseServiceParameter( ServiceParameter object ) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Service Type Realization</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Service Type Realization</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseServiceTypeRealization( ServiceTypeRealization object ) {
         return null;
     }
 

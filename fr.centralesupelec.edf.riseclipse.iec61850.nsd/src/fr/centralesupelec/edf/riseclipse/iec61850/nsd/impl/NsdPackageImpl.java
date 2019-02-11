@@ -40,7 +40,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataSetMemberOf;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOnType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentedClass;
@@ -70,7 +70,6 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceParameter;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealization;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject;
@@ -112,7 +111,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass dependsOnTypeEClass = null;
+    private EClass dependsOnEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -420,13 +419,6 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass serviceTypeRealizationEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     private EClass serviceTypeRealizationsEClass = null;
 
     /**
@@ -668,8 +660,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getDependsOnType() {
-        return dependsOnTypeEClass;
+    public EReference getAppliesToType_ServiceNsUsage() {
+        return ( EReference ) appliesToTypeEClass.getEStructuralFeatures().get( 3 );
     }
 
     /**
@@ -678,8 +670,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getDependsOnType_Id() {
-        return ( EAttribute ) dependsOnTypeEClass.getEStructuralFeatures().get( 0 );
+    public EClass getDependsOn() {
+        return dependsOnEClass;
     }
 
     /**
@@ -688,8 +680,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getDependsOnType_PublicationStage() {
-        return ( EAttribute ) dependsOnTypeEClass.getEStructuralFeatures().get( 1 );
+    public EAttribute getDependsOn_Id() {
+        return ( EAttribute ) dependsOnEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -698,8 +690,28 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EAttribute getDependsOnType_Revision() {
-        return ( EAttribute ) dependsOnTypeEClass.getEStructuralFeatures().get( 2 );
+    public EAttribute getDependsOn_PublicationStage() {
+        return ( EAttribute ) dependsOnEClass.getEStructuralFeatures().get( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EAttribute getDependsOn_Revision() {
+        return ( EAttribute ) dependsOnEClass.getEStructuralFeatures().get( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getDependsOn_NS() {
+        return ( EReference ) dependsOnEClass.getEStructuralFeatures().get( 3 );
     }
 
     /**
@@ -758,7 +770,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getDocumentRoot_Copyright() {
+    public EReference getDocumentRoot_NS() {
         return ( EReference ) documentRootEClass.getEStructuralFeatures().get( 4 );
     }
 
@@ -768,7 +780,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getDocumentRoot_NS() {
+    public EReference getDocumentRoot_NSDoc() {
         return ( EReference ) documentRootEClass.getEStructuralFeatures().get( 5 );
     }
 
@@ -778,18 +790,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getDocumentRoot_NSDoc() {
-        return ( EReference ) documentRootEClass.getEStructuralFeatures().get( 6 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public EReference getDocumentRoot_ServiceNS() {
-        return ( EReference ) documentRootEClass.getEStructuralFeatures().get( 7 );
+        return ( EReference ) documentRootEClass.getEStructuralFeatures().get( 6 );
     }
 
     /**
@@ -810,6 +812,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EAttribute getServiceType_Name() {
         return ( EAttribute ) serviceTypeEClass.getEStructuralFeatures().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getServiceType_ApplicableServices() {
+        return ( EReference ) serviceTypeEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -848,6 +860,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EReference getAbbreviation_Abbreviations() {
+        return ( EReference ) abbreviationEClass.getEStructuralFeatures().get( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getAbbreviations() {
         return abbreviationsEClass;
     }
@@ -868,6 +890,26 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EReference getAbbreviations_NS() {
+        return ( EReference ) abbreviationsEClass.getEStructuralFeatures().get( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getAbbreviations_ServiceNS() {
+        return ( EReference ) abbreviationsEClass.getEStructuralFeatures().get( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getAbstractLNClass() {
         return abstractLNClassEClass;
     }
@@ -880,6 +922,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EAttribute getAbstractLNClass_Name() {
         return ( EAttribute ) abstractLNClassEClass.getEStructuralFeatures().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getAbstractLNClass_LNClasses() {
+        return ( EReference ) abstractLNClassEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -988,6 +1040,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EReference getApplicableServices_FunctionalConstraint() {
+        return ( EReference ) applicableServicesEClass.getEStructuralFeatures().get( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getBasicType() {
         return basicTypeEClass;
     }
@@ -1018,6 +1080,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EReference getBasicType_BasicTypes() {
+        return ( EReference ) basicTypeEClass.getEStructuralFeatures().get( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getBasicTypes() {
         return basicTypesEClass;
     }
@@ -1030,6 +1102,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EReference getBasicTypes_BasicType() {
         return ( EReference ) basicTypesEClass.getEStructuralFeatures().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getBasicTypes_NS() {
+        return ( EReference ) basicTypesEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -1128,6 +1210,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EReference getCDC_CDCs() {
+        return ( EReference ) cdcEClass.getEStructuralFeatures().get( 8 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getCDCs() {
         return cdCsEClass;
     }
@@ -1140,6 +1232,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EReference getCDCs_CDC() {
         return ( EReference ) cdCsEClass.getEStructuralFeatures().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getCDCs_NS() {
+        return ( EReference ) cdCsEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -1198,6 +1300,26 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EReference getChanges_NS() {
+        return ( EReference ) changesEClass.getEStructuralFeatures().get( 4 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getChanges_ServiceNS() {
+        return ( EReference ) changesEClass.getEStructuralFeatures().get( 5 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getConstructedAttribute() {
         return constructedAttributeEClass;
     }
@@ -1228,6 +1350,26 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EReference getConstructedAttribute_ConstructedAttributes() {
+        return ( EReference ) constructedAttributeEClass.getEStructuralFeatures().get( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getConstructedAttribute_ServiceTypeRealizations() {
+        return ( EReference ) constructedAttributeEClass.getEStructuralFeatures().get( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getConstructedAttributes() {
         return constructedAttributesEClass;
     }
@@ -1240,6 +1382,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EReference getConstructedAttributes_ConstructedAttribute() {
         return ( EReference ) constructedAttributesEClass.getEStructuralFeatures().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getConstructedAttributes_NS() {
+        return ( EReference ) constructedAttributesEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -1290,6 +1442,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EReference getCopyrightNotice_License() {
         return ( EReference ) copyrightNoticeEClass.getEStructuralFeatures().get( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getCopyrightNotice_Copyrighted() {
+        return ( EReference ) copyrightNoticeEClass.getEStructuralFeatures().get( 2 );
     }
 
     /**
@@ -1478,6 +1640,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EReference getDataAttribute_CDC() {
+        return ( EReference ) dataAttributeEClass.getEStructuralFeatures().get( 17 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getDataObject() {
         return dataObjectEClass;
     }
@@ -1598,6 +1770,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EReference getDataObject_AnyLNClass() {
+        return ( EReference ) dataObjectEClass.getEStructuralFeatures().get( 11 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getDataSetMemberOf() {
         return dataSetMemberOfEClass;
     }
@@ -1610,6 +1792,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EAttribute getDataSetMemberOf_Cb() {
         return ( EAttribute ) dataSetMemberOfEClass.getEStructuralFeatures().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getDataSetMemberOf_ApplicableServices() {
+        return ( EReference ) dataSetMemberOfEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -1660,6 +1852,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EAttribute getDoc_Id() {
         return ( EAttribute ) docEClass.getEStructuralFeatures().get( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getDoc_NSDoc() {
+        return ( EReference ) docEClass.getEStructuralFeatures().get( 4 );
     }
 
     /**
@@ -1748,6 +1950,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EReference getEnumeration_Enumerations() {
+        return ( EReference ) enumerationEClass.getEStructuralFeatures().get( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getEnumerations() {
         return enumerationsEClass;
     }
@@ -1760,6 +1972,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EReference getEnumerations_Enumeration() {
         return ( EReference ) enumerationsEClass.getEStructuralFeatures().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getEnumerations_NS() {
+        return ( EReference ) enumerationsEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -1818,6 +2040,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EReference getFunctionalConstraint_FunctionalConstraints() {
+        return ( EReference ) functionalConstraintEClass.getEStructuralFeatures().get( 4 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getFunctionalConstraints() {
         return functionalConstraintsEClass;
     }
@@ -1830,6 +2062,26 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EReference getFunctionalConstraints_FunctionalConstraint() {
         return ( EReference ) functionalConstraintsEClass.getEStructuralFeatures().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getFunctionalConstraints_NS() {
+        return ( EReference ) functionalConstraintsEClass.getEStructuralFeatures().get( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getFunctionalConstraints_ServiceNS() {
+        return ( EReference ) functionalConstraintsEClass.getEStructuralFeatures().get( 2 );
     }
 
     /**
@@ -1878,6 +2130,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EReference getLicense_CopyrightNotice() {
+        return ( EReference ) licenseEClass.getEStructuralFeatures().get( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getLiteral() {
         return literalEClass;
     }
@@ -1900,6 +2162,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EAttribute getLiteral_Name() {
         return ( EAttribute ) literalEClass.getEStructuralFeatures().get( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getLiteral_Enumeration() {
+        return ( EReference ) literalEClass.getEStructuralFeatures().get( 2 );
     }
 
     /**
@@ -1948,6 +2220,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EReference getLNClass_LNClasses() {
+        return ( EReference ) lnClassEClass.getEStructuralFeatures().get( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getLNClasses() {
         return lnClassesEClass;
     }
@@ -1978,6 +2260,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EReference getLNClasses_NS() {
+        return ( EReference ) lnClassesEClass.getEStructuralFeatures().get( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getNotice() {
         return noticeEClass;
     }
@@ -1990,6 +2282,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EAttribute getNotice_Mixed() {
         return ( EAttribute ) noticeEClass.getEStructuralFeatures().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getNotice_CopyrightNotice() {
+        return ( EReference ) noticeEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -2298,6 +2600,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EReference getPresenceCondition_PresenceConditions() {
+        return ( EReference ) presenceConditionEClass.getEStructuralFeatures().get( 4 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getPresenceConditions() {
         return presenceConditionsEClass;
     }
@@ -2310,6 +2622,26 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EReference getPresenceConditions_PresenceCondition() {
         return ( EReference ) presenceConditionsEClass.getEStructuralFeatures().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getPresenceConditions_NS() {
+        return ( EReference ) presenceConditionsEClass.getEStructuralFeatures().get( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getPresenceConditions_ServiceNS() {
+        return ( EReference ) presenceConditionsEClass.getEStructuralFeatures().get( 2 );
     }
 
     /**
@@ -2358,6 +2690,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EReference getServiceCDC_ServiceCDCs() {
+        return ( EReference ) serviceCDCEClass.getEStructuralFeatures().get( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getServiceCDCs() {
         return serviceCDCsEClass;
     }
@@ -2370,6 +2712,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EReference getServiceCDCs_ServiceCDC() {
         return ( EReference ) serviceCDCsEClass.getEStructuralFeatures().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getServiceCDCs_ServiceNS() {
+        return ( EReference ) serviceCDCsEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -2398,6 +2750,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EReference getServiceConstructedAttribute_ServiceConstructedAttribute() {
+        return ( EReference ) serviceConstructedAttributeEClass.getEStructuralFeatures().get( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getServiceConstructedAttributes() {
         return serviceConstructedAttributesEClass;
     }
@@ -2410,6 +2772,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EReference getServiceConstructedAttributes_ServiceConstructedAttribute() {
         return ( EReference ) serviceConstructedAttributesEClass.getEStructuralFeatures().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getServiceConstructedAttributes_ServiceNS() {
+        return ( EReference ) serviceConstructedAttributesEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -2510,6 +2882,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EAttribute getServiceDataAttribute_UnderlyingTypeKind() {
         return ( EAttribute ) serviceDataAttributeEClass.getEStructuralFeatures().get( 8 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getServiceDataAttribute_ServiceCDC() {
+        return ( EReference ) serviceDataAttributeEClass.getEStructuralFeatures().get( 9 );
     }
 
     /**
@@ -2708,6 +3090,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EReference getServiceNsUsage_ApplicableServiceNS() {
+        return ( EReference ) serviceNsUsageEClass.getEStructuralFeatures().get( 4 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getServiceParameter() {
         return serviceParameterEClass;
     }
@@ -2778,78 +3170,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EClass getServiceTypeRealization() {
-        return serviceTypeRealizationEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EAttribute getServiceTypeRealization_Fc() {
-        return ( EAttribute ) serviceTypeRealizationEClass.getEStructuralFeatures().get( 0 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EAttribute getServiceTypeRealization_Name() {
-        return ( EAttribute ) serviceTypeRealizationEClass.getEStructuralFeatures().get( 1 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EAttribute getServiceTypeRealization_PresCond() {
-        return ( EAttribute ) serviceTypeRealizationEClass.getEStructuralFeatures().get( 2 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EAttribute getServiceTypeRealization_PresCondArgs() {
-        return ( EAttribute ) serviceTypeRealizationEClass.getEStructuralFeatures().get( 3 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EAttribute getServiceTypeRealization_PresCondArgsID() {
-        return ( EAttribute ) serviceTypeRealizationEClass.getEStructuralFeatures().get( 4 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EAttribute getServiceTypeRealization_Type() {
-        return ( EAttribute ) serviceTypeRealizationEClass.getEStructuralFeatures().get( 5 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EAttribute getServiceTypeRealization_TypeKind() {
-        return ( EAttribute ) serviceTypeRealizationEClass.getEStructuralFeatures().get( 6 );
+    public EReference getServiceParameter_CDC() {
+        return ( EReference ) serviceParameterEClass.getEStructuralFeatures().get( 6 );
     }
 
     /**
@@ -2870,6 +3192,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EReference getServiceTypeRealizations_ServiceTypeRealization() {
         return ( EReference ) serviceTypeRealizationsEClass.getEStructuralFeatures().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getServiceTypeRealizations_ServiceNS() {
+        return ( EReference ) serviceTypeRealizationsEClass.getEStructuralFeatures().get( 1 );
     }
 
     /**
@@ -3018,6 +3350,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EReference getSubDataAttribute_ConstructedAttribute() {
+        return ( EReference ) subDataAttributeEClass.getEStructuralFeatures().get( 13 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getSubDataObject() {
         return subDataObjectEClass;
     }
@@ -3130,6 +3472,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EAttribute getSubDataObject_UnderlyingTypeKind() {
         return ( EAttribute ) subDataObjectEClass.getEStructuralFeatures().get( 10 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getSubDataObject_CDC() {
+        return ( EReference ) subDataObjectEClass.getEStructuralFeatures().get( 11 );
     }
 
     /**
@@ -3345,34 +3697,40 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEAttribute( appliesToTypeEClass, APPLIES_TO_TYPE__ID );
         createEAttribute( appliesToTypeEClass, APPLIES_TO_TYPE__PUBLICATION_STAGE );
         createEAttribute( appliesToTypeEClass, APPLIES_TO_TYPE__REVISION );
+        createEReference( appliesToTypeEClass, APPLIES_TO_TYPE__SERVICE_NS_USAGE );
 
-        dependsOnTypeEClass = createEClass( DEPENDS_ON_TYPE );
-        createEAttribute( dependsOnTypeEClass, DEPENDS_ON_TYPE__ID );
-        createEAttribute( dependsOnTypeEClass, DEPENDS_ON_TYPE__PUBLICATION_STAGE );
-        createEAttribute( dependsOnTypeEClass, DEPENDS_ON_TYPE__REVISION );
+        dependsOnEClass = createEClass( DEPENDS_ON );
+        createEAttribute( dependsOnEClass, DEPENDS_ON__ID );
+        createEAttribute( dependsOnEClass, DEPENDS_ON__PUBLICATION_STAGE );
+        createEAttribute( dependsOnEClass, DEPENDS_ON__REVISION );
+        createEReference( dependsOnEClass, DEPENDS_ON__NS );
 
         documentRootEClass = createEClass( DOCUMENT_ROOT );
         createEAttribute( documentRootEClass, DOCUMENT_ROOT__MIXED );
         createEReference( documentRootEClass, DOCUMENT_ROOT__XMLNS_PREFIX_MAP );
         createEReference( documentRootEClass, DOCUMENT_ROOT__XSI_SCHEMA_LOCATION );
         createEReference( documentRootEClass, DOCUMENT_ROOT__APPLICABLE_SERVICE_NS );
-        createEReference( documentRootEClass, DOCUMENT_ROOT__COPYRIGHT );
         createEReference( documentRootEClass, DOCUMENT_ROOT__NS );
         createEReference( documentRootEClass, DOCUMENT_ROOT__NS_DOC );
         createEReference( documentRootEClass, DOCUMENT_ROOT__SERVICE_NS );
 
         serviceTypeEClass = createEClass( SERVICE_TYPE );
         createEAttribute( serviceTypeEClass, SERVICE_TYPE__NAME );
+        createEReference( serviceTypeEClass, SERVICE_TYPE__APPLICABLE_SERVICES );
 
         abbreviationEClass = createEClass( ABBREVIATION );
         createEAttribute( abbreviationEClass, ABBREVIATION__DESC_ID );
         createEAttribute( abbreviationEClass, ABBREVIATION__NAME );
+        createEReference( abbreviationEClass, ABBREVIATION__ABBREVIATIONS );
 
         abbreviationsEClass = createEClass( ABBREVIATIONS );
         createEReference( abbreviationsEClass, ABBREVIATIONS__ABBREVIATION );
+        createEReference( abbreviationsEClass, ABBREVIATIONS__NS );
+        createEReference( abbreviationsEClass, ABBREVIATIONS__SERVICE_NS );
 
         abstractLNClassEClass = createEClass( ABSTRACT_LN_CLASS );
         createEAttribute( abstractLNClassEClass, ABSTRACT_LN_CLASS__NAME );
+        createEReference( abstractLNClassEClass, ABSTRACT_LN_CLASS__LN_CLASSES );
 
         anyLNClassEClass = createEClass( ANY_LN_CLASS );
         createEReference( anyLNClassEClass, ANY_LN_CLASS__DATA_OBJECT );
@@ -3386,13 +3744,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         applicableServicesEClass = createEClass( APPLICABLE_SERVICES );
         createEReference( applicableServicesEClass, APPLICABLE_SERVICES__SERVICE );
         createEReference( applicableServicesEClass, APPLICABLE_SERVICES__DATA_SET_MEMBER_OF );
+        createEReference( applicableServicesEClass, APPLICABLE_SERVICES__FUNCTIONAL_CONSTRAINT );
 
         basicTypeEClass = createEClass( BASIC_TYPE );
         createEAttribute( basicTypeEClass, BASIC_TYPE__DESC_ID );
         createEAttribute( basicTypeEClass, BASIC_TYPE__NAME );
+        createEReference( basicTypeEClass, BASIC_TYPE__BASIC_TYPES );
 
         basicTypesEClass = createEClass( BASIC_TYPES );
         createEReference( basicTypesEClass, BASIC_TYPES__BASIC_TYPE );
+        createEReference( basicTypesEClass, BASIC_TYPES__NS );
 
         cdcEClass = createEClass( CDC );
         createEReference( cdcEClass, CDC__SUB_DATA_OBJECT );
@@ -3403,22 +3764,29 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEAttribute( cdcEClass, CDC__STATISTICS );
         createEAttribute( cdcEClass, CDC__TYPE_KIND_PARAMETERIZED );
         createEAttribute( cdcEClass, CDC__VARIANT );
+        createEReference( cdcEClass, CDC__CD_CS );
 
         cdCsEClass = createEClass( CD_CS );
         createEReference( cdCsEClass, CD_CS__CDC );
+        createEReference( cdCsEClass, CD_CS__NS );
 
         changesEClass = createEClass( CHANGES );
         createEAttribute( changesEClass, CHANGES__CHANGES_ID );
         createEAttribute( changesEClass, CHANGES__DATE );
         createEAttribute( changesEClass, CHANGES__REVISION );
         createEAttribute( changesEClass, CHANGES__TISSUES );
+        createEReference( changesEClass, CHANGES__NS );
+        createEReference( changesEClass, CHANGES__SERVICE_NS );
 
         constructedAttributeEClass = createEClass( CONSTRUCTED_ATTRIBUTE );
         createEReference( constructedAttributeEClass, CONSTRUCTED_ATTRIBUTE__SUB_DATA_ATTRIBUTE );
         createEAttribute( constructedAttributeEClass, CONSTRUCTED_ATTRIBUTE__NAME );
+        createEReference( constructedAttributeEClass, CONSTRUCTED_ATTRIBUTE__CONSTRUCTED_ATTRIBUTES );
+        createEReference( constructedAttributeEClass, CONSTRUCTED_ATTRIBUTE__SERVICE_TYPE_REALIZATIONS );
 
         constructedAttributesEClass = createEClass( CONSTRUCTED_ATTRIBUTES );
         createEReference( constructedAttributesEClass, CONSTRUCTED_ATTRIBUTES__CONSTRUCTED_ATTRIBUTE );
+        createEReference( constructedAttributesEClass, CONSTRUCTED_ATTRIBUTES__NS );
 
         copyrightedEClass = createEClass( COPYRIGHTED );
         createEReference( copyrightedEClass, COPYRIGHTED__COPYRIGHT );
@@ -3426,6 +3794,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         copyrightNoticeEClass = createEClass( COPYRIGHT_NOTICE );
         createEReference( copyrightNoticeEClass, COPYRIGHT_NOTICE__NOTICE );
         createEReference( copyrightNoticeEClass, COPYRIGHT_NOTICE__LICENSE );
+        createEReference( copyrightNoticeEClass, COPYRIGHT_NOTICE__COPYRIGHTED );
 
         dataAttributeEClass = createEClass( DATA_ATTRIBUTE );
         createEAttribute( dataAttributeEClass, DATA_ATTRIBUTE__DCHG );
@@ -3445,6 +3814,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEAttribute( dataAttributeEClass, DATA_ATTRIBUTE__SIZE_ATTRIBUTE );
         createEAttribute( dataAttributeEClass, DATA_ATTRIBUTE__TYPE );
         createEAttribute( dataAttributeEClass, DATA_ATTRIBUTE__TYPE_KIND );
+        createEReference( dataAttributeEClass, DATA_ATTRIBUTE__CDC );
 
         dataObjectEClass = createEClass( DATA_OBJECT );
         createEAttribute( dataObjectEClass, DATA_OBJECT__DS_PRES_COND );
@@ -3458,15 +3828,18 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEAttribute( dataObjectEClass, DATA_OBJECT__TYPE );
         createEAttribute( dataObjectEClass, DATA_OBJECT__UNDERLYING_TYPE );
         createEAttribute( dataObjectEClass, DATA_OBJECT__UNDERLYING_TYPE_KIND );
+        createEReference( dataObjectEClass, DATA_OBJECT__ANY_LN_CLASS );
 
         dataSetMemberOfEClass = createEClass( DATA_SET_MEMBER_OF );
         createEAttribute( dataSetMemberOfEClass, DATA_SET_MEMBER_OF__CB );
+        createEReference( dataSetMemberOfEClass, DATA_SET_MEMBER_OF__APPLICABLE_SERVICES );
 
         docEClass = createEClass( DOC );
         createEAttribute( docEClass, DOC__MIXED );
         createEAttribute( docEClass, DOC__GROUP );
         createEAttribute( docEClass, DOC__ANY );
         createEAttribute( docEClass, DOC__ID );
+        createEReference( docEClass, DOC__NS_DOC );
 
         documentedClassEClass = createEClass( DOCUMENTED_CLASS );
         createEAttribute( documentedClassEClass, DOCUMENTED_CLASS__DEPRECATED );
@@ -3477,39 +3850,49 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEReference( enumerationEClass, ENUMERATION__LITERAL );
         createEAttribute( enumerationEClass, ENUMERATION__INHERITED_FROM );
         createEAttribute( enumerationEClass, ENUMERATION__NAME );
+        createEReference( enumerationEClass, ENUMERATION__ENUMERATIONS );
 
         enumerationsEClass = createEClass( ENUMERATIONS );
         createEReference( enumerationsEClass, ENUMERATIONS__ENUMERATION );
+        createEReference( enumerationsEClass, ENUMERATIONS__NS );
 
         functionalConstraintEClass = createEClass( FUNCTIONAL_CONSTRAINT );
         createEReference( functionalConstraintEClass, FUNCTIONAL_CONSTRAINT__APPLICABLE_SERVICES );
         createEAttribute( functionalConstraintEClass, FUNCTIONAL_CONSTRAINT__ABBREVIATION );
         createEAttribute( functionalConstraintEClass, FUNCTIONAL_CONSTRAINT__DESC_ID );
         createEAttribute( functionalConstraintEClass, FUNCTIONAL_CONSTRAINT__TITLE_ID );
+        createEReference( functionalConstraintEClass, FUNCTIONAL_CONSTRAINT__FUNCTIONAL_CONSTRAINTS );
 
         functionalConstraintsEClass = createEClass( FUNCTIONAL_CONSTRAINTS );
         createEReference( functionalConstraintsEClass, FUNCTIONAL_CONSTRAINTS__FUNCTIONAL_CONSTRAINT );
+        createEReference( functionalConstraintsEClass, FUNCTIONAL_CONSTRAINTS__NS );
+        createEReference( functionalConstraintsEClass, FUNCTIONAL_CONSTRAINTS__SERVICE_NS );
 
         licenseEClass = createEClass( LICENSE );
         createEAttribute( licenseEClass, LICENSE__MIXED );
         createEAttribute( licenseEClass, LICENSE__KIND );
         createEAttribute( licenseEClass, LICENSE__URI );
+        createEReference( licenseEClass, LICENSE__COPYRIGHT_NOTICE );
 
         literalEClass = createEClass( LITERAL );
         createEAttribute( literalEClass, LITERAL__LITERAL_VAL );
         createEAttribute( literalEClass, LITERAL__NAME );
+        createEReference( literalEClass, LITERAL__ENUMERATION );
 
         lnClassEClass = createEClass( LN_CLASS );
         createEAttribute( lnClassEClass, LN_CLASS__CAN_HAVE_LOG );
         createEAttribute( lnClassEClass, LN_CLASS__IS_EXTENSION );
         createEAttribute( lnClassEClass, LN_CLASS__NAME );
+        createEReference( lnClassEClass, LN_CLASS__LN_CLASSES );
 
         lnClassesEClass = createEClass( LN_CLASSES );
         createEReference( lnClassesEClass, LN_CLASSES__ABSTRACT_LN_CLASS );
         createEReference( lnClassesEClass, LN_CLASSES__LN_CLASS );
+        createEReference( lnClassesEClass, LN_CLASSES__NS );
 
         noticeEClass = createEClass( NOTICE );
         createEAttribute( noticeEClass, NOTICE__MIXED );
+        createEReference( noticeEClass, NOTICE__COPYRIGHT_NOTICE );
 
         nsEClass = createEClass( NS );
         createEReference( nsEClass, NS__CHANGES );
@@ -3543,24 +3926,32 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEAttribute( presenceConditionEClass, PRESENCE_CONDITION__DESC_ID );
         createEAttribute( presenceConditionEClass, PRESENCE_CONDITION__NAME );
         createEAttribute( presenceConditionEClass, PRESENCE_CONDITION__TITLE_ID );
+        createEReference( presenceConditionEClass, PRESENCE_CONDITION__PRESENCE_CONDITIONS );
 
         presenceConditionsEClass = createEClass( PRESENCE_CONDITIONS );
         createEReference( presenceConditionsEClass, PRESENCE_CONDITIONS__PRESENCE_CONDITION );
+        createEReference( presenceConditionsEClass, PRESENCE_CONDITIONS__NS );
+        createEReference( presenceConditionsEClass, PRESENCE_CONDITIONS__SERVICE_NS );
 
         serviceCDCEClass = createEClass( SERVICE_CDC );
         createEReference( serviceCDCEClass, SERVICE_CDC__SERVICE_DATA_ATTRIBUTE );
         createEAttribute( serviceCDCEClass, SERVICE_CDC__CDC );
         createEAttribute( serviceCDCEClass, SERVICE_CDC__VARIANT );
+        createEReference( serviceCDCEClass, SERVICE_CDC__SERVICE_CD_CS );
 
         serviceCDCsEClass = createEClass( SERVICE_CD_CS );
         createEReference( serviceCDCsEClass, SERVICE_CD_CS__SERVICE_CDC );
+        createEReference( serviceCDCsEClass, SERVICE_CD_CS__SERVICE_NS );
 
         serviceConstructedAttributeEClass = createEClass( SERVICE_CONSTRUCTED_ATTRIBUTE );
         createEAttribute( serviceConstructedAttributeEClass, SERVICE_CONSTRUCTED_ATTRIBUTE__TYPE_KIND_PARAMETERIZED );
+        createEReference( serviceConstructedAttributeEClass,
+                SERVICE_CONSTRUCTED_ATTRIBUTE__SERVICE_CONSTRUCTED_ATTRIBUTE );
 
         serviceConstructedAttributesEClass = createEClass( SERVICE_CONSTRUCTED_ATTRIBUTES );
         createEReference( serviceConstructedAttributesEClass,
                 SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_CONSTRUCTED_ATTRIBUTE );
+        createEReference( serviceConstructedAttributesEClass, SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_NS );
 
         serviceDataAttributeEClass = createEClass( SERVICE_DATA_ATTRIBUTE );
         createEAttribute( serviceDataAttributeEClass, SERVICE_DATA_ATTRIBUTE__FC );
@@ -3572,6 +3963,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEAttribute( serviceDataAttributeEClass, SERVICE_DATA_ATTRIBUTE__TYPE_KIND );
         createEAttribute( serviceDataAttributeEClass, SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE );
         createEAttribute( serviceDataAttributeEClass, SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE_KIND );
+        createEReference( serviceDataAttributeEClass, SERVICE_DATA_ATTRIBUTE__SERVICE_CDC );
 
         serviceNSEClass = createEClass( SERVICE_NS );
         createEReference( serviceNSEClass, SERVICE_NS__CHANGES );
@@ -3593,6 +3985,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEAttribute( serviceNsUsageEClass, SERVICE_NS_USAGE__ID );
         createEAttribute( serviceNsUsageEClass, SERVICE_NS_USAGE__PUBLICATION_STAGE );
         createEAttribute( serviceNsUsageEClass, SERVICE_NS_USAGE__REVISION );
+        createEReference( serviceNsUsageEClass, SERVICE_NS_USAGE__APPLICABLE_SERVICE_NS );
 
         serviceParameterEClass = createEClass( SERVICE_PARAMETER );
         createEAttribute( serviceParameterEClass, SERVICE_PARAMETER__DEFAULT_VALUE );
@@ -3601,18 +3994,11 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEAttribute( serviceParameterEClass, SERVICE_PARAMETER__NAME );
         createEAttribute( serviceParameterEClass, SERVICE_PARAMETER__TYPE );
         createEAttribute( serviceParameterEClass, SERVICE_PARAMETER__TYPE_KIND );
-
-        serviceTypeRealizationEClass = createEClass( SERVICE_TYPE_REALIZATION );
-        createEAttribute( serviceTypeRealizationEClass, SERVICE_TYPE_REALIZATION__FC );
-        createEAttribute( serviceTypeRealizationEClass, SERVICE_TYPE_REALIZATION__NAME );
-        createEAttribute( serviceTypeRealizationEClass, SERVICE_TYPE_REALIZATION__PRES_COND );
-        createEAttribute( serviceTypeRealizationEClass, SERVICE_TYPE_REALIZATION__PRES_COND_ARGS );
-        createEAttribute( serviceTypeRealizationEClass, SERVICE_TYPE_REALIZATION__PRES_COND_ARGS_ID );
-        createEAttribute( serviceTypeRealizationEClass, SERVICE_TYPE_REALIZATION__TYPE );
-        createEAttribute( serviceTypeRealizationEClass, SERVICE_TYPE_REALIZATION__TYPE_KIND );
+        createEReference( serviceParameterEClass, SERVICE_PARAMETER__CDC );
 
         serviceTypeRealizationsEClass = createEClass( SERVICE_TYPE_REALIZATIONS );
         createEReference( serviceTypeRealizationsEClass, SERVICE_TYPE_REALIZATIONS__SERVICE_TYPE_REALIZATION );
+        createEReference( serviceTypeRealizationsEClass, SERVICE_TYPE_REALIZATIONS__SERVICE_NS );
 
         subDataAttributeEClass = createEClass( SUB_DATA_ATTRIBUTE );
         createEAttribute( subDataAttributeEClass, SUB_DATA_ATTRIBUTE__DEFAULT_VALUE );
@@ -3628,6 +4014,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEAttribute( subDataAttributeEClass, SUB_DATA_ATTRIBUTE__SIZE_ATTRIBUTE );
         createEAttribute( subDataAttributeEClass, SUB_DATA_ATTRIBUTE__TYPE );
         createEAttribute( subDataAttributeEClass, SUB_DATA_ATTRIBUTE__TYPE_KIND );
+        createEReference( subDataAttributeEClass, SUB_DATA_ATTRIBUTE__CONSTRUCTED_ATTRIBUTE );
 
         subDataObjectEClass = createEClass( SUB_DATA_OBJECT );
         createEAttribute( subDataObjectEClass, SUB_DATA_OBJECT__IS_ARRAY );
@@ -3641,6 +4028,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEAttribute( subDataObjectEClass, SUB_DATA_OBJECT__TYPE );
         createEAttribute( subDataObjectEClass, SUB_DATA_OBJECT__UNDERLYING_TYPE );
         createEAttribute( subDataObjectEClass, SUB_DATA_OBJECT__UNDERLYING_TYPE_KIND );
+        createEReference( subDataObjectEClass, SUB_DATA_OBJECT__CDC );
 
         titledClassEClass = createEClass( TITLED_CLASS );
         createEAttribute( titledClassEClass, TITLED_CLASS__TITLE_ID );
@@ -3700,7 +4088,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
 
         // Add supertypes to classes
         appliesToTypeEClass.getESuperTypes().add( this.getNSDObjectWithVersionAndRelease() );
-        dependsOnTypeEClass.getESuperTypes().add( this.getNSDObjectWithVersionAndRelease() );
+        dependsOnEClass.getESuperTypes().add( this.getNSDObjectWithVersionAndRelease() );
         abstractLNClassEClass.getESuperTypes().add( this.getAnyLNClass() );
         anyLNClassEClass.getESuperTypes().add( this.getTitledClass() );
         applicableServiceNSEClass.getESuperTypes().add( this.getCopyrighted() );
@@ -3729,27 +4117,30 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         // Initialize classes, features, and operations; add parameters
         initEClass( appliesToTypeEClass, AppliesToType.class, "AppliesToType", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getAppliesToType_Id(), ecorePackage.getEString(), "id", null, 1, 1, AppliesToType.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
+        initEAttribute( getAppliesToType_Id(), ecorePackage.getEString(), "id", null, 0, 1, AppliesToType.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getAppliesToType_PublicationStage(), this.getPubStage(), "publicationStage", "IS", 0, 1,
                 AppliesToType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getAppliesToType_Revision(), ecorePackage.getEString(), "revision", "A", 0, 1,
                 AppliesToType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
+        initEReference( getAppliesToType_ServiceNsUsage(), this.getServiceNsUsage(), this.getServiceNsUsage_AppliesTo(),
+                "serviceNsUsage", null, 0, 1, AppliesToType.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
-        initEClass( dependsOnTypeEClass, DependsOnType.class, "DependsOnType", !IS_ABSTRACT, !IS_INTERFACE,
+        initEClass( dependsOnEClass, DependsOn.class, "DependsOn", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getDependsOnType_Id(), ecorePackage.getEString(), "id", null, 1, 1, DependsOnType.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
-        initEAttribute( getDependsOnType_PublicationStage(), this.getPubStage(), "publicationStage", "IS", 0, 1,
-                DependsOnType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+        initEAttribute( getDependsOn_Id(), ecorePackage.getEString(), "id", null, 0, 1, DependsOn.class, !IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getDependsOn_PublicationStage(), this.getPubStage(), "publicationStage", "IS", 0, 1,
+                DependsOn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getDependsOnType_Revision(), ecorePackage.getEString(), "revision", "A", 0, 1,
-                DependsOnType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getDependsOn_Revision(), ecorePackage.getEString(), "revision", "A", 0, 1, DependsOn.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getDependsOn_NS(), this.getNS(), this.getNS_DependsOn(), "nS", null, 0, 1, DependsOn.class,
+                IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( documentRootEClass, DocumentRoot.class, "DocumentRoot", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
@@ -3763,108 +4154,129 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 "xSISchemaLocation", null, 0, -1, null, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEReference( getDocumentRoot_ApplicableServiceNS(), this.getApplicableServiceNS(), null,
-                "applicableServiceNS", null, 0, -2, null, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED );
-        initEReference( getDocumentRoot_Copyright(), this.getCopyrightNotice(), null, "copyright", null, 0, -2, null,
-                IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-                IS_DERIVED, IS_ORDERED );
-        initEReference( getDocumentRoot_NS(), this.getNS(), null, "nS", null, 0, -2, null, IS_TRANSIENT, IS_VOLATILE,
-                IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED );
-        initEReference( getDocumentRoot_NSDoc(), this.getNSDoc(), null, "nSDoc", null, 0, -2, null, IS_TRANSIENT,
-                IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED,
+                "applicableServiceNS", null, 0, 1, null, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED );
+        initEReference( getDocumentRoot_NS(), this.getNS(), null, "nS", null, 0, 1, null, IS_TRANSIENT, IS_VOLATILE,
+                IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED );
+        initEReference( getDocumentRoot_NSDoc(), this.getNSDoc(), null, "nSDoc", null, 0, 1, null, IS_TRANSIENT,
+                IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED,
                 IS_ORDERED );
-        initEReference( getDocumentRoot_ServiceNS(), this.getServiceNS(), null, "serviceNS", null, 0, -2, null,
-                IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+        initEReference( getDocumentRoot_ServiceNS(), this.getServiceNS(), null, "serviceNS", null, 0, 1, null,
+                IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
                 IS_DERIVED, IS_ORDERED );
 
         initEClass( serviceTypeEClass, ServiceType.class, "ServiceType", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getServiceType_Name(), this.getACSIServicesKind(), "name", null, 1, 1, ServiceType.class,
+        initEAttribute( getServiceType_Name(), this.getACSIServicesKind(), "name", null, 0, 1, ServiceType.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getServiceType_ApplicableServices(), this.getApplicableServices(),
+                this.getApplicableServices_Service(), "applicableServices", null, 0, 1, ServiceType.class, IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+                !IS_ORDERED );
 
         initEClass( abbreviationEClass, Abbreviation.class, "Abbreviation", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
         initEAttribute( getAbbreviation_DescID(), ecorePackage.getEString(), "descID", null, 0, 1, Abbreviation.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
-        initEAttribute( getAbbreviation_Name(), ecorePackage.getEString(), "name", null, 1, 1, Abbreviation.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getAbbreviation_Name(), ecorePackage.getEString(), "name", null, 0, 1, Abbreviation.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getAbbreviation_Abbreviations(), this.getAbbreviations(), this.getAbbreviations_Abbreviation(),
+                "abbreviations", null, 0, 1, Abbreviation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( abbreviationsEClass, Abbreviations.class, "Abbreviations", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getAbbreviations_Abbreviation(), this.getAbbreviation(), null, "abbreviation", null, 1, -1,
-                Abbreviations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getAbbreviations_Abbreviation(), this.getAbbreviation(), this.getAbbreviation_Abbreviations(),
+                "abbreviation", null, 0, -1, Abbreviations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getAbbreviations_NS(), this.getNS(), this.getNS_Abbreviations(), "nS", null, 0, 1,
+                Abbreviations.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getAbbreviations_ServiceNS(), this.getServiceNS(), this.getServiceNS_Abbreviations(),
+                "serviceNS", null, 0, 1, Abbreviations.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( abstractLNClassEClass, AbstractLNClass.class, "AbstractLNClass", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getAbstractLNClass_Name(), ecorePackage.getEString(), "name", null, 1, 1, AbstractLNClass.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
+        initEAttribute( getAbstractLNClass_Name(), ecorePackage.getEString(), "name", null, 0, 1, AbstractLNClass.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getAbstractLNClass_LNClasses(), this.getLNClasses(), this.getLNClasses_AbstractLNClass(),
+                "lNClasses", null, 0, 1, AbstractLNClass.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( anyLNClassEClass, AnyLNClass.class, "AnyLNClass", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getAnyLNClass_DataObject(), this.getDataObject(), null, "dataObject", null, 0, -1,
-                AnyLNClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getAnyLNClass_DataObject(), this.getDataObject(), this.getDataObject_AnyLNClass(), "dataObject",
+                null, 0, -1, AnyLNClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
         initEAttribute( getAnyLNClass_Base(), ecorePackage.getEString(), "base", null, 0, 1, AnyLNClass.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass( applicableServiceNSEClass, ApplicableServiceNS.class, "ApplicableServiceNS", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getApplicableServiceNS_ServiceNsUsage(), this.getServiceNsUsage(), null, "serviceNsUsage", null,
-                1, -1, ApplicableServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getApplicableServiceNS_Date(), theXMLTypePackage.getDateTime(), "date", null, 1, 1,
-                ApplicableServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getApplicableServiceNS_Version(), theXMLTypePackage.getUnsignedInt(), "version", null, 1, 1,
+        initEReference( getApplicableServiceNS_ServiceNsUsage(), this.getServiceNsUsage(),
+                this.getServiceNsUsage_ApplicableServiceNS(), "serviceNsUsage", null, 0, -1, ApplicableServiceNS.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
+                !IS_DERIVED, !IS_ORDERED );
+        initEAttribute( getApplicableServiceNS_Date(), theXMLTypePackage.getDateTime(), "date", null, 0, 1,
+                ApplicableServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getApplicableServiceNS_Version(), theXMLTypePackage.getUnsignedInt(), "version", null, 0, 1,
                 ApplicableServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
 
         initEClass( applicableServicesEClass, ApplicableServices.class, "ApplicableServices", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getApplicableServices_Service(), this.getServiceType(), null, "service", null, 0, -1,
-                ApplicableServices.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getApplicableServices_DataSetMemberOf(), this.getDataSetMemberOf(), null, "dataSetMemberOf",
-                null, 0, -1, ApplicableServices.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getApplicableServices_Service(), this.getServiceType(),
+                this.getServiceType_ApplicableServices(), "service", null, 0, -1, ApplicableServices.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
+                !IS_DERIVED, !IS_ORDERED );
+        initEReference( getApplicableServices_DataSetMemberOf(), this.getDataSetMemberOf(),
+                this.getDataSetMemberOf_ApplicableServices(), "dataSetMemberOf", null, 0, -1, ApplicableServices.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
+                !IS_DERIVED, !IS_ORDERED );
+        initEReference( getApplicableServices_FunctionalConstraint(), this.getFunctionalConstraint(),
+                this.getFunctionalConstraint_ApplicableServices(), "functionalConstraint", null, 0, 1,
+                ApplicableServices.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( basicTypeEClass, BasicType.class, "BasicType", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
         initEAttribute( getBasicType_DescID(), ecorePackage.getEString(), "descID", null, 0, 1, BasicType.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
-        initEAttribute( getBasicType_Name(), ecorePackage.getEString(), "name", null, 1, 1, BasicType.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getBasicType_Name(), ecorePackage.getEString(), "name", null, 0, 1, BasicType.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getBasicType_BasicTypes(), this.getBasicTypes(), this.getBasicTypes_BasicType(), "basicTypes",
+                null, 0, 1, BasicType.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( basicTypesEClass, BasicTypes.class, "BasicTypes", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getBasicTypes_BasicType(), this.getBasicType(), null, "basicType", null, 1, -1,
-                BasicTypes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getBasicTypes_BasicType(), this.getBasicType(), this.getBasicType_BasicTypes(), "basicType",
+                null, 0, -1, BasicTypes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getBasicTypes_NS(), this.getNS(), this.getNS_BasicTypes(), "nS", null, 0, 1, BasicTypes.class,
+                IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( cdcEClass, fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC.class, "CDC", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getCDC_SubDataObject(), this.getSubDataObject(), null, "subDataObject", null, 0, -1,
-                fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getCDC_DataAttribute(), this.getDataAttribute(), null, "dataAttribute", null, 1, -1,
-                fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getCDC_ServiceParameter(), this.getServiceParameter(), null, "serviceParameter", null, 0, 1,
-                fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getCDC_SubDataObject(), this.getSubDataObject(), this.getSubDataObject_CDC(), "subDataObject",
+                null, 0, -1, fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC.class, !IS_TRANSIENT, !IS_VOLATILE,
+                IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getCDC_DataAttribute(), this.getDataAttribute(), this.getDataAttribute_CDC(), "dataAttribute",
+                null, 0, -1, fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC.class, !IS_TRANSIENT, !IS_VOLATILE,
+                IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getCDC_ServiceParameter(), this.getServiceParameter(), this.getServiceParameter_CDC(),
+                "serviceParameter", null, 0, 1, fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC.class, !IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+                !IS_ORDERED );
         initEAttribute( getCDC_EnumParameterized(), theXMLTypePackage.getBoolean(), "enumParameterized", "false", 0, 1,
                 fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getCDC_Name(), ecorePackage.getEString(), "name", null, 1, 1,
+        initEAttribute( getCDC_Name(), ecorePackage.getEString(), "name", null, 0, 1,
                 fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+                IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getCDC_Statistics(), theXMLTypePackage.getBoolean(), "statistics", "false", 0, 1,
                 fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
@@ -3873,54 +4285,80 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getCDC_Variant(), theXMLTypePackage.getToken(), "variant", null, 0, 1,
                 fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+                IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getCDC_CDCs(), this.getCDCs(), this.getCDCs_CDC(), "cDCs", null, 0, 1,
+                fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( cdCsEClass, CDCs.class, "CDCs", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getCDCs_CDC(), this.getCDC(), null, "cDC", null, 0, -1, CDCs.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getCDCs_CDC(), this.getCDC(), this.getCDC_CDCs(), "cDC", null, 0, -1, CDCs.class, !IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+                !IS_ORDERED );
+        initEReference( getCDCs_NS(), this.getNS(), this.getNS_CDCs(), "nS", null, 0, 1, CDCs.class, IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+                !IS_ORDERED );
 
         initEClass( changesEClass, Changes.class, "Changes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute( getChanges_ChangesID(), ecorePackage.getEString(), "changesID", null, 0, 1, Changes.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getChanges_Date(), theXMLTypePackage.getDate(), "date", null, 0, 1, Changes.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getChanges_Revision(), ecorePackage.getEString(), "revision", "A", 0, 1, Changes.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getChanges_Tissues(), ecorePackage.getEString(), "tissues", null, 0, 1, Changes.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getChanges_NS(), this.getNS(), this.getNS_Changes(), "nS", null, 0, 1, Changes.class,
+                IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getChanges_ServiceNS(), this.getServiceNS(), this.getServiceNS_Changes(), "serviceNS", null, 0,
+                1, Changes.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( constructedAttributeEClass, ConstructedAttribute.class, "ConstructedAttribute", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getConstructedAttribute_SubDataAttribute(), this.getSubDataAttribute(), null,
-                "subDataAttribute", null, 1, -1, ConstructedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getConstructedAttribute_Name(), ecorePackage.getEString(), "name", null, 1, 1,
-                ConstructedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+        initEReference( getConstructedAttribute_SubDataAttribute(), this.getSubDataAttribute(),
+                this.getSubDataAttribute_ConstructedAttribute(), "subDataAttribute", null, 0, -1,
+                ConstructedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEAttribute( getConstructedAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1,
+                ConstructedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getConstructedAttribute_ConstructedAttributes(), this.getConstructedAttributes(),
+                this.getConstructedAttributes_ConstructedAttribute(), "constructedAttributes", null, 0, 1,
+                ConstructedAttribute.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getConstructedAttribute_ServiceTypeRealizations(), this.getServiceTypeRealizations(),
+                this.getServiceTypeRealizations_ServiceTypeRealization(), "serviceTypeRealizations", null, 0, 1,
+                ConstructedAttribute.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( constructedAttributesEClass, ConstructedAttributes.class, "ConstructedAttributes", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getConstructedAttributes_ConstructedAttribute(), this.getConstructedAttribute(), null,
-                "constructedAttribute", null, 0, -1, ConstructedAttributes.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getConstructedAttributes_ConstructedAttribute(), this.getConstructedAttribute(),
+                this.getConstructedAttribute_ConstructedAttributes(), "constructedAttribute", null, 0, -1,
+                ConstructedAttributes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getConstructedAttributes_NS(), this.getNS(), this.getNS_ConstructedAttributes(), "nS", null, 0,
+                1, ConstructedAttributes.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( copyrightedEClass, Copyrighted.class, "Copyrighted", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getCopyrighted_Copyright(), this.getCopyrightNotice(), null, "copyright", null, 0, 1,
-                Copyrighted.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getCopyrighted_Copyright(), this.getCopyrightNotice(), this.getCopyrightNotice_Copyrighted(),
+                "copyright", null, 0, 1, Copyrighted.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( copyrightNoticeEClass, CopyrightNotice.class, "CopyrightNotice", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getCopyrightNotice_Notice(), this.getNotice(), null, "notice", null, 1, 1,
-                CopyrightNotice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getCopyrightNotice_License(), this.getLicense(), null, "license", null, 1, 1,
-                CopyrightNotice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getCopyrightNotice_Notice(), this.getNotice(), this.getNotice_CopyrightNotice(), "notice", null,
+                0, 1, CopyrightNotice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getCopyrightNotice_License(), this.getLicense(), this.getLicense_CopyrightNotice(), "license",
+                null, 0, 1, CopyrightNotice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getCopyrightNotice_Copyrighted(), this.getCopyrighted(), this.getCopyrighted_Copyright(),
+                "copyrighted", null, 0, 1, CopyrightNotice.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( dataAttributeEClass, DataAttribute.class, "DataAttribute", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
@@ -3928,53 +4366,53 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getDataAttribute_DefaultValue(), theXMLTypePackage.getNormalizedString(), "defaultValue", null,
-                0, 1, DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+                0, 1, DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
         initEAttribute( getDataAttribute_Dupd(), theXMLTypePackage.getBoolean(), "dupd", "false", 0, 1,
                 DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getDataAttribute_Fc(), ecorePackage.getEString(), "fc", null, 1, 1, DataAttribute.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
+        initEAttribute( getDataAttribute_Fc(), ecorePackage.getEString(), "fc", null, 0, 1, DataAttribute.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getDataAttribute_IsArray(), theXMLTypePackage.getBoolean(), "isArray", "false", 0, 1,
                 DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getDataAttribute_MaxIndexAttribute(), ecorePackage.getEString(), "maxIndexAttribute", null, 0,
-                1, DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                1, DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getDataAttribute_MaxValue(), theXMLTypePackage.getDecimal(), "maxValue", null, 0, 1,
-                DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getDataAttribute_MinIndex(), theXMLTypePackage.getUnsignedInt(), "minIndex", "0", 0, 1,
                 DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getDataAttribute_MinValue(), theXMLTypePackage.getDecimal(), "minValue", null, 0, 1,
-                DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getDataAttribute_Name(), ecorePackage.getEString(), "name", null, 1, 1, DataAttribute.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
+        initEAttribute( getDataAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1, DataAttribute.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getDataAttribute_PresCond(), ecorePackage.getEString(), "presCond", "M", 0, 1,
                 DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getDataAttribute_PresCondArgs(), ecorePackage.getEString(), "presCondArgs", null, 0, 1,
-                DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getDataAttribute_PresCondArgsID(), ecorePackage.getEString(), "presCondArgsID", null, 0, 1,
-                DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getDataAttribute_Qchg(), theXMLTypePackage.getBoolean(), "qchg", "false", 0, 1,
                 DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getDataAttribute_SizeAttribute(), ecorePackage.getEString(), "sizeAttribute", null, 0, 1,
-                DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getDataAttribute_Type(), ecorePackage.getEString(), "type", null, 0, 1, DataAttribute.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getDataAttribute_TypeKind(), this.getAttributeTypeKind(), "typeKind", "BASIC", 0, 1,
                 DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
+        initEReference( getDataAttribute_CDC(), this.getCDC(), this.getCDC_DataAttribute(), "cDC", null, 0, 1,
+                DataAttribute.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( dataObjectEClass, DataObject.class, "DataObject", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
@@ -3982,39 +4420,44 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 DataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getDataObject_DsPresCondArgs(), ecorePackage.getEString(), "dsPresCondArgs", null, 0, 1,
-                DataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                DataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getDataObject_DsPresCondArgsID(), ecorePackage.getEString(), "dsPresCondArgsID", null, 0, 1,
-                DataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                DataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getDataObject_Name(), ecorePackage.getEString(), "name", null, 1, 1, DataObject.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
+        initEAttribute( getDataObject_Name(), ecorePackage.getEString(), "name", null, 0, 1, DataObject.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getDataObject_PresCond(), ecorePackage.getEString(), "presCond", "M", 0, 1, DataObject.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getDataObject_PresCondArgs(), ecorePackage.getEString(), "presCondArgs", null, 0, 1,
-                DataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                DataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getDataObject_PresCondArgsID(), ecorePackage.getEString(), "presCondArgsID", null, 0, 1,
-                DataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                DataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getDataObject_Transient(), theXMLTypePackage.getBoolean(), "transient", "false", 0, 1,
                 DataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getDataObject_Type(), ecorePackage.getEString(), "type", null, 1, 1, DataObject.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
+        initEAttribute( getDataObject_Type(), ecorePackage.getEString(), "type", null, 0, 1, DataObject.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getDataObject_UnderlyingType(), ecorePackage.getEString(), "underlyingType", null, 0, 1,
-                DataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                DataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getDataObject_UnderlyingTypeKind(), this.getDefinedAttributeTypeKind(), "underlyingTypeKind",
                 null, 0, 1, DataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getDataObject_AnyLNClass(), this.getAnyLNClass(), this.getAnyLNClass_DataObject(), "anyLNClass",
+                null, 0, 1, DataObject.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( dataSetMemberOfEClass, DataSetMemberOf.class, "DataSetMemberOf", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getDataSetMemberOf_Cb(), this.getCBKind(), "cb", null, 1, 1, DataSetMemberOf.class,
+        initEAttribute( getDataSetMemberOf_Cb(), this.getCBKind(), "cb", null, 0, 1, DataSetMemberOf.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getDataSetMemberOf_ApplicableServices(), this.getApplicableServices(),
+                this.getApplicableServices_DataSetMemberOf(), "applicableServices", null, 0, 1, DataSetMemberOf.class,
+                IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( docEClass, Doc.class, "Doc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute( getDoc_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, Doc.class,
@@ -4024,8 +4467,11 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED );
         initEAttribute( getDoc_Any(), ecorePackage.getEFeatureMapEntry(), "any", null, 0, -1, Doc.class, IS_TRANSIENT,
                 IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED );
-        initEAttribute( getDoc_Id(), ecorePackage.getEString(), "id", null, 1, 1, Doc.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getDoc_Id(), ecorePackage.getEString(), "id", null, 0, 1, Doc.class, !IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getDoc_NSDoc(), this.getNSDoc(), this.getNSDoc_Doc(), "nSDoc", null, 0, 1, Doc.class,
+                IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( documentedClassEClass, DocumentedClass.class, "DocumentedClass", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
@@ -4033,7 +4479,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 DocumentedClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getDocumentedClass_DescID(), ecorePackage.getEString(), "descID", null, 0, 1,
-                DocumentedClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                DocumentedClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getDocumentedClass_Informative(), theXMLTypePackage.getBoolean(), "informative", "false", 0, 1,
                 DocumentedClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
@@ -4041,42 +4487,60 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
 
         initEClass( enumerationEClass, Enumeration.class, "Enumeration", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getEnumeration_Literal(), this.getLiteral(), null, "literal", null, 1, -1, Enumeration.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getEnumeration_Literal(), this.getLiteral(), this.getLiteral_Enumeration(), "literal", null, 0,
+                -1, Enumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
         initEAttribute( getEnumeration_InheritedFrom(), ecorePackage.getEString(), "inheritedFrom", null, 0, 1,
-                Enumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                Enumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getEnumeration_Name(), ecorePackage.getEString(), "name", null, 1, 1, Enumeration.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
+        initEAttribute( getEnumeration_Name(), ecorePackage.getEString(), "name", null, 0, 1, Enumeration.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getEnumeration_Enumerations(), this.getEnumerations(), this.getEnumerations_Enumeration(),
+                "enumerations", null, 0, 1, Enumeration.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( enumerationsEClass, Enumerations.class, "Enumerations", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getEnumerations_Enumeration(), this.getEnumeration(), null, "enumeration", null, 0, -1,
-                Enumerations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getEnumerations_Enumeration(), this.getEnumeration(), this.getEnumeration_Enumerations(),
+                "enumeration", null, 0, -1, Enumerations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getEnumerations_NS(), this.getNS(), this.getNS_Enumerations(), "nS", null, 0, 1,
+                Enumerations.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( functionalConstraintEClass, FunctionalConstraint.class, "FunctionalConstraint", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getFunctionalConstraint_ApplicableServices(), this.getApplicableServices(), null,
-                "applicableServices", null, 0, 1, FunctionalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getFunctionalConstraint_Abbreviation(), ecorePackage.getEString(), "abbreviation", null, 1, 1,
-                FunctionalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+        initEReference( getFunctionalConstraint_ApplicableServices(), this.getApplicableServices(),
+                this.getApplicableServices_FunctionalConstraint(), "applicableServices", null, 0, 1,
+                FunctionalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEAttribute( getFunctionalConstraint_Abbreviation(), ecorePackage.getEString(), "abbreviation", null, 0, 1,
+                FunctionalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getFunctionalConstraint_DescID(), ecorePackage.getEString(), "descID", null, 0, 1,
-                FunctionalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+                FunctionalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getFunctionalConstraint_TitleID(), ecorePackage.getEString(), "titleID", null, 0, 1,
-                FunctionalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+                FunctionalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getFunctionalConstraint_FunctionalConstraints(), this.getFunctionalConstraints(),
+                this.getFunctionalConstraints_FunctionalConstraint(), "functionalConstraints", null, 0, 1,
+                FunctionalConstraint.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( functionalConstraintsEClass, FunctionalConstraints.class, "FunctionalConstraints", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getFunctionalConstraints_FunctionalConstraint(), this.getFunctionalConstraint(), null,
-                "functionalConstraint", null, 1, -1, FunctionalConstraints.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getFunctionalConstraints_FunctionalConstraint(), this.getFunctionalConstraint(),
+                this.getFunctionalConstraint_FunctionalConstraints(), "functionalConstraint", null, 0, -1,
+                FunctionalConstraints.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getFunctionalConstraints_NS(), this.getNS(), this.getNS_FunctionalConstraints(), "nS", null, 0,
+                1, FunctionalConstraints.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getFunctionalConstraints_ServiceNS(), this.getServiceNS(),
+                this.getServiceNS_FunctionalConstraints(), "serviceNS", null, 0, 1, FunctionalConstraints.class,
+                IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( licenseEClass, License.class, "License", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute( getLicense_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, License.class,
@@ -4085,14 +4549,19 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getLicense_Kind(), this.getLicenseKind(), "kind", null, 0, 1, License.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getLicense_Uri(), theXMLTypePackage.getNormalizedString(), "uri", null, 0, 1, License.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getLicense_CopyrightNotice(), this.getCopyrightNotice(), this.getCopyrightNotice_License(),
+                "copyrightNotice", null, 0, 1, License.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( literalEClass, Literal.class, "Literal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getLiteral_LiteralVal(), theXMLTypePackage.getInt(), "literalVal", null, 1, 1, Literal.class,
+        initEAttribute( getLiteral_LiteralVal(), theXMLTypePackage.getInt(), "literalVal", null, 0, 1, Literal.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getLiteral_Name(), ecorePackage.getEString(), "name", null, 1, 1, Literal.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getLiteral_Name(), ecorePackage.getEString(), "name", null, 0, 1, Literal.class, !IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getLiteral_Enumeration(), this.getEnumeration(), this.getEnumeration_Literal(), "enumeration",
+                null, 0, 1, Literal.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( lnClassEClass, LNClass.class, "LNClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute( getLNClass_CanHaveLOG(), theXMLTypePackage.getBoolean(), "canHaveLOG", "false", 0, 1,
@@ -4101,61 +4570,73 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getLNClass_IsExtension(), theXMLTypePackage.getBoolean(), "isExtension", "false", 0, 1,
                 LNClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getLNClass_Name(), ecorePackage.getEString(), "name", null, 1, 1, LNClass.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getLNClass_Name(), ecorePackage.getEString(), "name", null, 0, 1, LNClass.class, !IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getLNClass_LNClasses(), this.getLNClasses(), this.getLNClasses_LNClass(), "lNClasses", null, 0,
+                1, LNClass.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( lnClassesEClass, LNClasses.class, "LNClasses", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getLNClasses_AbstractLNClass(), this.getAbstractLNClass(), null, "abstractLNClass", null, 0, -1,
+        initEReference( getLNClasses_AbstractLNClass(), this.getAbstractLNClass(), this.getAbstractLNClass_LNClasses(),
+                "abstractLNClass", null, 0, -1, LNClasses.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getLNClasses_LNClass(), this.getLNClass(), this.getLNClass_LNClasses(), "lNClass", null, 0, -1,
                 LNClasses.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getLNClasses_LNClass(), this.getLNClass(), null, "lNClass", null, 0, -1, LNClasses.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+                IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getLNClasses_NS(), this.getNS(), this.getNS_LNClasses(), "nS", null, 0, 1, LNClasses.class,
+                IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( noticeEClass, Notice.class, "Notice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute( getNotice_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, Notice.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
+        initEReference( getNotice_CopyrightNotice(), this.getCopyrightNotice(), this.getCopyrightNotice_Notice(),
+                "copyrightNotice", null, 0, 1, Notice.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( nsEClass, fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, "NS", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getNS_Changes(), this.getChanges(), null, "changes", null, 0, 1,
+        initEReference( getNS_Changes(), this.getChanges(), this.getChanges_NS(), "changes", null, 0, 1,
                 fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getNS_DependsOn(), this.getDependsOnType(), null, "dependsOn", null, 0, 1,
+                IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getNS_DependsOn(), this.getDependsOn(), this.getDependsOn_NS(), "dependsOn", null, 0, 1,
                 fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getNS_BasicTypes(), this.getBasicTypes(), null, "basicTypes", null, 0, 1,
+                IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getNS_BasicTypes(), this.getBasicTypes(), this.getBasicTypes_NS(), "basicTypes", null, 0, 1,
                 fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getNS_FunctionalConstraints(), this.getFunctionalConstraints(), null, "functionalConstraints",
+                IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getNS_FunctionalConstraints(), this.getFunctionalConstraints(),
+                this.getFunctionalConstraints_NS(), "functionalConstraints", null, 0, 1,
+                fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getNS_PresenceConditions(), this.getPresenceConditions(), this.getPresenceConditions_NS(),
+                "presenceConditions", null, 0, 1, fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
+                !IS_DERIVED, !IS_ORDERED );
+        initEReference( getNS_Abbreviations(), this.getAbbreviations(), this.getAbbreviations_NS(), "abbreviations",
                 null, 0, 1, fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getNS_PresenceConditions(), this.getPresenceConditions(), null, "presenceConditions", null, 0,
-                1, fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getNS_Abbreviations(), this.getAbbreviations(), null, "abbreviations", null, 0, 1,
+                IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getNS_Enumerations(), this.getEnumerations(), this.getEnumerations_NS(), "enumerations", null,
+                0, 1, fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE,
+                IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getNS_ConstructedAttributes(), this.getConstructedAttributes(),
+                this.getConstructedAttributes_NS(), "constructedAttributes", null, 0, 1,
                 fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getNS_Enumerations(), this.getEnumerations(), null, "enumerations", null, 0, 1,
+                IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getNS_CDCs(), this.getCDCs(), this.getCDCs_NS(), "cDCs", null, 0, 1,
                 fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getNS_ConstructedAttributes(), this.getConstructedAttributes(), null, "constructedAttributes",
-                null, 0, 1, fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getNS_CDCs(), this.getCDCs(), null, "cDCs", null, 0, 1,
+                IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getNS_LNClasses(), this.getLNClasses(), this.getLNClasses_NS(), "lNClasses", null, 0, 1,
                 fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getNS_LNClasses(), this.getLNClasses(), null, "lNClasses", null, 0, 1,
-                fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+                IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
         initEAttribute( getNS_DescID(), ecorePackage.getEString(), "descID", null, 0, 1,
                 fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getNS_Id(), ecorePackage.getEString(), "id", null, 1, 1,
+                IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getNS_Id(), ecorePackage.getEString(), "id", null, 0, 1,
                 fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+                IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getNS_PublicationStage(), this.getPubStage(), "publicationStage", "IS", 0, 1,
                 fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
@@ -4164,260 +4645,279 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getNS_UmlDate(), theXMLTypePackage.getDateTime(), "umlDate", null, 0, 1,
                 fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+                IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getNS_UmlVersion(), ecorePackage.getEString(), "umlVersion", null, 0, 1,
                 fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+                IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass( nsDocEClass, NSDoc.class, "NSDoc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getNSDoc_Doc(), this.getDoc(), null, "doc", null, 1, -1, NSDoc.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
-        initEAttribute( getNSDoc_Id(), ecorePackage.getEString(), "id", null, 1, 1, NSDoc.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getNSDoc_Lang(), theXMLTypePackage.getLanguage(), "lang", null, 1, 1, NSDoc.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
+        initEReference( getNSDoc_Doc(), this.getDoc(), this.getDoc_NSDoc(), "doc", null, 0, -1, NSDoc.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
+                !IS_DERIVED, !IS_ORDERED );
+        initEAttribute( getNSDoc_Id(), ecorePackage.getEString(), "id", null, 0, 1, NSDoc.class, !IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getNSDoc_Lang(), theXMLTypePackage.getLanguage(), "lang", null, 0, 1, NSDoc.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getNSDoc_PublicationStage(), this.getPubStage(), "publicationStage", "IS", 0, 1, NSDoc.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getNSDoc_Revision(), ecorePackage.getEString(), "revision", "A", 0, 1, NSDoc.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getNSDoc_UmlDate(), theXMLTypePackage.getDateTime(), "umlDate", null, 0, 1, NSDoc.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getNSDoc_UmlVersion(), ecorePackage.getEString(), "umlVersion", null, 0, 1, NSDoc.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass( presenceConditionEClass, PresenceCondition.class, "PresenceCondition", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
         initEAttribute( getPresenceCondition_Argument(), ecorePackage.getEString(), "argument", null, 0, 1,
-                PresenceCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                PresenceCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getPresenceCondition_DescID(), ecorePackage.getEString(), "descID", null, 0, 1,
-                PresenceCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                PresenceCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getPresenceCondition_Name(), ecorePackage.getEString(), "name", null, 1, 1,
-                PresenceCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+        initEAttribute( getPresenceCondition_Name(), ecorePackage.getEString(), "name", null, 0, 1,
+                PresenceCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getPresenceCondition_TitleID(), ecorePackage.getEString(), "titleID", null, 0, 1,
-                PresenceCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                PresenceCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
+        initEReference( getPresenceCondition_PresenceConditions(), this.getPresenceConditions(),
+                this.getPresenceConditions_PresenceCondition(), "presenceConditions", null, 0, 1,
+                PresenceCondition.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( presenceConditionsEClass, PresenceConditions.class, "PresenceConditions", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getPresenceConditions_PresenceCondition(), this.getPresenceCondition(), null,
-                "presenceCondition", null, 1, -1, PresenceConditions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getPresenceConditions_PresenceCondition(), this.getPresenceCondition(),
+                this.getPresenceCondition_PresenceConditions(), "presenceCondition", null, 0, -1,
+                PresenceConditions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getPresenceConditions_NS(), this.getNS(), this.getNS_PresenceConditions(), "nS", null, 0, 1,
+                PresenceConditions.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getPresenceConditions_ServiceNS(), this.getServiceNS(), this.getServiceNS_PresenceConditions(),
+                "serviceNS", null, 0, 1, PresenceConditions.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( serviceCDCEClass, ServiceCDC.class, "ServiceCDC", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getServiceCDC_ServiceDataAttribute(), this.getServiceDataAttribute(), null,
-                "serviceDataAttribute", null, 1, -1, ServiceCDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getServiceCDC_ServiceDataAttribute(), this.getServiceDataAttribute(),
+                this.getServiceDataAttribute_ServiceCDC(), "serviceDataAttribute", null, 0, -1, ServiceCDC.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
+                !IS_DERIVED, !IS_ORDERED );
         initEAttribute( getServiceCDC_Cdc(), ecorePackage.getEString(), "cdc", null, 1, 1, ServiceCDC.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getServiceCDC_Variant(), theXMLTypePackage.getToken(), "variant", null, 0, 1, ServiceCDC.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getServiceCDC_ServiceCDCs(), this.getServiceCDCs(), this.getServiceCDCs_ServiceCDC(),
+                "serviceCDCs", null, 0, 1, ServiceCDC.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( serviceCDCsEClass, ServiceCDCs.class, "ServiceCDCs", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getServiceCDCs_ServiceCDC(), this.getServiceCDC(), null, "serviceCDC", null, 0, -1,
-                ServiceCDCs.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getServiceCDCs_ServiceCDC(), this.getServiceCDC(), this.getServiceCDC_ServiceCDCs(),
+                "serviceCDC", null, 0, -1, ServiceCDCs.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getServiceCDCs_ServiceNS(), this.getServiceNS(), this.getServiceNS_ServiceCDCs(), "serviceNS",
+                null, 0, 1, ServiceCDCs.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( serviceConstructedAttributeEClass, ServiceConstructedAttribute.class, "ServiceConstructedAttribute",
                 !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute( getServiceConstructedAttribute_TypeKindParameterized(), theXMLTypePackage.getBoolean(),
                 "typeKindParameterized", "false", 0, 1, ServiceConstructedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getServiceConstructedAttribute_ServiceConstructedAttribute(),
+                this.getServiceConstructedAttributes(),
+                this.getServiceConstructedAttributes_ServiceConstructedAttribute(), "serviceConstructedAttribute", null,
+                0, 1, ServiceConstructedAttribute.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( serviceConstructedAttributesEClass, ServiceConstructedAttributes.class,
                 "ServiceConstructedAttributes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEReference( getServiceConstructedAttributes_ServiceConstructedAttribute(),
-                this.getServiceConstructedAttribute(), null, "serviceConstructedAttribute", null, 0, -1,
-                ServiceConstructedAttributes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+                this.getServiceConstructedAttribute(),
+                this.getServiceConstructedAttribute_ServiceConstructedAttribute(), "serviceConstructedAttribute", null,
+                0, -1, ServiceConstructedAttributes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getServiceConstructedAttributes_ServiceNS(), this.getServiceNS(),
+                this.getServiceNS_ServiceConstructedAttributes(), "serviceNS", null, 0, 1,
+                ServiceConstructedAttributes.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( serviceDataAttributeEClass, ServiceDataAttribute.class, "ServiceDataAttribute", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getServiceDataAttribute_Fc(), ecorePackage.getEString(), "fc", null, 1, 1,
-                ServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+        initEAttribute( getServiceDataAttribute_Fc(), ecorePackage.getEString(), "fc", null, 0, 1,
+                ServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getServiceDataAttribute_Name(), ecorePackage.getEString(), "name", null, 1, 1,
-                ServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+        initEAttribute( getServiceDataAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1,
+                ServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getServiceDataAttribute_PresCond(), ecorePackage.getEString(), "presCond", "M", 0, 1,
                 ServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getServiceDataAttribute_PresCondArgs(), ecorePackage.getEString(), "presCondArgs", null, 0, 1,
-                ServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+                ServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getServiceDataAttribute_PresCondArgsID(), ecorePackage.getEString(), "presCondArgsID", null, 0,
-                1, ServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+                1, ServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getServiceDataAttribute_Type(), ecorePackage.getEString(), "type", null, 0, 1,
-                ServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+                ServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getServiceDataAttribute_TypeKind(), this.getAttributeTypeKind(), "typeKind", "BASIC", 0, 1,
                 ServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getServiceDataAttribute_UnderlyingType(), ecorePackage.getEString(), "underlyingType", null, 0,
-                1, ServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+                1, ServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getServiceDataAttribute_UnderlyingTypeKind(), this.getDefinedAttributeTypeKind(),
                 "underlyingTypeKind", null, 0, 1, ServiceDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getServiceDataAttribute_ServiceCDC(), this.getServiceCDC(),
+                this.getServiceCDC_ServiceDataAttribute(), "serviceCDC", null, 0, 1, ServiceDataAttribute.class,
+                IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( serviceNSEClass, ServiceNS.class, "ServiceNS", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getServiceNS_Changes(), this.getChanges(), null, "changes", null, 0, 1, ServiceNS.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getServiceNS_FunctionalConstraints(), this.getFunctionalConstraints(), null,
-                "functionalConstraints", null, 0, 1, ServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getServiceNS_PresenceConditions(), this.getPresenceConditions(), null, "presenceConditions",
-                null, 0, 1, ServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getServiceNS_Abbreviations(), this.getAbbreviations(), null, "abbreviations", null, 0, 1,
+        initEReference( getServiceNS_Changes(), this.getChanges(), this.getChanges_ServiceNS(), "changes", null, 0, 1,
                 ServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getServiceNS_ServiceTypeRealizations(), this.getServiceTypeRealizations(), null,
-                "serviceTypeRealizations", null, 0, 1, ServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getServiceNS_ServiceConstructedAttributes(), this.getServiceConstructedAttributes(), null,
-                "serviceConstructedAttributes", null, 0, 1, ServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getServiceNS_ServiceCDCs(), this.getServiceCDCs(), null, "serviceCDCs", null, 0, 1,
+                IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getServiceNS_FunctionalConstraints(), this.getFunctionalConstraints(),
+                this.getFunctionalConstraints_ServiceNS(), "functionalConstraints", null, 0, 1, ServiceNS.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
+                !IS_DERIVED, !IS_ORDERED );
+        initEReference( getServiceNS_PresenceConditions(), this.getPresenceConditions(),
+                this.getPresenceConditions_ServiceNS(), "presenceConditions", null, 0, 1, ServiceNS.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
+                !IS_DERIVED, !IS_ORDERED );
+        initEReference( getServiceNS_Abbreviations(), this.getAbbreviations(), this.getAbbreviations_ServiceNS(),
+                "abbreviations", null, 0, 1, ServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getServiceNS_ServiceTypeRealizations(), this.getServiceTypeRealizations(),
+                this.getServiceTypeRealizations_ServiceNS(), "serviceTypeRealizations", null, 0, 1, ServiceNS.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
+                !IS_DERIVED, !IS_ORDERED );
+        initEReference( getServiceNS_ServiceConstructedAttributes(), this.getServiceConstructedAttributes(),
+                this.getServiceConstructedAttributes_ServiceNS(), "serviceConstructedAttributes", null, 0, 1,
                 ServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+                IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getServiceNS_ServiceCDCs(), this.getServiceCDCs(), this.getServiceCDCs_ServiceNS(),
+                "serviceCDCs", null, 0, 1, ServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
         initEAttribute( getServiceNS_DescID(), ecorePackage.getEString(), "descID", null, 0, 1, ServiceNS.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
-        initEAttribute( getServiceNS_Id(), ecorePackage.getEString(), "id", null, 1, 1, ServiceNS.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getServiceNS_Id(), ecorePackage.getEString(), "id", null, 0, 1, ServiceNS.class, !IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getServiceNS_PublicationStage(), this.getPubStage(), "publicationStage", "IS", 0, 1,
                 ServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getServiceNS_Revision(), ecorePackage.getEString(), "revision", "A", 0, 1, ServiceNS.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getServiceNS_UmlDate(), theXMLTypePackage.getDateTime(), "umlDate", null, 0, 1, ServiceNS.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getServiceNS_UmlVersion(), ecorePackage.getEString(), "umlVersion", null, 0, 1, ServiceNS.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass( serviceNsUsageEClass, ServiceNsUsage.class, "ServiceNsUsage", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getServiceNsUsage_AppliesTo(), this.getAppliesToType(), null, "appliesTo", null, 1, -1,
-                ServiceNsUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getServiceNsUsage_Id(), ecorePackage.getEString(), "id", null, 1, 1, ServiceNsUsage.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
+        initEReference( getServiceNsUsage_AppliesTo(), this.getAppliesToType(), this.getAppliesToType_ServiceNsUsage(),
+                "appliesTo", null, 0, -1, ServiceNsUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEAttribute( getServiceNsUsage_Id(), ecorePackage.getEString(), "id", null, 0, 1, ServiceNsUsage.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getServiceNsUsage_PublicationStage(), this.getPubStage(), "publicationStage", "IS", 0, 1,
                 ServiceNsUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getServiceNsUsage_Revision(), ecorePackage.getEString(), "revision", "A", 0, 1,
                 ServiceNsUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
+        initEReference( getServiceNsUsage_ApplicableServiceNS(), this.getApplicableServiceNS(),
+                this.getApplicableServiceNS_ServiceNsUsage(), "applicableServiceNS", null, 0, 1, ServiceNsUsage.class,
+                IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( serviceParameterEClass, ServiceParameter.class, "ServiceParameter", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
         initEAttribute( getServiceParameter_DefaultValue(), theXMLTypePackage.getNormalizedString(), "defaultValue",
-                null, 0, 1, ServiceParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+                null, 0, 1, ServiceParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getServiceParameter_MaxValue(), theXMLTypePackage.getDecimal(), "maxValue", null, 0, 1,
-                ServiceParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                ServiceParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getServiceParameter_MinValue(), theXMLTypePackage.getDecimal(), "minValue", null, 0, 1,
-                ServiceParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                ServiceParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getServiceParameter_Name(), ecorePackage.getEString(), "name", null, 1, 1,
-                ServiceParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+        initEAttribute( getServiceParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1,
+                ServiceParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getServiceParameter_Type(), ecorePackage.getEString(), "type", null, 0, 1,
-                ServiceParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                ServiceParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getServiceParameter_TypeKind(), this.getAttributeTypeKind(), "typeKind", "BASIC", 0, 1,
                 ServiceParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-
-        initEClass( serviceTypeRealizationEClass, ServiceTypeRealization.class, "ServiceTypeRealization", !IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getServiceTypeRealization_Fc(), ecorePackage.getEString(), "fc", null, 1, 1,
-                ServiceTypeRealization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getServiceTypeRealization_Name(), ecorePackage.getEString(), "name", null, 1, 1,
-                ServiceTypeRealization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getServiceTypeRealization_PresCond(), ecorePackage.getEString(), "presCond", "M", 0, 1,
-                ServiceTypeRealization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getServiceTypeRealization_PresCondArgs(), ecorePackage.getEString(), "presCondArgs", null, 0, 1,
-                ServiceTypeRealization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getServiceTypeRealization_PresCondArgsID(), ecorePackage.getEString(), "presCondArgsID", null,
-                0, 1, ServiceTypeRealization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getServiceTypeRealization_Type(), ecorePackage.getEString(), "type", null, 0, 1,
-                ServiceTypeRealization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getServiceTypeRealization_TypeKind(), this.getAttributeTypeKind(), "typeKind", "BASIC", 0, 1,
-                ServiceTypeRealization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getServiceParameter_CDC(), this.getCDC(), this.getCDC_ServiceParameter(), "cDC", null, 0, 1,
+                ServiceParameter.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( serviceTypeRealizationsEClass, ServiceTypeRealizations.class, "ServiceTypeRealizations",
                 !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getServiceTypeRealizations_ServiceTypeRealization(), this.getConstructedAttribute(), null,
-                "serviceTypeRealization", null, 0, -1, ServiceTypeRealizations.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getServiceTypeRealizations_ServiceTypeRealization(), this.getConstructedAttribute(),
+                this.getConstructedAttribute_ServiceTypeRealizations(), "serviceTypeRealization", null, 0, -1,
+                ServiceTypeRealizations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getServiceTypeRealizations_ServiceNS(), this.getServiceNS(),
+                this.getServiceNS_ServiceTypeRealizations(), "serviceNS", null, 0, 1, ServiceTypeRealizations.class,
+                IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( subDataAttributeEClass, SubDataAttribute.class, "SubDataAttribute", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
         initEAttribute( getSubDataAttribute_DefaultValue(), theXMLTypePackage.getNormalizedString(), "defaultValue",
-                null, 0, 1, SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+                null, 0, 1, SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getSubDataAttribute_IsArray(), theXMLTypePackage.getBoolean(), "isArray", "false", 0, 1,
                 SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getSubDataAttribute_MaxIndexAttribute(), ecorePackage.getEString(), "maxIndexAttribute", null,
-                0, 1, SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+                0, 1, SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getSubDataAttribute_MaxValue(), theXMLTypePackage.getDecimal(), "maxValue", null, 0, 1,
-                SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getSubDataAttribute_MinIndex(), theXMLTypePackage.getUnsignedInt(), "minIndex", "0", 0, 1,
                 SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getSubDataAttribute_MinValue(), theXMLTypePackage.getDecimal(), "minValue", null, 0, 1,
-                SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getSubDataAttribute_Name(), ecorePackage.getEString(), "name", null, 1, 1,
-                SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+        initEAttribute( getSubDataAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1,
+                SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getSubDataAttribute_PresCond(), ecorePackage.getEString(), "presCond", "M", 0, 1,
                 SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getSubDataAttribute_PresCondArgs(), ecorePackage.getEString(), "presCondArgs", null, 0, 1,
-                SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getSubDataAttribute_PresCondArgsID(), ecorePackage.getEString(), "presCondArgsID", null, 0, 1,
-                SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getSubDataAttribute_SizeAttribute(), ecorePackage.getEString(), "sizeAttribute", null, 0, 1,
-                SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getSubDataAttribute_Type(), ecorePackage.getEString(), "type", null, 0, 1,
-                SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getSubDataAttribute_TypeKind(), this.getAttributeTypeKind(), "typeKind", "BASIC", 0, 1,
                 SubDataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
+        initEReference( getSubDataAttribute_ConstructedAttribute(), this.getConstructedAttribute(),
+                this.getConstructedAttribute_SubDataAttribute(), "constructedAttribute", null, 0, 1,
+                SubDataAttribute.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( subDataObjectEClass, SubDataObject.class, "SubDataObject", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
@@ -4425,41 +4925,41 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 SubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getSubDataObject_MaxIndexAttribute(), ecorePackage.getEString(), "maxIndexAttribute", null, 0,
-                1, SubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                1, SubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getSubDataObject_MinIndex(), theXMLTypePackage.getUnsignedInt(), "minIndex", "0", 0, 1,
                 SubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getSubDataObject_Name(), ecorePackage.getEString(), "name", null, 1, 1, SubDataObject.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
+        initEAttribute( getSubDataObject_Name(), ecorePackage.getEString(), "name", null, 0, 1, SubDataObject.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getSubDataObject_PresCond(), ecorePackage.getEString(), "presCond", "M", 0, 1,
                 SubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getSubDataObject_PresCondArgs(), ecorePackage.getEString(), "presCondArgs", null, 0, 1,
-                SubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                SubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getSubDataObject_PresCondArgsID(), ecorePackage.getEString(), "presCondArgsID", null, 0, 1,
-                SubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                SubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getSubDataObject_SizeAttribute(), ecorePackage.getEString(), "sizeAttribute", null, 0, 1,
-                SubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                SubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getSubDataObject_Type(), ecorePackage.getEString(), "type", null, 1, 1, SubDataObject.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
+        initEAttribute( getSubDataObject_Type(), ecorePackage.getEString(), "type", null, 0, 1, SubDataObject.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getSubDataObject_UnderlyingType(), ecorePackage.getEString(), "underlyingType", null, 0, 1,
-                SubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                SubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getSubDataObject_UnderlyingTypeKind(), this.getDefinedAttributeTypeKind(), "underlyingTypeKind",
                 null, 0, 1, SubDataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getSubDataObject_CDC(), this.getCDC(), this.getCDC_SubDataObject(), "cDC", null, 0, 1,
+                SubDataObject.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( titledClassEClass, TitledClass.class, "TitledClass", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getTitledClass_TitleID(), ecorePackage.getEString(), "titleID", null, 1, 1, TitledClass.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED );
+        initEAttribute( getTitledClass_TitleID(), ecorePackage.getEString(), "titleID", null, 0, 1, TitledClass.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass( nsdObjectWithVersionAndReleaseEClass, NSDObjectWithVersionAndRelease.class,
                 "NSDObjectWithVersionAndRelease", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
@@ -4467,7 +4967,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 0, 1, NSDObjectWithVersionAndRelease.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE,
                 !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getNSDObjectWithVersionAndRelease_Version(), ecorePackage.getEIntegerObject(), "version", null,
-                1, 1, NSDObjectWithVersionAndRelease.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE,
+                0, 1, NSDObjectWithVersionAndRelease.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE,
                 !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         // Initialize enums and add enum literals
@@ -4599,11 +5099,11 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         addAnnotation( getAppliesToType_PublicationStage(), source,
                 new String[] { "kind", "attribute", "name", "publicationStage" } );
         addAnnotation( getAppliesToType_Revision(), source, new String[] { "kind", "attribute", "name", "revision" } );
-        addAnnotation( dependsOnTypeEClass, source, new String[] { "name", "DependsOn_._type", "kind", "empty" } );
-        addAnnotation( getDependsOnType_Id(), source, new String[] { "kind", "attribute", "name", "id" } );
-        addAnnotation( getDependsOnType_PublicationStage(), source,
+        addAnnotation( dependsOnEClass, source, new String[] { "name", "DependsOn_._type", "kind", "empty" } );
+        addAnnotation( getDependsOn_Id(), source, new String[] { "kind", "attribute", "name", "id" } );
+        addAnnotation( getDependsOn_PublicationStage(), source,
                 new String[] { "kind", "attribute", "name", "publicationStage" } );
-        addAnnotation( getDependsOnType_Revision(), source, new String[] { "kind", "attribute", "name", "revision" } );
+        addAnnotation( getDependsOn_Revision(), source, new String[] { "kind", "attribute", "name", "revision" } );
         addAnnotation( documentRootEClass, source, new String[] { "name", "", "kind", "mixed" } );
         addAnnotation( getDocumentRoot_Mixed(), source, new String[] { "kind", "elementWildcard", "name", ":mixed" } );
         addAnnotation( getDocumentRoot_XMLNSPrefixMap(), source,
@@ -4612,8 +5112,6 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 new String[] { "kind", "attribute", "name", "xsi:schemaLocation" } );
         addAnnotation( getDocumentRoot_ApplicableServiceNS(), source,
                 new String[] { "kind", "element", "name", "ApplicableServiceNS", "namespace", "##targetNamespace" } );
-        addAnnotation( getDocumentRoot_Copyright(), source,
-                new String[] { "kind", "element", "name", "Copyright", "namespace", "##targetNamespace" } );
         addAnnotation( getDocumentRoot_NS(), source,
                 new String[] { "kind", "element", "name", "NS", "namespace", "##targetNamespace" } );
         addAnnotation( getDocumentRoot_NSDoc(), source,
@@ -4930,19 +5428,6 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         addAnnotation( getServiceParameter_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
         addAnnotation( getServiceParameter_Type(), source, new String[] { "kind", "attribute", "name", "type" } );
         addAnnotation( getServiceParameter_TypeKind(), source,
-                new String[] { "kind", "attribute", "name", "typeKind" } );
-        addAnnotation( serviceTypeRealizationEClass, source,
-                new String[] { "name", "tServiceTypeRealization", "kind", "empty" } );
-        addAnnotation( getServiceTypeRealization_Fc(), source, new String[] { "kind", "attribute", "name", "fc" } );
-        addAnnotation( getServiceTypeRealization_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( getServiceTypeRealization_PresCond(), source,
-                new String[] { "kind", "attribute", "name", "presCond" } );
-        addAnnotation( getServiceTypeRealization_PresCondArgs(), source,
-                new String[] { "kind", "attribute", "name", "presCondArgs" } );
-        addAnnotation( getServiceTypeRealization_PresCondArgsID(), source,
-                new String[] { "kind", "attribute", "name", "presCondArgsID" } );
-        addAnnotation( getServiceTypeRealization_Type(), source, new String[] { "kind", "attribute", "name", "type" } );
-        addAnnotation( getServiceTypeRealization_TypeKind(), source,
                 new String[] { "kind", "attribute", "name", "typeKind" } );
         addAnnotation( serviceTypeRealizationsEClass, source,
                 new String[] { "name", "tServiceTypeRealizations", "kind", "elementOnly" } );

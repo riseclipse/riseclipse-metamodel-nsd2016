@@ -30,9 +30,6 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>Undefined Attribute Type Kind</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * <!-- begin-model-doc -->
- * Type kind for a data attribute which has its type "undefined".
- * <!-- end-model-doc -->
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getUndefinedAttributeTypeKind()
  * @model extendedMetaData="name='tUndefinedAttributeTypeKind'"
  * @generated

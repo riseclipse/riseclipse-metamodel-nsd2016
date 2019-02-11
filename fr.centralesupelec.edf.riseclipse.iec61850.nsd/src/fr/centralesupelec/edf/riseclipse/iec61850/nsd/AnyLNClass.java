@@ -26,10 +26,6 @@ import org.eclipse.emf.common.util.EList;
  * A representation of the model object '<em><b>Any LN Class</b></em>'.
  * <!-- end-user-doc -->
  *
- * <!-- begin-model-doc -->
- * Definition of a logical node (abstract or not) and its contents.
- * <!-- end-model-doc -->
- *
  * <p>
  * The following features are supported:
  * </p>
@@ -47,30 +43,52 @@ public interface AnyLNClass extends TitledClass {
     /**
      * Returns the value of the '<em><b>Data Object</b></em>' containment reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject}.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getAnyLNClass <em>Any LN Class</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Child Data Object of the logical node.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Data Object</em>' containment reference list.
+     * @see #isSetDataObject()
+     * @see #unsetDataObject()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAnyLNClass_DataObject()
-     * @model containment="true"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getAnyLNClass
+     * @model opposite="anyLNClass" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='DataObject' namespace='##targetNamespace'"
      * @generated
      */
     EList< DataObject > getDataObject();
 
     /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass#getDataObject <em>Data Object</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetDataObject()
+     * @see #getDataObject()
+     * @generated
+     */
+    void unsetDataObject();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass#getDataObject <em>Data Object</em>}' containment reference list is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Data Object</em>' containment reference list is set.
+     * @see #unsetDataObject()
+     * @see #getDataObject()
+     * @generated
+     */
+    boolean isSetDataObject();
+
+    /**
      * Returns the value of the '<em><b>Base</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Name of the abstract LN class this one extends (directly).
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Base</em>' attribute.
+     * @see #isSetBase()
+     * @see #unsetBase()
      * @see #setBase(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAnyLNClass_Base()
-     * @model extendedMetaData="kind='attribute' name='base'"
+     * @model unsettable="true"
+     *        extendedMetaData="kind='attribute' name='base'"
      * @generated
      */
     String getBase();
@@ -80,9 +98,34 @@ public interface AnyLNClass extends TitledClass {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Base</em>' attribute.
+     * @see #isSetBase()
+     * @see #unsetBase()
      * @see #getBase()
      * @generated
      */
     void setBase( String value );
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass#getBase <em>Base</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetBase()
+     * @see #getBase()
+     * @see #setBase(String)
+     * @generated
+     */
+    void unsetBase();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass#getBase <em>Base</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Base</em>' attribute is set.
+     * @see #unsetBase()
+     * @see #getBase()
+     * @see #setBase(String)
+     * @generated
+     */
+    boolean isSetBase();
 
 } // AnyLNClass

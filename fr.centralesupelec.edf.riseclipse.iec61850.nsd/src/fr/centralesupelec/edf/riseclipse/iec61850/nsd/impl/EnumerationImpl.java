@@ -20,6 +20,7 @@
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
@@ -34,8 +35,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -49,6 +50,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationImpl#getLiteral <em>Literal</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationImpl#getInheritedFrom <em>Inherited From</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationImpl#getName <em>Name</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationImpl#getEnumerations <em>Enumerations</em>}</li>
  * </ul>
  *
  * @generated
@@ -85,6 +87,15 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
     protected String inheritedFrom = INHERITED_FROM_EDEFAULT;
 
     /**
+     * This is true if the Inherited From attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean inheritedFromESet;
+
+    /**
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -103,6 +114,15 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
      * @ordered
      */
     protected String name = NAME_EDEFAULT;
+
+    /**
+     * This is true if the Name attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean nameESet;
 
     /**
      * <!-- begin-user-doc -->
@@ -131,9 +151,30 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
     @Override
     public EList< Literal > getLiteral() {
         if( literal == null ) {
-            literal = new EObjectContainmentEList< Literal >( Literal.class, this, NsdPackage.ENUMERATION__LITERAL );
+            literal = new EObjectContainmentWithInverseEList.Unsettable< Literal >( Literal.class, this,
+                    NsdPackage.ENUMERATION__LITERAL, NsdPackage.LITERAL__ENUMERATION );
         }
         return literal;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetLiteral() {
+        if( literal != null ) ( ( InternalEList.Unsettable< ? > ) literal ).unset();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetLiteral() {
+        return literal != null && ( ( InternalEList.Unsettable< ? > ) literal ).isSet();
     }
 
     /**
@@ -155,8 +196,36 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
     public void setInheritedFrom( String newInheritedFrom ) {
         String oldInheritedFrom = inheritedFrom;
         inheritedFrom = newInheritedFrom;
+        boolean oldInheritedFromESet = inheritedFromESet;
+        inheritedFromESet = true;
         if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.ENUMERATION__INHERITED_FROM, oldInheritedFrom, inheritedFrom ) );
+                NsdPackage.ENUMERATION__INHERITED_FROM, oldInheritedFrom, inheritedFrom, !oldInheritedFromESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetInheritedFrom() {
+        String oldInheritedFrom = inheritedFrom;
+        boolean oldInheritedFromESet = inheritedFromESet;
+        inheritedFrom = INHERITED_FROM_EDEFAULT;
+        inheritedFromESet = false;
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.ENUMERATION__INHERITED_FROM,
+                    oldInheritedFrom, INHERITED_FROM_EDEFAULT, oldInheritedFromESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetInheritedFrom() {
+        return inheritedFromESet;
     }
 
     /**
@@ -178,8 +247,97 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
     public void setName( String newName ) {
         String oldName = name;
         name = newName;
-        if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.ENUMERATION__NAME, oldName, name ) );
+        boolean oldNameESet = nameESet;
+        nameESet = true;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.ENUMERATION__NAME, oldName, name, !oldNameESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetName() {
+        String oldName = name;
+        boolean oldNameESet = nameESet;
+        name = NAME_EDEFAULT;
+        nameESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.ENUMERATION__NAME, oldName, NAME_EDEFAULT, oldNameESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetName() {
+        return nameESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Enumerations getEnumerations() {
+        if( eContainerFeatureID() != NsdPackage.ENUMERATION__ENUMERATIONS ) return null;
+        return ( Enumerations ) eInternalContainer();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetEnumerations( Enumerations newEnumerations, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newEnumerations, NsdPackage.ENUMERATION__ENUMERATIONS, msgs );
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setEnumerations( Enumerations newEnumerations ) {
+        if( newEnumerations != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.ENUMERATION__ENUMERATIONS && newEnumerations != null ) ) {
+            if( EcoreUtil.isAncestor( this, newEnumerations ) )
+                throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            NotificationChain msgs = null;
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( newEnumerations != null ) msgs = ( ( InternalEObject ) newEnumerations ).eInverseAdd( this,
+                    NsdPackage.ENUMERATIONS__ENUMERATION, Enumerations.class, msgs );
+            msgs = basicSetEnumerations( newEnumerations, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.ENUMERATION__ENUMERATIONS, newEnumerations, newEnumerations ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @SuppressWarnings( "unchecked" )
+    @Override
+    public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.ENUMERATION__LITERAL:
+            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getLiteral() ).basicAdd( otherEnd,
+                    msgs );
+        case NsdPackage.ENUMERATION__ENUMERATIONS:
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            return basicSetEnumerations( ( Enumerations ) otherEnd, msgs );
+        }
+        return super.eInverseAdd( otherEnd, featureID, msgs );
     }
 
     /**
@@ -192,8 +350,25 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
         switch( featureID ) {
         case NsdPackage.ENUMERATION__LITERAL:
             return ( ( InternalEList< ? > ) getLiteral() ).basicRemove( otherEnd, msgs );
+        case NsdPackage.ENUMERATION__ENUMERATIONS:
+            return basicSetEnumerations( null, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
+        switch( eContainerFeatureID() ) {
+        case NsdPackage.ENUMERATION__ENUMERATIONS:
+            return eInternalContainer().eInverseRemove( this, NsdPackage.ENUMERATIONS__ENUMERATION, Enumerations.class,
+                    msgs );
+        }
+        return super.eBasicRemoveFromContainerFeature( msgs );
     }
 
     /**
@@ -210,6 +385,8 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
             return getInheritedFrom();
         case NsdPackage.ENUMERATION__NAME:
             return getName();
+        case NsdPackage.ENUMERATION__ENUMERATIONS:
+            return getEnumerations();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -233,6 +410,9 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
         case NsdPackage.ENUMERATION__NAME:
             setName( ( String ) newValue );
             return;
+        case NsdPackage.ENUMERATION__ENUMERATIONS:
+            setEnumerations( ( Enumerations ) newValue );
+            return;
         }
         super.eSet( featureID, newValue );
     }
@@ -246,13 +426,16 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
     public void eUnset( int featureID ) {
         switch( featureID ) {
         case NsdPackage.ENUMERATION__LITERAL:
-            getLiteral().clear();
+            unsetLiteral();
             return;
         case NsdPackage.ENUMERATION__INHERITED_FROM:
-            setInheritedFrom( INHERITED_FROM_EDEFAULT );
+            unsetInheritedFrom();
             return;
         case NsdPackage.ENUMERATION__NAME:
-            setName( NAME_EDEFAULT );
+            unsetName();
+            return;
+        case NsdPackage.ENUMERATION__ENUMERATIONS:
+            setEnumerations( ( Enumerations ) null );
             return;
         }
         super.eUnset( featureID );
@@ -267,12 +450,13 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
     public boolean eIsSet( int featureID ) {
         switch( featureID ) {
         case NsdPackage.ENUMERATION__LITERAL:
-            return literal != null && !literal.isEmpty();
+            return isSetLiteral();
         case NsdPackage.ENUMERATION__INHERITED_FROM:
-            return INHERITED_FROM_EDEFAULT == null ? inheritedFrom != null
-                    : !INHERITED_FROM_EDEFAULT.equals( inheritedFrom );
+            return isSetInheritedFrom();
         case NsdPackage.ENUMERATION__NAME:
-            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals( name );
+            return isSetName();
+        case NsdPackage.ENUMERATION__ENUMERATIONS:
+            return getEnumerations() != null;
         }
         return super.eIsSet( featureID );
     }
@@ -288,9 +472,15 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (inheritedFrom: " );
-        result.append( inheritedFrom );
+        if( inheritedFromESet )
+            result.append( inheritedFrom );
+        else
+            result.append( "<unset>" );
         result.append( ", name: " );
-        result.append( name );
+        if( nameESet )
+            result.append( name );
+        else
+            result.append( "<unset>" );
         result.append( ')' );
         return result.toString();
     }

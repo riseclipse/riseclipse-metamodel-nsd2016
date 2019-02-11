@@ -48,13 +48,13 @@ public interface NsdFactory extends EFactory {
     AppliesToType createAppliesToType();
 
     /**
-     * Returns a new object of class '<em>Depends On Type</em>'.
+     * Returns a new object of class '<em>Depends On</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>Depends On Type</em>'.
+     * @return a new object of class '<em>Depends On</em>'.
      * @generated
      */
-    DependsOnType createDependsOnType();
+    DependsOn createDependsOn();
 
     /**
      * Returns a new object of class '<em>Document Root</em>'.
@@ -433,15 +433,6 @@ public interface NsdFactory extends EFactory {
      * @generated
      */
     ServiceParameter createServiceParameter();
-
-    /**
-     * Returns a new object of class '<em>Service Type Realization</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Service Type Realization</em>'.
-     * @generated
-     */
-    ServiceTypeRealization createServiceTypeRealization();
 
     /**
      * Returns a new object of class '<em>Service Type Realizations</em>'.

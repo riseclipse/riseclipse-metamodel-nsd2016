@@ -19,16 +19,20 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CBKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataSetMemberOf;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,6 +43,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataSetMemberOfImpl#getCb <em>Cb</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataSetMemberOfImpl#getApplicableServices <em>Applicable Services</em>}</li>
  * </ul>
  *
  * @generated
@@ -148,10 +153,102 @@ public class DataSetMemberOfImpl extends MinimalEObjectImpl.Container implements
      * @generated
      */
     @Override
+    public ApplicableServices getApplicableServices() {
+        if( eContainerFeatureID() != NsdPackage.DATA_SET_MEMBER_OF__APPLICABLE_SERVICES ) return null;
+        return ( ApplicableServices ) eInternalContainer();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetApplicableServices( ApplicableServices newApplicableServices,
+            NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newApplicableServices,
+                NsdPackage.DATA_SET_MEMBER_OF__APPLICABLE_SERVICES, msgs );
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setApplicableServices( ApplicableServices newApplicableServices ) {
+        if( newApplicableServices != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.DATA_SET_MEMBER_OF__APPLICABLE_SERVICES
+                        && newApplicableServices != null ) ) {
+            if( EcoreUtil.isAncestor( this, newApplicableServices ) )
+                throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            NotificationChain msgs = null;
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( newApplicableServices != null ) msgs = ( ( InternalEObject ) newApplicableServices ).eInverseAdd( this,
+                    NsdPackage.APPLICABLE_SERVICES__DATA_SET_MEMBER_OF, ApplicableServices.class, msgs );
+            msgs = basicSetApplicableServices( newApplicableServices, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.DATA_SET_MEMBER_OF__APPLICABLE_SERVICES, newApplicableServices, newApplicableServices ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.DATA_SET_MEMBER_OF__APPLICABLE_SERVICES:
+            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            return basicSetApplicableServices( ( ApplicableServices ) otherEnd, msgs );
+        }
+        return super.eInverseAdd( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.DATA_SET_MEMBER_OF__APPLICABLE_SERVICES:
+            return basicSetApplicableServices( null, msgs );
+        }
+        return super.eInverseRemove( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
+        switch( eContainerFeatureID() ) {
+        case NsdPackage.DATA_SET_MEMBER_OF__APPLICABLE_SERVICES:
+            return eInternalContainer().eInverseRemove( this, NsdPackage.APPLICABLE_SERVICES__DATA_SET_MEMBER_OF,
+                    ApplicableServices.class, msgs );
+        }
+        return super.eBasicRemoveFromContainerFeature( msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
         case NsdPackage.DATA_SET_MEMBER_OF__CB:
             return getCb();
+        case NsdPackage.DATA_SET_MEMBER_OF__APPLICABLE_SERVICES:
+            return getApplicableServices();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -166,6 +263,9 @@ public class DataSetMemberOfImpl extends MinimalEObjectImpl.Container implements
         switch( featureID ) {
         case NsdPackage.DATA_SET_MEMBER_OF__CB:
             setCb( ( CBKind ) newValue );
+            return;
+        case NsdPackage.DATA_SET_MEMBER_OF__APPLICABLE_SERVICES:
+            setApplicableServices( ( ApplicableServices ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -182,6 +282,9 @@ public class DataSetMemberOfImpl extends MinimalEObjectImpl.Container implements
         case NsdPackage.DATA_SET_MEMBER_OF__CB:
             unsetCb();
             return;
+        case NsdPackage.DATA_SET_MEMBER_OF__APPLICABLE_SERVICES:
+            setApplicableServices( ( ApplicableServices ) null );
+            return;
         }
         super.eUnset( featureID );
     }
@@ -196,6 +299,8 @@ public class DataSetMemberOfImpl extends MinimalEObjectImpl.Container implements
         switch( featureID ) {
         case NsdPackage.DATA_SET_MEMBER_OF__CB:
             return isSetCb();
+        case NsdPackage.DATA_SET_MEMBER_OF__APPLICABLE_SERVICES:
+            return getApplicableServices() != null;
         }
         return super.eIsSet( featureID );
     }
