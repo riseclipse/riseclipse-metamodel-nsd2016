@@ -36,13 +36,17 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getTissues <em>Tissues</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getNS <em>NS</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getServiceNS <em>Service NS</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getRelease <em>Release</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getVersion <em>Version</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getChanges()
  * @model extendedMetaData="name='tChanges' kind='empty'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='versionAttributeRequired'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot versionAttributeRequired='Tuple {\n\tmessage : String = \'The version attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.version &lt;&gt; null\n}.status'"
  * @generated
  */
-public interface Changes extends NSDObjectWithVersionAndRelease {
+public interface Changes extends NsdObject {
     /**
      * Returns the value of the '<em><b>Changes ID</b></em>' attribute.
      * <!-- begin-user-doc -->
@@ -299,5 +303,114 @@ public interface Changes extends NSDObjectWithVersionAndRelease {
      * @generated
      */
     void setServiceNS( ServiceNS value );
+
+    /**
+     * Returns the value of the '<em><b>Release</b></em>' attribute.
+     * The default value is <code>"1"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Release</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Release</em>' attribute.
+     * @see #isSetRelease()
+     * @see #unsetRelease()
+     * @see #setRelease(Integer)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getChanges_Release()
+     * @model default="1" unsettable="true"
+     *        extendedMetaData="kind='attribute' name='release'"
+     * @generated
+     */
+    Integer getRelease();
+
+    /**
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getRelease <em>Release</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Release</em>' attribute.
+     * @see #isSetRelease()
+     * @see #unsetRelease()
+     * @see #getRelease()
+     * @generated
+     */
+    void setRelease( Integer value );
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getRelease <em>Release</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetRelease()
+     * @see #getRelease()
+     * @see #setRelease(Integer)
+     * @generated
+     */
+    void unsetRelease();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getRelease <em>Release</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Release</em>' attribute is set.
+     * @see #unsetRelease()
+     * @see #getRelease()
+     * @see #setRelease(Integer)
+     * @generated
+     */
+    boolean isSetRelease();
+
+    /**
+     * Returns the value of the '<em><b>Version</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Version</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Version</em>' attribute.
+     * @see #isSetVersion()
+     * @see #unsetVersion()
+     * @see #setVersion(Integer)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getChanges_Version()
+     * @model unsettable="true"
+     *        extendedMetaData="kind='attribute' name='version'"
+     * @generated
+     */
+    Integer getVersion();
+
+    /**
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getVersion <em>Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Version</em>' attribute.
+     * @see #isSetVersion()
+     * @see #unsetVersion()
+     * @see #getVersion()
+     * @generated
+     */
+    void setVersion( Integer value );
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getVersion <em>Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetVersion()
+     * @see #getVersion()
+     * @see #setVersion(Integer)
+     * @generated
+     */
+    void unsetVersion();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getVersion <em>Version</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Version</em>' attribute is set.
+     * @see #unsetVersion()
+     * @see #getVersion()
+     * @see #setVersion(Integer)
+     * @generated
+     */
+    boolean isSetVersion();
 
 } // Changes

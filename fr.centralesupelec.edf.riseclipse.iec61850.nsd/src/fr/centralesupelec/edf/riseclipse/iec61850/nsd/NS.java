@@ -19,7 +19,8 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
-import javax.xml.datatype.XMLGregorianCalendar;
+import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,19 +41,14 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getConstructedAttributes <em>Constructed Attributes</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getCDCs <em>CD Cs</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getLNClasses <em>LN Classes</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getDescID <em>Desc ID</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getId <em>Id</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getPublicationStage <em>Publication Stage</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getRevision <em>Revision</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getUmlDate <em>Uml Date</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getUmlVersion <em>Uml Version</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getReferredByDependsOn <em>Referred By Depends On</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNS()
  * @model extendedMetaData="name='tNS' kind='elementOnly'"
  * @generated
  */
-public interface NS extends Copyrighted, NSDObjectWithVersionAndRelease {
+public interface NS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
     /**
      * Returns the value of the '<em><b>Changes</b></em>' containment reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getNS <em>NS</em>}'.
@@ -574,308 +570,77 @@ public interface NS extends Copyrighted, NSDObjectWithVersionAndRelease {
     boolean isSetLNClasses();
 
     /**
-     * Returns the value of the '<em><b>Desc ID</b></em>' attribute.
+     * Returns the value of the '<em><b>Referred By Depends On</b></em>' reference list.
+     * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn}.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getRefersToNS <em>Refers To NS</em>}'.
      * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Referred By Depends On</em>' reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Desc ID</em>' attribute.
-     * @see #isSetDescID()
-     * @see #unsetDescID()
-     * @see #setDescID(String)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNS_DescID()
-     * @model unsettable="true"
-     *        extendedMetaData="kind='attribute' name='descID'"
+     * @return the value of the '<em>Referred By Depends On</em>' reference list.
+     * @see #isSetReferredByDependsOn()
+     * @see #unsetReferredByDependsOn()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNS_ReferredByDependsOn()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getRefersToNS
+     * @model opposite="refersToNS" resolveProxies="false" unsettable="true" transient="true" ordered="false"
      * @generated
      */
-    String getDescID();
+    EList< DependsOn > getReferredByDependsOn();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getDescID <em>Desc ID</em>}' attribute.
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getReferredByDependsOn <em>Referred By Depends On</em>}' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Desc ID</em>' attribute.
-     * @see #isSetDescID()
-     * @see #unsetDescID()
-     * @see #getDescID()
+     * @see #isSetReferredByDependsOn()
+     * @see #getReferredByDependsOn()
      * @generated
      */
-    void setDescID( String value );
+    void unsetReferredByDependsOn();
 
     /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getDescID <em>Desc ID</em>}' attribute.
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getReferredByDependsOn <em>Referred By Depends On</em>}' reference list is set.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #isSetDescID()
-     * @see #getDescID()
-     * @see #setDescID(String)
+     * @return whether the value of the '<em>Referred By Depends On</em>' reference list is set.
+     * @see #unsetReferredByDependsOn()
+     * @see #getReferredByDependsOn()
      * @generated
      */
-    void unsetDescID();
+    boolean isSetReferredByDependsOn();
 
     /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getDescID <em>Desc ID</em>}' attribute is set.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Desc ID</em>' attribute is set.
-     * @see #unsetDescID()
-     * @see #getDescID()
-     * @see #setDescID(String)
+     * @model consoleType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.IRiseClipseConsole"
      * @generated
      */
-    boolean isSetDescID();
+    CDC findCDC( String cDCName, IRiseClipseConsole console );
 
     /**
-     * Returns the value of the '<em><b>Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Id</em>' attribute.
-     * @see #isSetId()
-     * @see #unsetId()
-     * @see #setId(String)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNS_Id()
-     * @model unsettable="true"
-     *        extendedMetaData="kind='attribute' name='id'"
+     * @model consoleType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.IRiseClipseConsole"
      * @generated
      */
-    String getId();
+    PresenceCondition findPresenceCondition( String presenceConditionName, IRiseClipseConsole console );
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getId <em>Id</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Id</em>' attribute.
-     * @see #isSetId()
-     * @see #unsetId()
-     * @see #getId()
+     * @model consoleType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.IRiseClipseConsole"
      * @generated
      */
-    void setId( String value );
+    FunctionalConstraint findFunctionalConstraint( String functionalConstraintAbbreviation,
+            IRiseClipseConsole console );
 
     /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getId <em>Id</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #isSetId()
-     * @see #getId()
-     * @see #setId(String)
+     * @model consoleType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.IRiseClipseConsole"
      * @generated
      */
-    void unsetId();
-
-    /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getId <em>Id</em>}' attribute is set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Id</em>' attribute is set.
-     * @see #unsetId()
-     * @see #getId()
-     * @see #setId(String)
-     * @generated
-     */
-    boolean isSetId();
-
-    /**
-     * Returns the value of the '<em><b>Publication Stage</b></em>' attribute.
-     * The default value is <code>"IS"</code>.
-     * The literals are from the enumeration {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Publication Stage</em>' attribute.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage
-     * @see #isSetPublicationStage()
-     * @see #unsetPublicationStage()
-     * @see #setPublicationStage(PubStage)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNS_PublicationStage()
-     * @model default="IS" unsettable="true"
-     *        extendedMetaData="kind='attribute' name='publicationStage'"
-     * @generated
-     */
-    PubStage getPublicationStage();
-
-    /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getPublicationStage <em>Publication Stage</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Publication Stage</em>' attribute.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage
-     * @see #isSetPublicationStage()
-     * @see #unsetPublicationStage()
-     * @see #getPublicationStage()
-     * @generated
-     */
-    void setPublicationStage( PubStage value );
-
-    /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getPublicationStage <em>Publication Stage</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isSetPublicationStage()
-     * @see #getPublicationStage()
-     * @see #setPublicationStage(PubStage)
-     * @generated
-     */
-    void unsetPublicationStage();
-
-    /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getPublicationStage <em>Publication Stage</em>}' attribute is set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Publication Stage</em>' attribute is set.
-     * @see #unsetPublicationStage()
-     * @see #getPublicationStage()
-     * @see #setPublicationStage(PubStage)
-     * @generated
-     */
-    boolean isSetPublicationStage();
-
-    /**
-     * Returns the value of the '<em><b>Revision</b></em>' attribute.
-     * The default value is <code>"A"</code>.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Revision</em>' attribute.
-     * @see #isSetRevision()
-     * @see #unsetRevision()
-     * @see #setRevision(String)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNS_Revision()
-     * @model default="A" unsettable="true"
-     *        extendedMetaData="kind='attribute' name='revision'"
-     * @generated
-     */
-    String getRevision();
-
-    /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getRevision <em>Revision</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Revision</em>' attribute.
-     * @see #isSetRevision()
-     * @see #unsetRevision()
-     * @see #getRevision()
-     * @generated
-     */
-    void setRevision( String value );
-
-    /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getRevision <em>Revision</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isSetRevision()
-     * @see #getRevision()
-     * @see #setRevision(String)
-     * @generated
-     */
-    void unsetRevision();
-
-    /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getRevision <em>Revision</em>}' attribute is set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Revision</em>' attribute is set.
-     * @see #unsetRevision()
-     * @see #getRevision()
-     * @see #setRevision(String)
-     * @generated
-     */
-    boolean isSetRevision();
-
-    /**
-     * Returns the value of the '<em><b>Uml Date</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Uml Date</em>' attribute.
-     * @see #isSetUmlDate()
-     * @see #unsetUmlDate()
-     * @see #setUmlDate(XMLGregorianCalendar)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNS_UmlDate()
-     * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.DateTime"
-     *        extendedMetaData="kind='attribute' name='umlDate'"
-     * @generated
-     */
-    XMLGregorianCalendar getUmlDate();
-
-    /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getUmlDate <em>Uml Date</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Uml Date</em>' attribute.
-     * @see #isSetUmlDate()
-     * @see #unsetUmlDate()
-     * @see #getUmlDate()
-     * @generated
-     */
-    void setUmlDate( XMLGregorianCalendar value );
-
-    /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getUmlDate <em>Uml Date</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isSetUmlDate()
-     * @see #getUmlDate()
-     * @see #setUmlDate(XMLGregorianCalendar)
-     * @generated
-     */
-    void unsetUmlDate();
-
-    /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getUmlDate <em>Uml Date</em>}' attribute is set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Uml Date</em>' attribute is set.
-     * @see #unsetUmlDate()
-     * @see #getUmlDate()
-     * @see #setUmlDate(XMLGregorianCalendar)
-     * @generated
-     */
-    boolean isSetUmlDate();
-
-    /**
-     * Returns the value of the '<em><b>Uml Version</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Uml Version</em>' attribute.
-     * @see #isSetUmlVersion()
-     * @see #unsetUmlVersion()
-     * @see #setUmlVersion(String)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNS_UmlVersion()
-     * @model unsettable="true"
-     *        extendedMetaData="kind='attribute' name='umlVersion'"
-     * @generated
-     */
-    String getUmlVersion();
-
-    /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getUmlVersion <em>Uml Version</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Uml Version</em>' attribute.
-     * @see #isSetUmlVersion()
-     * @see #unsetUmlVersion()
-     * @see #getUmlVersion()
-     * @generated
-     */
-    void setUmlVersion( String value );
-
-    /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getUmlVersion <em>Uml Version</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isSetUmlVersion()
-     * @see #getUmlVersion()
-     * @see #setUmlVersion(String)
-     * @generated
-     */
-    void unsetUmlVersion();
-
-    /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getUmlVersion <em>Uml Version</em>}' attribute is set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Uml Version</em>' attribute is set.
-     * @see #unsetUmlVersion()
-     * @see #getUmlVersion()
-     * @see #setUmlVersion(String)
-     * @generated
-     */
-    boolean isSetUmlVersion();
+    Enumeration findEnumeration( String enumerationName, IRiseClipseConsole console );
 
 } // NS

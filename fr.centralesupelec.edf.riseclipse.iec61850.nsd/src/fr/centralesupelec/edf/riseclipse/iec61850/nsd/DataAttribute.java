@@ -19,9 +19,7 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
-import java.math.BigDecimal;
-
-import org.eclipse.emf.common.util.Enumerator;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,191 +30,27 @@ import org.eclipse.emf.common.util.Enumerator;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#isDchg <em>Dchg</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getDefaultValue <em>Default Value</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#isDupd <em>Dupd</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getFc <em>Fc</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#isIsArray <em>Is Array</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getMaxIndexAttribute <em>Max Index Attribute</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getMaxValue <em>Max Value</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getMinIndex <em>Min Index</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getMinValue <em>Min Value</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getName <em>Name</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getPresCond <em>Pres Cond</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getPresCondArgs <em>Pres Cond Args</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getPresCondArgsID <em>Pres Cond Args ID</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#isQchg <em>Qchg</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getSizeAttribute <em>Size Attribute</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getType <em>Type</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getTypeKind <em>Type Kind</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getCDC <em>CDC</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredBySubDataObjectAsSizeAttribute <em>Referred By Sub Data Object As Size Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredBySubDataObjectAsMaxIndexAttribute <em>Referred By Sub Data Object As Max Index Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToFunctionalConstraint <em>Refers To Functional Constraint</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToPresenceCondition <em>Refers To Presence Condition</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToSizeAttribute <em>Refers To Size Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToMaxIndexAttribute <em>Refers To Max Index Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredByDataAttributeAsSizeAttribute <em>Referred By Data Attribute As Size Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredByDataAttributeAsMaxIndexAttribute <em>Referred By Data Attribute As Max Index Attribute</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute()
  * @model extendedMetaData="name='tDataAttribute' kind='empty'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='nameAttributeRequired fcAttributeRequired'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot nameAttributeRequired='Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name &lt;&gt; null\n}.status' fcAttributeRequired='Tuple {\n\tmessage : String = \'The fc attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.fc &lt;&gt; null\n}.status'"
  * @generated
  */
-public interface DataAttribute extends DocumentedClass {
-    /**
-     * Returns the value of the '<em><b>Dchg</b></em>' attribute.
-     * The default value is <code>"false"</code>.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Dchg</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Dchg</em>' attribute.
-     * @see #isSetDchg()
-     * @see #unsetDchg()
-     * @see #setDchg(boolean)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_Dchg()
-     * @model default="false" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
-     *        extendedMetaData="kind='attribute' name='dchg'"
-     * @generated
-     */
-    boolean isDchg();
-
-    /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#isDchg <em>Dchg</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Dchg</em>' attribute.
-     * @see #isSetDchg()
-     * @see #unsetDchg()
-     * @see #isDchg()
-     * @generated
-     */
-    void setDchg( boolean value );
-
-    /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#isDchg <em>Dchg</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isSetDchg()
-     * @see #isDchg()
-     * @see #setDchg(boolean)
-     * @generated
-     */
-    void unsetDchg();
-
-    /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#isDchg <em>Dchg</em>}' attribute is set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Dchg</em>' attribute is set.
-     * @see #unsetDchg()
-     * @see #isDchg()
-     * @see #setDchg(boolean)
-     * @generated
-     */
-    boolean isSetDchg();
-
-    /**
-     * Returns the value of the '<em><b>Default Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Default Value</em>' attribute.
-     * @see #isSetDefaultValue()
-     * @see #unsetDefaultValue()
-     * @see #setDefaultValue(String)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_DefaultValue()
-     * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.NormalizedString"
-     *        extendedMetaData="kind='attribute' name='defaultValue'"
-     * @generated
-     */
-    String getDefaultValue();
-
-    /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getDefaultValue <em>Default Value</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Default Value</em>' attribute.
-     * @see #isSetDefaultValue()
-     * @see #unsetDefaultValue()
-     * @see #getDefaultValue()
-     * @generated
-     */
-    void setDefaultValue( String value );
-
-    /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getDefaultValue <em>Default Value</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isSetDefaultValue()
-     * @see #getDefaultValue()
-     * @see #setDefaultValue(String)
-     * @generated
-     */
-    void unsetDefaultValue();
-
-    /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getDefaultValue <em>Default Value</em>}' attribute is set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Default Value</em>' attribute is set.
-     * @see #unsetDefaultValue()
-     * @see #getDefaultValue()
-     * @see #setDefaultValue(String)
-     * @generated
-     */
-    boolean isSetDefaultValue();
-
-    /**
-     * Returns the value of the '<em><b>Dupd</b></em>' attribute.
-     * The default value is <code>"false"</code>.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Dupd</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Dupd</em>' attribute.
-     * @see #isSetDupd()
-     * @see #unsetDupd()
-     * @see #setDupd(boolean)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_Dupd()
-     * @model default="false" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
-     *        extendedMetaData="kind='attribute' name='dupd'"
-     * @generated
-     */
-    boolean isDupd();
-
-    /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#isDupd <em>Dupd</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Dupd</em>' attribute.
-     * @see #isSetDupd()
-     * @see #unsetDupd()
-     * @see #isDupd()
-     * @generated
-     */
-    void setDupd( boolean value );
-
-    /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#isDupd <em>Dupd</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isSetDupd()
-     * @see #isDupd()
-     * @see #setDupd(boolean)
-     * @generated
-     */
-    void unsetDupd();
-
-    /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#isDupd <em>Dupd</em>}' attribute is set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Dupd</em>' attribute is set.
-     * @see #unsetDupd()
-     * @see #isDupd()
-     * @see #setDupd(boolean)
-     * @generated
-     */
-    boolean isSetDupd();
-
+public interface DataAttribute
+        extends DocumentedClass, AgPresenceCondition, AgArray, AgTrgOp, AgAttributeTypeAndValues {
     /**
      * Returns the value of the '<em><b>Fc</b></em>' attribute.
      * <!-- begin-user-doc -->
@@ -266,258 +100,6 @@ public interface DataAttribute extends DocumentedClass {
      * @generated
      */
     boolean isSetFc();
-
-    /**
-     * Returns the value of the '<em><b>Is Array</b></em>' attribute.
-     * The default value is <code>"false"</code>.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Is Array</em>' attribute.
-     * @see #isSetIsArray()
-     * @see #unsetIsArray()
-     * @see #setIsArray(boolean)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_IsArray()
-     * @model default="false" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
-     *        extendedMetaData="kind='attribute' name='isArray'"
-     * @generated
-     */
-    boolean isIsArray();
-
-    /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#isIsArray <em>Is Array</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Is Array</em>' attribute.
-     * @see #isSetIsArray()
-     * @see #unsetIsArray()
-     * @see #isIsArray()
-     * @generated
-     */
-    void setIsArray( boolean value );
-
-    /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#isIsArray <em>Is Array</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isSetIsArray()
-     * @see #isIsArray()
-     * @see #setIsArray(boolean)
-     * @generated
-     */
-    void unsetIsArray();
-
-    /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#isIsArray <em>Is Array</em>}' attribute is set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Is Array</em>' attribute is set.
-     * @see #unsetIsArray()
-     * @see #isIsArray()
-     * @see #setIsArray(boolean)
-     * @generated
-     */
-    boolean isSetIsArray();
-
-    /**
-     * Returns the value of the '<em><b>Max Index Attribute</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Max Index Attribute</em>' attribute.
-     * @see #isSetMaxIndexAttribute()
-     * @see #unsetMaxIndexAttribute()
-     * @see #setMaxIndexAttribute(String)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_MaxIndexAttribute()
-     * @model unsettable="true"
-     *        extendedMetaData="kind='attribute' name='maxIndexAttribute'"
-     * @generated
-     */
-    String getMaxIndexAttribute();
-
-    /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getMaxIndexAttribute <em>Max Index Attribute</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Max Index Attribute</em>' attribute.
-     * @see #isSetMaxIndexAttribute()
-     * @see #unsetMaxIndexAttribute()
-     * @see #getMaxIndexAttribute()
-     * @generated
-     */
-    void setMaxIndexAttribute( String value );
-
-    /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getMaxIndexAttribute <em>Max Index Attribute</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isSetMaxIndexAttribute()
-     * @see #getMaxIndexAttribute()
-     * @see #setMaxIndexAttribute(String)
-     * @generated
-     */
-    void unsetMaxIndexAttribute();
-
-    /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getMaxIndexAttribute <em>Max Index Attribute</em>}' attribute is set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Max Index Attribute</em>' attribute is set.
-     * @see #unsetMaxIndexAttribute()
-     * @see #getMaxIndexAttribute()
-     * @see #setMaxIndexAttribute(String)
-     * @generated
-     */
-    boolean isSetMaxIndexAttribute();
-
-    /**
-     * Returns the value of the '<em><b>Max Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Max Value</em>' attribute.
-     * @see #isSetMaxValue()
-     * @see #unsetMaxValue()
-     * @see #setMaxValue(BigDecimal)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_MaxValue()
-     * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Decimal"
-     *        extendedMetaData="kind='attribute' name='maxValue'"
-     * @generated
-     */
-    BigDecimal getMaxValue();
-
-    /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getMaxValue <em>Max Value</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Max Value</em>' attribute.
-     * @see #isSetMaxValue()
-     * @see #unsetMaxValue()
-     * @see #getMaxValue()
-     * @generated
-     */
-    void setMaxValue( BigDecimal value );
-
-    /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getMaxValue <em>Max Value</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isSetMaxValue()
-     * @see #getMaxValue()
-     * @see #setMaxValue(BigDecimal)
-     * @generated
-     */
-    void unsetMaxValue();
-
-    /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getMaxValue <em>Max Value</em>}' attribute is set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Max Value</em>' attribute is set.
-     * @see #unsetMaxValue()
-     * @see #getMaxValue()
-     * @see #setMaxValue(BigDecimal)
-     * @generated
-     */
-    boolean isSetMaxValue();
-
-    /**
-     * Returns the value of the '<em><b>Min Index</b></em>' attribute.
-     * The default value is <code>"0"</code>.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Min Index</em>' attribute.
-     * @see #isSetMinIndex()
-     * @see #unsetMinIndex()
-     * @see #setMinIndex(long)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_MinIndex()
-     * @model default="0" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.UnsignedInt"
-     *        extendedMetaData="kind='attribute' name='minIndex'"
-     * @generated
-     */
-    long getMinIndex();
-
-    /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getMinIndex <em>Min Index</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Min Index</em>' attribute.
-     * @see #isSetMinIndex()
-     * @see #unsetMinIndex()
-     * @see #getMinIndex()
-     * @generated
-     */
-    void setMinIndex( long value );
-
-    /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getMinIndex <em>Min Index</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isSetMinIndex()
-     * @see #getMinIndex()
-     * @see #setMinIndex(long)
-     * @generated
-     */
-    void unsetMinIndex();
-
-    /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getMinIndex <em>Min Index</em>}' attribute is set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Min Index</em>' attribute is set.
-     * @see #unsetMinIndex()
-     * @see #getMinIndex()
-     * @see #setMinIndex(long)
-     * @generated
-     */
-    boolean isSetMinIndex();
-
-    /**
-     * Returns the value of the '<em><b>Min Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Min Value</em>' attribute.
-     * @see #isSetMinValue()
-     * @see #unsetMinValue()
-     * @see #setMinValue(BigDecimal)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_MinValue()
-     * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Decimal"
-     *        extendedMetaData="kind='attribute' name='minValue'"
-     * @generated
-     */
-    BigDecimal getMinValue();
-
-    /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getMinValue <em>Min Value</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Min Value</em>' attribute.
-     * @see #isSetMinValue()
-     * @see #unsetMinValue()
-     * @see #getMinValue()
-     * @generated
-     */
-    void setMinValue( BigDecimal value );
-
-    /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getMinValue <em>Min Value</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isSetMinValue()
-     * @see #getMinValue()
-     * @see #setMinValue(BigDecimal)
-     * @generated
-     */
-    void unsetMinValue();
-
-    /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getMinValue <em>Min Value</em>}' attribute is set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Min Value</em>' attribute is set.
-     * @see #unsetMinValue()
-     * @see #getMinValue()
-     * @see #setMinValue(BigDecimal)
-     * @generated
-     */
-    boolean isSetMinValue();
 
     /**
      * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -570,363 +152,6 @@ public interface DataAttribute extends DocumentedClass {
     boolean isSetName();
 
     /**
-     * Returns the value of the '<em><b>Pres Cond</b></em>' attribute.
-     * The default value is <code>"M"</code>.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Pres Cond</em>' attribute.
-     * @see #isSetPresCond()
-     * @see #unsetPresCond()
-     * @see #setPresCond(String)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_PresCond()
-     * @model default="M" unsettable="true"
-     *        extendedMetaData="kind='attribute' name='presCond'"
-     * @generated
-     */
-    String getPresCond();
-
-    /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getPresCond <em>Pres Cond</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Pres Cond</em>' attribute.
-     * @see #isSetPresCond()
-     * @see #unsetPresCond()
-     * @see #getPresCond()
-     * @generated
-     */
-    void setPresCond( String value );
-
-    /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getPresCond <em>Pres Cond</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isSetPresCond()
-     * @see #getPresCond()
-     * @see #setPresCond(String)
-     * @generated
-     */
-    void unsetPresCond();
-
-    /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getPresCond <em>Pres Cond</em>}' attribute is set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Pres Cond</em>' attribute is set.
-     * @see #unsetPresCond()
-     * @see #getPresCond()
-     * @see #setPresCond(String)
-     * @generated
-     */
-    boolean isSetPresCond();
-
-    /**
-     * Returns the value of the '<em><b>Pres Cond Args</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Pres Cond Args</em>' attribute.
-     * @see #isSetPresCondArgs()
-     * @see #unsetPresCondArgs()
-     * @see #setPresCondArgs(String)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_PresCondArgs()
-     * @model unsettable="true"
-     *        extendedMetaData="kind='attribute' name='presCondArgs'"
-     * @generated
-     */
-    String getPresCondArgs();
-
-    /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getPresCondArgs <em>Pres Cond Args</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Pres Cond Args</em>' attribute.
-     * @see #isSetPresCondArgs()
-     * @see #unsetPresCondArgs()
-     * @see #getPresCondArgs()
-     * @generated
-     */
-    void setPresCondArgs( String value );
-
-    /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getPresCondArgs <em>Pres Cond Args</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isSetPresCondArgs()
-     * @see #getPresCondArgs()
-     * @see #setPresCondArgs(String)
-     * @generated
-     */
-    void unsetPresCondArgs();
-
-    /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getPresCondArgs <em>Pres Cond Args</em>}' attribute is set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Pres Cond Args</em>' attribute is set.
-     * @see #unsetPresCondArgs()
-     * @see #getPresCondArgs()
-     * @see #setPresCondArgs(String)
-     * @generated
-     */
-    boolean isSetPresCondArgs();
-
-    /**
-     * Returns the value of the '<em><b>Pres Cond Args ID</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Pres Cond Args ID</em>' attribute.
-     * @see #isSetPresCondArgsID()
-     * @see #unsetPresCondArgsID()
-     * @see #setPresCondArgsID(String)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_PresCondArgsID()
-     * @model unsettable="true"
-     *        extendedMetaData="kind='attribute' name='presCondArgsID'"
-     * @generated
-     */
-    String getPresCondArgsID();
-
-    /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getPresCondArgsID <em>Pres Cond Args ID</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Pres Cond Args ID</em>' attribute.
-     * @see #isSetPresCondArgsID()
-     * @see #unsetPresCondArgsID()
-     * @see #getPresCondArgsID()
-     * @generated
-     */
-    void setPresCondArgsID( String value );
-
-    /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getPresCondArgsID <em>Pres Cond Args ID</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isSetPresCondArgsID()
-     * @see #getPresCondArgsID()
-     * @see #setPresCondArgsID(String)
-     * @generated
-     */
-    void unsetPresCondArgsID();
-
-    /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getPresCondArgsID <em>Pres Cond Args ID</em>}' attribute is set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Pres Cond Args ID</em>' attribute is set.
-     * @see #unsetPresCondArgsID()
-     * @see #getPresCondArgsID()
-     * @see #setPresCondArgsID(String)
-     * @generated
-     */
-    boolean isSetPresCondArgsID();
-
-    /**
-     * Returns the value of the '<em><b>Qchg</b></em>' attribute.
-     * The default value is <code>"false"</code>.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Qchg</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Qchg</em>' attribute.
-     * @see #isSetQchg()
-     * @see #unsetQchg()
-     * @see #setQchg(boolean)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_Qchg()
-     * @model default="false" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
-     *        extendedMetaData="kind='attribute' name='qchg'"
-     * @generated
-     */
-    boolean isQchg();
-
-    /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#isQchg <em>Qchg</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Qchg</em>' attribute.
-     * @see #isSetQchg()
-     * @see #unsetQchg()
-     * @see #isQchg()
-     * @generated
-     */
-    void setQchg( boolean value );
-
-    /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#isQchg <em>Qchg</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isSetQchg()
-     * @see #isQchg()
-     * @see #setQchg(boolean)
-     * @generated
-     */
-    void unsetQchg();
-
-    /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#isQchg <em>Qchg</em>}' attribute is set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Qchg</em>' attribute is set.
-     * @see #unsetQchg()
-     * @see #isQchg()
-     * @see #setQchg(boolean)
-     * @generated
-     */
-    boolean isSetQchg();
-
-    /**
-     * Returns the value of the '<em><b>Size Attribute</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Size Attribute</em>' attribute.
-     * @see #isSetSizeAttribute()
-     * @see #unsetSizeAttribute()
-     * @see #setSizeAttribute(String)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_SizeAttribute()
-     * @model unsettable="true"
-     *        extendedMetaData="kind='attribute' name='sizeAttribute'"
-     * @generated
-     */
-    String getSizeAttribute();
-
-    /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getSizeAttribute <em>Size Attribute</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Size Attribute</em>' attribute.
-     * @see #isSetSizeAttribute()
-     * @see #unsetSizeAttribute()
-     * @see #getSizeAttribute()
-     * @generated
-     */
-    void setSizeAttribute( String value );
-
-    /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getSizeAttribute <em>Size Attribute</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isSetSizeAttribute()
-     * @see #getSizeAttribute()
-     * @see #setSizeAttribute(String)
-     * @generated
-     */
-    void unsetSizeAttribute();
-
-    /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getSizeAttribute <em>Size Attribute</em>}' attribute is set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Size Attribute</em>' attribute is set.
-     * @see #unsetSizeAttribute()
-     * @see #getSizeAttribute()
-     * @see #setSizeAttribute(String)
-     * @generated
-     */
-    boolean isSetSizeAttribute();
-
-    /**
-     * Returns the value of the '<em><b>Type</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Type</em>' attribute.
-     * @see #isSetType()
-     * @see #unsetType()
-     * @see #setType(String)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_Type()
-     * @model unsettable="true"
-     *        extendedMetaData="kind='attribute' name='type'"
-     * @generated
-     */
-    String getType();
-
-    /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getType <em>Type</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Type</em>' attribute.
-     * @see #isSetType()
-     * @see #unsetType()
-     * @see #getType()
-     * @generated
-     */
-    void setType( String value );
-
-    /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getType <em>Type</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isSetType()
-     * @see #getType()
-     * @see #setType(String)
-     * @generated
-     */
-    void unsetType();
-
-    /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getType <em>Type</em>}' attribute is set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Type</em>' attribute is set.
-     * @see #unsetType()
-     * @see #getType()
-     * @see #setType(String)
-     * @generated
-     */
-    boolean isSetType();
-
-    /**
-     * Returns the value of the '<em><b>Type Kind</b></em>' attribute.
-     * The default value is <code>"BASIC"</code>.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Type Kind</em>' attribute.
-     * @see #isSetTypeKind()
-     * @see #unsetTypeKind()
-     * @see #setTypeKind(Enumerator)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_TypeKind()
-     * @model default="BASIC" unsettable="true" dataType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.AttributeTypeKind"
-     *        extendedMetaData="kind='attribute' name='typeKind'"
-     * @generated
-     */
-    Enumerator getTypeKind();
-
-    /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getTypeKind <em>Type Kind</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Type Kind</em>' attribute.
-     * @see #isSetTypeKind()
-     * @see #unsetTypeKind()
-     * @see #getTypeKind()
-     * @generated
-     */
-    void setTypeKind( Enumerator value );
-
-    /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getTypeKind <em>Type Kind</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isSetTypeKind()
-     * @see #getTypeKind()
-     * @see #setTypeKind(Enumerator)
-     * @generated
-     */
-    void unsetTypeKind();
-
-    /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getTypeKind <em>Type Kind</em>}' attribute is set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Type Kind</em>' attribute is set.
-     * @see #unsetTypeKind()
-     * @see #getTypeKind()
-     * @see #setTypeKind(Enumerator)
-     * @generated
-     */
-    boolean isSetTypeKind();
-
-    /**
      * Returns the value of the '<em><b>CDC</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getDataAttribute <em>Data Attribute</em>}'.
      * <!-- begin-user-doc -->
@@ -953,5 +178,389 @@ public interface DataAttribute extends DocumentedClass {
      * @generated
      */
     void setCDC( CDC value );
+
+    /**
+     * Returns the value of the '<em><b>Referred By Sub Data Object As Size Attribute</b></em>' reference list.
+     * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject}.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getRefersToSizeAttribute <em>Refers To Size Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Referred By Sub Data Object As Size Attribute</em>' reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Referred By Sub Data Object As Size Attribute</em>' reference list.
+     * @see #isSetReferredBySubDataObjectAsSizeAttribute()
+     * @see #unsetReferredBySubDataObjectAsSizeAttribute()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_ReferredBySubDataObjectAsSizeAttribute()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getRefersToSizeAttribute
+     * @model opposite="refersToSizeAttribute" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @generated
+     */
+    EList< SubDataObject > getReferredBySubDataObjectAsSizeAttribute();
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredBySubDataObjectAsSizeAttribute <em>Referred By Sub Data Object As Size Attribute</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetReferredBySubDataObjectAsSizeAttribute()
+     * @see #getReferredBySubDataObjectAsSizeAttribute()
+     * @generated
+     */
+    void unsetReferredBySubDataObjectAsSizeAttribute();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredBySubDataObjectAsSizeAttribute <em>Referred By Sub Data Object As Size Attribute</em>}' reference list is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Referred By Sub Data Object As Size Attribute</em>' reference list is set.
+     * @see #unsetReferredBySubDataObjectAsSizeAttribute()
+     * @see #getReferredBySubDataObjectAsSizeAttribute()
+     * @generated
+     */
+    boolean isSetReferredBySubDataObjectAsSizeAttribute();
+
+    /**
+     * Returns the value of the '<em><b>Referred By Sub Data Object As Max Index Attribute</b></em>' reference list.
+     * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject}.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getRefersToMaxIndexAttribute <em>Refers To Max Index Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Referred By Sub Data Object As Max Index Attribute</em>' reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Referred By Sub Data Object As Max Index Attribute</em>' reference list.
+     * @see #isSetReferredBySubDataObjectAsMaxIndexAttribute()
+     * @see #unsetReferredBySubDataObjectAsMaxIndexAttribute()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_ReferredBySubDataObjectAsMaxIndexAttribute()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getRefersToMaxIndexAttribute
+     * @model opposite="refersToMaxIndexAttribute" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @generated
+     */
+    EList< SubDataObject > getReferredBySubDataObjectAsMaxIndexAttribute();
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredBySubDataObjectAsMaxIndexAttribute <em>Referred By Sub Data Object As Max Index Attribute</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetReferredBySubDataObjectAsMaxIndexAttribute()
+     * @see #getReferredBySubDataObjectAsMaxIndexAttribute()
+     * @generated
+     */
+    void unsetReferredBySubDataObjectAsMaxIndexAttribute();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredBySubDataObjectAsMaxIndexAttribute <em>Referred By Sub Data Object As Max Index Attribute</em>}' reference list is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Referred By Sub Data Object As Max Index Attribute</em>' reference list is set.
+     * @see #unsetReferredBySubDataObjectAsMaxIndexAttribute()
+     * @see #getReferredBySubDataObjectAsMaxIndexAttribute()
+     * @generated
+     */
+    boolean isSetReferredBySubDataObjectAsMaxIndexAttribute();
+
+    /**
+     * Returns the value of the '<em><b>Refers To Functional Constraint</b></em>' reference.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getReferredByDataAttribute <em>Referred By Data Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Refers To Functional Constraint</em>' reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Refers To Functional Constraint</em>' reference.
+     * @see #isSetRefersToFunctionalConstraint()
+     * @see #unsetRefersToFunctionalConstraint()
+     * @see #setRefersToFunctionalConstraint(FunctionalConstraint)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_RefersToFunctionalConstraint()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getReferredByDataAttribute
+     * @model opposite="referredByDataAttribute" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @generated
+     */
+    FunctionalConstraint getRefersToFunctionalConstraint();
+
+    /**
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToFunctionalConstraint <em>Refers To Functional Constraint</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Refers To Functional Constraint</em>' reference.
+     * @see #isSetRefersToFunctionalConstraint()
+     * @see #unsetRefersToFunctionalConstraint()
+     * @see #getRefersToFunctionalConstraint()
+     * @generated
+     */
+    void setRefersToFunctionalConstraint( FunctionalConstraint value );
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToFunctionalConstraint <em>Refers To Functional Constraint</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetRefersToFunctionalConstraint()
+     * @see #getRefersToFunctionalConstraint()
+     * @see #setRefersToFunctionalConstraint(FunctionalConstraint)
+     * @generated
+     */
+    void unsetRefersToFunctionalConstraint();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToFunctionalConstraint <em>Refers To Functional Constraint</em>}' reference is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Refers To Functional Constraint</em>' reference is set.
+     * @see #unsetRefersToFunctionalConstraint()
+     * @see #getRefersToFunctionalConstraint()
+     * @see #setRefersToFunctionalConstraint(FunctionalConstraint)
+     * @generated
+     */
+    boolean isSetRefersToFunctionalConstraint();
+
+    /**
+     * Returns the value of the '<em><b>Refers To Presence Condition</b></em>' reference.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getReferredByDataAttribute <em>Referred By Data Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Refers To Presence Condition</em>' reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Refers To Presence Condition</em>' reference.
+     * @see #isSetRefersToPresenceCondition()
+     * @see #unsetRefersToPresenceCondition()
+     * @see #setRefersToPresenceCondition(PresenceCondition)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_RefersToPresenceCondition()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getReferredByDataAttribute
+     * @model opposite="referredByDataAttribute" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @generated
+     */
+    PresenceCondition getRefersToPresenceCondition();
+
+    /**
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToPresenceCondition <em>Refers To Presence Condition</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Refers To Presence Condition</em>' reference.
+     * @see #isSetRefersToPresenceCondition()
+     * @see #unsetRefersToPresenceCondition()
+     * @see #getRefersToPresenceCondition()
+     * @generated
+     */
+    void setRefersToPresenceCondition( PresenceCondition value );
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToPresenceCondition <em>Refers To Presence Condition</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetRefersToPresenceCondition()
+     * @see #getRefersToPresenceCondition()
+     * @see #setRefersToPresenceCondition(PresenceCondition)
+     * @generated
+     */
+    void unsetRefersToPresenceCondition();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToPresenceCondition <em>Refers To Presence Condition</em>}' reference is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Refers To Presence Condition</em>' reference is set.
+     * @see #unsetRefersToPresenceCondition()
+     * @see #getRefersToPresenceCondition()
+     * @see #setRefersToPresenceCondition(PresenceCondition)
+     * @generated
+     */
+    boolean isSetRefersToPresenceCondition();
+
+    /**
+     * Returns the value of the '<em><b>Refers To Size Attribute</b></em>' reference.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredByDataAttributeAsSizeAttribute <em>Referred By Data Attribute As Size Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Refers To Size Attribute</em>' reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Refers To Size Attribute</em>' reference.
+     * @see #isSetRefersToSizeAttribute()
+     * @see #unsetRefersToSizeAttribute()
+     * @see #setRefersToSizeAttribute(DataAttribute)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_RefersToSizeAttribute()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredByDataAttributeAsSizeAttribute
+     * @model opposite="referredByDataAttributeAsSizeAttribute" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @generated
+     */
+    DataAttribute getRefersToSizeAttribute();
+
+    /**
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToSizeAttribute <em>Refers To Size Attribute</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Refers To Size Attribute</em>' reference.
+     * @see #isSetRefersToSizeAttribute()
+     * @see #unsetRefersToSizeAttribute()
+     * @see #getRefersToSizeAttribute()
+     * @generated
+     */
+    void setRefersToSizeAttribute( DataAttribute value );
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToSizeAttribute <em>Refers To Size Attribute</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetRefersToSizeAttribute()
+     * @see #getRefersToSizeAttribute()
+     * @see #setRefersToSizeAttribute(DataAttribute)
+     * @generated
+     */
+    void unsetRefersToSizeAttribute();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToSizeAttribute <em>Refers To Size Attribute</em>}' reference is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Refers To Size Attribute</em>' reference is set.
+     * @see #unsetRefersToSizeAttribute()
+     * @see #getRefersToSizeAttribute()
+     * @see #setRefersToSizeAttribute(DataAttribute)
+     * @generated
+     */
+    boolean isSetRefersToSizeAttribute();
+
+    /**
+     * Returns the value of the '<em><b>Refers To Max Index Attribute</b></em>' reference.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredByDataAttributeAsMaxIndexAttribute <em>Referred By Data Attribute As Max Index Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Refers To Max Index Attribute</em>' reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Refers To Max Index Attribute</em>' reference.
+     * @see #isSetRefersToMaxIndexAttribute()
+     * @see #unsetRefersToMaxIndexAttribute()
+     * @see #setRefersToMaxIndexAttribute(DataAttribute)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_RefersToMaxIndexAttribute()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredByDataAttributeAsMaxIndexAttribute
+     * @model opposite="referredByDataAttributeAsMaxIndexAttribute" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @generated
+     */
+    DataAttribute getRefersToMaxIndexAttribute();
+
+    /**
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToMaxIndexAttribute <em>Refers To Max Index Attribute</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Refers To Max Index Attribute</em>' reference.
+     * @see #isSetRefersToMaxIndexAttribute()
+     * @see #unsetRefersToMaxIndexAttribute()
+     * @see #getRefersToMaxIndexAttribute()
+     * @generated
+     */
+    void setRefersToMaxIndexAttribute( DataAttribute value );
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToMaxIndexAttribute <em>Refers To Max Index Attribute</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetRefersToMaxIndexAttribute()
+     * @see #getRefersToMaxIndexAttribute()
+     * @see #setRefersToMaxIndexAttribute(DataAttribute)
+     * @generated
+     */
+    void unsetRefersToMaxIndexAttribute();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToMaxIndexAttribute <em>Refers To Max Index Attribute</em>}' reference is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Refers To Max Index Attribute</em>' reference is set.
+     * @see #unsetRefersToMaxIndexAttribute()
+     * @see #getRefersToMaxIndexAttribute()
+     * @see #setRefersToMaxIndexAttribute(DataAttribute)
+     * @generated
+     */
+    boolean isSetRefersToMaxIndexAttribute();
+
+    /**
+     * Returns the value of the '<em><b>Referred By Data Attribute As Size Attribute</b></em>' reference list.
+     * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute}.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToSizeAttribute <em>Refers To Size Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Referred By Data Attribute As Size Attribute</em>' reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Referred By Data Attribute As Size Attribute</em>' reference list.
+     * @see #isSetReferredByDataAttributeAsSizeAttribute()
+     * @see #unsetReferredByDataAttributeAsSizeAttribute()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_ReferredByDataAttributeAsSizeAttribute()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToSizeAttribute
+     * @model opposite="refersToSizeAttribute" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @generated
+     */
+    EList< DataAttribute > getReferredByDataAttributeAsSizeAttribute();
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredByDataAttributeAsSizeAttribute <em>Referred By Data Attribute As Size Attribute</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetReferredByDataAttributeAsSizeAttribute()
+     * @see #getReferredByDataAttributeAsSizeAttribute()
+     * @generated
+     */
+    void unsetReferredByDataAttributeAsSizeAttribute();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredByDataAttributeAsSizeAttribute <em>Referred By Data Attribute As Size Attribute</em>}' reference list is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Referred By Data Attribute As Size Attribute</em>' reference list is set.
+     * @see #unsetReferredByDataAttributeAsSizeAttribute()
+     * @see #getReferredByDataAttributeAsSizeAttribute()
+     * @generated
+     */
+    boolean isSetReferredByDataAttributeAsSizeAttribute();
+
+    /**
+     * Returns the value of the '<em><b>Referred By Data Attribute As Max Index Attribute</b></em>' reference list.
+     * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute}.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToMaxIndexAttribute <em>Refers To Max Index Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Referred By Data Attribute As Max Index Attribute</em>' reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Referred By Data Attribute As Max Index Attribute</em>' reference list.
+     * @see #isSetReferredByDataAttributeAsMaxIndexAttribute()
+     * @see #unsetReferredByDataAttributeAsMaxIndexAttribute()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_ReferredByDataAttributeAsMaxIndexAttribute()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToMaxIndexAttribute
+     * @model opposite="refersToMaxIndexAttribute" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @generated
+     */
+    EList< DataAttribute > getReferredByDataAttributeAsMaxIndexAttribute();
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredByDataAttributeAsMaxIndexAttribute <em>Referred By Data Attribute As Max Index Attribute</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetReferredByDataAttributeAsMaxIndexAttribute()
+     * @see #getReferredByDataAttributeAsMaxIndexAttribute()
+     * @generated
+     */
+    void unsetReferredByDataAttributeAsMaxIndexAttribute();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredByDataAttributeAsMaxIndexAttribute <em>Referred By Data Attribute As Max Index Attribute</em>}' reference list is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Referred By Data Attribute As Max Index Attribute</em>' reference list is set.
+     * @see #unsetReferredByDataAttributeAsMaxIndexAttribute()
+     * @see #getReferredByDataAttributeAsMaxIndexAttribute()
+     * @generated
+     */
+    boolean isSetReferredByDataAttributeAsMaxIndexAttribute();
 
 } // DataAttribute

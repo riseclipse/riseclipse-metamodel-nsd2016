@@ -19,8 +19,6 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Basic Type</b></em>'.
@@ -37,9 +35,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getBasicType()
  * @model extendedMetaData="name='tBasicType' kind='empty'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='nameAttributeRequired'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot nameAttributeRequired='Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name &lt;&gt; null\n}.status'"
  * @generated
  */
-public interface BasicType extends EObject {
+public interface BasicType extends NsdObject {
     /**
      * Returns the value of the '<em><b>Desc ID</b></em>' attribute.
      * <!-- begin-user-doc -->

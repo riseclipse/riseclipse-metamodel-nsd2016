@@ -19,7 +19,6 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.provider;
 
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CBKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataSetMemberOf;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
@@ -28,18 +27,9 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -48,8 +38,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DataSetMemberOfItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class DataSetMemberOfItemProvider extends NsdObjectItemProvider {
     /**
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
@@ -111,10 +100,8 @@ public class DataSetMemberOfItemProvider extends ItemProviderAdapter implements 
      */
     @Override
     public String getText( Object object ) {
-        CBKind labelValue = ( ( DataSetMemberOf ) object ).getCb();
-        String label = labelValue == null ? null : labelValue.toString();
-        return label == null || label.length() == 0 ? getString( "_UI_DataSetMemberOf_type" )
-                : getString( "_UI_DataSetMemberOf_type" ) + " " + label;
+        DataSetMemberOf dataSetMemberOf = ( DataSetMemberOf ) object;
+        return getString( "_UI_DataSetMemberOf_type" ) + " " + dataSetMemberOf.getLineNumber();
     }
 
     /**
@@ -146,17 +133,6 @@ public class DataSetMemberOfItemProvider extends ItemProviderAdapter implements 
     @Override
     protected void collectNewChildDescriptors( Collection< Object > newChildDescriptors, Object object ) {
         super.collectNewChildDescriptors( newChildDescriptors, object );
-    }
-
-    /**
-     * Return the resource locator for this item provider's resources.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public ResourceLocator getResourceLocator() {
-        return NSDEditPlugin.INSTANCE;
     }
 
 }

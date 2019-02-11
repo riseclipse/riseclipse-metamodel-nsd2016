@@ -19,6 +19,8 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeTypeAndValues;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
@@ -45,18 +47,77 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceParameterImpl#getType <em>Type</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceParameterImpl#getTypeKind <em>Type Kind</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceParameterImpl#getDefaultValue <em>Default Value</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceParameterImpl#getMaxValue <em>Max Value</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceParameterImpl#getMinValue <em>Min Value</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceParameterImpl#getName <em>Name</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceParameterImpl#getType <em>Type</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceParameterImpl#getTypeKind <em>Type Kind</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceParameterImpl#getCDC <em>CDC</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ServiceParameterImpl extends DocumentedClassImpl implements ServiceParameter {
+    /**
+     * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getType()
+     * @generated
+     * @ordered
+     */
+    protected static final String TYPE_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getType()
+     * @generated
+     * @ordered
+     */
+    protected String type = TYPE_EDEFAULT;
+
+    /**
+     * This is true if the Type attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean typeESet;
+
+    /**
+     * The default value of the '{@link #getTypeKind() <em>Type Kind</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getTypeKind()
+     * @generated
+     * @ordered
+     */
+    protected static final Enumerator TYPE_KIND_EDEFAULT = ( Enumerator ) NsdFactory.eINSTANCE
+            .createFromString( NsdPackage.eINSTANCE.getAttributeTypeKind(), "BASIC" );
+
+    /**
+     * The cached value of the '{@link #getTypeKind() <em>Type Kind</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getTypeKind()
+     * @generated
+     * @ordered
+     */
+    protected Enumerator typeKind = TYPE_KIND_EDEFAULT;
+
+    /**
+     * This is true if the Type Kind attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean typeKindESet;
+
     /**
      * The default value of the '{@link #getDefaultValue() <em>Default Value</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -172,65 +233,6 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
      * @ordered
      */
     protected boolean nameESet;
-
-    /**
-     * The default value of the '{@link #getType() <em>Type</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getType()
-     * @generated
-     * @ordered
-     */
-    protected static final String TYPE_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getType()
-     * @generated
-     * @ordered
-     */
-    protected String type = TYPE_EDEFAULT;
-
-    /**
-     * This is true if the Type attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean typeESet;
-
-    /**
-     * The default value of the '{@link #getTypeKind() <em>Type Kind</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getTypeKind()
-     * @generated
-     * @ordered
-     */
-    protected static final Enumerator TYPE_KIND_EDEFAULT = ( Enumerator ) NsdFactory.eINSTANCE
-            .createFromString( NsdPackage.eINSTANCE.getAttributeTypeKind(), "BASIC" );
-
-    /**
-     * The cached value of the '{@link #getTypeKind() <em>Type Kind</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getTypeKind()
-     * @generated
-     * @ordered
-     */
-    protected Enumerator typeKind = TYPE_KIND_EDEFAULT;
-
-    /**
-     * This is true if the Type Kind attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean typeKindESet;
 
     /**
      * <!-- begin-user-doc -->
@@ -646,6 +648,10 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
     @Override
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
+        case NsdPackage.SERVICE_PARAMETER__TYPE:
+            return getType();
+        case NsdPackage.SERVICE_PARAMETER__TYPE_KIND:
+            return getTypeKind();
         case NsdPackage.SERVICE_PARAMETER__DEFAULT_VALUE:
             return getDefaultValue();
         case NsdPackage.SERVICE_PARAMETER__MAX_VALUE:
@@ -654,10 +660,6 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
             return getMinValue();
         case NsdPackage.SERVICE_PARAMETER__NAME:
             return getName();
-        case NsdPackage.SERVICE_PARAMETER__TYPE:
-            return getType();
-        case NsdPackage.SERVICE_PARAMETER__TYPE_KIND:
-            return getTypeKind();
         case NsdPackage.SERVICE_PARAMETER__CDC:
             return getCDC();
         }
@@ -672,6 +674,12 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
     @Override
     public void eSet( int featureID, Object newValue ) {
         switch( featureID ) {
+        case NsdPackage.SERVICE_PARAMETER__TYPE:
+            setType( ( String ) newValue );
+            return;
+        case NsdPackage.SERVICE_PARAMETER__TYPE_KIND:
+            setTypeKind( ( Enumerator ) newValue );
+            return;
         case NsdPackage.SERVICE_PARAMETER__DEFAULT_VALUE:
             setDefaultValue( ( String ) newValue );
             return;
@@ -683,12 +691,6 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
             return;
         case NsdPackage.SERVICE_PARAMETER__NAME:
             setName( ( String ) newValue );
-            return;
-        case NsdPackage.SERVICE_PARAMETER__TYPE:
-            setType( ( String ) newValue );
-            return;
-        case NsdPackage.SERVICE_PARAMETER__TYPE_KIND:
-            setTypeKind( ( Enumerator ) newValue );
             return;
         case NsdPackage.SERVICE_PARAMETER__CDC:
             setCDC( ( CDC ) newValue );
@@ -705,6 +707,12 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
     @Override
     public void eUnset( int featureID ) {
         switch( featureID ) {
+        case NsdPackage.SERVICE_PARAMETER__TYPE:
+            unsetType();
+            return;
+        case NsdPackage.SERVICE_PARAMETER__TYPE_KIND:
+            unsetTypeKind();
+            return;
         case NsdPackage.SERVICE_PARAMETER__DEFAULT_VALUE:
             unsetDefaultValue();
             return;
@@ -716,12 +724,6 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
             return;
         case NsdPackage.SERVICE_PARAMETER__NAME:
             unsetName();
-            return;
-        case NsdPackage.SERVICE_PARAMETER__TYPE:
-            unsetType();
-            return;
-        case NsdPackage.SERVICE_PARAMETER__TYPE_KIND:
-            unsetTypeKind();
             return;
         case NsdPackage.SERVICE_PARAMETER__CDC:
             setCDC( ( CDC ) null );
@@ -738,6 +740,10 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
     @Override
     public boolean eIsSet( int featureID ) {
         switch( featureID ) {
+        case NsdPackage.SERVICE_PARAMETER__TYPE:
+            return isSetType();
+        case NsdPackage.SERVICE_PARAMETER__TYPE_KIND:
+            return isSetTypeKind();
         case NsdPackage.SERVICE_PARAMETER__DEFAULT_VALUE:
             return isSetDefaultValue();
         case NsdPackage.SERVICE_PARAMETER__MAX_VALUE:
@@ -746,10 +752,6 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
             return isSetMinValue();
         case NsdPackage.SERVICE_PARAMETER__NAME:
             return isSetName();
-        case NsdPackage.SERVICE_PARAMETER__TYPE:
-            return isSetType();
-        case NsdPackage.SERVICE_PARAMETER__TYPE_KIND:
-            return isSetTypeKind();
         case NsdPackage.SERVICE_PARAMETER__CDC:
             return getCDC() != null;
         }
@@ -762,11 +764,85 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
      * @generated
      */
     @Override
+    public int eBaseStructuralFeatureID( int derivedFeatureID, Class< ? > baseClass ) {
+        if( baseClass == AgAttributeType.class ) {
+            switch( derivedFeatureID ) {
+            case NsdPackage.SERVICE_PARAMETER__TYPE:
+                return NsdPackage.AG_ATTRIBUTE_TYPE__TYPE;
+            case NsdPackage.SERVICE_PARAMETER__TYPE_KIND:
+                return NsdPackage.AG_ATTRIBUTE_TYPE__TYPE_KIND;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgAttributeTypeAndValues.class ) {
+            switch( derivedFeatureID ) {
+            case NsdPackage.SERVICE_PARAMETER__DEFAULT_VALUE:
+                return NsdPackage.AG_ATTRIBUTE_TYPE_AND_VALUES__DEFAULT_VALUE;
+            case NsdPackage.SERVICE_PARAMETER__MAX_VALUE:
+                return NsdPackage.AG_ATTRIBUTE_TYPE_AND_VALUES__MAX_VALUE;
+            case NsdPackage.SERVICE_PARAMETER__MIN_VALUE:
+                return NsdPackage.AG_ATTRIBUTE_TYPE_AND_VALUES__MIN_VALUE;
+            default:
+                return -1;
+            }
+        }
+        return super.eBaseStructuralFeatureID( derivedFeatureID, baseClass );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public int eDerivedStructuralFeatureID( int baseFeatureID, Class< ? > baseClass ) {
+        if( baseClass == AgAttributeType.class ) {
+            switch( baseFeatureID ) {
+            case NsdPackage.AG_ATTRIBUTE_TYPE__TYPE:
+                return NsdPackage.SERVICE_PARAMETER__TYPE;
+            case NsdPackage.AG_ATTRIBUTE_TYPE__TYPE_KIND:
+                return NsdPackage.SERVICE_PARAMETER__TYPE_KIND;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgAttributeTypeAndValues.class ) {
+            switch( baseFeatureID ) {
+            case NsdPackage.AG_ATTRIBUTE_TYPE_AND_VALUES__DEFAULT_VALUE:
+                return NsdPackage.SERVICE_PARAMETER__DEFAULT_VALUE;
+            case NsdPackage.AG_ATTRIBUTE_TYPE_AND_VALUES__MAX_VALUE:
+                return NsdPackage.SERVICE_PARAMETER__MAX_VALUE;
+            case NsdPackage.AG_ATTRIBUTE_TYPE_AND_VALUES__MIN_VALUE:
+                return NsdPackage.SERVICE_PARAMETER__MIN_VALUE;
+            default:
+                return -1;
+            }
+        }
+        return super.eDerivedStructuralFeatureID( baseFeatureID, baseClass );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public String toString() {
         if( eIsProxy() ) return super.toString();
 
         StringBuilder result = new StringBuilder( super.toString() );
-        result.append( " (defaultValue: " );
+        result.append( " (type: " );
+        if( typeESet )
+            result.append( type );
+        else
+            result.append( "<unset>" );
+        result.append( ", typeKind: " );
+        if( typeKindESet )
+            result.append( typeKind );
+        else
+            result.append( "<unset>" );
+        result.append( ", defaultValue: " );
         if( defaultValueESet )
             result.append( defaultValue );
         else
@@ -784,16 +860,6 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
         result.append( ", name: " );
         if( nameESet )
             result.append( name );
-        else
-            result.append( "<unset>" );
-        result.append( ", type: " );
-        if( typeESet )
-            result.append( type );
-        else
-            result.append( "<unset>" );
-        result.append( ", typeKind: " );
-        if( typeKindESet )
-            result.append( typeKind );
         else
             result.append( "<unset>" );
         result.append( ')' );

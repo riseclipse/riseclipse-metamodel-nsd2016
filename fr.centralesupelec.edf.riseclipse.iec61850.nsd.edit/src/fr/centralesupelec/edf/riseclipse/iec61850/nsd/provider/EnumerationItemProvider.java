@@ -66,6 +66,8 @@ public class EnumerationItemProvider extends TitledClassItemProvider {
 
             addInheritedFromPropertyDescriptor( object );
             addNamePropertyDescriptor( object );
+            addRefersToBaseEnumerationPropertyDescriptor( object );
+            addReferredByEnumerationAsBasePropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -100,6 +102,37 @@ public class EnumerationItemProvider extends TitledClassItemProvider {
                                 "_UI_Enumeration_type" ),
                         NsdPackage.Literals.ENUMERATION__NAME, true, false, false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Refers To Base Enumeration feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addRefersToBaseEnumerationPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add( createItemPropertyDescriptor(
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
+                getString( "_UI_Enumeration_refersToBaseEnumeration_feature" ),
+                getString( "_UI_PropertyDescriptor_description", "_UI_Enumeration_refersToBaseEnumeration_feature",
+                        "_UI_Enumeration_type" ),
+                NsdPackage.Literals.ENUMERATION__REFERS_TO_BASE_ENUMERATION, true, false, true, null, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Referred By Enumeration As Base feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReferredByEnumerationAsBasePropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add( createItemPropertyDescriptor(
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
+                getString( "_UI_Enumeration_referredByEnumerationAsBase_feature" ),
+                getString( "_UI_PropertyDescriptor_description", "_UI_Enumeration_referredByEnumerationAsBase_feature",
+                        "_UI_Enumeration_type" ),
+                NsdPackage.Literals.ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE, true, false, true, null, null,
+                null ) );
     }
 
     /**

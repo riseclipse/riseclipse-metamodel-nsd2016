@@ -19,10 +19,10 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage;
-
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -41,15 +41,75 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AppliesToTypeImpl#getRelease <em>Release</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AppliesToTypeImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AppliesToTypeImpl#getId <em>Id</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AppliesToTypeImpl#getPublicationStage <em>Publication Stage</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AppliesToTypeImpl#getRevision <em>Revision</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AppliesToTypeImpl#getPublicationStage <em>Publication Stage</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AppliesToTypeImpl#getServiceNsUsage <em>Service Ns Usage</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AppliesToTypeImpl extends NSDObjectWithVersionAndReleaseImpl implements AppliesToType {
+public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
+    /**
+     * The default value of the '{@link #getRelease() <em>Release</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRelease()
+     * @generated
+     * @ordered
+     */
+    protected static final Integer RELEASE_EDEFAULT = new Integer( 1 );
+
+    /**
+     * The cached value of the '{@link #getRelease() <em>Release</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRelease()
+     * @generated
+     * @ordered
+     */
+    protected Integer release = RELEASE_EDEFAULT;
+
+    /**
+     * This is true if the Release attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean releaseESet;
+
+    /**
+     * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getVersion()
+     * @generated
+     * @ordered
+     */
+    protected static final Integer VERSION_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getVersion()
+     * @generated
+     * @ordered
+     */
+    protected Integer version = VERSION_EDEFAULT;
+
+    /**
+     * This is true if the Version attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean versionESet;
+
     /**
      * The default value of the '{@link #getId() <em>Id</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -78,35 +138,6 @@ public class AppliesToTypeImpl extends NSDObjectWithVersionAndReleaseImpl implem
      * @ordered
      */
     protected boolean idESet;
-
-    /**
-     * The default value of the '{@link #getPublicationStage() <em>Publication Stage</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getPublicationStage()
-     * @generated
-     * @ordered
-     */
-    protected static final PubStage PUBLICATION_STAGE_EDEFAULT = PubStage.IS;
-
-    /**
-     * The cached value of the '{@link #getPublicationStage() <em>Publication Stage</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getPublicationStage()
-     * @generated
-     * @ordered
-     */
-    protected PubStage publicationStage = PUBLICATION_STAGE_EDEFAULT;
-
-    /**
-     * This is true if the Publication Stage attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean publicationStageESet;
 
     /**
      * The default value of the '{@link #getRevision() <em>Revision</em>}' attribute.
@@ -138,6 +169,35 @@ public class AppliesToTypeImpl extends NSDObjectWithVersionAndReleaseImpl implem
     protected boolean revisionESet;
 
     /**
+     * The default value of the '{@link #getPublicationStage() <em>Publication Stage</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getPublicationStage()
+     * @generated
+     * @ordered
+     */
+    protected static final PubStage PUBLICATION_STAGE_EDEFAULT = PubStage.IS;
+
+    /**
+     * The cached value of the '{@link #getPublicationStage() <em>Publication Stage</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getPublicationStage()
+     * @generated
+     * @ordered
+     */
+    protected PubStage publicationStage = PUBLICATION_STAGE_EDEFAULT;
+
+    /**
+     * This is true if the Publication Stage attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean publicationStageESet;
+
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -154,6 +214,106 @@ public class AppliesToTypeImpl extends NSDObjectWithVersionAndReleaseImpl implem
     @Override
     protected EClass eStaticClass() {
         return NsdPackage.Literals.APPLIES_TO_TYPE;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Integer getRelease() {
+        return release;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setRelease( Integer newRelease ) {
+        Integer oldRelease = release;
+        release = newRelease;
+        boolean oldReleaseESet = releaseESet;
+        releaseESet = true;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.APPLIES_TO_TYPE__RELEASE, oldRelease, release, !oldReleaseESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetRelease() {
+        Integer oldRelease = release;
+        boolean oldReleaseESet = releaseESet;
+        release = RELEASE_EDEFAULT;
+        releaseESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.APPLIES_TO_TYPE__RELEASE, oldRelease, RELEASE_EDEFAULT, oldReleaseESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetRelease() {
+        return releaseESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Integer getVersion() {
+        return version;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setVersion( Integer newVersion ) {
+        Integer oldVersion = version;
+        version = newVersion;
+        boolean oldVersionESet = versionESet;
+        versionESet = true;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.APPLIES_TO_TYPE__VERSION, oldVersion, version, !oldVersionESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetVersion() {
+        Integer oldVersion = version;
+        boolean oldVersionESet = versionESet;
+        version = VERSION_EDEFAULT;
+        versionESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.APPLIES_TO_TYPE__VERSION, oldVersion, VERSION_EDEFAULT, oldVersionESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetVersion() {
+        return versionESet;
     }
 
     /**
@@ -212,6 +372,56 @@ public class AppliesToTypeImpl extends NSDObjectWithVersionAndReleaseImpl implem
      * @generated
      */
     @Override
+    public String getRevision() {
+        return revision;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setRevision( String newRevision ) {
+        String oldRevision = revision;
+        revision = newRevision;
+        boolean oldRevisionESet = revisionESet;
+        revisionESet = true;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                NsdPackage.APPLIES_TO_TYPE__REVISION, oldRevision, revision, !oldRevisionESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetRevision() {
+        String oldRevision = revision;
+        boolean oldRevisionESet = revisionESet;
+        revision = REVISION_EDEFAULT;
+        revisionESet = false;
+        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                NsdPackage.APPLIES_TO_TYPE__REVISION, oldRevision, REVISION_EDEFAULT, oldRevisionESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetRevision() {
+        return revisionESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public PubStage getPublicationStage() {
         return publicationStage;
     }
@@ -256,56 +466,6 @@ public class AppliesToTypeImpl extends NSDObjectWithVersionAndReleaseImpl implem
     @Override
     public boolean isSetPublicationStage() {
         return publicationStageESet;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String getRevision() {
-        return revision;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setRevision( String newRevision ) {
-        String oldRevision = revision;
-        revision = newRevision;
-        boolean oldRevisionESet = revisionESet;
-        revisionESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.APPLIES_TO_TYPE__REVISION, oldRevision, revision, !oldRevisionESet ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void unsetRevision() {
-        String oldRevision = revision;
-        boolean oldRevisionESet = revisionESet;
-        revision = REVISION_EDEFAULT;
-        revisionESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.APPLIES_TO_TYPE__REVISION, oldRevision, REVISION_EDEFAULT, oldRevisionESet ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean isSetRevision() {
-        return revisionESet;
     }
 
     /**
@@ -405,12 +565,16 @@ public class AppliesToTypeImpl extends NSDObjectWithVersionAndReleaseImpl implem
     @Override
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
+        case NsdPackage.APPLIES_TO_TYPE__RELEASE:
+            return getRelease();
+        case NsdPackage.APPLIES_TO_TYPE__VERSION:
+            return getVersion();
         case NsdPackage.APPLIES_TO_TYPE__ID:
             return getId();
-        case NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE:
-            return getPublicationStage();
         case NsdPackage.APPLIES_TO_TYPE__REVISION:
             return getRevision();
+        case NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE:
+            return getPublicationStage();
         case NsdPackage.APPLIES_TO_TYPE__SERVICE_NS_USAGE:
             return getServiceNsUsage();
         }
@@ -425,14 +589,20 @@ public class AppliesToTypeImpl extends NSDObjectWithVersionAndReleaseImpl implem
     @Override
     public void eSet( int featureID, Object newValue ) {
         switch( featureID ) {
+        case NsdPackage.APPLIES_TO_TYPE__RELEASE:
+            setRelease( ( Integer ) newValue );
+            return;
+        case NsdPackage.APPLIES_TO_TYPE__VERSION:
+            setVersion( ( Integer ) newValue );
+            return;
         case NsdPackage.APPLIES_TO_TYPE__ID:
             setId( ( String ) newValue );
             return;
-        case NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE:
-            setPublicationStage( ( PubStage ) newValue );
-            return;
         case NsdPackage.APPLIES_TO_TYPE__REVISION:
             setRevision( ( String ) newValue );
+            return;
+        case NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE:
+            setPublicationStage( ( PubStage ) newValue );
             return;
         case NsdPackage.APPLIES_TO_TYPE__SERVICE_NS_USAGE:
             setServiceNsUsage( ( ServiceNsUsage ) newValue );
@@ -449,14 +619,20 @@ public class AppliesToTypeImpl extends NSDObjectWithVersionAndReleaseImpl implem
     @Override
     public void eUnset( int featureID ) {
         switch( featureID ) {
+        case NsdPackage.APPLIES_TO_TYPE__RELEASE:
+            unsetRelease();
+            return;
+        case NsdPackage.APPLIES_TO_TYPE__VERSION:
+            unsetVersion();
+            return;
         case NsdPackage.APPLIES_TO_TYPE__ID:
             unsetId();
             return;
-        case NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE:
-            unsetPublicationStage();
-            return;
         case NsdPackage.APPLIES_TO_TYPE__REVISION:
             unsetRevision();
+            return;
+        case NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE:
+            unsetPublicationStage();
             return;
         case NsdPackage.APPLIES_TO_TYPE__SERVICE_NS_USAGE:
             setServiceNsUsage( ( ServiceNsUsage ) null );
@@ -473,12 +649,16 @@ public class AppliesToTypeImpl extends NSDObjectWithVersionAndReleaseImpl implem
     @Override
     public boolean eIsSet( int featureID ) {
         switch( featureID ) {
+        case NsdPackage.APPLIES_TO_TYPE__RELEASE:
+            return isSetRelease();
+        case NsdPackage.APPLIES_TO_TYPE__VERSION:
+            return isSetVersion();
         case NsdPackage.APPLIES_TO_TYPE__ID:
             return isSetId();
-        case NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE:
-            return isSetPublicationStage();
         case NsdPackage.APPLIES_TO_TYPE__REVISION:
             return isSetRevision();
+        case NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE:
+            return isSetPublicationStage();
         case NsdPackage.APPLIES_TO_TYPE__SERVICE_NS_USAGE:
             return getServiceNsUsage() != null;
         }
@@ -491,23 +671,85 @@ public class AppliesToTypeImpl extends NSDObjectWithVersionAndReleaseImpl implem
      * @generated
      */
     @Override
+    public int eBaseStructuralFeatureID( int derivedFeatureID, Class< ? > baseClass ) {
+        if( baseClass == AgNSIdentification.class ) {
+            switch( derivedFeatureID ) {
+            case NsdPackage.APPLIES_TO_TYPE__RELEASE:
+                return NsdPackage.AG_NS_IDENTIFICATION__RELEASE;
+            case NsdPackage.APPLIES_TO_TYPE__VERSION:
+                return NsdPackage.AG_NS_IDENTIFICATION__VERSION;
+            case NsdPackage.APPLIES_TO_TYPE__ID:
+                return NsdPackage.AG_NS_IDENTIFICATION__ID;
+            case NsdPackage.APPLIES_TO_TYPE__REVISION:
+                return NsdPackage.AG_NS_IDENTIFICATION__REVISION;
+            case NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE:
+                return NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE;
+            default:
+                return -1;
+            }
+        }
+        return super.eBaseStructuralFeatureID( derivedFeatureID, baseClass );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public int eDerivedStructuralFeatureID( int baseFeatureID, Class< ? > baseClass ) {
+        if( baseClass == AgNSIdentification.class ) {
+            switch( baseFeatureID ) {
+            case NsdPackage.AG_NS_IDENTIFICATION__RELEASE:
+                return NsdPackage.APPLIES_TO_TYPE__RELEASE;
+            case NsdPackage.AG_NS_IDENTIFICATION__VERSION:
+                return NsdPackage.APPLIES_TO_TYPE__VERSION;
+            case NsdPackage.AG_NS_IDENTIFICATION__ID:
+                return NsdPackage.APPLIES_TO_TYPE__ID;
+            case NsdPackage.AG_NS_IDENTIFICATION__REVISION:
+                return NsdPackage.APPLIES_TO_TYPE__REVISION;
+            case NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE:
+                return NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE;
+            default:
+                return -1;
+            }
+        }
+        return super.eDerivedStructuralFeatureID( baseFeatureID, baseClass );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public String toString() {
         if( eIsProxy() ) return super.toString();
 
         StringBuilder result = new StringBuilder( super.toString() );
-        result.append( " (id: " );
-        if( idESet )
-            result.append( id );
+        result.append( " (release: " );
+        if( releaseESet )
+            result.append( release );
         else
             result.append( "<unset>" );
-        result.append( ", publicationStage: " );
-        if( publicationStageESet )
-            result.append( publicationStage );
+        result.append( ", version: " );
+        if( versionESet )
+            result.append( version );
+        else
+            result.append( "<unset>" );
+        result.append( ", id: " );
+        if( idESet )
+            result.append( id );
         else
             result.append( "<unset>" );
         result.append( ", revision: " );
         if( revisionESet )
             result.append( revision );
+        else
+            result.append( "<unset>" );
+        result.append( ", publicationStage: " );
+        if( publicationStageESet )
+            result.append( publicationStage );
         else
             result.append( "<unset>" );
         result.append( ')' );

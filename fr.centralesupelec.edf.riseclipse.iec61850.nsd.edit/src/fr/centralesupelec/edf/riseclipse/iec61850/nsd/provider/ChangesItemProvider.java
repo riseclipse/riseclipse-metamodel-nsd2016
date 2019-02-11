@@ -38,7 +38,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ChangesItemProvider extends NSDObjectWithVersionAndReleaseItemProvider {
+public class ChangesItemProvider extends NsdObjectItemProvider {
     /**
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
@@ -64,6 +64,8 @@ public class ChangesItemProvider extends NSDObjectWithVersionAndReleaseItemProvi
             addDatePropertyDescriptor( object );
             addRevisionPropertyDescriptor( object );
             addTissuesPropertyDescriptor( object );
+            addReleasePropertyDescriptor( object );
+            addVersionPropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -133,6 +135,38 @@ public class ChangesItemProvider extends NSDObjectWithVersionAndReleaseItemProvi
     }
 
     /**
+     * This adds a property descriptor for the Release feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReleasePropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(), getString( "_UI_Changes_release_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_Changes_release_feature",
+                                "_UI_Changes_type" ),
+                        NsdPackage.Literals.CHANGES__RELEASE, true, false, false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Version feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addVersionPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(), getString( "_UI_Changes_version_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_Changes_version_feature",
+                                "_UI_Changes_type" ),
+                        NsdPackage.Literals.CHANGES__VERSION, true, false, false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
      * This returns Changes.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -151,10 +185,8 @@ public class ChangesItemProvider extends NSDObjectWithVersionAndReleaseItemProvi
      */
     @Override
     public String getText( Object object ) {
-        Integer labelValue = ( ( Changes ) object ).getRelease();
-        String label = labelValue == null ? null : labelValue.toString();
-        return label == null || label.length() == 0 ? getString( "_UI_Changes_type" )
-                : getString( "_UI_Changes_type" ) + " " + label;
+        Changes changes = ( Changes ) object;
+        return getString( "_UI_Changes_type" ) + " " + changes.getLineNumber();
     }
 
     /**
@@ -173,6 +205,8 @@ public class ChangesItemProvider extends NSDObjectWithVersionAndReleaseItemProvi
         case NsdPackage.CHANGES__DATE:
         case NsdPackage.CHANGES__REVISION:
         case NsdPackage.CHANGES__TISSUES:
+        case NsdPackage.CHANGES__RELEASE:
+        case NsdPackage.CHANGES__VERSION:
             fireNotifyChanged( new ViewerNotification( notification, notification.getNotifier(), false, true ) );
             return;
         }

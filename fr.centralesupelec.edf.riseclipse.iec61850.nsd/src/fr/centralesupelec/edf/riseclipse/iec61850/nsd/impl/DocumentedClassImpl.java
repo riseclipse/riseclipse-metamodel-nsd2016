@@ -27,7 +27,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -44,7 +43,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class DocumentedClassImpl extends MinimalEObjectImpl.Container implements DocumentedClass {
+public class DocumentedClassImpl extends NsdObjectImpl implements DocumentedClass {
     /**
      * The default value of the '{@link #isDeprecated() <em>Deprecated</em>}' attribute.
      * <!-- begin-user-doc -->

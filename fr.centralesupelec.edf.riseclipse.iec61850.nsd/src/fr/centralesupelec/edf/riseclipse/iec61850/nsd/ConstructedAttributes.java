@@ -21,8 +21,6 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Constructed Attributes</b></em>'.
@@ -38,9 +36,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getConstructedAttributes()
  * @model extendedMetaData="name='tConstructedAttributes' kind='elementOnly'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='uniqueConstructedAttribute'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot uniqueConstructedAttribute='Tuple {\n\tmessage : String = \'Within an NS, there shall not be two ConstructedAttribute sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: DependsOn NS should be taken into account ?\n\t\t\t-- For this, explicit links have to be created first\n\t\t\t-- Then, may be this constraint should be in NS and not in Enumerations ?\n\t\t\tself.constructedAttribute-&gt;isUnique( c : ConstructedAttribute | c.name )\n}.status'"
  * @generated
  */
-public interface ConstructedAttributes extends EObject {
+public interface ConstructedAttributes extends NsdObject {
     /**
      * Returns the value of the '<em><b>Constructed Attribute</b></em>' containment reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute}.

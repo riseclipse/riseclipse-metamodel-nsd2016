@@ -21,8 +21,6 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Applicable Services</b></em>'.
@@ -39,9 +37,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getApplicableServices()
  * @model extendedMetaData="name='tApplicableServices' kind='elementOnly'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='uniqueDataSetMemberOf uniqueService'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot uniqueDataSetMemberOf='Tuple {\n\tmessage : String = \'For an ApplicableServices, there shall not be two DataSetMemberOf sub-elements with same cb.\',\n\tstatus : Boolean = \n\t\t\tself.dataSetMemberOf-&gt;isUnique( d : DataSetMemberOf | d.cb )\n}.status' uniqueService='Tuple {\n\tmessage : String = \'For an ApplicableServices, there shall not be two ServiceType sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.service-&gt;isUnique( s : ServiceType | s.name )\n}.status'"
  * @generated
  */
-public interface ApplicableServices extends EObject {
+public interface ApplicableServices extends NsdObject {
     /**
      * Returns the value of the '<em><b>Service</b></em>' containment reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType}.

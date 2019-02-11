@@ -35,6 +35,8 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getLiteral()
  * @model extendedMetaData="name='tLiteral' kind='empty'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='nameAttributeRequired literalValAttributeRequired'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot nameAttributeRequired='Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name &lt;&gt; null\n}.status' literalValAttributeRequired='Tuple {\n\tmessage : String = \'The literalVal attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.literalVal &lt;&gt; null\n}.status'"
  * @generated
  */
 public interface Literal extends DocumentedClass {
@@ -92,9 +94,6 @@ public interface Literal extends DocumentedClass {
      * Returns the value of the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Name of the enumeration's literal.
-     * <!-- end-model-doc -->
      * @return the value of the '<em>Name</em>' attribute.
      * @see #isSetName()
      * @see #unsetName()

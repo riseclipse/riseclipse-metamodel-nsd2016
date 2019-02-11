@@ -25,9 +25,6 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
 import java.util.Collection;
 import java.util.List;
-
-import javax.xml.datatype.XMLGregorianCalendar;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -153,10 +150,8 @@ public class ApplicableServiceNSItemProvider extends CopyrightedItemProvider {
      */
     @Override
     public String getText( Object object ) {
-        XMLGregorianCalendar labelValue = ( ( ApplicableServiceNS ) object ).getDate();
-        String label = labelValue == null ? null : labelValue.toString();
-        return label == null || label.length() == 0 ? getString( "_UI_ApplicableServiceNS_type" )
-                : getString( "_UI_ApplicableServiceNS_type" ) + " " + label;
+        ApplicableServiceNS applicableServiceNS = ( ApplicableServiceNS ) object;
+        return getString( "_UI_ApplicableServiceNS_type" ) + " " + applicableServiceNS.getLineNumber();
     }
 
     /**

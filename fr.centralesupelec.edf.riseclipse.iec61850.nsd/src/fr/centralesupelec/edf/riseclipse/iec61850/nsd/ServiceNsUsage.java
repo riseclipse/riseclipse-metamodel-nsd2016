@@ -31,9 +31,6 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getAppliesTo <em>Applies To</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getId <em>Id</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getPublicationStage <em>Publication Stage</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getRevision <em>Revision</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getApplicableServiceNS <em>Applicable Service NS</em>}</li>
  * </ul>
  *
@@ -41,7 +38,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='tServiceNsUsage' kind='elementOnly'"
  * @generated
  */
-public interface ServiceNsUsage extends NSDObjectWithVersionAndRelease {
+public interface ServiceNsUsage extends NsdObject, AgNSIdentification {
     /**
      * Returns the value of the '<em><b>Applies To</b></em>' containment reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType}.
@@ -79,161 +76,6 @@ public interface ServiceNsUsage extends NSDObjectWithVersionAndRelease {
      * @generated
      */
     boolean isSetAppliesTo();
-
-    /**
-     * Returns the value of the '<em><b>Id</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Id</em>' attribute.
-     * @see #isSetId()
-     * @see #unsetId()
-     * @see #setId(String)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceNsUsage_Id()
-     * @model unsettable="true"
-     *        extendedMetaData="kind='attribute' name='id'"
-     * @generated
-     */
-    String getId();
-
-    /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getId <em>Id</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Id</em>' attribute.
-     * @see #isSetId()
-     * @see #unsetId()
-     * @see #getId()
-     * @generated
-     */
-    void setId( String value );
-
-    /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getId <em>Id</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isSetId()
-     * @see #getId()
-     * @see #setId(String)
-     * @generated
-     */
-    void unsetId();
-
-    /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getId <em>Id</em>}' attribute is set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Id</em>' attribute is set.
-     * @see #unsetId()
-     * @see #getId()
-     * @see #setId(String)
-     * @generated
-     */
-    boolean isSetId();
-
-    /**
-     * Returns the value of the '<em><b>Publication Stage</b></em>' attribute.
-     * The default value is <code>"IS"</code>.
-     * The literals are from the enumeration {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Publication Stage</em>' attribute.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage
-     * @see #isSetPublicationStage()
-     * @see #unsetPublicationStage()
-     * @see #setPublicationStage(PubStage)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceNsUsage_PublicationStage()
-     * @model default="IS" unsettable="true"
-     *        extendedMetaData="kind='attribute' name='publicationStage'"
-     * @generated
-     */
-    PubStage getPublicationStage();
-
-    /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getPublicationStage <em>Publication Stage</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Publication Stage</em>' attribute.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage
-     * @see #isSetPublicationStage()
-     * @see #unsetPublicationStage()
-     * @see #getPublicationStage()
-     * @generated
-     */
-    void setPublicationStage( PubStage value );
-
-    /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getPublicationStage <em>Publication Stage</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isSetPublicationStage()
-     * @see #getPublicationStage()
-     * @see #setPublicationStage(PubStage)
-     * @generated
-     */
-    void unsetPublicationStage();
-
-    /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getPublicationStage <em>Publication Stage</em>}' attribute is set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Publication Stage</em>' attribute is set.
-     * @see #unsetPublicationStage()
-     * @see #getPublicationStage()
-     * @see #setPublicationStage(PubStage)
-     * @generated
-     */
-    boolean isSetPublicationStage();
-
-    /**
-     * Returns the value of the '<em><b>Revision</b></em>' attribute.
-     * The default value is <code>"A"</code>.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Revision</em>' attribute.
-     * @see #isSetRevision()
-     * @see #unsetRevision()
-     * @see #setRevision(String)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceNsUsage_Revision()
-     * @model default="A" unsettable="true"
-     *        extendedMetaData="kind='attribute' name='revision'"
-     * @generated
-     */
-    String getRevision();
-
-    /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getRevision <em>Revision</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Revision</em>' attribute.
-     * @see #isSetRevision()
-     * @see #unsetRevision()
-     * @see #getRevision()
-     * @generated
-     */
-    void setRevision( String value );
-
-    /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getRevision <em>Revision</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isSetRevision()
-     * @see #getRevision()
-     * @see #setRevision(String)
-     * @generated
-     */
-    void unsetRevision();
-
-    /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getRevision <em>Revision</em>}' attribute is set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Revision</em>' attribute is set.
-     * @see #unsetRevision()
-     * @see #getRevision()
-     * @see #setRevision(String)
-     * @generated
-     */
-    boolean isSetRevision();
 
     /**
      * Returns the value of the '<em><b>Applicable Service NS</b></em>' container reference.

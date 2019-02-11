@@ -19,8 +19,9 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUML;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDObjectWithVersionAndRelease;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage;
@@ -51,13 +52,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getRelease <em>Release</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getVersion <em>Version</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getDoc <em>Doc</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getId <em>Id</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getLang <em>Lang</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getPublicationStage <em>Publication Stage</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getRevision <em>Revision</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getPublicationStage <em>Publication Stage</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getUmlDate <em>Uml Date</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getUmlVersion <em>Uml Version</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getDoc <em>Doc</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getLang <em>Lang</em>}</li>
  * </ul>
  *
  * @generated
@@ -122,16 +123,6 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
     protected boolean versionESet;
 
     /**
-     * The cached value of the '{@link #getDoc() <em>Doc</em>}' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getDoc()
-     * @generated
-     * @ordered
-     */
-    protected EList< Doc > doc;
-
-    /**
      * The default value of the '{@link #getId() <em>Id</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -161,33 +152,33 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
     protected boolean idESet;
 
     /**
-     * The default value of the '{@link #getLang() <em>Lang</em>}' attribute.
+     * The default value of the '{@link #getRevision() <em>Revision</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getLang()
+     * @see #getRevision()
      * @generated
      * @ordered
      */
-    protected static final String LANG_EDEFAULT = null;
+    protected static final String REVISION_EDEFAULT = "A";
 
     /**
-     * The cached value of the '{@link #getLang() <em>Lang</em>}' attribute.
+     * The cached value of the '{@link #getRevision() <em>Revision</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getLang()
+     * @see #getRevision()
      * @generated
      * @ordered
      */
-    protected String lang = LANG_EDEFAULT;
+    protected String revision = REVISION_EDEFAULT;
 
     /**
-     * This is true if the Lang attribute has been set.
+     * This is true if the Revision attribute has been set.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    protected boolean langESet;
+    protected boolean revisionESet;
 
     /**
      * The default value of the '{@link #getPublicationStage() <em>Publication Stage</em>}' attribute.
@@ -217,35 +208,6 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
      * @ordered
      */
     protected boolean publicationStageESet;
-
-    /**
-     * The default value of the '{@link #getRevision() <em>Revision</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getRevision()
-     * @generated
-     * @ordered
-     */
-    protected static final String REVISION_EDEFAULT = "A";
-
-    /**
-     * The cached value of the '{@link #getRevision() <em>Revision</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getRevision()
-     * @generated
-     * @ordered
-     */
-    protected String revision = REVISION_EDEFAULT;
-
-    /**
-     * This is true if the Revision attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean revisionESet;
 
     /**
      * The default value of the '{@link #getUmlDate() <em>Uml Date</em>}' attribute.
@@ -304,6 +266,45 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
      * @ordered
      */
     protected boolean umlVersionESet;
+
+    /**
+     * The cached value of the '{@link #getDoc() <em>Doc</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getDoc()
+     * @generated
+     * @ordered
+     */
+    protected EList< Doc > doc;
+
+    /**
+     * The default value of the '{@link #getLang() <em>Lang</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getLang()
+     * @generated
+     * @ordered
+     */
+    protected static final String LANG_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getLang() <em>Lang</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getLang()
+     * @generated
+     * @ordered
+     */
+    protected String lang = LANG_EDEFAULT;
+
+    /**
+     * This is true if the Lang attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean langESet;
 
     /**
      * <!-- begin-user-doc -->
@@ -801,20 +802,20 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
             return getRelease();
         case NsdPackage.NS_DOC__VERSION:
             return getVersion();
-        case NsdPackage.NS_DOC__DOC:
-            return getDoc();
         case NsdPackage.NS_DOC__ID:
             return getId();
-        case NsdPackage.NS_DOC__LANG:
-            return getLang();
-        case NsdPackage.NS_DOC__PUBLICATION_STAGE:
-            return getPublicationStage();
         case NsdPackage.NS_DOC__REVISION:
             return getRevision();
+        case NsdPackage.NS_DOC__PUBLICATION_STAGE:
+            return getPublicationStage();
         case NsdPackage.NS_DOC__UML_DATE:
             return getUmlDate();
         case NsdPackage.NS_DOC__UML_VERSION:
             return getUmlVersion();
+        case NsdPackage.NS_DOC__DOC:
+            return getDoc();
+        case NsdPackage.NS_DOC__LANG:
+            return getLang();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -834,27 +835,27 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         case NsdPackage.NS_DOC__VERSION:
             setVersion( ( Integer ) newValue );
             return;
-        case NsdPackage.NS_DOC__DOC:
-            getDoc().clear();
-            getDoc().addAll( ( Collection< ? extends Doc > ) newValue );
-            return;
         case NsdPackage.NS_DOC__ID:
             setId( ( String ) newValue );
             return;
-        case NsdPackage.NS_DOC__LANG:
-            setLang( ( String ) newValue );
+        case NsdPackage.NS_DOC__REVISION:
+            setRevision( ( String ) newValue );
             return;
         case NsdPackage.NS_DOC__PUBLICATION_STAGE:
             setPublicationStage( ( PubStage ) newValue );
-            return;
-        case NsdPackage.NS_DOC__REVISION:
-            setRevision( ( String ) newValue );
             return;
         case NsdPackage.NS_DOC__UML_DATE:
             setUmlDate( ( XMLGregorianCalendar ) newValue );
             return;
         case NsdPackage.NS_DOC__UML_VERSION:
             setUmlVersion( ( String ) newValue );
+            return;
+        case NsdPackage.NS_DOC__DOC:
+            getDoc().clear();
+            getDoc().addAll( ( Collection< ? extends Doc > ) newValue );
+            return;
+        case NsdPackage.NS_DOC__LANG:
+            setLang( ( String ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -874,26 +875,26 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         case NsdPackage.NS_DOC__VERSION:
             unsetVersion();
             return;
-        case NsdPackage.NS_DOC__DOC:
-            unsetDoc();
-            return;
         case NsdPackage.NS_DOC__ID:
             unsetId();
             return;
-        case NsdPackage.NS_DOC__LANG:
-            unsetLang();
+        case NsdPackage.NS_DOC__REVISION:
+            unsetRevision();
             return;
         case NsdPackage.NS_DOC__PUBLICATION_STAGE:
             unsetPublicationStage();
-            return;
-        case NsdPackage.NS_DOC__REVISION:
-            unsetRevision();
             return;
         case NsdPackage.NS_DOC__UML_DATE:
             unsetUmlDate();
             return;
         case NsdPackage.NS_DOC__UML_VERSION:
             unsetUmlVersion();
+            return;
+        case NsdPackage.NS_DOC__DOC:
+            unsetDoc();
+            return;
+        case NsdPackage.NS_DOC__LANG:
+            unsetLang();
             return;
         }
         super.eUnset( featureID );
@@ -911,20 +912,20 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
             return isSetRelease();
         case NsdPackage.NS_DOC__VERSION:
             return isSetVersion();
-        case NsdPackage.NS_DOC__DOC:
-            return isSetDoc();
         case NsdPackage.NS_DOC__ID:
             return isSetId();
-        case NsdPackage.NS_DOC__LANG:
-            return isSetLang();
-        case NsdPackage.NS_DOC__PUBLICATION_STAGE:
-            return isSetPublicationStage();
         case NsdPackage.NS_DOC__REVISION:
             return isSetRevision();
+        case NsdPackage.NS_DOC__PUBLICATION_STAGE:
+            return isSetPublicationStage();
         case NsdPackage.NS_DOC__UML_DATE:
             return isSetUmlDate();
         case NsdPackage.NS_DOC__UML_VERSION:
             return isSetUmlVersion();
+        case NsdPackage.NS_DOC__DOC:
+            return isSetDoc();
+        case NsdPackage.NS_DOC__LANG:
+            return isSetLang();
         }
         return super.eIsSet( featureID );
     }
@@ -936,12 +937,28 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
      */
     @Override
     public int eBaseStructuralFeatureID( int derivedFeatureID, Class< ? > baseClass ) {
-        if( baseClass == NSDObjectWithVersionAndRelease.class ) {
+        if( baseClass == AgNSIdentification.class ) {
             switch( derivedFeatureID ) {
             case NsdPackage.NS_DOC__RELEASE:
-                return NsdPackage.NSD_OBJECT_WITH_VERSION_AND_RELEASE__RELEASE;
+                return NsdPackage.AG_NS_IDENTIFICATION__RELEASE;
             case NsdPackage.NS_DOC__VERSION:
-                return NsdPackage.NSD_OBJECT_WITH_VERSION_AND_RELEASE__VERSION;
+                return NsdPackage.AG_NS_IDENTIFICATION__VERSION;
+            case NsdPackage.NS_DOC__ID:
+                return NsdPackage.AG_NS_IDENTIFICATION__ID;
+            case NsdPackage.NS_DOC__REVISION:
+                return NsdPackage.AG_NS_IDENTIFICATION__REVISION;
+            case NsdPackage.NS_DOC__PUBLICATION_STAGE:
+                return NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgUML.class ) {
+            switch( derivedFeatureID ) {
+            case NsdPackage.NS_DOC__UML_DATE:
+                return NsdPackage.AG_UML__UML_DATE;
+            case NsdPackage.NS_DOC__UML_VERSION:
+                return NsdPackage.AG_UML__UML_VERSION;
             default:
                 return -1;
             }
@@ -956,12 +973,28 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
      */
     @Override
     public int eDerivedStructuralFeatureID( int baseFeatureID, Class< ? > baseClass ) {
-        if( baseClass == NSDObjectWithVersionAndRelease.class ) {
+        if( baseClass == AgNSIdentification.class ) {
             switch( baseFeatureID ) {
-            case NsdPackage.NSD_OBJECT_WITH_VERSION_AND_RELEASE__RELEASE:
+            case NsdPackage.AG_NS_IDENTIFICATION__RELEASE:
                 return NsdPackage.NS_DOC__RELEASE;
-            case NsdPackage.NSD_OBJECT_WITH_VERSION_AND_RELEASE__VERSION:
+            case NsdPackage.AG_NS_IDENTIFICATION__VERSION:
                 return NsdPackage.NS_DOC__VERSION;
+            case NsdPackage.AG_NS_IDENTIFICATION__ID:
+                return NsdPackage.NS_DOC__ID;
+            case NsdPackage.AG_NS_IDENTIFICATION__REVISION:
+                return NsdPackage.NS_DOC__REVISION;
+            case NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE:
+                return NsdPackage.NS_DOC__PUBLICATION_STAGE;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgUML.class ) {
+            switch( baseFeatureID ) {
+            case NsdPackage.AG_UML__UML_DATE:
+                return NsdPackage.NS_DOC__UML_DATE;
+            case NsdPackage.AG_UML__UML_VERSION:
+                return NsdPackage.NS_DOC__UML_VERSION;
             default:
                 return -1;
             }
@@ -994,19 +1027,14 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
             result.append( id );
         else
             result.append( "<unset>" );
-        result.append( ", lang: " );
-        if( langESet )
-            result.append( lang );
+        result.append( ", revision: " );
+        if( revisionESet )
+            result.append( revision );
         else
             result.append( "<unset>" );
         result.append( ", publicationStage: " );
         if( publicationStageESet )
             result.append( publicationStage );
-        else
-            result.append( "<unset>" );
-        result.append( ", revision: " );
-        if( revisionESet )
-            result.append( revision );
         else
             result.append( "<unset>" );
         result.append( ", umlDate: " );
@@ -1017,6 +1045,11 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         result.append( ", umlVersion: " );
         if( umlVersionESet )
             result.append( umlVersion );
+        else
+            result.append( "<unset>" );
+        result.append( ", lang: " );
+        if( langESet )
+            result.append( lang );
         else
             result.append( "<unset>" );
         result.append( ')' );

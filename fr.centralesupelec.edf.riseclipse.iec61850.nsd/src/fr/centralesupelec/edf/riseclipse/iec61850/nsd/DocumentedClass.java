@@ -19,8 +19,6 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Documented Class</b></em>'.
@@ -39,7 +37,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='tDocumentedClass' kind='empty'"
  * @generated
  */
-public interface DocumentedClass extends EObject {
+public interface DocumentedClass extends NsdObject {
     /**
      * Returns the value of the '<em><b>Deprecated</b></em>' attribute.
      * The default value is <code>"false"</code>.

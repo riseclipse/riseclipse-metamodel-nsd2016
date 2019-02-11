@@ -102,7 +102,7 @@ public class TitledClassItemProvider extends DocumentedClassItemProvider {
     @Override
     public String getText( Object object ) {
         TitledClass titledClass = ( TitledClass ) object;
-        return getString( "_UI_TitledClass_type" ) + " " + titledClass.isDeprecated();
+        return getString( "_UI_TitledClass_type" ) + " " + titledClass.getLineNumber();
     }
 
     /**

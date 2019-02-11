@@ -19,7 +19,7 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.provider;
 
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDObjectWithVersionAndRelease;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgTrgOp;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
 import java.util.Collection;
@@ -42,21 +42,20 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDObjectWithVersionAndRelease} object.
+ * This is the item provider adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgTrgOp} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class NSDObjectWithVersionAndReleaseItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider,
-        IItemLabelProvider, IItemPropertySource {
+public class AgTrgOpItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public NSDObjectWithVersionAndReleaseItemProvider( AdapterFactory adapterFactory ) {
+    public AgTrgOpItemProvider( AdapterFactory adapterFactory ) {
         super( adapterFactory );
     }
 
@@ -71,42 +70,59 @@ public class NSDObjectWithVersionAndReleaseItemProvider extends ItemProviderAdap
         if( itemPropertyDescriptors == null ) {
             super.getPropertyDescriptors( object );
 
-            addReleasePropertyDescriptor( object );
-            addVersionPropertyDescriptor( object );
+            addDchgPropertyDescriptor( object );
+            addDupdPropertyDescriptor( object );
+            addQchgPropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Release feature.
+     * This adds a property descriptor for the Dchg feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addReleasePropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add( createItemPropertyDescriptor(
-                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
-                getString( "_UI_NSDObjectWithVersionAndRelease_release_feature" ),
-                getString( "_UI_PropertyDescriptor_description", "_UI_NSDObjectWithVersionAndRelease_release_feature",
-                        "_UI_NSDObjectWithVersionAndRelease_type" ),
-                NsdPackage.Literals.NSD_OBJECT_WITH_VERSION_AND_RELEASE__RELEASE, true, false, false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    protected void addDchgPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(), getString( "_UI_AgTrgOp_dchg_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgTrgOp_dchg_feature",
+                                "_UI_AgTrgOp_type" ),
+                        NsdPackage.Literals.AG_TRG_OP__DCHG, true, false, false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
     }
 
     /**
-     * This adds a property descriptor for the Version feature.
+     * This adds a property descriptor for the Dupd feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addVersionPropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add( createItemPropertyDescriptor(
-                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
-                getString( "_UI_NSDObjectWithVersionAndRelease_version_feature" ),
-                getString( "_UI_PropertyDescriptor_description", "_UI_NSDObjectWithVersionAndRelease_version_feature",
-                        "_UI_NSDObjectWithVersionAndRelease_type" ),
-                NsdPackage.Literals.NSD_OBJECT_WITH_VERSION_AND_RELEASE__VERSION, true, false, false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    protected void addDupdPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(), getString( "_UI_AgTrgOp_dupd_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgTrgOp_dupd_feature",
+                                "_UI_AgTrgOp_type" ),
+                        NsdPackage.Literals.AG_TRG_OP__DUPD, true, false, false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Qchg feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addQchgPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(), getString( "_UI_AgTrgOp_qchg_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgTrgOp_qchg_feature",
+                                "_UI_AgTrgOp_type" ),
+                        NsdPackage.Literals.AG_TRG_OP__QCHG, true, false, false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -117,10 +133,8 @@ public class NSDObjectWithVersionAndReleaseItemProvider extends ItemProviderAdap
      */
     @Override
     public String getText( Object object ) {
-        Integer labelValue = ( ( NSDObjectWithVersionAndRelease ) object ).getRelease();
-        String label = labelValue == null ? null : labelValue.toString();
-        return label == null || label.length() == 0 ? getString( "_UI_NSDObjectWithVersionAndRelease_type" )
-                : getString( "_UI_NSDObjectWithVersionAndRelease_type" ) + " " + label;
+        AgTrgOp agTrgOp = ( AgTrgOp ) object;
+        return getString( "_UI_AgTrgOp_type" ) + " " + agTrgOp.isDchg();
     }
 
     /**
@@ -134,9 +148,10 @@ public class NSDObjectWithVersionAndReleaseItemProvider extends ItemProviderAdap
     public void notifyChanged( Notification notification ) {
         updateChildren( notification );
 
-        switch( notification.getFeatureID( NSDObjectWithVersionAndRelease.class ) ) {
-        case NsdPackage.NSD_OBJECT_WITH_VERSION_AND_RELEASE__RELEASE:
-        case NsdPackage.NSD_OBJECT_WITH_VERSION_AND_RELEASE__VERSION:
+        switch( notification.getFeatureID( AgTrgOp.class ) ) {
+        case NsdPackage.AG_TRG_OP__DCHG:
+        case NsdPackage.AG_TRG_OP__DUPD:
+        case NsdPackage.AG_TRG_OP__QCHG:
             fireNotifyChanged( new ViewerNotification( notification, notification.getNotifier(), false, true ) );
             return;
         }

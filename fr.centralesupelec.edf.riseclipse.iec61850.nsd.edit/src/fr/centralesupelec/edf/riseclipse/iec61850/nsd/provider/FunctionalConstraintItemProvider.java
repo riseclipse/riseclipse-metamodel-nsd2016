@@ -28,20 +28,11 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -50,8 +41,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class FunctionalConstraintItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class FunctionalConstraintItemProvider extends NsdObjectItemProvider {
     /**
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
@@ -76,6 +66,7 @@ public class FunctionalConstraintItemProvider extends ItemProviderAdapter implem
             addAbbreviationPropertyDescriptor( object );
             addDescIDPropertyDescriptor( object );
             addTitleIDPropertyDescriptor( object );
+            addReferredByDataAttributePropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -129,6 +120,22 @@ public class FunctionalConstraintItemProvider extends ItemProviderAdapter implem
     }
 
     /**
+     * This adds a property descriptor for the Referred By Data Attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReferredByDataAttributePropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add( createItemPropertyDescriptor(
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
+                getString( "_UI_FunctionalConstraint_referredByDataAttribute_feature" ),
+                getString( "_UI_PropertyDescriptor_description",
+                        "_UI_FunctionalConstraint_referredByDataAttribute_feature", "_UI_FunctionalConstraint_type" ),
+                NsdPackage.Literals.FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE, true, false, true, null, null,
+                null ) );
+    }
+
+    /**
      * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
      * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
      * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -177,9 +184,8 @@ public class FunctionalConstraintItemProvider extends ItemProviderAdapter implem
      */
     @Override
     public String getText( Object object ) {
-        String label = ( ( FunctionalConstraint ) object ).getAbbreviation();
-        return label == null || label.length() == 0 ? getString( "_UI_FunctionalConstraint_type" )
-                : getString( "_UI_FunctionalConstraint_type" ) + " " + label;
+        FunctionalConstraint functionalConstraint = ( FunctionalConstraint ) object;
+        return getString( "_UI_FunctionalConstraint_type" ) + " " + functionalConstraint.getLineNumber();
     }
 
     /**
@@ -219,17 +225,6 @@ public class FunctionalConstraintItemProvider extends ItemProviderAdapter implem
 
         newChildDescriptors.add( createChildParameter( NsdPackage.Literals.FUNCTIONAL_CONSTRAINT__APPLICABLE_SERVICES,
                 NsdFactory.eINSTANCE.createApplicableServices() ) );
-    }
-
-    /**
-     * Return the resource locator for this item provider's resources.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public ResourceLocator getResourceLocator() {
-        return NSDEditPlugin.INSTANCE;
     }
 
 }

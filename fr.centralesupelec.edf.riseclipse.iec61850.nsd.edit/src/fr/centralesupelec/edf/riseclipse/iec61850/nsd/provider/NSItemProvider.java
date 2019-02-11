@@ -66,12 +66,13 @@ public class NSItemProvider extends CopyrightedItemProvider {
 
             addReleasePropertyDescriptor( object );
             addVersionPropertyDescriptor( object );
-            addDescIDPropertyDescriptor( object );
             addIdPropertyDescriptor( object );
-            addPublicationStagePropertyDescriptor( object );
             addRevisionPropertyDescriptor( object );
+            addPublicationStagePropertyDescriptor( object );
             addUmlDatePropertyDescriptor( object );
             addUmlVersionPropertyDescriptor( object );
+            addDescIDPropertyDescriptor( object );
+            addReferredByDependsOnPropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -85,10 +86,26 @@ public class NSItemProvider extends CopyrightedItemProvider {
     protected void addDescIDPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_NS_descID_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_NS_descID_feature", "_UI_NS_type" ),
-                        NsdPackage.Literals.NS__DESC_ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null, null ) );
+                        getResourceLocator(), getString( "_UI_AgNSdesc_descID_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgNSdesc_descID_feature",
+                                "_UI_AgNSdesc_type" ),
+                        NsdPackage.Literals.AG_NSDESC__DESC_ID, true, false, false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Referred By Depends On feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReferredByDependsOnPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(), getString( "_UI_NS_referredByDependsOn_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_NS_referredByDependsOn_feature",
+                                "_UI_NS_type" ),
+                        NsdPackage.Literals.NS__REFERRED_BY_DEPENDS_ON, true, false, true, null, null, null ) );
     }
 
     /**
@@ -100,10 +117,11 @@ public class NSItemProvider extends CopyrightedItemProvider {
     protected void addIdPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_NS_id_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_NS_id_feature", "_UI_NS_type" ),
-                        NsdPackage.Literals.NS__ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null, null ) );
+                        getResourceLocator(), getString( "_UI_AgNSIdentification_id_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgNSIdentification_id_feature",
+                                "_UI_AgNSIdentification_type" ),
+                        NsdPackage.Literals.AG_NS_IDENTIFICATION__ID, true, false, false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -113,13 +131,13 @@ public class NSItemProvider extends CopyrightedItemProvider {
      * @generated
      */
     protected void addPublicationStagePropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add(
-                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_NS_publicationStage_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_NS_publicationStage_feature",
-                                "_UI_NS_type" ),
-                        NsdPackage.Literals.NS__PUBLICATION_STAGE, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add( createItemPropertyDescriptor(
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
+                getString( "_UI_AgNSIdentification_publicationStage_feature" ),
+                getString( "_UI_PropertyDescriptor_description", "_UI_AgNSIdentification_publicationStage_feature",
+                        "_UI_AgNSIdentification_type" ),
+                NsdPackage.Literals.AG_NS_IDENTIFICATION__PUBLICATION_STAGE, true, false, false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -129,13 +147,13 @@ public class NSItemProvider extends CopyrightedItemProvider {
      * @generated
      */
     protected void addReleasePropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add( createItemPropertyDescriptor(
-                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
-                getString( "_UI_NSDObjectWithVersionAndRelease_release_feature" ),
-                getString( "_UI_PropertyDescriptor_description", "_UI_NSDObjectWithVersionAndRelease_release_feature",
-                        "_UI_NSDObjectWithVersionAndRelease_type" ),
-                NsdPackage.Literals.NSD_OBJECT_WITH_VERSION_AND_RELEASE__RELEASE, true, false, false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(), getString( "_UI_AgNSIdentification_release_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgNSIdentification_release_feature",
+                                "_UI_AgNSIdentification_type" ),
+                        NsdPackage.Literals.AG_NS_IDENTIFICATION__RELEASE, true, false, false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -147,9 +165,10 @@ public class NSItemProvider extends CopyrightedItemProvider {
     protected void addRevisionPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_NS_revision_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_NS_revision_feature", "_UI_NS_type" ),
-                        NsdPackage.Literals.NS__REVISION, true, false, false,
+                        getResourceLocator(), getString( "_UI_AgNSIdentification_revision_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgNSIdentification_revision_feature",
+                                "_UI_AgNSIdentification_type" ),
+                        NsdPackage.Literals.AG_NS_IDENTIFICATION__REVISION, true, false, false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
@@ -162,9 +181,10 @@ public class NSItemProvider extends CopyrightedItemProvider {
     protected void addUmlDatePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_NS_umlDate_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_NS_umlDate_feature", "_UI_NS_type" ),
-                        NsdPackage.Literals.NS__UML_DATE, true, false, false,
+                        getResourceLocator(), getString( "_UI_AgUML_umlDate_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgUML_umlDate_feature",
+                                "_UI_AgUML_type" ),
+                        NsdPackage.Literals.AG_UML__UML_DATE, true, false, false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
@@ -177,9 +197,10 @@ public class NSItemProvider extends CopyrightedItemProvider {
     protected void addUmlVersionPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_NS_umlVersion_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_NS_umlVersion_feature", "_UI_NS_type" ),
-                        NsdPackage.Literals.NS__UML_VERSION, true, false, false,
+                        getResourceLocator(), getString( "_UI_AgUML_umlVersion_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgUML_umlVersion_feature",
+                                "_UI_AgUML_type" ),
+                        NsdPackage.Literals.AG_UML__UML_VERSION, true, false, false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
@@ -190,13 +211,13 @@ public class NSItemProvider extends CopyrightedItemProvider {
      * @generated
      */
     protected void addVersionPropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add( createItemPropertyDescriptor(
-                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
-                getString( "_UI_NSDObjectWithVersionAndRelease_version_feature" ),
-                getString( "_UI_PropertyDescriptor_description", "_UI_NSDObjectWithVersionAndRelease_version_feature",
-                        "_UI_NSDObjectWithVersionAndRelease_type" ),
-                NsdPackage.Literals.NSD_OBJECT_WITH_VERSION_AND_RELEASE__VERSION, true, false, false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(), getString( "_UI_AgNSIdentification_version_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgNSIdentification_version_feature",
+                                "_UI_AgNSIdentification_type" ),
+                        NsdPackage.Literals.AG_NS_IDENTIFICATION__VERSION, true, false, false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -276,12 +297,12 @@ public class NSItemProvider extends CopyrightedItemProvider {
         switch( notification.getFeatureID( NS.class ) ) {
         case NsdPackage.NS__RELEASE:
         case NsdPackage.NS__VERSION:
-        case NsdPackage.NS__DESC_ID:
         case NsdPackage.NS__ID:
-        case NsdPackage.NS__PUBLICATION_STAGE:
         case NsdPackage.NS__REVISION:
+        case NsdPackage.NS__PUBLICATION_STAGE:
         case NsdPackage.NS__UML_DATE:
         case NsdPackage.NS__UML_VERSION:
+        case NsdPackage.NS__DESC_ID:
             fireNotifyChanged( new ViewerNotification( notification, notification.getNotifier(), false, true ) );
             return;
         case NsdPackage.NS__CHANGES:

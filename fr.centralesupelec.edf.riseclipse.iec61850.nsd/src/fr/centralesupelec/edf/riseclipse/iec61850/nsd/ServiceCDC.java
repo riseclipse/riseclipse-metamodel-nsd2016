@@ -21,8 +21,6 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Service CDC</b></em>'.
@@ -40,9 +38,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceCDC()
  * @model extendedMetaData="name='tServiceCDC' kind='elementOnly'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='cdcAttributeRequired'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot cdcAttributeRequired='Tuple {\n\tmessage : String = \'The cdc attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.cdc &lt;&gt; null\n}.status'"
  * @generated
  */
-public interface ServiceCDC extends EObject {
+public interface ServiceCDC extends NsdObject {
     /**
      * Returns the value of the '<em><b>Service Data Attribute</b></em>' containment reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute}.

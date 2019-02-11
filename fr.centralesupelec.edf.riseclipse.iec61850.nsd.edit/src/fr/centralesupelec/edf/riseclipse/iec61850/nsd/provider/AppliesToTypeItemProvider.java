@@ -38,7 +38,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AppliesToTypeItemProvider extends NSDObjectWithVersionAndReleaseItemProvider {
+public class AppliesToTypeItemProvider extends NsdObjectItemProvider {
     /**
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
@@ -60,11 +60,45 @@ public class AppliesToTypeItemProvider extends NSDObjectWithVersionAndReleaseIte
         if( itemPropertyDescriptors == null ) {
             super.getPropertyDescriptors( object );
 
+            addReleasePropertyDescriptor( object );
+            addVersionPropertyDescriptor( object );
             addIdPropertyDescriptor( object );
-            addPublicationStagePropertyDescriptor( object );
             addRevisionPropertyDescriptor( object );
+            addPublicationStagePropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
+    }
+
+    /**
+     * This adds a property descriptor for the Release feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReleasePropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(), getString( "_UI_AgNSIdentification_release_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgNSIdentification_release_feature",
+                                "_UI_AgNSIdentification_type" ),
+                        NsdPackage.Literals.AG_NS_IDENTIFICATION__RELEASE, true, false, false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Version feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addVersionPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(), getString( "_UI_AgNSIdentification_version_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgNSIdentification_version_feature",
+                                "_UI_AgNSIdentification_type" ),
+                        NsdPackage.Literals.AG_NS_IDENTIFICATION__VERSION, true, false, false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -76,26 +110,10 @@ public class AppliesToTypeItemProvider extends NSDObjectWithVersionAndReleaseIte
     protected void addIdPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_AppliesToType_id_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_AppliesToType_id_feature",
-                                "_UI_AppliesToType_type" ),
-                        NsdPackage.Literals.APPLIES_TO_TYPE__ID, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
-    }
-
-    /**
-     * This adds a property descriptor for the Publication Stage feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addPublicationStagePropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add(
-                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_AppliesToType_publicationStage_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_AppliesToType_publicationStage_feature",
-                                "_UI_AppliesToType_type" ),
-                        NsdPackage.Literals.APPLIES_TO_TYPE__PUBLICATION_STAGE, true, false, false,
+                        getResourceLocator(), getString( "_UI_AgNSIdentification_id_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgNSIdentification_id_feature",
+                                "_UI_AgNSIdentification_type" ),
+                        NsdPackage.Literals.AG_NS_IDENTIFICATION__ID, true, false, false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
@@ -108,11 +126,27 @@ public class AppliesToTypeItemProvider extends NSDObjectWithVersionAndReleaseIte
     protected void addRevisionPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_AppliesToType_revision_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_AppliesToType_revision_feature",
-                                "_UI_AppliesToType_type" ),
-                        NsdPackage.Literals.APPLIES_TO_TYPE__REVISION, true, false, false,
+                        getResourceLocator(), getString( "_UI_AgNSIdentification_revision_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgNSIdentification_revision_feature",
+                                "_UI_AgNSIdentification_type" ),
+                        NsdPackage.Literals.AG_NS_IDENTIFICATION__REVISION, true, false, false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Publication Stage feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addPublicationStagePropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add( createItemPropertyDescriptor(
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
+                getString( "_UI_AgNSIdentification_publicationStage_feature" ),
+                getString( "_UI_PropertyDescriptor_description", "_UI_AgNSIdentification_publicationStage_feature",
+                        "_UI_AgNSIdentification_type" ),
+                NsdPackage.Literals.AG_NS_IDENTIFICATION__PUBLICATION_STAGE, true, false, false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -151,9 +185,11 @@ public class AppliesToTypeItemProvider extends NSDObjectWithVersionAndReleaseIte
         updateChildren( notification );
 
         switch( notification.getFeatureID( AppliesToType.class ) ) {
+        case NsdPackage.APPLIES_TO_TYPE__RELEASE:
+        case NsdPackage.APPLIES_TO_TYPE__VERSION:
         case NsdPackage.APPLIES_TO_TYPE__ID:
-        case NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE:
         case NsdPackage.APPLIES_TO_TYPE__REVISION:
+        case NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE:
             fireNotifyChanged( new ViewerNotification( notification, notification.getNotifier(), false, true ) );
             return;
         }

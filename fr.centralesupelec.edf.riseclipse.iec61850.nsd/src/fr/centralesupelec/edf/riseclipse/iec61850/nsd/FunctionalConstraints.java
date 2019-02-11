@@ -21,8 +21,6 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Functional Constraints</b></em>'.
@@ -39,9 +37,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getFunctionalConstraints()
  * @model extendedMetaData="name='tFunctionalConstraints' kind='elementOnly'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='uniqueFunctionalConstraint'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot uniqueFunctionalConstraint='Tuple {\n\tmessage : String = \'There shall not be two FunctionalConstraint elements with same abbreviation.\',\n\tstatus : Boolean = \n\t\t\tself.functionalConstraint-&gt;isUnique( f : FunctionalConstraint | f.abbreviation )\n}.status'"
  * @generated
  */
-public interface FunctionalConstraints extends EObject {
+public interface FunctionalConstraints extends NsdObject {
     /**
      * Returns the value of the '<em><b>Functional Constraint</b></em>' containment reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint}.

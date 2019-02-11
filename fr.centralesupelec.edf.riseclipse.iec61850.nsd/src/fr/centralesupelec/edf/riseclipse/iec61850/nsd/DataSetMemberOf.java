@@ -19,8 +19,6 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Data Set Member Of</b></em>'.
@@ -36,9 +34,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataSetMemberOf()
  * @model extendedMetaData="name='tDataSetMemberOf' kind='empty'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='cbAttributeRequired'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot cbAttributeRequired='Tuple {\n\tmessage : String = \'The cb attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.cb &lt;&gt; null\n}.status'"
  * @generated
  */
-public interface DataSetMemberOf extends EObject {
+public interface DataSetMemberOf extends NsdObject {
     /**
      * Returns the value of the '<em><b>Cb</b></em>' attribute.
      * The literals are from the enumeration {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CBKind}.

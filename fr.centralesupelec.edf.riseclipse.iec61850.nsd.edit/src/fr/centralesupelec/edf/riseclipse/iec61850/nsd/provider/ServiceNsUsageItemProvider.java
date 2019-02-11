@@ -41,7 +41,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ServiceNsUsageItemProvider extends NSDObjectWithVersionAndReleaseItemProvider {
+public class ServiceNsUsageItemProvider extends NsdObjectItemProvider {
     /**
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
@@ -63,11 +63,45 @@ public class ServiceNsUsageItemProvider extends NSDObjectWithVersionAndReleaseIt
         if( itemPropertyDescriptors == null ) {
             super.getPropertyDescriptors( object );
 
+            addReleasePropertyDescriptor( object );
+            addVersionPropertyDescriptor( object );
             addIdPropertyDescriptor( object );
-            addPublicationStagePropertyDescriptor( object );
             addRevisionPropertyDescriptor( object );
+            addPublicationStagePropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
+    }
+
+    /**
+     * This adds a property descriptor for the Release feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReleasePropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(), getString( "_UI_AgNSIdentification_release_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgNSIdentification_release_feature",
+                                "_UI_AgNSIdentification_type" ),
+                        NsdPackage.Literals.AG_NS_IDENTIFICATION__RELEASE, true, false, false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Version feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addVersionPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(), getString( "_UI_AgNSIdentification_version_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgNSIdentification_version_feature",
+                                "_UI_AgNSIdentification_type" ),
+                        NsdPackage.Literals.AG_NS_IDENTIFICATION__VERSION, true, false, false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -79,10 +113,10 @@ public class ServiceNsUsageItemProvider extends NSDObjectWithVersionAndReleaseIt
     protected void addIdPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_ServiceNsUsage_id_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_ServiceNsUsage_id_feature",
-                                "_UI_ServiceNsUsage_type" ),
-                        NsdPackage.Literals.SERVICE_NS_USAGE__ID, true, false, false,
+                        getResourceLocator(), getString( "_UI_AgNSIdentification_id_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgNSIdentification_id_feature",
+                                "_UI_AgNSIdentification_type" ),
+                        NsdPackage.Literals.AG_NS_IDENTIFICATION__ID, true, false, false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
@@ -93,13 +127,13 @@ public class ServiceNsUsageItemProvider extends NSDObjectWithVersionAndReleaseIt
      * @generated
      */
     protected void addPublicationStagePropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add(
-                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_ServiceNsUsage_publicationStage_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_ServiceNsUsage_publicationStage_feature",
-                                "_UI_ServiceNsUsage_type" ),
-                        NsdPackage.Literals.SERVICE_NS_USAGE__PUBLICATION_STAGE, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add( createItemPropertyDescriptor(
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
+                getString( "_UI_AgNSIdentification_publicationStage_feature" ),
+                getString( "_UI_PropertyDescriptor_description", "_UI_AgNSIdentification_publicationStage_feature",
+                        "_UI_AgNSIdentification_type" ),
+                NsdPackage.Literals.AG_NS_IDENTIFICATION__PUBLICATION_STAGE, true, false, false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -111,10 +145,10 @@ public class ServiceNsUsageItemProvider extends NSDObjectWithVersionAndReleaseIt
     protected void addRevisionPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_ServiceNsUsage_revision_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_ServiceNsUsage_revision_feature",
-                                "_UI_ServiceNsUsage_type" ),
-                        NsdPackage.Literals.SERVICE_NS_USAGE__REVISION, true, false, false,
+                        getResourceLocator(), getString( "_UI_AgNSIdentification_revision_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgNSIdentification_revision_feature",
+                                "_UI_AgNSIdentification_type" ),
+                        NsdPackage.Literals.AG_NS_IDENTIFICATION__REVISION, true, false, false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
@@ -184,9 +218,11 @@ public class ServiceNsUsageItemProvider extends NSDObjectWithVersionAndReleaseIt
         updateChildren( notification );
 
         switch( notification.getFeatureID( ServiceNsUsage.class ) ) {
+        case NsdPackage.SERVICE_NS_USAGE__RELEASE:
+        case NsdPackage.SERVICE_NS_USAGE__VERSION:
         case NsdPackage.SERVICE_NS_USAGE__ID:
-        case NsdPackage.SERVICE_NS_USAGE__PUBLICATION_STAGE:
         case NsdPackage.SERVICE_NS_USAGE__REVISION:
+        case NsdPackage.SERVICE_NS_USAGE__PUBLICATION_STAGE:
             fireNotifyChanged( new ViewerNotification( notification, notification.getNotifier(), false, true ) );
             return;
         case NsdPackage.SERVICE_NS_USAGE__APPLIES_TO:

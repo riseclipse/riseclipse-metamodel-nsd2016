@@ -61,12 +61,12 @@ public class ServiceParameterItemProvider extends DocumentedClassItemProvider {
         if( itemPropertyDescriptors == null ) {
             super.getPropertyDescriptors( object );
 
+            addTypePropertyDescriptor( object );
+            addTypeKindPropertyDescriptor( object );
             addDefaultValuePropertyDescriptor( object );
             addMaxValuePropertyDescriptor( object );
             addMinValuePropertyDescriptor( object );
             addNamePropertyDescriptor( object );
-            addTypePropertyDescriptor( object );
-            addTypeKindPropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -78,13 +78,13 @@ public class ServiceParameterItemProvider extends DocumentedClassItemProvider {
      * @generated
      */
     protected void addDefaultValuePropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add(
-                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_ServiceParameter_defaultValue_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_ServiceParameter_defaultValue_feature",
-                                "_UI_ServiceParameter_type" ),
-                        NsdPackage.Literals.SERVICE_PARAMETER__DEFAULT_VALUE, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add( createItemPropertyDescriptor(
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
+                getString( "_UI_AgAttributeTypeAndValues_defaultValue_feature" ),
+                getString( "_UI_PropertyDescriptor_description", "_UI_AgAttributeTypeAndValues_defaultValue_feature",
+                        "_UI_AgAttributeTypeAndValues_type" ),
+                NsdPackage.Literals.AG_ATTRIBUTE_TYPE_AND_VALUES__DEFAULT_VALUE, true, false, false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -96,10 +96,10 @@ public class ServiceParameterItemProvider extends DocumentedClassItemProvider {
     protected void addMaxValuePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_ServiceParameter_maxValue_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_ServiceParameter_maxValue_feature",
-                                "_UI_ServiceParameter_type" ),
-                        NsdPackage.Literals.SERVICE_PARAMETER__MAX_VALUE, true, false, false,
+                        getResourceLocator(), getString( "_UI_AgAttributeTypeAndValues_maxValue_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_AgAttributeTypeAndValues_maxValue_feature", "_UI_AgAttributeTypeAndValues_type" ),
+                        NsdPackage.Literals.AG_ATTRIBUTE_TYPE_AND_VALUES__MAX_VALUE, true, false, false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
@@ -112,10 +112,10 @@ public class ServiceParameterItemProvider extends DocumentedClassItemProvider {
     protected void addMinValuePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_ServiceParameter_minValue_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_ServiceParameter_minValue_feature",
-                                "_UI_ServiceParameter_type" ),
-                        NsdPackage.Literals.SERVICE_PARAMETER__MIN_VALUE, true, false, false,
+                        getResourceLocator(), getString( "_UI_AgAttributeTypeAndValues_minValue_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_AgAttributeTypeAndValues_minValue_feature", "_UI_AgAttributeTypeAndValues_type" ),
+                        NsdPackage.Literals.AG_ATTRIBUTE_TYPE_AND_VALUES__MIN_VALUE, true, false, false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
@@ -144,10 +144,10 @@ public class ServiceParameterItemProvider extends DocumentedClassItemProvider {
     protected void addTypePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_ServiceParameter_type_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_ServiceParameter_type_feature",
-                                "_UI_ServiceParameter_type" ),
-                        NsdPackage.Literals.SERVICE_PARAMETER__TYPE, true, false, false,
+                        getResourceLocator(), getString( "_UI_AgAttributeType_type_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgAttributeType_type_feature",
+                                "_UI_AgAttributeType_type" ),
+                        NsdPackage.Literals.AG_ATTRIBUTE_TYPE__TYPE, true, false, false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
@@ -160,10 +160,10 @@ public class ServiceParameterItemProvider extends DocumentedClassItemProvider {
     protected void addTypeKindPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_ServiceParameter_typeKind_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_ServiceParameter_typeKind_feature",
-                                "_UI_ServiceParameter_type" ),
-                        NsdPackage.Literals.SERVICE_PARAMETER__TYPE_KIND, true, false, false,
+                        getResourceLocator(), getString( "_UI_AgAttributeType_typeKind_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgAttributeType_typeKind_feature",
+                                "_UI_AgAttributeType_type" ),
+                        NsdPackage.Literals.AG_ATTRIBUTE_TYPE__TYPE_KIND, true, false, false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
@@ -203,12 +203,12 @@ public class ServiceParameterItemProvider extends DocumentedClassItemProvider {
         updateChildren( notification );
 
         switch( notification.getFeatureID( ServiceParameter.class ) ) {
+        case NsdPackage.SERVICE_PARAMETER__TYPE:
+        case NsdPackage.SERVICE_PARAMETER__TYPE_KIND:
         case NsdPackage.SERVICE_PARAMETER__DEFAULT_VALUE:
         case NsdPackage.SERVICE_PARAMETER__MAX_VALUE:
         case NsdPackage.SERVICE_PARAMETER__MIN_VALUE:
         case NsdPackage.SERVICE_PARAMETER__NAME:
-        case NsdPackage.SERVICE_PARAMETER__TYPE:
-        case NsdPackage.SERVICE_PARAMETER__TYPE_KIND:
             fireNotifyChanged( new ViewerNotification( notification, notification.getNotifier(), false, true ) );
             return;
         }

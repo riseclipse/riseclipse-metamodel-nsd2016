@@ -36,7 +36,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -56,7 +55,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ApplicableServicesImpl extends MinimalEObjectImpl.Container implements ApplicableServices {
+public class ApplicableServicesImpl extends NsdObjectImpl implements ApplicableServices {
     /**
      * The cached value of the '{@link #getService() <em>Service</em>}' containment reference list.
      * <!-- begin-user-doc -->

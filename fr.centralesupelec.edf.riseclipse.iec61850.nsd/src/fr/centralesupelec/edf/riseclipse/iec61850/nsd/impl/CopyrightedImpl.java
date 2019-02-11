@@ -30,7 +30,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,7 +44,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class CopyrightedImpl extends MinimalEObjectImpl.Container implements Copyrighted {
+public class CopyrightedImpl extends NsdObjectImpl implements Copyrighted {
     /**
      * The cached value of the '{@link #getCopyright() <em>Copyright</em>}' containment reference.
      * <!-- begin-user-doc -->

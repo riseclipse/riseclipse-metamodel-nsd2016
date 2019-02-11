@@ -20,19 +20,23 @@
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,11 +51,12 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.FunctionalConstraintImpl#getDescID <em>Desc ID</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.FunctionalConstraintImpl#getTitleID <em>Title ID</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.FunctionalConstraintImpl#getFunctionalConstraints <em>Functional Constraints</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.FunctionalConstraintImpl#getReferredByDataAttribute <em>Referred By Data Attribute</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class FunctionalConstraintImpl extends MinimalEObjectImpl.Container implements FunctionalConstraint {
+public class FunctionalConstraintImpl extends NsdObjectImpl implements FunctionalConstraint {
     /**
      * The cached value of the '{@link #getApplicableServices() <em>Applicable Services</em>}' containment reference.
      * <!-- begin-user-doc -->
@@ -157,6 +162,16 @@ public class FunctionalConstraintImpl extends MinimalEObjectImpl.Container imple
      * @ordered
      */
     protected boolean titleIDESet;
+
+    /**
+     * The cached value of the '{@link #getReferredByDataAttribute() <em>Referred By Data Attribute</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getReferredByDataAttribute()
+     * @generated
+     * @ordered
+     */
+    protected EList< DataAttribute > referredByDataAttribute;
 
     /**
      * <!-- begin-user-doc -->
@@ -494,6 +509,42 @@ public class FunctionalConstraintImpl extends MinimalEObjectImpl.Container imple
      * @generated
      */
     @Override
+    public EList< DataAttribute > getReferredByDataAttribute() {
+        if( referredByDataAttribute == null ) {
+            referredByDataAttribute = new EObjectWithInverseEList.Unsettable< DataAttribute >( DataAttribute.class,
+                    this, NsdPackage.FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE,
+                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_FUNCTIONAL_CONSTRAINT );
+        }
+        return referredByDataAttribute;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetReferredByDataAttribute() {
+        if( referredByDataAttribute != null ) ( ( InternalEList.Unsettable< ? > ) referredByDataAttribute ).unset();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetReferredByDataAttribute() {
+        return referredByDataAttribute != null && ( ( InternalEList.Unsettable< ? > ) referredByDataAttribute ).isSet();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @SuppressWarnings( "unchecked" )
+    @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.FUNCTIONAL_CONSTRAINT__APPLICABLE_SERVICES:
@@ -503,6 +554,9 @@ public class FunctionalConstraintImpl extends MinimalEObjectImpl.Container imple
         case NsdPackage.FUNCTIONAL_CONSTRAINT__FUNCTIONAL_CONSTRAINTS:
             if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
             return basicSetFunctionalConstraints( ( FunctionalConstraints ) otherEnd, msgs );
+        case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE:
+            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByDataAttribute() )
+                    .basicAdd( otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
     }
@@ -519,6 +573,8 @@ public class FunctionalConstraintImpl extends MinimalEObjectImpl.Container imple
             return basicUnsetApplicableServices( msgs );
         case NsdPackage.FUNCTIONAL_CONSTRAINT__FUNCTIONAL_CONSTRAINTS:
             return basicSetFunctionalConstraints( null, msgs );
+        case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE:
+            return ( ( InternalEList< ? > ) getReferredByDataAttribute() ).basicRemove( otherEnd, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -556,6 +612,8 @@ public class FunctionalConstraintImpl extends MinimalEObjectImpl.Container imple
             return getTitleID();
         case NsdPackage.FUNCTIONAL_CONSTRAINT__FUNCTIONAL_CONSTRAINTS:
             return getFunctionalConstraints();
+        case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE:
+            return getReferredByDataAttribute();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -565,6 +623,7 @@ public class FunctionalConstraintImpl extends MinimalEObjectImpl.Container imple
      * <!-- end-user-doc -->
      * @generated
      */
+    @SuppressWarnings( "unchecked" )
     @Override
     public void eSet( int featureID, Object newValue ) {
         switch( featureID ) {
@@ -582,6 +641,10 @@ public class FunctionalConstraintImpl extends MinimalEObjectImpl.Container imple
             return;
         case NsdPackage.FUNCTIONAL_CONSTRAINT__FUNCTIONAL_CONSTRAINTS:
             setFunctionalConstraints( ( FunctionalConstraints ) newValue );
+            return;
+        case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE:
+            getReferredByDataAttribute().clear();
+            getReferredByDataAttribute().addAll( ( Collection< ? extends DataAttribute > ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -610,6 +673,9 @@ public class FunctionalConstraintImpl extends MinimalEObjectImpl.Container imple
         case NsdPackage.FUNCTIONAL_CONSTRAINT__FUNCTIONAL_CONSTRAINTS:
             setFunctionalConstraints( ( FunctionalConstraints ) null );
             return;
+        case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE:
+            unsetReferredByDataAttribute();
+            return;
         }
         super.eUnset( featureID );
     }
@@ -632,6 +698,8 @@ public class FunctionalConstraintImpl extends MinimalEObjectImpl.Container imple
             return isSetTitleID();
         case NsdPackage.FUNCTIONAL_CONSTRAINT__FUNCTIONAL_CONSTRAINTS:
             return getFunctionalConstraints() != null;
+        case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE:
+            return isSetReferredByDataAttribute();
         }
         return super.eIsSet( featureID );
     }

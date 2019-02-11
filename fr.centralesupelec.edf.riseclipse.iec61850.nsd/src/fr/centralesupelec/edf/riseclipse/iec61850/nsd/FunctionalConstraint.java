@@ -19,7 +19,7 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,13 +35,16 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getDescID <em>Desc ID</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getTitleID <em>Title ID</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getFunctionalConstraints <em>Functional Constraints</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getReferredByDataAttribute <em>Referred By Data Attribute</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getFunctionalConstraint()
  * @model extendedMetaData="name='tFunctionalConstraint' kind='elementOnly'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='abbreviationAttributeRequired'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot abbreviationAttributeRequired='Tuple {\n\tmessage : String = \'The abbreviation attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.abbreviation &lt;&gt; null\n}.status'"
  * @generated
  */
-public interface FunctionalConstraint extends EObject {
+public interface FunctionalConstraint extends NsdObject {
     /**
      * Returns the value of the '<em><b>Applicable Services</b></em>' containment reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices#getFunctionalConstraint <em>Functional Constraint</em>}'.
@@ -275,5 +278,46 @@ public interface FunctionalConstraint extends EObject {
      * @generated
      */
     void setFunctionalConstraints( FunctionalConstraints value );
+
+    /**
+     * Returns the value of the '<em><b>Referred By Data Attribute</b></em>' reference list.
+     * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute}.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToFunctionalConstraint <em>Refers To Functional Constraint</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Referred By Data Attribute</em>' reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Referred By Data Attribute</em>' reference list.
+     * @see #isSetReferredByDataAttribute()
+     * @see #unsetReferredByDataAttribute()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getFunctionalConstraint_ReferredByDataAttribute()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToFunctionalConstraint
+     * @model opposite="refersToFunctionalConstraint" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @generated
+     */
+    EList< DataAttribute > getReferredByDataAttribute();
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getReferredByDataAttribute <em>Referred By Data Attribute</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetReferredByDataAttribute()
+     * @see #getReferredByDataAttribute()
+     * @generated
+     */
+    void unsetReferredByDataAttribute();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getReferredByDataAttribute <em>Referred By Data Attribute</em>}' reference list is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Referred By Data Attribute</em>' reference list is set.
+     * @see #unsetReferredByDataAttribute()
+     * @see #getReferredByDataAttribute()
+     * @generated
+     */
+    boolean isSetReferredByDataAttribute();
 
 } // FunctionalConstraint

@@ -19,23 +19,37 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgArray;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeTypeAndValues;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceCondition;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgTrgOp;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject;
+import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
+
 import java.math.BigDecimal;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.Enumerator;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,319 +59,37 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#isDchg <em>Dchg</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getDefaultValue <em>Default Value</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#isDupd <em>Dupd</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getFc <em>Fc</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#isIsArray <em>Is Array</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getMaxIndexAttribute <em>Max Index Attribute</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getMaxValue <em>Max Value</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getMinIndex <em>Min Index</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getMinValue <em>Min Value</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getPresCond <em>Pres Cond</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getPresCondArgs <em>Pres Cond Args</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getPresCondArgsID <em>Pres Cond Args ID</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#isQchg <em>Qchg</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#isIsArray <em>Is Array</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getMaxIndexAttribute <em>Max Index Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getMinIndex <em>Min Index</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getSizeAttribute <em>Size Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#isDchg <em>Dchg</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#isDupd <em>Dupd</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#isQchg <em>Qchg</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getType <em>Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getTypeKind <em>Type Kind</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getDefaultValue <em>Default Value</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getMaxValue <em>Max Value</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getMinValue <em>Min Value</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getFc <em>Fc</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getCDC <em>CDC</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getReferredBySubDataObjectAsSizeAttribute <em>Referred By Sub Data Object As Size Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getReferredBySubDataObjectAsMaxIndexAttribute <em>Referred By Sub Data Object As Max Index Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getRefersToFunctionalConstraint <em>Refers To Functional Constraint</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getRefersToPresenceCondition <em>Refers To Presence Condition</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getRefersToSizeAttribute <em>Refers To Size Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getRefersToMaxIndexAttribute <em>Refers To Max Index Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getReferredByDataAttributeAsSizeAttribute <em>Referred By Data Attribute As Size Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getReferredByDataAttributeAsMaxIndexAttribute <em>Referred By Data Attribute As Max Index Attribute</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class DataAttributeImpl extends DocumentedClassImpl implements DataAttribute {
-    /**
-     * The default value of the '{@link #isDchg() <em>Dchg</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isDchg()
-     * @generated
-     * @ordered
-     */
-    protected static final boolean DCHG_EDEFAULT = false;
-
-    /**
-     * The cached value of the '{@link #isDchg() <em>Dchg</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isDchg()
-     * @generated
-     * @ordered
-     */
-    protected boolean dchg = DCHG_EDEFAULT;
-
-    /**
-     * This is true if the Dchg attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean dchgESet;
-
-    /**
-     * The default value of the '{@link #getDefaultValue() <em>Default Value</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getDefaultValue()
-     * @generated
-     * @ordered
-     */
-    protected static final String DEFAULT_VALUE_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getDefaultValue() <em>Default Value</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getDefaultValue()
-     * @generated
-     * @ordered
-     */
-    protected String defaultValue = DEFAULT_VALUE_EDEFAULT;
-
-    /**
-     * This is true if the Default Value attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean defaultValueESet;
-
-    /**
-     * The default value of the '{@link #isDupd() <em>Dupd</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isDupd()
-     * @generated
-     * @ordered
-     */
-    protected static final boolean DUPD_EDEFAULT = false;
-
-    /**
-     * The cached value of the '{@link #isDupd() <em>Dupd</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isDupd()
-     * @generated
-     * @ordered
-     */
-    protected boolean dupd = DUPD_EDEFAULT;
-
-    /**
-     * This is true if the Dupd attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean dupdESet;
-
-    /**
-     * The default value of the '{@link #getFc() <em>Fc</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getFc()
-     * @generated
-     * @ordered
-     */
-    protected static final String FC_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getFc() <em>Fc</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getFc()
-     * @generated
-     * @ordered
-     */
-    protected String fc = FC_EDEFAULT;
-
-    /**
-     * This is true if the Fc attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean fcESet;
-
-    /**
-     * The default value of the '{@link #isIsArray() <em>Is Array</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isIsArray()
-     * @generated
-     * @ordered
-     */
-    protected static final boolean IS_ARRAY_EDEFAULT = false;
-
-    /**
-     * The cached value of the '{@link #isIsArray() <em>Is Array</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isIsArray()
-     * @generated
-     * @ordered
-     */
-    protected boolean isArray = IS_ARRAY_EDEFAULT;
-
-    /**
-     * This is true if the Is Array attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean isArrayESet;
-
-    /**
-     * The default value of the '{@link #getMaxIndexAttribute() <em>Max Index Attribute</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getMaxIndexAttribute()
-     * @generated
-     * @ordered
-     */
-    protected static final String MAX_INDEX_ATTRIBUTE_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getMaxIndexAttribute() <em>Max Index Attribute</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getMaxIndexAttribute()
-     * @generated
-     * @ordered
-     */
-    protected String maxIndexAttribute = MAX_INDEX_ATTRIBUTE_EDEFAULT;
-
-    /**
-     * This is true if the Max Index Attribute attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean maxIndexAttributeESet;
-
-    /**
-     * The default value of the '{@link #getMaxValue() <em>Max Value</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getMaxValue()
-     * @generated
-     * @ordered
-     */
-    protected static final BigDecimal MAX_VALUE_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getMaxValue() <em>Max Value</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getMaxValue()
-     * @generated
-     * @ordered
-     */
-    protected BigDecimal maxValue = MAX_VALUE_EDEFAULT;
-
-    /**
-     * This is true if the Max Value attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean maxValueESet;
-
-    /**
-     * The default value of the '{@link #getMinIndex() <em>Min Index</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getMinIndex()
-     * @generated
-     * @ordered
-     */
-    protected static final long MIN_INDEX_EDEFAULT = 0L;
-
-    /**
-     * The cached value of the '{@link #getMinIndex() <em>Min Index</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getMinIndex()
-     * @generated
-     * @ordered
-     */
-    protected long minIndex = MIN_INDEX_EDEFAULT;
-
-    /**
-     * This is true if the Min Index attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean minIndexESet;
-
-    /**
-     * The default value of the '{@link #getMinValue() <em>Min Value</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getMinValue()
-     * @generated
-     * @ordered
-     */
-    protected static final BigDecimal MIN_VALUE_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getMinValue() <em>Min Value</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getMinValue()
-     * @generated
-     * @ordered
-     */
-    protected BigDecimal minValue = MIN_VALUE_EDEFAULT;
-
-    /**
-     * This is true if the Min Value attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean minValueESet;
-
-    /**
-     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-    protected static final String NAME_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-    protected String name = NAME_EDEFAULT;
-
-    /**
-     * This is true if the Name attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean nameESet;
-
     /**
      * The default value of the '{@link #getPresCond() <em>Pres Cond</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -446,33 +178,91 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     protected boolean presCondArgsIDESet;
 
     /**
-     * The default value of the '{@link #isQchg() <em>Qchg</em>}' attribute.
+     * The default value of the '{@link #isIsArray() <em>Is Array</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #isQchg()
+     * @see #isIsArray()
      * @generated
      * @ordered
      */
-    protected static final boolean QCHG_EDEFAULT = false;
+    protected static final boolean IS_ARRAY_EDEFAULT = false;
 
     /**
-     * The cached value of the '{@link #isQchg() <em>Qchg</em>}' attribute.
+     * The cached value of the '{@link #isIsArray() <em>Is Array</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #isQchg()
+     * @see #isIsArray()
      * @generated
      * @ordered
      */
-    protected boolean qchg = QCHG_EDEFAULT;
+    protected boolean isArray = IS_ARRAY_EDEFAULT;
 
     /**
-     * This is true if the Qchg attribute has been set.
+     * This is true if the Is Array attribute has been set.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    protected boolean qchgESet;
+    protected boolean isArrayESet;
+
+    /**
+     * The default value of the '{@link #getMaxIndexAttribute() <em>Max Index Attribute</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getMaxIndexAttribute()
+     * @generated
+     * @ordered
+     */
+    protected static final String MAX_INDEX_ATTRIBUTE_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getMaxIndexAttribute() <em>Max Index Attribute</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getMaxIndexAttribute()
+     * @generated
+     * @ordered
+     */
+    protected String maxIndexAttribute = MAX_INDEX_ATTRIBUTE_EDEFAULT;
+
+    /**
+     * This is true if the Max Index Attribute attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean maxIndexAttributeESet;
+
+    /**
+     * The default value of the '{@link #getMinIndex() <em>Min Index</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getMinIndex()
+     * @generated
+     * @ordered
+     */
+    protected static final long MIN_INDEX_EDEFAULT = 0L;
+
+    /**
+     * The cached value of the '{@link #getMinIndex() <em>Min Index</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getMinIndex()
+     * @generated
+     * @ordered
+     */
+    protected long minIndex = MIN_INDEX_EDEFAULT;
+
+    /**
+     * This is true if the Min Index attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean minIndexESet;
 
     /**
      * The default value of the '{@link #getSizeAttribute() <em>Size Attribute</em>}' attribute.
@@ -502,6 +292,93 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
      * @ordered
      */
     protected boolean sizeAttributeESet;
+
+    /**
+     * The default value of the '{@link #isDchg() <em>Dchg</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isDchg()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean DCHG_EDEFAULT = false;
+
+    /**
+     * The cached value of the '{@link #isDchg() <em>Dchg</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isDchg()
+     * @generated
+     * @ordered
+     */
+    protected boolean dchg = DCHG_EDEFAULT;
+
+    /**
+     * This is true if the Dchg attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean dchgESet;
+
+    /**
+     * The default value of the '{@link #isDupd() <em>Dupd</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isDupd()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean DUPD_EDEFAULT = false;
+
+    /**
+     * The cached value of the '{@link #isDupd() <em>Dupd</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isDupd()
+     * @generated
+     * @ordered
+     */
+    protected boolean dupd = DUPD_EDEFAULT;
+
+    /**
+     * This is true if the Dupd attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean dupdESet;
+
+    /**
+     * The default value of the '{@link #isQchg() <em>Qchg</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isQchg()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean QCHG_EDEFAULT = false;
+
+    /**
+     * The cached value of the '{@link #isQchg() <em>Qchg</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isQchg()
+     * @generated
+     * @ordered
+     */
+    protected boolean qchg = QCHG_EDEFAULT;
+
+    /**
+     * This is true if the Qchg attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean qchgESet;
 
     /**
      * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -561,6 +438,267 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
      * @ordered
      */
     protected boolean typeKindESet;
+
+    /**
+     * The default value of the '{@link #getDefaultValue() <em>Default Value</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getDefaultValue()
+     * @generated
+     * @ordered
+     */
+    protected static final String DEFAULT_VALUE_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getDefaultValue() <em>Default Value</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getDefaultValue()
+     * @generated
+     * @ordered
+     */
+    protected String defaultValue = DEFAULT_VALUE_EDEFAULT;
+
+    /**
+     * This is true if the Default Value attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean defaultValueESet;
+
+    /**
+     * The default value of the '{@link #getMaxValue() <em>Max Value</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getMaxValue()
+     * @generated
+     * @ordered
+     */
+    protected static final BigDecimal MAX_VALUE_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getMaxValue() <em>Max Value</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getMaxValue()
+     * @generated
+     * @ordered
+     */
+    protected BigDecimal maxValue = MAX_VALUE_EDEFAULT;
+
+    /**
+     * This is true if the Max Value attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean maxValueESet;
+
+    /**
+     * The default value of the '{@link #getMinValue() <em>Min Value</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getMinValue()
+     * @generated
+     * @ordered
+     */
+    protected static final BigDecimal MIN_VALUE_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getMinValue() <em>Min Value</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getMinValue()
+     * @generated
+     * @ordered
+     */
+    protected BigDecimal minValue = MIN_VALUE_EDEFAULT;
+
+    /**
+     * This is true if the Min Value attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean minValueESet;
+
+    /**
+     * The default value of the '{@link #getFc() <em>Fc</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getFc()
+     * @generated
+     * @ordered
+     */
+    protected static final String FC_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getFc() <em>Fc</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getFc()
+     * @generated
+     * @ordered
+     */
+    protected String fc = FC_EDEFAULT;
+
+    /**
+     * This is true if the Fc attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean fcESet;
+
+    /**
+     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
+    protected static final String NAME_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
+    protected String name = NAME_EDEFAULT;
+
+    /**
+     * This is true if the Name attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean nameESet;
+
+    /**
+     * The cached value of the '{@link #getReferredBySubDataObjectAsSizeAttribute() <em>Referred By Sub Data Object As Size Attribute</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getReferredBySubDataObjectAsSizeAttribute()
+     * @generated
+     * @ordered
+     */
+    protected EList< SubDataObject > referredBySubDataObjectAsSizeAttribute;
+
+    /**
+     * The cached value of the '{@link #getReferredBySubDataObjectAsMaxIndexAttribute() <em>Referred By Sub Data Object As Max Index Attribute</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getReferredBySubDataObjectAsMaxIndexAttribute()
+     * @generated
+     * @ordered
+     */
+    protected EList< SubDataObject > referredBySubDataObjectAsMaxIndexAttribute;
+
+    /**
+     * The cached value of the '{@link #getRefersToFunctionalConstraint() <em>Refers To Functional Constraint</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRefersToFunctionalConstraint()
+     * @generated
+     * @ordered
+     */
+    protected FunctionalConstraint refersToFunctionalConstraint;
+
+    /**
+     * This is true if the Refers To Functional Constraint reference has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean refersToFunctionalConstraintESet;
+
+    /**
+     * The cached value of the '{@link #getRefersToPresenceCondition() <em>Refers To Presence Condition</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRefersToPresenceCondition()
+     * @generated
+     * @ordered
+     */
+    protected PresenceCondition refersToPresenceCondition;
+
+    /**
+     * This is true if the Refers To Presence Condition reference has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean refersToPresenceConditionESet;
+
+    /**
+     * The cached value of the '{@link #getRefersToSizeAttribute() <em>Refers To Size Attribute</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRefersToSizeAttribute()
+     * @generated
+     * @ordered
+     */
+    protected DataAttribute refersToSizeAttribute;
+
+    /**
+     * This is true if the Refers To Size Attribute reference has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean refersToSizeAttributeESet;
+
+    /**
+     * The cached value of the '{@link #getRefersToMaxIndexAttribute() <em>Refers To Max Index Attribute</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRefersToMaxIndexAttribute()
+     * @generated
+     * @ordered
+     */
+    protected DataAttribute refersToMaxIndexAttribute;
+
+    /**
+     * This is true if the Refers To Max Index Attribute reference has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean refersToMaxIndexAttributeESet;
+
+    /**
+     * The cached value of the '{@link #getReferredByDataAttributeAsSizeAttribute() <em>Referred By Data Attribute As Size Attribute</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getReferredByDataAttributeAsSizeAttribute()
+     * @generated
+     * @ordered
+     */
+    protected EList< DataAttribute > referredByDataAttributeAsSizeAttribute;
+
+    /**
+     * The cached value of the '{@link #getReferredByDataAttributeAsMaxIndexAttribute() <em>Referred By Data Attribute As Max Index Attribute</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getReferredByDataAttributeAsMaxIndexAttribute()
+     * @generated
+     * @ordered
+     */
+    protected EList< DataAttribute > referredByDataAttributeAsMaxIndexAttribute;
 
     /**
      * <!-- begin-user-doc -->
@@ -1487,11 +1625,664 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
      * @generated
      */
     @Override
+    public EList< SubDataObject > getReferredBySubDataObjectAsSizeAttribute() {
+        if( referredBySubDataObjectAsSizeAttribute == null ) {
+            referredBySubDataObjectAsSizeAttribute = new EObjectWithInverseEList.Unsettable< SubDataObject >(
+                    SubDataObject.class, this, NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_SIZE_ATTRIBUTE,
+                    NsdPackage.SUB_DATA_OBJECT__REFERS_TO_SIZE_ATTRIBUTE );
+        }
+        return referredBySubDataObjectAsSizeAttribute;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetReferredBySubDataObjectAsSizeAttribute() {
+        if( referredBySubDataObjectAsSizeAttribute != null )
+            ( ( InternalEList.Unsettable< ? > ) referredBySubDataObjectAsSizeAttribute ).unset();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetReferredBySubDataObjectAsSizeAttribute() {
+        return referredBySubDataObjectAsSizeAttribute != null
+                && ( ( InternalEList.Unsettable< ? > ) referredBySubDataObjectAsSizeAttribute ).isSet();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EList< SubDataObject > getReferredBySubDataObjectAsMaxIndexAttribute() {
+        if( referredBySubDataObjectAsMaxIndexAttribute == null ) {
+            referredBySubDataObjectAsMaxIndexAttribute = new EObjectWithInverseEList.Unsettable< SubDataObject >(
+                    SubDataObject.class, this,
+                    NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_MAX_INDEX_ATTRIBUTE,
+                    NsdPackage.SUB_DATA_OBJECT__REFERS_TO_MAX_INDEX_ATTRIBUTE );
+        }
+        return referredBySubDataObjectAsMaxIndexAttribute;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetReferredBySubDataObjectAsMaxIndexAttribute() {
+        if( referredBySubDataObjectAsMaxIndexAttribute != null )
+            ( ( InternalEList.Unsettable< ? > ) referredBySubDataObjectAsMaxIndexAttribute ).unset();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetReferredBySubDataObjectAsMaxIndexAttribute() {
+        return referredBySubDataObjectAsMaxIndexAttribute != null
+                && ( ( InternalEList.Unsettable< ? > ) referredBySubDataObjectAsMaxIndexAttribute ).isSet();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public FunctionalConstraint getRefersToFunctionalConstraint() {
+        return refersToFunctionalConstraint;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetRefersToFunctionalConstraint( FunctionalConstraint newRefersToFunctionalConstraint,
+            NotificationChain msgs ) {
+        FunctionalConstraint oldRefersToFunctionalConstraint = refersToFunctionalConstraint;
+        refersToFunctionalConstraint = newRefersToFunctionalConstraint;
+        boolean oldRefersToFunctionalConstraintESet = refersToFunctionalConstraintESet;
+        refersToFunctionalConstraintESet = true;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_FUNCTIONAL_CONSTRAINT, oldRefersToFunctionalConstraint,
+                    newRefersToFunctionalConstraint, !oldRefersToFunctionalConstraintESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setRefersToFunctionalConstraint( FunctionalConstraint newRefersToFunctionalConstraint ) {
+        if( newRefersToFunctionalConstraint != refersToFunctionalConstraint ) {
+            NotificationChain msgs = null;
+            if( refersToFunctionalConstraint != null )
+                msgs = ( ( InternalEObject ) refersToFunctionalConstraint ).eInverseRemove( this,
+                        NsdPackage.FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE, FunctionalConstraint.class,
+                        msgs );
+            if( newRefersToFunctionalConstraint != null )
+                msgs = ( ( InternalEObject ) newRefersToFunctionalConstraint ).eInverseAdd( this,
+                        NsdPackage.FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE, FunctionalConstraint.class,
+                        msgs );
+            msgs = basicSetRefersToFunctionalConstraint( newRefersToFunctionalConstraint, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToFunctionalConstraintESet = refersToFunctionalConstraintESet;
+            refersToFunctionalConstraintESet = true;
+            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_FUNCTIONAL_CONSTRAINT, newRefersToFunctionalConstraint,
+                    newRefersToFunctionalConstraint, !oldRefersToFunctionalConstraintESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicUnsetRefersToFunctionalConstraint( NotificationChain msgs ) {
+        FunctionalConstraint oldRefersToFunctionalConstraint = refersToFunctionalConstraint;
+        refersToFunctionalConstraint = null;
+        boolean oldRefersToFunctionalConstraintESet = refersToFunctionalConstraintESet;
+        refersToFunctionalConstraintESet = false;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_FUNCTIONAL_CONSTRAINT, oldRefersToFunctionalConstraint, null,
+                    oldRefersToFunctionalConstraintESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetRefersToFunctionalConstraint() {
+        if( refersToFunctionalConstraint != null ) {
+            NotificationChain msgs = null;
+            msgs = ( ( InternalEObject ) refersToFunctionalConstraint ).eInverseRemove( this,
+                    NsdPackage.FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE, FunctionalConstraint.class, msgs );
+            msgs = basicUnsetRefersToFunctionalConstraint( msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToFunctionalConstraintESet = refersToFunctionalConstraintESet;
+            refersToFunctionalConstraintESet = false;
+            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_FUNCTIONAL_CONSTRAINT, null, null,
+                    oldRefersToFunctionalConstraintESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetRefersToFunctionalConstraint() {
+        return refersToFunctionalConstraintESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public PresenceCondition getRefersToPresenceCondition() {
+        return refersToPresenceCondition;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetRefersToPresenceCondition( PresenceCondition newRefersToPresenceCondition,
+            NotificationChain msgs ) {
+        PresenceCondition oldRefersToPresenceCondition = refersToPresenceCondition;
+        refersToPresenceCondition = newRefersToPresenceCondition;
+        boolean oldRefersToPresenceConditionESet = refersToPresenceConditionESet;
+        refersToPresenceConditionESet = true;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION, oldRefersToPresenceCondition,
+                    newRefersToPresenceCondition, !oldRefersToPresenceConditionESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setRefersToPresenceCondition( PresenceCondition newRefersToPresenceCondition ) {
+        if( newRefersToPresenceCondition != refersToPresenceCondition ) {
+            NotificationChain msgs = null;
+            if( refersToPresenceCondition != null )
+                msgs = ( ( InternalEObject ) refersToPresenceCondition ).eInverseRemove( this,
+                        NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_ATTRIBUTE, PresenceCondition.class, msgs );
+            if( newRefersToPresenceCondition != null )
+                msgs = ( ( InternalEObject ) newRefersToPresenceCondition ).eInverseAdd( this,
+                        NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_ATTRIBUTE, PresenceCondition.class, msgs );
+            msgs = basicSetRefersToPresenceCondition( newRefersToPresenceCondition, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToPresenceConditionESet = refersToPresenceConditionESet;
+            refersToPresenceConditionESet = true;
+            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION, newRefersToPresenceCondition,
+                    newRefersToPresenceCondition, !oldRefersToPresenceConditionESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicUnsetRefersToPresenceCondition( NotificationChain msgs ) {
+        PresenceCondition oldRefersToPresenceCondition = refersToPresenceCondition;
+        refersToPresenceCondition = null;
+        boolean oldRefersToPresenceConditionESet = refersToPresenceConditionESet;
+        refersToPresenceConditionESet = false;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION, oldRefersToPresenceCondition, null,
+                    oldRefersToPresenceConditionESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetRefersToPresenceCondition() {
+        if( refersToPresenceCondition != null ) {
+            NotificationChain msgs = null;
+            msgs = ( ( InternalEObject ) refersToPresenceCondition ).eInverseRemove( this,
+                    NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_ATTRIBUTE, PresenceCondition.class, msgs );
+            msgs = basicUnsetRefersToPresenceCondition( msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToPresenceConditionESet = refersToPresenceConditionESet;
+            refersToPresenceConditionESet = false;
+            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION, null, null,
+                    oldRefersToPresenceConditionESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetRefersToPresenceCondition() {
+        return refersToPresenceConditionESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public DataAttribute getRefersToSizeAttribute() {
+        return refersToSizeAttribute;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetRefersToSizeAttribute( DataAttribute newRefersToSizeAttribute,
+            NotificationChain msgs ) {
+        DataAttribute oldRefersToSizeAttribute = refersToSizeAttribute;
+        refersToSizeAttribute = newRefersToSizeAttribute;
+        boolean oldRefersToSizeAttributeESet = refersToSizeAttributeESet;
+        refersToSizeAttributeESet = true;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_SIZE_ATTRIBUTE, oldRefersToSizeAttribute,
+                    newRefersToSizeAttribute, !oldRefersToSizeAttributeESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setRefersToSizeAttribute( DataAttribute newRefersToSizeAttribute ) {
+        if( newRefersToSizeAttribute != refersToSizeAttribute ) {
+            NotificationChain msgs = null;
+            if( refersToSizeAttribute != null )
+                msgs = ( ( InternalEObject ) refersToSizeAttribute ).eInverseRemove( this,
+                        NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_SIZE_ATTRIBUTE, DataAttribute.class,
+                        msgs );
+            if( newRefersToSizeAttribute != null )
+                msgs = ( ( InternalEObject ) newRefersToSizeAttribute ).eInverseAdd( this,
+                        NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_SIZE_ATTRIBUTE, DataAttribute.class,
+                        msgs );
+            msgs = basicSetRefersToSizeAttribute( newRefersToSizeAttribute, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToSizeAttributeESet = refersToSizeAttributeESet;
+            refersToSizeAttributeESet = true;
+            if( eNotificationRequired() ) eNotify(
+                    new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__REFERS_TO_SIZE_ATTRIBUTE,
+                            newRefersToSizeAttribute, newRefersToSizeAttribute, !oldRefersToSizeAttributeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicUnsetRefersToSizeAttribute( NotificationChain msgs ) {
+        DataAttribute oldRefersToSizeAttribute = refersToSizeAttribute;
+        refersToSizeAttribute = null;
+        boolean oldRefersToSizeAttributeESet = refersToSizeAttributeESet;
+        refersToSizeAttributeESet = false;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_SIZE_ATTRIBUTE, oldRefersToSizeAttribute, null,
+                    oldRefersToSizeAttributeESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetRefersToSizeAttribute() {
+        if( refersToSizeAttribute != null ) {
+            NotificationChain msgs = null;
+            msgs = ( ( InternalEObject ) refersToSizeAttribute ).eInverseRemove( this,
+                    NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_SIZE_ATTRIBUTE, DataAttribute.class,
+                    msgs );
+            msgs = basicUnsetRefersToSizeAttribute( msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToSizeAttributeESet = refersToSizeAttributeESet;
+            refersToSizeAttributeESet = false;
+            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_SIZE_ATTRIBUTE, null, null, oldRefersToSizeAttributeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetRefersToSizeAttribute() {
+        return refersToSizeAttributeESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public DataAttribute getRefersToMaxIndexAttribute() {
+        return refersToMaxIndexAttribute;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetRefersToMaxIndexAttribute( DataAttribute newRefersToMaxIndexAttribute,
+            NotificationChain msgs ) {
+        DataAttribute oldRefersToMaxIndexAttribute = refersToMaxIndexAttribute;
+        refersToMaxIndexAttribute = newRefersToMaxIndexAttribute;
+        boolean oldRefersToMaxIndexAttributeESet = refersToMaxIndexAttributeESet;
+        refersToMaxIndexAttributeESet = true;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_MAX_INDEX_ATTRIBUTE, oldRefersToMaxIndexAttribute,
+                    newRefersToMaxIndexAttribute, !oldRefersToMaxIndexAttributeESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setRefersToMaxIndexAttribute( DataAttribute newRefersToMaxIndexAttribute ) {
+        if( newRefersToMaxIndexAttribute != refersToMaxIndexAttribute ) {
+            NotificationChain msgs = null;
+            if( refersToMaxIndexAttribute != null )
+                msgs = ( ( InternalEObject ) refersToMaxIndexAttribute ).eInverseRemove( this,
+                        NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_MAX_INDEX_ATTRIBUTE,
+                        DataAttribute.class, msgs );
+            if( newRefersToMaxIndexAttribute != null )
+                msgs = ( ( InternalEObject ) newRefersToMaxIndexAttribute ).eInverseAdd( this,
+                        NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_MAX_INDEX_ATTRIBUTE,
+                        DataAttribute.class, msgs );
+            msgs = basicSetRefersToMaxIndexAttribute( newRefersToMaxIndexAttribute, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToMaxIndexAttributeESet = refersToMaxIndexAttributeESet;
+            refersToMaxIndexAttributeESet = true;
+            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_MAX_INDEX_ATTRIBUTE, newRefersToMaxIndexAttribute,
+                    newRefersToMaxIndexAttribute, !oldRefersToMaxIndexAttributeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicUnsetRefersToMaxIndexAttribute( NotificationChain msgs ) {
+        DataAttribute oldRefersToMaxIndexAttribute = refersToMaxIndexAttribute;
+        refersToMaxIndexAttribute = null;
+        boolean oldRefersToMaxIndexAttributeESet = refersToMaxIndexAttributeESet;
+        refersToMaxIndexAttributeESet = false;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_MAX_INDEX_ATTRIBUTE, oldRefersToMaxIndexAttribute, null,
+                    oldRefersToMaxIndexAttributeESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetRefersToMaxIndexAttribute() {
+        if( refersToMaxIndexAttribute != null ) {
+            NotificationChain msgs = null;
+            msgs = ( ( InternalEObject ) refersToMaxIndexAttribute ).eInverseRemove( this,
+                    NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_MAX_INDEX_ATTRIBUTE, DataAttribute.class,
+                    msgs );
+            msgs = basicUnsetRefersToMaxIndexAttribute( msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToMaxIndexAttributeESet = refersToMaxIndexAttributeESet;
+            refersToMaxIndexAttributeESet = false;
+            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_MAX_INDEX_ATTRIBUTE, null, null,
+                    oldRefersToMaxIndexAttributeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetRefersToMaxIndexAttribute() {
+        return refersToMaxIndexAttributeESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EList< DataAttribute > getReferredByDataAttributeAsSizeAttribute() {
+        if( referredByDataAttributeAsSizeAttribute == null ) {
+            referredByDataAttributeAsSizeAttribute = new EObjectWithInverseEList.Unsettable< DataAttribute >(
+                    DataAttribute.class, this, NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_SIZE_ATTRIBUTE,
+                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_SIZE_ATTRIBUTE );
+        }
+        return referredByDataAttributeAsSizeAttribute;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetReferredByDataAttributeAsSizeAttribute() {
+        if( referredByDataAttributeAsSizeAttribute != null )
+            ( ( InternalEList.Unsettable< ? > ) referredByDataAttributeAsSizeAttribute ).unset();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetReferredByDataAttributeAsSizeAttribute() {
+        return referredByDataAttributeAsSizeAttribute != null
+                && ( ( InternalEList.Unsettable< ? > ) referredByDataAttributeAsSizeAttribute ).isSet();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EList< DataAttribute > getReferredByDataAttributeAsMaxIndexAttribute() {
+        if( referredByDataAttributeAsMaxIndexAttribute == null ) {
+            referredByDataAttributeAsMaxIndexAttribute = new EObjectWithInverseEList.Unsettable< DataAttribute >(
+                    DataAttribute.class, this,
+                    NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_MAX_INDEX_ATTRIBUTE,
+                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_MAX_INDEX_ATTRIBUTE );
+        }
+        return referredByDataAttributeAsMaxIndexAttribute;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetReferredByDataAttributeAsMaxIndexAttribute() {
+        if( referredByDataAttributeAsMaxIndexAttribute != null )
+            ( ( InternalEList.Unsettable< ? > ) referredByDataAttributeAsMaxIndexAttribute ).unset();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetReferredByDataAttributeAsMaxIndexAttribute() {
+        return referredByDataAttributeAsMaxIndexAttribute != null
+                && ( ( InternalEList.Unsettable< ? > ) referredByDataAttributeAsMaxIndexAttribute ).isSet();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @SuppressWarnings( "unchecked" )
+    @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.DATA_ATTRIBUTE__CDC:
             if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
             return basicSetCDC( ( CDC ) otherEnd, msgs );
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_SIZE_ATTRIBUTE:
+            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredBySubDataObjectAsSizeAttribute() )
+                    .basicAdd( otherEnd, msgs );
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_MAX_INDEX_ATTRIBUTE:
+            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredBySubDataObjectAsMaxIndexAttribute() )
+                    .basicAdd( otherEnd, msgs );
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_FUNCTIONAL_CONSTRAINT:
+            if( refersToFunctionalConstraint != null )
+                msgs = ( ( InternalEObject ) refersToFunctionalConstraint ).eInverseRemove( this,
+                        NsdPackage.FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE, FunctionalConstraint.class,
+                        msgs );
+            return basicSetRefersToFunctionalConstraint( ( FunctionalConstraint ) otherEnd, msgs );
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION:
+            if( refersToPresenceCondition != null )
+                msgs = ( ( InternalEObject ) refersToPresenceCondition ).eInverseRemove( this,
+                        NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_ATTRIBUTE, PresenceCondition.class, msgs );
+            return basicSetRefersToPresenceCondition( ( PresenceCondition ) otherEnd, msgs );
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_SIZE_ATTRIBUTE:
+            if( refersToSizeAttribute != null )
+                msgs = ( ( InternalEObject ) refersToSizeAttribute ).eInverseRemove( this,
+                        NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_SIZE_ATTRIBUTE, DataAttribute.class,
+                        msgs );
+            return basicSetRefersToSizeAttribute( ( DataAttribute ) otherEnd, msgs );
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_MAX_INDEX_ATTRIBUTE:
+            if( refersToMaxIndexAttribute != null )
+                msgs = ( ( InternalEObject ) refersToMaxIndexAttribute ).eInverseRemove( this,
+                        NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_MAX_INDEX_ATTRIBUTE,
+                        DataAttribute.class, msgs );
+            return basicSetRefersToMaxIndexAttribute( ( DataAttribute ) otherEnd, msgs );
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_SIZE_ATTRIBUTE:
+            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByDataAttributeAsSizeAttribute() )
+                    .basicAdd( otherEnd, msgs );
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_MAX_INDEX_ATTRIBUTE:
+            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByDataAttributeAsMaxIndexAttribute() )
+                    .basicAdd( otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
     }
@@ -1506,6 +2297,24 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         switch( featureID ) {
         case NsdPackage.DATA_ATTRIBUTE__CDC:
             return basicSetCDC( null, msgs );
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_SIZE_ATTRIBUTE:
+            return ( ( InternalEList< ? > ) getReferredBySubDataObjectAsSizeAttribute() ).basicRemove( otherEnd, msgs );
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_MAX_INDEX_ATTRIBUTE:
+            return ( ( InternalEList< ? > ) getReferredBySubDataObjectAsMaxIndexAttribute() ).basicRemove( otherEnd,
+                    msgs );
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_FUNCTIONAL_CONSTRAINT:
+            return basicUnsetRefersToFunctionalConstraint( msgs );
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION:
+            return basicUnsetRefersToPresenceCondition( msgs );
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_SIZE_ATTRIBUTE:
+            return basicUnsetRefersToSizeAttribute( msgs );
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_MAX_INDEX_ATTRIBUTE:
+            return basicUnsetRefersToMaxIndexAttribute( msgs );
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_SIZE_ATTRIBUTE:
+            return ( ( InternalEList< ? > ) getReferredByDataAttributeAsSizeAttribute() ).basicRemove( otherEnd, msgs );
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_MAX_INDEX_ATTRIBUTE:
+            return ( ( InternalEList< ? > ) getReferredByDataAttributeAsMaxIndexAttribute() ).basicRemove( otherEnd,
+                    msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -1532,42 +2341,58 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     @Override
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
-        case NsdPackage.DATA_ATTRIBUTE__DCHG:
-            return isDchg();
-        case NsdPackage.DATA_ATTRIBUTE__DEFAULT_VALUE:
-            return getDefaultValue();
-        case NsdPackage.DATA_ATTRIBUTE__DUPD:
-            return isDupd();
-        case NsdPackage.DATA_ATTRIBUTE__FC:
-            return getFc();
-        case NsdPackage.DATA_ATTRIBUTE__IS_ARRAY:
-            return isIsArray();
-        case NsdPackage.DATA_ATTRIBUTE__MAX_INDEX_ATTRIBUTE:
-            return getMaxIndexAttribute();
-        case NsdPackage.DATA_ATTRIBUTE__MAX_VALUE:
-            return getMaxValue();
-        case NsdPackage.DATA_ATTRIBUTE__MIN_INDEX:
-            return getMinIndex();
-        case NsdPackage.DATA_ATTRIBUTE__MIN_VALUE:
-            return getMinValue();
-        case NsdPackage.DATA_ATTRIBUTE__NAME:
-            return getName();
         case NsdPackage.DATA_ATTRIBUTE__PRES_COND:
             return getPresCond();
         case NsdPackage.DATA_ATTRIBUTE__PRES_COND_ARGS:
             return getPresCondArgs();
         case NsdPackage.DATA_ATTRIBUTE__PRES_COND_ARGS_ID:
             return getPresCondArgsID();
-        case NsdPackage.DATA_ATTRIBUTE__QCHG:
-            return isQchg();
+        case NsdPackage.DATA_ATTRIBUTE__IS_ARRAY:
+            return isIsArray();
+        case NsdPackage.DATA_ATTRIBUTE__MAX_INDEX_ATTRIBUTE:
+            return getMaxIndexAttribute();
+        case NsdPackage.DATA_ATTRIBUTE__MIN_INDEX:
+            return getMinIndex();
         case NsdPackage.DATA_ATTRIBUTE__SIZE_ATTRIBUTE:
             return getSizeAttribute();
+        case NsdPackage.DATA_ATTRIBUTE__DCHG:
+            return isDchg();
+        case NsdPackage.DATA_ATTRIBUTE__DUPD:
+            return isDupd();
+        case NsdPackage.DATA_ATTRIBUTE__QCHG:
+            return isQchg();
         case NsdPackage.DATA_ATTRIBUTE__TYPE:
             return getType();
         case NsdPackage.DATA_ATTRIBUTE__TYPE_KIND:
             return getTypeKind();
+        case NsdPackage.DATA_ATTRIBUTE__DEFAULT_VALUE:
+            return getDefaultValue();
+        case NsdPackage.DATA_ATTRIBUTE__MAX_VALUE:
+            return getMaxValue();
+        case NsdPackage.DATA_ATTRIBUTE__MIN_VALUE:
+            return getMinValue();
+        case NsdPackage.DATA_ATTRIBUTE__FC:
+            return getFc();
+        case NsdPackage.DATA_ATTRIBUTE__NAME:
+            return getName();
         case NsdPackage.DATA_ATTRIBUTE__CDC:
             return getCDC();
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_SIZE_ATTRIBUTE:
+            return getReferredBySubDataObjectAsSizeAttribute();
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_MAX_INDEX_ATTRIBUTE:
+            return getReferredBySubDataObjectAsMaxIndexAttribute();
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_FUNCTIONAL_CONSTRAINT:
+            return getRefersToFunctionalConstraint();
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION:
+            return getRefersToPresenceCondition();
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_SIZE_ATTRIBUTE:
+            return getRefersToSizeAttribute();
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_MAX_INDEX_ATTRIBUTE:
+            return getRefersToMaxIndexAttribute();
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_SIZE_ATTRIBUTE:
+            return getReferredByDataAttributeAsSizeAttribute();
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_MAX_INDEX_ATTRIBUTE:
+            return getReferredByDataAttributeAsMaxIndexAttribute();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -1577,39 +2402,10 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
      * <!-- end-user-doc -->
      * @generated
      */
+    @SuppressWarnings( "unchecked" )
     @Override
     public void eSet( int featureID, Object newValue ) {
         switch( featureID ) {
-        case NsdPackage.DATA_ATTRIBUTE__DCHG:
-            setDchg( ( Boolean ) newValue );
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__DEFAULT_VALUE:
-            setDefaultValue( ( String ) newValue );
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__DUPD:
-            setDupd( ( Boolean ) newValue );
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__FC:
-            setFc( ( String ) newValue );
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__IS_ARRAY:
-            setIsArray( ( Boolean ) newValue );
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__MAX_INDEX_ATTRIBUTE:
-            setMaxIndexAttribute( ( String ) newValue );
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__MAX_VALUE:
-            setMaxValue( ( BigDecimal ) newValue );
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__MIN_INDEX:
-            setMinIndex( ( Long ) newValue );
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__MIN_VALUE:
-            setMinValue( ( BigDecimal ) newValue );
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__NAME:
-            setName( ( String ) newValue );
-            return;
         case NsdPackage.DATA_ATTRIBUTE__PRES_COND:
             setPresCond( ( String ) newValue );
             return;
@@ -1619,11 +2415,26 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         case NsdPackage.DATA_ATTRIBUTE__PRES_COND_ARGS_ID:
             setPresCondArgsID( ( String ) newValue );
             return;
-        case NsdPackage.DATA_ATTRIBUTE__QCHG:
-            setQchg( ( Boolean ) newValue );
+        case NsdPackage.DATA_ATTRIBUTE__IS_ARRAY:
+            setIsArray( ( Boolean ) newValue );
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__MAX_INDEX_ATTRIBUTE:
+            setMaxIndexAttribute( ( String ) newValue );
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__MIN_INDEX:
+            setMinIndex( ( Long ) newValue );
             return;
         case NsdPackage.DATA_ATTRIBUTE__SIZE_ATTRIBUTE:
             setSizeAttribute( ( String ) newValue );
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__DCHG:
+            setDchg( ( Boolean ) newValue );
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__DUPD:
+            setDupd( ( Boolean ) newValue );
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__QCHG:
+            setQchg( ( Boolean ) newValue );
             return;
         case NsdPackage.DATA_ATTRIBUTE__TYPE:
             setType( ( String ) newValue );
@@ -1631,8 +2442,53 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         case NsdPackage.DATA_ATTRIBUTE__TYPE_KIND:
             setTypeKind( ( Enumerator ) newValue );
             return;
+        case NsdPackage.DATA_ATTRIBUTE__DEFAULT_VALUE:
+            setDefaultValue( ( String ) newValue );
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__MAX_VALUE:
+            setMaxValue( ( BigDecimal ) newValue );
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__MIN_VALUE:
+            setMinValue( ( BigDecimal ) newValue );
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__FC:
+            setFc( ( String ) newValue );
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__NAME:
+            setName( ( String ) newValue );
+            return;
         case NsdPackage.DATA_ATTRIBUTE__CDC:
             setCDC( ( CDC ) newValue );
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_SIZE_ATTRIBUTE:
+            getReferredBySubDataObjectAsSizeAttribute().clear();
+            getReferredBySubDataObjectAsSizeAttribute().addAll( ( Collection< ? extends SubDataObject > ) newValue );
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_MAX_INDEX_ATTRIBUTE:
+            getReferredBySubDataObjectAsMaxIndexAttribute().clear();
+            getReferredBySubDataObjectAsMaxIndexAttribute()
+                    .addAll( ( Collection< ? extends SubDataObject > ) newValue );
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_FUNCTIONAL_CONSTRAINT:
+            setRefersToFunctionalConstraint( ( FunctionalConstraint ) newValue );
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION:
+            setRefersToPresenceCondition( ( PresenceCondition ) newValue );
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_SIZE_ATTRIBUTE:
+            setRefersToSizeAttribute( ( DataAttribute ) newValue );
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_MAX_INDEX_ATTRIBUTE:
+            setRefersToMaxIndexAttribute( ( DataAttribute ) newValue );
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_SIZE_ATTRIBUTE:
+            getReferredByDataAttributeAsSizeAttribute().clear();
+            getReferredByDataAttributeAsSizeAttribute().addAll( ( Collection< ? extends DataAttribute > ) newValue );
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_MAX_INDEX_ATTRIBUTE:
+            getReferredByDataAttributeAsMaxIndexAttribute().clear();
+            getReferredByDataAttributeAsMaxIndexAttribute()
+                    .addAll( ( Collection< ? extends DataAttribute > ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -1646,36 +2502,6 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     @Override
     public void eUnset( int featureID ) {
         switch( featureID ) {
-        case NsdPackage.DATA_ATTRIBUTE__DCHG:
-            unsetDchg();
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__DEFAULT_VALUE:
-            unsetDefaultValue();
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__DUPD:
-            unsetDupd();
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__FC:
-            unsetFc();
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__IS_ARRAY:
-            unsetIsArray();
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__MAX_INDEX_ATTRIBUTE:
-            unsetMaxIndexAttribute();
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__MAX_VALUE:
-            unsetMaxValue();
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__MIN_INDEX:
-            unsetMinIndex();
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__MIN_VALUE:
-            unsetMinValue();
-            return;
-        case NsdPackage.DATA_ATTRIBUTE__NAME:
-            unsetName();
-            return;
         case NsdPackage.DATA_ATTRIBUTE__PRES_COND:
             unsetPresCond();
             return;
@@ -1685,11 +2511,26 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         case NsdPackage.DATA_ATTRIBUTE__PRES_COND_ARGS_ID:
             unsetPresCondArgsID();
             return;
-        case NsdPackage.DATA_ATTRIBUTE__QCHG:
-            unsetQchg();
+        case NsdPackage.DATA_ATTRIBUTE__IS_ARRAY:
+            unsetIsArray();
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__MAX_INDEX_ATTRIBUTE:
+            unsetMaxIndexAttribute();
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__MIN_INDEX:
+            unsetMinIndex();
             return;
         case NsdPackage.DATA_ATTRIBUTE__SIZE_ATTRIBUTE:
             unsetSizeAttribute();
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__DCHG:
+            unsetDchg();
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__DUPD:
+            unsetDupd();
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__QCHG:
+            unsetQchg();
             return;
         case NsdPackage.DATA_ATTRIBUTE__TYPE:
             unsetType();
@@ -1697,8 +2538,47 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         case NsdPackage.DATA_ATTRIBUTE__TYPE_KIND:
             unsetTypeKind();
             return;
+        case NsdPackage.DATA_ATTRIBUTE__DEFAULT_VALUE:
+            unsetDefaultValue();
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__MAX_VALUE:
+            unsetMaxValue();
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__MIN_VALUE:
+            unsetMinValue();
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__FC:
+            unsetFc();
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__NAME:
+            unsetName();
+            return;
         case NsdPackage.DATA_ATTRIBUTE__CDC:
             setCDC( ( CDC ) null );
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_SIZE_ATTRIBUTE:
+            unsetReferredBySubDataObjectAsSizeAttribute();
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_MAX_INDEX_ATTRIBUTE:
+            unsetReferredBySubDataObjectAsMaxIndexAttribute();
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_FUNCTIONAL_CONSTRAINT:
+            unsetRefersToFunctionalConstraint();
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION:
+            unsetRefersToPresenceCondition();
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_SIZE_ATTRIBUTE:
+            unsetRefersToSizeAttribute();
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_MAX_INDEX_ATTRIBUTE:
+            unsetRefersToMaxIndexAttribute();
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_SIZE_ATTRIBUTE:
+            unsetReferredByDataAttributeAsSizeAttribute();
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_MAX_INDEX_ATTRIBUTE:
+            unsetReferredByDataAttributeAsMaxIndexAttribute();
             return;
         }
         super.eUnset( featureID );
@@ -1712,44 +2592,200 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     @Override
     public boolean eIsSet( int featureID ) {
         switch( featureID ) {
-        case NsdPackage.DATA_ATTRIBUTE__DCHG:
-            return isSetDchg();
-        case NsdPackage.DATA_ATTRIBUTE__DEFAULT_VALUE:
-            return isSetDefaultValue();
-        case NsdPackage.DATA_ATTRIBUTE__DUPD:
-            return isSetDupd();
-        case NsdPackage.DATA_ATTRIBUTE__FC:
-            return isSetFc();
-        case NsdPackage.DATA_ATTRIBUTE__IS_ARRAY:
-            return isSetIsArray();
-        case NsdPackage.DATA_ATTRIBUTE__MAX_INDEX_ATTRIBUTE:
-            return isSetMaxIndexAttribute();
-        case NsdPackage.DATA_ATTRIBUTE__MAX_VALUE:
-            return isSetMaxValue();
-        case NsdPackage.DATA_ATTRIBUTE__MIN_INDEX:
-            return isSetMinIndex();
-        case NsdPackage.DATA_ATTRIBUTE__MIN_VALUE:
-            return isSetMinValue();
-        case NsdPackage.DATA_ATTRIBUTE__NAME:
-            return isSetName();
         case NsdPackage.DATA_ATTRIBUTE__PRES_COND:
             return isSetPresCond();
         case NsdPackage.DATA_ATTRIBUTE__PRES_COND_ARGS:
             return isSetPresCondArgs();
         case NsdPackage.DATA_ATTRIBUTE__PRES_COND_ARGS_ID:
             return isSetPresCondArgsID();
-        case NsdPackage.DATA_ATTRIBUTE__QCHG:
-            return isSetQchg();
+        case NsdPackage.DATA_ATTRIBUTE__IS_ARRAY:
+            return isSetIsArray();
+        case NsdPackage.DATA_ATTRIBUTE__MAX_INDEX_ATTRIBUTE:
+            return isSetMaxIndexAttribute();
+        case NsdPackage.DATA_ATTRIBUTE__MIN_INDEX:
+            return isSetMinIndex();
         case NsdPackage.DATA_ATTRIBUTE__SIZE_ATTRIBUTE:
             return isSetSizeAttribute();
+        case NsdPackage.DATA_ATTRIBUTE__DCHG:
+            return isSetDchg();
+        case NsdPackage.DATA_ATTRIBUTE__DUPD:
+            return isSetDupd();
+        case NsdPackage.DATA_ATTRIBUTE__QCHG:
+            return isSetQchg();
         case NsdPackage.DATA_ATTRIBUTE__TYPE:
             return isSetType();
         case NsdPackage.DATA_ATTRIBUTE__TYPE_KIND:
             return isSetTypeKind();
+        case NsdPackage.DATA_ATTRIBUTE__DEFAULT_VALUE:
+            return isSetDefaultValue();
+        case NsdPackage.DATA_ATTRIBUTE__MAX_VALUE:
+            return isSetMaxValue();
+        case NsdPackage.DATA_ATTRIBUTE__MIN_VALUE:
+            return isSetMinValue();
+        case NsdPackage.DATA_ATTRIBUTE__FC:
+            return isSetFc();
+        case NsdPackage.DATA_ATTRIBUTE__NAME:
+            return isSetName();
         case NsdPackage.DATA_ATTRIBUTE__CDC:
             return getCDC() != null;
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_SIZE_ATTRIBUTE:
+            return isSetReferredBySubDataObjectAsSizeAttribute();
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_MAX_INDEX_ATTRIBUTE:
+            return isSetReferredBySubDataObjectAsMaxIndexAttribute();
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_FUNCTIONAL_CONSTRAINT:
+            return isSetRefersToFunctionalConstraint();
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION:
+            return isSetRefersToPresenceCondition();
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_SIZE_ATTRIBUTE:
+            return isSetRefersToSizeAttribute();
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_MAX_INDEX_ATTRIBUTE:
+            return isSetRefersToMaxIndexAttribute();
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_SIZE_ATTRIBUTE:
+            return isSetReferredByDataAttributeAsSizeAttribute();
+        case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_MAX_INDEX_ATTRIBUTE:
+            return isSetReferredByDataAttributeAsMaxIndexAttribute();
         }
         return super.eIsSet( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public int eBaseStructuralFeatureID( int derivedFeatureID, Class< ? > baseClass ) {
+        if( baseClass == AgPresenceCondition.class ) {
+            switch( derivedFeatureID ) {
+            case NsdPackage.DATA_ATTRIBUTE__PRES_COND:
+                return NsdPackage.AG_PRESENCE_CONDITION__PRES_COND;
+            case NsdPackage.DATA_ATTRIBUTE__PRES_COND_ARGS:
+                return NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS;
+            case NsdPackage.DATA_ATTRIBUTE__PRES_COND_ARGS_ID:
+                return NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS_ID;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgArray.class ) {
+            switch( derivedFeatureID ) {
+            case NsdPackage.DATA_ATTRIBUTE__IS_ARRAY:
+                return NsdPackage.AG_ARRAY__IS_ARRAY;
+            case NsdPackage.DATA_ATTRIBUTE__MAX_INDEX_ATTRIBUTE:
+                return NsdPackage.AG_ARRAY__MAX_INDEX_ATTRIBUTE;
+            case NsdPackage.DATA_ATTRIBUTE__MIN_INDEX:
+                return NsdPackage.AG_ARRAY__MIN_INDEX;
+            case NsdPackage.DATA_ATTRIBUTE__SIZE_ATTRIBUTE:
+                return NsdPackage.AG_ARRAY__SIZE_ATTRIBUTE;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgTrgOp.class ) {
+            switch( derivedFeatureID ) {
+            case NsdPackage.DATA_ATTRIBUTE__DCHG:
+                return NsdPackage.AG_TRG_OP__DCHG;
+            case NsdPackage.DATA_ATTRIBUTE__DUPD:
+                return NsdPackage.AG_TRG_OP__DUPD;
+            case NsdPackage.DATA_ATTRIBUTE__QCHG:
+                return NsdPackage.AG_TRG_OP__QCHG;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgAttributeType.class ) {
+            switch( derivedFeatureID ) {
+            case NsdPackage.DATA_ATTRIBUTE__TYPE:
+                return NsdPackage.AG_ATTRIBUTE_TYPE__TYPE;
+            case NsdPackage.DATA_ATTRIBUTE__TYPE_KIND:
+                return NsdPackage.AG_ATTRIBUTE_TYPE__TYPE_KIND;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgAttributeTypeAndValues.class ) {
+            switch( derivedFeatureID ) {
+            case NsdPackage.DATA_ATTRIBUTE__DEFAULT_VALUE:
+                return NsdPackage.AG_ATTRIBUTE_TYPE_AND_VALUES__DEFAULT_VALUE;
+            case NsdPackage.DATA_ATTRIBUTE__MAX_VALUE:
+                return NsdPackage.AG_ATTRIBUTE_TYPE_AND_VALUES__MAX_VALUE;
+            case NsdPackage.DATA_ATTRIBUTE__MIN_VALUE:
+                return NsdPackage.AG_ATTRIBUTE_TYPE_AND_VALUES__MIN_VALUE;
+            default:
+                return -1;
+            }
+        }
+        return super.eBaseStructuralFeatureID( derivedFeatureID, baseClass );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public int eDerivedStructuralFeatureID( int baseFeatureID, Class< ? > baseClass ) {
+        if( baseClass == AgPresenceCondition.class ) {
+            switch( baseFeatureID ) {
+            case NsdPackage.AG_PRESENCE_CONDITION__PRES_COND:
+                return NsdPackage.DATA_ATTRIBUTE__PRES_COND;
+            case NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS:
+                return NsdPackage.DATA_ATTRIBUTE__PRES_COND_ARGS;
+            case NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS_ID:
+                return NsdPackage.DATA_ATTRIBUTE__PRES_COND_ARGS_ID;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgArray.class ) {
+            switch( baseFeatureID ) {
+            case NsdPackage.AG_ARRAY__IS_ARRAY:
+                return NsdPackage.DATA_ATTRIBUTE__IS_ARRAY;
+            case NsdPackage.AG_ARRAY__MAX_INDEX_ATTRIBUTE:
+                return NsdPackage.DATA_ATTRIBUTE__MAX_INDEX_ATTRIBUTE;
+            case NsdPackage.AG_ARRAY__MIN_INDEX:
+                return NsdPackage.DATA_ATTRIBUTE__MIN_INDEX;
+            case NsdPackage.AG_ARRAY__SIZE_ATTRIBUTE:
+                return NsdPackage.DATA_ATTRIBUTE__SIZE_ATTRIBUTE;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgTrgOp.class ) {
+            switch( baseFeatureID ) {
+            case NsdPackage.AG_TRG_OP__DCHG:
+                return NsdPackage.DATA_ATTRIBUTE__DCHG;
+            case NsdPackage.AG_TRG_OP__DUPD:
+                return NsdPackage.DATA_ATTRIBUTE__DUPD;
+            case NsdPackage.AG_TRG_OP__QCHG:
+                return NsdPackage.DATA_ATTRIBUTE__QCHG;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgAttributeType.class ) {
+            switch( baseFeatureID ) {
+            case NsdPackage.AG_ATTRIBUTE_TYPE__TYPE:
+                return NsdPackage.DATA_ATTRIBUTE__TYPE;
+            case NsdPackage.AG_ATTRIBUTE_TYPE__TYPE_KIND:
+                return NsdPackage.DATA_ATTRIBUTE__TYPE_KIND;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgAttributeTypeAndValues.class ) {
+            switch( baseFeatureID ) {
+            case NsdPackage.AG_ATTRIBUTE_TYPE_AND_VALUES__DEFAULT_VALUE:
+                return NsdPackage.DATA_ATTRIBUTE__DEFAULT_VALUE;
+            case NsdPackage.AG_ATTRIBUTE_TYPE_AND_VALUES__MAX_VALUE:
+                return NsdPackage.DATA_ATTRIBUTE__MAX_VALUE;
+            case NsdPackage.AG_ATTRIBUTE_TYPE_AND_VALUES__MIN_VALUE:
+                return NsdPackage.DATA_ATTRIBUTE__MIN_VALUE;
+            default:
+                return -1;
+            }
+        }
+        return super.eDerivedStructuralFeatureID( baseFeatureID, baseClass );
     }
 
     /**
@@ -1762,57 +2798,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         if( eIsProxy() ) return super.toString();
 
         StringBuilder result = new StringBuilder( super.toString() );
-        result.append( " (dchg: " );
-        if( dchgESet )
-            result.append( dchg );
-        else
-            result.append( "<unset>" );
-        result.append( ", defaultValue: " );
-        if( defaultValueESet )
-            result.append( defaultValue );
-        else
-            result.append( "<unset>" );
-        result.append( ", dupd: " );
-        if( dupdESet )
-            result.append( dupd );
-        else
-            result.append( "<unset>" );
-        result.append( ", fc: " );
-        if( fcESet )
-            result.append( fc );
-        else
-            result.append( "<unset>" );
-        result.append( ", isArray: " );
-        if( isArrayESet )
-            result.append( isArray );
-        else
-            result.append( "<unset>" );
-        result.append( ", maxIndexAttribute: " );
-        if( maxIndexAttributeESet )
-            result.append( maxIndexAttribute );
-        else
-            result.append( "<unset>" );
-        result.append( ", maxValue: " );
-        if( maxValueESet )
-            result.append( maxValue );
-        else
-            result.append( "<unset>" );
-        result.append( ", minIndex: " );
-        if( minIndexESet )
-            result.append( minIndex );
-        else
-            result.append( "<unset>" );
-        result.append( ", minValue: " );
-        if( minValueESet )
-            result.append( minValue );
-        else
-            result.append( "<unset>" );
-        result.append( ", name: " );
-        if( nameESet )
-            result.append( name );
-        else
-            result.append( "<unset>" );
-        result.append( ", presCond: " );
+        result.append( " (presCond: " );
         if( presCondESet )
             result.append( presCond );
         else
@@ -1827,14 +2813,39 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
             result.append( presCondArgsID );
         else
             result.append( "<unset>" );
-        result.append( ", qchg: " );
-        if( qchgESet )
-            result.append( qchg );
+        result.append( ", isArray: " );
+        if( isArrayESet )
+            result.append( isArray );
+        else
+            result.append( "<unset>" );
+        result.append( ", maxIndexAttribute: " );
+        if( maxIndexAttributeESet )
+            result.append( maxIndexAttribute );
+        else
+            result.append( "<unset>" );
+        result.append( ", minIndex: " );
+        if( minIndexESet )
+            result.append( minIndex );
         else
             result.append( "<unset>" );
         result.append( ", sizeAttribute: " );
         if( sizeAttributeESet )
             result.append( sizeAttribute );
+        else
+            result.append( "<unset>" );
+        result.append( ", dchg: " );
+        if( dchgESet )
+            result.append( dchg );
+        else
+            result.append( "<unset>" );
+        result.append( ", dupd: " );
+        if( dupdESet )
+            result.append( dupd );
+        else
+            result.append( "<unset>" );
+        result.append( ", qchg: " );
+        if( qchgESet )
+            result.append( qchg );
         else
             result.append( "<unset>" );
         result.append( ", type: " );
@@ -1847,8 +2858,101 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
             result.append( typeKind );
         else
             result.append( "<unset>" );
+        result.append( ", defaultValue: " );
+        if( defaultValueESet )
+            result.append( defaultValue );
+        else
+            result.append( "<unset>" );
+        result.append( ", maxValue: " );
+        if( maxValueESet )
+            result.append( maxValue );
+        else
+            result.append( "<unset>" );
+        result.append( ", minValue: " );
+        if( minValueESet )
+            result.append( minValue );
+        else
+            result.append( "<unset>" );
+        result.append( ", fc: " );
+        if( fcESet )
+            result.append( fc );
+        else
+            result.append( "<unset>" );
+        result.append( ", name: " );
+        if( nameESet )
+            result.append( name );
+        else
+            result.append( "<unset>" );
         result.append( ')' );
         return result.toString();
     }
 
+    /* Implicit link
+     *   DataAttribute.fc                   -> FunctionalConstraint.abbreviation
+     *   DataAttribute.presCond             -> PresenceCondition.name
+     *   DataAttribute.sizeAttribute        -> DataAttribute.name
+     *   DataAttribute.maxIndexAttribute    -> DataAttribute.name
+     */
+    @Override
+    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
+        if( super.buildExplicitLinks( console ) ) return true;
+
+        if( isSetFc() ) {
+            setRefersToFunctionalConstraint( getCDC().getCDCs().getNS().findFunctionalConstraint( getFc(), console ) );
+            if( getRefersToFunctionalConstraint() == null ) {
+                console.error( "FunctionalConstraint (abbreviation: " + getFc() + ") refers by DataAttribute (name: "
+                        + getName() + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") is unknown" );
+            }
+            else {
+                console.info( "FunctionalConstraint (abbreviation: " + getFc() + ") refers by DataAttribute (name: "
+                        + getName() + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") found in NS (id:"
+                        + getRefersToFunctionalConstraint().getFunctionalConstraints().getNS().getId() + ")" );
+            }
+        }
+
+        if( isSetPresCond() ) {
+            setRefersToPresenceCondition( getCDC().getCDCs().getNS().findPresenceCondition( getPresCond(), console ) );
+            if( getRefersToPresenceCondition() == null ) {
+                console.error( "PresenceCondition (name: " + getPresCond() + ") refers by DataAttribute (name: "
+                        + getName() + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") is unknown" );
+            }
+            else {
+                console.info( "PresenceCondition (name: " + getPresCond() + ") refers by DataAttribute (name: "
+                        + getName() + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") found in NS (id:"
+                        + getRefersToPresenceCondition().getPresenceConditions().getNS().getId() + ")" );
+            }
+        }
+
+        if( isSetSizeAttribute() ) {
+            setRefersToSizeAttribute( getCDC().getDataAttribute().stream()
+                    .filter( att -> att.getName().equals( getSizeAttribute() ) ).findAny().orElse( null ) );
+            if( getRefersToSizeAttribute() == null ) {
+                console.error( "DataAttribute (name: " + getSizeAttribute()
+                        + ") refers as sizeAttribute by DataAttribute (name: " + getName() + ") in NS (id:"
+                        + getCDC().getCDCs().getNS().getId() + ") is unknown" );
+            }
+            else {
+                console.info( "DataAttribute (name: " + getSizeAttribute()
+                        + ") refers as sizeAttribute by DataAttribute (name: " + getName() + ") in NS (id:"
+                        + getCDC().getCDCs().getNS().getId() + ") found" );
+            }
+        }
+
+        if( isSetMaxIndexAttribute() ) {
+            setRefersToMaxIndexAttribute( getCDC().getDataAttribute().stream()
+                    .filter( att -> att.getName().equals( getMaxIndexAttribute() ) ).findAny().orElse( null ) );
+            if( getRefersToMaxIndexAttribute() == null ) {
+                console.error( "DataAttribute (name: " + getMaxIndexAttribute()
+                        + ") refers as maxIndexAttribute by DataAttribute (name: " + getName() + ") in NS (id:"
+                        + getCDC().getCDCs().getNS().getId() + ") is unknown" );
+            }
+            else {
+                console.info( "DataAttribute (name: " + getMaxIndexAttribute()
+                        + ") refers as maxIndexAttribute by DataAttribute (name: " + getName() + ") in NS (id:"
+                        + getCDC().getCDCs().getNS().getId() + ") found" );
+            }
+        }
+
+        return false;
+    }
 } //DataAttributeImpl
