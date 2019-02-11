@@ -526,7 +526,7 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
                     + ") in NS (id:" + lNClasses.getNS().getId() + ") is unknown" );
         }
         else {
-            console.info( "AbstractLNClass (name: " + getBase() + ") refers by AnyLNClass (name: " + getName()
+            console.verbose( "AbstractLNClass (name: " + getBase() + ") refers by AnyLNClass (name: " + getName()
                     + ") in NS (id:" + lNClasses.getNS().getId() + ") found in NS (id:"
                     + getRefersToAbstractLNClass().getLNClasses().getNS().getId() + ")" );
         }

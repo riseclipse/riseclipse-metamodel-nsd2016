@@ -1770,7 +1770,7 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
                         + getConstructedAttribute().getConstructedAttributes().getNS().getId() + ") is unknown" );
             }
             else {
-                console.info( "PresenceCondition (name: " + getPresCond() + ") refers by SubDataAttribute (name: "
+                console.verbose( "PresenceCondition (name: " + getPresCond() + ") refers by SubDataAttribute (name: "
                         + getName() + ") in NS (id:"
                         + getConstructedAttribute().getConstructedAttributes().getNS().getId() + ") found in NS (id:"
                         + getRefersToPresenceCondition().getPresenceConditions().getNS().getId() + ")" );
