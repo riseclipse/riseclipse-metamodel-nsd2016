@@ -2001,7 +2001,7 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                         + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") is unknown" );
             }
             else {
-                console.info( "CDC (name: " + getType() + ") refers by SubDataObject (name: " + getName()
+                console.verbose( "CDC (name: " + getType() + ") refers by SubDataObject (name: " + getName()
                         + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") found in NS (id:"
                         + getRefersToCDC().getCDCs().getNS().getId() + ")" );
             }
@@ -2014,7 +2014,7 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                         + getName() + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") is unknown" );
             }
             else {
-                console.info( "PresenceCondition (name: " + getPresCond() + ") refers by SubDataObject (name: "
+                console.verbose( "PresenceCondition (name: " + getPresCond() + ") refers by SubDataObject (name: "
                         + getName() + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") found in NS (id:"
                         + getRefersToPresenceCondition().getPresenceConditions().getNS().getId() + ")" );
             }
@@ -2029,7 +2029,7 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                         + getCDC().getCDCs().getNS().getId() + ") is unknown" );
             }
             else {
-                console.info( "DataAttribute (name: " + getSizeAttribute()
+                console.verbose( "DataAttribute (name: " + getSizeAttribute()
                         + ") refers as sizeAttribute by SubDataObject (name: " + getName() + ") in NS (id:"
                         + getCDC().getCDCs().getNS().getId() + ") found" );
             }
@@ -2044,7 +2044,7 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                         + getCDC().getCDCs().getNS().getId() + ") is unknown" );
             }
             else {
-                console.info( "DataAttribute (name: " + getMaxIndexAttribute()
+                console.verbose( "DataAttribute (name: " + getMaxIndexAttribute()
                         + ") refers as maxIndexAttribute by SubDataObject (name: " + getName() + ") in NS (id:"
                         + getCDC().getCDCs().getNS().getId() + ") found" );
             }

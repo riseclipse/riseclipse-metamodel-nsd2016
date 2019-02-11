@@ -1848,7 +1848,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                         + getAnyLNClass().getLNClasses().getNS().getId() + ") is unknown" );
             }
             else {
-                console.info( "CDC (name: " + getType() + ") refers by DataObject (name: " + getName() + ") in NS (id:"
+                console.verbose( "CDC (name: " + getType() + ") refers by DataObject (name: " + getName() + ") in NS (id:"
                         + getAnyLNClass().getLNClasses().getNS().getId() + ") found in NS (id:"
                         + getRefersToCDC().getCDCs().getNS().getId() + ")" );
             }
@@ -1863,7 +1863,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                                 + ") in NS (id:" + getAnyLNClass().getLNClasses().getNS().getId() + ") is unknown" );
             }
             else {
-                console.info( "PresenceCondition (name: " + getPresCond() + ") refers by DataObject (name: " + getName()
+                console.verbose( "PresenceCondition (name: " + getPresCond() + ") refers by DataObject (name: " + getName()
                         + ") in NS (id:" + getAnyLNClass().getLNClasses().getNS().getId() + ") found in NS (id:"
                         + getRefersToPresenceCondition().getPresenceConditions().getNS().getId() + ")" );
             }
@@ -1878,7 +1878,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                                 + ") in NS (id:" + getAnyLNClass().getLNClasses().getNS().getId() + ") is unknown" );
             }
             else {
-                console.info( "PresenceCondition (name: " + getDsPresCond() + ") refers by DataObject (name: "
+                console.verbose( "PresenceCondition (name: " + getDsPresCond() + ") refers by DataObject (name: "
                         + getName() + ") in NS (id:" + getAnyLNClass().getLNClasses().getNS().getId()
                         + ") found in NS (id:"
                         + getRefersToPresenceConditionDerivedStatistics().getPresenceConditions().getNS().getId()

@@ -2904,7 +2904,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                         + getName() + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") is unknown" );
             }
             else {
-                console.info( "FunctionalConstraint (abbreviation: " + getFc() + ") refers by DataAttribute (name: "
+                console.verbose( "FunctionalConstraint (abbreviation: " + getFc() + ") refers by DataAttribute (name: "
                         + getName() + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") found in NS (id:"
                         + getRefersToFunctionalConstraint().getFunctionalConstraints().getNS().getId() + ")" );
             }
@@ -2917,7 +2917,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                         + getName() + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") is unknown" );
             }
             else {
-                console.info( "PresenceCondition (name: " + getPresCond() + ") refers by DataAttribute (name: "
+                console.verbose( "PresenceCondition (name: " + getPresCond() + ") refers by DataAttribute (name: "
                         + getName() + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") found in NS (id:"
                         + getRefersToPresenceCondition().getPresenceConditions().getNS().getId() + ")" );
             }
@@ -2932,7 +2932,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                         + getCDC().getCDCs().getNS().getId() + ") is unknown" );
             }
             else {
-                console.info( "DataAttribute (name: " + getSizeAttribute()
+                console.verbose( "DataAttribute (name: " + getSizeAttribute()
                         + ") refers as sizeAttribute by DataAttribute (name: " + getName() + ") in NS (id:"
                         + getCDC().getCDCs().getNS().getId() + ") found" );
             }
@@ -2947,7 +2947,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                         + getCDC().getCDCs().getNS().getId() + ") is unknown" );
             }
             else {
-                console.info( "DataAttribute (name: " + getMaxIndexAttribute()
+                console.verbose( "DataAttribute (name: " + getMaxIndexAttribute()
                         + ") refers as maxIndexAttribute by DataAttribute (name: " + getName() + ") in NS (id:"
                         + getCDC().getCDCs().getNS().getId() + ") found" );
             }
