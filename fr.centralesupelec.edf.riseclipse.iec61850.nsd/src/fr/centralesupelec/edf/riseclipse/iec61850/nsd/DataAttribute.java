@@ -41,6 +41,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToMaxIndexAttribute <em>Refers To Max Index Attribute</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredByDataAttributeAsSizeAttribute <em>Referred By Data Attribute As Size Attribute</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredByDataAttributeAsMaxIndexAttribute <em>Referred By Data Attribute As Max Index Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToBasicType <em>Refers To Basic Type</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute()
@@ -562,5 +563,60 @@ public interface DataAttribute
      * @generated
      */
     boolean isSetReferredByDataAttributeAsMaxIndexAttribute();
+
+    /**
+     * Returns the value of the '<em><b>Refers To Basic Type</b></em>' reference.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getReferredByDataAttribute <em>Referred By Data Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Refers To Basic Type</em>' reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Refers To Basic Type</em>' reference.
+     * @see #isSetRefersToBasicType()
+     * @see #unsetRefersToBasicType()
+     * @see #setRefersToBasicType(BasicType)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_RefersToBasicType()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getReferredByDataAttribute
+     * @model opposite="referredByDataAttribute" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @generated
+     */
+    BasicType getRefersToBasicType();
+
+    /**
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToBasicType <em>Refers To Basic Type</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Refers To Basic Type</em>' reference.
+     * @see #isSetRefersToBasicType()
+     * @see #unsetRefersToBasicType()
+     * @see #getRefersToBasicType()
+     * @generated
+     */
+    void setRefersToBasicType( BasicType value );
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToBasicType <em>Refers To Basic Type</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetRefersToBasicType()
+     * @see #getRefersToBasicType()
+     * @see #setRefersToBasicType(BasicType)
+     * @generated
+     */
+    void unsetRefersToBasicType();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToBasicType <em>Refers To Basic Type</em>}' reference is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Refers To Basic Type</em>' reference is set.
+     * @see #unsetRefersToBasicType()
+     * @see #getRefersToBasicType()
+     * @see #setRefersToBasicType(BasicType)
+     * @generated
+     */
+    boolean isSetRefersToBasicType();
 
 } // DataAttribute

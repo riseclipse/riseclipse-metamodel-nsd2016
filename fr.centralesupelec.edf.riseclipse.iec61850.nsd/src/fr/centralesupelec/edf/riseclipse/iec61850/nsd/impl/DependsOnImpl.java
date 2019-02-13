@@ -898,7 +898,8 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
                     "NS (id: " + getId() + ") and refers by DependsOn in NS (id:" + getNS().getId() + ") is unknown" );
         }
         else {
-            console.verbose( "NS (id: " + getId() + ") and refers by DependsOn in NS (id:" + getNS().getId() + ") found" );
+            console.verbose(
+                    "NS (id: " + getId() + ") and refers by DependsOn in NS (id:" + getNS().getId() + ") found" );
         }
         return false;
     }

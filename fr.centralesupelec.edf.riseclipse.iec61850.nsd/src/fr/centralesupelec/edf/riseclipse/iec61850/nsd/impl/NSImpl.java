@@ -23,6 +23,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSdesc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUML;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs;
@@ -1750,6 +1751,27 @@ public class NSImpl extends CopyrightedImpl implements NS {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @generated NOT
+     */
+    @Override
+    public BasicType findBasicType( String basicTypeName, IRiseClipseConsole console ) {
+        if( isSetBasicTypes() ) {
+            BasicType found = getBasicTypes().getBasicType().stream()
+                    .filter( bt -> bt.getName().equals( basicTypeName ) ).findAny().orElse( null );
+            if( found != null ) return found;
+        }
+
+        if( isSetDependsOn() ) {
+            getDependsOn().buildExplicitLinks( console );
+            return getDependsOn().getRefersToNS().findBasicType( basicTypeName, console );
+        }
+
+        return null;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     @Override
@@ -2582,6 +2604,8 @@ public class NSImpl extends CopyrightedImpl implements NS {
             return findFunctionalConstraint( ( String ) arguments.get( 0 ), ( IRiseClipseConsole ) arguments.get( 1 ) );
         case NsdPackage.NS___FIND_ENUMERATION__STRING_IRISECLIPSECONSOLE:
             return findEnumeration( ( String ) arguments.get( 0 ), ( IRiseClipseConsole ) arguments.get( 1 ) );
+        case NsdPackage.NS___FIND_BASIC_TYPE__STRING_IRISECLIPSECONSOLE:
+            return findBasicType( ( String ) arguments.get( 0 ), ( IRiseClipseConsole ) arguments.get( 1 ) );
         }
         return super.eInvoke( operationID, arguments );
     }
