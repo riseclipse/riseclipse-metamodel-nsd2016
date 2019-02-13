@@ -716,8 +716,8 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
                         + getName() + ") in NS (id:" + getEnumerations().getNS().getId() + ") is unknown" );
             }
             else {
-                console.verbose( "Enumeration (name: " + getInheritedFrom() + ") refers by Enumeration (name: " + getName()
-                        + ") in NS (id:" + getEnumerations().getNS().getId() + ") found in NS (id:"
+                console.verbose( "Enumeration (name: " + getInheritedFrom() + ") refers by Enumeration (name: "
+                        + getName() + ") in NS (id:" + getEnumerations().getNS().getId() + ") found in NS (id:"
                         + getRefersToBaseEnumeration().getEnumerations().getNS().getId() + ")" );
             }
         }

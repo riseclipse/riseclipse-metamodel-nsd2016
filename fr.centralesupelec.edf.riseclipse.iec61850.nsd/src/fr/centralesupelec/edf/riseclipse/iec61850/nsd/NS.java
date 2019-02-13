@@ -643,4 +643,12 @@ public interface NS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
      */
     Enumeration findEnumeration( String enumerationName, IRiseClipseConsole console );
 
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model consoleType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.IRiseClipseConsole"
+     * @generated
+     */
+    BasicType findBasicType( String basicTypeName, IRiseClipseConsole console );
+
 } // NS

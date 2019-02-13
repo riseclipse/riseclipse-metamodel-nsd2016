@@ -1906,13 +1906,22 @@ public interface NsdPackage extends EPackage {
     int BASIC_TYPE__BASIC_TYPES = NSD_OBJECT_FEATURE_COUNT + 2;
 
     /**
+     * The feature id for the '<em><b>Referred By Data Attribute</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE = NSD_OBJECT_FEATURE_COUNT + 3;
+
+    /**
      * The number of structural features of the '<em>Basic Type</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int BASIC_TYPE_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 3;
+    int BASIC_TYPE_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 4;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -2887,13 +2896,22 @@ public interface NsdPackage extends EPackage {
     int DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_MAX_INDEX_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 25;
 
     /**
+     * The feature id for the '<em><b>Refers To Basic Type</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE = DOCUMENTED_CLASS_FEATURE_COUNT + 26;
+
+    /**
      * The number of structural features of the '<em>Data Attribute</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE_FEATURE_COUNT = DOCUMENTED_CLASS_FEATURE_COUNT + 26;
+    int DATA_ATTRIBUTE_FEATURE_COUNT = DOCUMENTED_CLASS_FEATURE_COUNT + 27;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -4372,13 +4390,22 @@ public interface NsdPackage extends EPackage {
     int NS___FIND_ENUMERATION__STRING_IRISECLIPSECONSOLE = COPYRIGHTED_OPERATION_COUNT + 3;
 
     /**
+     * The operation id for the '<em>Find Basic Type</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NS___FIND_BASIC_TYPE__STRING_IRISECLIPSECONSOLE = COPYRIGHTED_OPERATION_COUNT + 4;
+
+    /**
      * The number of operations of the '<em>NS</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int NS_OPERATION_COUNT = COPYRIGHTED_OPERATION_COUNT + 4;
+    int NS_OPERATION_COUNT = COPYRIGHTED_OPERATION_COUNT + 5;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -7246,6 +7273,17 @@ public interface NsdPackage extends EPackage {
     EReference getBasicType_BasicTypes();
 
     /**
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getReferredByDataAttribute <em>Referred By Data Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Referred By Data Attribute</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getReferredByDataAttribute()
+     * @see #getBasicType()
+     * @generated
+     */
+    EReference getBasicType_ReferredByDataAttribute();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes <em>Basic Types</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7818,6 +7856,17 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EReference getDataAttribute_ReferredByDataAttributeAsMaxIndexAttribute();
+
+    /**
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToBasicType <em>Refers To Basic Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Refers To Basic Type</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToBasicType()
+     * @see #getDataAttribute()
+     * @generated
+     */
+    EReference getDataAttribute_RefersToBasicType();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject <em>Data Object</em>}'.
@@ -8669,6 +8718,16 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EOperation getNS__FindEnumeration__String_IRiseClipseConsole();
+
+    /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findBasicType(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole) <em>Find Basic Type</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Find Basic Type</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findBasicType(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole)
+     * @generated
+     */
+    EOperation getNS__FindBasicType__String_IRiseClipseConsole();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc <em>NS Doc</em>}'.
@@ -10411,6 +10470,14 @@ public interface NsdPackage extends EPackage {
         EReference BASIC_TYPE__BASIC_TYPES = eINSTANCE.getBasicType_BasicTypes();
 
         /**
+         * The meta object literal for the '<em><b>Referred By Data Attribute</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE = eINSTANCE.getBasicType_ReferredByDataAttribute();
+
+        /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.BasicTypesImpl <em>Basic Types</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -10861,6 +10928,14 @@ public interface NsdPackage extends EPackage {
          */
         EReference DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_MAX_INDEX_ATTRIBUTE = eINSTANCE
                 .getDataAttribute_ReferredByDataAttributeAsMaxIndexAttribute();
+
+        /**
+         * The meta object literal for the '<em><b>Refers To Basic Type</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE = eINSTANCE.getDataAttribute_RefersToBasicType();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl <em>Data Object</em>}' class.
@@ -11529,6 +11604,15 @@ public interface NsdPackage extends EPackage {
          */
         EOperation NS___FIND_ENUMERATION__STRING_IRISECLIPSECONSOLE = eINSTANCE
                 .getNS__FindEnumeration__String_IRiseClipseConsole();
+
+        /**
+         * The meta object literal for the '<em><b>Find Basic Type</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation NS___FIND_BASIC_TYPE__STRING_IRISECLIPSECONSOLE = eINSTANCE
+                .getNS__FindBasicType__String_IRiseClipseConsole();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl <em>NS Doc</em>}' class.

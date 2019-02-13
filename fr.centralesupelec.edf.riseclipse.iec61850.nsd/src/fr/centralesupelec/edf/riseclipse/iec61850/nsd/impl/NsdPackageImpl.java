@@ -1169,6 +1169,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EReference getBasicType_ReferredByDataAttribute() {
+        return ( EReference ) basicTypeEClass.getEStructuralFeatures().get( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getBasicTypes() {
         return basicTypesEClass;
     }
@@ -1691,6 +1701,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EReference getDataAttribute_ReferredByDataAttributeAsMaxIndexAttribute() {
         return ( EReference ) dataAttributeEClass.getEStructuralFeatures().get( 10 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getDataAttribute_RefersToBasicType() {
+        return ( EReference ) dataAttributeEClass.getEStructuralFeatures().get( 11 );
     }
 
     /**
@@ -2481,6 +2501,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EOperation getNS__FindEnumeration__String_IRiseClipseConsole() {
         return nsEClass.getEOperations().get( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getNS__FindBasicType__String_IRiseClipseConsole() {
+        return nsEClass.getEOperations().get( 4 );
     }
 
     /**
@@ -3798,6 +3828,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEAttribute( basicTypeEClass, BASIC_TYPE__DESC_ID );
         createEAttribute( basicTypeEClass, BASIC_TYPE__NAME );
         createEReference( basicTypeEClass, BASIC_TYPE__BASIC_TYPES );
+        createEReference( basicTypeEClass, BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE );
 
         basicTypesEClass = createEClass( BASIC_TYPES );
         createEReference( basicTypesEClass, BASIC_TYPES__BASIC_TYPE );
@@ -3860,6 +3891,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEReference( dataAttributeEClass, DATA_ATTRIBUTE__REFERS_TO_MAX_INDEX_ATTRIBUTE );
         createEReference( dataAttributeEClass, DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_SIZE_ATTRIBUTE );
         createEReference( dataAttributeEClass, DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_MAX_INDEX_ATTRIBUTE );
+        createEReference( dataAttributeEClass, DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE );
 
         dataObjectEClass = createEClass( DATA_OBJECT );
         createEAttribute( dataObjectEClass, DATA_OBJECT__NAME );
@@ -3953,6 +3985,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEOperation( nsEClass, NS___FIND_PRESENCE_CONDITION__STRING_IRISECLIPSECONSOLE );
         createEOperation( nsEClass, NS___FIND_FUNCTIONAL_CONSTRAINT__STRING_IRISECLIPSECONSOLE );
         createEOperation( nsEClass, NS___FIND_ENUMERATION__STRING_IRISECLIPSECONSOLE );
+        createEOperation( nsEClass, NS___FIND_BASIC_TYPE__STRING_IRISECLIPSECONSOLE );
 
         nsDocEClass = createEClass( NS_DOC );
         createEReference( nsDocEClass, NS_DOC__DOC );
@@ -4361,6 +4394,10 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEReference( getBasicType_BasicTypes(), this.getBasicTypes(), this.getBasicTypes_BasicType(), "basicTypes",
                 null, 0, 1, BasicType.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getBasicType_ReferredByDataAttribute(), this.getDataAttribute(),
+                this.getDataAttribute_RefersToBasicType(), "referredByDataAttribute", null, 0, 1, BasicType.class,
+                IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
+                !IS_DERIVED, !IS_ORDERED );
 
         initEClass( basicTypesEClass, BasicTypes.class, "BasicTypes", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
@@ -4525,6 +4562,10 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 this.getDataAttribute_RefersToMaxIndexAttribute(), "referredByDataAttributeAsMaxIndexAttribute", null,
                 0, -1, DataAttribute.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getDataAttribute_RefersToBasicType(), this.getBasicType(),
+                this.getBasicType_ReferredByDataAttribute(), "refersToBasicType", null, 0, 1, DataAttribute.class,
+                IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
+                !IS_DERIVED, !IS_ORDERED );
 
         initEClass( dataObjectEClass, DataObject.class, "DataObject", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
@@ -4766,6 +4807,11 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         op = initEOperation( getNS__FindEnumeration__String_IRiseClipseConsole(), this.getEnumeration(),
                 "findEnumeration", 0, 1, IS_UNIQUE, IS_ORDERED );
         addEParameter( op, ecorePackage.getEString(), "enumerationName", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, this.getIRiseClipseConsole(), "console", 0, 1, IS_UNIQUE, IS_ORDERED );
+
+        op = initEOperation( getNS__FindBasicType__String_IRiseClipseConsole(), this.getBasicType(), "findBasicType", 0,
+                1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEString(), "basicTypeName", 0, 1, IS_UNIQUE, IS_ORDERED );
         addEParameter( op, this.getIRiseClipseConsole(), "console", 0, 1, IS_UNIQUE, IS_ORDERED );
 
         initEClass( nsDocEClass, NSDoc.class, "NSDoc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );

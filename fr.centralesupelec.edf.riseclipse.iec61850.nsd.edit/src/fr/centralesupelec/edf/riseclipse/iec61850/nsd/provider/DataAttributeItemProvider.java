@@ -86,6 +86,7 @@ public class DataAttributeItemProvider extends DocumentedClassItemProvider {
             addRefersToMaxIndexAttributePropertyDescriptor( object );
             addReferredByDataAttributeAsSizeAttributePropertyDescriptor( object );
             addReferredByDataAttributeAsMaxIndexAttributePropertyDescriptor( object );
+            addRefersToBasicTypePropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -377,6 +378,22 @@ public class DataAttributeItemProvider extends DocumentedClassItemProvider {
                         "_UI_DataAttribute_type" ),
                 NsdPackage.Literals.DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_MAX_INDEX_ATTRIBUTE, true, false,
                 true, null, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Refers To Basic Type feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addRefersToBasicTypePropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(), getString( "_UI_DataAttribute_refersToBasicType_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_DataAttribute_refersToBasicType_feature",
+                                "_UI_DataAttribute_type" ),
+                        NsdPackage.Literals.DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE, true, false, true, null, null,
+                        null ) );
     }
 
     /**
