@@ -163,6 +163,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//BasicType/descID"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//BasicType/name"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//BasicType/basicTypes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//BasicType/referredByDataAttribute"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//BasicTypes">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//BasicTypes/basicType"/>
@@ -225,6 +226,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//DataAttribute/refersToMaxIndexAttribute"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//DataAttribute/referredByDataAttributeAsSizeAttribute"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//DataAttribute/referredByDataAttributeAsMaxIndexAttribute"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//DataAttribute/refersToBasicType"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//DataObject">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//DataObject/name"/>
@@ -329,6 +331,10 @@
       <genOperations ecoreOperation="nsd.ecore#//NS/findEnumeration">
         <genParameters ecoreParameter="nsd.ecore#//NS/findEnumeration/enumerationName"/>
         <genParameters ecoreParameter="nsd.ecore#//NS/findEnumeration/console"/>
+      </genOperations>
+      <genOperations ecoreOperation="nsd.ecore#//NS/findBasicType">
+        <genParameters ecoreParameter="nsd.ecore#//NS/findBasicType/basicTypeName"/>
+        <genParameters ecoreParameter="nsd.ecore#//NS/findBasicType/console"/>
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//NSDoc">

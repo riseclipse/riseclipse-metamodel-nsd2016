@@ -24,8 +24,10 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeTypeAndValues;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceCondition;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgTrgOp;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
@@ -85,6 +87,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getRefersToMaxIndexAttribute <em>Refers To Max Index Attribute</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getReferredByDataAttributeAsSizeAttribute <em>Referred By Data Attribute As Size Attribute</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getReferredByDataAttributeAsMaxIndexAttribute <em>Referred By Data Attribute As Max Index Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getRefersToBasicType <em>Refers To Basic Type</em>}</li>
  * </ul>
  *
  * @generated
@@ -699,6 +702,25 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
      * @ordered
      */
     protected EList< DataAttribute > referredByDataAttributeAsMaxIndexAttribute;
+
+    /**
+     * The cached value of the '{@link #getRefersToBasicType() <em>Refers To Basic Type</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRefersToBasicType()
+     * @generated
+     * @ordered
+     */
+    protected BasicType refersToBasicType;
+
+    /**
+     * This is true if the Refers To Basic Type reference has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean refersToBasicTypeESet;
 
     /**
      * <!-- begin-user-doc -->
@@ -2241,6 +2263,117 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
+    public BasicType getRefersToBasicType() {
+        return refersToBasicType;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetRefersToBasicType( BasicType newRefersToBasicType, NotificationChain msgs ) {
+        BasicType oldRefersToBasicType = refersToBasicType;
+        refersToBasicType = newRefersToBasicType;
+        boolean oldRefersToBasicTypeESet = refersToBasicTypeESet;
+        refersToBasicTypeESet = true;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE, oldRefersToBasicType, newRefersToBasicType,
+                    !oldRefersToBasicTypeESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setRefersToBasicType( BasicType newRefersToBasicType ) {
+        if( newRefersToBasicType != refersToBasicType ) {
+            NotificationChain msgs = null;
+            if( refersToBasicType != null ) msgs = ( ( InternalEObject ) refersToBasicType ).eInverseRemove( this,
+                    NsdPackage.BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE, BasicType.class, msgs );
+            if( newRefersToBasicType != null ) msgs = ( ( InternalEObject ) newRefersToBasicType ).eInverseAdd( this,
+                    NsdPackage.BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE, BasicType.class, msgs );
+            msgs = basicSetRefersToBasicType( newRefersToBasicType, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToBasicTypeESet = refersToBasicTypeESet;
+            refersToBasicTypeESet = true;
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE,
+                        newRefersToBasicType, newRefersToBasicType, !oldRefersToBasicTypeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicUnsetRefersToBasicType( NotificationChain msgs ) {
+        BasicType oldRefersToBasicType = refersToBasicType;
+        refersToBasicType = null;
+        boolean oldRefersToBasicTypeESet = refersToBasicTypeESet;
+        refersToBasicTypeESet = false;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE, oldRefersToBasicType, null,
+                    oldRefersToBasicTypeESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetRefersToBasicType() {
+        if( refersToBasicType != null ) {
+            NotificationChain msgs = null;
+            msgs = ( ( InternalEObject ) refersToBasicType ).eInverseRemove( this,
+                    NsdPackage.BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE, BasicType.class, msgs );
+            msgs = basicUnsetRefersToBasicType( msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToBasicTypeESet = refersToBasicTypeESet;
+            refersToBasicTypeESet = false;
+            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE, null, null, oldRefersToBasicTypeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetRefersToBasicType() {
+        return refersToBasicTypeESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @SuppressWarnings( "unchecked" )
     @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
@@ -2283,6 +2416,10 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_MAX_INDEX_ATTRIBUTE:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByDataAttributeAsMaxIndexAttribute() )
                     .basicAdd( otherEnd, msgs );
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE:
+            if( refersToBasicType != null ) msgs = ( ( InternalEObject ) refersToBasicType ).eInverseRemove( this,
+                    NsdPackage.BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE, BasicType.class, msgs );
+            return basicSetRefersToBasicType( ( BasicType ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
     }
@@ -2315,6 +2452,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_MAX_INDEX_ATTRIBUTE:
             return ( ( InternalEList< ? > ) getReferredByDataAttributeAsMaxIndexAttribute() ).basicRemove( otherEnd,
                     msgs );
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE:
+            return basicUnsetRefersToBasicType( msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -2393,6 +2532,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
             return getReferredByDataAttributeAsSizeAttribute();
         case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_MAX_INDEX_ATTRIBUTE:
             return getReferredByDataAttributeAsMaxIndexAttribute();
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE:
+            return getRefersToBasicType();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -2490,6 +2631,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
             getReferredByDataAttributeAsMaxIndexAttribute()
                     .addAll( ( Collection< ? extends DataAttribute > ) newValue );
             return;
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE:
+            setRefersToBasicType( ( BasicType ) newValue );
+            return;
         }
         super.eSet( featureID, newValue );
     }
@@ -2580,6 +2724,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_MAX_INDEX_ATTRIBUTE:
             unsetReferredByDataAttributeAsMaxIndexAttribute();
             return;
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE:
+            unsetRefersToBasicType();
+            return;
         }
         super.eUnset( featureID );
     }
@@ -2644,6 +2791,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
             return isSetReferredByDataAttributeAsSizeAttribute();
         case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_MAX_INDEX_ATTRIBUTE:
             return isSetReferredByDataAttributeAsMaxIndexAttribute();
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE:
+            return isSetRefersToBasicType();
         }
         return super.eIsSet( featureID );
     }
@@ -2950,6 +3099,18 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                 console.verbose( "DataAttribute (name: " + getMaxIndexAttribute()
                         + ") refers as maxIndexAttribute by DataAttribute (name: " + getName() + ") in NS (id:"
                         + getCDC().getCDCs().getNS().getId() + ") found" );
+            }
+        }
+
+        if( getTypeKind().equals( DefinedAttributeTypeKind.BASIC ) ) {
+            setRefersToBasicType( getCDC().getCDCs().getNS().findBasicType( getType(), console ) );
+            if( getRefersToBasicType() == null ) {
+                console.error( "BasicType (name: " + getType() + ") refers as type by DataAttribute (name: " + getName()
+                        + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") is unknown" );
+            }
+            else {
+                console.verbose( "BasicType (name: " + getType() + ") refers as type by DataAttribute (name: "
+                        + getName() + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") found" );
             }
         }
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    name="nsd" nsURI="http://www.iec.ch/61850/2016/NSD" nsPrefix="nsd">
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="nsd" nsURI="http://www.iec.ch/61850/2016/NSD" nsPrefix="nsd">
   <eAnnotations source="http://www.eclipse.org/OCL/Import">
     <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
     <details key="ecore.xml.type" value="http://www.eclipse.org/emf/2003/XMLType"/>
@@ -400,6 +400,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="basicTypes" ordered="false"
         eType="#//BasicTypes" transient="true" unsettable="true" resolveProxies="false"
         eOpposite="#//BasicTypes/basicType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referredByDataAttribute"
+        ordered="false" eType="#//DataAttribute" transient="true" unsettable="true"
+        resolveProxies="false" eOpposite="#//DataAttribute/refersToBasicType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BasicTypes" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -751,6 +754,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="referredByDataAttributeAsMaxIndexAttribute"
         ordered="false" upperBound="-1" eType="#//DataAttribute" transient="true"
         unsettable="true" resolveProxies="false" eOpposite="#//DataAttribute/refersToMaxIndexAttribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refersToBasicType" ordered="false"
+        eType="#//BasicType" transient="true" unsettable="true" resolveProxies="false"
+        eOpposite="#//BasicType/referredByDataAttribute"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataObject" eSuperTypes="#//DocumentedClass #//AgPresenceCondition #//AgPresenceConditionDerivedStatistics #//AgUnderlyingType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -1240,6 +1246,10 @@
     </eOperations>
     <eOperations name="findEnumeration" eType="#//Enumeration">
       <eParameters name="enumerationName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="console" eType="#//IRiseClipseConsole"/>
+    </eOperations>
+    <eOperations name="findBasicType" eType="#//BasicType">
+      <eParameters name="basicTypeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="console" eType="#//IRiseClipseConsole"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="changes" ordered="false"
