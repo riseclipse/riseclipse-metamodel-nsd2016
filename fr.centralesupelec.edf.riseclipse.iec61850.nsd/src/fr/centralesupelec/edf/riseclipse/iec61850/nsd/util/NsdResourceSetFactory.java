@@ -19,6 +19,7 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.util;
 
+import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseResourceSet;
 import fr.centralesupelec.edf.riseclipse.util.RiseClipseResourceSetFactory;
 
@@ -28,9 +29,9 @@ public class NsdResourceSetFactory extends RiseClipseResourceSetFactory {
      * @see fr.centralesupelec.edf.riseclipse.util.RiseClipseResourceSetFactory#createResourceSet()
      */
     @Override
-    public IRiseClipseResourceSet createResourceSet() {
+    public IRiseClipseResourceSet createResourceSet( IRiseClipseConsole console ) {
         // TODO Auto-generated method stub
-        return new NsdResourceSetImpl();
+        return new NsdResourceSetImpl( console );
     }
 
 }

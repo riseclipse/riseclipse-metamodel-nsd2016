@@ -514,8 +514,8 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
      *   AnyLNClass.base                    -> AbstractLNClass  
      */
     @Override
-    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
-        if( super.buildExplicitLinks( console ) ) return true;
+    public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
+        if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
         if( isSetBase() ) {
 

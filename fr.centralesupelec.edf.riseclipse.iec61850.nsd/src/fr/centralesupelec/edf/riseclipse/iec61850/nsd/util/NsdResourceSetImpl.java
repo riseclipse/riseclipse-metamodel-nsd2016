@@ -35,8 +35,8 @@ public class NsdResourceSetImpl extends RiseClipseResourceSet {
     
     private Map< String, NS > nsdResources;
 
-    public NsdResourceSetImpl() {
-        super();
+    public NsdResourceSetImpl( IRiseClipseConsole console ) {
+        super( console );
         
         nsdResources = new HashMap< String, NS >();
     }
@@ -112,7 +112,7 @@ public class NsdResourceSetImpl extends RiseClipseResourceSet {
         for( Resource resource : getResources() ) {
             DocumentRoot root = (DocumentRoot) resource.getContents().get( 0 );
             NS ns = ( NS ) root.getNS();
-            ns.buildExplicitLinks( console );
+            ns.buildExplicitLinks( console, true );
         }
         
     }
@@ -122,7 +122,7 @@ public class NsdResourceSetImpl extends RiseClipseResourceSet {
     }
 
     /*
-     * Constraints
+     * Constraints : when DONE, as OCLinEcore in nsd.ecore
      * 
      *   NSDoc:
      *     Name: uniqueDocID                           Selector: nsd:Doc                           Field: @id

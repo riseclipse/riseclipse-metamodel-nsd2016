@@ -30,7 +30,7 @@ import fr.centralesupelec.edf.riseclipse.util.IRiseClipseResource;
  * The <b>Resource </b> associated with the package.
  * <!-- end-user-doc -->
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceFactoryImpl
- * @generated
+ * @generated NOT
  */
 public class NsdResourceImpl extends XMLResourceImpl implements IRiseClipseResource {
     /**

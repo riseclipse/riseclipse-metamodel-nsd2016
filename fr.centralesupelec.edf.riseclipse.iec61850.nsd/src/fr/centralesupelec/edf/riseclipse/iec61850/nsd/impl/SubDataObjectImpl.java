@@ -2019,8 +2019,8 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
      *   SubDataObject.maxIndexAttribute    -> DataAttribute.name
      */
     @Override
-    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
-        if( super.buildExplicitLinks( console ) ) return true;
+    public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
+        if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
         NS ns = getCDC().getCDCs().getNS();
         if( isSetType() ) {

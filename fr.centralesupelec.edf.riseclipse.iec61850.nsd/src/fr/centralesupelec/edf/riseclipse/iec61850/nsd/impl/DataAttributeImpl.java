@@ -3087,8 +3087,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
      *   DataAttribute.maxIndexAttribute    -> DataAttribute.name
      */
     @Override
-    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
-        if( super.buildExplicitLinks( console ) ) return true;
+    public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
+        if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
         NS ns = getCDC().getCDCs().getNS();
 
