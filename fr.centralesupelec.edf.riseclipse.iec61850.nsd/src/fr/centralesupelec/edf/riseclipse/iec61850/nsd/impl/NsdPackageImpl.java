@@ -4395,7 +4395,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 null, 0, 1, BasicType.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
         initEReference( getBasicType_ReferredByDataAttribute(), this.getDataAttribute(),
-                this.getDataAttribute_RefersToBasicType(), "referredByDataAttribute", null, 0, 1, BasicType.class,
+                this.getDataAttribute_RefersToBasicType(), "referredByDataAttribute", null, 0, -1, BasicType.class,
                 IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
                 !IS_DERIVED, !IS_ORDERED );
 
