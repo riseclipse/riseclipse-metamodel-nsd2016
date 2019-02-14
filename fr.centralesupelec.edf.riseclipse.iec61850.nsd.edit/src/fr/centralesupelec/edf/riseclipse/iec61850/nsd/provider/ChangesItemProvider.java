@@ -79,11 +79,17 @@ public class ChangesItemProvider extends NsdObjectItemProvider {
     protected void addChangesIDPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_Changes_changesID_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_Changes_changesID_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_Changes_changesID_feature",
                                 "_UI_Changes_type" ),
-                        NsdPackage.Literals.CHANGES__CHANGES_ID, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.CHANGES__CHANGES_ID,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -95,11 +101,17 @@ public class ChangesItemProvider extends NsdObjectItemProvider {
     protected void addDatePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_Changes_date_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_Changes_date_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_Changes_date_feature",
                                 "_UI_Changes_type" ),
-                        NsdPackage.Literals.CHANGES__DATE, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.CHANGES__DATE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -111,11 +123,17 @@ public class ChangesItemProvider extends NsdObjectItemProvider {
     protected void addRevisionPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_Changes_revision_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_Changes_revision_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_Changes_revision_feature",
                                 "_UI_Changes_type" ),
-                        NsdPackage.Literals.CHANGES__REVISION, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.CHANGES__REVISION,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -127,11 +145,17 @@ public class ChangesItemProvider extends NsdObjectItemProvider {
     protected void addTissuesPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_Changes_tissues_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_Changes_tissues_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_Changes_tissues_feature",
                                 "_UI_Changes_type" ),
-                        NsdPackage.Literals.CHANGES__TISSUES, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.CHANGES__TISSUES,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -143,11 +167,17 @@ public class ChangesItemProvider extends NsdObjectItemProvider {
     protected void addReleasePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_Changes_release_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_Changes_release_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_Changes_release_feature",
                                 "_UI_Changes_type" ),
-                        NsdPackage.Literals.CHANGES__RELEASE, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.CHANGES__RELEASE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -159,11 +189,17 @@ public class ChangesItemProvider extends NsdObjectItemProvider {
     protected void addVersionPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_Changes_version_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_Changes_version_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_Changes_version_feature",
                                 "_UI_Changes_type" ),
-                        NsdPackage.Literals.CHANGES__VERSION, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.CHANGES__VERSION,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**

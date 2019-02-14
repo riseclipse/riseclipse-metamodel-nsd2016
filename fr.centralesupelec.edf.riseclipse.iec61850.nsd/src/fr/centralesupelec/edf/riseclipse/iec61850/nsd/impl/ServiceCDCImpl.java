@@ -199,8 +199,9 @@ public class ServiceCDCImpl extends NsdObjectImpl implements ServiceCDC {
         cdc = newCdc;
         boolean oldCdcESet = cdcESet;
         cdcESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.SERVICE_CDC__CDC, oldCdc, cdc, !oldCdcESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_CDC__CDC, oldCdc, cdc,
+                    !oldCdcESet ) );
     }
 
     /**
@@ -214,8 +215,9 @@ public class ServiceCDCImpl extends NsdObjectImpl implements ServiceCDC {
         boolean oldCdcESet = cdcESet;
         cdc = CDC_EDEFAULT;
         cdcESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.SERVICE_CDC__CDC, oldCdc, CDC_EDEFAULT, oldCdcESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_CDC__CDC, oldCdc, CDC_EDEFAULT,
+                    oldCdcESet ) );
     }
 
     /**
@@ -249,8 +251,9 @@ public class ServiceCDCImpl extends NsdObjectImpl implements ServiceCDC {
         variant = newVariant;
         boolean oldVariantESet = variantESet;
         variantESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.SERVICE_CDC__VARIANT, oldVariant, variant, !oldVariantESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_CDC__VARIANT, oldVariant,
+                    variant, !oldVariantESet ) );
     }
 
     /**
@@ -264,8 +267,9 @@ public class ServiceCDCImpl extends NsdObjectImpl implements ServiceCDC {
         boolean oldVariantESet = variantESet;
         variant = VARIANT_EDEFAULT;
         variantESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.SERVICE_CDC__VARIANT, oldVariant, VARIANT_EDEFAULT, oldVariantESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_CDC__VARIANT, oldVariant,
+                    VARIANT_EDEFAULT, oldVariantESet ) );
     }
 
     /**
@@ -311,14 +315,17 @@ public class ServiceCDCImpl extends NsdObjectImpl implements ServiceCDC {
             if( EcoreUtil.isAncestor( this, newServiceCDCs ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
-            if( newServiceCDCs != null ) msgs = ( ( InternalEObject ) newServiceCDCs ).eInverseAdd( this,
-                    NsdPackage.SERVICE_CD_CS__SERVICE_CDC, ServiceCDCs.class, msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
+            if( newServiceCDCs != null )
+                msgs = ( ( InternalEObject ) newServiceCDCs ).eInverseAdd( this, NsdPackage.SERVICE_CD_CS__SERVICE_CDC,
+                        ServiceCDCs.class, msgs );
             msgs = basicSetServiceCDCs( newServiceCDCs, msgs );
             if( msgs != null ) msgs.dispatch();
         }
-        else if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.SERVICE_CDC__SERVICE_CD_CS, newServiceCDCs, newServiceCDCs ) );
+        else if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_CDC__SERVICE_CD_CS,
+                    newServiceCDCs, newServiceCDCs ) );
     }
 
     /**
@@ -334,7 +341,8 @@ public class ServiceCDCImpl extends NsdObjectImpl implements ServiceCDC {
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getServiceDataAttribute() )
                     .basicAdd( otherEnd, msgs );
         case NsdPackage.SERVICE_CDC__SERVICE_CD_CS:
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             return basicSetServiceCDCs( ( ServiceCDCs ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );

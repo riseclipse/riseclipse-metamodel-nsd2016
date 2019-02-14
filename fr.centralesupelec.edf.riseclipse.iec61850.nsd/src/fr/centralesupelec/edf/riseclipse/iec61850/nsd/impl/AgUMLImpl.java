@@ -144,8 +144,9 @@ public abstract class AgUMLImpl extends MinimalEObjectImpl.Container implements 
         umlDate = newUmlDate;
         boolean oldUmlDateESet = umlDateESet;
         umlDateESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.AG_UML__UML_DATE, oldUmlDate, umlDate, !oldUmlDateESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_UML__UML_DATE, oldUmlDate, umlDate,
+                    !oldUmlDateESet ) );
     }
 
     /**
@@ -159,8 +160,9 @@ public abstract class AgUMLImpl extends MinimalEObjectImpl.Container implements 
         boolean oldUmlDateESet = umlDateESet;
         umlDate = UML_DATE_EDEFAULT;
         umlDateESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.AG_UML__UML_DATE, oldUmlDate, UML_DATE_EDEFAULT, oldUmlDateESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_UML__UML_DATE, oldUmlDate,
+                    UML_DATE_EDEFAULT, oldUmlDateESet ) );
     }
 
     /**
@@ -194,8 +196,9 @@ public abstract class AgUMLImpl extends MinimalEObjectImpl.Container implements 
         umlVersion = newUmlVersion;
         boolean oldUmlVersionESet = umlVersionESet;
         umlVersionESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.AG_UML__UML_VERSION, oldUmlVersion, umlVersion, !oldUmlVersionESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_UML__UML_VERSION, oldUmlVersion,
+                    umlVersion, !oldUmlVersionESet ) );
     }
 
     /**
@@ -209,8 +212,9 @@ public abstract class AgUMLImpl extends MinimalEObjectImpl.Container implements 
         boolean oldUmlVersionESet = umlVersionESet;
         umlVersion = UML_VERSION_EDEFAULT;
         umlVersionESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.AG_UML__UML_VERSION, oldUmlVersion, UML_VERSION_EDEFAULT, oldUmlVersionESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_UML__UML_VERSION, oldUmlVersion,
+                    UML_VERSION_EDEFAULT, oldUmlVersionESet ) );
     }
 
     /**

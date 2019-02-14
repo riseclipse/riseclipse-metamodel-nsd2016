@@ -82,11 +82,17 @@ public class PresenceConditionItemProvider extends NsdObjectItemProvider {
     protected void addArgumentPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_PresenceCondition_argument_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_PresenceCondition_argument_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_PresenceCondition_argument_feature",
                                 "_UI_PresenceCondition_type" ),
-                        NsdPackage.Literals.PRESENCE_CONDITION__ARGUMENT, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.PRESENCE_CONDITION__ARGUMENT,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -98,11 +104,17 @@ public class PresenceConditionItemProvider extends NsdObjectItemProvider {
     protected void addDescIDPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_PresenceCondition_descID_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_PresenceCondition_descID_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_PresenceCondition_descID_feature",
                                 "_UI_PresenceCondition_type" ),
-                        NsdPackage.Literals.PRESENCE_CONDITION__DESC_ID, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.PRESENCE_CONDITION__DESC_ID,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -114,11 +126,17 @@ public class PresenceConditionItemProvider extends NsdObjectItemProvider {
     protected void addNamePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_PresenceCondition_name_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_PresenceCondition_name_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_PresenceCondition_name_feature",
                                 "_UI_PresenceCondition_type" ),
-                        NsdPackage.Literals.PRESENCE_CONDITION__NAME, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.PRESENCE_CONDITION__NAME,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -130,11 +148,17 @@ public class PresenceConditionItemProvider extends NsdObjectItemProvider {
     protected void addTitleIDPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_PresenceCondition_titleID_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_PresenceCondition_titleID_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_PresenceCondition_titleID_feature",
                                 "_UI_PresenceCondition_type" ),
-                        NsdPackage.Literals.PRESENCE_CONDITION__TITLE_ID, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.PRESENCE_CONDITION__TITLE_ID,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -144,13 +168,19 @@ public class PresenceConditionItemProvider extends NsdObjectItemProvider {
      * @generated
      */
     protected void addReferredByDataObjectPropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add( createItemPropertyDescriptor(
-                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
-                getString( "_UI_PresenceCondition_referredByDataObject_feature" ),
-                getString( "_UI_PropertyDescriptor_description", "_UI_PresenceCondition_referredByDataObject_feature",
-                        "_UI_PresenceCondition_type" ),
-                NsdPackage.Literals.PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT, true, false, true, null, null,
-                null ) );
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_PresenceCondition_referredByDataObject_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_PresenceCondition_referredByDataObject_feature", "_UI_PresenceCondition_type" ),
+                        NsdPackage.Literals.PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null ) );
     }
 
     /**
@@ -160,14 +190,20 @@ public class PresenceConditionItemProvider extends NsdObjectItemProvider {
      * @generated
      */
     protected void addReferredByDataObjectForDerivedStatisticsPropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add( createItemPropertyDescriptor(
-                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
-                getString( "_UI_PresenceCondition_referredByDataObjectForDerivedStatistics_feature" ),
-                getString( "_UI_PropertyDescriptor_description",
-                        "_UI_PresenceCondition_referredByDataObjectForDerivedStatistics_feature",
-                        "_UI_PresenceCondition_type" ),
-                NsdPackage.Literals.PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT_FOR_DERIVED_STATISTICS, true, false,
-                true, null, null, null ) );
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_PresenceCondition_referredByDataObjectForDerivedStatistics_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_PresenceCondition_referredByDataObjectForDerivedStatistics_feature",
+                                "_UI_PresenceCondition_type" ),
+                        NsdPackage.Literals.PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT_FOR_DERIVED_STATISTICS,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null ) );
     }
 
     /**
@@ -179,11 +215,17 @@ public class PresenceConditionItemProvider extends NsdObjectItemProvider {
     protected void addReferredBySubDataObjectPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_PresenceCondition_referredBySubDataObject_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_PresenceCondition_referredBySubDataObject_feature" ),
                         getString( "_UI_PropertyDescriptor_description",
                                 "_UI_PresenceCondition_referredBySubDataObject_feature", "_UI_PresenceCondition_type" ),
-                        NsdPackage.Literals.PRESENCE_CONDITION__REFERRED_BY_SUB_DATA_OBJECT, true, false, true, null,
-                        null, null ) );
+                        NsdPackage.Literals.PRESENCE_CONDITION__REFERRED_BY_SUB_DATA_OBJECT,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null ) );
     }
 
     /**
@@ -195,11 +237,17 @@ public class PresenceConditionItemProvider extends NsdObjectItemProvider {
     protected void addReferredByDataAttributePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_PresenceCondition_referredByDataAttribute_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_PresenceCondition_referredByDataAttribute_feature" ),
                         getString( "_UI_PropertyDescriptor_description",
                                 "_UI_PresenceCondition_referredByDataAttribute_feature", "_UI_PresenceCondition_type" ),
-                        NsdPackage.Literals.PRESENCE_CONDITION__REFERRED_BY_DATA_ATTRIBUTE, true, false, true, null,
-                        null, null ) );
+                        NsdPackage.Literals.PRESENCE_CONDITION__REFERRED_BY_DATA_ATTRIBUTE,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null ) );
     }
 
     /**
@@ -210,11 +258,17 @@ public class PresenceConditionItemProvider extends NsdObjectItemProvider {
      */
     protected void addReferredBySubDataAttributePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add( createItemPropertyDescriptor(
-                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                getResourceLocator(),
                 getString( "_UI_PresenceCondition_referredBySubDataAttribute_feature" ),
                 getString( "_UI_PropertyDescriptor_description",
                         "_UI_PresenceCondition_referredBySubDataAttribute_feature", "_UI_PresenceCondition_type" ),
-                NsdPackage.Literals.PRESENCE_CONDITION__REFERRED_BY_SUB_DATA_ATTRIBUTE, true, false, true, null, null,
+                NsdPackage.Literals.PRESENCE_CONDITION__REFERRED_BY_SUB_DATA_ATTRIBUTE,
+                true,
+                false,
+                true,
+                null,
+                null,
                 null ) );
     }
 

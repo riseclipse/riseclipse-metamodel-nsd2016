@@ -180,8 +180,9 @@ public class DocImpl extends NsdObjectImpl implements Doc {
         boolean oldIdESet = idESet;
         id = ID_EDEFAULT;
         idESet = false;
-        if( eNotificationRequired() ) eNotify(
-                new ENotificationImpl( this, Notification.UNSET, NsdPackage.DOC__ID, oldId, ID_EDEFAULT, oldIdESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DOC__ID, oldId, ID_EDEFAULT,
+                    oldIdESet ) );
     }
 
     /**
@@ -227,7 +228,8 @@ public class DocImpl extends NsdObjectImpl implements Doc {
             if( EcoreUtil.isAncestor( this, newNSDoc ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             if( newNSDoc != null )
                 msgs = ( ( InternalEObject ) newNSDoc ).eInverseAdd( this, NsdPackage.NS_DOC__DOC, NSDoc.class, msgs );
             msgs = basicSetNSDoc( newNSDoc, msgs );
@@ -246,7 +248,8 @@ public class DocImpl extends NsdObjectImpl implements Doc {
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.DOC__NS_DOC:
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             return basicSetNSDoc( ( NSDoc ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );

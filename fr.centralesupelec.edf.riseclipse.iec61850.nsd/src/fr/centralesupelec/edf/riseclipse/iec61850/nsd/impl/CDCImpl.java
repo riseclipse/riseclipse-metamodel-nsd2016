@@ -399,10 +399,12 @@ public class CDCImpl extends TitledClassImpl implements CDC {
     public void setServiceParameter( ServiceParameter newServiceParameter ) {
         if( newServiceParameter != serviceParameter ) {
             NotificationChain msgs = null;
-            if( serviceParameter != null ) msgs = ( ( InternalEObject ) serviceParameter ).eInverseRemove( this,
-                    NsdPackage.SERVICE_PARAMETER__CDC, ServiceParameter.class, msgs );
-            if( newServiceParameter != null ) msgs = ( ( InternalEObject ) newServiceParameter ).eInverseAdd( this,
-                    NsdPackage.SERVICE_PARAMETER__CDC, ServiceParameter.class, msgs );
+            if( serviceParameter != null )
+                msgs = ( ( InternalEObject ) serviceParameter ).eInverseRemove( this, NsdPackage.SERVICE_PARAMETER__CDC,
+                        ServiceParameter.class, msgs );
+            if( newServiceParameter != null )
+                msgs = ( ( InternalEObject ) newServiceParameter ).eInverseAdd( this, NsdPackage.SERVICE_PARAMETER__CDC,
+                        ServiceParameter.class, msgs );
             msgs = basicSetServiceParameter( newServiceParameter, msgs );
             if( msgs != null ) msgs.dispatch();
         }
@@ -453,8 +455,9 @@ public class CDCImpl extends TitledClassImpl implements CDC {
         else {
             boolean oldServiceParameterESet = serviceParameterESet;
             serviceParameterESet = false;
-            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                    NsdPackage.CDC__SERVICE_PARAMETER, null, null, oldServiceParameterESet ) );
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.CDC__SERVICE_PARAMETER, null, null,
+                        oldServiceParameterESet ) );
         }
     }
 
@@ -541,8 +544,9 @@ public class CDCImpl extends TitledClassImpl implements CDC {
         name = newName;
         boolean oldNameESet = nameESet;
         nameESet = true;
-        if( eNotificationRequired() ) eNotify(
-                new ENotificationImpl( this, Notification.SET, NsdPackage.CDC__NAME, oldName, name, !oldNameESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CDC__NAME, oldName, name,
+                    !oldNameESet ) );
     }
 
     /**
@@ -556,8 +560,9 @@ public class CDCImpl extends TitledClassImpl implements CDC {
         boolean oldNameESet = nameESet;
         name = NAME_EDEFAULT;
         nameESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.CDC__NAME,
-                oldName, NAME_EDEFAULT, oldNameESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.CDC__NAME, oldName, NAME_EDEFAULT,
+                    oldNameESet ) );
     }
 
     /**
@@ -591,8 +596,9 @@ public class CDCImpl extends TitledClassImpl implements CDC {
         statistics = newStatistics;
         boolean oldStatisticsESet = statisticsESet;
         statisticsESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.CDC__STATISTICS, oldStatistics, statistics, !oldStatisticsESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CDC__STATISTICS, oldStatistics,
+                    statistics, !oldStatisticsESet ) );
     }
 
     /**
@@ -606,8 +612,9 @@ public class CDCImpl extends TitledClassImpl implements CDC {
         boolean oldStatisticsESet = statisticsESet;
         statistics = STATISTICS_EDEFAULT;
         statisticsESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.CDC__STATISTICS, oldStatistics, STATISTICS_EDEFAULT, oldStatisticsESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.CDC__STATISTICS, oldStatistics,
+                    STATISTICS_EDEFAULT, oldStatisticsESet ) );
     }
 
     /**
@@ -693,8 +700,9 @@ public class CDCImpl extends TitledClassImpl implements CDC {
         variant = newVariant;
         boolean oldVariantESet = variantESet;
         variantESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CDC__VARIANT,
-                oldVariant, variant, !oldVariantESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CDC__VARIANT, oldVariant, variant,
+                    !oldVariantESet ) );
     }
 
     /**
@@ -708,8 +716,9 @@ public class CDCImpl extends TitledClassImpl implements CDC {
         boolean oldVariantESet = variantESet;
         variant = VARIANT_EDEFAULT;
         variantESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.CDC__VARIANT,
-                oldVariant, VARIANT_EDEFAULT, oldVariantESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.CDC__VARIANT, oldVariant,
+                    VARIANT_EDEFAULT, oldVariantESet ) );
     }
 
     /**
@@ -754,7 +763,8 @@ public class CDCImpl extends TitledClassImpl implements CDC {
             if( EcoreUtil.isAncestor( this, newCDCs ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             if( newCDCs != null )
                 msgs = ( ( InternalEObject ) newCDCs ).eInverseAdd( this, NsdPackage.CD_CS__CDC, CDCs.class, msgs );
             msgs = basicSetCDCs( newCDCs, msgs );
@@ -848,11 +858,13 @@ public class CDCImpl extends TitledClassImpl implements CDC {
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getDataAttribute() )
                     .basicAdd( otherEnd, msgs );
         case NsdPackage.CDC__SERVICE_PARAMETER:
-            if( serviceParameter != null ) msgs = ( ( InternalEObject ) serviceParameter ).eInverseRemove( this,
-                    EOPPOSITE_FEATURE_BASE - NsdPackage.CDC__SERVICE_PARAMETER, null, msgs );
+            if( serviceParameter != null )
+                msgs = ( ( InternalEObject ) serviceParameter ).eInverseRemove( this,
+                        EOPPOSITE_FEATURE_BASE - NsdPackage.CDC__SERVICE_PARAMETER, null, msgs );
             return basicSetServiceParameter( ( ServiceParameter ) otherEnd, msgs );
         case NsdPackage.CDC__CD_CS:
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             return basicSetCDCs( ( CDCs ) otherEnd, msgs );
         case NsdPackage.CDC__REFERRED_BY_DATA_OBJECT:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByDataObject() )

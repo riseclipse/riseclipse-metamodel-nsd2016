@@ -156,14 +156,17 @@ public class ServiceConstructedAttributesImpl extends NsdObjectImpl implements S
             if( EcoreUtil.isAncestor( this, newServiceNS ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
-            if( newServiceNS != null ) msgs = ( ( InternalEObject ) newServiceNS ).eInverseAdd( this,
-                    NsdPackage.SERVICE_NS__SERVICE_CONSTRUCTED_ATTRIBUTES, ServiceNS.class, msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
+            if( newServiceNS != null )
+                msgs = ( ( InternalEObject ) newServiceNS ).eInverseAdd( this,
+                        NsdPackage.SERVICE_NS__SERVICE_CONSTRUCTED_ATTRIBUTES, ServiceNS.class, msgs );
             msgs = basicSetServiceNS( newServiceNS, msgs );
             if( msgs != null ) msgs.dispatch();
         }
-        else if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_NS, newServiceNS, newServiceNS ) );
+        else if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_NS, newServiceNS, newServiceNS ) );
     }
 
     /**
@@ -179,7 +182,8 @@ public class ServiceConstructedAttributesImpl extends NsdObjectImpl implements S
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getServiceConstructedAttribute() )
                     .basicAdd( otherEnd, msgs );
         case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_NS:
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             return basicSetServiceNS( ( ServiceNS ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );

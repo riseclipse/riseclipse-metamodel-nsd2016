@@ -117,8 +117,9 @@ public class DataSetMemberOfImpl extends NsdObjectImpl implements DataSetMemberO
         cb = newCb == null ? CB_EDEFAULT : newCb;
         boolean oldCbESet = cbESet;
         cbESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.DATA_SET_MEMBER_OF__CB, oldCb, cb, !oldCbESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_SET_MEMBER_OF__CB, oldCb, cb,
+                    !oldCbESet ) );
     }
 
     /**
@@ -132,8 +133,9 @@ public class DataSetMemberOfImpl extends NsdObjectImpl implements DataSetMemberO
         boolean oldCbESet = cbESet;
         cb = CB_EDEFAULT;
         cbESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.DATA_SET_MEMBER_OF__CB, oldCb, CB_EDEFAULT, oldCbESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DATA_SET_MEMBER_OF__CB, oldCb,
+                    CB_EDEFAULT, oldCbESet ) );
     }
 
     /**
@@ -182,14 +184,17 @@ public class DataSetMemberOfImpl extends NsdObjectImpl implements DataSetMemberO
             if( EcoreUtil.isAncestor( this, newApplicableServices ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
-            if( newApplicableServices != null ) msgs = ( ( InternalEObject ) newApplicableServices ).eInverseAdd( this,
-                    NsdPackage.APPLICABLE_SERVICES__DATA_SET_MEMBER_OF, ApplicableServices.class, msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
+            if( newApplicableServices != null )
+                msgs = ( ( InternalEObject ) newApplicableServices ).eInverseAdd( this,
+                        NsdPackage.APPLICABLE_SERVICES__DATA_SET_MEMBER_OF, ApplicableServices.class, msgs );
             msgs = basicSetApplicableServices( newApplicableServices, msgs );
             if( msgs != null ) msgs.dispatch();
         }
-        else if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.DATA_SET_MEMBER_OF__APPLICABLE_SERVICES, newApplicableServices, newApplicableServices ) );
+        else if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_SET_MEMBER_OF__APPLICABLE_SERVICES,
+                    newApplicableServices, newApplicableServices ) );
     }
 
     /**
@@ -201,7 +206,8 @@ public class DataSetMemberOfImpl extends NsdObjectImpl implements DataSetMemberO
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.DATA_SET_MEMBER_OF__APPLICABLE_SERVICES:
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             return basicSetApplicableServices( ( ApplicableServices ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );

@@ -270,8 +270,9 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
         changesID = newChangesID;
         boolean oldChangesIDESet = changesIDESet;
         changesIDESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.CHANGES__CHANGES_ID, oldChangesID, changesID, !oldChangesIDESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CHANGES__CHANGES_ID, oldChangesID,
+                    changesID, !oldChangesIDESet ) );
     }
 
     /**
@@ -285,8 +286,9 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
         boolean oldChangesIDESet = changesIDESet;
         changesID = CHANGES_ID_EDEFAULT;
         changesIDESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.CHANGES__CHANGES_ID, oldChangesID, CHANGES_ID_EDEFAULT, oldChangesIDESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.CHANGES__CHANGES_ID, oldChangesID,
+                    CHANGES_ID_EDEFAULT, oldChangesIDESet ) );
     }
 
     /**
@@ -320,8 +322,9 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
         date = newDate;
         boolean oldDateESet = dateESet;
         dateESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CHANGES__DATE,
-                oldDate, date, !oldDateESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CHANGES__DATE, oldDate, date,
+                    !oldDateESet ) );
     }
 
     /**
@@ -335,8 +338,9 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
         boolean oldDateESet = dateESet;
         date = DATE_EDEFAULT;
         dateESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.CHANGES__DATE, oldDate, DATE_EDEFAULT, oldDateESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.CHANGES__DATE, oldDate, DATE_EDEFAULT,
+                    oldDateESet ) );
     }
 
     /**
@@ -370,8 +374,9 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
         revision = newRevision;
         boolean oldRevisionESet = revisionESet;
         revisionESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.CHANGES__REVISION, oldRevision, revision, !oldRevisionESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CHANGES__REVISION, oldRevision, revision,
+                    !oldRevisionESet ) );
     }
 
     /**
@@ -385,8 +390,9 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
         boolean oldRevisionESet = revisionESet;
         revision = REVISION_EDEFAULT;
         revisionESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.CHANGES__REVISION, oldRevision, REVISION_EDEFAULT, oldRevisionESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.CHANGES__REVISION, oldRevision,
+                    REVISION_EDEFAULT, oldRevisionESet ) );
     }
 
     /**
@@ -420,8 +426,9 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
         tissues = newTissues;
         boolean oldTissuesESet = tissuesESet;
         tissuesESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.CHANGES__TISSUES, oldTissues, tissues, !oldTissuesESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CHANGES__TISSUES, oldTissues, tissues,
+                    !oldTissuesESet ) );
     }
 
     /**
@@ -435,8 +442,9 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
         boolean oldTissuesESet = tissuesESet;
         tissues = TISSUES_EDEFAULT;
         tissuesESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.CHANGES__TISSUES, oldTissues, TISSUES_EDEFAULT, oldTissuesESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.CHANGES__TISSUES, oldTissues,
+                    TISSUES_EDEFAULT, oldTissuesESet ) );
     }
 
     /**
@@ -481,7 +489,8 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
             if( EcoreUtil.isAncestor( this, newNS ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             if( newNS != null )
                 msgs = ( ( InternalEObject ) newNS ).eInverseAdd( this, NsdPackage.NS__CHANGES, NS.class, msgs );
             msgs = basicSetNS( newNS, msgs );
@@ -524,14 +533,17 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
             if( EcoreUtil.isAncestor( this, newServiceNS ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
-            if( newServiceNS != null ) msgs = ( ( InternalEObject ) newServiceNS ).eInverseAdd( this,
-                    NsdPackage.SERVICE_NS__CHANGES, ServiceNS.class, msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
+            if( newServiceNS != null )
+                msgs = ( ( InternalEObject ) newServiceNS ).eInverseAdd( this, NsdPackage.SERVICE_NS__CHANGES,
+                        ServiceNS.class, msgs );
             msgs = basicSetServiceNS( newServiceNS, msgs );
             if( msgs != null ) msgs.dispatch();
         }
-        else if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.CHANGES__SERVICE_NS, newServiceNS, newServiceNS ) );
+        else if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CHANGES__SERVICE_NS, newServiceNS,
+                    newServiceNS ) );
     }
 
     /**
@@ -555,8 +567,9 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
         release = newRelease;
         boolean oldReleaseESet = releaseESet;
         releaseESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.CHANGES__RELEASE, oldRelease, release, !oldReleaseESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CHANGES__RELEASE, oldRelease, release,
+                    !oldReleaseESet ) );
     }
 
     /**
@@ -570,8 +583,9 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
         boolean oldReleaseESet = releaseESet;
         release = RELEASE_EDEFAULT;
         releaseESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.CHANGES__RELEASE, oldRelease, RELEASE_EDEFAULT, oldReleaseESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.CHANGES__RELEASE, oldRelease,
+                    RELEASE_EDEFAULT, oldReleaseESet ) );
     }
 
     /**
@@ -605,8 +619,9 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
         version = newVersion;
         boolean oldVersionESet = versionESet;
         versionESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.CHANGES__VERSION, oldVersion, version, !oldVersionESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CHANGES__VERSION, oldVersion, version,
+                    !oldVersionESet ) );
     }
 
     /**
@@ -620,8 +635,9 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
         boolean oldVersionESet = versionESet;
         version = VERSION_EDEFAULT;
         versionESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.CHANGES__VERSION, oldVersion, VERSION_EDEFAULT, oldVersionESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.CHANGES__VERSION, oldVersion,
+                    VERSION_EDEFAULT, oldVersionESet ) );
     }
 
     /**
@@ -643,10 +659,12 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.CHANGES__NS:
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             return basicSetNS( ( NS ) otherEnd, msgs );
         case NsdPackage.CHANGES__SERVICE_NS:
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             return basicSetServiceNS( ( ServiceNS ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );

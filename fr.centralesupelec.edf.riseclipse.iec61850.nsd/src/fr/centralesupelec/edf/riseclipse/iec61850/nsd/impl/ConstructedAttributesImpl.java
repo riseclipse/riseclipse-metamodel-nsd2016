@@ -151,14 +151,17 @@ public class ConstructedAttributesImpl extends NsdObjectImpl implements Construc
             if( EcoreUtil.isAncestor( this, newNS ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
-            if( newNS != null ) msgs = ( ( InternalEObject ) newNS ).eInverseAdd( this,
-                    NsdPackage.NS__CONSTRUCTED_ATTRIBUTES, NS.class, msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
+            if( newNS != null )
+                msgs = ( ( InternalEObject ) newNS ).eInverseAdd( this, NsdPackage.NS__CONSTRUCTED_ATTRIBUTES, NS.class,
+                        msgs );
             msgs = basicSetNS( newNS, msgs );
             if( msgs != null ) msgs.dispatch();
         }
-        else if( eNotificationRequired() ) eNotify(
-                new ENotificationImpl( this, Notification.SET, NsdPackage.CONSTRUCTED_ATTRIBUTES__NS, newNS, newNS ) );
+        else if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CONSTRUCTED_ATTRIBUTES__NS, newNS,
+                    newNS ) );
     }
 
     /**
@@ -174,7 +177,8 @@ public class ConstructedAttributesImpl extends NsdObjectImpl implements Construc
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getConstructedAttribute() )
                     .basicAdd( otherEnd, msgs );
         case NsdPackage.CONSTRUCTED_ATTRIBUTES__NS:
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             return basicSetNS( ( NS ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );

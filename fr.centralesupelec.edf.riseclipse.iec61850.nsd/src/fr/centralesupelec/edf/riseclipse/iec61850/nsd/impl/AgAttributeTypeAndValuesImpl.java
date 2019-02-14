@@ -173,9 +173,10 @@ public abstract class AgAttributeTypeAndValuesImpl extends AgAttributeTypeImpl i
         defaultValue = newDefaultValue;
         boolean oldDefaultValueESet = defaultValueESet;
         defaultValueESet = true;
-        if( eNotificationRequired() ) eNotify(
-                new ENotificationImpl( this, Notification.SET, NsdPackage.AG_ATTRIBUTE_TYPE_AND_VALUES__DEFAULT_VALUE,
-                        oldDefaultValue, defaultValue, !oldDefaultValueESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.AG_ATTRIBUTE_TYPE_AND_VALUES__DEFAULT_VALUE, oldDefaultValue, defaultValue,
+                    !oldDefaultValueESet ) );
     }
 
     /**
@@ -189,9 +190,10 @@ public abstract class AgAttributeTypeAndValuesImpl extends AgAttributeTypeImpl i
         boolean oldDefaultValueESet = defaultValueESet;
         defaultValue = DEFAULT_VALUE_EDEFAULT;
         defaultValueESet = false;
-        if( eNotificationRequired() ) eNotify(
-                new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_ATTRIBUTE_TYPE_AND_VALUES__DEFAULT_VALUE,
-                        oldDefaultValue, DEFAULT_VALUE_EDEFAULT, oldDefaultValueESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.AG_ATTRIBUTE_TYPE_AND_VALUES__DEFAULT_VALUE, oldDefaultValue, DEFAULT_VALUE_EDEFAULT,
+                    oldDefaultValueESet ) );
     }
 
     /**
@@ -225,8 +227,9 @@ public abstract class AgAttributeTypeAndValuesImpl extends AgAttributeTypeImpl i
         maxValue = newMaxValue;
         boolean oldMaxValueESet = maxValueESet;
         maxValueESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.AG_ATTRIBUTE_TYPE_AND_VALUES__MAX_VALUE, oldMaxValue, maxValue, !oldMaxValueESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_ATTRIBUTE_TYPE_AND_VALUES__MAX_VALUE,
+                    oldMaxValue, maxValue, !oldMaxValueESet ) );
     }
 
     /**
@@ -240,9 +243,10 @@ public abstract class AgAttributeTypeAndValuesImpl extends AgAttributeTypeImpl i
         boolean oldMaxValueESet = maxValueESet;
         maxValue = MAX_VALUE_EDEFAULT;
         maxValueESet = false;
-        if( eNotificationRequired() ) eNotify(
-                new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_ATTRIBUTE_TYPE_AND_VALUES__MAX_VALUE,
-                        oldMaxValue, MAX_VALUE_EDEFAULT, oldMaxValueESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.AG_ATTRIBUTE_TYPE_AND_VALUES__MAX_VALUE, oldMaxValue, MAX_VALUE_EDEFAULT,
+                    oldMaxValueESet ) );
     }
 
     /**
@@ -276,8 +280,9 @@ public abstract class AgAttributeTypeAndValuesImpl extends AgAttributeTypeImpl i
         minValue = newMinValue;
         boolean oldMinValueESet = minValueESet;
         minValueESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.AG_ATTRIBUTE_TYPE_AND_VALUES__MIN_VALUE, oldMinValue, minValue, !oldMinValueESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_ATTRIBUTE_TYPE_AND_VALUES__MIN_VALUE,
+                    oldMinValue, minValue, !oldMinValueESet ) );
     }
 
     /**
@@ -291,9 +296,10 @@ public abstract class AgAttributeTypeAndValuesImpl extends AgAttributeTypeImpl i
         boolean oldMinValueESet = minValueESet;
         minValue = MIN_VALUE_EDEFAULT;
         minValueESet = false;
-        if( eNotificationRequired() ) eNotify(
-                new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_ATTRIBUTE_TYPE_AND_VALUES__MIN_VALUE,
-                        oldMinValue, MIN_VALUE_EDEFAULT, oldMinValueESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.AG_ATTRIBUTE_TYPE_AND_VALUES__MIN_VALUE, oldMinValue, MIN_VALUE_EDEFAULT,
+                    oldMinValueESet ) );
     }
 
     /**

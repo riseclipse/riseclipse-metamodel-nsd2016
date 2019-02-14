@@ -86,11 +86,17 @@ public class AgTrgOpItemProvider extends ItemProviderAdapter implements IEditing
     protected void addDchgPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_AgTrgOp_dchg_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_AgTrgOp_dchg_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_AgTrgOp_dchg_feature",
                                 "_UI_AgTrgOp_type" ),
-                        NsdPackage.Literals.AG_TRG_OP__DCHG, true, false, false,
-                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.AG_TRG_OP__DCHG,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -102,11 +108,17 @@ public class AgTrgOpItemProvider extends ItemProviderAdapter implements IEditing
     protected void addDupdPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_AgTrgOp_dupd_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_AgTrgOp_dupd_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_AgTrgOp_dupd_feature",
                                 "_UI_AgTrgOp_type" ),
-                        NsdPackage.Literals.AG_TRG_OP__DUPD, true, false, false,
-                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.AG_TRG_OP__DUPD,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -118,11 +130,17 @@ public class AgTrgOpItemProvider extends ItemProviderAdapter implements IEditing
     protected void addQchgPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_AgTrgOp_qchg_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_AgTrgOp_qchg_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_AgTrgOp_qchg_feature",
                                 "_UI_AgTrgOp_type" ),
-                        NsdPackage.Literals.AG_TRG_OP__QCHG, true, false, false,
-                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.AG_TRG_OP__QCHG,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**

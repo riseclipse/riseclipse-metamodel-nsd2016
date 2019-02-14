@@ -75,11 +75,17 @@ public class TitledClassItemProvider extends DocumentedClassItemProvider {
     protected void addTitleIDPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_TitledClass_titleID_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_TitledClass_titleID_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_TitledClass_titleID_feature",
                                 "_UI_TitledClass_type" ),
-                        NsdPackage.Literals.TITLED_CLASS__TITLE_ID, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.TITLED_CLASS__TITLE_ID,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**

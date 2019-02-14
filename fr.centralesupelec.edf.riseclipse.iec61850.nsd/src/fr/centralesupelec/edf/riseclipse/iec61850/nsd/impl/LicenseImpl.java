@@ -174,8 +174,9 @@ public class LicenseImpl extends NsdObjectImpl implements License {
         kind = newKind == null ? KIND_EDEFAULT : newKind;
         boolean oldKindESet = kindESet;
         kindESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.LICENSE__KIND,
-                oldKind, kind, !oldKindESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.LICENSE__KIND, oldKind, kind,
+                    !oldKindESet ) );
     }
 
     /**
@@ -189,8 +190,9 @@ public class LicenseImpl extends NsdObjectImpl implements License {
         boolean oldKindESet = kindESet;
         kind = KIND_EDEFAULT;
         kindESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.LICENSE__KIND, oldKind, KIND_EDEFAULT, oldKindESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.LICENSE__KIND, oldKind, KIND_EDEFAULT,
+                    oldKindESet ) );
     }
 
     /**
@@ -224,8 +226,9 @@ public class LicenseImpl extends NsdObjectImpl implements License {
         uri = newUri;
         boolean oldUriESet = uriESet;
         uriESet = true;
-        if( eNotificationRequired() ) eNotify(
-                new ENotificationImpl( this, Notification.SET, NsdPackage.LICENSE__URI, oldUri, uri, !oldUriESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.LICENSE__URI, oldUri, uri,
+                    !oldUriESet ) );
     }
 
     /**
@@ -239,8 +242,9 @@ public class LicenseImpl extends NsdObjectImpl implements License {
         boolean oldUriESet = uriESet;
         uri = URI_EDEFAULT;
         uriESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.LICENSE__URI,
-                oldUri, URI_EDEFAULT, oldUriESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.LICENSE__URI, oldUri, URI_EDEFAULT,
+                    oldUriESet ) );
     }
 
     /**
@@ -286,14 +290,17 @@ public class LicenseImpl extends NsdObjectImpl implements License {
             if( EcoreUtil.isAncestor( this, newCopyrightNotice ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
-            if( newCopyrightNotice != null ) msgs = ( ( InternalEObject ) newCopyrightNotice ).eInverseAdd( this,
-                    NsdPackage.COPYRIGHT_NOTICE__LICENSE, CopyrightNotice.class, msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
+            if( newCopyrightNotice != null )
+                msgs = ( ( InternalEObject ) newCopyrightNotice ).eInverseAdd( this,
+                        NsdPackage.COPYRIGHT_NOTICE__LICENSE, CopyrightNotice.class, msgs );
             msgs = basicSetCopyrightNotice( newCopyrightNotice, msgs );
             if( msgs != null ) msgs.dispatch();
         }
-        else if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.LICENSE__COPYRIGHT_NOTICE, newCopyrightNotice, newCopyrightNotice ) );
+        else if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.LICENSE__COPYRIGHT_NOTICE,
+                    newCopyrightNotice, newCopyrightNotice ) );
     }
 
     /**
@@ -305,7 +312,8 @@ public class LicenseImpl extends NsdObjectImpl implements License {
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.LICENSE__COPYRIGHT_NOTICE:
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             return basicSetCopyrightNotice( ( CopyrightNotice ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );

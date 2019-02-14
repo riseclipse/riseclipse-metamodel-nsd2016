@@ -77,11 +77,17 @@ public class LNClassItemProvider extends AnyLNClassItemProvider {
     protected void addCanHaveLOGPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_LNClass_canHaveLOG_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_LNClass_canHaveLOG_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_LNClass_canHaveLOG_feature",
                                 "_UI_LNClass_type" ),
-                        NsdPackage.Literals.LN_CLASS__CAN_HAVE_LOG, true, false, false,
-                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.LN_CLASS__CAN_HAVE_LOG,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -93,11 +99,17 @@ public class LNClassItemProvider extends AnyLNClassItemProvider {
     protected void addIsExtensionPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_LNClass_isExtension_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_LNClass_isExtension_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_LNClass_isExtension_feature",
                                 "_UI_LNClass_type" ),
-                        NsdPackage.Literals.LN_CLASS__IS_EXTENSION, true, false, false,
-                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.LN_CLASS__IS_EXTENSION,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -109,11 +121,17 @@ public class LNClassItemProvider extends AnyLNClassItemProvider {
     protected void addNamePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_LNClass_name_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_LNClass_name_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_LNClass_name_feature",
                                 "_UI_LNClass_type" ),
-                        NsdPackage.Literals.LN_CLASS__NAME, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.LN_CLASS__NAME,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
