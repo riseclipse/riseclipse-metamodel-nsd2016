@@ -20,8 +20,10 @@
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.util;
 
 import org.eclipse.emf.common.util.URI;
-
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
+
+import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
+import fr.centralesupelec.edf.riseclipse.util.IRiseClipseResource;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +32,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceFactoryImpl
  * @generated
  */
-public class NsdResourceImpl extends XMLResourceImpl {
+public class NsdResourceImpl extends XMLResourceImpl implements IRiseClipseResource {
     /**
      * Creates an instance of the resource.
      * <!-- begin-user-doc -->
@@ -40,6 +42,11 @@ public class NsdResourceImpl extends XMLResourceImpl {
      */
     public NsdResourceImpl( URI uri ) {
         super( uri );
+    }
+
+    @Override
+    public void printStatistics( IRiseClipseConsole console ) {
+        // TODO !
     }
 
 } //NsdResourceImpl

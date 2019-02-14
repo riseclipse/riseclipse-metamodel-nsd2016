@@ -24,15 +24,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.util.AbstractRiseClipseConsole;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
+import fr.centralesupelec.edf.riseclipse.util.RiseClipseResourceSet;
 
 
-public class NsdResourceSetImpl extends ResourceSetImpl {
+public class NsdResourceSetImpl extends RiseClipseResourceSet {
     
     private Map< String, NS > nsdResources;
 
@@ -71,8 +70,60 @@ public class NsdResourceSetImpl extends ResourceSetImpl {
         nsdResources.put( ns.getId(), ns );
     }
 
+    /* (non-Javadoc)
+     * @see fr.centralesupelec.edf.riseclipse.util.RiseClipseResourceSet#finalizeLoad(fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole)
+     */
+    @Override
+    public void finalizeLoad( IRiseClipseConsole console ) {
+        buildExplicitLinks( console );
+    }
+
+    /*
+     * The following links are implicit:
+     * 
+     *   DependsOn.id                       -> NS.id                                DONE
+     *   AnyLNClass.base                    -> AbstractLNClass                      DONE
+     *   DataObject.type                    -> CDC.name                             DONE
+     *   DataObject.presCond                -> PresenceCondition.name               DONE
+     *   DataObject.dsPresCond              -> PresenceCondition.name               DONE
+     *   SubDataObject.type                 -> CDC.name                             DONE
+     *   SubDataObject.presCond             -> PresenceCondition.name               DONE
+     *   SubDataObject.sizeAttribute        -> DataAttribute.name                   DONE
+     *   SubDataObject.maxIndexAttribute    -> DataAttribute.name                   DONE
+     *   DataAttribute.fc                   -> FunctionalConstraint.abbreviation    DONE
+     *   DataAttribute.presCond             -> PresenceCondition.name               DONE
+     *   DataAttribute.sizeAttribute        -> DataAttribute.name                   DONE
+     *   DataAttribute.maxIndexAttribute    -> DataAttribute.name                   DONE
+     *   ServiceParameter.name              -> DataAttribute.name                   ? Name of the data attribute but may be not name of a DataAttribute ?
+     *   SubDataAttribute.presCond          -> PresenceCondition.name               DONE
+     *   SubDataAttribute.sizeAttribute     -> DataAttribute.name                   ? Which DataAttribute ?
+     *   SubDataAttribute.maxIndexAttribute -> DataAttribute.name                   ? Which DataAttribute ?
+     *   Enumeration.inheritedFrom          -> Enumeration.name                     DONE
+     *   ServiceCDC.cdc                     -> CDC.name                             ? not sure and in ServiceNS file
+     *   ServiceCDC.ServiceDataAttribute    -> DataAttribute.name                   ? not sure and in ServiceNS file
+     *   ServiceDataAttribute.fc            -> FunctionalConstraint.abbreviation    ? in ServiceNS file
+     *   ServiceDataAttribute.presCond      -> PresenceCondition.name               ? in ServiceNS file
+     *   AppliesTo.id                       -> NS.id                                ? in ServiceNS file
+     *   ServiceTypeRealization.fc          -> FunctionalConstraint.abbreviation    ? ServiceTypeRealization is not a name of a type but a name of a reference
+     *   ServiceTypeRealization.presCond    -> PresenceCondition.name               ? ServiceTypeRealization is not a name of a type but a name of a reference
+     *   
+     */
+    private void buildExplicitLinks( IRiseClipseConsole console ) {
+        for( Resource resource : getResources() ) {
+            DocumentRoot root = (DocumentRoot) resource.getContents().get( 0 );
+            NS ns = ( NS ) root.getNS();
+            ns.buildExplicitLinks( console );
+        }
+        
+    }
+
+    public NS getNS( String id ) {
+        return nsdResources.get( id );
+    }
+
     /*
      * Constraints
+     * 
      *   NSDoc:
      *     Name: uniqueDocID                           Selector: nsd:Doc                           Field: @id
      *     Within an NSDoc element, there shall not be two Doc sub-elements with same id.
@@ -173,46 +224,5 @@ public class NsdResourceSetImpl extends ResourceSetImpl {
      *   ServiceNS/ServiceCDCs:
      *     Name: uniqueServiceCDC                      Selector: nsd:ServiceCDC                    Field: @cdc @variant
      *     Within an ServiceNS, there shall not be two ServiceCDC sub-elements with same name and (if defined) variant.
-     *   
-     *   
-     * The following links are implicit:
-     *   DependsOn.id                       -> NS.id                                DONE
-     *   AnyLNClass.base                    -> AbstractLNClass                      DONE
-     *   DataObject.type                    -> CDC.name                             DONE
-     *   DataObject.presCond                -> PresenceCondition.name               DONE
-     *   DataObject.dsPresCond              -> PresenceCondition.name               DONE
-     *   SubDataObject.type                 -> CDC.name                             DONE
-     *   SubDataObject.presCond             -> PresenceCondition.name               DONE
-     *   SubDataObject.sizeAttribute        -> DataAttribute.name                   DONE
-     *   SubDataObject.maxIndexAttribute    -> DataAttribute.name                   DONE
-     *   DataAttribute.fc                   -> FunctionalConstraint.abbreviation    DONE
-     *   DataAttribute.presCond             -> PresenceCondition.name               DONE
-     *   DataAttribute.sizeAttribute        -> DataAttribute.name                   DONE
-     *   DataAttribute.maxIndexAttribute    -> DataAttribute.name                   DONE
-     *   ServiceParameter.name              -> DataAttribute.name                   ? Name of the data attribute but may be not name of a DataAttribute ?
-     *   SubDataAttribute.presCond          -> PresenceCondition.name               DONE
-     *   SubDataAttribute.sizeAttribute     -> DataAttribute.name                   ? Which DataAttribute ?
-     *   SubDataAttribute.maxIndexAttribute -> DataAttribute.name                   ? Which DataAttribute ?
-     *   Enumeration.inheritedFrom          -> Enumeration.name                     DONE
-     *   ServiceCDC.cdc                     -> CDC.name                             ? not sure and in ServiceNS file
-     *   ServiceCDC.ServiceDataAttribute    -> DataAttribute.name                   ? not sure and in ServiceNS file
-     *   ServiceDataAttribute.fc            -> FunctionalConstraint.abbreviation    ? in ServiceNS file
-     *   ServiceDataAttribute.presCond      -> PresenceCondition.name               ? in ServiceNS file
-     *   AppliesTo.id                       -> NS.id                                ? in ServiceNS file
-     *   ServiceTypeRealization.fc          -> FunctionalConstraint.abbreviation    ? ServiceTypeRealization is not a name of a type but a name of a reference
-     *   ServiceTypeRealization.presCond    -> PresenceCondition.name               ? ServiceTypeRealization is not a name of a type but a name of a reference
      */
-    public void buildExplicitLinks( IRiseClipseConsole console ) {
-        for( Resource resource : getResources() ) {
-            DocumentRoot root = (DocumentRoot) resource.getContents().get( 0 );
-            NS ns = ( NS ) root.getNS();
-            ns.buildExplicitLinks( console );
-        }
-        
-    }
-
-    public NS getNS( String id ) {
-        return nsdResources.get( id );
-    }
-
 }
