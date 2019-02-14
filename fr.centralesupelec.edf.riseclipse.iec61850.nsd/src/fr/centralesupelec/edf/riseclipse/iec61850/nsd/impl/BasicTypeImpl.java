@@ -24,14 +24,18 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -109,23 +113,14 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
     protected boolean nameESet;
 
     /**
-     * The cached value of the '{@link #getReferredByDataAttribute() <em>Referred By Data Attribute</em>}' reference.
+     * The cached value of the '{@link #getReferredByDataAttribute() <em>Referred By Data Attribute</em>}' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @see #getReferredByDataAttribute()
      * @generated
      * @ordered
      */
-    protected DataAttribute referredByDataAttribute;
-
-    /**
-     * This is true if the Referred By Data Attribute reference has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean referredByDataAttributeESet;
+    protected EList< DataAttribute > referredByDataAttribute;
 
     /**
      * <!-- begin-user-doc -->
@@ -295,78 +290,13 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
      * @generated
      */
     @Override
-    public DataAttribute getReferredByDataAttribute() {
+    public EList< DataAttribute > getReferredByDataAttribute() {
+        if( referredByDataAttribute == null ) {
+            referredByDataAttribute = new EObjectWithInverseEList.Unsettable< DataAttribute >( DataAttribute.class,
+                    this, NsdPackage.BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE,
+                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE );
+        }
         return referredByDataAttribute;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public NotificationChain basicSetReferredByDataAttribute( DataAttribute newReferredByDataAttribute,
-            NotificationChain msgs ) {
-        DataAttribute oldReferredByDataAttribute = referredByDataAttribute;
-        referredByDataAttribute = newReferredByDataAttribute;
-        boolean oldReferredByDataAttributeESet = referredByDataAttributeESet;
-        referredByDataAttributeESet = true;
-        if( eNotificationRequired() ) {
-            ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
-                    NsdPackage.BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE, oldReferredByDataAttribute,
-                    newReferredByDataAttribute, !oldReferredByDataAttributeESet );
-            if( msgs == null )
-                msgs = notification;
-            else
-                msgs.add( notification );
-        }
-        return msgs;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setReferredByDataAttribute( DataAttribute newReferredByDataAttribute ) {
-        if( newReferredByDataAttribute != referredByDataAttribute ) {
-            NotificationChain msgs = null;
-            if( referredByDataAttribute != null ) msgs = ( ( InternalEObject ) referredByDataAttribute )
-                    .eInverseRemove( this, NsdPackage.DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE, DataAttribute.class, msgs );
-            if( newReferredByDataAttribute != null ) msgs = ( ( InternalEObject ) newReferredByDataAttribute )
-                    .eInverseAdd( this, NsdPackage.DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE, DataAttribute.class, msgs );
-            msgs = basicSetReferredByDataAttribute( newReferredByDataAttribute, msgs );
-            if( msgs != null ) msgs.dispatch();
-        }
-        else {
-            boolean oldReferredByDataAttributeESet = referredByDataAttributeESet;
-            referredByDataAttributeESet = true;
-            if( eNotificationRequired() ) eNotify(
-                    new ENotificationImpl( this, Notification.SET, NsdPackage.BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE,
-                            newReferredByDataAttribute, newReferredByDataAttribute, !oldReferredByDataAttributeESet ) );
-        }
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public NotificationChain basicUnsetReferredByDataAttribute( NotificationChain msgs ) {
-        DataAttribute oldReferredByDataAttribute = referredByDataAttribute;
-        referredByDataAttribute = null;
-        boolean oldReferredByDataAttributeESet = referredByDataAttributeESet;
-        referredByDataAttributeESet = false;
-        if( eNotificationRequired() ) {
-            ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
-                    NsdPackage.BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE, oldReferredByDataAttribute, null,
-                    oldReferredByDataAttributeESet );
-            if( msgs == null )
-                msgs = notification;
-            else
-                msgs.add( notification );
-        }
-        return msgs;
     }
 
     /**
@@ -376,19 +306,7 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
      */
     @Override
     public void unsetReferredByDataAttribute() {
-        if( referredByDataAttribute != null ) {
-            NotificationChain msgs = null;
-            msgs = ( ( InternalEObject ) referredByDataAttribute ).eInverseRemove( this,
-                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE, DataAttribute.class, msgs );
-            msgs = basicUnsetReferredByDataAttribute( msgs );
-            if( msgs != null ) msgs.dispatch();
-        }
-        else {
-            boolean oldReferredByDataAttributeESet = referredByDataAttributeESet;
-            referredByDataAttributeESet = false;
-            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                    NsdPackage.BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE, null, null, oldReferredByDataAttributeESet ) );
-        }
+        if( referredByDataAttribute != null ) ( ( InternalEList.Unsettable< ? > ) referredByDataAttribute ).unset();
     }
 
     /**
@@ -398,7 +316,7 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
      */
     @Override
     public boolean isSetReferredByDataAttribute() {
-        return referredByDataAttributeESet;
+        return referredByDataAttribute != null && ( ( InternalEList.Unsettable< ? > ) referredByDataAttribute ).isSet();
     }
 
     /**
@@ -406,6 +324,7 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
      * <!-- end-user-doc -->
      * @generated
      */
+    @SuppressWarnings( "unchecked" )
     @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
@@ -413,9 +332,8 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
             if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
             return basicSetBasicTypes( ( BasicTypes ) otherEnd, msgs );
         case NsdPackage.BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE:
-            if( referredByDataAttribute != null ) msgs = ( ( InternalEObject ) referredByDataAttribute )
-                    .eInverseRemove( this, NsdPackage.DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE, DataAttribute.class, msgs );
-            return basicSetReferredByDataAttribute( ( DataAttribute ) otherEnd, msgs );
+            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByDataAttribute() )
+                    .basicAdd( otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
     }
@@ -431,7 +349,7 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
         case NsdPackage.BASIC_TYPE__BASIC_TYPES:
             return basicSetBasicTypes( null, msgs );
         case NsdPackage.BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE:
-            return basicUnsetReferredByDataAttribute( msgs );
+            return ( ( InternalEList< ? > ) getReferredByDataAttribute() ).basicRemove( otherEnd, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -476,6 +394,7 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
      * <!-- end-user-doc -->
      * @generated
      */
+    @SuppressWarnings( "unchecked" )
     @Override
     public void eSet( int featureID, Object newValue ) {
         switch( featureID ) {
@@ -489,7 +408,8 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
             setBasicTypes( ( BasicTypes ) newValue );
             return;
         case NsdPackage.BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE:
-            setReferredByDataAttribute( ( DataAttribute ) newValue );
+            getReferredByDataAttribute().clear();
+            getReferredByDataAttribute().addAll( ( Collection< ? extends DataAttribute > ) newValue );
             return;
         }
         super.eSet( featureID, newValue );

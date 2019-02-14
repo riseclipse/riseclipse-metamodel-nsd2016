@@ -1906,7 +1906,7 @@ public interface NsdPackage extends EPackage {
     int BASIC_TYPE__BASIC_TYPES = NSD_OBJECT_FEATURE_COUNT + 2;
 
     /**
-     * The feature id for the '<em><b>Referred By Data Attribute</b></em>' reference.
+     * The feature id for the '<em><b>Referred By Data Attribute</b></em>' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -7273,10 +7273,10 @@ public interface NsdPackage extends EPackage {
     EReference getBasicType_BasicTypes();
 
     /**
-     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getReferredByDataAttribute <em>Referred By Data Attribute</em>}'.
+     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getReferredByDataAttribute <em>Referred By Data Attribute</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Referred By Data Attribute</em>'.
+     * @return the meta object for the reference list '<em>Referred By Data Attribute</em>'.
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getReferredByDataAttribute()
      * @see #getBasicType()
      * @generated
@@ -10470,7 +10470,7 @@ public interface NsdPackage extends EPackage {
         EReference BASIC_TYPE__BASIC_TYPES = eINSTANCE.getBasicType_BasicTypes();
 
         /**
-         * The meta object literal for the '<em><b>Referred By Data Attribute</b></em>' reference feature.
+         * The meta object literal for the '<em><b>Referred By Data Attribute</b></em>' reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated

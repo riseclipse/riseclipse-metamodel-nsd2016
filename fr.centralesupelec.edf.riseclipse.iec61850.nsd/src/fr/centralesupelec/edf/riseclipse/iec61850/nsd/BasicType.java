@@ -19,6 +19,8 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Basic Type</b></em>'.
@@ -170,7 +172,8 @@ public interface BasicType extends NsdObject {
     void setBasicTypes( BasicTypes value );
 
     /**
-     * Returns the value of the '<em><b>Referred By Data Attribute</b></em>' reference.
+     * Returns the value of the '<em><b>Referred By Data Attribute</b></em>' reference list.
+     * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute}.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToBasicType <em>Refers To Basic Type</em>}'.
      * <!-- begin-user-doc -->
      * <p>
@@ -178,48 +181,33 @@ public interface BasicType extends NsdObject {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Referred By Data Attribute</em>' reference.
+     * @return the value of the '<em>Referred By Data Attribute</em>' reference list.
      * @see #isSetReferredByDataAttribute()
      * @see #unsetReferredByDataAttribute()
-     * @see #setReferredByDataAttribute(DataAttribute)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getBasicType_ReferredByDataAttribute()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToBasicType
      * @model opposite="refersToBasicType" resolveProxies="false" unsettable="true" transient="true" ordered="false"
      * @generated
      */
-    DataAttribute getReferredByDataAttribute();
+    EList< DataAttribute > getReferredByDataAttribute();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getReferredByDataAttribute <em>Referred By Data Attribute</em>}' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Referred By Data Attribute</em>' reference.
-     * @see #isSetReferredByDataAttribute()
-     * @see #unsetReferredByDataAttribute()
-     * @see #getReferredByDataAttribute()
-     * @generated
-     */
-    void setReferredByDataAttribute( DataAttribute value );
-
-    /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getReferredByDataAttribute <em>Referred By Data Attribute</em>}' reference.
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getReferredByDataAttribute <em>Referred By Data Attribute</em>}' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @see #isSetReferredByDataAttribute()
      * @see #getReferredByDataAttribute()
-     * @see #setReferredByDataAttribute(DataAttribute)
      * @generated
      */
     void unsetReferredByDataAttribute();
 
     /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getReferredByDataAttribute <em>Referred By Data Attribute</em>}' reference is set.
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getReferredByDataAttribute <em>Referred By Data Attribute</em>}' reference list is set.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Referred By Data Attribute</em>' reference is set.
+     * @return whether the value of the '<em>Referred By Data Attribute</em>' reference list is set.
      * @see #unsetReferredByDataAttribute()
      * @see #getReferredByDataAttribute()
-     * @see #setReferredByDataAttribute(DataAttribute)
      * @generated
      */
     boolean isSetReferredByDataAttribute();
