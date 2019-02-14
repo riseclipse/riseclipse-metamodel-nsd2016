@@ -3110,7 +3110,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
             }
             else {
                 console.verbose( "BasicType (name: " + getType() + ") refers as type by DataAttribute (name: "
-                        + getName() + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") found" );
+                        + getName() + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") found in NS (id:" 
+                        + getRefersToBasicType().getBasicTypes().getNS().getId() + ")" );
             }
         }
 
