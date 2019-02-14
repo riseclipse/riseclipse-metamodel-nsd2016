@@ -401,8 +401,8 @@
         eType="#//BasicTypes" transient="true" unsettable="true" resolveProxies="false"
         eOpposite="#//BasicTypes/basicType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="referredByDataAttribute"
-        ordered="false" eType="#//DataAttribute" transient="true" unsettable="true"
-        resolveProxies="false" eOpposite="#//DataAttribute/refersToBasicType"/>
+        ordered="false" upperBound="-1" eType="#//DataAttribute" transient="true"
+        unsettable="true" resolveProxies="false" eOpposite="#//DataAttribute/refersToBasicType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BasicTypes" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
