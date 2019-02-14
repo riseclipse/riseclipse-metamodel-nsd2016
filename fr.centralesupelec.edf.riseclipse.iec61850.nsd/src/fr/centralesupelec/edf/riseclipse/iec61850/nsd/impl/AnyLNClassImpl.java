@@ -28,6 +28,7 @@ import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.Optional;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -513,23 +514,29 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         if( super.buildExplicitLinks( console ) ) return true;
-        if( !isSetBase() ) return false;
 
-        // This code assumes that the referred AbstractLNClass is in the same NS
-        // TODO: check that it is right
-        LNClasses lNClasses = ( LNClasses ) eContainer();
-        EList< AbstractLNClass > l = lNClasses.getAbstractLNClass();
-        setRefersToAbstractLNClass( l.stream()
-                .filter( abstractLNClass -> abstractLNClass.getName().equals( getBase() ) ).findAny().orElse( null ) );
-        if( getRefersToAbstractLNClass() == null ) {
-            console.error( "AbstractLNClass (name: " + getBase() + ") refers by AnyLNClass (name: " + getName()
-                    + ") in NS (id:" + lNClasses.getNS().getId() + ") is unknown" );
+        if( isSetBase() ) {
+
+            // This code assumes that the referred AbstractLNClass is in the same NS
+            // TODO: check that it is right
+            getLNClasses()
+                    .getAbstractLNClass()
+                    .stream()
+                    .filter( abstractLNClass -> abstractLNClass.getName().equals( getBase() ) )
+                    .findAny()
+                    .ifPresent( abstractLNClass -> setRefersToAbstractLNClass( abstractLNClass ) );
+
+            if( isSetRefersToAbstractLNClass() ) {
+                console.verbose( "AbstractLNClass (name: " + getBase() + ") refers by AnyLNClass (name: " + getName()
+                        + ") in NS (id:" + getLNClasses().getNS().getId() + ") found in NS (id:"
+                        + getRefersToAbstractLNClass().getLNClasses().getNS().getId() + ")" );
+            }
+            else {
+                console.error( "AbstractLNClass (name: " + getBase() + ") refers by AnyLNClass (name: " + getName()
+                        + ") in NS (id:" + getLNClasses().getNS().getId() + ") is unknown" );
+            }
         }
-        else {
-            console.verbose( "AbstractLNClass (name: " + getBase() + ") refers by AnyLNClass (name: " + getName()
-                    + ") in NS (id:" + lNClasses.getNS().getId() + ") found in NS (id:"
-                    + getRefersToAbstractLNClass().getLNClasses().getNS().getId() + ")" );
-        }
+
         return false;
     }
 

@@ -26,6 +26,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
@@ -1841,44 +1842,46 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         if( super.buildExplicitLinks( console ) ) return true;
 
+        NS ns = getAnyLNClass().getLNClasses().getNS();
         if( isSetType() ) {
-            setRefersToCDC( getAnyLNClass().getLNClasses().getNS().findCDC( getType(), console ) );
-            if( getRefersToCDC() == null ) {
+            CDC foundCDC = ns.findCDC( getType(), console );
+
+            if( foundCDC == null ) {
                 console.error( "CDC (name: " + getType() + ") refers by DataObject (name: " + getName() + ") in NS (id:"
-                        + getAnyLNClass().getLNClasses().getNS().getId() + ") is unknown" );
+                        + ns.getId() + ") is unknown" );
             }
             else {
+                setRefersToCDC( foundCDC );
                 console.verbose( "CDC (name: " + getType() + ") refers by DataObject (name: " + getName()
-                        + ") in NS (id:" + getAnyLNClass().getLNClasses().getNS().getId() + ") found in NS (id:"
+                        + ") in NS (id:" + ns.getId() + ") found in NS (id:"
                         + getRefersToCDC().getCDCs().getNS().getId() + ")" );
             }
         }
 
         if( isSetPresCond() ) {
-            setRefersToPresenceCondition(
-                    getAnyLNClass().getLNClasses().getNS().findPresenceCondition( getPresCond(), console ) );
-            if( getRefersToPresenceCondition() == null ) {
-                console.error(
-                        "PresenceCondition (name: " + getPresCond() + ") refers by DataObject (name: " + getName()
-                                + ") in NS (id:" + getAnyLNClass().getLNClasses().getNS().getId() + ") is unknown" );
+            PresenceCondition foundPC = ns.findPresenceCondition( getPresCond(), console );
+
+            if( foundPC == null ) {
+                console.error( "PresenceCondition (name: " + getPresCond() + ") refers by DataObject (name: "
+                        + getName() + ") in NS (id:" + ns.getId() + ") is unknown" );
             }
             else {
-                console.verbose(
-                        "PresenceCondition (name: " + getPresCond() + ") refers by DataObject (name: " + getName()
-                                + ") in NS (id:" + getAnyLNClass().getLNClasses().getNS().getId() + ") found in NS (id:"
-                                + getRefersToPresenceCondition().getPresenceConditions().getNS().getId() + ")" );
+                setRefersToPresenceCondition( foundPC );
+                console.verbose( "PresenceCondition (name: " + getPresCond() + ") refers by DataObject (name: "
+                        + getName() + ") in NS (id:" + ns.getId() + ") found in NS (id:"
+                        + getRefersToPresenceCondition().getPresenceConditions().getNS().getId() + ")" );
             }
         }
 
         if( isSetDsPresCond() ) {
-            setRefersToPresenceConditionDerivedStatistics(
-                    getAnyLNClass().getLNClasses().getNS().findPresenceCondition( getDsPresCond(), console ) );
-            if( getRefersToPresenceConditionDerivedStatistics() == null ) {
+            PresenceCondition foundPC = ns.findPresenceCondition( getDsPresCond(), console );
+            if( foundPC == null ) {
                 console.error(
                         "PresenceCondition (name: " + getDsPresCond() + ") refers by DataObject (name: " + getName()
                                 + ") in NS (id:" + getAnyLNClass().getLNClasses().getNS().getId() + ") is unknown" );
             }
             else {
+                setRefersToPresenceConditionDerivedStatistics( foundPC );
                 console.verbose( "PresenceCondition (name: " + getDsPresCond() + ") refers by DataObject (name: "
                         + getName() + ") in NS (id:" + getAnyLNClass().getLNClasses().getNS().getId()
                         + ") found in NS (id:"

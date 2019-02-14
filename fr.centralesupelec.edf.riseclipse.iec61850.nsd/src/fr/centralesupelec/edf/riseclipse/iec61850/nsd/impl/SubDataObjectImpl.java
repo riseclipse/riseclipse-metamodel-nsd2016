@@ -25,6 +25,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject;
@@ -1994,59 +1995,75 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         if( super.buildExplicitLinks( console ) ) return true;
 
+        NS ns = getCDC().getCDCs().getNS();
         if( isSetType() ) {
-            setRefersToCDC( getCDC().getCDCs().getNS().findCDC( getType(), console ) );
-            if( getRefersToCDC() == null ) {
-                console.error( "CDC (name: " + getType() + ") refers by SubDataObject (name: " + getName()
-                        + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") is unknown" );
+            CDC foundCDC = ns.findCDC( getType(), console );
+
+            if( foundCDC == null ) {
+                console.error(
+                        "CDC (name: " + getType() + ") refers by SubDataObject (name: " + getName() + ") in NS (id:"
+                                + ns.getId() + ") is unknown" );
             }
             else {
+                setRefersToCDC( foundCDC );
                 console.verbose( "CDC (name: " + getType() + ") refers by SubDataObject (name: " + getName()
-                        + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") found in NS (id:"
+                        + ") in NS (id:" + ns.getId() + ") found in NS (id:"
                         + getRefersToCDC().getCDCs().getNS().getId() + ")" );
             }
         }
 
         if( isSetPresCond() ) {
-            setRefersToPresenceCondition( getCDC().getCDCs().getNS().findPresenceCondition( getPresCond(), console ) );
-            if( getRefersToPresenceCondition() == null ) {
+            PresenceCondition foundPC = ns.findPresenceCondition( getPresCond(), console );
+
+            if( foundPC == null ) {
                 console.error( "PresenceCondition (name: " + getPresCond() + ") refers by SubDataObject (name: "
-                        + getName() + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") is unknown" );
+                        + getName() + ") in NS (id:" + ns.getId() + ") is unknown" );
             }
             else {
+                setRefersToPresenceCondition( foundPC );
                 console.verbose( "PresenceCondition (name: " + getPresCond() + ") refers by SubDataObject (name: "
-                        + getName() + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") found in NS (id:"
+                        + getName() + ") in NS (id:" + ns.getId() + ") found in NS (id:"
                         + getRefersToPresenceCondition().getPresenceConditions().getNS().getId() + ")" );
             }
         }
 
         if( isSetSizeAttribute() ) {
-            setRefersToSizeAttribute( getCDC().getDataAttribute().stream()
-                    .filter( att -> att.getName().equals( getSizeAttribute() ) ).findAny().orElse( null ) );
-            if( getRefersToSizeAttribute() == null ) {
-                console.error( "DataAttribute (name: " + getSizeAttribute()
-                        + ") refers as sizeAttribute by SubDataObject (name: " + getName() + ") in NS (id:"
-                        + getCDC().getCDCs().getNS().getId() + ") is unknown" );
-            }
-            else {
+            getCDC()
+                    .getDataAttribute()
+                    .stream()
+                    .filter( att -> att.getName().equals( getSizeAttribute() ) )
+                    .findAny()
+                    .ifPresent( att -> setRefersToSizeAttribute( att ) );
+
+            if( isSetRefersToSizeAttribute() ) {
                 console.verbose( "DataAttribute (name: " + getSizeAttribute()
                         + ") refers as sizeAttribute by SubDataObject (name: " + getName() + ") in NS (id:"
-                        + getCDC().getCDCs().getNS().getId() + ") found" );
+                        + ns.getId() + ") found" );
+            }
+            else {
+                console.error( "DataAttribute (name: " + getSizeAttribute()
+                        + ") refers as sizeAttribute by SubDataObject (name: " + getName() + ") in NS (id:"
+                        + ns.getId() + ") is unknown" );
             }
         }
 
         if( isSetMaxIndexAttribute() ) {
-            setRefersToMaxIndexAttribute( getCDC().getDataAttribute().stream()
-                    .filter( att -> att.getName().equals( getMaxIndexAttribute() ) ).findAny().orElse( null ) );
-            if( getRefersToMaxIndexAttribute() == null ) {
-                console.error( "DataAttribute (name: " + getMaxIndexAttribute()
-                        + ") refers as maxIndexAttribute by SubDataObject (name: " + getName() + ") in NS (id:"
-                        + getCDC().getCDCs().getNS().getId() + ") is unknown" );
-            }
-            else {
+            getCDC()
+                    .getDataAttribute()
+                    .stream()
+                    .filter( att -> att.getName().equals( getSizeAttribute() ) )
+                    .findAny()
+                    .ifPresent( att -> setRefersToMaxIndexAttribute( att ) );
+
+            if( isSetRefersToMaxIndexAttribute() ) {
                 console.verbose( "DataAttribute (name: " + getMaxIndexAttribute()
                         + ") refers as maxIndexAttribute by SubDataObject (name: " + getName() + ") in NS (id:"
-                        + getCDC().getCDCs().getNS().getId() + ") found" );
+                        + ns.getId() + ") found" );
+            }
+            else {
+                console.error( "DataAttribute (name: " + getMaxIndexAttribute()
+                        + ") refers as maxIndexAttribute by SubDataObject (name: " + getName() + ") in NS (id:"
+                        + ns.getId() + ") is unknown" );
             }
         }
 

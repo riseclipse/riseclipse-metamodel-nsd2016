@@ -891,13 +891,13 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         if( super.buildExplicitLinks( console ) ) return true;
 
-        NsdResourceSetImpl resourceSet = ( NsdResourceSetImpl ) eResource().getResourceSet();
-        setRefersToNS( resourceSet.getNS( getId() ) );
-        if( getRefersToNS() == null ) {
+        NS ns = ( ( NsdResourceSetImpl ) eResource().getResourceSet() ).getNS( getId() );
+        if( ns == null ) {
             console.error(
                     "NS (id: " + getId() + ") and refers by DependsOn in NS (id:" + getNS().getId() + ") is unknown" );
         }
         else {
+            setRefersToNS( ns );
             console.verbose(
                     "NS (id: " + getId() + ") and refers by DependsOn in NS (id:" + getNS().getId() + ") found" );
         }

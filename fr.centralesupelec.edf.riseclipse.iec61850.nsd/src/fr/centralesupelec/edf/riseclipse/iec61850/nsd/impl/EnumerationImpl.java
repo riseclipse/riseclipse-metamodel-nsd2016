@@ -22,6 +22,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
@@ -709,15 +710,17 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         if( super.buildExplicitLinks( console ) ) return true;
 
+        NS ns = getEnumerations().getNS();
         if( isSetInheritedFrom() ) {
-            setRefersToBaseEnumeration( getEnumerations().getNS().findEnumeration( getInheritedFrom(), console ) );
-            if( getRefersToBaseEnumeration() == null ) {
+            Enumeration foundBase = ns.findEnumeration( getInheritedFrom(), console );
+            if( foundBase == null ) {
                 console.error( "Enumeration (name: " + getInheritedFrom() + ") refers by Enumeration (name: "
-                        + getName() + ") in NS (id:" + getEnumerations().getNS().getId() + ") is unknown" );
+                        + getName() + ") in NS (id:" + ns.getId() + ") is unknown" );
             }
             else {
+                setRefersToBaseEnumeration( foundBase );
                 console.verbose( "Enumeration (name: " + getInheritedFrom() + ") refers by Enumeration (name: "
-                        + getName() + ") in NS (id:" + getEnumerations().getNS().getId() + ") found in NS (id:"
+                        + getName() + ") in NS (id:" + ns.getId() + ") found in NS (id:"
                         + getRefersToBaseEnumeration().getEnumerations().getNS().getId() + ")" );
             }
         }

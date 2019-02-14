@@ -29,6 +29,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
@@ -3046,71 +3047,89 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         if( super.buildExplicitLinks( console ) ) return true;
 
+        NS ns = getCDC().getCDCs().getNS();
+
         if( isSetFc() ) {
-            setRefersToFunctionalConstraint( getCDC().getCDCs().getNS().findFunctionalConstraint( getFc(), console ) );
-            if( getRefersToFunctionalConstraint() == null ) {
+            FunctionalConstraint foundFC = ns.findFunctionalConstraint( getFc(), console );
+
+            if( foundFC == null ) {
                 console.error( "FunctionalConstraint (abbreviation: " + getFc() + ") refers by DataAttribute (name: "
-                        + getName() + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") is unknown" );
+                        + getName() + ") in NS (id:" + ns.getId() + ") is unknown" );
             }
             else {
+                setRefersToFunctionalConstraint( foundFC );
                 console.verbose( "FunctionalConstraint (abbreviation: " + getFc() + ") refers by DataAttribute (name: "
-                        + getName() + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") found in NS (id:"
+                        + getName() + ") in NS (id:" + ns.getId() + ") found in NS (id:"
                         + getRefersToFunctionalConstraint().getFunctionalConstraints().getNS().getId() + ")" );
             }
         }
 
         if( isSetPresCond() ) {
-            setRefersToPresenceCondition( getCDC().getCDCs().getNS().findPresenceCondition( getPresCond(), console ) );
-            if( getRefersToPresenceCondition() == null ) {
+            PresenceCondition foundPC = ns.findPresenceCondition( getPresCond(), console );
+
+            if( foundPC == null ) {
                 console.error( "PresenceCondition (name: " + getPresCond() + ") refers by DataAttribute (name: "
-                        + getName() + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") is unknown" );
+                        + getName() + ") in NS (id:" + ns.getId() + ") is unknown" );
             }
             else {
+                setRefersToPresenceCondition( foundPC );
                 console.verbose( "PresenceCondition (name: " + getPresCond() + ") refers by DataAttribute (name: "
-                        + getName() + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") found in NS (id:"
+                        + getName() + ") in NS (id:" + ns.getId() + ") found in NS (id:"
                         + getRefersToPresenceCondition().getPresenceConditions().getNS().getId() + ")" );
             }
         }
 
         if( isSetSizeAttribute() ) {
-            setRefersToSizeAttribute( getCDC().getDataAttribute().stream()
-                    .filter( att -> att.getName().equals( getSizeAttribute() ) ).findAny().orElse( null ) );
-            if( getRefersToSizeAttribute() == null ) {
-                console.error( "DataAttribute (name: " + getSizeAttribute()
-                        + ") refers as sizeAttribute by DataAttribute (name: " + getName() + ") in NS (id:"
-                        + getCDC().getCDCs().getNS().getId() + ") is unknown" );
-            }
-            else {
+            getCDC()
+                    .getDataAttribute()
+                    .stream()
+                    .filter( att -> att.getName().equals( getSizeAttribute() ) )
+                    .findAny()
+                    .ifPresent( att -> setRefersToSizeAttribute( att ) );
+
+            if( isSetRefersToSizeAttribute() ) {
                 console.verbose( "DataAttribute (name: " + getSizeAttribute()
                         + ") refers as sizeAttribute by DataAttribute (name: " + getName() + ") in NS (id:"
-                        + getCDC().getCDCs().getNS().getId() + ") found" );
+                        + ns.getId() + ") found" );
+            }
+            else {
+                console.error( "DataAttribute (name: " + getSizeAttribute()
+                        + ") refers as sizeAttribute by DataAttribute (name: " + getName() + ") in NS (id:"
+                        + ns.getId() + ") is unknown" );
             }
         }
 
         if( isSetMaxIndexAttribute() ) {
-            setRefersToMaxIndexAttribute( getCDC().getDataAttribute().stream()
-                    .filter( att -> att.getName().equals( getMaxIndexAttribute() ) ).findAny().orElse( null ) );
-            if( getRefersToMaxIndexAttribute() == null ) {
-                console.error( "DataAttribute (name: " + getMaxIndexAttribute()
-                        + ") refers as maxIndexAttribute by DataAttribute (name: " + getName() + ") in NS (id:"
-                        + getCDC().getCDCs().getNS().getId() + ") is unknown" );
-            }
-            else {
+            getCDC()
+                    .getDataAttribute()
+                    .stream()
+                    .filter( att -> att.getName().equals( getMaxIndexAttribute() ) )
+                    .findAny()
+                    .ifPresent( att -> setRefersToMaxIndexAttribute( att ) );
+
+            if( isSetRefersToMaxIndexAttribute() ) {
                 console.verbose( "DataAttribute (name: " + getMaxIndexAttribute()
                         + ") refers as maxIndexAttribute by DataAttribute (name: " + getName() + ") in NS (id:"
-                        + getCDC().getCDCs().getNS().getId() + ") found" );
+                        + ns.getId() + ") found" );
+            }
+            else {
+                console.error( "DataAttribute (name: " + getMaxIndexAttribute()
+                        + ") refers as maxIndexAttribute by DataAttribute (name: " + getName() + ") in NS (id:"
+                        + ns.getId() + ") is unknown" );
             }
         }
 
         if( getTypeKind().equals( DefinedAttributeTypeKind.BASIC ) ) {
-            setRefersToBasicType( getCDC().getCDCs().getNS().findBasicType( getType(), console ) );
-            if( getRefersToBasicType() == null ) {
+            BasicType foundBT = ns.findBasicType( getType(), console );
+
+            if( foundBT == null ) {
                 console.error( "BasicType (name: " + getType() + ") refers as type by DataAttribute (name: " + getName()
-                        + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") is unknown" );
+                        + ") in NS (id:" + ns.getId() + ") is unknown" );
             }
             else {
+                setRefersToBasicType( foundBT );
                 console.verbose( "BasicType (name: " + getType() + ") refers as type by DataAttribute (name: "
-                        + getName() + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") found in NS (id:" 
+                        + getName() + ") in NS (id:" + ns.getId() + ") found in NS (id:"
                         + getRefersToBasicType().getBasicTypes().getNS().getId() + ")" );
             }
         }

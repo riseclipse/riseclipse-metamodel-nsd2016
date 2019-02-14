@@ -24,6 +24,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeTypeAndValues;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceCondition;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
@@ -1761,18 +1762,17 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         if( super.buildExplicitLinks( console ) ) return true;
 
+        NS ns = getConstructedAttribute().getConstructedAttributes().getNS();
         if( isSetPresCond() ) {
-            setRefersToPresenceCondition( getConstructedAttribute().getConstructedAttributes().getNS()
-                    .findPresenceCondition( getPresCond(), console ) );
-            if( getRefersToPresenceCondition() == null ) {
+            PresenceCondition foundPC = ns.findPresenceCondition( getPresCond(), console );
+            if( foundPC == null ) {
                 console.error( "PresenceCondition (name: " + getPresCond() + ") refers by SubDataAttribute (name: "
-                        + getName() + ") in NS (id:"
-                        + getConstructedAttribute().getConstructedAttributes().getNS().getId() + ") is unknown" );
+                        + getName() + ") in NS (id:" + ns.getId() + ") is unknown" );
             }
             else {
+                setRefersToPresenceCondition( foundPC );
                 console.verbose( "PresenceCondition (name: " + getPresCond() + ") refers by SubDataAttribute (name: "
-                        + getName() + ") in NS (id:"
-                        + getConstructedAttribute().getConstructedAttributes().getNS().getId() + ") found in NS (id:"
+                        + getName() + ") in NS (id:" + ns.getId() + ") found in NS (id:"
                         + getRefersToPresenceCondition().getPresenceConditions().getNS().getId() + ")" );
             }
         }
