@@ -1675,7 +1675,9 @@ public class NSImpl extends CopyrightedImpl implements NS {
             if( found != null ) return found;
         }
 
-        if( isSetDependsOn() ) {
+        // Look for in NS referred by DependsOn
+        // Warning: NS referred by DependsOn may not be loaded
+        if( isSetDependsOn() && ( getDependsOn().isSetRefersToNS() )) {
             getDependsOn().buildExplicitLinks( console );
             return getDependsOn().getRefersToNS().findCDC( cDCName, console );
         }
@@ -1696,7 +1698,9 @@ public class NSImpl extends CopyrightedImpl implements NS {
             if( found != null ) return found;
         }
 
-        if( isSetDependsOn() ) {
+        // Look for in NS referred by DependsOn
+        // Warning: NS referred by DependsOn may not be loaded
+        if( isSetDependsOn() && ( getDependsOn().isSetRefersToNS() )) {
             getDependsOn().buildExplicitLinks( console );
             return getDependsOn().getRefersToNS().findPresenceCondition( presenceConditionName, console );
         }
@@ -1719,7 +1723,9 @@ public class NSImpl extends CopyrightedImpl implements NS {
             if( found != null ) return found;
         }
 
-        if( isSetDependsOn() ) {
+        // Look for in NS referred by DependsOn
+        // Warning: NS referred by DependsOn may not be loaded
+        if( isSetDependsOn() && ( getDependsOn().isSetRefersToNS() )) {
             getDependsOn().buildExplicitLinks( console );
             return getDependsOn().getRefersToNS().findFunctionalConstraint( functionalConstraintAbbreviation, console );
         }
@@ -1740,7 +1746,9 @@ public class NSImpl extends CopyrightedImpl implements NS {
             if( found != null ) return found;
         }
 
-        if( isSetDependsOn() ) {
+        // Look for in NS referred by DependsOn
+        // Warning: NS referred by DependsOn may not be loaded
+        if( isSetDependsOn() && ( getDependsOn().isSetRefersToNS() )) {
             getDependsOn().buildExplicitLinks( console );
             return getDependsOn().getRefersToNS().findEnumeration( enumerationName, console );
         }
@@ -1761,7 +1769,9 @@ public class NSImpl extends CopyrightedImpl implements NS {
             if( found != null ) return found;
         }
 
-        if( isSetDependsOn() ) {
+        // Look for in NS referred by DependsOn
+        // Warning: NS referred by DependsOn may not be loaded
+        if( isSetDependsOn() && ( getDependsOn().isSetRefersToNS() )) {
             getDependsOn().buildExplicitLinks( console );
             return getDependsOn().getRefersToNS().findBasicType( basicTypeName, console );
         }
