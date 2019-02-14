@@ -79,11 +79,17 @@ public class AnyLNClassItemProvider extends TitledClassItemProvider {
     protected void addBasePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_AnyLNClass_base_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_AnyLNClass_base_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_AnyLNClass_base_feature",
                                 "_UI_AnyLNClass_type" ),
-                        NsdPackage.Literals.ANY_LN_CLASS__BASE, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.ANY_LN_CLASS__BASE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -93,12 +99,19 @@ public class AnyLNClassItemProvider extends TitledClassItemProvider {
      * @generated
      */
     protected void addRefersToAbstractLNClassPropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add( createItemPropertyDescriptor(
-                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
-                getString( "_UI_AnyLNClass_refersToAbstractLNClass_feature" ),
-                getString( "_UI_PropertyDescriptor_description", "_UI_AnyLNClass_refersToAbstractLNClass_feature",
-                        "_UI_AnyLNClass_type" ),
-                NsdPackage.Literals.ANY_LN_CLASS__REFERS_TO_ABSTRACT_LN_CLASS, true, false, true, null, null, null ) );
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_AnyLNClass_refersToAbstractLNClass_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_AnyLNClass_refersToAbstractLNClass_feature", "_UI_AnyLNClass_type" ),
+                        NsdPackage.Literals.ANY_LN_CLASS__REFERS_TO_ABSTRACT_LN_CLASS,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null ) );
     }
 
     /**

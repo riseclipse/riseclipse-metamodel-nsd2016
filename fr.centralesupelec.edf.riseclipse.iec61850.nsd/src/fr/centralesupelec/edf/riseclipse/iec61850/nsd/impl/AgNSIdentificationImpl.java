@@ -233,8 +233,9 @@ public abstract class AgNSIdentificationImpl extends MinimalEObjectImpl.Containe
         release = newRelease;
         boolean oldReleaseESet = releaseESet;
         releaseESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.AG_NS_IDENTIFICATION__RELEASE, oldRelease, release, !oldReleaseESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_NS_IDENTIFICATION__RELEASE,
+                    oldRelease, release, !oldReleaseESet ) );
     }
 
     /**
@@ -248,8 +249,9 @@ public abstract class AgNSIdentificationImpl extends MinimalEObjectImpl.Containe
         boolean oldReleaseESet = releaseESet;
         release = RELEASE_EDEFAULT;
         releaseESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.AG_NS_IDENTIFICATION__RELEASE, oldRelease, RELEASE_EDEFAULT, oldReleaseESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_NS_IDENTIFICATION__RELEASE,
+                    oldRelease, RELEASE_EDEFAULT, oldReleaseESet ) );
     }
 
     /**
@@ -283,8 +285,9 @@ public abstract class AgNSIdentificationImpl extends MinimalEObjectImpl.Containe
         version = newVersion;
         boolean oldVersionESet = versionESet;
         versionESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.AG_NS_IDENTIFICATION__VERSION, oldVersion, version, !oldVersionESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_NS_IDENTIFICATION__VERSION,
+                    oldVersion, version, !oldVersionESet ) );
     }
 
     /**
@@ -298,8 +301,9 @@ public abstract class AgNSIdentificationImpl extends MinimalEObjectImpl.Containe
         boolean oldVersionESet = versionESet;
         version = VERSION_EDEFAULT;
         versionESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.AG_NS_IDENTIFICATION__VERSION, oldVersion, VERSION_EDEFAULT, oldVersionESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_NS_IDENTIFICATION__VERSION,
+                    oldVersion, VERSION_EDEFAULT, oldVersionESet ) );
     }
 
     /**
@@ -333,8 +337,9 @@ public abstract class AgNSIdentificationImpl extends MinimalEObjectImpl.Containe
         id = newId;
         boolean oldIdESet = idESet;
         idESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.AG_NS_IDENTIFICATION__ID, oldId, id, !oldIdESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_NS_IDENTIFICATION__ID, oldId, id,
+                    !oldIdESet ) );
     }
 
     /**
@@ -348,8 +353,9 @@ public abstract class AgNSIdentificationImpl extends MinimalEObjectImpl.Containe
         boolean oldIdESet = idESet;
         id = ID_EDEFAULT;
         idESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.AG_NS_IDENTIFICATION__ID, oldId, ID_EDEFAULT, oldIdESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_NS_IDENTIFICATION__ID, oldId,
+                    ID_EDEFAULT, oldIdESet ) );
     }
 
     /**
@@ -383,8 +389,9 @@ public abstract class AgNSIdentificationImpl extends MinimalEObjectImpl.Containe
         revision = newRevision;
         boolean oldRevisionESet = revisionESet;
         revisionESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.AG_NS_IDENTIFICATION__REVISION, oldRevision, revision, !oldRevisionESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_NS_IDENTIFICATION__REVISION,
+                    oldRevision, revision, !oldRevisionESet ) );
     }
 
     /**
@@ -398,8 +405,9 @@ public abstract class AgNSIdentificationImpl extends MinimalEObjectImpl.Containe
         boolean oldRevisionESet = revisionESet;
         revision = REVISION_EDEFAULT;
         revisionESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.AG_NS_IDENTIFICATION__REVISION, oldRevision, REVISION_EDEFAULT, oldRevisionESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_NS_IDENTIFICATION__REVISION,
+                    oldRevision, REVISION_EDEFAULT, oldRevisionESet ) );
     }
 
     /**
@@ -449,9 +457,10 @@ public abstract class AgNSIdentificationImpl extends MinimalEObjectImpl.Containe
         boolean oldPublicationStageESet = publicationStageESet;
         publicationStage = PUBLICATION_STAGE_EDEFAULT;
         publicationStageESet = false;
-        if( eNotificationRequired() ) eNotify(
-                new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE,
-                        oldPublicationStage, PUBLICATION_STAGE_EDEFAULT, oldPublicationStageESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE, oldPublicationStage, PUBLICATION_STAGE_EDEFAULT,
+                    oldPublicationStageESet ) );
     }
 
     /**

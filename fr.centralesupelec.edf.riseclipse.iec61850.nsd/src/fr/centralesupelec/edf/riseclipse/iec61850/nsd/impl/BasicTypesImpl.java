@@ -150,7 +150,8 @@ public class BasicTypesImpl extends NsdObjectImpl implements BasicTypes {
             if( EcoreUtil.isAncestor( this, newNS ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             if( newNS != null )
                 msgs = ( ( InternalEObject ) newNS ).eInverseAdd( this, NsdPackage.NS__BASIC_TYPES, NS.class, msgs );
             msgs = basicSetNS( newNS, msgs );
@@ -173,7 +174,8 @@ public class BasicTypesImpl extends NsdObjectImpl implements BasicTypes {
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getBasicType() ).basicAdd( otherEnd,
                     msgs );
         case NsdPackage.BASIC_TYPES__NS:
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             return basicSetNS( ( NS ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );

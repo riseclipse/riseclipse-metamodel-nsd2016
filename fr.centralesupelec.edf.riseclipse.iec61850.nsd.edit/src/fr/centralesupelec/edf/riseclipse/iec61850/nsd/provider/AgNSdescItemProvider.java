@@ -84,11 +84,17 @@ public class AgNSdescItemProvider extends ItemProviderAdapter implements IEditin
     protected void addDescIDPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_AgNSdesc_descID_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_AgNSdesc_descID_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_AgNSdesc_descID_feature",
                                 "_UI_AgNSdesc_type" ),
-                        NsdPackage.Literals.AG_NSDESC__DESC_ID, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.AG_NSDESC__DESC_ID,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**

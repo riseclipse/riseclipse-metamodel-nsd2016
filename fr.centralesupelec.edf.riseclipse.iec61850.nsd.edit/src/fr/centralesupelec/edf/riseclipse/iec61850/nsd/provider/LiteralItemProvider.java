@@ -76,11 +76,17 @@ public class LiteralItemProvider extends DocumentedClassItemProvider {
     protected void addLiteralValPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_Literal_literalVal_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_Literal_literalVal_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_Literal_literalVal_feature",
                                 "_UI_Literal_type" ),
-                        NsdPackage.Literals.LITERAL__LITERAL_VAL, true, false, false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.LITERAL__LITERAL_VAL,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -92,11 +98,17 @@ public class LiteralItemProvider extends DocumentedClassItemProvider {
     protected void addNamePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_Literal_name_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_Literal_name_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_Literal_name_feature",
                                 "_UI_Literal_type" ),
-                        NsdPackage.Literals.LITERAL__NAME, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.LITERAL__NAME,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**

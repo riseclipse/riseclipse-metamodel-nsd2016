@@ -132,8 +132,9 @@ public class AbstractLNClassImpl extends AnyLNClassImpl implements AbstractLNCla
         name = newName;
         boolean oldNameESet = nameESet;
         nameESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.ABSTRACT_LN_CLASS__NAME, oldName, name, !oldNameESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.ABSTRACT_LN_CLASS__NAME, oldName, name,
+                    !oldNameESet ) );
     }
 
     /**
@@ -147,8 +148,9 @@ public class AbstractLNClassImpl extends AnyLNClassImpl implements AbstractLNCla
         boolean oldNameESet = nameESet;
         name = NAME_EDEFAULT;
         nameESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.ABSTRACT_LN_CLASS__NAME, oldName, NAME_EDEFAULT, oldNameESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.ABSTRACT_LN_CLASS__NAME, oldName,
+                    NAME_EDEFAULT, oldNameESet ) );
     }
 
     /**
@@ -194,14 +196,17 @@ public class AbstractLNClassImpl extends AnyLNClassImpl implements AbstractLNCla
             if( EcoreUtil.isAncestor( this, newLNClasses ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
-            if( newLNClasses != null ) msgs = ( ( InternalEObject ) newLNClasses ).eInverseAdd( this,
-                    NsdPackage.LN_CLASSES__ABSTRACT_LN_CLASS, LNClasses.class, msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
+            if( newLNClasses != null )
+                msgs = ( ( InternalEObject ) newLNClasses ).eInverseAdd( this, NsdPackage.LN_CLASSES__ABSTRACT_LN_CLASS,
+                        LNClasses.class, msgs );
             msgs = basicSetLNClasses( newLNClasses, msgs );
             if( msgs != null ) msgs.dispatch();
         }
-        else if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.ABSTRACT_LN_CLASS__LN_CLASSES, newLNClasses, newLNClasses ) );
+        else if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.ABSTRACT_LN_CLASS__LN_CLASSES,
+                    newLNClasses, newLNClasses ) );
     }
 
     /**
@@ -249,7 +254,8 @@ public class AbstractLNClassImpl extends AnyLNClassImpl implements AbstractLNCla
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.ABSTRACT_LN_CLASS__LN_CLASSES:
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             return basicSetLNClasses( ( LNClasses ) otherEnd, msgs );
         case NsdPackage.ABSTRACT_LN_CLASS__REFERRED_BY_ANY_LN_CLASS:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByAnyLNClass() )

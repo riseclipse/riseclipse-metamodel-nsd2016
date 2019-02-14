@@ -162,8 +162,9 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
         descID = newDescID;
         boolean oldDescIDESet = descIDESet;
         descIDESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.BASIC_TYPE__DESC_ID, oldDescID, descID, !oldDescIDESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.BASIC_TYPE__DESC_ID, oldDescID, descID,
+                    !oldDescIDESet ) );
     }
 
     /**
@@ -177,8 +178,9 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
         boolean oldDescIDESet = descIDESet;
         descID = DESC_ID_EDEFAULT;
         descIDESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.BASIC_TYPE__DESC_ID, oldDescID, DESC_ID_EDEFAULT, oldDescIDESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.BASIC_TYPE__DESC_ID, oldDescID,
+                    DESC_ID_EDEFAULT, oldDescIDESet ) );
     }
 
     /**
@@ -212,8 +214,9 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
         name = newName;
         boolean oldNameESet = nameESet;
         nameESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.BASIC_TYPE__NAME, oldName, name, !oldNameESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.BASIC_TYPE__NAME, oldName, name,
+                    !oldNameESet ) );
     }
 
     /**
@@ -227,8 +230,9 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
         boolean oldNameESet = nameESet;
         name = NAME_EDEFAULT;
         nameESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.BASIC_TYPE__NAME, oldName, NAME_EDEFAULT, oldNameESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.BASIC_TYPE__NAME, oldName,
+                    NAME_EDEFAULT, oldNameESet ) );
     }
 
     /**
@@ -274,14 +278,17 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
             if( EcoreUtil.isAncestor( this, newBasicTypes ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
-            if( newBasicTypes != null ) msgs = ( ( InternalEObject ) newBasicTypes ).eInverseAdd( this,
-                    NsdPackage.BASIC_TYPES__BASIC_TYPE, BasicTypes.class, msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
+            if( newBasicTypes != null )
+                msgs = ( ( InternalEObject ) newBasicTypes ).eInverseAdd( this, NsdPackage.BASIC_TYPES__BASIC_TYPE,
+                        BasicTypes.class, msgs );
             msgs = basicSetBasicTypes( newBasicTypes, msgs );
             if( msgs != null ) msgs.dispatch();
         }
-        else if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.BASIC_TYPE__BASIC_TYPES, newBasicTypes, newBasicTypes ) );
+        else if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.BASIC_TYPE__BASIC_TYPES, newBasicTypes,
+                    newBasicTypes ) );
     }
 
     /**
@@ -329,7 +336,8 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.BASIC_TYPE__BASIC_TYPES:
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             return basicSetBasicTypes( ( BasicTypes ) otherEnd, msgs );
         case NsdPackage.BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByDataAttribute() )

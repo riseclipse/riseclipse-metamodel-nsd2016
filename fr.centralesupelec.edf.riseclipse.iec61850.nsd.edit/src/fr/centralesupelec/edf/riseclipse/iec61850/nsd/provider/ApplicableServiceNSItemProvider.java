@@ -78,11 +78,17 @@ public class ApplicableServiceNSItemProvider extends CopyrightedItemProvider {
     protected void addDatePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_ApplicableServiceNS_date_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_ApplicableServiceNS_date_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_ApplicableServiceNS_date_feature",
                                 "_UI_ApplicableServiceNS_type" ),
-                        NsdPackage.Literals.APPLICABLE_SERVICE_NS__DATE, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.APPLICABLE_SERVICE_NS__DATE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -94,11 +100,17 @@ public class ApplicableServiceNSItemProvider extends CopyrightedItemProvider {
     protected void addVersionPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_ApplicableServiceNS_version_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_ApplicableServiceNS_version_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_ApplicableServiceNS_version_feature",
                                 "_UI_ApplicableServiceNS_type" ),
-                        NsdPackage.Literals.APPLICABLE_SERVICE_NS__VERSION, true, false, false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.APPLICABLE_SERVICE_NS__VERSION,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**

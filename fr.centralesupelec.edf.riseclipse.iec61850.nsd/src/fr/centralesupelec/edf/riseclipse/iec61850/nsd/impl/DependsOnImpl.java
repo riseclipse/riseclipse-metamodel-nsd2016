@@ -245,8 +245,9 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         release = newRelease;
         boolean oldReleaseESet = releaseESet;
         releaseESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.DEPENDS_ON__RELEASE, oldRelease, release, !oldReleaseESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DEPENDS_ON__RELEASE, oldRelease, release,
+                    !oldReleaseESet ) );
     }
 
     /**
@@ -260,8 +261,9 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         boolean oldReleaseESet = releaseESet;
         release = RELEASE_EDEFAULT;
         releaseESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.DEPENDS_ON__RELEASE, oldRelease, RELEASE_EDEFAULT, oldReleaseESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DEPENDS_ON__RELEASE, oldRelease,
+                    RELEASE_EDEFAULT, oldReleaseESet ) );
     }
 
     /**
@@ -295,8 +297,9 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         version = newVersion;
         boolean oldVersionESet = versionESet;
         versionESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.DEPENDS_ON__VERSION, oldVersion, version, !oldVersionESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DEPENDS_ON__VERSION, oldVersion, version,
+                    !oldVersionESet ) );
     }
 
     /**
@@ -310,8 +313,9 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         boolean oldVersionESet = versionESet;
         version = VERSION_EDEFAULT;
         versionESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.DEPENDS_ON__VERSION, oldVersion, VERSION_EDEFAULT, oldVersionESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DEPENDS_ON__VERSION, oldVersion,
+                    VERSION_EDEFAULT, oldVersionESet ) );
     }
 
     /**
@@ -345,8 +349,9 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         id = newId;
         boolean oldIdESet = idESet;
         idESet = true;
-        if( eNotificationRequired() ) eNotify(
-                new ENotificationImpl( this, Notification.SET, NsdPackage.DEPENDS_ON__ID, oldId, id, !oldIdESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DEPENDS_ON__ID, oldId, id,
+                    !oldIdESet ) );
     }
 
     /**
@@ -360,8 +365,9 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         boolean oldIdESet = idESet;
         id = ID_EDEFAULT;
         idESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.DEPENDS_ON__ID, oldId, ID_EDEFAULT, oldIdESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DEPENDS_ON__ID, oldId, ID_EDEFAULT,
+                    oldIdESet ) );
     }
 
     /**
@@ -395,8 +401,9 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         revision = newRevision;
         boolean oldRevisionESet = revisionESet;
         revisionESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.DEPENDS_ON__REVISION, oldRevision, revision, !oldRevisionESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DEPENDS_ON__REVISION, oldRevision,
+                    revision, !oldRevisionESet ) );
     }
 
     /**
@@ -410,8 +417,9 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         boolean oldRevisionESet = revisionESet;
         revision = REVISION_EDEFAULT;
         revisionESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.DEPENDS_ON__REVISION, oldRevision, REVISION_EDEFAULT, oldRevisionESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DEPENDS_ON__REVISION, oldRevision,
+                    REVISION_EDEFAULT, oldRevisionESet ) );
     }
 
     /**
@@ -508,7 +516,8 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
             if( EcoreUtil.isAncestor( this, newNS ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             if( newNS != null )
                 msgs = ( ( InternalEObject ) newNS ).eInverseAdd( this, NsdPackage.NS__DEPENDS_ON, NS.class, msgs );
             msgs = basicSetNS( newNS, msgs );
@@ -558,18 +567,21 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
     public void setRefersToNS( NS newRefersToNS ) {
         if( newRefersToNS != refersToNS ) {
             NotificationChain msgs = null;
-            if( refersToNS != null ) msgs = ( ( InternalEObject ) refersToNS ).eInverseRemove( this,
-                    NsdPackage.NS__REFERRED_BY_DEPENDS_ON, NS.class, msgs );
-            if( newRefersToNS != null ) msgs = ( ( InternalEObject ) newRefersToNS ).eInverseAdd( this,
-                    NsdPackage.NS__REFERRED_BY_DEPENDS_ON, NS.class, msgs );
+            if( refersToNS != null )
+                msgs = ( ( InternalEObject ) refersToNS ).eInverseRemove( this, NsdPackage.NS__REFERRED_BY_DEPENDS_ON,
+                        NS.class, msgs );
+            if( newRefersToNS != null )
+                msgs = ( ( InternalEObject ) newRefersToNS ).eInverseAdd( this, NsdPackage.NS__REFERRED_BY_DEPENDS_ON,
+                        NS.class, msgs );
             msgs = basicSetRefersToNS( newRefersToNS, msgs );
             if( msgs != null ) msgs.dispatch();
         }
         else {
             boolean oldRefersToNSESet = refersToNSESet;
             refersToNSESet = true;
-            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                    NsdPackage.DEPENDS_ON__REFERS_TO_NS, newRefersToNS, newRefersToNS, !oldRefersToNSESet ) );
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DEPENDS_ON__REFERS_TO_NS,
+                        newRefersToNS, newRefersToNS, !oldRefersToNSESet ) );
         }
     }
 
@@ -611,8 +623,9 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         else {
             boolean oldRefersToNSESet = refersToNSESet;
             refersToNSESet = false;
-            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                    NsdPackage.DEPENDS_ON__REFERS_TO_NS, null, null, oldRefersToNSESet ) );
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DEPENDS_ON__REFERS_TO_NS, null,
+                        null, oldRefersToNSESet ) );
         }
     }
 
@@ -635,11 +648,13 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.DEPENDS_ON__NS:
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             return basicSetNS( ( NS ) otherEnd, msgs );
         case NsdPackage.DEPENDS_ON__REFERS_TO_NS:
-            if( refersToNS != null ) msgs = ( ( InternalEObject ) refersToNS ).eInverseRemove( this,
-                    NsdPackage.NS__REFERRED_BY_DEPENDS_ON, NS.class, msgs );
+            if( refersToNS != null )
+                msgs = ( ( InternalEObject ) refersToNS ).eInverseRemove( this, NsdPackage.NS__REFERRED_BY_DEPENDS_ON,
+                        NS.class, msgs );
             return basicSetRefersToNS( ( NS ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );

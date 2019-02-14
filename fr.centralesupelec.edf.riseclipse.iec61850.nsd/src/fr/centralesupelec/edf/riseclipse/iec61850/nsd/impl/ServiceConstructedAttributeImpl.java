@@ -116,9 +116,10 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
         typeKindParameterized = newTypeKindParameterized;
         boolean oldTypeKindParameterizedESet = typeKindParameterizedESet;
         typeKindParameterizedESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__TYPE_KIND_PARAMETERIZED, oldTypeKindParameterized,
-                typeKindParameterized, !oldTypeKindParameterizedESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__TYPE_KIND_PARAMETERIZED, oldTypeKindParameterized,
+                    typeKindParameterized, !oldTypeKindParameterizedESet ) );
     }
 
     /**
@@ -132,9 +133,10 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
         boolean oldTypeKindParameterizedESet = typeKindParameterizedESet;
         typeKindParameterized = TYPE_KIND_PARAMETERIZED_EDEFAULT;
         typeKindParameterizedESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__TYPE_KIND_PARAMETERIZED, oldTypeKindParameterized,
-                TYPE_KIND_PARAMETERIZED_EDEFAULT, oldTypeKindParameterizedESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__TYPE_KIND_PARAMETERIZED, oldTypeKindParameterized,
+                    TYPE_KIND_PARAMETERIZED_EDEFAULT, oldTypeKindParameterizedESet ) );
     }
 
     /**
@@ -184,7 +186,8 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
             if( EcoreUtil.isAncestor( this, newServiceConstructedAttribute ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             if( newServiceConstructedAttribute != null )
                 msgs = ( ( InternalEObject ) newServiceConstructedAttribute ).eInverseAdd( this,
                         NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_CONSTRUCTED_ATTRIBUTE,
@@ -192,9 +195,10 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
             msgs = basicSetServiceConstructedAttribute( newServiceConstructedAttribute, msgs );
             if( msgs != null ) msgs.dispatch();
         }
-        else if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__SERVICE_CONSTRUCTED_ATTRIBUTE, newServiceConstructedAttribute,
-                newServiceConstructedAttribute ) );
+        else if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__SERVICE_CONSTRUCTED_ATTRIBUTE,
+                    newServiceConstructedAttribute, newServiceConstructedAttribute ) );
     }
 
     /**
@@ -206,7 +210,8 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__SERVICE_CONSTRUCTED_ATTRIBUTE:
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             return basicSetServiceConstructedAttribute( ( ServiceConstructedAttributes ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );

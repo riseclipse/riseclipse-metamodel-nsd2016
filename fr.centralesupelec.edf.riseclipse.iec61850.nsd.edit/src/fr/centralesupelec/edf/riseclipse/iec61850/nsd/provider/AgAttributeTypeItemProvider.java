@@ -85,11 +85,17 @@ public class AgAttributeTypeItemProvider extends ItemProviderAdapter implements 
     protected void addTypePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_AgAttributeType_type_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_AgAttributeType_type_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_AgAttributeType_type_feature",
                                 "_UI_AgAttributeType_type" ),
-                        NsdPackage.Literals.AG_ATTRIBUTE_TYPE__TYPE, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.AG_ATTRIBUTE_TYPE__TYPE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -101,11 +107,17 @@ public class AgAttributeTypeItemProvider extends ItemProviderAdapter implements 
     protected void addTypeKindPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_AgAttributeType_typeKind_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_AgAttributeType_typeKind_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_AgAttributeType_typeKind_feature",
                                 "_UI_AgAttributeType_type" ),
-                        NsdPackage.Literals.AG_ATTRIBUTE_TYPE__TYPE_KIND, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.AG_ATTRIBUTE_TYPE__TYPE_KIND,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**

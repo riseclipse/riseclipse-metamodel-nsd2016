@@ -75,11 +75,17 @@ public class AbbreviationItemProvider extends NsdObjectItemProvider {
     protected void addDescIDPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_Abbreviation_descID_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_Abbreviation_descID_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_Abbreviation_descID_feature",
                                 "_UI_Abbreviation_type" ),
-                        NsdPackage.Literals.ABBREVIATION__DESC_ID, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.ABBREVIATION__DESC_ID,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -91,11 +97,17 @@ public class AbbreviationItemProvider extends NsdObjectItemProvider {
     protected void addNamePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_Abbreviation_name_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_Abbreviation_name_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_Abbreviation_name_feature",
                                 "_UI_Abbreviation_type" ),
-                        NsdPackage.Literals.ABBREVIATION__NAME, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.ABBREVIATION__NAME,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**

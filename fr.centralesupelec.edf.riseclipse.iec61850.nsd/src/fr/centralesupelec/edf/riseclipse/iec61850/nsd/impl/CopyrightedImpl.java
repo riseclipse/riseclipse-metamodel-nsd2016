@@ -123,18 +123,21 @@ public class CopyrightedImpl extends NsdObjectImpl implements Copyrighted {
     public void setCopyright( CopyrightNotice newCopyright ) {
         if( newCopyright != copyright ) {
             NotificationChain msgs = null;
-            if( copyright != null ) msgs = ( ( InternalEObject ) copyright ).eInverseRemove( this,
-                    NsdPackage.COPYRIGHT_NOTICE__COPYRIGHTED, CopyrightNotice.class, msgs );
-            if( newCopyright != null ) msgs = ( ( InternalEObject ) newCopyright ).eInverseAdd( this,
-                    NsdPackage.COPYRIGHT_NOTICE__COPYRIGHTED, CopyrightNotice.class, msgs );
+            if( copyright != null )
+                msgs = ( ( InternalEObject ) copyright ).eInverseRemove( this, NsdPackage.COPYRIGHT_NOTICE__COPYRIGHTED,
+                        CopyrightNotice.class, msgs );
+            if( newCopyright != null )
+                msgs = ( ( InternalEObject ) newCopyright ).eInverseAdd( this, NsdPackage.COPYRIGHT_NOTICE__COPYRIGHTED,
+                        CopyrightNotice.class, msgs );
             msgs = basicSetCopyright( newCopyright, msgs );
             if( msgs != null ) msgs.dispatch();
         }
         else {
             boolean oldCopyrightESet = copyrightESet;
             copyrightESet = true;
-            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                    NsdPackage.COPYRIGHTED__COPYRIGHT, newCopyright, newCopyright, !oldCopyrightESet ) );
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.COPYRIGHTED__COPYRIGHT, newCopyright,
+                        newCopyright, !oldCopyrightESet ) );
         }
     }
 
@@ -176,8 +179,9 @@ public class CopyrightedImpl extends NsdObjectImpl implements Copyrighted {
         else {
             boolean oldCopyrightESet = copyrightESet;
             copyrightESet = false;
-            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                    NsdPackage.COPYRIGHTED__COPYRIGHT, null, null, oldCopyrightESet ) );
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.COPYRIGHTED__COPYRIGHT, null, null,
+                        oldCopyrightESet ) );
         }
     }
 
@@ -200,8 +204,9 @@ public class CopyrightedImpl extends NsdObjectImpl implements Copyrighted {
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.COPYRIGHTED__COPYRIGHT:
-            if( copyright != null ) msgs = ( ( InternalEObject ) copyright ).eInverseRemove( this,
-                    EOPPOSITE_FEATURE_BASE - NsdPackage.COPYRIGHTED__COPYRIGHT, null, msgs );
+            if( copyright != null )
+                msgs = ( ( InternalEObject ) copyright ).eInverseRemove( this,
+                        EOPPOSITE_FEATURE_BASE - NsdPackage.COPYRIGHTED__COPYRIGHT, null, msgs );
             return basicSetCopyright( ( CopyrightNotice ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );

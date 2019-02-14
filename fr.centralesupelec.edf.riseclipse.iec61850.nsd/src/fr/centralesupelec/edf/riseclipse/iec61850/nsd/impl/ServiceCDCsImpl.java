@@ -150,14 +150,17 @@ public class ServiceCDCsImpl extends NsdObjectImpl implements ServiceCDCs {
             if( EcoreUtil.isAncestor( this, newServiceNS ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
-            if( newServiceNS != null ) msgs = ( ( InternalEObject ) newServiceNS ).eInverseAdd( this,
-                    NsdPackage.SERVICE_NS__SERVICE_CD_CS, ServiceNS.class, msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
+            if( newServiceNS != null )
+                msgs = ( ( InternalEObject ) newServiceNS ).eInverseAdd( this, NsdPackage.SERVICE_NS__SERVICE_CD_CS,
+                        ServiceNS.class, msgs );
             msgs = basicSetServiceNS( newServiceNS, msgs );
             if( msgs != null ) msgs.dispatch();
         }
-        else if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.SERVICE_CD_CS__SERVICE_NS, newServiceNS, newServiceNS ) );
+        else if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_CD_CS__SERVICE_NS, newServiceNS,
+                    newServiceNS ) );
     }
 
     /**
@@ -173,7 +176,8 @@ public class ServiceCDCsImpl extends NsdObjectImpl implements ServiceCDCs {
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getServiceCDC() ).basicAdd( otherEnd,
                     msgs );
         case NsdPackage.SERVICE_CD_CS__SERVICE_NS:
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             return basicSetServiceNS( ( ServiceNS ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );

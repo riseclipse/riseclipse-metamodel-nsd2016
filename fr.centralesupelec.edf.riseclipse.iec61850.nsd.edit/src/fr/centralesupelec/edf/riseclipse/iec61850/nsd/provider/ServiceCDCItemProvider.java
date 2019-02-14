@@ -78,11 +78,17 @@ public class ServiceCDCItemProvider extends NsdObjectItemProvider {
     protected void addCdcPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_ServiceCDC_cdc_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_ServiceCDC_cdc_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_ServiceCDC_cdc_feature",
                                 "_UI_ServiceCDC_type" ),
-                        NsdPackage.Literals.SERVICE_CDC__CDC, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.SERVICE_CDC__CDC,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -94,11 +100,17 @@ public class ServiceCDCItemProvider extends NsdObjectItemProvider {
     protected void addVariantPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_ServiceCDC_variant_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_ServiceCDC_variant_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_ServiceCDC_variant_feature",
                                 "_UI_ServiceCDC_type" ),
-                        NsdPackage.Literals.SERVICE_CDC__VARIANT, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.SERVICE_CDC__VARIANT,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**

@@ -147,8 +147,8 @@ public class CDCsItemProvider extends NsdObjectItemProvider {
     protected void collectNewChildDescriptors( Collection< Object > newChildDescriptors, Object object ) {
         super.collectNewChildDescriptors( newChildDescriptors, object );
 
-        newChildDescriptors
-                .add( createChildParameter( NsdPackage.Literals.CD_CS__CDC, NsdFactory.eINSTANCE.createCDC() ) );
+        newChildDescriptors.add( createChildParameter( NsdPackage.Literals.CD_CS__CDC,
+                NsdFactory.eINSTANCE.createCDC() ) );
     }
 
 }

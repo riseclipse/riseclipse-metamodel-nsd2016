@@ -172,8 +172,9 @@ public abstract class AgTrgOpImpl extends MinimalEObjectImpl.Container implement
         dchg = newDchg;
         boolean oldDchgESet = dchgESet;
         dchgESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.AG_TRG_OP__DCHG, oldDchg, dchg, !oldDchgESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_TRG_OP__DCHG, oldDchg, dchg,
+                    !oldDchgESet ) );
     }
 
     /**
@@ -187,8 +188,9 @@ public abstract class AgTrgOpImpl extends MinimalEObjectImpl.Container implement
         boolean oldDchgESet = dchgESet;
         dchg = DCHG_EDEFAULT;
         dchgESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.AG_TRG_OP__DCHG, oldDchg, DCHG_EDEFAULT, oldDchgESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_TRG_OP__DCHG, oldDchg,
+                    DCHG_EDEFAULT, oldDchgESet ) );
     }
 
     /**
@@ -222,8 +224,9 @@ public abstract class AgTrgOpImpl extends MinimalEObjectImpl.Container implement
         dupd = newDupd;
         boolean oldDupdESet = dupdESet;
         dupdESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.AG_TRG_OP__DUPD, oldDupd, dupd, !oldDupdESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_TRG_OP__DUPD, oldDupd, dupd,
+                    !oldDupdESet ) );
     }
 
     /**
@@ -237,8 +240,9 @@ public abstract class AgTrgOpImpl extends MinimalEObjectImpl.Container implement
         boolean oldDupdESet = dupdESet;
         dupd = DUPD_EDEFAULT;
         dupdESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.AG_TRG_OP__DUPD, oldDupd, DUPD_EDEFAULT, oldDupdESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_TRG_OP__DUPD, oldDupd,
+                    DUPD_EDEFAULT, oldDupdESet ) );
     }
 
     /**
@@ -272,8 +276,9 @@ public abstract class AgTrgOpImpl extends MinimalEObjectImpl.Container implement
         qchg = newQchg;
         boolean oldQchgESet = qchgESet;
         qchgESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.AG_TRG_OP__QCHG, oldQchg, qchg, !oldQchgESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_TRG_OP__QCHG, oldQchg, qchg,
+                    !oldQchgESet ) );
     }
 
     /**
@@ -287,8 +292,9 @@ public abstract class AgTrgOpImpl extends MinimalEObjectImpl.Container implement
         boolean oldQchgESet = qchgESet;
         qchg = QCHG_EDEFAULT;
         qchgESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.AG_TRG_OP__QCHG, oldQchg, QCHG_EDEFAULT, oldQchgESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_TRG_OP__QCHG, oldQchg,
+                    QCHG_EDEFAULT, oldQchgESet ) );
     }
 
     /**

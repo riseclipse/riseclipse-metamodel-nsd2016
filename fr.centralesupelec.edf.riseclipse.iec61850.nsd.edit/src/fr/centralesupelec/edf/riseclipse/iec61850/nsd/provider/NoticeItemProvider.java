@@ -152,17 +152,20 @@ public class NoticeItemProvider extends NsdObjectItemProvider {
         super.collectNewChildDescriptors( newChildDescriptors, object );
 
         newChildDescriptors.add( createChildParameter( NsdPackage.Literals.NOTICE__MIXED,
-                FeatureMapUtil.createEntry( XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__COMMENT, "" ) ) );
+                FeatureMapUtil.createEntry( XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__COMMENT,
+                        "" ) ) );
 
         newChildDescriptors.add( createChildParameter( NsdPackage.Literals.NOTICE__MIXED,
-                FeatureMapUtil.createEntry( XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__TEXT, "" ) ) );
+                FeatureMapUtil.createEntry( XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__TEXT,
+                        "" ) ) );
 
         newChildDescriptors.add( createChildParameter( NsdPackage.Literals.NOTICE__MIXED,
                 FeatureMapUtil.createEntry( XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__PROCESSING_INSTRUCTION,
                         XMLTypeFactory.eINSTANCE.createProcessingInstruction() ) ) );
 
         newChildDescriptors.add( createChildParameter( NsdPackage.Literals.NOTICE__MIXED,
-                FeatureMapUtil.createEntry( XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__CDATA, "" ) ) );
+                FeatureMapUtil.createEntry( XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__CDATA,
+                        "" ) ) );
     }
 
 }

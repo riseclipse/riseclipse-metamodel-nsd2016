@@ -284,7 +284,17 @@ public enum PubStage implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final PubStage[] VALUES_ARRAY = new PubStage[] { WD, CD, CDV, DTS, DTR, FDIS, TS, TR, IS, };
+    private static final PubStage[] VALUES_ARRAY = new PubStage[] {
+            WD,
+            CD,
+            CDV,
+            DTS,
+            DTR,
+            FDIS,
+            TS,
+            TR,
+            IS,
+    };
 
     /**
      * A public read-only list of all the '<em><b>Pub Stage</b></em>' enumerators.

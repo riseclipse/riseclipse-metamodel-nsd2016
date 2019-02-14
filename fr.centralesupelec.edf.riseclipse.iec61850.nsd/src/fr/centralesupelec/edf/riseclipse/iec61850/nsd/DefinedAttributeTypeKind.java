@@ -122,8 +122,11 @@ public enum DefinedAttributeTypeKind implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final DefinedAttributeTypeKind[] VALUES_ARRAY = new DefinedAttributeTypeKind[] { BASIC, ENUMERATED,
-            CONSTRUCTED, };
+    private static final DefinedAttributeTypeKind[] VALUES_ARRAY = new DefinedAttributeTypeKind[] {
+            BASIC,
+            ENUMERATED,
+            CONSTRUCTED,
+    };
 
     /**
      * A public read-only list of all the '<em><b>Defined Attribute Type Kind</b></em>' enumerators.

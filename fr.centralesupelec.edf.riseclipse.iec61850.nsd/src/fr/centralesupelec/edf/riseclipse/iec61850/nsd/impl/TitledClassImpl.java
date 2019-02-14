@@ -111,8 +111,9 @@ public class TitledClassImpl extends DocumentedClassImpl implements TitledClass 
         titleID = newTitleID;
         boolean oldTitleIDESet = titleIDESet;
         titleIDESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.TITLED_CLASS__TITLE_ID, oldTitleID, titleID, !oldTitleIDESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.TITLED_CLASS__TITLE_ID, oldTitleID,
+                    titleID, !oldTitleIDESet ) );
     }
 
     /**
@@ -126,8 +127,9 @@ public class TitledClassImpl extends DocumentedClassImpl implements TitledClass 
         boolean oldTitleIDESet = titleIDESet;
         titleID = TITLE_ID_EDEFAULT;
         titleIDESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.TITLED_CLASS__TITLE_ID, oldTitleID, TITLE_ID_EDEFAULT, oldTitleIDESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.TITLED_CLASS__TITLE_ID, oldTitleID,
+                    TITLE_ID_EDEFAULT, oldTitleIDESet ) );
     }
 
     /**

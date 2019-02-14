@@ -74,11 +74,17 @@ public class DataSetMemberOfItemProvider extends NsdObjectItemProvider {
     protected void addCbPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_DataSetMemberOf_cb_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_DataSetMemberOf_cb_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_DataSetMemberOf_cb_feature",
                                 "_UI_DataSetMemberOf_type" ),
-                        NsdPackage.Literals.DATA_SET_MEMBER_OF__CB, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.DATA_SET_MEMBER_OF__CB,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**

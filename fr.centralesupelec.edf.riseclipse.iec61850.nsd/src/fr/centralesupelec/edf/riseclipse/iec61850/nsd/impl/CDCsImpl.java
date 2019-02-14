@@ -149,7 +149,8 @@ public class CDCsImpl extends NsdObjectImpl implements CDCs {
             if( EcoreUtil.isAncestor( this, newNS ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             if( newNS != null )
                 msgs = ( ( InternalEObject ) newNS ).eInverseAdd( this, NsdPackage.NS__CD_CS, NS.class, msgs );
             msgs = basicSetNS( newNS, msgs );
@@ -171,7 +172,8 @@ public class CDCsImpl extends NsdObjectImpl implements CDCs {
         case NsdPackage.CD_CS__CDC:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getCDC() ).basicAdd( otherEnd, msgs );
         case NsdPackage.CD_CS__NS:
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             return basicSetNS( ( NS ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );

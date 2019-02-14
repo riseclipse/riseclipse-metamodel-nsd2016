@@ -202,8 +202,9 @@ public abstract class AgArrayImpl extends MinimalEObjectImpl.Container implement
         isArray = newIsArray;
         boolean oldIsArrayESet = isArrayESet;
         isArrayESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.AG_ARRAY__IS_ARRAY, oldIsArray, isArray, !oldIsArrayESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_ARRAY__IS_ARRAY, oldIsArray, isArray,
+                    !oldIsArrayESet ) );
     }
 
     /**
@@ -217,8 +218,9 @@ public abstract class AgArrayImpl extends MinimalEObjectImpl.Container implement
         boolean oldIsArrayESet = isArrayESet;
         isArray = IS_ARRAY_EDEFAULT;
         isArrayESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.AG_ARRAY__IS_ARRAY, oldIsArray, IS_ARRAY_EDEFAULT, oldIsArrayESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_ARRAY__IS_ARRAY, oldIsArray,
+                    IS_ARRAY_EDEFAULT, oldIsArrayESet ) );
     }
 
     /**
@@ -304,8 +306,9 @@ public abstract class AgArrayImpl extends MinimalEObjectImpl.Container implement
         minIndex = newMinIndex;
         boolean oldMinIndexESet = minIndexESet;
         minIndexESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.AG_ARRAY__MIN_INDEX, oldMinIndex, minIndex, !oldMinIndexESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_ARRAY__MIN_INDEX, oldMinIndex,
+                    minIndex, !oldMinIndexESet ) );
     }
 
     /**
@@ -319,8 +322,9 @@ public abstract class AgArrayImpl extends MinimalEObjectImpl.Container implement
         boolean oldMinIndexESet = minIndexESet;
         minIndex = MIN_INDEX_EDEFAULT;
         minIndexESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.AG_ARRAY__MIN_INDEX, oldMinIndex, MIN_INDEX_EDEFAULT, oldMinIndexESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_ARRAY__MIN_INDEX, oldMinIndex,
+                    MIN_INDEX_EDEFAULT, oldMinIndexESet ) );
     }
 
     /**
@@ -354,8 +358,9 @@ public abstract class AgArrayImpl extends MinimalEObjectImpl.Container implement
         sizeAttribute = newSizeAttribute;
         boolean oldSizeAttributeESet = sizeAttributeESet;
         sizeAttributeESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.AG_ARRAY__SIZE_ATTRIBUTE, oldSizeAttribute, sizeAttribute, !oldSizeAttributeESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_ARRAY__SIZE_ATTRIBUTE,
+                    oldSizeAttribute, sizeAttribute, !oldSizeAttributeESet ) );
     }
 
     /**

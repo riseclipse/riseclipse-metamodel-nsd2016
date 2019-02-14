@@ -146,8 +146,9 @@ public class LiteralImpl extends DocumentedClassImpl implements Literal {
         literalVal = newLiteralVal;
         boolean oldLiteralValESet = literalValESet;
         literalValESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.LITERAL__LITERAL_VAL, oldLiteralVal, literalVal, !oldLiteralValESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.LITERAL__LITERAL_VAL, oldLiteralVal,
+                    literalVal, !oldLiteralValESet ) );
     }
 
     /**
@@ -161,8 +162,9 @@ public class LiteralImpl extends DocumentedClassImpl implements Literal {
         boolean oldLiteralValESet = literalValESet;
         literalVal = LITERAL_VAL_EDEFAULT;
         literalValESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.LITERAL__LITERAL_VAL, oldLiteralVal, LITERAL_VAL_EDEFAULT, oldLiteralValESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.LITERAL__LITERAL_VAL, oldLiteralVal,
+                    LITERAL_VAL_EDEFAULT, oldLiteralValESet ) );
     }
 
     /**
@@ -196,8 +198,9 @@ public class LiteralImpl extends DocumentedClassImpl implements Literal {
         name = newName;
         boolean oldNameESet = nameESet;
         nameESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.LITERAL__NAME,
-                oldName, name, !oldNameESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.LITERAL__NAME, oldName, name,
+                    !oldNameESet ) );
     }
 
     /**
@@ -211,8 +214,9 @@ public class LiteralImpl extends DocumentedClassImpl implements Literal {
         boolean oldNameESet = nameESet;
         name = NAME_EDEFAULT;
         nameESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.LITERAL__NAME, oldName, NAME_EDEFAULT, oldNameESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.LITERAL__NAME, oldName, NAME_EDEFAULT,
+                    oldNameESet ) );
     }
 
     /**
@@ -258,14 +262,17 @@ public class LiteralImpl extends DocumentedClassImpl implements Literal {
             if( EcoreUtil.isAncestor( this, newEnumeration ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
-            if( newEnumeration != null ) msgs = ( ( InternalEObject ) newEnumeration ).eInverseAdd( this,
-                    NsdPackage.ENUMERATION__LITERAL, Enumeration.class, msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
+            if( newEnumeration != null )
+                msgs = ( ( InternalEObject ) newEnumeration ).eInverseAdd( this, NsdPackage.ENUMERATION__LITERAL,
+                        Enumeration.class, msgs );
             msgs = basicSetEnumeration( newEnumeration, msgs );
             if( msgs != null ) msgs.dispatch();
         }
-        else if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.LITERAL__ENUMERATION, newEnumeration, newEnumeration ) );
+        else if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.LITERAL__ENUMERATION, newEnumeration,
+                    newEnumeration ) );
     }
 
     /**
@@ -277,7 +284,8 @@ public class LiteralImpl extends DocumentedClassImpl implements Literal {
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.LITERAL__ENUMERATION:
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             return basicSetEnumeration( ( Enumeration ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );

@@ -171,8 +171,9 @@ public class DocumentedClassImpl extends NsdObjectImpl implements DocumentedClas
         deprecated = newDeprecated;
         boolean oldDeprecatedESet = deprecatedESet;
         deprecatedESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.DOCUMENTED_CLASS__DEPRECATED, oldDeprecated, deprecated, !oldDeprecatedESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DOCUMENTED_CLASS__DEPRECATED,
+                    oldDeprecated, deprecated, !oldDeprecatedESet ) );
     }
 
     /**
@@ -186,8 +187,9 @@ public class DocumentedClassImpl extends NsdObjectImpl implements DocumentedClas
         boolean oldDeprecatedESet = deprecatedESet;
         deprecated = DEPRECATED_EDEFAULT;
         deprecatedESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.DOCUMENTED_CLASS__DEPRECATED, oldDeprecated, DEPRECATED_EDEFAULT, oldDeprecatedESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DOCUMENTED_CLASS__DEPRECATED,
+                    oldDeprecated, DEPRECATED_EDEFAULT, oldDeprecatedESet ) );
     }
 
     /**
@@ -221,8 +223,9 @@ public class DocumentedClassImpl extends NsdObjectImpl implements DocumentedClas
         descID = newDescID;
         boolean oldDescIDESet = descIDESet;
         descIDESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.DOCUMENTED_CLASS__DESC_ID, oldDescID, descID, !oldDescIDESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DOCUMENTED_CLASS__DESC_ID, oldDescID,
+                    descID, !oldDescIDESet ) );
     }
 
     /**
@@ -236,8 +239,9 @@ public class DocumentedClassImpl extends NsdObjectImpl implements DocumentedClas
         boolean oldDescIDESet = descIDESet;
         descID = DESC_ID_EDEFAULT;
         descIDESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.DOCUMENTED_CLASS__DESC_ID, oldDescID, DESC_ID_EDEFAULT, oldDescIDESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DOCUMENTED_CLASS__DESC_ID, oldDescID,
+                    DESC_ID_EDEFAULT, oldDescIDESet ) );
     }
 
     /**
@@ -271,8 +275,9 @@ public class DocumentedClassImpl extends NsdObjectImpl implements DocumentedClas
         informative = newInformative;
         boolean oldInformativeESet = informativeESet;
         informativeESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.DOCUMENTED_CLASS__INFORMATIVE, oldInformative, informative, !oldInformativeESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DOCUMENTED_CLASS__INFORMATIVE,
+                    oldInformative, informative, !oldInformativeESet ) );
     }
 
     /**
@@ -286,8 +291,9 @@ public class DocumentedClassImpl extends NsdObjectImpl implements DocumentedClas
         boolean oldInformativeESet = informativeESet;
         informative = INFORMATIVE_EDEFAULT;
         informativeESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.DOCUMENTED_CLASS__INFORMATIVE, oldInformative, INFORMATIVE_EDEFAULT, oldInformativeESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DOCUMENTED_CLASS__INFORMATIVE,
+                    oldInformative, INFORMATIVE_EDEFAULT, oldInformativeESet ) );
     }
 
     /**

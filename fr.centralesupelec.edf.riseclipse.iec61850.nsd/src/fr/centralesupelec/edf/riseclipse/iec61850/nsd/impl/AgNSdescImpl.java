@@ -112,8 +112,9 @@ public abstract class AgNSdescImpl extends MinimalEObjectImpl.Container implemen
         descID = newDescID;
         boolean oldDescIDESet = descIDESet;
         descIDESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.AG_NSDESC__DESC_ID, oldDescID, descID, !oldDescIDESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_NSDESC__DESC_ID, oldDescID, descID,
+                    !oldDescIDESet ) );
     }
 
     /**
@@ -127,8 +128,9 @@ public abstract class AgNSdescImpl extends MinimalEObjectImpl.Container implemen
         boolean oldDescIDESet = descIDESet;
         descID = DESC_ID_EDEFAULT;
         descIDESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.AG_NSDESC__DESC_ID, oldDescID, DESC_ID_EDEFAULT, oldDescIDESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_NSDESC__DESC_ID, oldDescID,
+                    DESC_ID_EDEFAULT, oldDescIDESet ) );
     }
 
     /**

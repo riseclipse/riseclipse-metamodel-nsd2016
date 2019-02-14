@@ -171,8 +171,9 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
         name = newName;
         boolean oldNameESet = nameESet;
         nameESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.CONSTRUCTED_ATTRIBUTE__NAME, oldName, name, !oldNameESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CONSTRUCTED_ATTRIBUTE__NAME, oldName,
+                    name, !oldNameESet ) );
     }
 
     /**
@@ -186,8 +187,9 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
         boolean oldNameESet = nameESet;
         name = NAME_EDEFAULT;
         nameESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.CONSTRUCTED_ATTRIBUTE__NAME, oldName, NAME_EDEFAULT, oldNameESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.CONSTRUCTED_ATTRIBUTE__NAME, oldName,
+                    NAME_EDEFAULT, oldNameESet ) );
     }
 
     /**
@@ -236,16 +238,18 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
             if( EcoreUtil.isAncestor( this, newConstructedAttributes ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             if( newConstructedAttributes != null )
                 msgs = ( ( InternalEObject ) newConstructedAttributes ).eInverseAdd( this,
                         NsdPackage.CONSTRUCTED_ATTRIBUTES__CONSTRUCTED_ATTRIBUTE, ConstructedAttributes.class, msgs );
             msgs = basicSetConstructedAttributes( newConstructedAttributes, msgs );
             if( msgs != null ) msgs.dispatch();
         }
-        else if( eNotificationRequired() ) eNotify(
-                new ENotificationImpl( this, Notification.SET, NsdPackage.CONSTRUCTED_ATTRIBUTE__CONSTRUCTED_ATTRIBUTES,
-                        newConstructedAttributes, newConstructedAttributes ) );
+        else if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.CONSTRUCTED_ATTRIBUTE__CONSTRUCTED_ATTRIBUTES, newConstructedAttributes,
+                    newConstructedAttributes ) );
     }
 
     /**
@@ -284,7 +288,8 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
             if( EcoreUtil.isAncestor( this, newServiceTypeRealizations ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             if( newServiceTypeRealizations != null )
                 msgs = ( ( InternalEObject ) newServiceTypeRealizations ).eInverseAdd( this,
                         NsdPackage.SERVICE_TYPE_REALIZATIONS__SERVICE_TYPE_REALIZATION, ServiceTypeRealizations.class,
@@ -292,9 +297,10 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
             msgs = basicSetServiceTypeRealizations( newServiceTypeRealizations, msgs );
             if( msgs != null ) msgs.dispatch();
         }
-        else if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.CONSTRUCTED_ATTRIBUTE__SERVICE_TYPE_REALIZATIONS, newServiceTypeRealizations,
-                newServiceTypeRealizations ) );
+        else if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.CONSTRUCTED_ATTRIBUTE__SERVICE_TYPE_REALIZATIONS, newServiceTypeRealizations,
+                    newServiceTypeRealizations ) );
     }
 
     /**
@@ -310,10 +316,12 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getSubDataAttribute() )
                     .basicAdd( otherEnd, msgs );
         case NsdPackage.CONSTRUCTED_ATTRIBUTE__CONSTRUCTED_ATTRIBUTES:
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             return basicSetConstructedAttributes( ( ConstructedAttributes ) otherEnd, msgs );
         case NsdPackage.CONSTRUCTED_ATTRIBUTE__SERVICE_TYPE_REALIZATIONS:
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             return basicSetServiceTypeRealizations( ( ServiceTypeRealizations ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );

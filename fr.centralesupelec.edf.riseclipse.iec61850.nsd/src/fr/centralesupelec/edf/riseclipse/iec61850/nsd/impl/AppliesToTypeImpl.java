@@ -237,8 +237,9 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
         release = newRelease;
         boolean oldReleaseESet = releaseESet;
         releaseESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.APPLIES_TO_TYPE__RELEASE, oldRelease, release, !oldReleaseESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.APPLIES_TO_TYPE__RELEASE, oldRelease,
+                    release, !oldReleaseESet ) );
     }
 
     /**
@@ -252,8 +253,9 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
         boolean oldReleaseESet = releaseESet;
         release = RELEASE_EDEFAULT;
         releaseESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.APPLIES_TO_TYPE__RELEASE, oldRelease, RELEASE_EDEFAULT, oldReleaseESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.APPLIES_TO_TYPE__RELEASE, oldRelease,
+                    RELEASE_EDEFAULT, oldReleaseESet ) );
     }
 
     /**
@@ -287,8 +289,9 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
         version = newVersion;
         boolean oldVersionESet = versionESet;
         versionESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.APPLIES_TO_TYPE__VERSION, oldVersion, version, !oldVersionESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.APPLIES_TO_TYPE__VERSION, oldVersion,
+                    version, !oldVersionESet ) );
     }
 
     /**
@@ -302,8 +305,9 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
         boolean oldVersionESet = versionESet;
         version = VERSION_EDEFAULT;
         versionESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.APPLIES_TO_TYPE__VERSION, oldVersion, VERSION_EDEFAULT, oldVersionESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.APPLIES_TO_TYPE__VERSION, oldVersion,
+                    VERSION_EDEFAULT, oldVersionESet ) );
     }
 
     /**
@@ -337,8 +341,9 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
         id = newId;
         boolean oldIdESet = idESet;
         idESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.APPLIES_TO_TYPE__ID, oldId, id, !oldIdESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.APPLIES_TO_TYPE__ID, oldId, id,
+                    !oldIdESet ) );
     }
 
     /**
@@ -352,8 +357,9 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
         boolean oldIdESet = idESet;
         id = ID_EDEFAULT;
         idESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.APPLIES_TO_TYPE__ID, oldId, ID_EDEFAULT, oldIdESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.APPLIES_TO_TYPE__ID, oldId,
+                    ID_EDEFAULT, oldIdESet ) );
     }
 
     /**
@@ -387,8 +393,9 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
         revision = newRevision;
         boolean oldRevisionESet = revisionESet;
         revisionESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.APPLIES_TO_TYPE__REVISION, oldRevision, revision, !oldRevisionESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.APPLIES_TO_TYPE__REVISION, oldRevision,
+                    revision, !oldRevisionESet ) );
     }
 
     /**
@@ -402,8 +409,9 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
         boolean oldRevisionESet = revisionESet;
         revision = REVISION_EDEFAULT;
         revisionESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.APPLIES_TO_TYPE__REVISION, oldRevision, REVISION_EDEFAULT, oldRevisionESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.APPLIES_TO_TYPE__REVISION, oldRevision,
+                    REVISION_EDEFAULT, oldRevisionESet ) );
     }
 
     /**
@@ -503,14 +511,17 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
             if( EcoreUtil.isAncestor( this, newServiceNsUsage ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
-            if( newServiceNsUsage != null ) msgs = ( ( InternalEObject ) newServiceNsUsage ).eInverseAdd( this,
-                    NsdPackage.SERVICE_NS_USAGE__APPLIES_TO, ServiceNsUsage.class, msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
+            if( newServiceNsUsage != null )
+                msgs = ( ( InternalEObject ) newServiceNsUsage ).eInverseAdd( this,
+                        NsdPackage.SERVICE_NS_USAGE__APPLIES_TO, ServiceNsUsage.class, msgs );
             msgs = basicSetServiceNsUsage( newServiceNsUsage, msgs );
             if( msgs != null ) msgs.dispatch();
         }
-        else if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.APPLIES_TO_TYPE__SERVICE_NS_USAGE, newServiceNsUsage, newServiceNsUsage ) );
+        else if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.APPLIES_TO_TYPE__SERVICE_NS_USAGE,
+                    newServiceNsUsage, newServiceNsUsage ) );
     }
 
     /**
@@ -522,7 +533,8 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.APPLIES_TO_TYPE__SERVICE_NS_USAGE:
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             return basicSetServiceNsUsage( ( ServiceNsUsage ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );

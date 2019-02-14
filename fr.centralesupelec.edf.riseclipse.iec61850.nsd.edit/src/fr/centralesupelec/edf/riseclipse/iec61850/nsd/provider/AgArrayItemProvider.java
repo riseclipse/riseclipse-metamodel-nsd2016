@@ -87,11 +87,17 @@ public class AgArrayItemProvider extends ItemProviderAdapter implements IEditing
     protected void addIsArrayPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_AgArray_isArray_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_AgArray_isArray_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_AgArray_isArray_feature",
                                 "_UI_AgArray_type" ),
-                        NsdPackage.Literals.AG_ARRAY__IS_ARRAY, true, false, false,
-                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.AG_ARRAY__IS_ARRAY,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -103,11 +109,17 @@ public class AgArrayItemProvider extends ItemProviderAdapter implements IEditing
     protected void addMaxIndexAttributePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_AgArray_maxIndexAttribute_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_AgArray_maxIndexAttribute_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_AgArray_maxIndexAttribute_feature",
                                 "_UI_AgArray_type" ),
-                        NsdPackage.Literals.AG_ARRAY__MAX_INDEX_ATTRIBUTE, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.AG_ARRAY__MAX_INDEX_ATTRIBUTE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -119,11 +131,17 @@ public class AgArrayItemProvider extends ItemProviderAdapter implements IEditing
     protected void addMinIndexPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_AgArray_minIndex_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_AgArray_minIndex_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_AgArray_minIndex_feature",
                                 "_UI_AgArray_type" ),
-                        NsdPackage.Literals.AG_ARRAY__MIN_INDEX, true, false, false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.AG_ARRAY__MIN_INDEX,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -135,11 +153,17 @@ public class AgArrayItemProvider extends ItemProviderAdapter implements IEditing
     protected void addSizeAttributePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_AgArray_sizeAttribute_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_AgArray_sizeAttribute_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_AgArray_sizeAttribute_feature",
                                 "_UI_AgArray_type" ),
-                        NsdPackage.Literals.AG_ARRAY__SIZE_ATTRIBUTE, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.AG_ARRAY__SIZE_ATTRIBUTE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**

@@ -172,8 +172,9 @@ public abstract class AgPresenceConditionImpl extends MinimalEObjectImpl.Contain
         presCond = newPresCond;
         boolean oldPresCondESet = presCondESet;
         presCondESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.AG_PRESENCE_CONDITION__PRES_COND, oldPresCond, presCond, !oldPresCondESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_PRESENCE_CONDITION__PRES_COND,
+                    oldPresCond, presCond, !oldPresCondESet ) );
     }
 
     /**
@@ -187,8 +188,9 @@ public abstract class AgPresenceConditionImpl extends MinimalEObjectImpl.Contain
         boolean oldPresCondESet = presCondESet;
         presCond = PRES_COND_EDEFAULT;
         presCondESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.AG_PRESENCE_CONDITION__PRES_COND, oldPresCond, PRES_COND_EDEFAULT, oldPresCondESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_PRESENCE_CONDITION__PRES_COND,
+                    oldPresCond, PRES_COND_EDEFAULT, oldPresCondESet ) );
     }
 
     /**
@@ -290,9 +292,10 @@ public abstract class AgPresenceConditionImpl extends MinimalEObjectImpl.Contain
         boolean oldPresCondArgsIDESet = presCondArgsIDESet;
         presCondArgsID = PRES_COND_ARGS_ID_EDEFAULT;
         presCondArgsIDESet = false;
-        if( eNotificationRequired() ) eNotify(
-                new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS_ID,
-                        oldPresCondArgsID, PRES_COND_ARGS_ID_EDEFAULT, oldPresCondArgsIDESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS_ID, oldPresCondArgsID, PRES_COND_ARGS_ID_EDEFAULT,
+                    oldPresCondArgsIDESet ) );
     }
 
     /**

@@ -141,7 +141,12 @@ public enum CBKind implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final CBKind[] VALUES_ARRAY = new CBKind[] { RCB, LCB, GO_CB, SVCB, };
+    private static final CBKind[] VALUES_ARRAY = new CBKind[] {
+            RCB,
+            LCB,
+            GO_CB,
+            SVCB,
+    };
 
     /**
      * A public read-only list of all the '<em><b>CB Kind</b></em>' enumerators.

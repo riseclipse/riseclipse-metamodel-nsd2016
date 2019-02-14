@@ -125,14 +125,17 @@ public class NoticeImpl extends NsdObjectImpl implements Notice {
             if( EcoreUtil.isAncestor( this, newCopyrightNotice ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
-            if( newCopyrightNotice != null ) msgs = ( ( InternalEObject ) newCopyrightNotice ).eInverseAdd( this,
-                    NsdPackage.COPYRIGHT_NOTICE__NOTICE, CopyrightNotice.class, msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
+            if( newCopyrightNotice != null )
+                msgs = ( ( InternalEObject ) newCopyrightNotice ).eInverseAdd( this,
+                        NsdPackage.COPYRIGHT_NOTICE__NOTICE, CopyrightNotice.class, msgs );
             msgs = basicSetCopyrightNotice( newCopyrightNotice, msgs );
             if( msgs != null ) msgs.dispatch();
         }
-        else if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.NOTICE__COPYRIGHT_NOTICE, newCopyrightNotice, newCopyrightNotice ) );
+        else if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NOTICE__COPYRIGHT_NOTICE,
+                    newCopyrightNotice, newCopyrightNotice ) );
     }
 
     /**
@@ -144,7 +147,8 @@ public class NoticeImpl extends NsdObjectImpl implements Notice {
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.NOTICE__COPYRIGHT_NOTICE:
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             return basicSetCopyrightNotice( ( CopyrightNotice ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
