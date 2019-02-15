@@ -35,8 +35,8 @@ public class NsdResourceSetImpl extends RiseClipseResourceSet {
     
     private Map< String, NS > nsdResources;
 
-    public NsdResourceSetImpl( IRiseClipseConsole console ) {
-        super( console );
+    public NsdResourceSetImpl( boolean strictContent, IRiseClipseConsole console ) {
+        super( strictContent, console );
         
         nsdResources = new HashMap< String, NS >();
     }
@@ -46,8 +46,8 @@ public class NsdResourceSetImpl extends RiseClipseResourceSet {
         super.demandLoad( resource );
         
         if( ! ( resource instanceof NsdResourceImpl )) {
-            AbstractRiseClipseConsole.getConsole().error( "The file " + resource.getURI() + " is not an NSD file" );
-            this.getResources().remove( resource );
+            // if strictContent is false, another king of resource is allowed.
+            // We just ignore it.
             return;
         }
         if( ! ( resource.getContents().get( 0 ) instanceof DocumentRoot )) {
@@ -110,9 +110,11 @@ public class NsdResourceSetImpl extends RiseClipseResourceSet {
      */
     private void buildExplicitLinks( IRiseClipseConsole console ) {
         for( Resource resource : getResources() ) {
-            DocumentRoot root = (DocumentRoot) resource.getContents().get( 0 );
-            NS ns = ( NS ) root.getNS();
-            ns.buildExplicitLinks( console, true );
+            if( resource instanceof NsdResourceImpl ) {
+                DocumentRoot root = (DocumentRoot) resource.getContents().get( 0 );
+                NS ns = ( NS ) root.getNS();
+                ns.buildExplicitLinks( console, true );
+            }
         }
         
     }
