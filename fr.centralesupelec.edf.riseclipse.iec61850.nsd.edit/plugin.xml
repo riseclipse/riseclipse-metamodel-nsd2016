@@ -36,4 +36,13 @@
                org.eclipse.emf.edit.provider.IItemPropertySource"/>
    </extension>
 
+   <extension
+         point="fr.centralesupelec.edf.riseclipse.main.meta_models">
+      <meta_model
+            adapterFactory="fr.centralesupelec.edf.riseclipse.iec61850.nsd.provider.NsdItemProviderAdapterFactory"
+            name="IEC61850 NSD (version 2017A)"
+            uri="http://www.iec.ch/61850/2016/NSD">
+      </meta_model>
+   </extension>
+
 </plugin>

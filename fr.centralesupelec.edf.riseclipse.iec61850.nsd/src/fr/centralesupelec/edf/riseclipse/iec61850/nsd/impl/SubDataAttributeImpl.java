@@ -1783,8 +1783,8 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
      *   SubDataAttribute.maxIndexAttribute -> DataAttribute.name                   ? Which DataAttribute ?
      */
     @Override
-    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
-        if( super.buildExplicitLinks( console ) ) return true;
+    public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
+        if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
         NS ns = getConstructedAttribute().getConstructedAttributes().getNS();
         if( isSetPresCond() ) {

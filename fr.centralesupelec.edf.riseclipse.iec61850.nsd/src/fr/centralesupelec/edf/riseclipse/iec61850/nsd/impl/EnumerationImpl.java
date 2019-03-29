@@ -717,8 +717,8 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
      *   Enumeration.inheritedFrom          -> Enumeration.name
      */
     @Override
-    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
-        if( super.buildExplicitLinks( console ) ) return true;
+    public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
+        if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
         NS ns = getEnumerations().getNS();
         if( isSetInheritedFrom() ) {

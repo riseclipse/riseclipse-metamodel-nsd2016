@@ -44,4 +44,14 @@
             class="fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceFactoryImpl"/>
    </extension>
 
+   <extension
+         point="fr.centralesupelec.edf.riseclipse.main.meta_models">
+      <meta_model
+            name="IEC61850 NSD (version 2017A)"
+            resourceFactory="fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceFactoryImpl"
+            resourceSetFactory="fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetFactory"
+            uri="http://www.iec.ch/61850/2016/NSD">
+      </meta_model>
+   </extension>
+
 </plugin>
