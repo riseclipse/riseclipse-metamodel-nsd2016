@@ -85,11 +85,17 @@ public class NsdObjectItemProvider extends ItemProviderAdapter implements IEditi
     protected void addLineNumberPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_NsdObject_lineNumber_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_NsdObject_lineNumber_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_NsdObject_lineNumber_feature",
                                 "_UI_NsdObject_type" ),
-                        NsdPackage.Literals.NSD_OBJECT__LINE_NUMBER, true, false, false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.NSD_OBJECT__LINE_NUMBER,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -101,11 +107,17 @@ public class NsdObjectItemProvider extends ItemProviderAdapter implements IEditi
     protected void addExplicitLinksBuiltPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_NsdObject_explicitLinksBuilt_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_NsdObject_explicitLinksBuilt_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_NsdObject_explicitLinksBuilt_feature",
                                 "_UI_NsdObject_type" ),
-                        NsdPackage.Literals.NSD_OBJECT__EXPLICIT_LINKS_BUILT, true, false, false,
-                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.NSD_OBJECT__EXPLICIT_LINKS_BUILT,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**

@@ -29,6 +29,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
@@ -762,8 +763,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         dchg = newDchg;
         boolean oldDchgESet = dchgESet;
         dchgESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.DATA_ATTRIBUTE__DCHG, oldDchg, dchg, !oldDchgESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__DCHG, oldDchg, dchg,
+                    !oldDchgESet ) );
     }
 
     /**
@@ -777,8 +779,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         boolean oldDchgESet = dchgESet;
         dchg = DCHG_EDEFAULT;
         dchgESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.DATA_ATTRIBUTE__DCHG, oldDchg, DCHG_EDEFAULT, oldDchgESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DATA_ATTRIBUTE__DCHG, oldDchg,
+                    DCHG_EDEFAULT, oldDchgESet ) );
     }
 
     /**
@@ -812,8 +815,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         defaultValue = newDefaultValue;
         boolean oldDefaultValueESet = defaultValueESet;
         defaultValueESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.DATA_ATTRIBUTE__DEFAULT_VALUE, oldDefaultValue, defaultValue, !oldDefaultValueESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__DEFAULT_VALUE,
+                    oldDefaultValue, defaultValue, !oldDefaultValueESet ) );
     }
 
     /**
@@ -863,8 +867,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         dupd = newDupd;
         boolean oldDupdESet = dupdESet;
         dupdESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.DATA_ATTRIBUTE__DUPD, oldDupd, dupd, !oldDupdESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__DUPD, oldDupd, dupd,
+                    !oldDupdESet ) );
     }
 
     /**
@@ -878,8 +883,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         boolean oldDupdESet = dupdESet;
         dupd = DUPD_EDEFAULT;
         dupdESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.DATA_ATTRIBUTE__DUPD, oldDupd, DUPD_EDEFAULT, oldDupdESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DATA_ATTRIBUTE__DUPD, oldDupd,
+                    DUPD_EDEFAULT, oldDupdESet ) );
     }
 
     /**
@@ -913,8 +919,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         fc = newFc;
         boolean oldFcESet = fcESet;
         fcESet = true;
-        if( eNotificationRequired() ) eNotify(
-                new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__FC, oldFc, fc, !oldFcESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__FC, oldFc, fc,
+                    !oldFcESet ) );
     }
 
     /**
@@ -928,8 +935,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         boolean oldFcESet = fcESet;
         fc = FC_EDEFAULT;
         fcESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.DATA_ATTRIBUTE__FC, oldFc, FC_EDEFAULT, oldFcESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DATA_ATTRIBUTE__FC, oldFc, FC_EDEFAULT,
+                    oldFcESet ) );
     }
 
     /**
@@ -963,8 +971,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         isArray = newIsArray;
         boolean oldIsArrayESet = isArrayESet;
         isArrayESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.DATA_ATTRIBUTE__IS_ARRAY, oldIsArray, isArray, !oldIsArrayESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__IS_ARRAY, oldIsArray,
+                    isArray, !oldIsArrayESet ) );
     }
 
     /**
@@ -978,8 +987,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         boolean oldIsArrayESet = isArrayESet;
         isArray = IS_ARRAY_EDEFAULT;
         isArrayESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.DATA_ATTRIBUTE__IS_ARRAY, oldIsArray, IS_ARRAY_EDEFAULT, oldIsArrayESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DATA_ATTRIBUTE__IS_ARRAY, oldIsArray,
+                    IS_ARRAY_EDEFAULT, oldIsArrayESet ) );
     }
 
     /**
@@ -1065,8 +1075,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         maxValue = newMaxValue;
         boolean oldMaxValueESet = maxValueESet;
         maxValueESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.DATA_ATTRIBUTE__MAX_VALUE, oldMaxValue, maxValue, !oldMaxValueESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__MAX_VALUE, oldMaxValue,
+                    maxValue, !oldMaxValueESet ) );
     }
 
     /**
@@ -1080,8 +1091,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         boolean oldMaxValueESet = maxValueESet;
         maxValue = MAX_VALUE_EDEFAULT;
         maxValueESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.DATA_ATTRIBUTE__MAX_VALUE, oldMaxValue, MAX_VALUE_EDEFAULT, oldMaxValueESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DATA_ATTRIBUTE__MAX_VALUE, oldMaxValue,
+                    MAX_VALUE_EDEFAULT, oldMaxValueESet ) );
     }
 
     /**
@@ -1115,8 +1127,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         minIndex = newMinIndex;
         boolean oldMinIndexESet = minIndexESet;
         minIndexESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.DATA_ATTRIBUTE__MIN_INDEX, oldMinIndex, minIndex, !oldMinIndexESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__MIN_INDEX, oldMinIndex,
+                    minIndex, !oldMinIndexESet ) );
     }
 
     /**
@@ -1130,8 +1143,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         boolean oldMinIndexESet = minIndexESet;
         minIndex = MIN_INDEX_EDEFAULT;
         minIndexESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.DATA_ATTRIBUTE__MIN_INDEX, oldMinIndex, MIN_INDEX_EDEFAULT, oldMinIndexESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DATA_ATTRIBUTE__MIN_INDEX, oldMinIndex,
+                    MIN_INDEX_EDEFAULT, oldMinIndexESet ) );
     }
 
     /**
@@ -1165,8 +1179,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         minValue = newMinValue;
         boolean oldMinValueESet = minValueESet;
         minValueESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.DATA_ATTRIBUTE__MIN_VALUE, oldMinValue, minValue, !oldMinValueESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__MIN_VALUE, oldMinValue,
+                    minValue, !oldMinValueESet ) );
     }
 
     /**
@@ -1180,8 +1195,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         boolean oldMinValueESet = minValueESet;
         minValue = MIN_VALUE_EDEFAULT;
         minValueESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.DATA_ATTRIBUTE__MIN_VALUE, oldMinValue, MIN_VALUE_EDEFAULT, oldMinValueESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DATA_ATTRIBUTE__MIN_VALUE, oldMinValue,
+                    MIN_VALUE_EDEFAULT, oldMinValueESet ) );
     }
 
     /**
@@ -1215,8 +1231,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         name = newName;
         boolean oldNameESet = nameESet;
         nameESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.DATA_ATTRIBUTE__NAME, oldName, name, !oldNameESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__NAME, oldName, name,
+                    !oldNameESet ) );
     }
 
     /**
@@ -1230,8 +1247,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         boolean oldNameESet = nameESet;
         name = NAME_EDEFAULT;
         nameESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.DATA_ATTRIBUTE__NAME, oldName, NAME_EDEFAULT, oldNameESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DATA_ATTRIBUTE__NAME, oldName,
+                    NAME_EDEFAULT, oldNameESet ) );
     }
 
     /**
@@ -1265,8 +1283,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         presCond = newPresCond;
         boolean oldPresCondESet = presCondESet;
         presCondESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.DATA_ATTRIBUTE__PRES_COND, oldPresCond, presCond, !oldPresCondESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__PRES_COND, oldPresCond,
+                    presCond, !oldPresCondESet ) );
     }
 
     /**
@@ -1280,8 +1299,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         boolean oldPresCondESet = presCondESet;
         presCond = PRES_COND_EDEFAULT;
         presCondESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.DATA_ATTRIBUTE__PRES_COND, oldPresCond, PRES_COND_EDEFAULT, oldPresCondESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DATA_ATTRIBUTE__PRES_COND, oldPresCond,
+                    PRES_COND_EDEFAULT, oldPresCondESet ) );
     }
 
     /**
@@ -1315,8 +1335,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         presCondArgs = newPresCondArgs;
         boolean oldPresCondArgsESet = presCondArgsESet;
         presCondArgsESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.DATA_ATTRIBUTE__PRES_COND_ARGS, oldPresCondArgs, presCondArgs, !oldPresCondArgsESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__PRES_COND_ARGS,
+                    oldPresCondArgs, presCondArgs, !oldPresCondArgsESet ) );
     }
 
     /**
@@ -1418,8 +1439,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         qchg = newQchg;
         boolean oldQchgESet = qchgESet;
         qchgESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.DATA_ATTRIBUTE__QCHG, oldQchg, qchg, !oldQchgESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__QCHG, oldQchg, qchg,
+                    !oldQchgESet ) );
     }
 
     /**
@@ -1433,8 +1455,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         boolean oldQchgESet = qchgESet;
         qchg = QCHG_EDEFAULT;
         qchgESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.DATA_ATTRIBUTE__QCHG, oldQchg, QCHG_EDEFAULT, oldQchgESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DATA_ATTRIBUTE__QCHG, oldQchg,
+                    QCHG_EDEFAULT, oldQchgESet ) );
     }
 
     /**
@@ -1468,8 +1491,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         sizeAttribute = newSizeAttribute;
         boolean oldSizeAttributeESet = sizeAttributeESet;
         sizeAttributeESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.DATA_ATTRIBUTE__SIZE_ATTRIBUTE, oldSizeAttribute, sizeAttribute, !oldSizeAttributeESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__SIZE_ATTRIBUTE,
+                    oldSizeAttribute, sizeAttribute, !oldSizeAttributeESet ) );
     }
 
     /**
@@ -1519,8 +1543,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         type = newType;
         boolean oldTypeESet = typeESet;
         typeESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.DATA_ATTRIBUTE__TYPE, oldType, type, !oldTypeESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__TYPE, oldType, type,
+                    !oldTypeESet ) );
     }
 
     /**
@@ -1534,8 +1559,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         boolean oldTypeESet = typeESet;
         type = TYPE_EDEFAULT;
         typeESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.DATA_ATTRIBUTE__TYPE, oldType, TYPE_EDEFAULT, oldTypeESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DATA_ATTRIBUTE__TYPE, oldType,
+                    TYPE_EDEFAULT, oldTypeESet ) );
     }
 
     /**
@@ -1569,8 +1595,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         typeKind = newTypeKind;
         boolean oldTypeKindESet = typeKindESet;
         typeKindESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.DATA_ATTRIBUTE__TYPE_KIND, oldTypeKind, typeKind, !oldTypeKindESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__TYPE_KIND, oldTypeKind,
+                    typeKind, !oldTypeKindESet ) );
     }
 
     /**
@@ -1584,8 +1611,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         boolean oldTypeKindESet = typeKindESet;
         typeKind = TYPE_KIND_EDEFAULT;
         typeKindESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.DATA_ATTRIBUTE__TYPE_KIND, oldTypeKind, TYPE_KIND_EDEFAULT, oldTypeKindESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DATA_ATTRIBUTE__TYPE_KIND, oldTypeKind,
+                    TYPE_KIND_EDEFAULT, oldTypeKindESet ) );
     }
 
     /**
@@ -1631,9 +1659,11 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
             if( EcoreUtil.isAncestor( this, newCDC ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
-            if( newCDC != null ) msgs = ( ( InternalEObject ) newCDC ).eInverseAdd( this,
-                    NsdPackage.CDC__DATA_ATTRIBUTE, CDC.class, msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
+            if( newCDC != null )
+                msgs = ( ( InternalEObject ) newCDC ).eInverseAdd( this, NsdPackage.CDC__DATA_ATTRIBUTE, CDC.class,
+                        msgs );
             msgs = basicSetCDC( newCDC, msgs );
             if( msgs != null ) msgs.dispatch();
         }
@@ -1772,9 +1802,10 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         else {
             boolean oldRefersToFunctionalConstraintESet = refersToFunctionalConstraintESet;
             refersToFunctionalConstraintESet = true;
-            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_FUNCTIONAL_CONSTRAINT, newRefersToFunctionalConstraint,
-                    newRefersToFunctionalConstraint, !oldRefersToFunctionalConstraintESet ) );
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.SET,
+                        NsdPackage.DATA_ATTRIBUTE__REFERS_TO_FUNCTIONAL_CONSTRAINT, newRefersToFunctionalConstraint,
+                        newRefersToFunctionalConstraint, !oldRefersToFunctionalConstraintESet ) );
         }
     }
 
@@ -1817,9 +1848,10 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         else {
             boolean oldRefersToFunctionalConstraintESet = refersToFunctionalConstraintESet;
             refersToFunctionalConstraintESet = false;
-            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_FUNCTIONAL_CONSTRAINT, null, null,
-                    oldRefersToFunctionalConstraintESet ) );
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.UNSET,
+                        NsdPackage.DATA_ATTRIBUTE__REFERS_TO_FUNCTIONAL_CONSTRAINT, null, null,
+                        oldRefersToFunctionalConstraintESet ) );
         }
     }
 
@@ -1887,9 +1919,10 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         else {
             boolean oldRefersToPresenceConditionESet = refersToPresenceConditionESet;
             refersToPresenceConditionESet = true;
-            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION, newRefersToPresenceCondition,
-                    newRefersToPresenceCondition, !oldRefersToPresenceConditionESet ) );
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.SET,
+                        NsdPackage.DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION, newRefersToPresenceCondition,
+                        newRefersToPresenceCondition, !oldRefersToPresenceConditionESet ) );
         }
     }
 
@@ -1932,9 +1965,10 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         else {
             boolean oldRefersToPresenceConditionESet = refersToPresenceConditionESet;
             refersToPresenceConditionESet = false;
-            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION, null, null,
-                    oldRefersToPresenceConditionESet ) );
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.UNSET,
+                        NsdPackage.DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION, null, null,
+                        oldRefersToPresenceConditionESet ) );
         }
     }
 
@@ -2004,9 +2038,10 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         else {
             boolean oldRefersToSizeAttributeESet = refersToSizeAttributeESet;
             refersToSizeAttributeESet = true;
-            if( eNotificationRequired() ) eNotify(
-                    new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__REFERS_TO_SIZE_ATTRIBUTE,
-                            newRefersToSizeAttribute, newRefersToSizeAttribute, !oldRefersToSizeAttributeESet ) );
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.SET,
+                        NsdPackage.DATA_ATTRIBUTE__REFERS_TO_SIZE_ATTRIBUTE, newRefersToSizeAttribute,
+                        newRefersToSizeAttribute, !oldRefersToSizeAttributeESet ) );
         }
     }
 
@@ -2050,8 +2085,10 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         else {
             boolean oldRefersToSizeAttributeESet = refersToSizeAttributeESet;
             refersToSizeAttributeESet = false;
-            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_SIZE_ATTRIBUTE, null, null, oldRefersToSizeAttributeESet ) );
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.UNSET,
+                        NsdPackage.DATA_ATTRIBUTE__REFERS_TO_SIZE_ATTRIBUTE, null, null,
+                        oldRefersToSizeAttributeESet ) );
         }
     }
 
@@ -2121,9 +2158,10 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         else {
             boolean oldRefersToMaxIndexAttributeESet = refersToMaxIndexAttributeESet;
             refersToMaxIndexAttributeESet = true;
-            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_MAX_INDEX_ATTRIBUTE, newRefersToMaxIndexAttribute,
-                    newRefersToMaxIndexAttribute, !oldRefersToMaxIndexAttributeESet ) );
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.SET,
+                        NsdPackage.DATA_ATTRIBUTE__REFERS_TO_MAX_INDEX_ATTRIBUTE, newRefersToMaxIndexAttribute,
+                        newRefersToMaxIndexAttribute, !oldRefersToMaxIndexAttributeESet ) );
         }
     }
 
@@ -2167,9 +2205,10 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         else {
             boolean oldRefersToMaxIndexAttributeESet = refersToMaxIndexAttributeESet;
             refersToMaxIndexAttributeESet = false;
-            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_MAX_INDEX_ATTRIBUTE, null, null,
-                    oldRefersToMaxIndexAttributeESet ) );
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.UNSET,
+                        NsdPackage.DATA_ATTRIBUTE__REFERS_TO_MAX_INDEX_ATTRIBUTE, null, null,
+                        oldRefersToMaxIndexAttributeESet ) );
         }
     }
 
@@ -2299,10 +2338,12 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     public void setRefersToBasicType( BasicType newRefersToBasicType ) {
         if( newRefersToBasicType != refersToBasicType ) {
             NotificationChain msgs = null;
-            if( refersToBasicType != null ) msgs = ( ( InternalEObject ) refersToBasicType ).eInverseRemove( this,
-                    NsdPackage.BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE, BasicType.class, msgs );
-            if( newRefersToBasicType != null ) msgs = ( ( InternalEObject ) newRefersToBasicType ).eInverseAdd( this,
-                    NsdPackage.BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE, BasicType.class, msgs );
+            if( refersToBasicType != null )
+                msgs = ( ( InternalEObject ) refersToBasicType ).eInverseRemove( this,
+                        NsdPackage.BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE, BasicType.class, msgs );
+            if( newRefersToBasicType != null )
+                msgs = ( ( InternalEObject ) newRefersToBasicType ).eInverseAdd( this,
+                        NsdPackage.BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE, BasicType.class, msgs );
             msgs = basicSetRefersToBasicType( newRefersToBasicType, msgs );
             if( msgs != null ) msgs.dispatch();
         }
@@ -2354,8 +2395,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         else {
             boolean oldRefersToBasicTypeESet = refersToBasicTypeESet;
             refersToBasicTypeESet = false;
-            if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE, null, null, oldRefersToBasicTypeESet ) );
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.UNSET,
+                        NsdPackage.DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE, null, null, oldRefersToBasicTypeESet ) );
         }
     }
 
@@ -2379,7 +2421,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.DATA_ATTRIBUTE__CDC:
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             return basicSetCDC( ( CDC ) otherEnd, msgs );
         case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_SIZE_ATTRIBUTE:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredBySubDataObjectAsSizeAttribute() )
@@ -2417,8 +2460,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByDataAttributeAsMaxIndexAttribute() )
                     .basicAdd( otherEnd, msgs );
         case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE:
-            if( refersToBasicType != null ) msgs = ( ( InternalEObject ) refersToBasicType ).eInverseRemove( this,
-                    NsdPackage.BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE, BasicType.class, msgs );
+            if( refersToBasicType != null )
+                msgs = ( ( InternalEObject ) refersToBasicType ).eInverseRemove( this,
+                        NsdPackage.BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE, BasicType.class, msgs );
             return basicSetRefersToBasicType( ( BasicType ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
@@ -3046,71 +3090,90 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         if( super.buildExplicitLinks( console ) ) return true;
 
+        NS ns = getCDC().getCDCs().getNS();
+
         if( isSetFc() ) {
-            setRefersToFunctionalConstraint( getCDC().getCDCs().getNS().findFunctionalConstraint( getFc(), console ) );
-            if( getRefersToFunctionalConstraint() == null ) {
+            FunctionalConstraint foundFC = ns.findFunctionalConstraint( getFc(), console );
+
+            if( foundFC == null ) {
                 console.error( "FunctionalConstraint (abbreviation: " + getFc() + ") refers by DataAttribute (name: "
-                        + getName() + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") is unknown" );
+                        + getName() + ") in NS (id:" + ns.getId() + ") is unknown" );
             }
             else {
+                setRefersToFunctionalConstraint( foundFC );
                 console.verbose( "FunctionalConstraint (abbreviation: " + getFc() + ") refers by DataAttribute (name: "
-                        + getName() + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") found in NS (id:"
+                        + getName() + ") in NS (id:" + ns.getId() + ") found in NS (id:"
                         + getRefersToFunctionalConstraint().getFunctionalConstraints().getNS().getId() + ")" );
             }
         }
 
         if( isSetPresCond() ) {
-            setRefersToPresenceCondition( getCDC().getCDCs().getNS().findPresenceCondition( getPresCond(), console ) );
-            if( getRefersToPresenceCondition() == null ) {
+            PresenceCondition foundPC = ns.findPresenceCondition( getPresCond(), console );
+
+            if( foundPC == null ) {
                 console.error( "PresenceCondition (name: " + getPresCond() + ") refers by DataAttribute (name: "
-                        + getName() + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") is unknown" );
+                        + getName() + ") in NS (id:" + ns.getId() + ") is unknown" );
             }
             else {
+                setRefersToPresenceCondition( foundPC );
                 console.verbose( "PresenceCondition (name: " + getPresCond() + ") refers by DataAttribute (name: "
-                        + getName() + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") found in NS (id:"
+                        + getName() + ") in NS (id:" + ns.getId() + ") found in NS (id:"
                         + getRefersToPresenceCondition().getPresenceConditions().getNS().getId() + ")" );
             }
         }
 
         if( isSetSizeAttribute() ) {
-            setRefersToSizeAttribute( getCDC().getDataAttribute().stream()
-                    .filter( att -> att.getName().equals( getSizeAttribute() ) ).findAny().orElse( null ) );
-            if( getRefersToSizeAttribute() == null ) {
-                console.error( "DataAttribute (name: " + getSizeAttribute()
-                        + ") refers as sizeAttribute by DataAttribute (name: " + getName() + ") in NS (id:"
-                        + getCDC().getCDCs().getNS().getId() + ") is unknown" );
-            }
-            else {
+            getCDC()
+                    .getDataAttribute()
+                    .stream()
+                    .filter( att -> att.getName().equals( getSizeAttribute() ) )
+                    .findAny()
+                    .ifPresent( att -> setRefersToSizeAttribute( att ) );
+
+            if( isSetRefersToSizeAttribute() ) {
                 console.verbose( "DataAttribute (name: " + getSizeAttribute()
                         + ") refers as sizeAttribute by DataAttribute (name: " + getName() + ") in NS (id:"
-                        + getCDC().getCDCs().getNS().getId() + ") found" );
+                        + ns.getId() + ") found" );
+            }
+            else {
+                console.error( "DataAttribute (name: " + getSizeAttribute()
+                        + ") refers as sizeAttribute by DataAttribute (name: " + getName() + ") in NS (id:"
+                        + ns.getId() + ") is unknown" );
             }
         }
 
         if( isSetMaxIndexAttribute() ) {
-            setRefersToMaxIndexAttribute( getCDC().getDataAttribute().stream()
-                    .filter( att -> att.getName().equals( getMaxIndexAttribute() ) ).findAny().orElse( null ) );
-            if( getRefersToMaxIndexAttribute() == null ) {
-                console.error( "DataAttribute (name: " + getMaxIndexAttribute()
-                        + ") refers as maxIndexAttribute by DataAttribute (name: " + getName() + ") in NS (id:"
-                        + getCDC().getCDCs().getNS().getId() + ") is unknown" );
-            }
-            else {
+            getCDC()
+                    .getDataAttribute()
+                    .stream()
+                    .filter( att -> att.getName().equals( getMaxIndexAttribute() ) )
+                    .findAny()
+                    .ifPresent( att -> setRefersToMaxIndexAttribute( att ) );
+
+            if( isSetRefersToMaxIndexAttribute() ) {
                 console.verbose( "DataAttribute (name: " + getMaxIndexAttribute()
                         + ") refers as maxIndexAttribute by DataAttribute (name: " + getName() + ") in NS (id:"
-                        + getCDC().getCDCs().getNS().getId() + ") found" );
+                        + ns.getId() + ") found" );
+            }
+            else {
+                console.error( "DataAttribute (name: " + getMaxIndexAttribute()
+                        + ") refers as maxIndexAttribute by DataAttribute (name: " + getName() + ") in NS (id:"
+                        + ns.getId() + ") is unknown" );
             }
         }
 
         if( getTypeKind().equals( DefinedAttributeTypeKind.BASIC ) ) {
-            setRefersToBasicType( getCDC().getCDCs().getNS().findBasicType( getType(), console ) );
-            if( getRefersToBasicType() == null ) {
+            BasicType foundBT = ns.findBasicType( getType(), console );
+
+            if( foundBT == null ) {
                 console.error( "BasicType (name: " + getType() + ") refers as type by DataAttribute (name: " + getName()
-                        + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") is unknown" );
+                        + ") in NS (id:" + ns.getId() + ") is unknown" );
             }
             else {
+                setRefersToBasicType( foundBT );
                 console.verbose( "BasicType (name: " + getType() + ") refers as type by DataAttribute (name: "
-                        + getName() + ") in NS (id:" + getCDC().getCDCs().getNS().getId() + ") found" );
+                        + getName() + ") in NS (id:" + ns.getId() + ") found in NS (id:"
+                        + getRefersToBasicType().getBasicTypes().getNS().getId() + ")" );
             }
         }
 

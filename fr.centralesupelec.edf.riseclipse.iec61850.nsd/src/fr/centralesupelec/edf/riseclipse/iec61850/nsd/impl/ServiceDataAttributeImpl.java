@@ -364,8 +364,9 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         fc = newFc;
         boolean oldFcESet = fcESet;
         fcESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.SERVICE_DATA_ATTRIBUTE__FC, oldFc, fc, !oldFcESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_DATA_ATTRIBUTE__FC, oldFc, fc,
+                    !oldFcESet ) );
     }
 
     /**
@@ -379,8 +380,9 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         boolean oldFcESet = fcESet;
         fc = FC_EDEFAULT;
         fcESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.SERVICE_DATA_ATTRIBUTE__FC, oldFc, FC_EDEFAULT, oldFcESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_DATA_ATTRIBUTE__FC, oldFc,
+                    FC_EDEFAULT, oldFcESet ) );
     }
 
     /**
@@ -414,8 +416,9 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         name = newName;
         boolean oldNameESet = nameESet;
         nameESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.SERVICE_DATA_ATTRIBUTE__NAME, oldName, name, !oldNameESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_DATA_ATTRIBUTE__NAME, oldName,
+                    name, !oldNameESet ) );
     }
 
     /**
@@ -429,8 +432,9 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         boolean oldNameESet = nameESet;
         name = NAME_EDEFAULT;
         nameESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.SERVICE_DATA_ATTRIBUTE__NAME, oldName, NAME_EDEFAULT, oldNameESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_DATA_ATTRIBUTE__NAME, oldName,
+                    NAME_EDEFAULT, oldNameESet ) );
     }
 
     /**
@@ -464,8 +468,9 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         presCond = newPresCond;
         boolean oldPresCondESet = presCondESet;
         presCondESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND, oldPresCond, presCond, !oldPresCondESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND,
+                    oldPresCond, presCond, !oldPresCondESet ) );
     }
 
     /**
@@ -479,8 +484,9 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         boolean oldPresCondESet = presCondESet;
         presCond = PRES_COND_EDEFAULT;
         presCondESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND, oldPresCond, PRES_COND_EDEFAULT, oldPresCondESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND,
+                    oldPresCond, PRES_COND_EDEFAULT, oldPresCondESet ) );
     }
 
     /**
@@ -566,9 +572,10 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         presCondArgsID = newPresCondArgsID;
         boolean oldPresCondArgsIDESet = presCondArgsIDESet;
         presCondArgsIDESet = true;
-        if( eNotificationRequired() ) eNotify(
-                new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS_ID,
-                        oldPresCondArgsID, presCondArgsID, !oldPresCondArgsIDESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS_ID, oldPresCondArgsID, presCondArgsID,
+                    !oldPresCondArgsIDESet ) );
     }
 
     /**
@@ -582,9 +589,10 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         boolean oldPresCondArgsIDESet = presCondArgsIDESet;
         presCondArgsID = PRES_COND_ARGS_ID_EDEFAULT;
         presCondArgsIDESet = false;
-        if( eNotificationRequired() ) eNotify(
-                new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS_ID,
-                        oldPresCondArgsID, PRES_COND_ARGS_ID_EDEFAULT, oldPresCondArgsIDESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS_ID, oldPresCondArgsID, PRES_COND_ARGS_ID_EDEFAULT,
+                    oldPresCondArgsIDESet ) );
     }
 
     /**
@@ -618,8 +626,9 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         type = newType;
         boolean oldTypeESet = typeESet;
         typeESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.SERVICE_DATA_ATTRIBUTE__TYPE, oldType, type, !oldTypeESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_DATA_ATTRIBUTE__TYPE, oldType,
+                    type, !oldTypeESet ) );
     }
 
     /**
@@ -633,8 +642,9 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         boolean oldTypeESet = typeESet;
         type = TYPE_EDEFAULT;
         typeESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.SERVICE_DATA_ATTRIBUTE__TYPE, oldType, TYPE_EDEFAULT, oldTypeESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_DATA_ATTRIBUTE__TYPE, oldType,
+                    TYPE_EDEFAULT, oldTypeESet ) );
     }
 
     /**
@@ -668,8 +678,9 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         typeKind = newTypeKind;
         boolean oldTypeKindESet = typeKindESet;
         typeKindESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.SERVICE_DATA_ATTRIBUTE__TYPE_KIND, oldTypeKind, typeKind, !oldTypeKindESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_DATA_ATTRIBUTE__TYPE_KIND,
+                    oldTypeKind, typeKind, !oldTypeKindESet ) );
     }
 
     /**
@@ -683,8 +694,9 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         boolean oldTypeKindESet = typeKindESet;
         typeKind = TYPE_KIND_EDEFAULT;
         typeKindESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.SERVICE_DATA_ATTRIBUTE__TYPE_KIND, oldTypeKind, TYPE_KIND_EDEFAULT, oldTypeKindESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_DATA_ATTRIBUTE__TYPE_KIND,
+                    oldTypeKind, TYPE_KIND_EDEFAULT, oldTypeKindESet ) );
     }
 
     /**
@@ -734,9 +746,10 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         boolean oldUnderlyingTypeESet = underlyingTypeESet;
         underlyingType = UNDERLYING_TYPE_EDEFAULT;
         underlyingTypeESet = false;
-        if( eNotificationRequired() ) eNotify(
-                new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE,
-                        oldUnderlyingType, UNDERLYING_TYPE_EDEFAULT, oldUnderlyingTypeESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE, oldUnderlyingType, UNDERLYING_TYPE_EDEFAULT,
+                    oldUnderlyingTypeESet ) );
     }
 
     /**
@@ -770,9 +783,10 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         underlyingTypeKind = newUnderlyingTypeKind == null ? UNDERLYING_TYPE_KIND_EDEFAULT : newUnderlyingTypeKind;
         boolean oldUnderlyingTypeKindESet = underlyingTypeKindESet;
         underlyingTypeKindESet = true;
-        if( eNotificationRequired() ) eNotify(
-                new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE_KIND,
-                        oldUnderlyingTypeKind, underlyingTypeKind, !oldUnderlyingTypeKindESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE_KIND, oldUnderlyingTypeKind, underlyingTypeKind,
+                    !oldUnderlyingTypeKindESet ) );
     }
 
     /**
@@ -786,9 +800,10 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         boolean oldUnderlyingTypeKindESet = underlyingTypeKindESet;
         underlyingTypeKind = UNDERLYING_TYPE_KIND_EDEFAULT;
         underlyingTypeKindESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE_KIND, oldUnderlyingTypeKind,
-                UNDERLYING_TYPE_KIND_EDEFAULT, oldUnderlyingTypeKindESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE_KIND, oldUnderlyingTypeKind,
+                    UNDERLYING_TYPE_KIND_EDEFAULT, oldUnderlyingTypeKindESet ) );
     }
 
     /**
@@ -836,14 +851,17 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
             if( EcoreUtil.isAncestor( this, newServiceCDC ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
-            if( newServiceCDC != null ) msgs = ( ( InternalEObject ) newServiceCDC ).eInverseAdd( this,
-                    NsdPackage.SERVICE_CDC__SERVICE_DATA_ATTRIBUTE, ServiceCDC.class, msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
+            if( newServiceCDC != null )
+                msgs = ( ( InternalEObject ) newServiceCDC ).eInverseAdd( this,
+                        NsdPackage.SERVICE_CDC__SERVICE_DATA_ATTRIBUTE, ServiceCDC.class, msgs );
             msgs = basicSetServiceCDC( newServiceCDC, msgs );
             if( msgs != null ) msgs.dispatch();
         }
-        else if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.SERVICE_DATA_ATTRIBUTE__SERVICE_CDC, newServiceCDC, newServiceCDC ) );
+        else if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_DATA_ATTRIBUTE__SERVICE_CDC,
+                    newServiceCDC, newServiceCDC ) );
     }
 
     /**
@@ -855,7 +873,8 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__SERVICE_CDC:
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             return basicSetServiceCDC( ( ServiceCDC ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );

@@ -116,7 +116,11 @@ public enum LicenseKind implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final LicenseKind[] VALUES_ARRAY = new LicenseKind[] { STANDARD, PRIVATE, NONE, };
+    private static final LicenseKind[] VALUES_ARRAY = new LicenseKind[] {
+            STANDARD,
+            PRIVATE,
+            NONE,
+    };
 
     /**
      * A public read-only list of all the '<em><b>License Kind</b></em>' enumerators.

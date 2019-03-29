@@ -78,11 +78,17 @@ public class ConstructedAttributeItemProvider extends TitledClassItemProvider {
     protected void addNamePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_ConstructedAttribute_name_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_ConstructedAttribute_name_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_ConstructedAttribute_name_feature",
                                 "_UI_ConstructedAttribute_type" ),
-                        NsdPackage.Literals.CONSTRUCTED_ATTRIBUTE__NAME, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.CONSTRUCTED_ATTRIBUTE__NAME,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**

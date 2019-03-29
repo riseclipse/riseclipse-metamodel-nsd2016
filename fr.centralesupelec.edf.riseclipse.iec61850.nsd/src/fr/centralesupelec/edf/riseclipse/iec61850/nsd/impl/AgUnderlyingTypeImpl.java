@@ -211,9 +211,10 @@ public abstract class AgUnderlyingTypeImpl extends MinimalEObjectImpl.Container 
         boolean oldUnderlyingTypeKindESet = underlyingTypeKindESet;
         underlyingTypeKind = UNDERLYING_TYPE_KIND_EDEFAULT;
         underlyingTypeKindESet = false;
-        if( eNotificationRequired() ) eNotify(
-                new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_UNDERLYING_TYPE__UNDERLYING_TYPE_KIND,
-                        oldUnderlyingTypeKind, UNDERLYING_TYPE_KIND_EDEFAULT, oldUnderlyingTypeKindESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.AG_UNDERLYING_TYPE__UNDERLYING_TYPE_KIND, oldUnderlyingTypeKind,
+                    UNDERLYING_TYPE_KIND_EDEFAULT, oldUnderlyingTypeKindESet ) );
     }
 
     /**

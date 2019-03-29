@@ -173,9 +173,10 @@ public abstract class AgPresenceConditionDerivedStatisticsImpl extends MinimalEO
         dsPresCond = newDsPresCond;
         boolean oldDsPresCondESet = dsPresCondESet;
         dsPresCondESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__DS_PRES_COND, oldDsPresCond, dsPresCond,
-                !oldDsPresCondESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__DS_PRES_COND, oldDsPresCond, dsPresCond,
+                    !oldDsPresCondESet ) );
     }
 
     /**
@@ -189,9 +190,10 @@ public abstract class AgPresenceConditionDerivedStatisticsImpl extends MinimalEO
         boolean oldDsPresCondESet = dsPresCondESet;
         dsPresCond = DS_PRES_COND_EDEFAULT;
         dsPresCondESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__DS_PRES_COND, oldDsPresCond, DS_PRES_COND_EDEFAULT,
-                oldDsPresCondESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__DS_PRES_COND, oldDsPresCond,
+                    DS_PRES_COND_EDEFAULT, oldDsPresCondESet ) );
     }
 
     /**
@@ -225,9 +227,10 @@ public abstract class AgPresenceConditionDerivedStatisticsImpl extends MinimalEO
         dsPresCondArgs = newDsPresCondArgs;
         boolean oldDsPresCondArgsESet = dsPresCondArgsESet;
         dsPresCondArgsESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__DS_PRES_COND_ARGS, oldDsPresCondArgs,
-                dsPresCondArgs, !oldDsPresCondArgsESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__DS_PRES_COND_ARGS, oldDsPresCondArgs,
+                    dsPresCondArgs, !oldDsPresCondArgsESet ) );
     }
 
     /**
@@ -241,9 +244,10 @@ public abstract class AgPresenceConditionDerivedStatisticsImpl extends MinimalEO
         boolean oldDsPresCondArgsESet = dsPresCondArgsESet;
         dsPresCondArgs = DS_PRES_COND_ARGS_EDEFAULT;
         dsPresCondArgsESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__DS_PRES_COND_ARGS, oldDsPresCondArgs,
-                DS_PRES_COND_ARGS_EDEFAULT, oldDsPresCondArgsESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__DS_PRES_COND_ARGS, oldDsPresCondArgs,
+                    DS_PRES_COND_ARGS_EDEFAULT, oldDsPresCondArgsESet ) );
     }
 
     /**
@@ -277,9 +281,10 @@ public abstract class AgPresenceConditionDerivedStatisticsImpl extends MinimalEO
         dsPresCondArgsID = newDsPresCondArgsID;
         boolean oldDsPresCondArgsIDESet = dsPresCondArgsIDESet;
         dsPresCondArgsIDESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__DS_PRES_COND_ARGS_ID, oldDsPresCondArgsID,
-                dsPresCondArgsID, !oldDsPresCondArgsIDESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__DS_PRES_COND_ARGS_ID, oldDsPresCondArgsID,
+                    dsPresCondArgsID, !oldDsPresCondArgsIDESet ) );
     }
 
     /**
@@ -293,9 +298,10 @@ public abstract class AgPresenceConditionDerivedStatisticsImpl extends MinimalEO
         boolean oldDsPresCondArgsIDESet = dsPresCondArgsIDESet;
         dsPresCondArgsID = DS_PRES_COND_ARGS_ID_EDEFAULT;
         dsPresCondArgsIDESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__DS_PRES_COND_ARGS_ID, oldDsPresCondArgsID,
-                DS_PRES_COND_ARGS_ID_EDEFAULT, oldDsPresCondArgsIDESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__DS_PRES_COND_ARGS_ID, oldDsPresCondArgsID,
+                    DS_PRES_COND_ARGS_ID_EDEFAULT, oldDsPresCondArgsIDESet ) );
     }
 
     /**

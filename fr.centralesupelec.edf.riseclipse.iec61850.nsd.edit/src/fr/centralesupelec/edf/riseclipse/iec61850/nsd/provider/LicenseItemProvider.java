@@ -82,11 +82,17 @@ public class LicenseItemProvider extends NsdObjectItemProvider {
     protected void addKindPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_License_kind_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_License_kind_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_License_kind_feature",
                                 "_UI_License_type" ),
-                        NsdPackage.Literals.LICENSE__KIND, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.LICENSE__KIND,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -98,11 +104,17 @@ public class LicenseItemProvider extends NsdObjectItemProvider {
     protected void addUriPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_License_uri_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_License_uri_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_License_uri_feature",
                                 "_UI_License_type" ),
-                        NsdPackage.Literals.LICENSE__URI, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.LICENSE__URI,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -193,17 +205,20 @@ public class LicenseItemProvider extends NsdObjectItemProvider {
         super.collectNewChildDescriptors( newChildDescriptors, object );
 
         newChildDescriptors.add( createChildParameter( NsdPackage.Literals.LICENSE__MIXED,
-                FeatureMapUtil.createEntry( XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__COMMENT, "" ) ) );
+                FeatureMapUtil.createEntry( XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__COMMENT,
+                        "" ) ) );
 
         newChildDescriptors.add( createChildParameter( NsdPackage.Literals.LICENSE__MIXED,
-                FeatureMapUtil.createEntry( XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__TEXT, "" ) ) );
+                FeatureMapUtil.createEntry( XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__TEXT,
+                        "" ) ) );
 
         newChildDescriptors.add( createChildParameter( NsdPackage.Literals.LICENSE__MIXED,
                 FeatureMapUtil.createEntry( XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__PROCESSING_INSTRUCTION,
                         XMLTypeFactory.eINSTANCE.createProcessingInstruction() ) ) );
 
         newChildDescriptors.add( createChildParameter( NsdPackage.Literals.LICENSE__MIXED,
-                FeatureMapUtil.createEntry( XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__CDATA, "" ) ) );
+                FeatureMapUtil.createEntry( XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__CDATA,
+                        "" ) ) );
     }
 
 }

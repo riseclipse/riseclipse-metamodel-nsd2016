@@ -198,8 +198,9 @@ public class ApplicableServiceNSImpl extends CopyrightedImpl implements Applicab
         date = newDate;
         boolean oldDateESet = dateESet;
         dateESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.APPLICABLE_SERVICE_NS__DATE, oldDate, date, !oldDateESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.APPLICABLE_SERVICE_NS__DATE, oldDate,
+                    date, !oldDateESet ) );
     }
 
     /**
@@ -213,8 +214,9 @@ public class ApplicableServiceNSImpl extends CopyrightedImpl implements Applicab
         boolean oldDateESet = dateESet;
         date = DATE_EDEFAULT;
         dateESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.APPLICABLE_SERVICE_NS__DATE, oldDate, DATE_EDEFAULT, oldDateESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.APPLICABLE_SERVICE_NS__DATE, oldDate,
+                    DATE_EDEFAULT, oldDateESet ) );
     }
 
     /**
@@ -248,8 +250,9 @@ public class ApplicableServiceNSImpl extends CopyrightedImpl implements Applicab
         version = newVersion;
         boolean oldVersionESet = versionESet;
         versionESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.APPLICABLE_SERVICE_NS__VERSION, oldVersion, version, !oldVersionESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.APPLICABLE_SERVICE_NS__VERSION,
+                    oldVersion, version, !oldVersionESet ) );
     }
 
     /**
@@ -263,8 +266,9 @@ public class ApplicableServiceNSImpl extends CopyrightedImpl implements Applicab
         boolean oldVersionESet = versionESet;
         version = VERSION_EDEFAULT;
         versionESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.APPLICABLE_SERVICE_NS__VERSION, oldVersion, VERSION_EDEFAULT, oldVersionESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.APPLICABLE_SERVICE_NS__VERSION,
+                    oldVersion, VERSION_EDEFAULT, oldVersionESet ) );
     }
 
     /**

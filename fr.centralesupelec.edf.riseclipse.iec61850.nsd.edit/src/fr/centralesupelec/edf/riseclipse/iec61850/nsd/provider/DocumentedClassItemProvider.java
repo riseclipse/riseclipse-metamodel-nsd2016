@@ -76,11 +76,17 @@ public class DocumentedClassItemProvider extends NsdObjectItemProvider {
     protected void addDeprecatedPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_DocumentedClass_deprecated_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_DocumentedClass_deprecated_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_DocumentedClass_deprecated_feature",
                                 "_UI_DocumentedClass_type" ),
-                        NsdPackage.Literals.DOCUMENTED_CLASS__DEPRECATED, true, false, false,
-                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.DOCUMENTED_CLASS__DEPRECATED,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -92,11 +98,17 @@ public class DocumentedClassItemProvider extends NsdObjectItemProvider {
     protected void addDescIDPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_DocumentedClass_descID_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_DocumentedClass_descID_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_DocumentedClass_descID_feature",
                                 "_UI_DocumentedClass_type" ),
-                        NsdPackage.Literals.DOCUMENTED_CLASS__DESC_ID, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.DOCUMENTED_CLASS__DESC_ID,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -108,11 +120,17 @@ public class DocumentedClassItemProvider extends NsdObjectItemProvider {
     protected void addInformativePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_DocumentedClass_informative_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_DocumentedClass_informative_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_DocumentedClass_informative_feature",
                                 "_UI_DocumentedClass_type" ),
-                        NsdPackage.Literals.DOCUMENTED_CLASS__INFORMATIVE, true, false, false,
-                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.DOCUMENTED_CLASS__INFORMATIVE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**

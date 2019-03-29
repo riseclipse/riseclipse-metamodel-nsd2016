@@ -83,10 +83,16 @@ public class DocItemProvider extends NsdObjectItemProvider {
     protected void addIdPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_Doc_id_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_Doc_id_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_Doc_id_feature", "_UI_Doc_type" ),
-                        NsdPackage.Literals.DOC__ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null, null ) );
+                        NsdPackage.Literals.DOC__ID,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -177,30 +183,36 @@ public class DocItemProvider extends NsdObjectItemProvider {
         super.collectNewChildDescriptors( newChildDescriptors, object );
 
         newChildDescriptors.add( createChildParameter( NsdPackage.Literals.DOC__MIXED,
-                FeatureMapUtil.createEntry( XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__COMMENT, "" ) ) );
+                FeatureMapUtil.createEntry( XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__COMMENT,
+                        "" ) ) );
 
         newChildDescriptors.add( createChildParameter( NsdPackage.Literals.DOC__MIXED,
-                FeatureMapUtil.createEntry( XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__TEXT, "" ) ) );
+                FeatureMapUtil.createEntry( XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__TEXT,
+                        "" ) ) );
 
         newChildDescriptors.add( createChildParameter( NsdPackage.Literals.DOC__MIXED,
                 FeatureMapUtil.createEntry( XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__PROCESSING_INSTRUCTION,
                         XMLTypeFactory.eINSTANCE.createProcessingInstruction() ) ) );
 
         newChildDescriptors.add( createChildParameter( NsdPackage.Literals.DOC__MIXED,
-                FeatureMapUtil.createEntry( XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__CDATA, "" ) ) );
+                FeatureMapUtil.createEntry( XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__CDATA,
+                        "" ) ) );
 
         newChildDescriptors.add( createChildParameter( NsdPackage.Literals.DOC__MIXED,
                 FeatureMapUtil.createEntry( NsdPackage.Literals.DOCUMENT_ROOT__APPLICABLE_SERVICE_NS,
                         NsdFactory.eINSTANCE.createApplicableServiceNS() ) ) );
 
-        newChildDescriptors.add( createChildParameter( NsdPackage.Literals.DOC__MIXED, FeatureMapUtil
-                .createEntry( NsdPackage.Literals.DOCUMENT_ROOT__NS, NsdFactory.eINSTANCE.createNS() ) ) );
+        newChildDescriptors.add( createChildParameter( NsdPackage.Literals.DOC__MIXED,
+                FeatureMapUtil.createEntry( NsdPackage.Literals.DOCUMENT_ROOT__NS,
+                        NsdFactory.eINSTANCE.createNS() ) ) );
 
-        newChildDescriptors.add( createChildParameter( NsdPackage.Literals.DOC__MIXED, FeatureMapUtil
-                .createEntry( NsdPackage.Literals.DOCUMENT_ROOT__NS_DOC, NsdFactory.eINSTANCE.createNSDoc() ) ) );
+        newChildDescriptors.add( createChildParameter( NsdPackage.Literals.DOC__MIXED,
+                FeatureMapUtil.createEntry( NsdPackage.Literals.DOCUMENT_ROOT__NS_DOC,
+                        NsdFactory.eINSTANCE.createNSDoc() ) ) );
 
-        newChildDescriptors.add( createChildParameter( NsdPackage.Literals.DOC__MIXED, FeatureMapUtil.createEntry(
-                NsdPackage.Literals.DOCUMENT_ROOT__SERVICE_NS, NsdFactory.eINSTANCE.createServiceNS() ) ) );
+        newChildDescriptors.add( createChildParameter( NsdPackage.Literals.DOC__MIXED,
+                FeatureMapUtil.createEntry( NsdPackage.Literals.DOCUMENT_ROOT__SERVICE_NS,
+                        NsdFactory.eINSTANCE.createServiceNS() ) ) );
     }
 
     /**
@@ -221,10 +233,10 @@ public class DocItemProvider extends NsdObjectItemProvider {
             childObject = entry.getValue();
         }
 
-        boolean qualify = childFeature == NsdPackage.Literals.DOCUMENT_ROOT__APPLICABLE_SERVICE_NS
-                || childFeature == NsdPackage.Literals.DOCUMENT_ROOT__NS
-                || childFeature == NsdPackage.Literals.DOCUMENT_ROOT__NS_DOC
-                || childFeature == NsdPackage.Literals.DOCUMENT_ROOT__SERVICE_NS;
+        boolean qualify = childFeature == NsdPackage.Literals.DOCUMENT_ROOT__APPLICABLE_SERVICE_NS ||
+                childFeature == NsdPackage.Literals.DOCUMENT_ROOT__NS ||
+                childFeature == NsdPackage.Literals.DOCUMENT_ROOT__NS_DOC ||
+                childFeature == NsdPackage.Literals.DOCUMENT_ROOT__SERVICE_NS;
 
         if( qualify ) {
             return getString( "_UI_CreateChild_text2",

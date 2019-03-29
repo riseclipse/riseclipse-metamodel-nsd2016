@@ -146,8 +146,9 @@ public abstract class AgAttributeTypeImpl extends MinimalEObjectImpl.Container i
         type = newType;
         boolean oldTypeESet = typeESet;
         typeESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.AG_ATTRIBUTE_TYPE__TYPE, oldType, type, !oldTypeESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_ATTRIBUTE_TYPE__TYPE, oldType, type,
+                    !oldTypeESet ) );
     }
 
     /**
@@ -161,8 +162,9 @@ public abstract class AgAttributeTypeImpl extends MinimalEObjectImpl.Container i
         boolean oldTypeESet = typeESet;
         type = TYPE_EDEFAULT;
         typeESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.AG_ATTRIBUTE_TYPE__TYPE, oldType, TYPE_EDEFAULT, oldTypeESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_ATTRIBUTE_TYPE__TYPE, oldType,
+                    TYPE_EDEFAULT, oldTypeESet ) );
     }
 
     /**
@@ -196,8 +198,9 @@ public abstract class AgAttributeTypeImpl extends MinimalEObjectImpl.Container i
         typeKind = newTypeKind;
         boolean oldTypeKindESet = typeKindESet;
         typeKindESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.AG_ATTRIBUTE_TYPE__TYPE_KIND, oldTypeKind, typeKind, !oldTypeKindESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_ATTRIBUTE_TYPE__TYPE_KIND,
+                    oldTypeKind, typeKind, !oldTypeKindESet ) );
     }
 
     /**
@@ -211,8 +214,9 @@ public abstract class AgAttributeTypeImpl extends MinimalEObjectImpl.Container i
         boolean oldTypeKindESet = typeKindESet;
         typeKind = TYPE_KIND_EDEFAULT;
         typeKindESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.AG_ATTRIBUTE_TYPE__TYPE_KIND, oldTypeKind, TYPE_KIND_EDEFAULT, oldTypeKindESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_ATTRIBUTE_TYPE__TYPE_KIND,
+                    oldTypeKind, TYPE_KIND_EDEFAULT, oldTypeKindESet ) );
     }
 
     /**

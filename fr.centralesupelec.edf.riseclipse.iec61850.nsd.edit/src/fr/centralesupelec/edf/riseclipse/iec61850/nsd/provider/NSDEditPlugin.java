@@ -53,7 +53,8 @@ public final class NSDEditPlugin extends EMFPlugin {
      * @generated
      */
     public NSDEditPlugin() {
-        super( new ResourceLocator[] {} );
+        super( new ResourceLocator[] {
+        } );
     }
 
     /**

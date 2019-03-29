@@ -196,7 +196,8 @@ public class LNClassesImpl extends NsdObjectImpl implements LNClasses {
             if( EcoreUtil.isAncestor( this, newNS ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             if( newNS != null )
                 msgs = ( ( InternalEObject ) newNS ).eInverseAdd( this, NsdPackage.NS__LN_CLASSES, NS.class, msgs );
             msgs = basicSetNS( newNS, msgs );
@@ -222,7 +223,8 @@ public class LNClassesImpl extends NsdObjectImpl implements LNClasses {
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getLNClass() ).basicAdd( otherEnd,
                     msgs );
         case NsdPackage.LN_CLASSES__NS:
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             return basicSetNS( ( NS ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );

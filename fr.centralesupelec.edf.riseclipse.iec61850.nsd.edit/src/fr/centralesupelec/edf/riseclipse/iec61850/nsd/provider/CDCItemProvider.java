@@ -84,11 +84,17 @@ public class CDCItemProvider extends TitledClassItemProvider {
     protected void addEnumParameterizedPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_CDC_enumParameterized_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_CDC_enumParameterized_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_CDC_enumParameterized_feature",
                                 "_UI_CDC_type" ),
-                        NsdPackage.Literals.CDC__ENUM_PARAMETERIZED, true, false, false,
-                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.CDC__ENUM_PARAMETERIZED,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -100,10 +106,16 @@ public class CDCItemProvider extends TitledClassItemProvider {
     protected void addNamePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_CDC_name_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_CDC_name_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_CDC_name_feature", "_UI_CDC_type" ),
-                        NsdPackage.Literals.CDC__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null, null ) );
+                        NsdPackage.Literals.CDC__NAME,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -115,10 +127,16 @@ public class CDCItemProvider extends TitledClassItemProvider {
     protected void addStatisticsPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_CDC_statistics_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_CDC_statistics_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_CDC_statistics_feature", "_UI_CDC_type" ),
-                        NsdPackage.Literals.CDC__STATISTICS, true, false, false,
-                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.CDC__STATISTICS,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -130,11 +148,17 @@ public class CDCItemProvider extends TitledClassItemProvider {
     protected void addTypeKindParameterizedPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_CDC_typeKindParameterized_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_CDC_typeKindParameterized_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_CDC_typeKindParameterized_feature",
                                 "_UI_CDC_type" ),
-                        NsdPackage.Literals.CDC__TYPE_KIND_PARAMETERIZED, true, false, false,
-                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.CDC__TYPE_KIND_PARAMETERIZED,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -146,10 +170,16 @@ public class CDCItemProvider extends TitledClassItemProvider {
     protected void addVariantPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_CDC_variant_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_CDC_variant_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_CDC_variant_feature", "_UI_CDC_type" ),
-                        NsdPackage.Literals.CDC__VARIANT, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.CDC__VARIANT,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -161,10 +191,17 @@ public class CDCItemProvider extends TitledClassItemProvider {
     protected void addReferredByDataObjectPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_CDC_referredByDataObject_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_CDC_referredByDataObject_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_CDC_referredByDataObject_feature",
                                 "_UI_CDC_type" ),
-                        NsdPackage.Literals.CDC__REFERRED_BY_DATA_OBJECT, true, false, true, null, null, null ) );
+                        NsdPackage.Literals.CDC__REFERRED_BY_DATA_OBJECT,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null ) );
     }
 
     /**
@@ -176,10 +213,17 @@ public class CDCItemProvider extends TitledClassItemProvider {
     protected void addReferredBySubDataObjectPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_CDC_referredBySubDataObject_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_CDC_referredBySubDataObject_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_CDC_referredBySubDataObject_feature",
                                 "_UI_CDC_type" ),
-                        NsdPackage.Literals.CDC__REFERRED_BY_SUB_DATA_OBJECT, true, false, true, null, null, null ) );
+                        NsdPackage.Literals.CDC__REFERRED_BY_SUB_DATA_OBJECT,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null ) );
     }
 
     /**

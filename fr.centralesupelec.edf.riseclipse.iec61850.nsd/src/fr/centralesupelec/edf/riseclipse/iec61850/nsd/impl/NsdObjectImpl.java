@@ -123,8 +123,9 @@ public abstract class NsdObjectImpl extends MinimalEObjectImpl.Container impleme
     public void setLineNumber( int newLineNumber ) {
         int oldLineNumber = lineNumber;
         lineNumber = newLineNumber;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.NSD_OBJECT__LINE_NUMBER, oldLineNumber, lineNumber ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NSD_OBJECT__LINE_NUMBER, oldLineNumber,
+                    lineNumber ) );
     }
 
     /**
@@ -146,8 +147,9 @@ public abstract class NsdObjectImpl extends MinimalEObjectImpl.Container impleme
     public void setExplicitLinksBuilt( boolean newExplicitLinksBuilt ) {
         boolean oldExplicitLinksBuilt = explicitLinksBuilt;
         explicitLinksBuilt = newExplicitLinksBuilt;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.NSD_OBJECT__EXPLICIT_LINKS_BUILT, oldExplicitLinksBuilt, explicitLinksBuilt ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NSD_OBJECT__EXPLICIT_LINKS_BUILT,
+                    oldExplicitLinksBuilt, explicitLinksBuilt ) );
     }
 
     /**

@@ -86,14 +86,20 @@ public class DataObjectItemProvider extends DocumentedClassItemProvider {
      * @generated
      */
     protected void addDsPresCondPropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add( createItemPropertyDescriptor(
-                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
-                getString( "_UI_AgPresenceConditionDerivedStatistics_dsPresCond_feature" ),
-                getString( "_UI_PropertyDescriptor_description",
-                        "_UI_AgPresenceConditionDerivedStatistics_dsPresCond_feature",
-                        "_UI_AgPresenceConditionDerivedStatistics_type" ),
-                NsdPackage.Literals.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__DS_PRES_COND, true, false, false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_AgPresenceConditionDerivedStatistics_dsPresCond_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_AgPresenceConditionDerivedStatistics_dsPresCond_feature",
+                                "_UI_AgPresenceConditionDerivedStatistics_type" ),
+                        NsdPackage.Literals.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__DS_PRES_COND,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -103,14 +109,20 @@ public class DataObjectItemProvider extends DocumentedClassItemProvider {
      * @generated
      */
     protected void addDsPresCondArgsPropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add( createItemPropertyDescriptor(
-                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
-                getString( "_UI_AgPresenceConditionDerivedStatistics_dsPresCondArgs_feature" ),
-                getString( "_UI_PropertyDescriptor_description",
-                        "_UI_AgPresenceConditionDerivedStatistics_dsPresCondArgs_feature",
-                        "_UI_AgPresenceConditionDerivedStatistics_type" ),
-                NsdPackage.Literals.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__DS_PRES_COND_ARGS, true, false, false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_AgPresenceConditionDerivedStatistics_dsPresCondArgs_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_AgPresenceConditionDerivedStatistics_dsPresCondArgs_feature",
+                                "_UI_AgPresenceConditionDerivedStatistics_type" ),
+                        NsdPackage.Literals.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__DS_PRES_COND_ARGS,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -120,14 +132,20 @@ public class DataObjectItemProvider extends DocumentedClassItemProvider {
      * @generated
      */
     protected void addDsPresCondArgsIDPropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add( createItemPropertyDescriptor(
-                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
-                getString( "_UI_AgPresenceConditionDerivedStatistics_dsPresCondArgsID_feature" ),
-                getString( "_UI_PropertyDescriptor_description",
-                        "_UI_AgPresenceConditionDerivedStatistics_dsPresCondArgsID_feature",
-                        "_UI_AgPresenceConditionDerivedStatistics_type" ),
-                NsdPackage.Literals.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__DS_PRES_COND_ARGS_ID, true, false, false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_AgPresenceConditionDerivedStatistics_dsPresCondArgsID_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_AgPresenceConditionDerivedStatistics_dsPresCondArgsID_feature",
+                                "_UI_AgPresenceConditionDerivedStatistics_type" ),
+                        NsdPackage.Literals.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__DS_PRES_COND_ARGS_ID,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -139,11 +157,17 @@ public class DataObjectItemProvider extends DocumentedClassItemProvider {
     protected void addNamePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_DataObject_name_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_DataObject_name_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_DataObject_name_feature",
                                 "_UI_DataObject_type" ),
-                        NsdPackage.Literals.DATA_OBJECT__NAME, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.DATA_OBJECT__NAME,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -155,11 +179,17 @@ public class DataObjectItemProvider extends DocumentedClassItemProvider {
     protected void addPresCondPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_AgPresenceCondition_presCond_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_AgPresenceCondition_presCond_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_AgPresenceCondition_presCond_feature",
                                 "_UI_AgPresenceCondition_type" ),
-                        NsdPackage.Literals.AG_PRESENCE_CONDITION__PRES_COND, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.AG_PRESENCE_CONDITION__PRES_COND,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -169,13 +199,19 @@ public class DataObjectItemProvider extends DocumentedClassItemProvider {
      * @generated
      */
     protected void addPresCondArgsPropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add( createItemPropertyDescriptor(
-                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
-                getString( "_UI_AgPresenceCondition_presCondArgs_feature" ),
-                getString( "_UI_PropertyDescriptor_description", "_UI_AgPresenceCondition_presCondArgs_feature",
-                        "_UI_AgPresenceCondition_type" ),
-                NsdPackage.Literals.AG_PRESENCE_CONDITION__PRES_COND_ARGS, true, false, false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_AgPresenceCondition_presCondArgs_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgPresenceCondition_presCondArgs_feature",
+                                "_UI_AgPresenceCondition_type" ),
+                        NsdPackage.Literals.AG_PRESENCE_CONDITION__PRES_COND_ARGS,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -185,13 +221,19 @@ public class DataObjectItemProvider extends DocumentedClassItemProvider {
      * @generated
      */
     protected void addPresCondArgsIDPropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add( createItemPropertyDescriptor(
-                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
-                getString( "_UI_AgPresenceCondition_presCondArgsID_feature" ),
-                getString( "_UI_PropertyDescriptor_description", "_UI_AgPresenceCondition_presCondArgsID_feature",
-                        "_UI_AgPresenceCondition_type" ),
-                NsdPackage.Literals.AG_PRESENCE_CONDITION__PRES_COND_ARGS_ID, true, false, false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_AgPresenceCondition_presCondArgsID_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_AgPresenceCondition_presCondArgsID_feature", "_UI_AgPresenceCondition_type" ),
+                        NsdPackage.Literals.AG_PRESENCE_CONDITION__PRES_COND_ARGS_ID,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -203,11 +245,17 @@ public class DataObjectItemProvider extends DocumentedClassItemProvider {
     protected void addTransientPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_DataObject_transient_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_DataObject_transient_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_DataObject_transient_feature",
                                 "_UI_DataObject_type" ),
-                        NsdPackage.Literals.DATA_OBJECT__TRANSIENT, true, false, false,
-                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.DATA_OBJECT__TRANSIENT,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -219,11 +267,17 @@ public class DataObjectItemProvider extends DocumentedClassItemProvider {
     protected void addTypePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_DataObject_type_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_DataObject_type_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_DataObject_type_feature",
                                 "_UI_DataObject_type" ),
-                        NsdPackage.Literals.DATA_OBJECT__TYPE, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.DATA_OBJECT__TYPE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -235,10 +289,17 @@ public class DataObjectItemProvider extends DocumentedClassItemProvider {
     protected void addRefersToCDCPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_DataObject_refersToCDC_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_DataObject_refersToCDC_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_DataObject_refersToCDC_feature",
                                 "_UI_DataObject_type" ),
-                        NsdPackage.Literals.DATA_OBJECT__REFERS_TO_CDC, true, false, true, null, null, null ) );
+                        NsdPackage.Literals.DATA_OBJECT__REFERS_TO_CDC,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null ) );
     }
 
     /**
@@ -248,12 +309,19 @@ public class DataObjectItemProvider extends DocumentedClassItemProvider {
      * @generated
      */
     protected void addRefersToPresenceConditionPropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add( createItemPropertyDescriptor(
-                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
-                getString( "_UI_DataObject_refersToPresenceCondition_feature" ),
-                getString( "_UI_PropertyDescriptor_description", "_UI_DataObject_refersToPresenceCondition_feature",
-                        "_UI_DataObject_type" ),
-                NsdPackage.Literals.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION, true, false, true, null, null, null ) );
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_DataObject_refersToPresenceCondition_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_DataObject_refersToPresenceCondition_feature", "_UI_DataObject_type" ),
+                        NsdPackage.Literals.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null ) );
     }
 
     /**
@@ -264,12 +332,18 @@ public class DataObjectItemProvider extends DocumentedClassItemProvider {
      */
     protected void addRefersToPresenceConditionDerivedStatisticsPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add( createItemPropertyDescriptor(
-                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                getResourceLocator(),
                 getString( "_UI_DataObject_refersToPresenceConditionDerivedStatistics_feature" ),
                 getString( "_UI_PropertyDescriptor_description",
                         "_UI_DataObject_refersToPresenceConditionDerivedStatistics_feature", "_UI_DataObject_type" ),
-                NsdPackage.Literals.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION_DERIVED_STATISTICS, true, false, true,
-                null, null, null ) );
+                NsdPackage.Literals.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION_DERIVED_STATISTICS,
+                true,
+                false,
+                true,
+                null,
+                null,
+                null ) );
     }
 
     /**
@@ -281,11 +355,17 @@ public class DataObjectItemProvider extends DocumentedClassItemProvider {
     protected void addUnderlyingTypePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_AgUnderlyingType_underlyingType_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_AgUnderlyingType_underlyingType_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_AgUnderlyingType_underlyingType_feature",
                                 "_UI_AgUnderlyingType_type" ),
-                        NsdPackage.Literals.AG_UNDERLYING_TYPE__UNDERLYING_TYPE, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.AG_UNDERLYING_TYPE__UNDERLYING_TYPE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -295,13 +375,19 @@ public class DataObjectItemProvider extends DocumentedClassItemProvider {
      * @generated
      */
     protected void addUnderlyingTypeKindPropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add( createItemPropertyDescriptor(
-                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
-                getString( "_UI_AgUnderlyingType_underlyingTypeKind_feature" ),
-                getString( "_UI_PropertyDescriptor_description", "_UI_AgUnderlyingType_underlyingTypeKind_feature",
-                        "_UI_AgUnderlyingType_type" ),
-                NsdPackage.Literals.AG_UNDERLYING_TYPE__UNDERLYING_TYPE_KIND, true, false, false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_AgUnderlyingType_underlyingTypeKind_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_AgUnderlyingType_underlyingTypeKind_feature", "_UI_AgUnderlyingType_type" ),
+                        NsdPackage.Literals.AG_UNDERLYING_TYPE__UNDERLYING_TYPE_KIND,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**

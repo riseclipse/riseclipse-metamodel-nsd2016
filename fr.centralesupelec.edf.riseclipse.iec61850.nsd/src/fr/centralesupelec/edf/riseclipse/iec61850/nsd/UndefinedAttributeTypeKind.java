@@ -68,7 +68,9 @@ public enum UndefinedAttributeTypeKind implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final UndefinedAttributeTypeKind[] VALUES_ARRAY = new UndefinedAttributeTypeKind[] { UNDEFINED, };
+    private static final UndefinedAttributeTypeKind[] VALUES_ARRAY = new UndefinedAttributeTypeKind[] {
+            UNDEFINED,
+    };
 
     /**
      * A public read-only list of all the '<em><b>Undefined Attribute Type Kind</b></em>' enumerators.

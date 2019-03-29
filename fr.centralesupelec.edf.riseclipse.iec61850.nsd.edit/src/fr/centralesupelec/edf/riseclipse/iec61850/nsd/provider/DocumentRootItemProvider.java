@@ -166,11 +166,11 @@ public class DocumentRootItemProvider extends ItemProviderAdapter implements IEd
         newChildDescriptors.add( createChildParameter( NsdPackage.Literals.DOCUMENT_ROOT__APPLICABLE_SERVICE_NS,
                 NsdFactory.eINSTANCE.createApplicableServiceNS() ) );
 
-        newChildDescriptors
-                .add( createChildParameter( NsdPackage.Literals.DOCUMENT_ROOT__NS, NsdFactory.eINSTANCE.createNS() ) );
+        newChildDescriptors.add( createChildParameter( NsdPackage.Literals.DOCUMENT_ROOT__NS,
+                NsdFactory.eINSTANCE.createNS() ) );
 
-        newChildDescriptors.add(
-                createChildParameter( NsdPackage.Literals.DOCUMENT_ROOT__NS_DOC, NsdFactory.eINSTANCE.createNSDoc() ) );
+        newChildDescriptors.add( createChildParameter( NsdPackage.Literals.DOCUMENT_ROOT__NS_DOC,
+                NsdFactory.eINSTANCE.createNSDoc() ) );
 
         newChildDescriptors.add( createChildParameter( NsdPackage.Literals.DOCUMENT_ROOT__SERVICE_NS,
                 NsdFactory.eINSTANCE.createServiceNS() ) );

@@ -176,8 +176,9 @@ public class LNClassImpl extends AnyLNClassImpl implements LNClass {
         canHaveLOG = newCanHaveLOG;
         boolean oldCanHaveLOGESet = canHaveLOGESet;
         canHaveLOGESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.LN_CLASS__CAN_HAVE_LOG, oldCanHaveLOG, canHaveLOG, !oldCanHaveLOGESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.LN_CLASS__CAN_HAVE_LOG, oldCanHaveLOG,
+                    canHaveLOG, !oldCanHaveLOGESet ) );
     }
 
     /**
@@ -191,8 +192,9 @@ public class LNClassImpl extends AnyLNClassImpl implements LNClass {
         boolean oldCanHaveLOGESet = canHaveLOGESet;
         canHaveLOG = CAN_HAVE_LOG_EDEFAULT;
         canHaveLOGESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.LN_CLASS__CAN_HAVE_LOG, oldCanHaveLOG, CAN_HAVE_LOG_EDEFAULT, oldCanHaveLOGESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.LN_CLASS__CAN_HAVE_LOG, oldCanHaveLOG,
+                    CAN_HAVE_LOG_EDEFAULT, oldCanHaveLOGESet ) );
     }
 
     /**
@@ -226,8 +228,9 @@ public class LNClassImpl extends AnyLNClassImpl implements LNClass {
         isExtension = newIsExtension;
         boolean oldIsExtensionESet = isExtensionESet;
         isExtensionESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.LN_CLASS__IS_EXTENSION, oldIsExtension, isExtension, !oldIsExtensionESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.LN_CLASS__IS_EXTENSION, oldIsExtension,
+                    isExtension, !oldIsExtensionESet ) );
     }
 
     /**
@@ -241,8 +244,9 @@ public class LNClassImpl extends AnyLNClassImpl implements LNClass {
         boolean oldIsExtensionESet = isExtensionESet;
         isExtension = IS_EXTENSION_EDEFAULT;
         isExtensionESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.LN_CLASS__IS_EXTENSION, oldIsExtension, IS_EXTENSION_EDEFAULT, oldIsExtensionESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.LN_CLASS__IS_EXTENSION, oldIsExtension,
+                    IS_EXTENSION_EDEFAULT, oldIsExtensionESet ) );
     }
 
     /**
@@ -276,8 +280,9 @@ public class LNClassImpl extends AnyLNClassImpl implements LNClass {
         name = newName;
         boolean oldNameESet = nameESet;
         nameESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.LN_CLASS__NAME,
-                oldName, name, !oldNameESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.LN_CLASS__NAME, oldName, name,
+                    !oldNameESet ) );
     }
 
     /**
@@ -291,8 +296,9 @@ public class LNClassImpl extends AnyLNClassImpl implements LNClass {
         boolean oldNameESet = nameESet;
         name = NAME_EDEFAULT;
         nameESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.LN_CLASS__NAME, oldName, NAME_EDEFAULT, oldNameESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.LN_CLASS__NAME, oldName, NAME_EDEFAULT,
+                    oldNameESet ) );
     }
 
     /**
@@ -338,14 +344,17 @@ public class LNClassImpl extends AnyLNClassImpl implements LNClass {
             if( EcoreUtil.isAncestor( this, newLNClasses ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
-            if( newLNClasses != null ) msgs = ( ( InternalEObject ) newLNClasses ).eInverseAdd( this,
-                    NsdPackage.LN_CLASSES__LN_CLASS, LNClasses.class, msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
+            if( newLNClasses != null )
+                msgs = ( ( InternalEObject ) newLNClasses ).eInverseAdd( this, NsdPackage.LN_CLASSES__LN_CLASS,
+                        LNClasses.class, msgs );
             msgs = basicSetLNClasses( newLNClasses, msgs );
             if( msgs != null ) msgs.dispatch();
         }
-        else if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.LN_CLASS__LN_CLASSES, newLNClasses, newLNClasses ) );
+        else if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.LN_CLASS__LN_CLASSES, newLNClasses,
+                    newLNClasses ) );
     }
 
     /**
@@ -357,7 +366,8 @@ public class LNClassImpl extends AnyLNClassImpl implements LNClass {
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.LN_CLASS__LN_CLASSES:
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             return basicSetLNClasses( ( LNClasses ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );

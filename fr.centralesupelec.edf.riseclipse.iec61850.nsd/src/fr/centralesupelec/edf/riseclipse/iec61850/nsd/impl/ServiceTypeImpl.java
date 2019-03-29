@@ -117,8 +117,9 @@ public class ServiceTypeImpl extends NsdObjectImpl implements ServiceType {
         name = newName == null ? NAME_EDEFAULT : newName;
         boolean oldNameESet = nameESet;
         nameESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.SERVICE_TYPE__NAME, oldName, name, !oldNameESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_TYPE__NAME, oldName, name,
+                    !oldNameESet ) );
     }
 
     /**
@@ -132,8 +133,9 @@ public class ServiceTypeImpl extends NsdObjectImpl implements ServiceType {
         boolean oldNameESet = nameESet;
         name = NAME_EDEFAULT;
         nameESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.SERVICE_TYPE__NAME, oldName, NAME_EDEFAULT, oldNameESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_TYPE__NAME, oldName,
+                    NAME_EDEFAULT, oldNameESet ) );
     }
 
     /**
@@ -182,14 +184,17 @@ public class ServiceTypeImpl extends NsdObjectImpl implements ServiceType {
             if( EcoreUtil.isAncestor( this, newApplicableServices ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
-            if( newApplicableServices != null ) msgs = ( ( InternalEObject ) newApplicableServices ).eInverseAdd( this,
-                    NsdPackage.APPLICABLE_SERVICES__SERVICE, ApplicableServices.class, msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
+            if( newApplicableServices != null )
+                msgs = ( ( InternalEObject ) newApplicableServices ).eInverseAdd( this,
+                        NsdPackage.APPLICABLE_SERVICES__SERVICE, ApplicableServices.class, msgs );
             msgs = basicSetApplicableServices( newApplicableServices, msgs );
             if( msgs != null ) msgs.dispatch();
         }
-        else if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.SERVICE_TYPE__APPLICABLE_SERVICES, newApplicableServices, newApplicableServices ) );
+        else if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_TYPE__APPLICABLE_SERVICES,
+                    newApplicableServices, newApplicableServices ) );
     }
 
     /**
@@ -201,7 +206,8 @@ public class ServiceTypeImpl extends NsdObjectImpl implements ServiceType {
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.SERVICE_TYPE__APPLICABLE_SERVICES:
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             return basicSetApplicableServices( ( ApplicableServices ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );

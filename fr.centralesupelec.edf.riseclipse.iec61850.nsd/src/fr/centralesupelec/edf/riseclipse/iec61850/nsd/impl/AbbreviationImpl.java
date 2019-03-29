@@ -146,8 +146,9 @@ public class AbbreviationImpl extends NsdObjectImpl implements Abbreviation {
         descID = newDescID;
         boolean oldDescIDESet = descIDESet;
         descIDESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.ABBREVIATION__DESC_ID, oldDescID, descID, !oldDescIDESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.ABBREVIATION__DESC_ID, oldDescID, descID,
+                    !oldDescIDESet ) );
     }
 
     /**
@@ -161,8 +162,9 @@ public class AbbreviationImpl extends NsdObjectImpl implements Abbreviation {
         boolean oldDescIDESet = descIDESet;
         descID = DESC_ID_EDEFAULT;
         descIDESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.ABBREVIATION__DESC_ID, oldDescID, DESC_ID_EDEFAULT, oldDescIDESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.ABBREVIATION__DESC_ID, oldDescID,
+                    DESC_ID_EDEFAULT, oldDescIDESet ) );
     }
 
     /**
@@ -196,8 +198,9 @@ public class AbbreviationImpl extends NsdObjectImpl implements Abbreviation {
         name = newName;
         boolean oldNameESet = nameESet;
         nameESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.ABBREVIATION__NAME, oldName, name, !oldNameESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.ABBREVIATION__NAME, oldName, name,
+                    !oldNameESet ) );
     }
 
     /**
@@ -211,8 +214,9 @@ public class AbbreviationImpl extends NsdObjectImpl implements Abbreviation {
         boolean oldNameESet = nameESet;
         name = NAME_EDEFAULT;
         nameESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.ABBREVIATION__NAME, oldName, NAME_EDEFAULT, oldNameESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.ABBREVIATION__NAME, oldName,
+                    NAME_EDEFAULT, oldNameESet ) );
     }
 
     /**
@@ -258,14 +262,17 @@ public class AbbreviationImpl extends NsdObjectImpl implements Abbreviation {
             if( EcoreUtil.isAncestor( this, newAbbreviations ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
-            if( newAbbreviations != null ) msgs = ( ( InternalEObject ) newAbbreviations ).eInverseAdd( this,
-                    NsdPackage.ABBREVIATIONS__ABBREVIATION, Abbreviations.class, msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
+            if( newAbbreviations != null )
+                msgs = ( ( InternalEObject ) newAbbreviations ).eInverseAdd( this,
+                        NsdPackage.ABBREVIATIONS__ABBREVIATION, Abbreviations.class, msgs );
             msgs = basicSetAbbreviations( newAbbreviations, msgs );
             if( msgs != null ) msgs.dispatch();
         }
-        else if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.ABBREVIATION__ABBREVIATIONS, newAbbreviations, newAbbreviations ) );
+        else if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.ABBREVIATION__ABBREVIATIONS,
+                    newAbbreviations, newAbbreviations ) );
     }
 
     /**
@@ -277,7 +284,8 @@ public class AbbreviationImpl extends NsdObjectImpl implements Abbreviation {
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.ABBREVIATION__ABBREVIATIONS:
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             return basicSetAbbreviations( ( Abbreviations ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );

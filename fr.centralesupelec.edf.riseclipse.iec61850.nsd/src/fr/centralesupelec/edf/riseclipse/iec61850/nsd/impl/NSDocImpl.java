@@ -395,8 +395,9 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         boolean oldIdESet = idESet;
         id = ID_EDEFAULT;
         idESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS_DOC__ID,
-                oldId, ID_EDEFAULT, oldIdESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS_DOC__ID, oldId, ID_EDEFAULT,
+                    oldIdESet ) );
     }
 
     /**
@@ -430,8 +431,9 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         lang = newLang;
         boolean oldLangESet = langESet;
         langESet = true;
-        if( eNotificationRequired() ) eNotify(
-                new ENotificationImpl( this, Notification.SET, NsdPackage.NS_DOC__LANG, oldLang, lang, !oldLangESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS_DOC__LANG, oldLang, lang,
+                    !oldLangESet ) );
     }
 
     /**
@@ -445,8 +447,9 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         boolean oldLangESet = langESet;
         lang = LANG_EDEFAULT;
         langESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS_DOC__LANG,
-                oldLang, LANG_EDEFAULT, oldLangESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS_DOC__LANG, oldLang, LANG_EDEFAULT,
+                    oldLangESet ) );
     }
 
     /**
@@ -532,8 +535,9 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         release = newRelease;
         boolean oldReleaseESet = releaseESet;
         releaseESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.NS_DOC__RELEASE, oldRelease, release, !oldReleaseESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS_DOC__RELEASE, oldRelease, release,
+                    !oldReleaseESet ) );
     }
 
     /**
@@ -547,8 +551,9 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         boolean oldReleaseESet = releaseESet;
         release = RELEASE_EDEFAULT;
         releaseESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.NS_DOC__RELEASE, oldRelease, RELEASE_EDEFAULT, oldReleaseESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS_DOC__RELEASE, oldRelease,
+                    RELEASE_EDEFAULT, oldReleaseESet ) );
     }
 
     /**
@@ -582,8 +587,9 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         revision = newRevision;
         boolean oldRevisionESet = revisionESet;
         revisionESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.NS_DOC__REVISION, oldRevision, revision, !oldRevisionESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS_DOC__REVISION, oldRevision, revision,
+                    !oldRevisionESet ) );
     }
 
     /**
@@ -597,8 +603,9 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         boolean oldRevisionESet = revisionESet;
         revision = REVISION_EDEFAULT;
         revisionESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.NS_DOC__REVISION, oldRevision, REVISION_EDEFAULT, oldRevisionESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS_DOC__REVISION, oldRevision,
+                    REVISION_EDEFAULT, oldRevisionESet ) );
     }
 
     /**
@@ -632,8 +639,9 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         umlDate = newUmlDate;
         boolean oldUmlDateESet = umlDateESet;
         umlDateESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.NS_DOC__UML_DATE, oldUmlDate, umlDate, !oldUmlDateESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS_DOC__UML_DATE, oldUmlDate, umlDate,
+                    !oldUmlDateESet ) );
     }
 
     /**
@@ -647,8 +655,9 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         boolean oldUmlDateESet = umlDateESet;
         umlDate = UML_DATE_EDEFAULT;
         umlDateESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.NS_DOC__UML_DATE, oldUmlDate, UML_DATE_EDEFAULT, oldUmlDateESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS_DOC__UML_DATE, oldUmlDate,
+                    UML_DATE_EDEFAULT, oldUmlDateESet ) );
     }
 
     /**
@@ -682,8 +691,9 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         umlVersion = newUmlVersion;
         boolean oldUmlVersionESet = umlVersionESet;
         umlVersionESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.NS_DOC__UML_VERSION, oldUmlVersion, umlVersion, !oldUmlVersionESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS_DOC__UML_VERSION, oldUmlVersion,
+                    umlVersion, !oldUmlVersionESet ) );
     }
 
     /**
@@ -697,8 +707,9 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         boolean oldUmlVersionESet = umlVersionESet;
         umlVersion = UML_VERSION_EDEFAULT;
         umlVersionESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.NS_DOC__UML_VERSION, oldUmlVersion, UML_VERSION_EDEFAULT, oldUmlVersionESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS_DOC__UML_VERSION, oldUmlVersion,
+                    UML_VERSION_EDEFAULT, oldUmlVersionESet ) );
     }
 
     /**
@@ -747,8 +758,9 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         version = newVersion;
         boolean oldVersionESet = versionESet;
         versionESet = true;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.SET,
-                NsdPackage.NS_DOC__VERSION, oldVersion, version, !oldVersionESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS_DOC__VERSION, oldVersion, version,
+                    !oldVersionESet ) );
     }
 
     /**
@@ -762,8 +774,9 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         boolean oldVersionESet = versionESet;
         version = VERSION_EDEFAULT;
         versionESet = false;
-        if( eNotificationRequired() ) eNotify( new ENotificationImpl( this, Notification.UNSET,
-                NsdPackage.NS_DOC__VERSION, oldVersion, VERSION_EDEFAULT, oldVersionESet ) );
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS_DOC__VERSION, oldVersion,
+                    VERSION_EDEFAULT, oldVersionESet ) );
     }
 
     /**

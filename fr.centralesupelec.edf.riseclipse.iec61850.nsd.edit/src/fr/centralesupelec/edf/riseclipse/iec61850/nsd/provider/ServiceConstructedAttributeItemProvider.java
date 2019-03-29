@@ -73,14 +73,20 @@ public class ServiceConstructedAttributeItemProvider extends ConstructedAttribut
      * @generated
      */
     protected void addTypeKindParameterizedPropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add( createItemPropertyDescriptor(
-                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
-                getString( "_UI_ServiceConstructedAttribute_typeKindParameterized_feature" ),
-                getString( "_UI_PropertyDescriptor_description",
-                        "_UI_ServiceConstructedAttribute_typeKindParameterized_feature",
-                        "_UI_ServiceConstructedAttribute_type" ),
-                NsdPackage.Literals.SERVICE_CONSTRUCTED_ATTRIBUTE__TYPE_KIND_PARAMETERIZED, true, false, false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_ServiceConstructedAttribute_typeKindParameterized_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_ServiceConstructedAttribute_typeKindParameterized_feature",
+                                "_UI_ServiceConstructedAttribute_type" ),
+                        NsdPackage.Literals.SERVICE_CONSTRUCTED_ATTRIBUTE__TYPE_KIND_PARAMETERIZED,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**

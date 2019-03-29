@@ -150,7 +150,8 @@ public class EnumerationsImpl extends NsdObjectImpl implements Enumerations {
             if( EcoreUtil.isAncestor( this, newNS ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             if( newNS != null )
                 msgs = ( ( InternalEObject ) newNS ).eInverseAdd( this, NsdPackage.NS__ENUMERATIONS, NS.class, msgs );
             msgs = basicSetNS( newNS, msgs );
@@ -173,7 +174,8 @@ public class EnumerationsImpl extends NsdObjectImpl implements Enumerations {
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getEnumeration() ).basicAdd( otherEnd,
                     msgs );
         case NsdPackage.ENUMERATIONS__NS:
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             return basicSetNS( ( NS ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );

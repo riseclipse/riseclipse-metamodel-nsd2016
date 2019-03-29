@@ -200,16 +200,18 @@ public class ApplicableServicesImpl extends NsdObjectImpl implements ApplicableS
             if( EcoreUtil.isAncestor( this, newFunctionalConstraint ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             if( newFunctionalConstraint != null )
                 msgs = ( ( InternalEObject ) newFunctionalConstraint ).eInverseAdd( this,
                         NsdPackage.FUNCTIONAL_CONSTRAINT__APPLICABLE_SERVICES, FunctionalConstraint.class, msgs );
             msgs = basicSetFunctionalConstraint( newFunctionalConstraint, msgs );
             if( msgs != null ) msgs.dispatch();
         }
-        else if( eNotificationRequired() ) eNotify(
-                new ENotificationImpl( this, Notification.SET, NsdPackage.APPLICABLE_SERVICES__FUNCTIONAL_CONSTRAINT,
-                        newFunctionalConstraint, newFunctionalConstraint ) );
+        else if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.APPLICABLE_SERVICES__FUNCTIONAL_CONSTRAINT, newFunctionalConstraint,
+                    newFunctionalConstraint ) );
     }
 
     /**
@@ -228,7 +230,8 @@ public class ApplicableServicesImpl extends NsdObjectImpl implements ApplicableS
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getDataSetMemberOf() )
                     .basicAdd( otherEnd, msgs );
         case NsdPackage.APPLICABLE_SERVICES__FUNCTIONAL_CONSTRAINT:
-            if( eInternalContainer() != null ) msgs = eBasicRemoveFromContainer( msgs );
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
             return basicSetFunctionalConstraint( ( FunctionalConstraint ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );

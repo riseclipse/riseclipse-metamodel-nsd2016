@@ -78,13 +78,19 @@ public class FunctionalConstraintItemProvider extends NsdObjectItemProvider {
      * @generated
      */
     protected void addAbbreviationPropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add( createItemPropertyDescriptor(
-                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
-                getString( "_UI_FunctionalConstraint_abbreviation_feature" ),
-                getString( "_UI_PropertyDescriptor_description", "_UI_FunctionalConstraint_abbreviation_feature",
-                        "_UI_FunctionalConstraint_type" ),
-                NsdPackage.Literals.FUNCTIONAL_CONSTRAINT__ABBREVIATION, true, false, false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_FunctionalConstraint_abbreviation_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_FunctionalConstraint_abbreviation_feature", "_UI_FunctionalConstraint_type" ),
+                        NsdPackage.Literals.FUNCTIONAL_CONSTRAINT__ABBREVIATION,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -96,11 +102,17 @@ public class FunctionalConstraintItemProvider extends NsdObjectItemProvider {
     protected void addDescIDPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_FunctionalConstraint_descID_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_FunctionalConstraint_descID_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_FunctionalConstraint_descID_feature",
                                 "_UI_FunctionalConstraint_type" ),
-                        NsdPackage.Literals.FUNCTIONAL_CONSTRAINT__DESC_ID, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.FUNCTIONAL_CONSTRAINT__DESC_ID,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -112,11 +124,17 @@ public class FunctionalConstraintItemProvider extends NsdObjectItemProvider {
     protected void addTitleIDPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_FunctionalConstraint_titleID_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_FunctionalConstraint_titleID_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_FunctionalConstraint_titleID_feature",
                                 "_UI_FunctionalConstraint_type" ),
-                        NsdPackage.Literals.FUNCTIONAL_CONSTRAINT__TITLE_ID, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.FUNCTIONAL_CONSTRAINT__TITLE_ID,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -127,11 +145,17 @@ public class FunctionalConstraintItemProvider extends NsdObjectItemProvider {
      */
     protected void addReferredByDataAttributePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add( createItemPropertyDescriptor(
-                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                getResourceLocator(),
                 getString( "_UI_FunctionalConstraint_referredByDataAttribute_feature" ),
                 getString( "_UI_PropertyDescriptor_description",
                         "_UI_FunctionalConstraint_referredByDataAttribute_feature", "_UI_FunctionalConstraint_type" ),
-                NsdPackage.Literals.FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE, true, false, true, null, null,
+                NsdPackage.Literals.FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE,
+                true,
+                false,
+                true,
+                null,
+                null,
                 null ) );
     }
 

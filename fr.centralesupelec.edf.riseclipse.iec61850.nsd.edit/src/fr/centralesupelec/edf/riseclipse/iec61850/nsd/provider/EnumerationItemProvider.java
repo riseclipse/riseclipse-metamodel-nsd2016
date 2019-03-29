@@ -81,11 +81,17 @@ public class EnumerationItemProvider extends TitledClassItemProvider {
     protected void addInheritedFromPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_Enumeration_inheritedFrom_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_Enumeration_inheritedFrom_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_Enumeration_inheritedFrom_feature",
                                 "_UI_Enumeration_type" ),
-                        NsdPackage.Literals.ENUMERATION__INHERITED_FROM, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.ENUMERATION__INHERITED_FROM,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -97,11 +103,17 @@ public class EnumerationItemProvider extends TitledClassItemProvider {
     protected void addNamePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(), getString( "_UI_Enumeration_name_feature" ),
+                        getResourceLocator(),
+                        getString( "_UI_Enumeration_name_feature" ),
                         getString( "_UI_PropertyDescriptor_description", "_UI_Enumeration_name_feature",
                                 "_UI_Enumeration_type" ),
-                        NsdPackage.Literals.ENUMERATION__NAME, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                        NsdPackage.Literals.ENUMERATION__NAME,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -111,12 +123,19 @@ public class EnumerationItemProvider extends TitledClassItemProvider {
      * @generated
      */
     protected void addRefersToBaseEnumerationPropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add( createItemPropertyDescriptor(
-                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
-                getString( "_UI_Enumeration_refersToBaseEnumeration_feature" ),
-                getString( "_UI_PropertyDescriptor_description", "_UI_Enumeration_refersToBaseEnumeration_feature",
-                        "_UI_Enumeration_type" ),
-                NsdPackage.Literals.ENUMERATION__REFERS_TO_BASE_ENUMERATION, true, false, true, null, null, null ) );
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_Enumeration_refersToBaseEnumeration_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_Enumeration_refersToBaseEnumeration_feature", "_UI_Enumeration_type" ),
+                        NsdPackage.Literals.ENUMERATION__REFERS_TO_BASE_ENUMERATION,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null ) );
     }
 
     /**
@@ -126,13 +145,19 @@ public class EnumerationItemProvider extends TitledClassItemProvider {
      * @generated
      */
     protected void addReferredByEnumerationAsBasePropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add( createItemPropertyDescriptor(
-                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(), getResourceLocator(),
-                getString( "_UI_Enumeration_referredByEnumerationAsBase_feature" ),
-                getString( "_UI_PropertyDescriptor_description", "_UI_Enumeration_referredByEnumerationAsBase_feature",
-                        "_UI_Enumeration_type" ),
-                NsdPackage.Literals.ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE, true, false, true, null, null,
-                null ) );
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_Enumeration_referredByEnumerationAsBase_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_Enumeration_referredByEnumerationAsBase_feature", "_UI_Enumeration_type" ),
+                        NsdPackage.Literals.ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null ) );
     }
 
     /**

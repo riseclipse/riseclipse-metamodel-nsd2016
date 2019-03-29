@@ -688,12 +688,13 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         theNsdPackage.initializePackageContents();
 
         // Register package validator
-        EValidator.Registry.INSTANCE.put( theNsdPackage, new EValidator.Descriptor() {
-            @Override
-            public EValidator getEValidator() {
-                return NsdValidator.INSTANCE;
-            }
-        } );
+        EValidator.Registry.INSTANCE.put( theNsdPackage,
+                new EValidator.Descriptor() {
+                    @Override
+                    public EValidator getEValidator() {
+                        return NsdValidator.INSTANCE;
+                    }
+                } );
 
         // Mark meta-data to indicate it can't be changed
         theNsdPackage.freeze();
@@ -5282,8 +5283,12 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      */
     protected void createImportAnnotations() {
         String source = "http://www.eclipse.org/OCL/Import";
-        addAnnotation( this, source, new String[] { "ecore", "http://www.eclipse.org/emf/2002/Ecore", "ecore.xml.type",
-                "http://www.eclipse.org/emf/2003/XMLType" } );
+        addAnnotation( this,
+                source,
+                new String[] {
+                        "ecore", "http://www.eclipse.org/emf/2002/Ecore",
+                        "ecore.xml.type", "http://www.eclipse.org/emf/2003/XMLType"
+                } );
     }
 
     /**
@@ -5294,57 +5299,183 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      */
     protected void createEcoreAnnotations() {
         String source = "http://www.eclipse.org/emf/2002/Ecore";
-        addAnnotation( this, source,
-                new String[] { "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                        "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", "validationDelegates",
-                        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" } );
-        addAnnotation( serviceTypeEClass, source, new String[] { "constraints", "nameAttributeRequired" } );
-        addAnnotation( abbreviationEClass, source, new String[] { "constraints", "nameAttributeRequired" } );
-        addAnnotation( abbreviationsEClass, source, new String[] { "constraints", "uniqueAbbreviation" } );
-        addAnnotation( abstractLNClassEClass, source, new String[] { "constraints", "nameAttributeRequired" } );
-        addAnnotation( anyLNClassEClass, source, new String[] { "constraints", "uniqueDataObject" } );
-        addAnnotation( applicableServiceNSEClass, source,
-                new String[] { "constraints", "versionAttributeRequired dateAttributeRequired" } );
-        addAnnotation( applicableServicesEClass, source,
-                new String[] { "constraints", "uniqueDataSetMemberOf uniqueService" } );
-        addAnnotation( basicTypeEClass, source, new String[] { "constraints", "nameAttributeRequired" } );
-        addAnnotation( cdcEClass, source, new String[] { "constraints", "uniqueCDCChild nameAttributeRequired" } );
-        addAnnotation( cdCsEClass, source, new String[] { "constraints", "uniqueCDC" } );
-        addAnnotation( changesEClass, source, new String[] { "constraints", "versionAttributeRequired" } );
-        addAnnotation( constructedAttributeEClass, source,
-                new String[] { "constraints", "uniqueSubDataAttribute nameAttributeRequired" } );
-        addAnnotation( constructedAttributesEClass, source,
-                new String[] { "constraints", "uniqueConstructedAttribute" } );
-        addAnnotation( dataAttributeEClass, source,
-                new String[] { "constraints", "nameAttributeRequired fcAttributeRequired" } );
-        addAnnotation( dataObjectEClass, source,
-                new String[] { "constraints", "nameAttributeRequired typeAttributeRequired" } );
-        addAnnotation( dataSetMemberOfEClass, source, new String[] { "constraints", "cbAttributeRequired" } );
-        addAnnotation( docEClass, source, new String[] { "constraints", "idAttributeRequired" } );
-        addAnnotation( enumerationEClass, source,
-                new String[] { "constraints", "uniqueLiteralName uniqueLiteralVal nameAttributeRequired" } );
-        addAnnotation( enumerationsEClass, source, new String[] { "constraints", "uniqueEnumeration" } );
-        addAnnotation( functionalConstraintEClass, source,
-                new String[] { "constraints", "abbreviationAttributeRequired" } );
-        addAnnotation( functionalConstraintsEClass, source,
-                new String[] { "constraints", "uniqueFunctionalConstraint" } );
-        addAnnotation( literalEClass, source,
-                new String[] { "constraints", "nameAttributeRequired literalValAttributeRequired" } );
-        addAnnotation( lnClassEClass, source, new String[] { "constraints", "nameAttributeRequired" } );
-        addAnnotation( lnClassesEClass, source, new String[] { "constraints", "uniqueAbstractLNClass uniqueLNClass" } );
-        addAnnotation( nsDocEClass, source, new String[] { "constraints", "langAttributeRequired" } );
-        addAnnotation( presenceConditionEClass, source, new String[] { "constraints", "nameAttributeRequired" } );
-        addAnnotation( presenceConditionsEClass, source, new String[] { "constraints", "uniquePresenceCondition" } );
-        addAnnotation( serviceCDCEClass, source, new String[] { "constraints", "cdcAttributeRequired" } );
-        addAnnotation( serviceDataAttributeEClass, source,
-                new String[] { "constraints", "nameAttributeRequired fcAttributeRequired" } );
-        addAnnotation( serviceParameterEClass, source, new String[] { "constraints", "nameAttributeRequired" } );
-        addAnnotation( subDataAttributeEClass, source, new String[] { "constraints", "nameAttributeRequired" } );
-        addAnnotation( subDataObjectEClass, source,
-                new String[] { "constraints", "nameAttributeRequired typeAttributeRequired" } );
-        addAnnotation( titledClassEClass, source, new String[] { "constraints", "titleIDAttributeRequired" } );
-        addAnnotation( agNSIdentificationEClass, source,
-                new String[] { "constraints", "idAttributeRequired versionAttributeRequired" } );
+        addAnnotation( this,
+                source,
+                new String[] {
+                        "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+                        "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+                        "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"
+                } );
+        addAnnotation( serviceTypeEClass,
+                source,
+                new String[] {
+                        "constraints", "nameAttributeRequired"
+                } );
+        addAnnotation( abbreviationEClass,
+                source,
+                new String[] {
+                        "constraints", "nameAttributeRequired"
+                } );
+        addAnnotation( abbreviationsEClass,
+                source,
+                new String[] {
+                        "constraints", "uniqueAbbreviation"
+                } );
+        addAnnotation( abstractLNClassEClass,
+                source,
+                new String[] {
+                        "constraints", "nameAttributeRequired"
+                } );
+        addAnnotation( anyLNClassEClass,
+                source,
+                new String[] {
+                        "constraints", "uniqueDataObject"
+                } );
+        addAnnotation( applicableServiceNSEClass,
+                source,
+                new String[] {
+                        "constraints", "versionAttributeRequired dateAttributeRequired"
+                } );
+        addAnnotation( applicableServicesEClass,
+                source,
+                new String[] {
+                        "constraints", "uniqueDataSetMemberOf uniqueService"
+                } );
+        addAnnotation( basicTypeEClass,
+                source,
+                new String[] {
+                        "constraints", "nameAttributeRequired"
+                } );
+        addAnnotation( cdcEClass,
+                source,
+                new String[] {
+                        "constraints", "uniqueCDCChild nameAttributeRequired"
+                } );
+        addAnnotation( cdCsEClass,
+                source,
+                new String[] {
+                        "constraints", "uniqueCDC"
+                } );
+        addAnnotation( changesEClass,
+                source,
+                new String[] {
+                        "constraints", "versionAttributeRequired"
+                } );
+        addAnnotation( constructedAttributeEClass,
+                source,
+                new String[] {
+                        "constraints", "uniqueSubDataAttribute nameAttributeRequired"
+                } );
+        addAnnotation( constructedAttributesEClass,
+                source,
+                new String[] {
+                        "constraints", "uniqueConstructedAttribute"
+                } );
+        addAnnotation( dataAttributeEClass,
+                source,
+                new String[] {
+                        "constraints", "nameAttributeRequired fcAttributeRequired"
+                } );
+        addAnnotation( dataObjectEClass,
+                source,
+                new String[] {
+                        "constraints", "nameAttributeRequired typeAttributeRequired"
+                } );
+        addAnnotation( dataSetMemberOfEClass,
+                source,
+                new String[] {
+                        "constraints", "cbAttributeRequired"
+                } );
+        addAnnotation( docEClass,
+                source,
+                new String[] {
+                        "constraints", "idAttributeRequired"
+                } );
+        addAnnotation( enumerationEClass,
+                source,
+                new String[] {
+                        "constraints", "uniqueLiteralName uniqueLiteralVal nameAttributeRequired"
+                } );
+        addAnnotation( enumerationsEClass,
+                source,
+                new String[] {
+                        "constraints", "uniqueEnumeration"
+                } );
+        addAnnotation( functionalConstraintEClass,
+                source,
+                new String[] {
+                        "constraints", "abbreviationAttributeRequired"
+                } );
+        addAnnotation( functionalConstraintsEClass,
+                source,
+                new String[] {
+                        "constraints", "uniqueFunctionalConstraint"
+                } );
+        addAnnotation( literalEClass,
+                source,
+                new String[] {
+                        "constraints", "nameAttributeRequired literalValAttributeRequired"
+                } );
+        addAnnotation( lnClassEClass,
+                source,
+                new String[] {
+                        "constraints", "nameAttributeRequired"
+                } );
+        addAnnotation( lnClassesEClass,
+                source,
+                new String[] {
+                        "constraints", "uniqueAbstractLNClass uniqueLNClass"
+                } );
+        addAnnotation( nsDocEClass,
+                source,
+                new String[] {
+                        "constraints", "langAttributeRequired"
+                } );
+        addAnnotation( presenceConditionEClass,
+                source,
+                new String[] {
+                        "constraints", "nameAttributeRequired"
+                } );
+        addAnnotation( presenceConditionsEClass,
+                source,
+                new String[] {
+                        "constraints", "uniquePresenceCondition"
+                } );
+        addAnnotation( serviceCDCEClass,
+                source,
+                new String[] {
+                        "constraints", "cdcAttributeRequired"
+                } );
+        addAnnotation( serviceDataAttributeEClass,
+                source,
+                new String[] {
+                        "constraints", "nameAttributeRequired fcAttributeRequired"
+                } );
+        addAnnotation( serviceParameterEClass,
+                source,
+                new String[] {
+                        "constraints", "nameAttributeRequired"
+                } );
+        addAnnotation( subDataAttributeEClass,
+                source,
+                new String[] {
+                        "constraints", "nameAttributeRequired"
+                } );
+        addAnnotation( subDataObjectEClass,
+                source,
+                new String[] {
+                        "constraints", "nameAttributeRequired typeAttributeRequired"
+                } );
+        addAnnotation( titledClassEClass,
+                source,
+                new String[] {
+                        "constraints", "titleIDAttributeRequired"
+                } );
+        addAnnotation( agNSIdentificationEClass,
+                source,
+                new String[] {
+                        "constraints", "idAttributeRequired versionAttributeRequired"
+                } );
     }
 
     /**
@@ -5355,316 +5486,1282 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      */
     protected void createExtendedMetaDataAnnotations() {
         String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
-        addAnnotation( appliesToTypeEClass, source, new String[] { "name", "AppliesTo_._type", "kind", "empty" } );
-        addAnnotation( dependsOnEClass, source, new String[] { "name", "DependsOn_._type", "kind", "empty" } );
-        addAnnotation( documentRootEClass, source, new String[] { "name", "", "kind", "mixed" } );
-        addAnnotation( getDocumentRoot_Mixed(), source, new String[] { "kind", "elementWildcard", "name", ":mixed" } );
-        addAnnotation( getDocumentRoot_XMLNSPrefixMap(), source,
-                new String[] { "kind", "attribute", "name", "xmlns:prefix" } );
-        addAnnotation( getDocumentRoot_XSISchemaLocation(), source,
-                new String[] { "kind", "attribute", "name", "xsi:schemaLocation" } );
-        addAnnotation( getDocumentRoot_ApplicableServiceNS(), source,
-                new String[] { "kind", "element", "name", "ApplicableServiceNS", "namespace", "##targetNamespace" } );
-        addAnnotation( getDocumentRoot_NS(), source,
-                new String[] { "kind", "element", "name", "NS", "namespace", "##targetNamespace" } );
-        addAnnotation( getDocumentRoot_NSDoc(), source,
-                new String[] { "kind", "element", "name", "NSDoc", "namespace", "##targetNamespace" } );
-        addAnnotation( getDocumentRoot_ServiceNS(), source,
-                new String[] { "kind", "element", "name", "ServiceNS", "namespace", "##targetNamespace" } );
-        addAnnotation( serviceTypeEClass, source, new String[] { "name", "Service_._type", "kind", "empty" } );
-        addAnnotation( getServiceType_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( abbreviationEClass, source, new String[] { "name", "tAbbreviation", "kind", "empty" } );
-        addAnnotation( getAbbreviation_DescID(), source, new String[] { "kind", "attribute", "name", "descID" } );
-        addAnnotation( getAbbreviation_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( abbreviationsEClass, source, new String[] { "name", "tAbbreviations", "kind", "elementOnly" } );
-        addAnnotation( getAbbreviations_Abbreviation(), source,
-                new String[] { "kind", "element", "name", "Abbreviation", "namespace", "##targetNamespace" } );
-        addAnnotation( abstractLNClassEClass, source,
-                new String[] { "name", "tAbstractLNClass", "kind", "elementOnly" } );
-        addAnnotation( getAbstractLNClass_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( acsiServicesKindEEnum, source, new String[] { "name", "tACSIServicesKind" } );
-        addAnnotation( acsiServicesKindObjectEDataType, source,
-                new String[] { "name", "tACSIServicesKind:Object", "baseType", "tACSIServicesKind" } );
-        addAnnotation( anyLNClassEClass, source, new String[] { "name", "tAnyLNClass", "kind", "elementOnly" } );
-        addAnnotation( getAnyLNClass_DataObject(), source,
-                new String[] { "kind", "element", "name", "DataObject", "namespace", "##targetNamespace" } );
-        addAnnotation( getAnyLNClass_Base(), source, new String[] { "kind", "attribute", "name", "base" } );
-        addAnnotation( applicableServiceNSEClass, source,
-                new String[] { "name", "tApplicableServiceNS", "kind", "elementOnly" } );
-        addAnnotation( getApplicableServiceNS_ServiceNsUsage(), source,
-                new String[] { "kind", "element", "name", "ServiceNsUsage", "namespace", "##targetNamespace" } );
-        addAnnotation( getApplicableServiceNS_Date(), source, new String[] { "kind", "attribute", "name", "date" } );
-        addAnnotation( getApplicableServiceNS_Version(), source,
-                new String[] { "kind", "attribute", "name", "version" } );
-        addAnnotation( applicableServicesEClass, source,
-                new String[] { "name", "tApplicableServices", "kind", "elementOnly" } );
-        addAnnotation( getApplicableServices_Service(), source,
-                new String[] { "kind", "element", "name", "Service", "namespace", "##targetNamespace" } );
-        addAnnotation( getApplicableServices_DataSetMemberOf(), source,
-                new String[] { "kind", "element", "name", "DataSetMemberOf", "namespace", "##targetNamespace" } );
-        addAnnotation( attributeTypeKindEDataType, source, new String[] { "name", "tAttributeTypeKind", "memberTypes",
-                "tDefinedAttributeTypeKind tUndefinedAttributeTypeKind" } );
-        addAnnotation( basicTypeEClass, source, new String[] { "name", "tBasicType", "kind", "empty" } );
-        addAnnotation( getBasicType_DescID(), source, new String[] { "kind", "attribute", "name", "descID" } );
-        addAnnotation( getBasicType_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( basicTypesEClass, source, new String[] { "name", "tBasicTypes", "kind", "elementOnly" } );
-        addAnnotation( getBasicTypes_BasicType(), source,
-                new String[] { "kind", "element", "name", "BasicType", "namespace", "##targetNamespace" } );
-        addAnnotation( cbKindEEnum, source, new String[] { "name", "tCBKind" } );
-        addAnnotation( cbKindObjectEDataType, source,
-                new String[] { "name", "tCBKind:Object", "baseType", "tCBKind" } );
-        addAnnotation( cdcEClass, source, new String[] { "name", "tCDC", "kind", "elementOnly" } );
-        addAnnotation( getCDC_SubDataObject(), source,
-                new String[] { "kind", "element", "name", "SubDataObject", "namespace", "##targetNamespace" } );
-        addAnnotation( getCDC_DataAttribute(), source,
-                new String[] { "kind", "element", "name", "DataAttribute", "namespace", "##targetNamespace" } );
-        addAnnotation( getCDC_ServiceParameter(), source,
-                new String[] { "kind", "element", "name", "ServiceParameter", "namespace", "##targetNamespace" } );
-        addAnnotation( getCDC_EnumParameterized(), source,
-                new String[] { "kind", "attribute", "name", "enumParameterized" } );
-        addAnnotation( getCDC_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( getCDC_Statistics(), source, new String[] { "kind", "attribute", "name", "statistics" } );
-        addAnnotation( getCDC_TypeKindParameterized(), source,
-                new String[] { "kind", "attribute", "name", "typeKindParameterized" } );
-        addAnnotation( getCDC_Variant(), source, new String[] { "kind", "attribute", "name", "variant" } );
-        addAnnotation( cdCsEClass, source, new String[] { "name", "tCDCs", "kind", "elementOnly" } );
-        addAnnotation( getCDCs_CDC(), source,
-                new String[] { "kind", "element", "name", "CDC", "namespace", "##targetNamespace" } );
-        addAnnotation( changesEClass, source, new String[] { "name", "tChanges", "kind", "empty" } );
-        addAnnotation( getChanges_ChangesID(), source, new String[] { "kind", "attribute", "name", "changesID" } );
-        addAnnotation( getChanges_Date(), source, new String[] { "kind", "attribute", "name", "date" } );
-        addAnnotation( getChanges_Revision(), source, new String[] { "kind", "attribute", "name", "revision" } );
-        addAnnotation( getChanges_Tissues(), source, new String[] { "kind", "attribute", "name", "tissues" } );
-        addAnnotation( getChanges_Release(), source, new String[] { "kind", "attribute", "name", "release" } );
-        addAnnotation( getChanges_Version(), source, new String[] { "kind", "attribute", "name", "version" } );
-        addAnnotation( constructedAttributeEClass, source,
-                new String[] { "name", "tConstructedAttribute", "kind", "elementOnly" } );
-        addAnnotation( getConstructedAttribute_SubDataAttribute(), source,
-                new String[] { "kind", "element", "name", "SubDataAttribute", "namespace", "##targetNamespace" } );
-        addAnnotation( getConstructedAttribute_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( constructedAttributesEClass, source,
-                new String[] { "name", "tConstructedAttributes", "kind", "elementOnly" } );
-        addAnnotation( getConstructedAttributes_ConstructedAttribute(), source,
-                new String[] { "kind", "element", "name", "ConstructedAttribute", "namespace", "##targetNamespace" } );
-        addAnnotation( copyrightedEClass, source, new String[] { "name", "tCopyrighted", "kind", "elementOnly" } );
-        addAnnotation( getCopyrighted_Copyright(), source,
-                new String[] { "kind", "element", "name", "Copyright", "namespace", "##targetNamespace" } );
-        addAnnotation( copyrightNoticeEClass, source,
-                new String[] { "name", "tCopyrightNotice", "kind", "elementOnly" } );
-        addAnnotation( getCopyrightNotice_Notice(), source,
-                new String[] { "kind", "element", "name", "Notice", "namespace", "##targetNamespace" } );
-        addAnnotation( getCopyrightNotice_License(), source,
-                new String[] { "kind", "element", "name", "License", "namespace", "##targetNamespace" } );
-        addAnnotation( dataAttributeEClass, source, new String[] { "name", "tDataAttribute", "kind", "empty" } );
-        addAnnotation( getDataAttribute_Fc(), source, new String[] { "kind", "attribute", "name", "fc" } );
-        addAnnotation( getDataAttribute_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( dataObjectEClass, source, new String[] { "name", "tDataObject", "kind", "empty" } );
-        addAnnotation( getDataObject_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( getDataObject_Transient(), source, new String[] { "kind", "attribute", "name", "transient" } );
-        addAnnotation( getDataObject_Type(), source, new String[] { "kind", "attribute", "name", "type" } );
-        addAnnotation( dataSetMemberOfEClass, source, new String[] { "name", "tDataSetMemberOf", "kind", "empty" } );
-        addAnnotation( getDataSetMemberOf_Cb(), source, new String[] { "kind", "attribute", "name", "cb" } );
-        addAnnotation( definedAttributeTypeKindEEnum, source, new String[] { "name", "tDefinedAttributeTypeKind" } );
-        addAnnotation( definedAttributeTypeKindObjectEDataType, source,
-                new String[] { "name", "tDefinedAttributeTypeKind:Object", "baseType", "tDefinedAttributeTypeKind" } );
-        addAnnotation( docEClass, source, new String[] { "name", "tDoc", "kind", "mixed" } );
-        addAnnotation( getDoc_Mixed(), source, new String[] { "kind", "elementWildcard", "name", ":mixed" } );
-        addAnnotation( getDoc_Group(), source, new String[] { "kind", "group", "name", "group:1" } );
-        addAnnotation( getDoc_Any(), source, new String[] { "kind", "elementWildcard", "wildcards", "##any", "name",
-                ":2", "processing", "lax", "group", "#group:1" } );
-        addAnnotation( getDoc_Id(), source, new String[] { "kind", "attribute", "name", "id" } );
-        addAnnotation( documentedClassEClass, source, new String[] { "name", "tDocumentedClass", "kind", "empty" } );
-        addAnnotation( getDocumentedClass_Deprecated(), source,
-                new String[] { "kind", "attribute", "name", "deprecated" } );
-        addAnnotation( getDocumentedClass_DescID(), source, new String[] { "kind", "attribute", "name", "descID" } );
-        addAnnotation( getDocumentedClass_Informative(), source,
-                new String[] { "kind", "attribute", "name", "informative" } );
-        addAnnotation( enumerationEClass, source, new String[] { "name", "tEnumeration", "kind", "elementOnly" } );
-        addAnnotation( getEnumeration_Literal(), source,
-                new String[] { "kind", "element", "name", "Literal", "namespace", "##targetNamespace" } );
-        addAnnotation( getEnumeration_InheritedFrom(), source,
-                new String[] { "kind", "attribute", "name", "inheritedFrom" } );
-        addAnnotation( getEnumeration_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( enumerationsEClass, source, new String[] { "name", "tEnumerations", "kind", "elementOnly" } );
-        addAnnotation( getEnumerations_Enumeration(), source,
-                new String[] { "kind", "element", "name", "Enumeration", "namespace", "##targetNamespace" } );
-        addAnnotation( functionalConstraintEClass, source,
-                new String[] { "name", "tFunctionalConstraint", "kind", "elementOnly" } );
-        addAnnotation( getFunctionalConstraint_ApplicableServices(), source,
-                new String[] { "kind", "element", "name", "ApplicableServices", "namespace", "##targetNamespace" } );
-        addAnnotation( getFunctionalConstraint_Abbreviation(), source,
-                new String[] { "kind", "attribute", "name", "abbreviation" } );
-        addAnnotation( getFunctionalConstraint_DescID(), source,
-                new String[] { "kind", "attribute", "name", "descID" } );
-        addAnnotation( getFunctionalConstraint_TitleID(), source,
-                new String[] { "kind", "attribute", "name", "titleID" } );
-        addAnnotation( functionalConstraintsEClass, source,
-                new String[] { "name", "tFunctionalConstraints", "kind", "elementOnly" } );
-        addAnnotation( getFunctionalConstraints_FunctionalConstraint(), source,
-                new String[] { "kind", "element", "name", "FunctionalConstraint", "namespace", "##targetNamespace" } );
-        addAnnotation( licenseEClass, source, new String[] { "name", "tLicense", "kind", "mixed" } );
-        addAnnotation( getLicense_Mixed(), source, new String[] { "kind", "elementWildcard", "name", ":mixed" } );
-        addAnnotation( getLicense_Kind(), source, new String[] { "kind", "attribute", "name", "kind" } );
-        addAnnotation( getLicense_Uri(), source, new String[] { "kind", "attribute", "name", "uri" } );
-        addAnnotation( licenseKindEEnum, source, new String[] { "name", "tLicenseKind" } );
-        addAnnotation( licenseKindObjectEDataType, source,
-                new String[] { "name", "tLicenseKind:Object", "baseType", "tLicenseKind" } );
-        addAnnotation( literalEClass, source, new String[] { "name", "tLiteral", "kind", "empty" } );
-        addAnnotation( getLiteral_LiteralVal(), source, new String[] { "kind", "attribute", "name", "literalVal" } );
-        addAnnotation( getLiteral_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( lnClassEClass, source, new String[] { "name", "tLNClass", "kind", "elementOnly" } );
-        addAnnotation( getLNClass_CanHaveLOG(), source, new String[] { "kind", "attribute", "name", "canHaveLOG" } );
-        addAnnotation( getLNClass_IsExtension(), source, new String[] { "kind", "attribute", "name", "isExtension" } );
-        addAnnotation( getLNClass_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( lnClassesEClass, source, new String[] { "name", "tLNClasses", "kind", "elementOnly" } );
-        addAnnotation( getLNClasses_AbstractLNClass(), source,
-                new String[] { "kind", "element", "name", "AbstractLNClass", "namespace", "##targetNamespace" } );
-        addAnnotation( getLNClasses_LNClass(), source,
-                new String[] { "kind", "element", "name", "LNClass", "namespace", "##targetNamespace" } );
-        addAnnotation( noticeEClass, source, new String[] { "name", "tNotice", "kind", "mixed" } );
-        addAnnotation( getNotice_Mixed(), source, new String[] { "kind", "elementWildcard", "name", ":mixed" } );
-        addAnnotation( nsEClass, source, new String[] { "name", "tNS", "kind", "elementOnly" } );
-        addAnnotation( getNS_Changes(), source,
-                new String[] { "kind", "element", "name", "Changes", "namespace", "##targetNamespace" } );
-        addAnnotation( getNS_DependsOn(), source,
-                new String[] { "kind", "element", "name", "DependsOn", "namespace", "##targetNamespace" } );
-        addAnnotation( getNS_BasicTypes(), source,
-                new String[] { "kind", "element", "name", "BasicTypes", "namespace", "##targetNamespace" } );
-        addAnnotation( getNS_FunctionalConstraints(), source,
-                new String[] { "kind", "element", "name", "FunctionalConstraints", "namespace", "##targetNamespace" } );
-        addAnnotation( getNS_PresenceConditions(), source,
-                new String[] { "kind", "element", "name", "PresenceConditions", "namespace", "##targetNamespace" } );
-        addAnnotation( getNS_Abbreviations(), source,
-                new String[] { "kind", "element", "name", "Abbreviations", "namespace", "##targetNamespace" } );
-        addAnnotation( getNS_Enumerations(), source,
-                new String[] { "kind", "element", "name", "Enumerations", "namespace", "##targetNamespace" } );
-        addAnnotation( getNS_ConstructedAttributes(), source,
-                new String[] { "kind", "element", "name", "ConstructedAttributes", "namespace", "##targetNamespace" } );
-        addAnnotation( getNS_CDCs(), source,
-                new String[] { "kind", "element", "name", "CDCs", "namespace", "##targetNamespace" } );
-        addAnnotation( getNS_LNClasses(), source,
-                new String[] { "kind", "element", "name", "LNClasses", "namespace", "##targetNamespace" } );
-        addAnnotation( nsDocEClass, source, new String[] { "name", "tNSDoc", "kind", "elementOnly" } );
-        addAnnotation( getNSDoc_Doc(), source,
-                new String[] { "kind", "element", "name", "Doc", "namespace", "##targetNamespace" } );
-        addAnnotation( getNSDoc_Lang(), source, new String[] { "kind", "attribute", "name", "lang" } );
-        addAnnotation( presenceConditionEClass, source,
-                new String[] { "name", "tPresenceCondition", "kind", "empty" } );
-        addAnnotation( getPresenceCondition_Argument(), source,
-                new String[] { "kind", "attribute", "name", "argument" } );
-        addAnnotation( getPresenceCondition_DescID(), source, new String[] { "kind", "attribute", "name", "descID" } );
-        addAnnotation( getPresenceCondition_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( getPresenceCondition_TitleID(), source,
-                new String[] { "kind", "attribute", "name", "titleID" } );
-        addAnnotation( presenceConditionsEClass, source,
-                new String[] { "name", "tPresenceConditions", "kind", "elementOnly" } );
-        addAnnotation( getPresenceConditions_PresenceCondition(), source,
-                new String[] { "kind", "element", "name", "PresenceCondition", "namespace", "##targetNamespace" } );
-        addAnnotation( pubStageEEnum, source, new String[] { "name", "tPubStage" } );
-        addAnnotation( pubStageObjectEDataType, source,
-                new String[] { "name", "tPubStage:Object", "baseType", "tPubStage" } );
-        addAnnotation( serviceCDCEClass, source, new String[] { "name", "tServiceCDC", "kind", "elementOnly" } );
-        addAnnotation( getServiceCDC_ServiceDataAttribute(), source,
-                new String[] { "kind", "element", "name", "ServiceDataAttribute", "namespace", "##targetNamespace" } );
-        addAnnotation( getServiceCDC_Cdc(), source, new String[] { "kind", "attribute", "name", "cdc" } );
-        addAnnotation( getServiceCDC_Variant(), source, new String[] { "kind", "attribute", "name", "variant" } );
-        addAnnotation( serviceCDCsEClass, source, new String[] { "name", "tServiceCDCs", "kind", "elementOnly" } );
-        addAnnotation( getServiceCDCs_ServiceCDC(), source,
-                new String[] { "kind", "element", "name", "ServiceCDC", "namespace", "##targetNamespace" } );
-        addAnnotation( serviceConstructedAttributeEClass, source,
-                new String[] { "name", "tServiceConstructedAttribute", "kind", "elementOnly" } );
-        addAnnotation( getServiceConstructedAttribute_TypeKindParameterized(), source,
-                new String[] { "kind", "attribute", "name", "typeKindParameterized" } );
-        addAnnotation( serviceConstructedAttributesEClass, source,
-                new String[] { "name", "tServiceConstructedAttributes", "kind", "elementOnly" } );
-        addAnnotation( getServiceConstructedAttributes_ServiceConstructedAttribute(), source, new String[] { "kind",
-                "element", "name", "ServiceConstructedAttribute", "namespace", "##targetNamespace" } );
-        addAnnotation( serviceDataAttributeEClass, source,
-                new String[] { "name", "tServiceDataAttribute", "kind", "empty" } );
-        addAnnotation( getServiceDataAttribute_Fc(), source, new String[] { "kind", "attribute", "name", "fc" } );
-        addAnnotation( getServiceDataAttribute_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( serviceNSEClass, source, new String[] { "name", "tServiceNS", "kind", "elementOnly" } );
-        addAnnotation( getServiceNS_Changes(), source,
-                new String[] { "kind", "element", "name", "Changes", "namespace", "##targetNamespace" } );
-        addAnnotation( getServiceNS_FunctionalConstraints(), source,
-                new String[] { "kind", "element", "name", "FunctionalConstraints", "namespace", "##targetNamespace" } );
-        addAnnotation( getServiceNS_PresenceConditions(), source,
-                new String[] { "kind", "element", "name", "PresenceConditions", "namespace", "##targetNamespace" } );
-        addAnnotation( getServiceNS_Abbreviations(), source,
-                new String[] { "kind", "element", "name", "Abbreviations", "namespace", "##targetNamespace" } );
-        addAnnotation( getServiceNS_ServiceTypeRealizations(), source, new String[] { "kind", "element", "name",
-                "ServiceTypeRealizations", "namespace", "##targetNamespace" } );
-        addAnnotation( getServiceNS_ServiceConstructedAttributes(), source, new String[] { "kind", "element", "name",
-                "ServiceConstructedAttributes", "namespace", "##targetNamespace" } );
-        addAnnotation( getServiceNS_ServiceCDCs(), source,
-                new String[] { "kind", "element", "name", "ServiceCDCs", "namespace", "##targetNamespace" } );
-        addAnnotation( serviceNsUsageEClass, source,
-                new String[] { "name", "tServiceNsUsage", "kind", "elementOnly" } );
-        addAnnotation( getServiceNsUsage_AppliesTo(), source,
-                new String[] { "kind", "element", "name", "AppliesTo", "namespace", "##targetNamespace" } );
-        addAnnotation( serviceParameterEClass, source, new String[] { "name", "tServiceParameter", "kind", "empty" } );
-        addAnnotation( getServiceParameter_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( serviceTypeRealizationsEClass, source,
-                new String[] { "name", "tServiceTypeRealizations", "kind", "elementOnly" } );
-        addAnnotation( getServiceTypeRealizations_ServiceTypeRealization(), source, new String[] { "kind", "element",
-                "name", "ServiceTypeRealization", "namespace", "##targetNamespace" } );
-        addAnnotation( subDataAttributeEClass, source, new String[] { "name", "tSubDataAttribute", "kind", "empty" } );
-        addAnnotation( getSubDataAttribute_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( subDataObjectEClass, source, new String[] { "name", "tSubDataObject", "kind", "empty" } );
-        addAnnotation( getSubDataObject_Name(), source, new String[] { "kind", "attribute", "name", "name" } );
-        addAnnotation( getSubDataObject_Type(), source, new String[] { "kind", "attribute", "name", "type" } );
-        addAnnotation( titledClassEClass, source, new String[] { "name", "tTitledClass", "kind", "empty" } );
-        addAnnotation( getTitledClass_TitleID(), source, new String[] { "kind", "attribute", "name", "titleID" } );
-        addAnnotation( undefinedAttributeTypeKindEEnum, source,
-                new String[] { "name", "tUndefinedAttributeTypeKind" } );
-        addAnnotation( undefinedAttributeTypeKindObjectEDataType, source, new String[] { "name",
-                "tUndefinedAttributeTypeKind:Object", "baseType", "tUndefinedAttributeTypeKind" } );
-        addAnnotation( getAgNSIdentification_Release(), source,
-                new String[] { "kind", "attribute", "name", "release" } );
-        addAnnotation( getAgNSIdentification_Version(), source,
-                new String[] { "kind", "attribute", "name", "version" } );
-        addAnnotation( getAgNSIdentification_Id(), source, new String[] { "kind", "attribute", "name", "id" } );
-        addAnnotation( getAgNSIdentification_Revision(), source,
-                new String[] { "kind", "attribute", "name", "revision" } );
-        addAnnotation( getAgNSIdentification_PublicationStage(), source,
-                new String[] { "kind", "attribute", "name", "publicationStage" } );
-        addAnnotation( getAgPresenceCondition_PresCond(), source,
-                new String[] { "kind", "attribute", "name", "presCond" } );
-        addAnnotation( getAgPresenceCondition_PresCondArgs(), source,
-                new String[] { "kind", "attribute", "name", "presCondArgs" } );
-        addAnnotation( getAgPresenceCondition_PresCondArgsID(), source,
-                new String[] { "kind", "attribute", "name", "presCondArgsID" } );
-        addAnnotation( getAgPresenceConditionDerivedStatistics_DsPresCond(), source,
-                new String[] { "kind", "attribute", "name", "dsPresCond" } );
-        addAnnotation( getAgPresenceConditionDerivedStatistics_DsPresCondArgs(), source,
-                new String[] { "kind", "attribute", "name", "dsPresCondArgs" } );
-        addAnnotation( getAgPresenceConditionDerivedStatistics_DsPresCondArgsID(), source,
-                new String[] { "kind", "attribute", "name", "dsPresCondArgsID" } );
-        addAnnotation( getAgArray_IsArray(), source, new String[] { "kind", "attribute", "name", "isArray" } );
-        addAnnotation( getAgArray_MaxIndexAttribute(), source,
-                new String[] { "kind", "attribute", "name", "maxIndexAttribute" } );
-        addAnnotation( getAgArray_MinIndex(), source, new String[] { "kind", "attribute", "name", "minIndex" } );
-        addAnnotation( getAgArray_SizeAttribute(), source,
-                new String[] { "kind", "attribute", "name", "sizeAttribute" } );
-        addAnnotation( getAgTrgOp_Dchg(), source, new String[] { "kind", "attribute", "name", "dchg" } );
-        addAnnotation( getAgTrgOp_Dupd(), source, new String[] { "kind", "attribute", "name", "dupd" } );
-        addAnnotation( getAgTrgOp_Qchg(), source, new String[] { "kind", "attribute", "name", "qchg" } );
-        addAnnotation( getAgAttributeType_Type(), source, new String[] { "kind", "attribute", "name", "type" } );
-        addAnnotation( getAgAttributeType_TypeKind(), source,
-                new String[] { "kind", "attribute", "name", "typeKind" } );
-        addAnnotation( getAgAttributeTypeAndValues_DefaultValue(), source,
-                new String[] { "kind", "attribute", "name", "defaultValue" } );
-        addAnnotation( getAgAttributeTypeAndValues_MaxValue(), source,
-                new String[] { "kind", "attribute", "name", "maxValue" } );
-        addAnnotation( getAgAttributeTypeAndValues_MinValue(), source,
-                new String[] { "kind", "attribute", "name", "minValue" } );
-        addAnnotation( getAgUnderlyingType_UnderlyingType(), source,
-                new String[] { "kind", "attribute", "name", "underlyingType" } );
-        addAnnotation( getAgUnderlyingType_UnderlyingTypeKind(), source,
-                new String[] { "kind", "attribute", "name", "underlyingTypeKind" } );
-        addAnnotation( getAgUML_UmlDate(), source, new String[] { "kind", "attribute", "name", "umlDate" } );
-        addAnnotation( getAgUML_UmlVersion(), source, new String[] { "kind", "attribute", "name", "umlVersion" } );
-        addAnnotation( getAgNSdesc_DescID(), source, new String[] { "kind", "attribute", "name", "descID" } );
+        addAnnotation( appliesToTypeEClass,
+                source,
+                new String[] {
+                        "name", "AppliesTo_._type",
+                        "kind", "empty"
+                } );
+        addAnnotation( dependsOnEClass,
+                source,
+                new String[] {
+                        "name", "DependsOn_._type",
+                        "kind", "empty"
+                } );
+        addAnnotation( documentRootEClass,
+                source,
+                new String[] {
+                        "name", "",
+                        "kind", "mixed"
+                } );
+        addAnnotation( getDocumentRoot_Mixed(),
+                source,
+                new String[] {
+                        "kind", "elementWildcard",
+                        "name", ":mixed"
+                } );
+        addAnnotation( getDocumentRoot_XMLNSPrefixMap(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "xmlns:prefix"
+                } );
+        addAnnotation( getDocumentRoot_XSISchemaLocation(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "xsi:schemaLocation"
+                } );
+        addAnnotation( getDocumentRoot_ApplicableServiceNS(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "ApplicableServiceNS",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( getDocumentRoot_NS(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "NS",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( getDocumentRoot_NSDoc(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "NSDoc",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( getDocumentRoot_ServiceNS(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "ServiceNS",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( serviceTypeEClass,
+                source,
+                new String[] {
+                        "name", "Service_._type",
+                        "kind", "empty"
+                } );
+        addAnnotation( getServiceType_Name(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "name"
+                } );
+        addAnnotation( abbreviationEClass,
+                source,
+                new String[] {
+                        "name", "tAbbreviation",
+                        "kind", "empty"
+                } );
+        addAnnotation( getAbbreviation_DescID(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "descID"
+                } );
+        addAnnotation( getAbbreviation_Name(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "name"
+                } );
+        addAnnotation( abbreviationsEClass,
+                source,
+                new String[] {
+                        "name", "tAbbreviations",
+                        "kind", "elementOnly"
+                } );
+        addAnnotation( getAbbreviations_Abbreviation(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "Abbreviation",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( abstractLNClassEClass,
+                source,
+                new String[] {
+                        "name", "tAbstractLNClass",
+                        "kind", "elementOnly"
+                } );
+        addAnnotation( getAbstractLNClass_Name(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "name"
+                } );
+        addAnnotation( acsiServicesKindEEnum,
+                source,
+                new String[] {
+                        "name", "tACSIServicesKind"
+                } );
+        addAnnotation( acsiServicesKindObjectEDataType,
+                source,
+                new String[] {
+                        "name", "tACSIServicesKind:Object",
+                        "baseType", "tACSIServicesKind"
+                } );
+        addAnnotation( anyLNClassEClass,
+                source,
+                new String[] {
+                        "name", "tAnyLNClass",
+                        "kind", "elementOnly"
+                } );
+        addAnnotation( getAnyLNClass_DataObject(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "DataObject",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( getAnyLNClass_Base(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "base"
+                } );
+        addAnnotation( applicableServiceNSEClass,
+                source,
+                new String[] {
+                        "name", "tApplicableServiceNS",
+                        "kind", "elementOnly"
+                } );
+        addAnnotation( getApplicableServiceNS_ServiceNsUsage(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "ServiceNsUsage",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( getApplicableServiceNS_Date(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "date"
+                } );
+        addAnnotation( getApplicableServiceNS_Version(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "version"
+                } );
+        addAnnotation( applicableServicesEClass,
+                source,
+                new String[] {
+                        "name", "tApplicableServices",
+                        "kind", "elementOnly"
+                } );
+        addAnnotation( getApplicableServices_Service(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "Service",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( getApplicableServices_DataSetMemberOf(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "DataSetMemberOf",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( attributeTypeKindEDataType,
+                source,
+                new String[] {
+                        "name", "tAttributeTypeKind",
+                        "memberTypes", "tDefinedAttributeTypeKind tUndefinedAttributeTypeKind"
+                } );
+        addAnnotation( basicTypeEClass,
+                source,
+                new String[] {
+                        "name", "tBasicType",
+                        "kind", "empty"
+                } );
+        addAnnotation( getBasicType_DescID(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "descID"
+                } );
+        addAnnotation( getBasicType_Name(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "name"
+                } );
+        addAnnotation( basicTypesEClass,
+                source,
+                new String[] {
+                        "name", "tBasicTypes",
+                        "kind", "elementOnly"
+                } );
+        addAnnotation( getBasicTypes_BasicType(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "BasicType",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( cbKindEEnum,
+                source,
+                new String[] {
+                        "name", "tCBKind"
+                } );
+        addAnnotation( cbKindObjectEDataType,
+                source,
+                new String[] {
+                        "name", "tCBKind:Object",
+                        "baseType", "tCBKind"
+                } );
+        addAnnotation( cdcEClass,
+                source,
+                new String[] {
+                        "name", "tCDC",
+                        "kind", "elementOnly"
+                } );
+        addAnnotation( getCDC_SubDataObject(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "SubDataObject",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( getCDC_DataAttribute(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "DataAttribute",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( getCDC_ServiceParameter(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "ServiceParameter",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( getCDC_EnumParameterized(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "enumParameterized"
+                } );
+        addAnnotation( getCDC_Name(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "name"
+                } );
+        addAnnotation( getCDC_Statistics(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "statistics"
+                } );
+        addAnnotation( getCDC_TypeKindParameterized(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "typeKindParameterized"
+                } );
+        addAnnotation( getCDC_Variant(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "variant"
+                } );
+        addAnnotation( cdCsEClass,
+                source,
+                new String[] {
+                        "name", "tCDCs",
+                        "kind", "elementOnly"
+                } );
+        addAnnotation( getCDCs_CDC(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "CDC",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( changesEClass,
+                source,
+                new String[] {
+                        "name", "tChanges",
+                        "kind", "empty"
+                } );
+        addAnnotation( getChanges_ChangesID(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "changesID"
+                } );
+        addAnnotation( getChanges_Date(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "date"
+                } );
+        addAnnotation( getChanges_Revision(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "revision"
+                } );
+        addAnnotation( getChanges_Tissues(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "tissues"
+                } );
+        addAnnotation( getChanges_Release(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "release"
+                } );
+        addAnnotation( getChanges_Version(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "version"
+                } );
+        addAnnotation( constructedAttributeEClass,
+                source,
+                new String[] {
+                        "name", "tConstructedAttribute",
+                        "kind", "elementOnly"
+                } );
+        addAnnotation( getConstructedAttribute_SubDataAttribute(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "SubDataAttribute",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( getConstructedAttribute_Name(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "name"
+                } );
+        addAnnotation( constructedAttributesEClass,
+                source,
+                new String[] {
+                        "name", "tConstructedAttributes",
+                        "kind", "elementOnly"
+                } );
+        addAnnotation( getConstructedAttributes_ConstructedAttribute(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "ConstructedAttribute",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( copyrightedEClass,
+                source,
+                new String[] {
+                        "name", "tCopyrighted",
+                        "kind", "elementOnly"
+                } );
+        addAnnotation( getCopyrighted_Copyright(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "Copyright",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( copyrightNoticeEClass,
+                source,
+                new String[] {
+                        "name", "tCopyrightNotice",
+                        "kind", "elementOnly"
+                } );
+        addAnnotation( getCopyrightNotice_Notice(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "Notice",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( getCopyrightNotice_License(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "License",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( dataAttributeEClass,
+                source,
+                new String[] {
+                        "name", "tDataAttribute",
+                        "kind", "empty"
+                } );
+        addAnnotation( getDataAttribute_Fc(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "fc"
+                } );
+        addAnnotation( getDataAttribute_Name(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "name"
+                } );
+        addAnnotation( dataObjectEClass,
+                source,
+                new String[] {
+                        "name", "tDataObject",
+                        "kind", "empty"
+                } );
+        addAnnotation( getDataObject_Name(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "name"
+                } );
+        addAnnotation( getDataObject_Transient(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "transient"
+                } );
+        addAnnotation( getDataObject_Type(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "type"
+                } );
+        addAnnotation( dataSetMemberOfEClass,
+                source,
+                new String[] {
+                        "name", "tDataSetMemberOf",
+                        "kind", "empty"
+                } );
+        addAnnotation( getDataSetMemberOf_Cb(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "cb"
+                } );
+        addAnnotation( definedAttributeTypeKindEEnum,
+                source,
+                new String[] {
+                        "name", "tDefinedAttributeTypeKind"
+                } );
+        addAnnotation( definedAttributeTypeKindObjectEDataType,
+                source,
+                new String[] {
+                        "name", "tDefinedAttributeTypeKind:Object",
+                        "baseType", "tDefinedAttributeTypeKind"
+                } );
+        addAnnotation( docEClass,
+                source,
+                new String[] {
+                        "name", "tDoc",
+                        "kind", "mixed"
+                } );
+        addAnnotation( getDoc_Mixed(),
+                source,
+                new String[] {
+                        "kind", "elementWildcard",
+                        "name", ":mixed"
+                } );
+        addAnnotation( getDoc_Group(),
+                source,
+                new String[] {
+                        "kind", "group",
+                        "name", "group:1"
+                } );
+        addAnnotation( getDoc_Any(),
+                source,
+                new String[] {
+                        "kind", "elementWildcard",
+                        "wildcards", "##any",
+                        "name", ":2",
+                        "processing", "lax",
+                        "group", "#group:1"
+                } );
+        addAnnotation( getDoc_Id(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "id"
+                } );
+        addAnnotation( documentedClassEClass,
+                source,
+                new String[] {
+                        "name", "tDocumentedClass",
+                        "kind", "empty"
+                } );
+        addAnnotation( getDocumentedClass_Deprecated(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "deprecated"
+                } );
+        addAnnotation( getDocumentedClass_DescID(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "descID"
+                } );
+        addAnnotation( getDocumentedClass_Informative(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "informative"
+                } );
+        addAnnotation( enumerationEClass,
+                source,
+                new String[] {
+                        "name", "tEnumeration",
+                        "kind", "elementOnly"
+                } );
+        addAnnotation( getEnumeration_Literal(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "Literal",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( getEnumeration_InheritedFrom(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "inheritedFrom"
+                } );
+        addAnnotation( getEnumeration_Name(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "name"
+                } );
+        addAnnotation( enumerationsEClass,
+                source,
+                new String[] {
+                        "name", "tEnumerations",
+                        "kind", "elementOnly"
+                } );
+        addAnnotation( getEnumerations_Enumeration(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "Enumeration",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( functionalConstraintEClass,
+                source,
+                new String[] {
+                        "name", "tFunctionalConstraint",
+                        "kind", "elementOnly"
+                } );
+        addAnnotation( getFunctionalConstraint_ApplicableServices(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "ApplicableServices",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( getFunctionalConstraint_Abbreviation(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "abbreviation"
+                } );
+        addAnnotation( getFunctionalConstraint_DescID(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "descID"
+                } );
+        addAnnotation( getFunctionalConstraint_TitleID(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "titleID"
+                } );
+        addAnnotation( functionalConstraintsEClass,
+                source,
+                new String[] {
+                        "name", "tFunctionalConstraints",
+                        "kind", "elementOnly"
+                } );
+        addAnnotation( getFunctionalConstraints_FunctionalConstraint(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "FunctionalConstraint",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( licenseEClass,
+                source,
+                new String[] {
+                        "name", "tLicense",
+                        "kind", "mixed"
+                } );
+        addAnnotation( getLicense_Mixed(),
+                source,
+                new String[] {
+                        "kind", "elementWildcard",
+                        "name", ":mixed"
+                } );
+        addAnnotation( getLicense_Kind(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "kind"
+                } );
+        addAnnotation( getLicense_Uri(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "uri"
+                } );
+        addAnnotation( licenseKindEEnum,
+                source,
+                new String[] {
+                        "name", "tLicenseKind"
+                } );
+        addAnnotation( licenseKindObjectEDataType,
+                source,
+                new String[] {
+                        "name", "tLicenseKind:Object",
+                        "baseType", "tLicenseKind"
+                } );
+        addAnnotation( literalEClass,
+                source,
+                new String[] {
+                        "name", "tLiteral",
+                        "kind", "empty"
+                } );
+        addAnnotation( getLiteral_LiteralVal(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "literalVal"
+                } );
+        addAnnotation( getLiteral_Name(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "name"
+                } );
+        addAnnotation( lnClassEClass,
+                source,
+                new String[] {
+                        "name", "tLNClass",
+                        "kind", "elementOnly"
+                } );
+        addAnnotation( getLNClass_CanHaveLOG(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "canHaveLOG"
+                } );
+        addAnnotation( getLNClass_IsExtension(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "isExtension"
+                } );
+        addAnnotation( getLNClass_Name(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "name"
+                } );
+        addAnnotation( lnClassesEClass,
+                source,
+                new String[] {
+                        "name", "tLNClasses",
+                        "kind", "elementOnly"
+                } );
+        addAnnotation( getLNClasses_AbstractLNClass(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "AbstractLNClass",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( getLNClasses_LNClass(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "LNClass",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( noticeEClass,
+                source,
+                new String[] {
+                        "name", "tNotice",
+                        "kind", "mixed"
+                } );
+        addAnnotation( getNotice_Mixed(),
+                source,
+                new String[] {
+                        "kind", "elementWildcard",
+                        "name", ":mixed"
+                } );
+        addAnnotation( nsEClass,
+                source,
+                new String[] {
+                        "name", "tNS",
+                        "kind", "elementOnly"
+                } );
+        addAnnotation( getNS_Changes(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "Changes",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( getNS_DependsOn(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "DependsOn",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( getNS_BasicTypes(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "BasicTypes",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( getNS_FunctionalConstraints(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "FunctionalConstraints",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( getNS_PresenceConditions(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "PresenceConditions",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( getNS_Abbreviations(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "Abbreviations",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( getNS_Enumerations(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "Enumerations",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( getNS_ConstructedAttributes(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "ConstructedAttributes",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( getNS_CDCs(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "CDCs",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( getNS_LNClasses(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "LNClasses",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( nsDocEClass,
+                source,
+                new String[] {
+                        "name", "tNSDoc",
+                        "kind", "elementOnly"
+                } );
+        addAnnotation( getNSDoc_Doc(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "Doc",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( getNSDoc_Lang(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "lang"
+                } );
+        addAnnotation( presenceConditionEClass,
+                source,
+                new String[] {
+                        "name", "tPresenceCondition",
+                        "kind", "empty"
+                } );
+        addAnnotation( getPresenceCondition_Argument(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "argument"
+                } );
+        addAnnotation( getPresenceCondition_DescID(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "descID"
+                } );
+        addAnnotation( getPresenceCondition_Name(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "name"
+                } );
+        addAnnotation( getPresenceCondition_TitleID(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "titleID"
+                } );
+        addAnnotation( presenceConditionsEClass,
+                source,
+                new String[] {
+                        "name", "tPresenceConditions",
+                        "kind", "elementOnly"
+                } );
+        addAnnotation( getPresenceConditions_PresenceCondition(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "PresenceCondition",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( pubStageEEnum,
+                source,
+                new String[] {
+                        "name", "tPubStage"
+                } );
+        addAnnotation( pubStageObjectEDataType,
+                source,
+                new String[] {
+                        "name", "tPubStage:Object",
+                        "baseType", "tPubStage"
+                } );
+        addAnnotation( serviceCDCEClass,
+                source,
+                new String[] {
+                        "name", "tServiceCDC",
+                        "kind", "elementOnly"
+                } );
+        addAnnotation( getServiceCDC_ServiceDataAttribute(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "ServiceDataAttribute",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( getServiceCDC_Cdc(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "cdc"
+                } );
+        addAnnotation( getServiceCDC_Variant(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "variant"
+                } );
+        addAnnotation( serviceCDCsEClass,
+                source,
+                new String[] {
+                        "name", "tServiceCDCs",
+                        "kind", "elementOnly"
+                } );
+        addAnnotation( getServiceCDCs_ServiceCDC(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "ServiceCDC",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( serviceConstructedAttributeEClass,
+                source,
+                new String[] {
+                        "name", "tServiceConstructedAttribute",
+                        "kind", "elementOnly"
+                } );
+        addAnnotation( getServiceConstructedAttribute_TypeKindParameterized(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "typeKindParameterized"
+                } );
+        addAnnotation( serviceConstructedAttributesEClass,
+                source,
+                new String[] {
+                        "name", "tServiceConstructedAttributes",
+                        "kind", "elementOnly"
+                } );
+        addAnnotation( getServiceConstructedAttributes_ServiceConstructedAttribute(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "ServiceConstructedAttribute",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( serviceDataAttributeEClass,
+                source,
+                new String[] {
+                        "name", "tServiceDataAttribute",
+                        "kind", "empty"
+                } );
+        addAnnotation( getServiceDataAttribute_Fc(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "fc"
+                } );
+        addAnnotation( getServiceDataAttribute_Name(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "name"
+                } );
+        addAnnotation( serviceNSEClass,
+                source,
+                new String[] {
+                        "name", "tServiceNS",
+                        "kind", "elementOnly"
+                } );
+        addAnnotation( getServiceNS_Changes(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "Changes",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( getServiceNS_FunctionalConstraints(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "FunctionalConstraints",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( getServiceNS_PresenceConditions(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "PresenceConditions",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( getServiceNS_Abbreviations(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "Abbreviations",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( getServiceNS_ServiceTypeRealizations(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "ServiceTypeRealizations",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( getServiceNS_ServiceConstructedAttributes(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "ServiceConstructedAttributes",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( getServiceNS_ServiceCDCs(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "ServiceCDCs",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( serviceNsUsageEClass,
+                source,
+                new String[] {
+                        "name", "tServiceNsUsage",
+                        "kind", "elementOnly"
+                } );
+        addAnnotation( getServiceNsUsage_AppliesTo(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "AppliesTo",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( serviceParameterEClass,
+                source,
+                new String[] {
+                        "name", "tServiceParameter",
+                        "kind", "empty"
+                } );
+        addAnnotation( getServiceParameter_Name(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "name"
+                } );
+        addAnnotation( serviceTypeRealizationsEClass,
+                source,
+                new String[] {
+                        "name", "tServiceTypeRealizations",
+                        "kind", "elementOnly"
+                } );
+        addAnnotation( getServiceTypeRealizations_ServiceTypeRealization(),
+                source,
+                new String[] {
+                        "kind", "element",
+                        "name", "ServiceTypeRealization",
+                        "namespace", "##targetNamespace"
+                } );
+        addAnnotation( subDataAttributeEClass,
+                source,
+                new String[] {
+                        "name", "tSubDataAttribute",
+                        "kind", "empty"
+                } );
+        addAnnotation( getSubDataAttribute_Name(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "name"
+                } );
+        addAnnotation( subDataObjectEClass,
+                source,
+                new String[] {
+                        "name", "tSubDataObject",
+                        "kind", "empty"
+                } );
+        addAnnotation( getSubDataObject_Name(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "name"
+                } );
+        addAnnotation( getSubDataObject_Type(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "type"
+                } );
+        addAnnotation( titledClassEClass,
+                source,
+                new String[] {
+                        "name", "tTitledClass",
+                        "kind", "empty"
+                } );
+        addAnnotation( getTitledClass_TitleID(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "titleID"
+                } );
+        addAnnotation( undefinedAttributeTypeKindEEnum,
+                source,
+                new String[] {
+                        "name", "tUndefinedAttributeTypeKind"
+                } );
+        addAnnotation( undefinedAttributeTypeKindObjectEDataType,
+                source,
+                new String[] {
+                        "name", "tUndefinedAttributeTypeKind:Object",
+                        "baseType", "tUndefinedAttributeTypeKind"
+                } );
+        addAnnotation( getAgNSIdentification_Release(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "release"
+                } );
+        addAnnotation( getAgNSIdentification_Version(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "version"
+                } );
+        addAnnotation( getAgNSIdentification_Id(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "id"
+                } );
+        addAnnotation( getAgNSIdentification_Revision(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "revision"
+                } );
+        addAnnotation( getAgNSIdentification_PublicationStage(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "publicationStage"
+                } );
+        addAnnotation( getAgPresenceCondition_PresCond(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "presCond"
+                } );
+        addAnnotation( getAgPresenceCondition_PresCondArgs(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "presCondArgs"
+                } );
+        addAnnotation( getAgPresenceCondition_PresCondArgsID(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "presCondArgsID"
+                } );
+        addAnnotation( getAgPresenceConditionDerivedStatistics_DsPresCond(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "dsPresCond"
+                } );
+        addAnnotation( getAgPresenceConditionDerivedStatistics_DsPresCondArgs(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "dsPresCondArgs"
+                } );
+        addAnnotation( getAgPresenceConditionDerivedStatistics_DsPresCondArgsID(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "dsPresCondArgsID"
+                } );
+        addAnnotation( getAgArray_IsArray(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "isArray"
+                } );
+        addAnnotation( getAgArray_MaxIndexAttribute(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "maxIndexAttribute"
+                } );
+        addAnnotation( getAgArray_MinIndex(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "minIndex"
+                } );
+        addAnnotation( getAgArray_SizeAttribute(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "sizeAttribute"
+                } );
+        addAnnotation( getAgTrgOp_Dchg(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "dchg"
+                } );
+        addAnnotation( getAgTrgOp_Dupd(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "dupd"
+                } );
+        addAnnotation( getAgTrgOp_Qchg(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "qchg"
+                } );
+        addAnnotation( getAgAttributeType_Type(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "type"
+                } );
+        addAnnotation( getAgAttributeType_TypeKind(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "typeKind"
+                } );
+        addAnnotation( getAgAttributeTypeAndValues_DefaultValue(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "defaultValue"
+                } );
+        addAnnotation( getAgAttributeTypeAndValues_MaxValue(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "maxValue"
+                } );
+        addAnnotation( getAgAttributeTypeAndValues_MinValue(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "minValue"
+                } );
+        addAnnotation( getAgUnderlyingType_UnderlyingType(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "underlyingType"
+                } );
+        addAnnotation( getAgUnderlyingType_UnderlyingTypeKind(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "underlyingTypeKind"
+                } );
+        addAnnotation( getAgUML_UmlDate(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "umlDate"
+                } );
+        addAnnotation( getAgUML_UmlVersion(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "umlVersion"
+                } );
+        addAnnotation( getAgNSdesc_DescID(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "descID"
+                } );
     }
 
     /**
@@ -5675,100 +6772,236 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      */
     protected void createPivotAnnotations() {
         String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";
-        addAnnotation( serviceTypeEClass, source, new String[] { "nameAttributeRequired",
-                "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status" } );
-        addAnnotation( abbreviationEClass, source, new String[] { "nameAttributeRequired",
-                "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status" } );
-        addAnnotation( abbreviationsEClass, source, new String[] { "uniqueAbbreviation",
-                "Tuple {\n\tmessage : String = \'There shall not be two Abbreviations elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.abbreviation->isUnique( a : Abbreviation | a.name )\n}.status" } );
-        addAnnotation( abstractLNClassEClass, source, new String[] { "nameAttributeRequired",
-                "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status" } );
-        addAnnotation( anyLNClassEClass, source, new String[] { "uniqueDataObject",
-                "Tuple {\n\tmessage : String = \'For an AnyLNClass, there shall not be two DataObject sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: base AbstractLNClass should be taken into account\n\t\t\t-- For this, explicit links have to be created first\n\t\t\tself.dataObject->isUnique( d : DataObject | d.name )\n}.status" } );
-        addAnnotation( applicableServiceNSEClass, source, new String[] { "versionAttributeRequired",
-                "Tuple {\n\tmessage : String = \'The version attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.version <> null\n}.status",
-                "dateAttributeRequired",
-                "Tuple {\n\tmessage : String = \'The date attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.date <> null\n}.status" } );
-        addAnnotation( applicableServicesEClass, source, new String[] { "uniqueDataSetMemberOf",
-                "Tuple {\n\tmessage : String = \'For an ApplicableServices, there shall not be two DataSetMemberOf sub-elements with same cb.\',\n\tstatus : Boolean = \n\t\t\tself.dataSetMemberOf->isUnique( d : DataSetMemberOf | d.cb )\n}.status",
-                "uniqueService",
-                "Tuple {\n\tmessage : String = \'For an ApplicableServices, there shall not be two ServiceType sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.service->isUnique( s : ServiceType | s.name )\n}.status" } );
-        addAnnotation( basicTypeEClass, source, new String[] { "nameAttributeRequired",
-                "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status" } );
-        addAnnotation( cdcEClass, source, new String[] { "uniqueCDCChild",
-                "Tuple {\n\tmessage : String = \'For a CDC, there shall not be two sub-elements (SubDataObject or DataAttribute) with same name.\',\n\tstatus : Boolean = \n\t\t\tlet names : Bag(String) = self.subDataObject.name->union(self.dataAttribute.name) in names->size() = names->asSet()->size()\n}.status",
-                "nameAttributeRequired",
-                "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status" } );
-        addAnnotation( cdCsEClass, source, new String[] { "uniqueCDC",
-                "Tuple {\n\tmessage : String = \'Within an NS, there shall not be two CDC sub-elements with same name and (if defined) variant.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: DependsOn NS should be taken into account ?\n\t\t\t-- For this, explicit links have to be created first\n\t\t\t-- Then, may be this constraint should be in NS and not in Enumerations ?\n\t\t\tself.cDC->select( c : CDC | c.variant = null )->isUnique( c : CDC | c.name )\n\t     or self.cDC->select( c : CDC | c.variant <> null )->forAll( c1, c2 : CDC | c1 <> c2 implies c1.name <> c2.name or c1.variant <> c2.variant )\n}.status" } );
-        addAnnotation( changesEClass, source, new String[] { "versionAttributeRequired",
-                "Tuple {\n\tmessage : String = \'The version attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.version <> null\n}.status" } );
-        addAnnotation( constructedAttributeEClass, source, new String[] { "uniqueSubDataAttribute",
-                "Tuple {\n\tmessage : String = \'For a ConstructedAttribute, there shall not be two SubDataAttribute sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.subDataAttribute->isUnique( s : SubDataAttribute | s.name )\n}.status",
-                "nameAttributeRequired",
-                "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status" } );
-        addAnnotation( constructedAttributesEClass, source, new String[] { "uniqueConstructedAttribute",
-                "Tuple {\n\tmessage : String = \'Within an NS, there shall not be two ConstructedAttribute sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: DependsOn NS should be taken into account ?\n\t\t\t-- For this, explicit links have to be created first\n\t\t\t-- Then, may be this constraint should be in NS and not in Enumerations ?\n\t\t\tself.constructedAttribute->isUnique( c : ConstructedAttribute | c.name )\n}.status" } );
-        addAnnotation( dataAttributeEClass, source, new String[] { "nameAttributeRequired",
-                "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status",
-                "fcAttributeRequired",
-                "Tuple {\n\tmessage : String = \'The fc attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.fc <> null\n}.status" } );
-        addAnnotation( dataObjectEClass, source, new String[] { "nameAttributeRequired",
-                "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status",
-                "typeAttributeRequired",
-                "Tuple {\n\tmessage : String = \'The type attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.type <> null\n}.status" } );
-        addAnnotation( dataSetMemberOfEClass, source, new String[] { "cbAttributeRequired",
-                "Tuple {\n\tmessage : String = \'The cb attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.cb <> null\n}.status" } );
-        addAnnotation( docEClass, source, new String[] { "idAttributeRequired",
-                "Tuple {\n\tmessage : String = \'The id attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.id <> null\n}.status" } );
-        addAnnotation( enumerationEClass, source, new String[] { "uniqueLiteralName",
-                "Tuple {\n\tmessage : String = \'For an Enumeration, there shall not be two Literal sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: inherited literals should be taken into account\n\t\t\t-- For this, explicit links have to be created first\n\t\t\tself.literal->isUnique( l : Literal | l.name )\n}.status",
-                "uniqueLiteralVal",
-                "Tuple {\n\tmessage : String = \'For an Enumeration, there shall not be two Literal sub-elements with same literalVal.\',\n\tstatus : Boolean = \n\t\t\tself.literal->isUnique( l : Literal | l.literalVal )\n}.status",
-                "nameAttributeRequired",
-                "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status" } );
-        addAnnotation( enumerationsEClass, source, new String[] { "uniqueEnumeration",
-                "Tuple {\n\tmessage : String = \'Within an NS, there shall not be two Enumeration sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: DependsOn NS should be taken into account ?\n\t\t\t-- For this, explicit links have to be created first\n\t\t\t-- Then, may be this constraint should be in NS and not in Enumerations ?\n\t\t\tself.enumeration->isUnique( e : Enumeration | e.name )\n}.status" } );
-        addAnnotation( functionalConstraintEClass, source, new String[] { "abbreviationAttributeRequired",
-                "Tuple {\n\tmessage : String = \'The abbreviation attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.abbreviation <> null\n}.status" } );
-        addAnnotation( functionalConstraintsEClass, source, new String[] { "uniqueFunctionalConstraint",
-                "Tuple {\n\tmessage : String = \'There shall not be two FunctionalConstraint elements with same abbreviation.\',\n\tstatus : Boolean = \n\t\t\tself.functionalConstraint->isUnique( f : FunctionalConstraint | f.abbreviation )\n}.status" } );
-        addAnnotation( literalEClass, source, new String[] { "nameAttributeRequired",
-                "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status",
-                "literalValAttributeRequired",
-                "Tuple {\n\tmessage : String = \'The literalVal attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.literalVal <> null\n}.status" } );
-        addAnnotation( lnClassEClass, source, new String[] { "nameAttributeRequired",
-                "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status" } );
-        addAnnotation( lnClassesEClass, source, new String[] { "uniqueAbstractLNClass",
-                "Tuple {\n\tmessage : String = \'Within an NS, there shall not be two AbstractLNClass sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.abstractLNClass->isUnique( c : AbstractLNClass | c.name )\n}.status",
-                "uniqueLNClass",
-                "Tuple {\n\tmessage : String = \'Within an NS, there shall not be two LNClass sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.lNClass->isUnique( c : LNClass | c.name )\n}.status" } );
-        addAnnotation( nsDocEClass, source, new String[] { "langAttributeRequired",
-                "Tuple {\n\tmessage : String = \'The lang attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.lang <> null\n}.status" } );
-        addAnnotation( presenceConditionEClass, source, new String[] { "nameAttributeRequired",
-                "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status" } );
-        addAnnotation( presenceConditionsEClass, source, new String[] { "uniquePresenceCondition",
-                "Tuple {\n\tmessage : String = \'There shall not be two PresenceCondition elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.presenceCondition->isUnique( p : PresenceCondition | p.name )\n}.status" } );
-        addAnnotation( serviceCDCEClass, source, new String[] { "cdcAttributeRequired",
-                "Tuple {\n\tmessage : String = \'The cdc attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.cdc <> null\n}.status" } );
-        addAnnotation( serviceDataAttributeEClass, source, new String[] { "nameAttributeRequired",
-                "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status",
-                "fcAttributeRequired",
-                "Tuple {\n\tmessage : String = \'The fc attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.fc <> null\n}.status" } );
-        addAnnotation( serviceParameterEClass, source, new String[] { "nameAttributeRequired",
-                "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status" } );
-        addAnnotation( subDataAttributeEClass, source, new String[] { "nameAttributeRequired",
-                "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status" } );
-        addAnnotation( subDataObjectEClass, source, new String[] { "nameAttributeRequired",
-                "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status",
-                "typeAttributeRequired",
-                "Tuple {\n\tmessage : String = \'The type attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.type <> null\n}.status" } );
-        addAnnotation( titledClassEClass, source, new String[] { "titleIDAttributeRequired",
-                "Tuple {\n\tmessage : String = \'The titleID attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.titleID <> null\n}.status" } );
-        addAnnotation( agNSIdentificationEClass, source, new String[] { "idAttributeRequired",
-                "Tuple {\n\tmessage : String = \'The id attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.id <> null\n}.status",
-                "versionAttributeRequired",
-                "Tuple {\n\tmessage : String = \'The version attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.version <> null\n}.status" } );
+        addAnnotation( serviceTypeEClass,
+                source,
+                new String[] {
+                        "nameAttributeRequired",
+                        "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status"
+                } );
+        addAnnotation( abbreviationEClass,
+                source,
+                new String[] {
+                        "nameAttributeRequired",
+                        "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status"
+                } );
+        addAnnotation( abbreviationsEClass,
+                source,
+                new String[] {
+                        "uniqueAbbreviation",
+                        "Tuple {\n\tmessage : String = \'There shall not be two Abbreviations elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.abbreviation->isUnique( a : Abbreviation | a.name )\n}.status"
+                } );
+        addAnnotation( abstractLNClassEClass,
+                source,
+                new String[] {
+                        "nameAttributeRequired",
+                        "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status"
+                } );
+        addAnnotation( anyLNClassEClass,
+                source,
+                new String[] {
+                        "uniqueDataObject",
+                        "Tuple {\n\tmessage : String = \'For an AnyLNClass, there shall not be two DataObject sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: base AbstractLNClass should be taken into account\n\t\t\t-- For this, explicit links have to be created first\n\t\t\tself.dataObject->isUnique( d : DataObject | d.name )\n}.status"
+                } );
+        addAnnotation( applicableServiceNSEClass,
+                source,
+                new String[] {
+                        "versionAttributeRequired",
+                        "Tuple {\n\tmessage : String = \'The version attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.version <> null\n}.status",
+                        "dateAttributeRequired",
+                        "Tuple {\n\tmessage : String = \'The date attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.date <> null\n}.status"
+                } );
+        addAnnotation( applicableServicesEClass,
+                source,
+                new String[] {
+                        "uniqueDataSetMemberOf",
+                        "Tuple {\n\tmessage : String = \'For an ApplicableServices, there shall not be two DataSetMemberOf sub-elements with same cb.\',\n\tstatus : Boolean = \n\t\t\tself.dataSetMemberOf->isUnique( d : DataSetMemberOf | d.cb )\n}.status",
+                        "uniqueService",
+                        "Tuple {\n\tmessage : String = \'For an ApplicableServices, there shall not be two ServiceType sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.service->isUnique( s : ServiceType | s.name )\n}.status"
+                } );
+        addAnnotation( basicTypeEClass,
+                source,
+                new String[] {
+                        "nameAttributeRequired",
+                        "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status"
+                } );
+        addAnnotation( cdcEClass,
+                source,
+                new String[] {
+                        "uniqueCDCChild",
+                        "Tuple {\n\tmessage : String = \'For a CDC, there shall not be two sub-elements (SubDataObject or DataAttribute) with same name.\',\n\tstatus : Boolean = \n\t\t\tlet names : Bag(String) = self.subDataObject.name->union(self.dataAttribute.name) in names->size() = names->asSet()->size()\n}.status",
+                        "nameAttributeRequired",
+                        "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status"
+                } );
+        addAnnotation( cdCsEClass,
+                source,
+                new String[] {
+                        "uniqueCDC",
+                        "Tuple {\n\tmessage : String = \'Within an NS, there shall not be two CDC sub-elements with same name and (if defined) variant.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: DependsOn NS should be taken into account ?\n\t\t\t-- For this, explicit links have to be created first\n\t\t\t-- Then, may be this constraint should be in NS and not in Enumerations ?\n\t\t\tself.cDC->select( c : CDC | c.variant = null )->isUnique( c : CDC | c.name )\n\t     or self.cDC->select( c : CDC | c.variant <> null )->forAll( c1, c2 : CDC | c1 <> c2 implies c1.name <> c2.name or c1.variant <> c2.variant )\n}.status"
+                } );
+        addAnnotation( changesEClass,
+                source,
+                new String[] {
+                        "versionAttributeRequired",
+                        "Tuple {\n\tmessage : String = \'The version attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.version <> null\n}.status"
+                } );
+        addAnnotation( constructedAttributeEClass,
+                source,
+                new String[] {
+                        "uniqueSubDataAttribute",
+                        "Tuple {\n\tmessage : String = \'For a ConstructedAttribute, there shall not be two SubDataAttribute sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.subDataAttribute->isUnique( s : SubDataAttribute | s.name )\n}.status",
+                        "nameAttributeRequired",
+                        "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status"
+                } );
+        addAnnotation( constructedAttributesEClass,
+                source,
+                new String[] {
+                        "uniqueConstructedAttribute",
+                        "Tuple {\n\tmessage : String = \'Within an NS, there shall not be two ConstructedAttribute sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: DependsOn NS should be taken into account ?\n\t\t\t-- For this, explicit links have to be created first\n\t\t\t-- Then, may be this constraint should be in NS and not in Enumerations ?\n\t\t\tself.constructedAttribute->isUnique( c : ConstructedAttribute | c.name )\n}.status"
+                } );
+        addAnnotation( dataAttributeEClass,
+                source,
+                new String[] {
+                        "nameAttributeRequired",
+                        "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status",
+                        "fcAttributeRequired",
+                        "Tuple {\n\tmessage : String = \'The fc attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.fc <> null\n}.status"
+                } );
+        addAnnotation( dataObjectEClass,
+                source,
+                new String[] {
+                        "nameAttributeRequired",
+                        "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status",
+                        "typeAttributeRequired",
+                        "Tuple {\n\tmessage : String = \'The type attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.type <> null\n}.status"
+                } );
+        addAnnotation( dataSetMemberOfEClass,
+                source,
+                new String[] {
+                        "cbAttributeRequired",
+                        "Tuple {\n\tmessage : String = \'The cb attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.cb <> null\n}.status"
+                } );
+        addAnnotation( docEClass,
+                source,
+                new String[] {
+                        "idAttributeRequired",
+                        "Tuple {\n\tmessage : String = \'The id attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.id <> null\n}.status"
+                } );
+        addAnnotation( enumerationEClass,
+                source,
+                new String[] {
+                        "uniqueLiteralName",
+                        "Tuple {\n\tmessage : String = \'For an Enumeration, there shall not be two Literal sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: inherited literals should be taken into account\n\t\t\t-- For this, explicit links have to be created first\n\t\t\tself.literal->isUnique( l : Literal | l.name )\n}.status",
+                        "uniqueLiteralVal",
+                        "Tuple {\n\tmessage : String = \'For an Enumeration, there shall not be two Literal sub-elements with same literalVal.\',\n\tstatus : Boolean = \n\t\t\tself.literal->isUnique( l : Literal | l.literalVal )\n}.status",
+                        "nameAttributeRequired",
+                        "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status"
+                } );
+        addAnnotation( enumerationsEClass,
+                source,
+                new String[] {
+                        "uniqueEnumeration",
+                        "Tuple {\n\tmessage : String = \'Within an NS, there shall not be two Enumeration sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: DependsOn NS should be taken into account ?\n\t\t\t-- For this, explicit links have to be created first\n\t\t\t-- Then, may be this constraint should be in NS and not in Enumerations ?\n\t\t\tself.enumeration->isUnique( e : Enumeration | e.name )\n}.status"
+                } );
+        addAnnotation( functionalConstraintEClass,
+                source,
+                new String[] {
+                        "abbreviationAttributeRequired",
+                        "Tuple {\n\tmessage : String = \'The abbreviation attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.abbreviation <> null\n}.status"
+                } );
+        addAnnotation( functionalConstraintsEClass,
+                source,
+                new String[] {
+                        "uniqueFunctionalConstraint",
+                        "Tuple {\n\tmessage : String = \'There shall not be two FunctionalConstraint elements with same abbreviation.\',\n\tstatus : Boolean = \n\t\t\tself.functionalConstraint->isUnique( f : FunctionalConstraint | f.abbreviation )\n}.status"
+                } );
+        addAnnotation( literalEClass,
+                source,
+                new String[] {
+                        "nameAttributeRequired",
+                        "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status",
+                        "literalValAttributeRequired",
+                        "Tuple {\n\tmessage : String = \'The literalVal attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.literalVal <> null\n}.status"
+                } );
+        addAnnotation( lnClassEClass,
+                source,
+                new String[] {
+                        "nameAttributeRequired",
+                        "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status"
+                } );
+        addAnnotation( lnClassesEClass,
+                source,
+                new String[] {
+                        "uniqueAbstractLNClass",
+                        "Tuple {\n\tmessage : String = \'Within an NS, there shall not be two AbstractLNClass sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.abstractLNClass->isUnique( c : AbstractLNClass | c.name )\n}.status",
+                        "uniqueLNClass",
+                        "Tuple {\n\tmessage : String = \'Within an NS, there shall not be two LNClass sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.lNClass->isUnique( c : LNClass | c.name )\n}.status"
+                } );
+        addAnnotation( nsDocEClass,
+                source,
+                new String[] {
+                        "langAttributeRequired",
+                        "Tuple {\n\tmessage : String = \'The lang attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.lang <> null\n}.status"
+                } );
+        addAnnotation( presenceConditionEClass,
+                source,
+                new String[] {
+                        "nameAttributeRequired",
+                        "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status"
+                } );
+        addAnnotation( presenceConditionsEClass,
+                source,
+                new String[] {
+                        "uniquePresenceCondition",
+                        "Tuple {\n\tmessage : String = \'There shall not be two PresenceCondition elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.presenceCondition->isUnique( p : PresenceCondition | p.name )\n}.status"
+                } );
+        addAnnotation( serviceCDCEClass,
+                source,
+                new String[] {
+                        "cdcAttributeRequired",
+                        "Tuple {\n\tmessage : String = \'The cdc attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.cdc <> null\n}.status"
+                } );
+        addAnnotation( serviceDataAttributeEClass,
+                source,
+                new String[] {
+                        "nameAttributeRequired",
+                        "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status",
+                        "fcAttributeRequired",
+                        "Tuple {\n\tmessage : String = \'The fc attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.fc <> null\n}.status"
+                } );
+        addAnnotation( serviceParameterEClass,
+                source,
+                new String[] {
+                        "nameAttributeRequired",
+                        "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status"
+                } );
+        addAnnotation( subDataAttributeEClass,
+                source,
+                new String[] {
+                        "nameAttributeRequired",
+                        "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status"
+                } );
+        addAnnotation( subDataObjectEClass,
+                source,
+                new String[] {
+                        "nameAttributeRequired",
+                        "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status",
+                        "typeAttributeRequired",
+                        "Tuple {\n\tmessage : String = \'The type attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.type <> null\n}.status"
+                } );
+        addAnnotation( titledClassEClass,
+                source,
+                new String[] {
+                        "titleIDAttributeRequired",
+                        "Tuple {\n\tmessage : String = \'The titleID attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.titleID <> null\n}.status"
+                } );
+        addAnnotation( agNSIdentificationEClass,
+                source,
+                new String[] {
+                        "idAttributeRequired",
+                        "Tuple {\n\tmessage : String = \'The id attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.id <> null\n}.status",
+                        "versionAttributeRequired",
+                        "Tuple {\n\tmessage : String = \'The version attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.version <> null\n}.status"
+                } );
     }
 
 } //NsdPackageImpl
