@@ -23,6 +23,7 @@
   <modules>
     <module>fr.centralesupelec.edf.riseclipse.iec61850.nsd</module>
     <module>fr.centralesupelec.edf.riseclipse.iec61850.nsd.edit</module>
+    <module>fr.centralesupelec.edf.riseclipse.iec61850.nsd.utilities</module>
   </modules>
 
 </project>
