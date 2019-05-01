@@ -34,8 +34,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getDate <em>Date</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getRevision <em>Revision</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getTissues <em>Tissues</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getNS <em>NS</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getServiceNS <em>Service NS</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getParentNS <em>Parent NS</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getParentServiceNS <em>Parent Service NS</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getRelease <em>Release</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getVersion <em>Version</em>}</li>
  * </ul>
@@ -249,60 +249,52 @@ public interface Changes extends NsdObject {
     boolean isSetTissues();
 
     /**
-     * Returns the value of the '<em><b>NS</b></em>' container reference.
+     * Returns the value of the '<em><b>Parent NS</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getChanges <em>Changes</em>}'.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>NS</em>' container reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>NS</em>' container reference.
-     * @see #setNS(NS)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getChanges_NS()
+     * @return the value of the '<em>Parent NS</em>' container reference.
+     * @see #setParentNS(NS)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getChanges_ParentNS()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getChanges
      * @model opposite="changes" resolveProxies="false" unsettable="true" ordered="false"
      * @generated
      */
-    NS getNS();
+    NS getParentNS();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getNS <em>NS</em>}' container reference.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getParentNS <em>Parent NS</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>NS</em>' container reference.
-     * @see #getNS()
+     * @param value the new value of the '<em>Parent NS</em>' container reference.
+     * @see #getParentNS()
      * @generated
      */
-    void setNS( NS value );
+    void setParentNS( NS value );
 
     /**
-     * Returns the value of the '<em><b>Service NS</b></em>' container reference.
+     * Returns the value of the '<em><b>Parent Service NS</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS#getChanges <em>Changes</em>}'.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Service NS</em>' container reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Service NS</em>' container reference.
-     * @see #setServiceNS(ServiceNS)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getChanges_ServiceNS()
+     * @return the value of the '<em>Parent Service NS</em>' container reference.
+     * @see #setParentServiceNS(ServiceNS)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getChanges_ParentServiceNS()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS#getChanges
      * @model opposite="changes" resolveProxies="false" unsettable="true" ordered="false"
      * @generated
      */
-    ServiceNS getServiceNS();
+    ServiceNS getParentServiceNS();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getServiceNS <em>Service NS</em>}' container reference.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getParentServiceNS <em>Parent Service NS</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Service NS</em>' container reference.
-     * @see #getServiceNS()
+     * @param value the new value of the '<em>Parent Service NS</em>' container reference.
+     * @see #getParentServiceNS()
      * @generated
      */
-    void setServiceNS( ServiceNS value );
+    void setParentServiceNS( ServiceNS value );
 
     /**
      * Returns the value of the '<em><b>Release</b></em>' attribute.

@@ -48,7 +48,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ConstructedAttributesImpl#getConstructedAttribute <em>Constructed Attribute</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ConstructedAttributesImpl#getNS <em>NS</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ConstructedAttributesImpl#getParentNS <em>Parent NS</em>}</li>
  * </ul>
  *
  * @generated
@@ -93,7 +93,7 @@ public class ConstructedAttributesImpl extends NsdObjectImpl implements Construc
         if( constructedAttribute == null ) {
             constructedAttribute = new EObjectContainmentWithInverseEList.Unsettable< ConstructedAttribute >(
                     ConstructedAttribute.class, this, NsdPackage.CONSTRUCTED_ATTRIBUTES__CONSTRUCTED_ATTRIBUTE,
-                    NsdPackage.CONSTRUCTED_ATTRIBUTE__CONSTRUCTED_ATTRIBUTES );
+                    NsdPackage.CONSTRUCTED_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTES );
         }
         return constructedAttribute;
     }
@@ -124,8 +124,8 @@ public class ConstructedAttributesImpl extends NsdObjectImpl implements Construc
      * @generated
      */
     @Override
-    public NS getNS() {
-        if( eContainerFeatureID() != NsdPackage.CONSTRUCTED_ATTRIBUTES__NS ) return null;
+    public NS getParentNS() {
+        if( eContainerFeatureID() != NsdPackage.CONSTRUCTED_ATTRIBUTES__PARENT_NS ) return null;
         return ( NS ) eInternalContainer();
     }
 
@@ -134,8 +134,9 @@ public class ConstructedAttributesImpl extends NsdObjectImpl implements Construc
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetNS( NS newNS, NotificationChain msgs ) {
-        msgs = eBasicSetContainer( ( InternalEObject ) newNS, NsdPackage.CONSTRUCTED_ATTRIBUTES__NS, msgs );
+    public NotificationChain basicSetParentNS( NS newParentNS, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newParentNS, NsdPackage.CONSTRUCTED_ATTRIBUTES__PARENT_NS,
+                msgs );
         return msgs;
     }
 
@@ -145,23 +146,23 @@ public class ConstructedAttributesImpl extends NsdObjectImpl implements Construc
      * @generated
      */
     @Override
-    public void setNS( NS newNS ) {
-        if( newNS != eInternalContainer()
-                || ( eContainerFeatureID() != NsdPackage.CONSTRUCTED_ATTRIBUTES__NS && newNS != null ) ) {
-            if( EcoreUtil.isAncestor( this, newNS ) )
+    public void setParentNS( NS newParentNS ) {
+        if( newParentNS != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.CONSTRUCTED_ATTRIBUTES__PARENT_NS && newParentNS != null ) ) {
+            if( EcoreUtil.isAncestor( this, newParentNS ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newNS != null )
-                msgs = ( ( InternalEObject ) newNS ).eInverseAdd( this, NsdPackage.NS__CONSTRUCTED_ATTRIBUTES, NS.class,
-                        msgs );
-            msgs = basicSetNS( newNS, msgs );
+            if( newParentNS != null )
+                msgs = ( ( InternalEObject ) newParentNS ).eInverseAdd( this, NsdPackage.NS__CONSTRUCTED_ATTRIBUTES,
+                        NS.class, msgs );
+            msgs = basicSetParentNS( newParentNS, msgs );
             if( msgs != null ) msgs.dispatch();
         }
         else if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CONSTRUCTED_ATTRIBUTES__NS, newNS,
-                    newNS ) );
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CONSTRUCTED_ATTRIBUTES__PARENT_NS,
+                    newParentNS, newParentNS ) );
     }
 
     /**
@@ -176,10 +177,10 @@ public class ConstructedAttributesImpl extends NsdObjectImpl implements Construc
         case NsdPackage.CONSTRUCTED_ATTRIBUTES__CONSTRUCTED_ATTRIBUTE:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getConstructedAttribute() )
                     .basicAdd( otherEnd, msgs );
-        case NsdPackage.CONSTRUCTED_ATTRIBUTES__NS:
+        case NsdPackage.CONSTRUCTED_ATTRIBUTES__PARENT_NS:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            return basicSetNS( ( NS ) otherEnd, msgs );
+            return basicSetParentNS( ( NS ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
     }
@@ -194,8 +195,8 @@ public class ConstructedAttributesImpl extends NsdObjectImpl implements Construc
         switch( featureID ) {
         case NsdPackage.CONSTRUCTED_ATTRIBUTES__CONSTRUCTED_ATTRIBUTE:
             return ( ( InternalEList< ? > ) getConstructedAttribute() ).basicRemove( otherEnd, msgs );
-        case NsdPackage.CONSTRUCTED_ATTRIBUTES__NS:
-            return basicSetNS( null, msgs );
+        case NsdPackage.CONSTRUCTED_ATTRIBUTES__PARENT_NS:
+            return basicSetParentNS( null, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -208,7 +209,7 @@ public class ConstructedAttributesImpl extends NsdObjectImpl implements Construc
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
         switch( eContainerFeatureID() ) {
-        case NsdPackage.CONSTRUCTED_ATTRIBUTES__NS:
+        case NsdPackage.CONSTRUCTED_ATTRIBUTES__PARENT_NS:
             return eInternalContainer().eInverseRemove( this, NsdPackage.NS__CONSTRUCTED_ATTRIBUTES, NS.class, msgs );
         }
         return super.eBasicRemoveFromContainerFeature( msgs );
@@ -224,8 +225,8 @@ public class ConstructedAttributesImpl extends NsdObjectImpl implements Construc
         switch( featureID ) {
         case NsdPackage.CONSTRUCTED_ATTRIBUTES__CONSTRUCTED_ATTRIBUTE:
             return getConstructedAttribute();
-        case NsdPackage.CONSTRUCTED_ATTRIBUTES__NS:
-            return getNS();
+        case NsdPackage.CONSTRUCTED_ATTRIBUTES__PARENT_NS:
+            return getParentNS();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -243,8 +244,8 @@ public class ConstructedAttributesImpl extends NsdObjectImpl implements Construc
             getConstructedAttribute().clear();
             getConstructedAttribute().addAll( ( Collection< ? extends ConstructedAttribute > ) newValue );
             return;
-        case NsdPackage.CONSTRUCTED_ATTRIBUTES__NS:
-            setNS( ( NS ) newValue );
+        case NsdPackage.CONSTRUCTED_ATTRIBUTES__PARENT_NS:
+            setParentNS( ( NS ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -261,8 +262,8 @@ public class ConstructedAttributesImpl extends NsdObjectImpl implements Construc
         case NsdPackage.CONSTRUCTED_ATTRIBUTES__CONSTRUCTED_ATTRIBUTE:
             unsetConstructedAttribute();
             return;
-        case NsdPackage.CONSTRUCTED_ATTRIBUTES__NS:
-            setNS( ( NS ) null );
+        case NsdPackage.CONSTRUCTED_ATTRIBUTES__PARENT_NS:
+            setParentNS( ( NS ) null );
             return;
         }
         super.eUnset( featureID );
@@ -278,8 +279,8 @@ public class ConstructedAttributesImpl extends NsdObjectImpl implements Construc
         switch( featureID ) {
         case NsdPackage.CONSTRUCTED_ATTRIBUTES__CONSTRUCTED_ATTRIBUTE:
             return isSetConstructedAttribute();
-        case NsdPackage.CONSTRUCTED_ATTRIBUTES__NS:
-            return getNS() != null;
+        case NsdPackage.CONSTRUCTED_ATTRIBUTES__PARENT_NS:
+            return getParentNS() != null;
         }
         return super.eIsSet( featureID );
     }

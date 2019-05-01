@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * </p>
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Notice#getMixed <em>Mixed</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Notice#getCopyrightNotice <em>Copyright Notice</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Notice#getParentCopyrightNotice <em>Parent Copyright Notice</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNotice()
@@ -57,31 +57,27 @@ public interface Notice extends NsdObject {
     FeatureMap getMixed();
 
     /**
-     * Returns the value of the '<em><b>Copyright Notice</b></em>' container reference.
+     * Returns the value of the '<em><b>Parent Copyright Notice</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CopyrightNotice#getNotice <em>Notice</em>}'.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Copyright Notice</em>' container reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Copyright Notice</em>' container reference.
-     * @see #setCopyrightNotice(CopyrightNotice)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNotice_CopyrightNotice()
+     * @return the value of the '<em>Parent Copyright Notice</em>' container reference.
+     * @see #setParentCopyrightNotice(CopyrightNotice)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNotice_ParentCopyrightNotice()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CopyrightNotice#getNotice
      * @model opposite="notice" resolveProxies="false" unsettable="true" ordered="false"
      * @generated
      */
-    CopyrightNotice getCopyrightNotice();
+    CopyrightNotice getParentCopyrightNotice();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Notice#getCopyrightNotice <em>Copyright Notice</em>}' container reference.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Notice#getParentCopyrightNotice <em>Parent Copyright Notice</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Copyright Notice</em>' container reference.
-     * @see #getCopyrightNotice()
+     * @param value the new value of the '<em>Parent Copyright Notice</em>' container reference.
+     * @see #getParentCopyrightNotice()
      * @generated
      */
-    void setCopyrightNotice( CopyrightNotice value );
+    void setParentCopyrightNotice( CopyrightNotice value );
 
 } // Notice

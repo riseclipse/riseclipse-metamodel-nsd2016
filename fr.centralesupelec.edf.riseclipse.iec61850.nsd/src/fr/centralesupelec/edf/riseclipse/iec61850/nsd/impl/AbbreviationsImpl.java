@@ -49,8 +49,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AbbreviationsImpl#getAbbreviation <em>Abbreviation</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AbbreviationsImpl#getNS <em>NS</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AbbreviationsImpl#getServiceNS <em>Service NS</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AbbreviationsImpl#getParentNS <em>Parent NS</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AbbreviationsImpl#getParentServiceNS <em>Parent Service NS</em>}</li>
  * </ul>
  *
  * @generated
@@ -94,7 +94,7 @@ public class AbbreviationsImpl extends NsdObjectImpl implements Abbreviations {
     public EList< Abbreviation > getAbbreviation() {
         if( abbreviation == null ) {
             abbreviation = new EObjectContainmentWithInverseEList.Unsettable< Abbreviation >( Abbreviation.class, this,
-                    NsdPackage.ABBREVIATIONS__ABBREVIATION, NsdPackage.ABBREVIATION__ABBREVIATIONS );
+                    NsdPackage.ABBREVIATIONS__ABBREVIATION, NsdPackage.ABBREVIATION__PARENT_ABBREVIATIONS );
         }
         return abbreviation;
     }
@@ -125,8 +125,8 @@ public class AbbreviationsImpl extends NsdObjectImpl implements Abbreviations {
      * @generated
      */
     @Override
-    public NS getNS() {
-        if( eContainerFeatureID() != NsdPackage.ABBREVIATIONS__NS ) return null;
+    public NS getParentNS() {
+        if( eContainerFeatureID() != NsdPackage.ABBREVIATIONS__PARENT_NS ) return null;
         return ( NS ) eInternalContainer();
     }
 
@@ -135,8 +135,8 @@ public class AbbreviationsImpl extends NsdObjectImpl implements Abbreviations {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetNS( NS newNS, NotificationChain msgs ) {
-        msgs = eBasicSetContainer( ( InternalEObject ) newNS, NsdPackage.ABBREVIATIONS__NS, msgs );
+    public NotificationChain basicSetParentNS( NS newParentNS, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newParentNS, NsdPackage.ABBREVIATIONS__PARENT_NS, msgs );
         return msgs;
     }
 
@@ -146,21 +146,23 @@ public class AbbreviationsImpl extends NsdObjectImpl implements Abbreviations {
      * @generated
      */
     @Override
-    public void setNS( NS newNS ) {
-        if( newNS != eInternalContainer()
-                || ( eContainerFeatureID() != NsdPackage.ABBREVIATIONS__NS && newNS != null ) ) {
-            if( EcoreUtil.isAncestor( this, newNS ) )
+    public void setParentNS( NS newParentNS ) {
+        if( newParentNS != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.ABBREVIATIONS__PARENT_NS && newParentNS != null ) ) {
+            if( EcoreUtil.isAncestor( this, newParentNS ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newNS != null )
-                msgs = ( ( InternalEObject ) newNS ).eInverseAdd( this, NsdPackage.NS__ABBREVIATIONS, NS.class, msgs );
-            msgs = basicSetNS( newNS, msgs );
+            if( newParentNS != null )
+                msgs = ( ( InternalEObject ) newParentNS ).eInverseAdd( this, NsdPackage.NS__ABBREVIATIONS, NS.class,
+                        msgs );
+            msgs = basicSetParentNS( newParentNS, msgs );
             if( msgs != null ) msgs.dispatch();
         }
         else if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.ABBREVIATIONS__NS, newNS, newNS ) );
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.ABBREVIATIONS__PARENT_NS, newParentNS,
+                    newParentNS ) );
     }
 
     /**
@@ -169,8 +171,8 @@ public class AbbreviationsImpl extends NsdObjectImpl implements Abbreviations {
      * @generated
      */
     @Override
-    public ServiceNS getServiceNS() {
-        if( eContainerFeatureID() != NsdPackage.ABBREVIATIONS__SERVICE_NS ) return null;
+    public ServiceNS getParentServiceNS() {
+        if( eContainerFeatureID() != NsdPackage.ABBREVIATIONS__PARENT_SERVICE_NS ) return null;
         return ( ServiceNS ) eInternalContainer();
     }
 
@@ -179,8 +181,9 @@ public class AbbreviationsImpl extends NsdObjectImpl implements Abbreviations {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetServiceNS( ServiceNS newServiceNS, NotificationChain msgs ) {
-        msgs = eBasicSetContainer( ( InternalEObject ) newServiceNS, NsdPackage.ABBREVIATIONS__SERVICE_NS, msgs );
+    public NotificationChain basicSetParentServiceNS( ServiceNS newParentServiceNS, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newParentServiceNS, NsdPackage.ABBREVIATIONS__PARENT_SERVICE_NS,
+                msgs );
         return msgs;
     }
 
@@ -190,23 +193,24 @@ public class AbbreviationsImpl extends NsdObjectImpl implements Abbreviations {
      * @generated
      */
     @Override
-    public void setServiceNS( ServiceNS newServiceNS ) {
-        if( newServiceNS != eInternalContainer()
-                || ( eContainerFeatureID() != NsdPackage.ABBREVIATIONS__SERVICE_NS && newServiceNS != null ) ) {
-            if( EcoreUtil.isAncestor( this, newServiceNS ) )
+    public void setParentServiceNS( ServiceNS newParentServiceNS ) {
+        if( newParentServiceNS != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.ABBREVIATIONS__PARENT_SERVICE_NS
+                        && newParentServiceNS != null ) ) {
+            if( EcoreUtil.isAncestor( this, newParentServiceNS ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newServiceNS != null )
-                msgs = ( ( InternalEObject ) newServiceNS ).eInverseAdd( this, NsdPackage.SERVICE_NS__ABBREVIATIONS,
-                        ServiceNS.class, msgs );
-            msgs = basicSetServiceNS( newServiceNS, msgs );
+            if( newParentServiceNS != null )
+                msgs = ( ( InternalEObject ) newParentServiceNS ).eInverseAdd( this,
+                        NsdPackage.SERVICE_NS__ABBREVIATIONS, ServiceNS.class, msgs );
+            msgs = basicSetParentServiceNS( newParentServiceNS, msgs );
             if( msgs != null ) msgs.dispatch();
         }
         else if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.ABBREVIATIONS__SERVICE_NS, newServiceNS,
-                    newServiceNS ) );
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.ABBREVIATIONS__PARENT_SERVICE_NS,
+                    newParentServiceNS, newParentServiceNS ) );
     }
 
     /**
@@ -221,14 +225,14 @@ public class AbbreviationsImpl extends NsdObjectImpl implements Abbreviations {
         case NsdPackage.ABBREVIATIONS__ABBREVIATION:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getAbbreviation() ).basicAdd( otherEnd,
                     msgs );
-        case NsdPackage.ABBREVIATIONS__NS:
+        case NsdPackage.ABBREVIATIONS__PARENT_NS:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            return basicSetNS( ( NS ) otherEnd, msgs );
-        case NsdPackage.ABBREVIATIONS__SERVICE_NS:
+            return basicSetParentNS( ( NS ) otherEnd, msgs );
+        case NsdPackage.ABBREVIATIONS__PARENT_SERVICE_NS:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            return basicSetServiceNS( ( ServiceNS ) otherEnd, msgs );
+            return basicSetParentServiceNS( ( ServiceNS ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
     }
@@ -243,10 +247,10 @@ public class AbbreviationsImpl extends NsdObjectImpl implements Abbreviations {
         switch( featureID ) {
         case NsdPackage.ABBREVIATIONS__ABBREVIATION:
             return ( ( InternalEList< ? > ) getAbbreviation() ).basicRemove( otherEnd, msgs );
-        case NsdPackage.ABBREVIATIONS__NS:
-            return basicSetNS( null, msgs );
-        case NsdPackage.ABBREVIATIONS__SERVICE_NS:
-            return basicSetServiceNS( null, msgs );
+        case NsdPackage.ABBREVIATIONS__PARENT_NS:
+            return basicSetParentNS( null, msgs );
+        case NsdPackage.ABBREVIATIONS__PARENT_SERVICE_NS:
+            return basicSetParentServiceNS( null, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -259,9 +263,9 @@ public class AbbreviationsImpl extends NsdObjectImpl implements Abbreviations {
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
         switch( eContainerFeatureID() ) {
-        case NsdPackage.ABBREVIATIONS__NS:
+        case NsdPackage.ABBREVIATIONS__PARENT_NS:
             return eInternalContainer().eInverseRemove( this, NsdPackage.NS__ABBREVIATIONS, NS.class, msgs );
-        case NsdPackage.ABBREVIATIONS__SERVICE_NS:
+        case NsdPackage.ABBREVIATIONS__PARENT_SERVICE_NS:
             return eInternalContainer().eInverseRemove( this, NsdPackage.SERVICE_NS__ABBREVIATIONS, ServiceNS.class,
                     msgs );
         }
@@ -278,10 +282,10 @@ public class AbbreviationsImpl extends NsdObjectImpl implements Abbreviations {
         switch( featureID ) {
         case NsdPackage.ABBREVIATIONS__ABBREVIATION:
             return getAbbreviation();
-        case NsdPackage.ABBREVIATIONS__NS:
-            return getNS();
-        case NsdPackage.ABBREVIATIONS__SERVICE_NS:
-            return getServiceNS();
+        case NsdPackage.ABBREVIATIONS__PARENT_NS:
+            return getParentNS();
+        case NsdPackage.ABBREVIATIONS__PARENT_SERVICE_NS:
+            return getParentServiceNS();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -299,11 +303,11 @@ public class AbbreviationsImpl extends NsdObjectImpl implements Abbreviations {
             getAbbreviation().clear();
             getAbbreviation().addAll( ( Collection< ? extends Abbreviation > ) newValue );
             return;
-        case NsdPackage.ABBREVIATIONS__NS:
-            setNS( ( NS ) newValue );
+        case NsdPackage.ABBREVIATIONS__PARENT_NS:
+            setParentNS( ( NS ) newValue );
             return;
-        case NsdPackage.ABBREVIATIONS__SERVICE_NS:
-            setServiceNS( ( ServiceNS ) newValue );
+        case NsdPackage.ABBREVIATIONS__PARENT_SERVICE_NS:
+            setParentServiceNS( ( ServiceNS ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -320,11 +324,11 @@ public class AbbreviationsImpl extends NsdObjectImpl implements Abbreviations {
         case NsdPackage.ABBREVIATIONS__ABBREVIATION:
             unsetAbbreviation();
             return;
-        case NsdPackage.ABBREVIATIONS__NS:
-            setNS( ( NS ) null );
+        case NsdPackage.ABBREVIATIONS__PARENT_NS:
+            setParentNS( ( NS ) null );
             return;
-        case NsdPackage.ABBREVIATIONS__SERVICE_NS:
-            setServiceNS( ( ServiceNS ) null );
+        case NsdPackage.ABBREVIATIONS__PARENT_SERVICE_NS:
+            setParentServiceNS( ( ServiceNS ) null );
             return;
         }
         super.eUnset( featureID );
@@ -340,10 +344,10 @@ public class AbbreviationsImpl extends NsdObjectImpl implements Abbreviations {
         switch( featureID ) {
         case NsdPackage.ABBREVIATIONS__ABBREVIATION:
             return isSetAbbreviation();
-        case NsdPackage.ABBREVIATIONS__NS:
-            return getNS() != null;
-        case NsdPackage.ABBREVIATIONS__SERVICE_NS:
-            return getServiceNS() != null;
+        case NsdPackage.ABBREVIATIONS__PARENT_NS:
+            return getParentNS() != null;
+        case NsdPackage.ABBREVIATIONS__PARENT_SERVICE_NS:
+            return getParentServiceNS() != null;
         }
         return super.eIsSet( featureID );
     }

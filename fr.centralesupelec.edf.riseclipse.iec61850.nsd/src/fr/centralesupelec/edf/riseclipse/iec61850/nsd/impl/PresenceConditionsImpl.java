@@ -49,8 +49,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.PresenceConditionsImpl#getPresenceCondition <em>Presence Condition</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.PresenceConditionsImpl#getNS <em>NS</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.PresenceConditionsImpl#getServiceNS <em>Service NS</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.PresenceConditionsImpl#getParentNS <em>Parent NS</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.PresenceConditionsImpl#getParentServiceNS <em>Parent Service NS</em>}</li>
  * </ul>
  *
  * @generated
@@ -95,7 +95,7 @@ public class PresenceConditionsImpl extends NsdObjectImpl implements PresenceCon
         if( presenceCondition == null ) {
             presenceCondition = new EObjectContainmentWithInverseEList.Unsettable< PresenceCondition >(
                     PresenceCondition.class, this, NsdPackage.PRESENCE_CONDITIONS__PRESENCE_CONDITION,
-                    NsdPackage.PRESENCE_CONDITION__PRESENCE_CONDITIONS );
+                    NsdPackage.PRESENCE_CONDITION__PARENT_PRESENCE_CONDITIONS );
         }
         return presenceCondition;
     }
@@ -126,8 +126,8 @@ public class PresenceConditionsImpl extends NsdObjectImpl implements PresenceCon
      * @generated
      */
     @Override
-    public NS getNS() {
-        if( eContainerFeatureID() != NsdPackage.PRESENCE_CONDITIONS__NS ) return null;
+    public NS getParentNS() {
+        if( eContainerFeatureID() != NsdPackage.PRESENCE_CONDITIONS__PARENT_NS ) return null;
         return ( NS ) eInternalContainer();
     }
 
@@ -136,8 +136,8 @@ public class PresenceConditionsImpl extends NsdObjectImpl implements PresenceCon
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetNS( NS newNS, NotificationChain msgs ) {
-        msgs = eBasicSetContainer( ( InternalEObject ) newNS, NsdPackage.PRESENCE_CONDITIONS__NS, msgs );
+    public NotificationChain basicSetParentNS( NS newParentNS, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newParentNS, NsdPackage.PRESENCE_CONDITIONS__PARENT_NS, msgs );
         return msgs;
     }
 
@@ -147,23 +147,23 @@ public class PresenceConditionsImpl extends NsdObjectImpl implements PresenceCon
      * @generated
      */
     @Override
-    public void setNS( NS newNS ) {
-        if( newNS != eInternalContainer()
-                || ( eContainerFeatureID() != NsdPackage.PRESENCE_CONDITIONS__NS && newNS != null ) ) {
-            if( EcoreUtil.isAncestor( this, newNS ) )
+    public void setParentNS( NS newParentNS ) {
+        if( newParentNS != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.PRESENCE_CONDITIONS__PARENT_NS && newParentNS != null ) ) {
+            if( EcoreUtil.isAncestor( this, newParentNS ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newNS != null )
-                msgs = ( ( InternalEObject ) newNS ).eInverseAdd( this, NsdPackage.NS__PRESENCE_CONDITIONS, NS.class,
-                        msgs );
-            msgs = basicSetNS( newNS, msgs );
+            if( newParentNS != null )
+                msgs = ( ( InternalEObject ) newParentNS ).eInverseAdd( this, NsdPackage.NS__PRESENCE_CONDITIONS,
+                        NS.class, msgs );
+            msgs = basicSetParentNS( newParentNS, msgs );
             if( msgs != null ) msgs.dispatch();
         }
         else if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.PRESENCE_CONDITIONS__NS, newNS,
-                    newNS ) );
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.PRESENCE_CONDITIONS__PARENT_NS,
+                    newParentNS, newParentNS ) );
     }
 
     /**
@@ -172,8 +172,8 @@ public class PresenceConditionsImpl extends NsdObjectImpl implements PresenceCon
      * @generated
      */
     @Override
-    public ServiceNS getServiceNS() {
-        if( eContainerFeatureID() != NsdPackage.PRESENCE_CONDITIONS__SERVICE_NS ) return null;
+    public ServiceNS getParentServiceNS() {
+        if( eContainerFeatureID() != NsdPackage.PRESENCE_CONDITIONS__PARENT_SERVICE_NS ) return null;
         return ( ServiceNS ) eInternalContainer();
     }
 
@@ -182,8 +182,9 @@ public class PresenceConditionsImpl extends NsdObjectImpl implements PresenceCon
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetServiceNS( ServiceNS newServiceNS, NotificationChain msgs ) {
-        msgs = eBasicSetContainer( ( InternalEObject ) newServiceNS, NsdPackage.PRESENCE_CONDITIONS__SERVICE_NS, msgs );
+    public NotificationChain basicSetParentServiceNS( ServiceNS newParentServiceNS, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newParentServiceNS,
+                NsdPackage.PRESENCE_CONDITIONS__PARENT_SERVICE_NS, msgs );
         return msgs;
     }
 
@@ -193,23 +194,24 @@ public class PresenceConditionsImpl extends NsdObjectImpl implements PresenceCon
      * @generated
      */
     @Override
-    public void setServiceNS( ServiceNS newServiceNS ) {
-        if( newServiceNS != eInternalContainer()
-                || ( eContainerFeatureID() != NsdPackage.PRESENCE_CONDITIONS__SERVICE_NS && newServiceNS != null ) ) {
-            if( EcoreUtil.isAncestor( this, newServiceNS ) )
+    public void setParentServiceNS( ServiceNS newParentServiceNS ) {
+        if( newParentServiceNS != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.PRESENCE_CONDITIONS__PARENT_SERVICE_NS
+                        && newParentServiceNS != null ) ) {
+            if( EcoreUtil.isAncestor( this, newParentServiceNS ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newServiceNS != null )
-                msgs = ( ( InternalEObject ) newServiceNS ).eInverseAdd( this,
+            if( newParentServiceNS != null )
+                msgs = ( ( InternalEObject ) newParentServiceNS ).eInverseAdd( this,
                         NsdPackage.SERVICE_NS__PRESENCE_CONDITIONS, ServiceNS.class, msgs );
-            msgs = basicSetServiceNS( newServiceNS, msgs );
+            msgs = basicSetParentServiceNS( newParentServiceNS, msgs );
             if( msgs != null ) msgs.dispatch();
         }
         else if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.PRESENCE_CONDITIONS__SERVICE_NS,
-                    newServiceNS, newServiceNS ) );
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.PRESENCE_CONDITIONS__PARENT_SERVICE_NS,
+                    newParentServiceNS, newParentServiceNS ) );
     }
 
     /**
@@ -224,14 +226,14 @@ public class PresenceConditionsImpl extends NsdObjectImpl implements PresenceCon
         case NsdPackage.PRESENCE_CONDITIONS__PRESENCE_CONDITION:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getPresenceCondition() )
                     .basicAdd( otherEnd, msgs );
-        case NsdPackage.PRESENCE_CONDITIONS__NS:
+        case NsdPackage.PRESENCE_CONDITIONS__PARENT_NS:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            return basicSetNS( ( NS ) otherEnd, msgs );
-        case NsdPackage.PRESENCE_CONDITIONS__SERVICE_NS:
+            return basicSetParentNS( ( NS ) otherEnd, msgs );
+        case NsdPackage.PRESENCE_CONDITIONS__PARENT_SERVICE_NS:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            return basicSetServiceNS( ( ServiceNS ) otherEnd, msgs );
+            return basicSetParentServiceNS( ( ServiceNS ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
     }
@@ -246,10 +248,10 @@ public class PresenceConditionsImpl extends NsdObjectImpl implements PresenceCon
         switch( featureID ) {
         case NsdPackage.PRESENCE_CONDITIONS__PRESENCE_CONDITION:
             return ( ( InternalEList< ? > ) getPresenceCondition() ).basicRemove( otherEnd, msgs );
-        case NsdPackage.PRESENCE_CONDITIONS__NS:
-            return basicSetNS( null, msgs );
-        case NsdPackage.PRESENCE_CONDITIONS__SERVICE_NS:
-            return basicSetServiceNS( null, msgs );
+        case NsdPackage.PRESENCE_CONDITIONS__PARENT_NS:
+            return basicSetParentNS( null, msgs );
+        case NsdPackage.PRESENCE_CONDITIONS__PARENT_SERVICE_NS:
+            return basicSetParentServiceNS( null, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -262,9 +264,9 @@ public class PresenceConditionsImpl extends NsdObjectImpl implements PresenceCon
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
         switch( eContainerFeatureID() ) {
-        case NsdPackage.PRESENCE_CONDITIONS__NS:
+        case NsdPackage.PRESENCE_CONDITIONS__PARENT_NS:
             return eInternalContainer().eInverseRemove( this, NsdPackage.NS__PRESENCE_CONDITIONS, NS.class, msgs );
-        case NsdPackage.PRESENCE_CONDITIONS__SERVICE_NS:
+        case NsdPackage.PRESENCE_CONDITIONS__PARENT_SERVICE_NS:
             return eInternalContainer().eInverseRemove( this, NsdPackage.SERVICE_NS__PRESENCE_CONDITIONS,
                     ServiceNS.class, msgs );
         }
@@ -281,10 +283,10 @@ public class PresenceConditionsImpl extends NsdObjectImpl implements PresenceCon
         switch( featureID ) {
         case NsdPackage.PRESENCE_CONDITIONS__PRESENCE_CONDITION:
             return getPresenceCondition();
-        case NsdPackage.PRESENCE_CONDITIONS__NS:
-            return getNS();
-        case NsdPackage.PRESENCE_CONDITIONS__SERVICE_NS:
-            return getServiceNS();
+        case NsdPackage.PRESENCE_CONDITIONS__PARENT_NS:
+            return getParentNS();
+        case NsdPackage.PRESENCE_CONDITIONS__PARENT_SERVICE_NS:
+            return getParentServiceNS();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -302,11 +304,11 @@ public class PresenceConditionsImpl extends NsdObjectImpl implements PresenceCon
             getPresenceCondition().clear();
             getPresenceCondition().addAll( ( Collection< ? extends PresenceCondition > ) newValue );
             return;
-        case NsdPackage.PRESENCE_CONDITIONS__NS:
-            setNS( ( NS ) newValue );
+        case NsdPackage.PRESENCE_CONDITIONS__PARENT_NS:
+            setParentNS( ( NS ) newValue );
             return;
-        case NsdPackage.PRESENCE_CONDITIONS__SERVICE_NS:
-            setServiceNS( ( ServiceNS ) newValue );
+        case NsdPackage.PRESENCE_CONDITIONS__PARENT_SERVICE_NS:
+            setParentServiceNS( ( ServiceNS ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -323,11 +325,11 @@ public class PresenceConditionsImpl extends NsdObjectImpl implements PresenceCon
         case NsdPackage.PRESENCE_CONDITIONS__PRESENCE_CONDITION:
             unsetPresenceCondition();
             return;
-        case NsdPackage.PRESENCE_CONDITIONS__NS:
-            setNS( ( NS ) null );
+        case NsdPackage.PRESENCE_CONDITIONS__PARENT_NS:
+            setParentNS( ( NS ) null );
             return;
-        case NsdPackage.PRESENCE_CONDITIONS__SERVICE_NS:
-            setServiceNS( ( ServiceNS ) null );
+        case NsdPackage.PRESENCE_CONDITIONS__PARENT_SERVICE_NS:
+            setParentServiceNS( ( ServiceNS ) null );
             return;
         }
         super.eUnset( featureID );
@@ -343,10 +345,10 @@ public class PresenceConditionsImpl extends NsdObjectImpl implements PresenceCon
         switch( featureID ) {
         case NsdPackage.PRESENCE_CONDITIONS__PRESENCE_CONDITION:
             return isSetPresenceCondition();
-        case NsdPackage.PRESENCE_CONDITIONS__NS:
-            return getNS() != null;
-        case NsdPackage.PRESENCE_CONDITIONS__SERVICE_NS:
-            return getServiceNS() != null;
+        case NsdPackage.PRESENCE_CONDITIONS__PARENT_NS:
+            return getParentNS() != null;
+        case NsdPackage.PRESENCE_CONDITIONS__PARENT_SERVICE_NS:
+            return getParentServiceNS() != null;
         }
         return super.eIsSet( featureID );
     }

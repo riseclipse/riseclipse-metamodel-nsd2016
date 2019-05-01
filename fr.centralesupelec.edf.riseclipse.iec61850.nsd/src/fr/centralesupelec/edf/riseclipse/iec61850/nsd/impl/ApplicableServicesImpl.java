@@ -50,7 +50,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ApplicableServicesImpl#getService <em>Service</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ApplicableServicesImpl#getDataSetMemberOf <em>Data Set Member Of</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ApplicableServicesImpl#getFunctionalConstraint <em>Functional Constraint</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ApplicableServicesImpl#getParentFunctionalConstraint <em>Parent Functional Constraint</em>}</li>
  * </ul>
  *
  * @generated
@@ -104,7 +104,7 @@ public class ApplicableServicesImpl extends NsdObjectImpl implements ApplicableS
     public EList< ServiceType > getService() {
         if( service == null ) {
             service = new EObjectContainmentWithInverseEList.Unsettable< ServiceType >( ServiceType.class, this,
-                    NsdPackage.APPLICABLE_SERVICES__SERVICE, NsdPackage.SERVICE_TYPE__APPLICABLE_SERVICES );
+                    NsdPackage.APPLICABLE_SERVICES__SERVICE, NsdPackage.SERVICE_TYPE__PARENT_APPLICABLE_SERVICES );
         }
         return service;
     }
@@ -139,7 +139,7 @@ public class ApplicableServicesImpl extends NsdObjectImpl implements ApplicableS
         if( dataSetMemberOf == null ) {
             dataSetMemberOf = new EObjectContainmentWithInverseEList.Unsettable< DataSetMemberOf >(
                     DataSetMemberOf.class, this, NsdPackage.APPLICABLE_SERVICES__DATA_SET_MEMBER_OF,
-                    NsdPackage.DATA_SET_MEMBER_OF__APPLICABLE_SERVICES );
+                    NsdPackage.DATA_SET_MEMBER_OF__PARENT_APPLICABLE_SERVICES );
         }
         return dataSetMemberOf;
     }
@@ -170,8 +170,8 @@ public class ApplicableServicesImpl extends NsdObjectImpl implements ApplicableS
      * @generated
      */
     @Override
-    public FunctionalConstraint getFunctionalConstraint() {
-        if( eContainerFeatureID() != NsdPackage.APPLICABLE_SERVICES__FUNCTIONAL_CONSTRAINT ) return null;
+    public FunctionalConstraint getParentFunctionalConstraint() {
+        if( eContainerFeatureID() != NsdPackage.APPLICABLE_SERVICES__PARENT_FUNCTIONAL_CONSTRAINT ) return null;
         return ( FunctionalConstraint ) eInternalContainer();
     }
 
@@ -180,10 +180,10 @@ public class ApplicableServicesImpl extends NsdObjectImpl implements ApplicableS
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetFunctionalConstraint( FunctionalConstraint newFunctionalConstraint,
+    public NotificationChain basicSetParentFunctionalConstraint( FunctionalConstraint newParentFunctionalConstraint,
             NotificationChain msgs ) {
-        msgs = eBasicSetContainer( ( InternalEObject ) newFunctionalConstraint,
-                NsdPackage.APPLICABLE_SERVICES__FUNCTIONAL_CONSTRAINT, msgs );
+        msgs = eBasicSetContainer( ( InternalEObject ) newParentFunctionalConstraint,
+                NsdPackage.APPLICABLE_SERVICES__PARENT_FUNCTIONAL_CONSTRAINT, msgs );
         return msgs;
     }
 
@@ -193,25 +193,25 @@ public class ApplicableServicesImpl extends NsdObjectImpl implements ApplicableS
      * @generated
      */
     @Override
-    public void setFunctionalConstraint( FunctionalConstraint newFunctionalConstraint ) {
-        if( newFunctionalConstraint != eInternalContainer()
-                || ( eContainerFeatureID() != NsdPackage.APPLICABLE_SERVICES__FUNCTIONAL_CONSTRAINT
-                        && newFunctionalConstraint != null ) ) {
-            if( EcoreUtil.isAncestor( this, newFunctionalConstraint ) )
+    public void setParentFunctionalConstraint( FunctionalConstraint newParentFunctionalConstraint ) {
+        if( newParentFunctionalConstraint != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.APPLICABLE_SERVICES__PARENT_FUNCTIONAL_CONSTRAINT
+                        && newParentFunctionalConstraint != null ) ) {
+            if( EcoreUtil.isAncestor( this, newParentFunctionalConstraint ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newFunctionalConstraint != null )
-                msgs = ( ( InternalEObject ) newFunctionalConstraint ).eInverseAdd( this,
+            if( newParentFunctionalConstraint != null )
+                msgs = ( ( InternalEObject ) newParentFunctionalConstraint ).eInverseAdd( this,
                         NsdPackage.FUNCTIONAL_CONSTRAINT__APPLICABLE_SERVICES, FunctionalConstraint.class, msgs );
-            msgs = basicSetFunctionalConstraint( newFunctionalConstraint, msgs );
+            msgs = basicSetParentFunctionalConstraint( newParentFunctionalConstraint, msgs );
             if( msgs != null ) msgs.dispatch();
         }
         else if( eNotificationRequired() )
             eNotify( new ENotificationImpl( this, Notification.SET,
-                    NsdPackage.APPLICABLE_SERVICES__FUNCTIONAL_CONSTRAINT, newFunctionalConstraint,
-                    newFunctionalConstraint ) );
+                    NsdPackage.APPLICABLE_SERVICES__PARENT_FUNCTIONAL_CONSTRAINT, newParentFunctionalConstraint,
+                    newParentFunctionalConstraint ) );
     }
 
     /**
@@ -229,10 +229,10 @@ public class ApplicableServicesImpl extends NsdObjectImpl implements ApplicableS
         case NsdPackage.APPLICABLE_SERVICES__DATA_SET_MEMBER_OF:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getDataSetMemberOf() )
                     .basicAdd( otherEnd, msgs );
-        case NsdPackage.APPLICABLE_SERVICES__FUNCTIONAL_CONSTRAINT:
+        case NsdPackage.APPLICABLE_SERVICES__PARENT_FUNCTIONAL_CONSTRAINT:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            return basicSetFunctionalConstraint( ( FunctionalConstraint ) otherEnd, msgs );
+            return basicSetParentFunctionalConstraint( ( FunctionalConstraint ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
     }
@@ -249,8 +249,8 @@ public class ApplicableServicesImpl extends NsdObjectImpl implements ApplicableS
             return ( ( InternalEList< ? > ) getService() ).basicRemove( otherEnd, msgs );
         case NsdPackage.APPLICABLE_SERVICES__DATA_SET_MEMBER_OF:
             return ( ( InternalEList< ? > ) getDataSetMemberOf() ).basicRemove( otherEnd, msgs );
-        case NsdPackage.APPLICABLE_SERVICES__FUNCTIONAL_CONSTRAINT:
-            return basicSetFunctionalConstraint( null, msgs );
+        case NsdPackage.APPLICABLE_SERVICES__PARENT_FUNCTIONAL_CONSTRAINT:
+            return basicSetParentFunctionalConstraint( null, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -263,7 +263,7 @@ public class ApplicableServicesImpl extends NsdObjectImpl implements ApplicableS
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
         switch( eContainerFeatureID() ) {
-        case NsdPackage.APPLICABLE_SERVICES__FUNCTIONAL_CONSTRAINT:
+        case NsdPackage.APPLICABLE_SERVICES__PARENT_FUNCTIONAL_CONSTRAINT:
             return eInternalContainer().eInverseRemove( this, NsdPackage.FUNCTIONAL_CONSTRAINT__APPLICABLE_SERVICES,
                     FunctionalConstraint.class, msgs );
         }
@@ -282,8 +282,8 @@ public class ApplicableServicesImpl extends NsdObjectImpl implements ApplicableS
             return getService();
         case NsdPackage.APPLICABLE_SERVICES__DATA_SET_MEMBER_OF:
             return getDataSetMemberOf();
-        case NsdPackage.APPLICABLE_SERVICES__FUNCTIONAL_CONSTRAINT:
-            return getFunctionalConstraint();
+        case NsdPackage.APPLICABLE_SERVICES__PARENT_FUNCTIONAL_CONSTRAINT:
+            return getParentFunctionalConstraint();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -305,8 +305,8 @@ public class ApplicableServicesImpl extends NsdObjectImpl implements ApplicableS
             getDataSetMemberOf().clear();
             getDataSetMemberOf().addAll( ( Collection< ? extends DataSetMemberOf > ) newValue );
             return;
-        case NsdPackage.APPLICABLE_SERVICES__FUNCTIONAL_CONSTRAINT:
-            setFunctionalConstraint( ( FunctionalConstraint ) newValue );
+        case NsdPackage.APPLICABLE_SERVICES__PARENT_FUNCTIONAL_CONSTRAINT:
+            setParentFunctionalConstraint( ( FunctionalConstraint ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -326,8 +326,8 @@ public class ApplicableServicesImpl extends NsdObjectImpl implements ApplicableS
         case NsdPackage.APPLICABLE_SERVICES__DATA_SET_MEMBER_OF:
             unsetDataSetMemberOf();
             return;
-        case NsdPackage.APPLICABLE_SERVICES__FUNCTIONAL_CONSTRAINT:
-            setFunctionalConstraint( ( FunctionalConstraint ) null );
+        case NsdPackage.APPLICABLE_SERVICES__PARENT_FUNCTIONAL_CONSTRAINT:
+            setParentFunctionalConstraint( ( FunctionalConstraint ) null );
             return;
         }
         super.eUnset( featureID );
@@ -345,8 +345,8 @@ public class ApplicableServicesImpl extends NsdObjectImpl implements ApplicableS
             return isSetService();
         case NsdPackage.APPLICABLE_SERVICES__DATA_SET_MEMBER_OF:
             return isSetDataSetMemberOf();
-        case NsdPackage.APPLICABLE_SERVICES__FUNCTIONAL_CONSTRAINT:
-            return getFunctionalConstraint() != null;
+        case NsdPackage.APPLICABLE_SERVICES__PARENT_FUNCTIONAL_CONSTRAINT:
+            return getParentFunctionalConstraint() != null;
         }
         return super.eIsSet( featureID );
     }

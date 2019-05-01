@@ -48,7 +48,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceCDCsImpl#getServiceCDC <em>Service CDC</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceCDCsImpl#getServiceNS <em>Service NS</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceCDCsImpl#getParentServiceNS <em>Parent Service NS</em>}</li>
  * </ul>
  *
  * @generated
@@ -92,7 +92,7 @@ public class ServiceCDCsImpl extends NsdObjectImpl implements ServiceCDCs {
     public EList< ServiceCDC > getServiceCDC() {
         if( serviceCDC == null ) {
             serviceCDC = new EObjectContainmentWithInverseEList.Unsettable< ServiceCDC >( ServiceCDC.class, this,
-                    NsdPackage.SERVICE_CD_CS__SERVICE_CDC, NsdPackage.SERVICE_CDC__SERVICE_CD_CS );
+                    NsdPackage.SERVICE_CD_CS__SERVICE_CDC, NsdPackage.SERVICE_CDC__PARENT_SERVICE_CD_CS );
         }
         return serviceCDC;
     }
@@ -123,8 +123,8 @@ public class ServiceCDCsImpl extends NsdObjectImpl implements ServiceCDCs {
      * @generated
      */
     @Override
-    public ServiceNS getServiceNS() {
-        if( eContainerFeatureID() != NsdPackage.SERVICE_CD_CS__SERVICE_NS ) return null;
+    public ServiceNS getParentServiceNS() {
+        if( eContainerFeatureID() != NsdPackage.SERVICE_CD_CS__PARENT_SERVICE_NS ) return null;
         return ( ServiceNS ) eInternalContainer();
     }
 
@@ -133,8 +133,9 @@ public class ServiceCDCsImpl extends NsdObjectImpl implements ServiceCDCs {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetServiceNS( ServiceNS newServiceNS, NotificationChain msgs ) {
-        msgs = eBasicSetContainer( ( InternalEObject ) newServiceNS, NsdPackage.SERVICE_CD_CS__SERVICE_NS, msgs );
+    public NotificationChain basicSetParentServiceNS( ServiceNS newParentServiceNS, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newParentServiceNS, NsdPackage.SERVICE_CD_CS__PARENT_SERVICE_NS,
+                msgs );
         return msgs;
     }
 
@@ -144,23 +145,24 @@ public class ServiceCDCsImpl extends NsdObjectImpl implements ServiceCDCs {
      * @generated
      */
     @Override
-    public void setServiceNS( ServiceNS newServiceNS ) {
-        if( newServiceNS != eInternalContainer()
-                || ( eContainerFeatureID() != NsdPackage.SERVICE_CD_CS__SERVICE_NS && newServiceNS != null ) ) {
-            if( EcoreUtil.isAncestor( this, newServiceNS ) )
+    public void setParentServiceNS( ServiceNS newParentServiceNS ) {
+        if( newParentServiceNS != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.SERVICE_CD_CS__PARENT_SERVICE_NS
+                        && newParentServiceNS != null ) ) {
+            if( EcoreUtil.isAncestor( this, newParentServiceNS ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newServiceNS != null )
-                msgs = ( ( InternalEObject ) newServiceNS ).eInverseAdd( this, NsdPackage.SERVICE_NS__SERVICE_CD_CS,
-                        ServiceNS.class, msgs );
-            msgs = basicSetServiceNS( newServiceNS, msgs );
+            if( newParentServiceNS != null )
+                msgs = ( ( InternalEObject ) newParentServiceNS ).eInverseAdd( this,
+                        NsdPackage.SERVICE_NS__SERVICE_CD_CS, ServiceNS.class, msgs );
+            msgs = basicSetParentServiceNS( newParentServiceNS, msgs );
             if( msgs != null ) msgs.dispatch();
         }
         else if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_CD_CS__SERVICE_NS, newServiceNS,
-                    newServiceNS ) );
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_CD_CS__PARENT_SERVICE_NS,
+                    newParentServiceNS, newParentServiceNS ) );
     }
 
     /**
@@ -175,10 +177,10 @@ public class ServiceCDCsImpl extends NsdObjectImpl implements ServiceCDCs {
         case NsdPackage.SERVICE_CD_CS__SERVICE_CDC:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getServiceCDC() ).basicAdd( otherEnd,
                     msgs );
-        case NsdPackage.SERVICE_CD_CS__SERVICE_NS:
+        case NsdPackage.SERVICE_CD_CS__PARENT_SERVICE_NS:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            return basicSetServiceNS( ( ServiceNS ) otherEnd, msgs );
+            return basicSetParentServiceNS( ( ServiceNS ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
     }
@@ -193,8 +195,8 @@ public class ServiceCDCsImpl extends NsdObjectImpl implements ServiceCDCs {
         switch( featureID ) {
         case NsdPackage.SERVICE_CD_CS__SERVICE_CDC:
             return ( ( InternalEList< ? > ) getServiceCDC() ).basicRemove( otherEnd, msgs );
-        case NsdPackage.SERVICE_CD_CS__SERVICE_NS:
-            return basicSetServiceNS( null, msgs );
+        case NsdPackage.SERVICE_CD_CS__PARENT_SERVICE_NS:
+            return basicSetParentServiceNS( null, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -207,7 +209,7 @@ public class ServiceCDCsImpl extends NsdObjectImpl implements ServiceCDCs {
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
         switch( eContainerFeatureID() ) {
-        case NsdPackage.SERVICE_CD_CS__SERVICE_NS:
+        case NsdPackage.SERVICE_CD_CS__PARENT_SERVICE_NS:
             return eInternalContainer().eInverseRemove( this, NsdPackage.SERVICE_NS__SERVICE_CD_CS, ServiceNS.class,
                     msgs );
         }
@@ -224,8 +226,8 @@ public class ServiceCDCsImpl extends NsdObjectImpl implements ServiceCDCs {
         switch( featureID ) {
         case NsdPackage.SERVICE_CD_CS__SERVICE_CDC:
             return getServiceCDC();
-        case NsdPackage.SERVICE_CD_CS__SERVICE_NS:
-            return getServiceNS();
+        case NsdPackage.SERVICE_CD_CS__PARENT_SERVICE_NS:
+            return getParentServiceNS();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -243,8 +245,8 @@ public class ServiceCDCsImpl extends NsdObjectImpl implements ServiceCDCs {
             getServiceCDC().clear();
             getServiceCDC().addAll( ( Collection< ? extends ServiceCDC > ) newValue );
             return;
-        case NsdPackage.SERVICE_CD_CS__SERVICE_NS:
-            setServiceNS( ( ServiceNS ) newValue );
+        case NsdPackage.SERVICE_CD_CS__PARENT_SERVICE_NS:
+            setParentServiceNS( ( ServiceNS ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -261,8 +263,8 @@ public class ServiceCDCsImpl extends NsdObjectImpl implements ServiceCDCs {
         case NsdPackage.SERVICE_CD_CS__SERVICE_CDC:
             unsetServiceCDC();
             return;
-        case NsdPackage.SERVICE_CD_CS__SERVICE_NS:
-            setServiceNS( ( ServiceNS ) null );
+        case NsdPackage.SERVICE_CD_CS__PARENT_SERVICE_NS:
+            setParentServiceNS( ( ServiceNS ) null );
             return;
         }
         super.eUnset( featureID );
@@ -278,8 +280,8 @@ public class ServiceCDCsImpl extends NsdObjectImpl implements ServiceCDCs {
         switch( featureID ) {
         case NsdPackage.SERVICE_CD_CS__SERVICE_CDC:
             return isSetServiceCDC();
-        case NsdPackage.SERVICE_CD_CS__SERVICE_NS:
-            return getServiceNS() != null;
+        case NsdPackage.SERVICE_CD_CS__PARENT_SERVICE_NS:
+            return getParentServiceNS() != null;
         }
         return super.eIsSet( featureID );
     }

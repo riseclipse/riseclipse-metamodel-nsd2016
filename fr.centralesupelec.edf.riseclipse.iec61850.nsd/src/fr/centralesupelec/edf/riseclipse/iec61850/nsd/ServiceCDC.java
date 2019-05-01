@@ -33,7 +33,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC#getServiceDataAttribute <em>Service Data Attribute</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC#getCdc <em>Cdc</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC#getVariant <em>Variant</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC#getServiceCDCs <em>Service CD Cs</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC#getParentServiceCDCs <em>Parent Service CD Cs</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceCDC()
@@ -46,15 +46,15 @@ public interface ServiceCDC extends NsdObject {
     /**
      * Returns the value of the '<em><b>Service Data Attribute</b></em>' containment reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute}.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute#getServiceCDC <em>Service CDC</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute#getParentServiceCDC <em>Parent Service CDC</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>Service Data Attribute</em>' containment reference list.
      * @see #isSetServiceDataAttribute()
      * @see #unsetServiceDataAttribute()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceCDC_ServiceDataAttribute()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute#getServiceCDC
-     * @model opposite="serviceCDC" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute#getParentServiceCDC
+     * @model opposite="parentServiceCDC" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='ServiceDataAttribute' namespace='##targetNamespace'"
      * @generated
      */
@@ -182,31 +182,27 @@ public interface ServiceCDC extends NsdObject {
     boolean isSetVariant();
 
     /**
-     * Returns the value of the '<em><b>Service CD Cs</b></em>' container reference.
+     * Returns the value of the '<em><b>Parent Service CD Cs</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDCs#getServiceCDC <em>Service CDC</em>}'.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Service CD Cs</em>' container reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Service CD Cs</em>' container reference.
-     * @see #setServiceCDCs(ServiceCDCs)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceCDC_ServiceCDCs()
+     * @return the value of the '<em>Parent Service CD Cs</em>' container reference.
+     * @see #setParentServiceCDCs(ServiceCDCs)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceCDC_ParentServiceCDCs()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDCs#getServiceCDC
      * @model opposite="serviceCDC" resolveProxies="false" unsettable="true" ordered="false"
      * @generated
      */
-    ServiceCDCs getServiceCDCs();
+    ServiceCDCs getParentServiceCDCs();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC#getServiceCDCs <em>Service CD Cs</em>}' container reference.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC#getParentServiceCDCs <em>Parent Service CD Cs</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Service CD Cs</em>' container reference.
-     * @see #getServiceCDCs()
+     * @param value the new value of the '<em>Parent Service CD Cs</em>' container reference.
+     * @see #getParentServiceCDCs()
      * @generated
      */
-    void setServiceCDCs( ServiceCDCs value );
+    void setParentServiceCDCs( ServiceCDCs value );
 
 } // ServiceCDC

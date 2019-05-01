@@ -47,8 +47,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ChangesImpl#getDate <em>Date</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ChangesImpl#getRevision <em>Revision</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ChangesImpl#getTissues <em>Tissues</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ChangesImpl#getNS <em>NS</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ChangesImpl#getServiceNS <em>Service NS</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ChangesImpl#getParentNS <em>Parent NS</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ChangesImpl#getParentServiceNS <em>Parent Service NS</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ChangesImpl#getRelease <em>Release</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ChangesImpl#getVersion <em>Version</em>}</li>
  * </ul>
@@ -463,8 +463,8 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
      * @generated
      */
     @Override
-    public NS getNS() {
-        if( eContainerFeatureID() != NsdPackage.CHANGES__NS ) return null;
+    public NS getParentNS() {
+        if( eContainerFeatureID() != NsdPackage.CHANGES__PARENT_NS ) return null;
         return ( NS ) eInternalContainer();
     }
 
@@ -473,8 +473,8 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetNS( NS newNS, NotificationChain msgs ) {
-        msgs = eBasicSetContainer( ( InternalEObject ) newNS, NsdPackage.CHANGES__NS, msgs );
+    public NotificationChain basicSetParentNS( NS newParentNS, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newParentNS, NsdPackage.CHANGES__PARENT_NS, msgs );
         return msgs;
     }
 
@@ -484,20 +484,22 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
      * @generated
      */
     @Override
-    public void setNS( NS newNS ) {
-        if( newNS != eInternalContainer() || ( eContainerFeatureID() != NsdPackage.CHANGES__NS && newNS != null ) ) {
-            if( EcoreUtil.isAncestor( this, newNS ) )
+    public void setParentNS( NS newParentNS ) {
+        if( newParentNS != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.CHANGES__PARENT_NS && newParentNS != null ) ) {
+            if( EcoreUtil.isAncestor( this, newParentNS ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newNS != null )
-                msgs = ( ( InternalEObject ) newNS ).eInverseAdd( this, NsdPackage.NS__CHANGES, NS.class, msgs );
-            msgs = basicSetNS( newNS, msgs );
+            if( newParentNS != null )
+                msgs = ( ( InternalEObject ) newParentNS ).eInverseAdd( this, NsdPackage.NS__CHANGES, NS.class, msgs );
+            msgs = basicSetParentNS( newParentNS, msgs );
             if( msgs != null ) msgs.dispatch();
         }
         else if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CHANGES__NS, newNS, newNS ) );
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CHANGES__PARENT_NS, newParentNS,
+                    newParentNS ) );
     }
 
     /**
@@ -506,8 +508,8 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
      * @generated
      */
     @Override
-    public ServiceNS getServiceNS() {
-        if( eContainerFeatureID() != NsdPackage.CHANGES__SERVICE_NS ) return null;
+    public ServiceNS getParentServiceNS() {
+        if( eContainerFeatureID() != NsdPackage.CHANGES__PARENT_SERVICE_NS ) return null;
         return ( ServiceNS ) eInternalContainer();
     }
 
@@ -516,8 +518,9 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetServiceNS( ServiceNS newServiceNS, NotificationChain msgs ) {
-        msgs = eBasicSetContainer( ( InternalEObject ) newServiceNS, NsdPackage.CHANGES__SERVICE_NS, msgs );
+    public NotificationChain basicSetParentServiceNS( ServiceNS newParentServiceNS, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newParentServiceNS, NsdPackage.CHANGES__PARENT_SERVICE_NS,
+                msgs );
         return msgs;
     }
 
@@ -527,23 +530,23 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
      * @generated
      */
     @Override
-    public void setServiceNS( ServiceNS newServiceNS ) {
-        if( newServiceNS != eInternalContainer()
-                || ( eContainerFeatureID() != NsdPackage.CHANGES__SERVICE_NS && newServiceNS != null ) ) {
-            if( EcoreUtil.isAncestor( this, newServiceNS ) )
+    public void setParentServiceNS( ServiceNS newParentServiceNS ) {
+        if( newParentServiceNS != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.CHANGES__PARENT_SERVICE_NS && newParentServiceNS != null ) ) {
+            if( EcoreUtil.isAncestor( this, newParentServiceNS ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newServiceNS != null )
-                msgs = ( ( InternalEObject ) newServiceNS ).eInverseAdd( this, NsdPackage.SERVICE_NS__CHANGES,
+            if( newParentServiceNS != null )
+                msgs = ( ( InternalEObject ) newParentServiceNS ).eInverseAdd( this, NsdPackage.SERVICE_NS__CHANGES,
                         ServiceNS.class, msgs );
-            msgs = basicSetServiceNS( newServiceNS, msgs );
+            msgs = basicSetParentServiceNS( newParentServiceNS, msgs );
             if( msgs != null ) msgs.dispatch();
         }
         else if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CHANGES__SERVICE_NS, newServiceNS,
-                    newServiceNS ) );
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CHANGES__PARENT_SERVICE_NS,
+                    newParentServiceNS, newParentServiceNS ) );
     }
 
     /**
@@ -658,14 +661,14 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
     @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
-        case NsdPackage.CHANGES__NS:
+        case NsdPackage.CHANGES__PARENT_NS:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            return basicSetNS( ( NS ) otherEnd, msgs );
-        case NsdPackage.CHANGES__SERVICE_NS:
+            return basicSetParentNS( ( NS ) otherEnd, msgs );
+        case NsdPackage.CHANGES__PARENT_SERVICE_NS:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            return basicSetServiceNS( ( ServiceNS ) otherEnd, msgs );
+            return basicSetParentServiceNS( ( ServiceNS ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
     }
@@ -678,10 +681,10 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
     @Override
     public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
-        case NsdPackage.CHANGES__NS:
-            return basicSetNS( null, msgs );
-        case NsdPackage.CHANGES__SERVICE_NS:
-            return basicSetServiceNS( null, msgs );
+        case NsdPackage.CHANGES__PARENT_NS:
+            return basicSetParentNS( null, msgs );
+        case NsdPackage.CHANGES__PARENT_SERVICE_NS:
+            return basicSetParentServiceNS( null, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -694,9 +697,9 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
         switch( eContainerFeatureID() ) {
-        case NsdPackage.CHANGES__NS:
+        case NsdPackage.CHANGES__PARENT_NS:
             return eInternalContainer().eInverseRemove( this, NsdPackage.NS__CHANGES, NS.class, msgs );
-        case NsdPackage.CHANGES__SERVICE_NS:
+        case NsdPackage.CHANGES__PARENT_SERVICE_NS:
             return eInternalContainer().eInverseRemove( this, NsdPackage.SERVICE_NS__CHANGES, ServiceNS.class, msgs );
         }
         return super.eBasicRemoveFromContainerFeature( msgs );
@@ -718,10 +721,10 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
             return getRevision();
         case NsdPackage.CHANGES__TISSUES:
             return getTissues();
-        case NsdPackage.CHANGES__NS:
-            return getNS();
-        case NsdPackage.CHANGES__SERVICE_NS:
-            return getServiceNS();
+        case NsdPackage.CHANGES__PARENT_NS:
+            return getParentNS();
+        case NsdPackage.CHANGES__PARENT_SERVICE_NS:
+            return getParentServiceNS();
         case NsdPackage.CHANGES__RELEASE:
             return getRelease();
         case NsdPackage.CHANGES__VERSION:
@@ -750,11 +753,11 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
         case NsdPackage.CHANGES__TISSUES:
             setTissues( ( String ) newValue );
             return;
-        case NsdPackage.CHANGES__NS:
-            setNS( ( NS ) newValue );
+        case NsdPackage.CHANGES__PARENT_NS:
+            setParentNS( ( NS ) newValue );
             return;
-        case NsdPackage.CHANGES__SERVICE_NS:
-            setServiceNS( ( ServiceNS ) newValue );
+        case NsdPackage.CHANGES__PARENT_SERVICE_NS:
+            setParentServiceNS( ( ServiceNS ) newValue );
             return;
         case NsdPackage.CHANGES__RELEASE:
             setRelease( ( Integer ) newValue );
@@ -786,11 +789,11 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
         case NsdPackage.CHANGES__TISSUES:
             unsetTissues();
             return;
-        case NsdPackage.CHANGES__NS:
-            setNS( ( NS ) null );
+        case NsdPackage.CHANGES__PARENT_NS:
+            setParentNS( ( NS ) null );
             return;
-        case NsdPackage.CHANGES__SERVICE_NS:
-            setServiceNS( ( ServiceNS ) null );
+        case NsdPackage.CHANGES__PARENT_SERVICE_NS:
+            setParentServiceNS( ( ServiceNS ) null );
             return;
         case NsdPackage.CHANGES__RELEASE:
             unsetRelease();
@@ -818,10 +821,10 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
             return isSetRevision();
         case NsdPackage.CHANGES__TISSUES:
             return isSetTissues();
-        case NsdPackage.CHANGES__NS:
-            return getNS() != null;
-        case NsdPackage.CHANGES__SERVICE_NS:
-            return getServiceNS() != null;
+        case NsdPackage.CHANGES__PARENT_NS:
+            return getParentNS() != null;
+        case NsdPackage.CHANGES__PARENT_SERVICE_NS:
+            return getParentServiceNS() != null;
         case NsdPackage.CHANGES__RELEASE:
             return isSetRelease();
         case NsdPackage.CHANGES__VERSION:

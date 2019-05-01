@@ -34,7 +34,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getGroup <em>Group</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getAny <em>Any</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getId <em>Id</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getNSDoc <em>NS Doc</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getParentNSDoc <em>Parent NS Doc</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDoc()
@@ -146,31 +146,27 @@ public interface Doc extends NsdObject {
     boolean isSetId();
 
     /**
-     * Returns the value of the '<em><b>NS Doc</b></em>' container reference.
+     * Returns the value of the '<em><b>Parent NS Doc</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc#getDoc <em>Doc</em>}'.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>NS Doc</em>' container reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>NS Doc</em>' container reference.
-     * @see #setNSDoc(NSDoc)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDoc_NSDoc()
+     * @return the value of the '<em>Parent NS Doc</em>' container reference.
+     * @see #setParentNSDoc(NSDoc)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDoc_ParentNSDoc()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc#getDoc
      * @model opposite="doc" resolveProxies="false" unsettable="true" ordered="false"
      * @generated
      */
-    NSDoc getNSDoc();
+    NSDoc getParentNSDoc();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getNSDoc <em>NS Doc</em>}' container reference.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getParentNSDoc <em>Parent NS Doc</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>NS Doc</em>' container reference.
-     * @see #getNSDoc()
+     * @param value the new value of the '<em>Parent NS Doc</em>' container reference.
+     * @see #getParentNSDoc()
      * @generated
      */
-    void setNSDoc( NSDoc value );
+    void setParentNSDoc( NSDoc value );
 
 } // Doc

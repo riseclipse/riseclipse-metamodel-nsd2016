@@ -34,7 +34,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getDescID <em>Desc ID</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getName <em>Name</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getTitleID <em>Title ID</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getPresenceConditions <em>Presence Conditions</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getParentPresenceConditions <em>Parent Presence Conditions</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getReferredByDataObject <em>Referred By Data Object</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getReferredByDataObjectForDerivedStatistics <em>Referred By Data Object For Derived Statistics</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getReferredBySubDataObject <em>Referred By Sub Data Object</em>}</li>
@@ -250,32 +250,28 @@ public interface PresenceCondition extends NsdObject {
     boolean isSetTitleID();
 
     /**
-     * Returns the value of the '<em><b>Presence Conditions</b></em>' container reference.
+     * Returns the value of the '<em><b>Parent Presence Conditions</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions#getPresenceCondition <em>Presence Condition</em>}'.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Presence Conditions</em>' container reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Presence Conditions</em>' container reference.
-     * @see #setPresenceConditions(PresenceConditions)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getPresenceCondition_PresenceConditions()
+     * @return the value of the '<em>Parent Presence Conditions</em>' container reference.
+     * @see #setParentPresenceConditions(PresenceConditions)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getPresenceCondition_ParentPresenceConditions()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions#getPresenceCondition
      * @model opposite="presenceCondition" resolveProxies="false" unsettable="true" ordered="false"
      * @generated
      */
-    PresenceConditions getPresenceConditions();
+    PresenceConditions getParentPresenceConditions();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getPresenceConditions <em>Presence Conditions</em>}' container reference.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getParentPresenceConditions <em>Parent Presence Conditions</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Presence Conditions</em>' container reference.
-     * @see #getPresenceConditions()
+     * @param value the new value of the '<em>Parent Presence Conditions</em>' container reference.
+     * @see #getParentPresenceConditions()
      * @generated
      */
-    void setPresenceConditions( PresenceConditions value );
+    void setParentPresenceConditions( PresenceConditions value );
 
     /**
      * Returns the value of the '<em><b>Referred By Data Object</b></em>' reference list.

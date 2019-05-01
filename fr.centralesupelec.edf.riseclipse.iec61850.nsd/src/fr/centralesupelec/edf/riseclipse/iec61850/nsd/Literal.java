@@ -30,7 +30,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal#getLiteralVal <em>Literal Val</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal#getName <em>Name</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal#getEnumeration <em>Enumeration</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal#getParentEnumeration <em>Parent Enumeration</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getLiteral()
@@ -141,31 +141,27 @@ public interface Literal extends DocumentedClass {
     boolean isSetName();
 
     /**
-     * Returns the value of the '<em><b>Enumeration</b></em>' container reference.
+     * Returns the value of the '<em><b>Parent Enumeration</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getLiteral <em>Literal</em>}'.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Enumeration</em>' container reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Enumeration</em>' container reference.
-     * @see #setEnumeration(Enumeration)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getLiteral_Enumeration()
+     * @return the value of the '<em>Parent Enumeration</em>' container reference.
+     * @see #setParentEnumeration(Enumeration)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getLiteral_ParentEnumeration()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getLiteral
      * @model opposite="literal" resolveProxies="false" unsettable="true" ordered="false"
      * @generated
      */
-    Enumeration getEnumeration();
+    Enumeration getParentEnumeration();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal#getEnumeration <em>Enumeration</em>}' container reference.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal#getParentEnumeration <em>Parent Enumeration</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Enumeration</em>' container reference.
-     * @see #getEnumeration()
+     * @param value the new value of the '<em>Parent Enumeration</em>' container reference.
+     * @see #getParentEnumeration()
      * @generated
      */
-    void setEnumeration( Enumeration value );
+    void setParentEnumeration( Enumeration value );
 
 } // Literal

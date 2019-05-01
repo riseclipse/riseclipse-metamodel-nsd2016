@@ -31,7 +31,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes#getBasicType <em>Basic Type</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes#getNS <em>NS</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes#getParentNS <em>Parent NS</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getBasicTypes()
@@ -42,7 +42,7 @@ public interface BasicTypes extends NsdObject {
     /**
      * Returns the value of the '<em><b>Basic Type</b></em>' containment reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType}.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getBasicTypes <em>Basic Types</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getParentBasicTypes <em>Parent Basic Types</em>}'.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Basic Type</em>' containment reference list isn't clear,
@@ -53,8 +53,8 @@ public interface BasicTypes extends NsdObject {
      * @see #isSetBasicType()
      * @see #unsetBasicType()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getBasicTypes_BasicType()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getBasicTypes
-     * @model opposite="basicTypes" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getParentBasicTypes
+     * @model opposite="parentBasicTypes" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='BasicType' namespace='##targetNamespace'"
      * @generated
      */
@@ -82,31 +82,27 @@ public interface BasicTypes extends NsdObject {
     boolean isSetBasicType();
 
     /**
-     * Returns the value of the '<em><b>NS</b></em>' container reference.
+     * Returns the value of the '<em><b>Parent NS</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getBasicTypes <em>Basic Types</em>}'.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>NS</em>' container reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>NS</em>' container reference.
-     * @see #setNS(NS)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getBasicTypes_NS()
+     * @return the value of the '<em>Parent NS</em>' container reference.
+     * @see #setParentNS(NS)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getBasicTypes_ParentNS()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getBasicTypes
      * @model opposite="basicTypes" resolveProxies="false" unsettable="true" ordered="false"
      * @generated
      */
-    NS getNS();
+    NS getParentNS();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes#getNS <em>NS</em>}' container reference.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes#getParentNS <em>Parent NS</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>NS</em>' container reference.
-     * @see #getNS()
+     * @param value the new value of the '<em>Parent NS</em>' container reference.
+     * @see #getParentNS()
      * @generated
      */
-    void setNS( NS value );
+    void setParentNS( NS value );
 
 } // BasicTypes

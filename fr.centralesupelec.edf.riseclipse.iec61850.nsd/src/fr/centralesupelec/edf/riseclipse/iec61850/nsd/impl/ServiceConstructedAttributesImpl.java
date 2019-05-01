@@ -48,7 +48,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceConstructedAttributesImpl#getServiceConstructedAttribute <em>Service Constructed Attribute</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceConstructedAttributesImpl#getServiceNS <em>Service NS</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceConstructedAttributesImpl#getParentServiceNS <em>Parent Service NS</em>}</li>
  * </ul>
  *
  * @generated
@@ -94,7 +94,7 @@ public class ServiceConstructedAttributesImpl extends NsdObjectImpl implements S
             serviceConstructedAttribute = new EObjectContainmentWithInverseEList.Unsettable< ServiceConstructedAttribute >(
                     ServiceConstructedAttribute.class, this,
                     NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_CONSTRUCTED_ATTRIBUTE,
-                    NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__SERVICE_CONSTRUCTED_ATTRIBUTE );
+                    NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_CONSTRUCTED_ATTRIBUTES );
         }
         return serviceConstructedAttribute;
     }
@@ -127,8 +127,8 @@ public class ServiceConstructedAttributesImpl extends NsdObjectImpl implements S
      * @generated
      */
     @Override
-    public ServiceNS getServiceNS() {
-        if( eContainerFeatureID() != NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_NS ) return null;
+    public ServiceNS getParentServiceNS() {
+        if( eContainerFeatureID() != NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__PARENT_SERVICE_NS ) return null;
         return ( ServiceNS ) eInternalContainer();
     }
 
@@ -137,9 +137,9 @@ public class ServiceConstructedAttributesImpl extends NsdObjectImpl implements S
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetServiceNS( ServiceNS newServiceNS, NotificationChain msgs ) {
-        msgs = eBasicSetContainer( ( InternalEObject ) newServiceNS,
-                NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_NS, msgs );
+    public NotificationChain basicSetParentServiceNS( ServiceNS newParentServiceNS, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newParentServiceNS,
+                NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__PARENT_SERVICE_NS, msgs );
         return msgs;
     }
 
@@ -149,24 +149,25 @@ public class ServiceConstructedAttributesImpl extends NsdObjectImpl implements S
      * @generated
      */
     @Override
-    public void setServiceNS( ServiceNS newServiceNS ) {
-        if( newServiceNS != eInternalContainer()
-                || ( eContainerFeatureID() != NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_NS
-                        && newServiceNS != null ) ) {
-            if( EcoreUtil.isAncestor( this, newServiceNS ) )
+    public void setParentServiceNS( ServiceNS newParentServiceNS ) {
+        if( newParentServiceNS != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__PARENT_SERVICE_NS
+                        && newParentServiceNS != null ) ) {
+            if( EcoreUtil.isAncestor( this, newParentServiceNS ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newServiceNS != null )
-                msgs = ( ( InternalEObject ) newServiceNS ).eInverseAdd( this,
+            if( newParentServiceNS != null )
+                msgs = ( ( InternalEObject ) newParentServiceNS ).eInverseAdd( this,
                         NsdPackage.SERVICE_NS__SERVICE_CONSTRUCTED_ATTRIBUTES, ServiceNS.class, msgs );
-            msgs = basicSetServiceNS( newServiceNS, msgs );
+            msgs = basicSetParentServiceNS( newParentServiceNS, msgs );
             if( msgs != null ) msgs.dispatch();
         }
         else if( eNotificationRequired() )
             eNotify( new ENotificationImpl( this, Notification.SET,
-                    NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_NS, newServiceNS, newServiceNS ) );
+                    NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__PARENT_SERVICE_NS, newParentServiceNS,
+                    newParentServiceNS ) );
     }
 
     /**
@@ -181,10 +182,10 @@ public class ServiceConstructedAttributesImpl extends NsdObjectImpl implements S
         case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_CONSTRUCTED_ATTRIBUTE:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getServiceConstructedAttribute() )
                     .basicAdd( otherEnd, msgs );
-        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_NS:
+        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__PARENT_SERVICE_NS:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            return basicSetServiceNS( ( ServiceNS ) otherEnd, msgs );
+            return basicSetParentServiceNS( ( ServiceNS ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
     }
@@ -199,8 +200,8 @@ public class ServiceConstructedAttributesImpl extends NsdObjectImpl implements S
         switch( featureID ) {
         case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_CONSTRUCTED_ATTRIBUTE:
             return ( ( InternalEList< ? > ) getServiceConstructedAttribute() ).basicRemove( otherEnd, msgs );
-        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_NS:
-            return basicSetServiceNS( null, msgs );
+        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__PARENT_SERVICE_NS:
+            return basicSetParentServiceNS( null, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -213,7 +214,7 @@ public class ServiceConstructedAttributesImpl extends NsdObjectImpl implements S
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
         switch( eContainerFeatureID() ) {
-        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_NS:
+        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__PARENT_SERVICE_NS:
             return eInternalContainer().eInverseRemove( this, NsdPackage.SERVICE_NS__SERVICE_CONSTRUCTED_ATTRIBUTES,
                     ServiceNS.class, msgs );
         }
@@ -230,8 +231,8 @@ public class ServiceConstructedAttributesImpl extends NsdObjectImpl implements S
         switch( featureID ) {
         case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_CONSTRUCTED_ATTRIBUTE:
             return getServiceConstructedAttribute();
-        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_NS:
-            return getServiceNS();
+        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__PARENT_SERVICE_NS:
+            return getParentServiceNS();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -249,8 +250,8 @@ public class ServiceConstructedAttributesImpl extends NsdObjectImpl implements S
             getServiceConstructedAttribute().clear();
             getServiceConstructedAttribute().addAll( ( Collection< ? extends ServiceConstructedAttribute > ) newValue );
             return;
-        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_NS:
-            setServiceNS( ( ServiceNS ) newValue );
+        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__PARENT_SERVICE_NS:
+            setParentServiceNS( ( ServiceNS ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -267,8 +268,8 @@ public class ServiceConstructedAttributesImpl extends NsdObjectImpl implements S
         case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_CONSTRUCTED_ATTRIBUTE:
             unsetServiceConstructedAttribute();
             return;
-        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_NS:
-            setServiceNS( ( ServiceNS ) null );
+        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__PARENT_SERVICE_NS:
+            setParentServiceNS( ( ServiceNS ) null );
             return;
         }
         super.eUnset( featureID );
@@ -284,8 +285,8 @@ public class ServiceConstructedAttributesImpl extends NsdObjectImpl implements S
         switch( featureID ) {
         case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_CONSTRUCTED_ATTRIBUTE:
             return isSetServiceConstructedAttribute();
-        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_NS:
-            return getServiceNS() != null;
+        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__PARENT_SERVICE_NS:
+            return getParentServiceNS() != null;
         }
         return super.eIsSet( featureID );
     }

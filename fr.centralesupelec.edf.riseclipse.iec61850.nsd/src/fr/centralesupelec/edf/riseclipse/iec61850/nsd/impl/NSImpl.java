@@ -580,11 +580,11 @@ public class NSImpl extends CopyrightedImpl implements NS {
         if( newChanges != changes ) {
             NotificationChain msgs = null;
             if( changes != null )
-                msgs = ( ( InternalEObject ) changes ).eInverseRemove( this, NsdPackage.CHANGES__NS, Changes.class,
-                        msgs );
+                msgs = ( ( InternalEObject ) changes ).eInverseRemove( this, NsdPackage.CHANGES__PARENT_NS,
+                        Changes.class, msgs );
             if( newChanges != null )
-                msgs = ( ( InternalEObject ) newChanges ).eInverseAdd( this, NsdPackage.CHANGES__NS, Changes.class,
-                        msgs );
+                msgs = ( ( InternalEObject ) newChanges ).eInverseAdd( this, NsdPackage.CHANGES__PARENT_NS,
+                        Changes.class, msgs );
             msgs = basicSetChanges( newChanges, msgs );
             if( msgs != null ) msgs.dispatch();
         }
@@ -627,7 +627,8 @@ public class NSImpl extends CopyrightedImpl implements NS {
     public void unsetChanges() {
         if( changes != null ) {
             NotificationChain msgs = null;
-            msgs = ( ( InternalEObject ) changes ).eInverseRemove( this, NsdPackage.CHANGES__NS, Changes.class, msgs );
+            msgs = ( ( InternalEObject ) changes ).eInverseRemove( this, NsdPackage.CHANGES__PARENT_NS, Changes.class,
+                    msgs );
             msgs = basicUnsetChanges( msgs );
             if( msgs != null ) msgs.dispatch();
         }
@@ -691,10 +692,10 @@ public class NSImpl extends CopyrightedImpl implements NS {
         if( newDependsOn != dependsOn ) {
             NotificationChain msgs = null;
             if( dependsOn != null )
-                msgs = ( ( InternalEObject ) dependsOn ).eInverseRemove( this, NsdPackage.DEPENDS_ON__NS,
+                msgs = ( ( InternalEObject ) dependsOn ).eInverseRemove( this, NsdPackage.DEPENDS_ON__PARENT_NS,
                         DependsOn.class, msgs );
             if( newDependsOn != null )
-                msgs = ( ( InternalEObject ) newDependsOn ).eInverseAdd( this, NsdPackage.DEPENDS_ON__NS,
+                msgs = ( ( InternalEObject ) newDependsOn ).eInverseAdd( this, NsdPackage.DEPENDS_ON__PARENT_NS,
                         DependsOn.class, msgs );
             msgs = basicSetDependsOn( newDependsOn, msgs );
             if( msgs != null ) msgs.dispatch();
@@ -738,8 +739,8 @@ public class NSImpl extends CopyrightedImpl implements NS {
     public void unsetDependsOn() {
         if( dependsOn != null ) {
             NotificationChain msgs = null;
-            msgs = ( ( InternalEObject ) dependsOn ).eInverseRemove( this, NsdPackage.DEPENDS_ON__NS, DependsOn.class,
-                    msgs );
+            msgs = ( ( InternalEObject ) dependsOn ).eInverseRemove( this, NsdPackage.DEPENDS_ON__PARENT_NS,
+                    DependsOn.class, msgs );
             msgs = basicUnsetDependsOn( msgs );
             if( msgs != null ) msgs.dispatch();
         }
@@ -803,10 +804,10 @@ public class NSImpl extends CopyrightedImpl implements NS {
         if( newBasicTypes != basicTypes ) {
             NotificationChain msgs = null;
             if( basicTypes != null )
-                msgs = ( ( InternalEObject ) basicTypes ).eInverseRemove( this, NsdPackage.BASIC_TYPES__NS,
+                msgs = ( ( InternalEObject ) basicTypes ).eInverseRemove( this, NsdPackage.BASIC_TYPES__PARENT_NS,
                         BasicTypes.class, msgs );
             if( newBasicTypes != null )
-                msgs = ( ( InternalEObject ) newBasicTypes ).eInverseAdd( this, NsdPackage.BASIC_TYPES__NS,
+                msgs = ( ( InternalEObject ) newBasicTypes ).eInverseAdd( this, NsdPackage.BASIC_TYPES__PARENT_NS,
                         BasicTypes.class, msgs );
             msgs = basicSetBasicTypes( newBasicTypes, msgs );
             if( msgs != null ) msgs.dispatch();
@@ -850,7 +851,7 @@ public class NSImpl extends CopyrightedImpl implements NS {
     public void unsetBasicTypes() {
         if( basicTypes != null ) {
             NotificationChain msgs = null;
-            msgs = ( ( InternalEObject ) basicTypes ).eInverseRemove( this, NsdPackage.BASIC_TYPES__NS,
+            msgs = ( ( InternalEObject ) basicTypes ).eInverseRemove( this, NsdPackage.BASIC_TYPES__PARENT_NS,
                     BasicTypes.class, msgs );
             msgs = basicUnsetBasicTypes( msgs );
             if( msgs != null ) msgs.dispatch();
@@ -918,10 +919,10 @@ public class NSImpl extends CopyrightedImpl implements NS {
             NotificationChain msgs = null;
             if( functionalConstraints != null )
                 msgs = ( ( InternalEObject ) functionalConstraints ).eInverseRemove( this,
-                        NsdPackage.FUNCTIONAL_CONSTRAINTS__NS, FunctionalConstraints.class, msgs );
+                        NsdPackage.FUNCTIONAL_CONSTRAINTS__PARENT_NS, FunctionalConstraints.class, msgs );
             if( newFunctionalConstraints != null )
                 msgs = ( ( InternalEObject ) newFunctionalConstraints ).eInverseAdd( this,
-                        NsdPackage.FUNCTIONAL_CONSTRAINTS__NS, FunctionalConstraints.class, msgs );
+                        NsdPackage.FUNCTIONAL_CONSTRAINTS__PARENT_NS, FunctionalConstraints.class, msgs );
             msgs = basicSetFunctionalConstraints( newFunctionalConstraints, msgs );
             if( msgs != null ) msgs.dispatch();
         }
@@ -966,7 +967,7 @@ public class NSImpl extends CopyrightedImpl implements NS {
         if( functionalConstraints != null ) {
             NotificationChain msgs = null;
             msgs = ( ( InternalEObject ) functionalConstraints ).eInverseRemove( this,
-                    NsdPackage.FUNCTIONAL_CONSTRAINTS__NS, FunctionalConstraints.class, msgs );
+                    NsdPackage.FUNCTIONAL_CONSTRAINTS__PARENT_NS, FunctionalConstraints.class, msgs );
             msgs = basicUnsetFunctionalConstraints( msgs );
             if( msgs != null ) msgs.dispatch();
         }
@@ -1033,10 +1034,10 @@ public class NSImpl extends CopyrightedImpl implements NS {
             NotificationChain msgs = null;
             if( presenceConditions != null )
                 msgs = ( ( InternalEObject ) presenceConditions ).eInverseRemove( this,
-                        NsdPackage.PRESENCE_CONDITIONS__NS, PresenceConditions.class, msgs );
+                        NsdPackage.PRESENCE_CONDITIONS__PARENT_NS, PresenceConditions.class, msgs );
             if( newPresenceConditions != null )
                 msgs = ( ( InternalEObject ) newPresenceConditions ).eInverseAdd( this,
-                        NsdPackage.PRESENCE_CONDITIONS__NS, PresenceConditions.class, msgs );
+                        NsdPackage.PRESENCE_CONDITIONS__PARENT_NS, PresenceConditions.class, msgs );
             msgs = basicSetPresenceConditions( newPresenceConditions, msgs );
             if( msgs != null ) msgs.dispatch();
         }
@@ -1079,8 +1080,8 @@ public class NSImpl extends CopyrightedImpl implements NS {
     public void unsetPresenceConditions() {
         if( presenceConditions != null ) {
             NotificationChain msgs = null;
-            msgs = ( ( InternalEObject ) presenceConditions ).eInverseRemove( this, NsdPackage.PRESENCE_CONDITIONS__NS,
-                    PresenceConditions.class, msgs );
+            msgs = ( ( InternalEObject ) presenceConditions ).eInverseRemove( this,
+                    NsdPackage.PRESENCE_CONDITIONS__PARENT_NS, PresenceConditions.class, msgs );
             msgs = basicUnsetPresenceConditions( msgs );
             if( msgs != null ) msgs.dispatch();
         }
@@ -1144,10 +1145,10 @@ public class NSImpl extends CopyrightedImpl implements NS {
         if( newAbbreviations != abbreviations ) {
             NotificationChain msgs = null;
             if( abbreviations != null )
-                msgs = ( ( InternalEObject ) abbreviations ).eInverseRemove( this, NsdPackage.ABBREVIATIONS__NS,
+                msgs = ( ( InternalEObject ) abbreviations ).eInverseRemove( this, NsdPackage.ABBREVIATIONS__PARENT_NS,
                         Abbreviations.class, msgs );
             if( newAbbreviations != null )
-                msgs = ( ( InternalEObject ) newAbbreviations ).eInverseAdd( this, NsdPackage.ABBREVIATIONS__NS,
+                msgs = ( ( InternalEObject ) newAbbreviations ).eInverseAdd( this, NsdPackage.ABBREVIATIONS__PARENT_NS,
                         Abbreviations.class, msgs );
             msgs = basicSetAbbreviations( newAbbreviations, msgs );
             if( msgs != null ) msgs.dispatch();
@@ -1191,7 +1192,7 @@ public class NSImpl extends CopyrightedImpl implements NS {
     public void unsetAbbreviations() {
         if( abbreviations != null ) {
             NotificationChain msgs = null;
-            msgs = ( ( InternalEObject ) abbreviations ).eInverseRemove( this, NsdPackage.ABBREVIATIONS__NS,
+            msgs = ( ( InternalEObject ) abbreviations ).eInverseRemove( this, NsdPackage.ABBREVIATIONS__PARENT_NS,
                     Abbreviations.class, msgs );
             msgs = basicUnsetAbbreviations( msgs );
             if( msgs != null ) msgs.dispatch();
@@ -1256,10 +1257,10 @@ public class NSImpl extends CopyrightedImpl implements NS {
         if( newEnumerations != enumerations ) {
             NotificationChain msgs = null;
             if( enumerations != null )
-                msgs = ( ( InternalEObject ) enumerations ).eInverseRemove( this, NsdPackage.ENUMERATIONS__NS,
+                msgs = ( ( InternalEObject ) enumerations ).eInverseRemove( this, NsdPackage.ENUMERATIONS__PARENT_NS,
                         Enumerations.class, msgs );
             if( newEnumerations != null )
-                msgs = ( ( InternalEObject ) newEnumerations ).eInverseAdd( this, NsdPackage.ENUMERATIONS__NS,
+                msgs = ( ( InternalEObject ) newEnumerations ).eInverseAdd( this, NsdPackage.ENUMERATIONS__PARENT_NS,
                         Enumerations.class, msgs );
             msgs = basicSetEnumerations( newEnumerations, msgs );
             if( msgs != null ) msgs.dispatch();
@@ -1303,7 +1304,7 @@ public class NSImpl extends CopyrightedImpl implements NS {
     public void unsetEnumerations() {
         if( enumerations != null ) {
             NotificationChain msgs = null;
-            msgs = ( ( InternalEObject ) enumerations ).eInverseRemove( this, NsdPackage.ENUMERATIONS__NS,
+            msgs = ( ( InternalEObject ) enumerations ).eInverseRemove( this, NsdPackage.ENUMERATIONS__PARENT_NS,
                     Enumerations.class, msgs );
             msgs = basicUnsetEnumerations( msgs );
             if( msgs != null ) msgs.dispatch();
@@ -1371,10 +1372,10 @@ public class NSImpl extends CopyrightedImpl implements NS {
             NotificationChain msgs = null;
             if( constructedAttributes != null )
                 msgs = ( ( InternalEObject ) constructedAttributes ).eInverseRemove( this,
-                        NsdPackage.CONSTRUCTED_ATTRIBUTES__NS, ConstructedAttributes.class, msgs );
+                        NsdPackage.CONSTRUCTED_ATTRIBUTES__PARENT_NS, ConstructedAttributes.class, msgs );
             if( newConstructedAttributes != null )
                 msgs = ( ( InternalEObject ) newConstructedAttributes ).eInverseAdd( this,
-                        NsdPackage.CONSTRUCTED_ATTRIBUTES__NS, ConstructedAttributes.class, msgs );
+                        NsdPackage.CONSTRUCTED_ATTRIBUTES__PARENT_NS, ConstructedAttributes.class, msgs );
             msgs = basicSetConstructedAttributes( newConstructedAttributes, msgs );
             if( msgs != null ) msgs.dispatch();
         }
@@ -1419,7 +1420,7 @@ public class NSImpl extends CopyrightedImpl implements NS {
         if( constructedAttributes != null ) {
             NotificationChain msgs = null;
             msgs = ( ( InternalEObject ) constructedAttributes ).eInverseRemove( this,
-                    NsdPackage.CONSTRUCTED_ATTRIBUTES__NS, ConstructedAttributes.class, msgs );
+                    NsdPackage.CONSTRUCTED_ATTRIBUTES__PARENT_NS, ConstructedAttributes.class, msgs );
             msgs = basicUnsetConstructedAttributes( msgs );
             if( msgs != null ) msgs.dispatch();
         }
@@ -1483,9 +1484,11 @@ public class NSImpl extends CopyrightedImpl implements NS {
         if( newCDCs != cDCs ) {
             NotificationChain msgs = null;
             if( cDCs != null )
-                msgs = ( ( InternalEObject ) cDCs ).eInverseRemove( this, NsdPackage.CD_CS__NS, CDCs.class, msgs );
+                msgs = ( ( InternalEObject ) cDCs ).eInverseRemove( this, NsdPackage.CD_CS__PARENT_NS, CDCs.class,
+                        msgs );
             if( newCDCs != null )
-                msgs = ( ( InternalEObject ) newCDCs ).eInverseAdd( this, NsdPackage.CD_CS__NS, CDCs.class, msgs );
+                msgs = ( ( InternalEObject ) newCDCs ).eInverseAdd( this, NsdPackage.CD_CS__PARENT_NS, CDCs.class,
+                        msgs );
             msgs = basicSetCDCs( newCDCs, msgs );
             if( msgs != null ) msgs.dispatch();
         }
@@ -1528,7 +1531,7 @@ public class NSImpl extends CopyrightedImpl implements NS {
     public void unsetCDCs() {
         if( cDCs != null ) {
             NotificationChain msgs = null;
-            msgs = ( ( InternalEObject ) cDCs ).eInverseRemove( this, NsdPackage.CD_CS__NS, CDCs.class, msgs );
+            msgs = ( ( InternalEObject ) cDCs ).eInverseRemove( this, NsdPackage.CD_CS__PARENT_NS, CDCs.class, msgs );
             msgs = basicUnsetCDCs( msgs );
             if( msgs != null ) msgs.dispatch();
         }
@@ -1592,10 +1595,10 @@ public class NSImpl extends CopyrightedImpl implements NS {
         if( newLNClasses != lNClasses ) {
             NotificationChain msgs = null;
             if( lNClasses != null )
-                msgs = ( ( InternalEObject ) lNClasses ).eInverseRemove( this, NsdPackage.LN_CLASSES__NS,
+                msgs = ( ( InternalEObject ) lNClasses ).eInverseRemove( this, NsdPackage.LN_CLASSES__PARENT_NS,
                         LNClasses.class, msgs );
             if( newLNClasses != null )
-                msgs = ( ( InternalEObject ) newLNClasses ).eInverseAdd( this, NsdPackage.LN_CLASSES__NS,
+                msgs = ( ( InternalEObject ) newLNClasses ).eInverseAdd( this, NsdPackage.LN_CLASSES__PARENT_NS,
                         LNClasses.class, msgs );
             msgs = basicSetLNClasses( newLNClasses, msgs );
             if( msgs != null ) msgs.dispatch();
@@ -1639,8 +1642,8 @@ public class NSImpl extends CopyrightedImpl implements NS {
     public void unsetLNClasses() {
         if( lNClasses != null ) {
             NotificationChain msgs = null;
-            msgs = ( ( InternalEObject ) lNClasses ).eInverseRemove( this, NsdPackage.LN_CLASSES__NS, LNClasses.class,
-                    msgs );
+            msgs = ( ( InternalEObject ) lNClasses ).eInverseRemove( this, NsdPackage.LN_CLASSES__PARENT_NS,
+                    LNClasses.class, msgs );
             msgs = basicUnsetLNClasses( msgs );
             if( msgs != null ) msgs.dispatch();
         }

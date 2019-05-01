@@ -124,11 +124,11 @@ public class CopyrightedImpl extends NsdObjectImpl implements Copyrighted {
         if( newCopyright != copyright ) {
             NotificationChain msgs = null;
             if( copyright != null )
-                msgs = ( ( InternalEObject ) copyright ).eInverseRemove( this, NsdPackage.COPYRIGHT_NOTICE__COPYRIGHTED,
-                        CopyrightNotice.class, msgs );
+                msgs = ( ( InternalEObject ) copyright ).eInverseRemove( this,
+                        NsdPackage.COPYRIGHT_NOTICE__PARENT_COPYRIGHTED, CopyrightNotice.class, msgs );
             if( newCopyright != null )
-                msgs = ( ( InternalEObject ) newCopyright ).eInverseAdd( this, NsdPackage.COPYRIGHT_NOTICE__COPYRIGHTED,
-                        CopyrightNotice.class, msgs );
+                msgs = ( ( InternalEObject ) newCopyright ).eInverseAdd( this,
+                        NsdPackage.COPYRIGHT_NOTICE__PARENT_COPYRIGHTED, CopyrightNotice.class, msgs );
             msgs = basicSetCopyright( newCopyright, msgs );
             if( msgs != null ) msgs.dispatch();
         }
@@ -171,8 +171,8 @@ public class CopyrightedImpl extends NsdObjectImpl implements Copyrighted {
     public void unsetCopyright() {
         if( copyright != null ) {
             NotificationChain msgs = null;
-            msgs = ( ( InternalEObject ) copyright ).eInverseRemove( this, NsdPackage.COPYRIGHT_NOTICE__COPYRIGHTED,
-                    CopyrightNotice.class, msgs );
+            msgs = ( ( InternalEObject ) copyright ).eInverseRemove( this,
+                    NsdPackage.COPYRIGHT_NOTICE__PARENT_COPYRIGHTED, CopyrightNotice.class, msgs );
             msgs = basicUnsetCopyright( msgs );
             if( msgs != null ) msgs.dispatch();
         }

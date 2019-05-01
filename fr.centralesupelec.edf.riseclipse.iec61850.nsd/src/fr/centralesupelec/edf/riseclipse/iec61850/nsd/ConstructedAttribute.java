@@ -32,8 +32,8 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getSubDataAttribute <em>Sub Data Attribute</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getName <em>Name</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getConstructedAttributes <em>Constructed Attributes</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getServiceTypeRealizations <em>Service Type Realizations</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getParentConstructedAttributes <em>Parent Constructed Attributes</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getParentServiceTypeRealizations <em>Parent Service Type Realizations</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getConstructedAttribute()
@@ -46,7 +46,7 @@ public interface ConstructedAttribute extends TitledClass {
     /**
      * Returns the value of the '<em><b>Sub Data Attribute</b></em>' containment reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute}.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute#getConstructedAttribute <em>Constructed Attribute</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute#getParentConstructedAttribute <em>Parent Constructed Attribute</em>}'.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Sub Data Attribute</em>' containment reference list isn't clear,
@@ -57,8 +57,8 @@ public interface ConstructedAttribute extends TitledClass {
      * @see #isSetSubDataAttribute()
      * @see #unsetSubDataAttribute()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getConstructedAttribute_SubDataAttribute()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute#getConstructedAttribute
-     * @model opposite="constructedAttribute" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute#getParentConstructedAttribute
+     * @model opposite="parentConstructedAttribute" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='SubDataAttribute' namespace='##targetNamespace'"
      * @generated
      */
@@ -136,59 +136,51 @@ public interface ConstructedAttribute extends TitledClass {
     boolean isSetName();
 
     /**
-     * Returns the value of the '<em><b>Constructed Attributes</b></em>' container reference.
+     * Returns the value of the '<em><b>Parent Constructed Attributes</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes#getConstructedAttribute <em>Constructed Attribute</em>}'.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Constructed Attributes</em>' container reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Constructed Attributes</em>' container reference.
-     * @see #setConstructedAttributes(ConstructedAttributes)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getConstructedAttribute_ConstructedAttributes()
+     * @return the value of the '<em>Parent Constructed Attributes</em>' container reference.
+     * @see #setParentConstructedAttributes(ConstructedAttributes)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getConstructedAttribute_ParentConstructedAttributes()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes#getConstructedAttribute
      * @model opposite="constructedAttribute" resolveProxies="false" unsettable="true" ordered="false"
      * @generated
      */
-    ConstructedAttributes getConstructedAttributes();
+    ConstructedAttributes getParentConstructedAttributes();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getConstructedAttributes <em>Constructed Attributes</em>}' container reference.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getParentConstructedAttributes <em>Parent Constructed Attributes</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Constructed Attributes</em>' container reference.
-     * @see #getConstructedAttributes()
+     * @param value the new value of the '<em>Parent Constructed Attributes</em>' container reference.
+     * @see #getParentConstructedAttributes()
      * @generated
      */
-    void setConstructedAttributes( ConstructedAttributes value );
+    void setParentConstructedAttributes( ConstructedAttributes value );
 
     /**
-     * Returns the value of the '<em><b>Service Type Realizations</b></em>' container reference.
+     * Returns the value of the '<em><b>Parent Service Type Realizations</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations#getServiceTypeRealization <em>Service Type Realization</em>}'.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Service Type Realizations</em>' container reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Service Type Realizations</em>' container reference.
-     * @see #setServiceTypeRealizations(ServiceTypeRealizations)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getConstructedAttribute_ServiceTypeRealizations()
+     * @return the value of the '<em>Parent Service Type Realizations</em>' container reference.
+     * @see #setParentServiceTypeRealizations(ServiceTypeRealizations)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getConstructedAttribute_ParentServiceTypeRealizations()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations#getServiceTypeRealization
      * @model opposite="serviceTypeRealization" resolveProxies="false" unsettable="true" ordered="false"
      * @generated
      */
-    ServiceTypeRealizations getServiceTypeRealizations();
+    ServiceTypeRealizations getParentServiceTypeRealizations();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getServiceTypeRealizations <em>Service Type Realizations</em>}' container reference.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getParentServiceTypeRealizations <em>Parent Service Type Realizations</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Service Type Realizations</em>' container reference.
-     * @see #getServiceTypeRealizations()
+     * @param value the new value of the '<em>Parent Service Type Realizations</em>' container reference.
+     * @see #getParentServiceTypeRealizations()
      * @generated
      */
-    void setServiceTypeRealizations( ServiceTypeRealizations value );
+    void setParentServiceTypeRealizations( ServiceTypeRealizations value );
 
 } // ConstructedAttribute

@@ -44,7 +44,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CopyrightNoticeImpl#getNotice <em>Notice</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CopyrightNoticeImpl#getLicense <em>License</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CopyrightNoticeImpl#getCopyrighted <em>Copyrighted</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CopyrightNoticeImpl#getParentCopyrighted <em>Parent Copyrighted</em>}</li>
  * </ul>
  *
  * @generated
@@ -148,10 +148,10 @@ public class CopyrightNoticeImpl extends NsdObjectImpl implements CopyrightNotic
         if( newNotice != notice ) {
             NotificationChain msgs = null;
             if( notice != null )
-                msgs = ( ( InternalEObject ) notice ).eInverseRemove( this, NsdPackage.NOTICE__COPYRIGHT_NOTICE,
+                msgs = ( ( InternalEObject ) notice ).eInverseRemove( this, NsdPackage.NOTICE__PARENT_COPYRIGHT_NOTICE,
                         Notice.class, msgs );
             if( newNotice != null )
-                msgs = ( ( InternalEObject ) newNotice ).eInverseAdd( this, NsdPackage.NOTICE__COPYRIGHT_NOTICE,
+                msgs = ( ( InternalEObject ) newNotice ).eInverseAdd( this, NsdPackage.NOTICE__PARENT_COPYRIGHT_NOTICE,
                         Notice.class, msgs );
             msgs = basicSetNotice( newNotice, msgs );
             if( msgs != null ) msgs.dispatch();
@@ -195,7 +195,7 @@ public class CopyrightNoticeImpl extends NsdObjectImpl implements CopyrightNotic
     public void unsetNotice() {
         if( notice != null ) {
             NotificationChain msgs = null;
-            msgs = ( ( InternalEObject ) notice ).eInverseRemove( this, NsdPackage.NOTICE__COPYRIGHT_NOTICE,
+            msgs = ( ( InternalEObject ) notice ).eInverseRemove( this, NsdPackage.NOTICE__PARENT_COPYRIGHT_NOTICE,
                     Notice.class, msgs );
             msgs = basicUnsetNotice( msgs );
             if( msgs != null ) msgs.dispatch();
@@ -260,11 +260,11 @@ public class CopyrightNoticeImpl extends NsdObjectImpl implements CopyrightNotic
         if( newLicense != license ) {
             NotificationChain msgs = null;
             if( license != null )
-                msgs = ( ( InternalEObject ) license ).eInverseRemove( this, NsdPackage.LICENSE__COPYRIGHT_NOTICE,
-                        License.class, msgs );
+                msgs = ( ( InternalEObject ) license ).eInverseRemove( this,
+                        NsdPackage.LICENSE__PARENT_COPYRIGHT_NOTICE, License.class, msgs );
             if( newLicense != null )
-                msgs = ( ( InternalEObject ) newLicense ).eInverseAdd( this, NsdPackage.LICENSE__COPYRIGHT_NOTICE,
-                        License.class, msgs );
+                msgs = ( ( InternalEObject ) newLicense ).eInverseAdd( this,
+                        NsdPackage.LICENSE__PARENT_COPYRIGHT_NOTICE, License.class, msgs );
             msgs = basicSetLicense( newLicense, msgs );
             if( msgs != null ) msgs.dispatch();
         }
@@ -307,7 +307,7 @@ public class CopyrightNoticeImpl extends NsdObjectImpl implements CopyrightNotic
     public void unsetLicense() {
         if( license != null ) {
             NotificationChain msgs = null;
-            msgs = ( ( InternalEObject ) license ).eInverseRemove( this, NsdPackage.LICENSE__COPYRIGHT_NOTICE,
+            msgs = ( ( InternalEObject ) license ).eInverseRemove( this, NsdPackage.LICENSE__PARENT_COPYRIGHT_NOTICE,
                     License.class, msgs );
             msgs = basicUnsetLicense( msgs );
             if( msgs != null ) msgs.dispatch();
@@ -337,8 +337,8 @@ public class CopyrightNoticeImpl extends NsdObjectImpl implements CopyrightNotic
      * @generated
      */
     @Override
-    public Copyrighted getCopyrighted() {
-        if( eContainerFeatureID() != NsdPackage.COPYRIGHT_NOTICE__COPYRIGHTED ) return null;
+    public Copyrighted getParentCopyrighted() {
+        if( eContainerFeatureID() != NsdPackage.COPYRIGHT_NOTICE__PARENT_COPYRIGHTED ) return null;
         return ( Copyrighted ) eInternalContainer();
     }
 
@@ -347,8 +347,9 @@ public class CopyrightNoticeImpl extends NsdObjectImpl implements CopyrightNotic
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetCopyrighted( Copyrighted newCopyrighted, NotificationChain msgs ) {
-        msgs = eBasicSetContainer( ( InternalEObject ) newCopyrighted, NsdPackage.COPYRIGHT_NOTICE__COPYRIGHTED, msgs );
+    public NotificationChain basicSetParentCopyrighted( Copyrighted newParentCopyrighted, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newParentCopyrighted,
+                NsdPackage.COPYRIGHT_NOTICE__PARENT_COPYRIGHTED, msgs );
         return msgs;
     }
 
@@ -358,23 +359,24 @@ public class CopyrightNoticeImpl extends NsdObjectImpl implements CopyrightNotic
      * @generated
      */
     @Override
-    public void setCopyrighted( Copyrighted newCopyrighted ) {
-        if( newCopyrighted != eInternalContainer()
-                || ( eContainerFeatureID() != NsdPackage.COPYRIGHT_NOTICE__COPYRIGHTED && newCopyrighted != null ) ) {
-            if( EcoreUtil.isAncestor( this, newCopyrighted ) )
+    public void setParentCopyrighted( Copyrighted newParentCopyrighted ) {
+        if( newParentCopyrighted != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.COPYRIGHT_NOTICE__PARENT_COPYRIGHTED
+                        && newParentCopyrighted != null ) ) {
+            if( EcoreUtil.isAncestor( this, newParentCopyrighted ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newCopyrighted != null )
-                msgs = ( ( InternalEObject ) newCopyrighted ).eInverseAdd( this, NsdPackage.COPYRIGHTED__COPYRIGHT,
-                        Copyrighted.class, msgs );
-            msgs = basicSetCopyrighted( newCopyrighted, msgs );
+            if( newParentCopyrighted != null )
+                msgs = ( ( InternalEObject ) newParentCopyrighted ).eInverseAdd( this,
+                        NsdPackage.COPYRIGHTED__COPYRIGHT, Copyrighted.class, msgs );
+            msgs = basicSetParentCopyrighted( newParentCopyrighted, msgs );
             if( msgs != null ) msgs.dispatch();
         }
         else if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.COPYRIGHT_NOTICE__COPYRIGHTED,
-                    newCopyrighted, newCopyrighted ) );
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.COPYRIGHT_NOTICE__PARENT_COPYRIGHTED,
+                    newParentCopyrighted, newParentCopyrighted ) );
     }
 
     /**
@@ -395,10 +397,10 @@ public class CopyrightNoticeImpl extends NsdObjectImpl implements CopyrightNotic
                 msgs = ( ( InternalEObject ) license ).eInverseRemove( this,
                         EOPPOSITE_FEATURE_BASE - NsdPackage.COPYRIGHT_NOTICE__LICENSE, null, msgs );
             return basicSetLicense( ( License ) otherEnd, msgs );
-        case NsdPackage.COPYRIGHT_NOTICE__COPYRIGHTED:
+        case NsdPackage.COPYRIGHT_NOTICE__PARENT_COPYRIGHTED:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            return basicSetCopyrighted( ( Copyrighted ) otherEnd, msgs );
+            return basicSetParentCopyrighted( ( Copyrighted ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
     }
@@ -415,8 +417,8 @@ public class CopyrightNoticeImpl extends NsdObjectImpl implements CopyrightNotic
             return basicUnsetNotice( msgs );
         case NsdPackage.COPYRIGHT_NOTICE__LICENSE:
             return basicUnsetLicense( msgs );
-        case NsdPackage.COPYRIGHT_NOTICE__COPYRIGHTED:
-            return basicSetCopyrighted( null, msgs );
+        case NsdPackage.COPYRIGHT_NOTICE__PARENT_COPYRIGHTED:
+            return basicSetParentCopyrighted( null, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -429,7 +431,7 @@ public class CopyrightNoticeImpl extends NsdObjectImpl implements CopyrightNotic
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
         switch( eContainerFeatureID() ) {
-        case NsdPackage.COPYRIGHT_NOTICE__COPYRIGHTED:
+        case NsdPackage.COPYRIGHT_NOTICE__PARENT_COPYRIGHTED:
             return eInternalContainer().eInverseRemove( this, NsdPackage.COPYRIGHTED__COPYRIGHT, Copyrighted.class,
                     msgs );
         }
@@ -448,8 +450,8 @@ public class CopyrightNoticeImpl extends NsdObjectImpl implements CopyrightNotic
             return getNotice();
         case NsdPackage.COPYRIGHT_NOTICE__LICENSE:
             return getLicense();
-        case NsdPackage.COPYRIGHT_NOTICE__COPYRIGHTED:
-            return getCopyrighted();
+        case NsdPackage.COPYRIGHT_NOTICE__PARENT_COPYRIGHTED:
+            return getParentCopyrighted();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -468,8 +470,8 @@ public class CopyrightNoticeImpl extends NsdObjectImpl implements CopyrightNotic
         case NsdPackage.COPYRIGHT_NOTICE__LICENSE:
             setLicense( ( License ) newValue );
             return;
-        case NsdPackage.COPYRIGHT_NOTICE__COPYRIGHTED:
-            setCopyrighted( ( Copyrighted ) newValue );
+        case NsdPackage.COPYRIGHT_NOTICE__PARENT_COPYRIGHTED:
+            setParentCopyrighted( ( Copyrighted ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -489,8 +491,8 @@ public class CopyrightNoticeImpl extends NsdObjectImpl implements CopyrightNotic
         case NsdPackage.COPYRIGHT_NOTICE__LICENSE:
             unsetLicense();
             return;
-        case NsdPackage.COPYRIGHT_NOTICE__COPYRIGHTED:
-            setCopyrighted( ( Copyrighted ) null );
+        case NsdPackage.COPYRIGHT_NOTICE__PARENT_COPYRIGHTED:
+            setParentCopyrighted( ( Copyrighted ) null );
             return;
         }
         super.eUnset( featureID );
@@ -508,8 +510,8 @@ public class CopyrightNoticeImpl extends NsdObjectImpl implements CopyrightNotic
             return isSetNotice();
         case NsdPackage.COPYRIGHT_NOTICE__LICENSE:
             return isSetLicense();
-        case NsdPackage.COPYRIGHT_NOTICE__COPYRIGHTED:
-            return getCopyrighted() != null;
+        case NsdPackage.COPYRIGHT_NOTICE__PARENT_COPYRIGHTED:
+            return getParentCopyrighted() != null;
         }
         return super.eIsSet( featureID );
     }

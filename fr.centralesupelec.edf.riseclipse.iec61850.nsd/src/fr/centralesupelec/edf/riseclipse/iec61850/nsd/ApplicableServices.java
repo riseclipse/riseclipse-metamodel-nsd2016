@@ -32,7 +32,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices#getService <em>Service</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices#getDataSetMemberOf <em>Data Set Member Of</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices#getFunctionalConstraint <em>Functional Constraint</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices#getParentFunctionalConstraint <em>Parent Functional Constraint</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getApplicableServices()
@@ -45,15 +45,15 @@ public interface ApplicableServices extends NsdObject {
     /**
      * Returns the value of the '<em><b>Service</b></em>' containment reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType}.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType#getApplicableServices <em>Applicable Services</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType#getParentApplicableServices <em>Parent Applicable Services</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>Service</em>' containment reference list.
      * @see #isSetService()
      * @see #unsetService()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getApplicableServices_Service()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType#getApplicableServices
-     * @model opposite="applicableServices" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType#getParentApplicableServices
+     * @model opposite="parentApplicableServices" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='Service' namespace='##targetNamespace'"
      * @generated
      */
@@ -83,15 +83,15 @@ public interface ApplicableServices extends NsdObject {
     /**
      * Returns the value of the '<em><b>Data Set Member Of</b></em>' containment reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataSetMemberOf}.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataSetMemberOf#getApplicableServices <em>Applicable Services</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataSetMemberOf#getParentApplicableServices <em>Parent Applicable Services</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>Data Set Member Of</em>' containment reference list.
      * @see #isSetDataSetMemberOf()
      * @see #unsetDataSetMemberOf()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getApplicableServices_DataSetMemberOf()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataSetMemberOf#getApplicableServices
-     * @model opposite="applicableServices" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataSetMemberOf#getParentApplicableServices
+     * @model opposite="parentApplicableServices" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='DataSetMemberOf' namespace='##targetNamespace'"
      * @generated
      */
@@ -119,31 +119,27 @@ public interface ApplicableServices extends NsdObject {
     boolean isSetDataSetMemberOf();
 
     /**
-     * Returns the value of the '<em><b>Functional Constraint</b></em>' container reference.
+     * Returns the value of the '<em><b>Parent Functional Constraint</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getApplicableServices <em>Applicable Services</em>}'.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Functional Constraint</em>' container reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Functional Constraint</em>' container reference.
-     * @see #setFunctionalConstraint(FunctionalConstraint)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getApplicableServices_FunctionalConstraint()
+     * @return the value of the '<em>Parent Functional Constraint</em>' container reference.
+     * @see #setParentFunctionalConstraint(FunctionalConstraint)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getApplicableServices_ParentFunctionalConstraint()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getApplicableServices
      * @model opposite="applicableServices" resolveProxies="false" unsettable="true" ordered="false"
      * @generated
      */
-    FunctionalConstraint getFunctionalConstraint();
+    FunctionalConstraint getParentFunctionalConstraint();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices#getFunctionalConstraint <em>Functional Constraint</em>}' container reference.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices#getParentFunctionalConstraint <em>Parent Functional Constraint</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Functional Constraint</em>' container reference.
-     * @see #getFunctionalConstraint()
+     * @param value the new value of the '<em>Parent Functional Constraint</em>' container reference.
+     * @see #getParentFunctionalConstraint()
      * @generated
      */
-    void setFunctionalConstraint( FunctionalConstraint value );
+    void setParentFunctionalConstraint( FunctionalConstraint value );
 
 } // ApplicableServices

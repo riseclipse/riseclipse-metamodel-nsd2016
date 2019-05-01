@@ -47,7 +47,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DocImpl#getGroup <em>Group</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DocImpl#getAny <em>Any</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DocImpl#getId <em>Id</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DocImpl#getNSDoc <em>NS Doc</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DocImpl#getParentNSDoc <em>Parent NS Doc</em>}</li>
  * </ul>
  *
  * @generated
@@ -201,8 +201,8 @@ public class DocImpl extends NsdObjectImpl implements Doc {
      * @generated
      */
     @Override
-    public NSDoc getNSDoc() {
-        if( eContainerFeatureID() != NsdPackage.DOC__NS_DOC ) return null;
+    public NSDoc getParentNSDoc() {
+        if( eContainerFeatureID() != NsdPackage.DOC__PARENT_NS_DOC ) return null;
         return ( NSDoc ) eInternalContainer();
     }
 
@@ -211,8 +211,8 @@ public class DocImpl extends NsdObjectImpl implements Doc {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetNSDoc( NSDoc newNSDoc, NotificationChain msgs ) {
-        msgs = eBasicSetContainer( ( InternalEObject ) newNSDoc, NsdPackage.DOC__NS_DOC, msgs );
+    public NotificationChain basicSetParentNSDoc( NSDoc newParentNSDoc, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newParentNSDoc, NsdPackage.DOC__PARENT_NS_DOC, msgs );
         return msgs;
     }
 
@@ -222,21 +222,23 @@ public class DocImpl extends NsdObjectImpl implements Doc {
      * @generated
      */
     @Override
-    public void setNSDoc( NSDoc newNSDoc ) {
-        if( newNSDoc != eInternalContainer()
-                || ( eContainerFeatureID() != NsdPackage.DOC__NS_DOC && newNSDoc != null ) ) {
-            if( EcoreUtil.isAncestor( this, newNSDoc ) )
+    public void setParentNSDoc( NSDoc newParentNSDoc ) {
+        if( newParentNSDoc != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.DOC__PARENT_NS_DOC && newParentNSDoc != null ) ) {
+            if( EcoreUtil.isAncestor( this, newParentNSDoc ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newNSDoc != null )
-                msgs = ( ( InternalEObject ) newNSDoc ).eInverseAdd( this, NsdPackage.NS_DOC__DOC, NSDoc.class, msgs );
-            msgs = basicSetNSDoc( newNSDoc, msgs );
+            if( newParentNSDoc != null )
+                msgs = ( ( InternalEObject ) newParentNSDoc ).eInverseAdd( this, NsdPackage.NS_DOC__DOC, NSDoc.class,
+                        msgs );
+            msgs = basicSetParentNSDoc( newParentNSDoc, msgs );
             if( msgs != null ) msgs.dispatch();
         }
         else if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DOC__NS_DOC, newNSDoc, newNSDoc ) );
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DOC__PARENT_NS_DOC, newParentNSDoc,
+                    newParentNSDoc ) );
     }
 
     /**
@@ -247,10 +249,10 @@ public class DocImpl extends NsdObjectImpl implements Doc {
     @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
-        case NsdPackage.DOC__NS_DOC:
+        case NsdPackage.DOC__PARENT_NS_DOC:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            return basicSetNSDoc( ( NSDoc ) otherEnd, msgs );
+            return basicSetParentNSDoc( ( NSDoc ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
     }
@@ -269,8 +271,8 @@ public class DocImpl extends NsdObjectImpl implements Doc {
             return ( ( InternalEList< ? > ) getGroup() ).basicRemove( otherEnd, msgs );
         case NsdPackage.DOC__ANY:
             return ( ( InternalEList< ? > ) getAny() ).basicRemove( otherEnd, msgs );
-        case NsdPackage.DOC__NS_DOC:
-            return basicSetNSDoc( null, msgs );
+        case NsdPackage.DOC__PARENT_NS_DOC:
+            return basicSetParentNSDoc( null, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -283,7 +285,7 @@ public class DocImpl extends NsdObjectImpl implements Doc {
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
         switch( eContainerFeatureID() ) {
-        case NsdPackage.DOC__NS_DOC:
+        case NsdPackage.DOC__PARENT_NS_DOC:
             return eInternalContainer().eInverseRemove( this, NsdPackage.NS_DOC__DOC, NSDoc.class, msgs );
         }
         return super.eBasicRemoveFromContainerFeature( msgs );
@@ -308,8 +310,8 @@ public class DocImpl extends NsdObjectImpl implements Doc {
             return ( ( FeatureMap.Internal ) getAny() ).getWrapper();
         case NsdPackage.DOC__ID:
             return getId();
-        case NsdPackage.DOC__NS_DOC:
-            return getNSDoc();
+        case NsdPackage.DOC__PARENT_NS_DOC:
+            return getParentNSDoc();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -334,8 +336,8 @@ public class DocImpl extends NsdObjectImpl implements Doc {
         case NsdPackage.DOC__ID:
             setId( ( String ) newValue );
             return;
-        case NsdPackage.DOC__NS_DOC:
-            setNSDoc( ( NSDoc ) newValue );
+        case NsdPackage.DOC__PARENT_NS_DOC:
+            setParentNSDoc( ( NSDoc ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -361,8 +363,8 @@ public class DocImpl extends NsdObjectImpl implements Doc {
         case NsdPackage.DOC__ID:
             unsetId();
             return;
-        case NsdPackage.DOC__NS_DOC:
-            setNSDoc( ( NSDoc ) null );
+        case NsdPackage.DOC__PARENT_NS_DOC:
+            setParentNSDoc( ( NSDoc ) null );
             return;
         }
         super.eUnset( featureID );
@@ -384,8 +386,8 @@ public class DocImpl extends NsdObjectImpl implements Doc {
             return !getAny().isEmpty();
         case NsdPackage.DOC__ID:
             return isSetId();
-        case NsdPackage.DOC__NS_DOC:
-            return getNSDoc() != null;
+        case NsdPackage.DOC__PARENT_NS_DOC:
+            return getParentNSDoc() != null;
         }
         return super.eIsSet( featureID );
     }

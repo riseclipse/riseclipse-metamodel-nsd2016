@@ -42,7 +42,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * </p>
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataSetMemberOfImpl#getCb <em>Cb</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataSetMemberOfImpl#getApplicableServices <em>Applicable Services</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataSetMemberOfImpl#getParentApplicableServices <em>Parent Applicable Services</em>}</li>
  * </ul>
  *
  * @generated
@@ -154,8 +154,8 @@ public class DataSetMemberOfImpl extends NsdObjectImpl implements DataSetMemberO
      * @generated
      */
     @Override
-    public ApplicableServices getApplicableServices() {
-        if( eContainerFeatureID() != NsdPackage.DATA_SET_MEMBER_OF__APPLICABLE_SERVICES ) return null;
+    public ApplicableServices getParentApplicableServices() {
+        if( eContainerFeatureID() != NsdPackage.DATA_SET_MEMBER_OF__PARENT_APPLICABLE_SERVICES ) return null;
         return ( ApplicableServices ) eInternalContainer();
     }
 
@@ -164,10 +164,10 @@ public class DataSetMemberOfImpl extends NsdObjectImpl implements DataSetMemberO
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetApplicableServices( ApplicableServices newApplicableServices,
+    public NotificationChain basicSetParentApplicableServices( ApplicableServices newParentApplicableServices,
             NotificationChain msgs ) {
-        msgs = eBasicSetContainer( ( InternalEObject ) newApplicableServices,
-                NsdPackage.DATA_SET_MEMBER_OF__APPLICABLE_SERVICES, msgs );
+        msgs = eBasicSetContainer( ( InternalEObject ) newParentApplicableServices,
+                NsdPackage.DATA_SET_MEMBER_OF__PARENT_APPLICABLE_SERVICES, msgs );
         return msgs;
     }
 
@@ -177,24 +177,25 @@ public class DataSetMemberOfImpl extends NsdObjectImpl implements DataSetMemberO
      * @generated
      */
     @Override
-    public void setApplicableServices( ApplicableServices newApplicableServices ) {
-        if( newApplicableServices != eInternalContainer()
-                || ( eContainerFeatureID() != NsdPackage.DATA_SET_MEMBER_OF__APPLICABLE_SERVICES
-                        && newApplicableServices != null ) ) {
-            if( EcoreUtil.isAncestor( this, newApplicableServices ) )
+    public void setParentApplicableServices( ApplicableServices newParentApplicableServices ) {
+        if( newParentApplicableServices != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.DATA_SET_MEMBER_OF__PARENT_APPLICABLE_SERVICES
+                        && newParentApplicableServices != null ) ) {
+            if( EcoreUtil.isAncestor( this, newParentApplicableServices ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newApplicableServices != null )
-                msgs = ( ( InternalEObject ) newApplicableServices ).eInverseAdd( this,
+            if( newParentApplicableServices != null )
+                msgs = ( ( InternalEObject ) newParentApplicableServices ).eInverseAdd( this,
                         NsdPackage.APPLICABLE_SERVICES__DATA_SET_MEMBER_OF, ApplicableServices.class, msgs );
-            msgs = basicSetApplicableServices( newApplicableServices, msgs );
+            msgs = basicSetParentApplicableServices( newParentApplicableServices, msgs );
             if( msgs != null ) msgs.dispatch();
         }
         else if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_SET_MEMBER_OF__APPLICABLE_SERVICES,
-                    newApplicableServices, newApplicableServices ) );
+            eNotify( new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.DATA_SET_MEMBER_OF__PARENT_APPLICABLE_SERVICES, newParentApplicableServices,
+                    newParentApplicableServices ) );
     }
 
     /**
@@ -205,10 +206,10 @@ public class DataSetMemberOfImpl extends NsdObjectImpl implements DataSetMemberO
     @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
-        case NsdPackage.DATA_SET_MEMBER_OF__APPLICABLE_SERVICES:
+        case NsdPackage.DATA_SET_MEMBER_OF__PARENT_APPLICABLE_SERVICES:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            return basicSetApplicableServices( ( ApplicableServices ) otherEnd, msgs );
+            return basicSetParentApplicableServices( ( ApplicableServices ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
     }
@@ -221,8 +222,8 @@ public class DataSetMemberOfImpl extends NsdObjectImpl implements DataSetMemberO
     @Override
     public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
-        case NsdPackage.DATA_SET_MEMBER_OF__APPLICABLE_SERVICES:
-            return basicSetApplicableServices( null, msgs );
+        case NsdPackage.DATA_SET_MEMBER_OF__PARENT_APPLICABLE_SERVICES:
+            return basicSetParentApplicableServices( null, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -235,7 +236,7 @@ public class DataSetMemberOfImpl extends NsdObjectImpl implements DataSetMemberO
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
         switch( eContainerFeatureID() ) {
-        case NsdPackage.DATA_SET_MEMBER_OF__APPLICABLE_SERVICES:
+        case NsdPackage.DATA_SET_MEMBER_OF__PARENT_APPLICABLE_SERVICES:
             return eInternalContainer().eInverseRemove( this, NsdPackage.APPLICABLE_SERVICES__DATA_SET_MEMBER_OF,
                     ApplicableServices.class, msgs );
         }
@@ -252,8 +253,8 @@ public class DataSetMemberOfImpl extends NsdObjectImpl implements DataSetMemberO
         switch( featureID ) {
         case NsdPackage.DATA_SET_MEMBER_OF__CB:
             return getCb();
-        case NsdPackage.DATA_SET_MEMBER_OF__APPLICABLE_SERVICES:
-            return getApplicableServices();
+        case NsdPackage.DATA_SET_MEMBER_OF__PARENT_APPLICABLE_SERVICES:
+            return getParentApplicableServices();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -269,8 +270,8 @@ public class DataSetMemberOfImpl extends NsdObjectImpl implements DataSetMemberO
         case NsdPackage.DATA_SET_MEMBER_OF__CB:
             setCb( ( CBKind ) newValue );
             return;
-        case NsdPackage.DATA_SET_MEMBER_OF__APPLICABLE_SERVICES:
-            setApplicableServices( ( ApplicableServices ) newValue );
+        case NsdPackage.DATA_SET_MEMBER_OF__PARENT_APPLICABLE_SERVICES:
+            setParentApplicableServices( ( ApplicableServices ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -287,8 +288,8 @@ public class DataSetMemberOfImpl extends NsdObjectImpl implements DataSetMemberO
         case NsdPackage.DATA_SET_MEMBER_OF__CB:
             unsetCb();
             return;
-        case NsdPackage.DATA_SET_MEMBER_OF__APPLICABLE_SERVICES:
-            setApplicableServices( ( ApplicableServices ) null );
+        case NsdPackage.DATA_SET_MEMBER_OF__PARENT_APPLICABLE_SERVICES:
+            setParentApplicableServices( ( ApplicableServices ) null );
             return;
         }
         super.eUnset( featureID );
@@ -304,8 +305,8 @@ public class DataSetMemberOfImpl extends NsdObjectImpl implements DataSetMemberO
         switch( featureID ) {
         case NsdPackage.DATA_SET_MEMBER_OF__CB:
             return isSetCb();
-        case NsdPackage.DATA_SET_MEMBER_OF__APPLICABLE_SERVICES:
-            return getApplicableServices() != null;
+        case NsdPackage.DATA_SET_MEMBER_OF__PARENT_APPLICABLE_SERVICES:
+            return getParentApplicableServices() != null;
         }
         return super.eIsSet( featureID );
     }

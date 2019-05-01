@@ -32,7 +32,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getDescID <em>Desc ID</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getName <em>Name</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getBasicTypes <em>Basic Types</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getParentBasicTypes <em>Parent Basic Types</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getReferredByDataAttribute <em>Referred By Data Attribute</em>}</li>
  * </ul>
  *
@@ -144,32 +144,28 @@ public interface BasicType extends NsdObject {
     boolean isSetName();
 
     /**
-     * Returns the value of the '<em><b>Basic Types</b></em>' container reference.
+     * Returns the value of the '<em><b>Parent Basic Types</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes#getBasicType <em>Basic Type</em>}'.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Basic Types</em>' container reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Basic Types</em>' container reference.
-     * @see #setBasicTypes(BasicTypes)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getBasicType_BasicTypes()
+     * @return the value of the '<em>Parent Basic Types</em>' container reference.
+     * @see #setParentBasicTypes(BasicTypes)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getBasicType_ParentBasicTypes()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes#getBasicType
      * @model opposite="basicType" resolveProxies="false" unsettable="true" ordered="false"
      * @generated
      */
-    BasicTypes getBasicTypes();
+    BasicTypes getParentBasicTypes();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getBasicTypes <em>Basic Types</em>}' container reference.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getParentBasicTypes <em>Parent Basic Types</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Basic Types</em>' container reference.
-     * @see #getBasicTypes()
+     * @param value the new value of the '<em>Parent Basic Types</em>' container reference.
+     * @see #getParentBasicTypes()
      * @generated
      */
-    void setBasicTypes( BasicTypes value );
+    void setParentBasicTypes( BasicTypes value );
 
     /**
      * Returns the value of the '<em><b>Referred By Data Attribute</b></em>' reference list.

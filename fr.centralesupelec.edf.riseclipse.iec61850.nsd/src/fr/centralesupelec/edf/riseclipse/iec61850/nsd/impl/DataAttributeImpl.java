@@ -79,7 +79,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getMinValue <em>Min Value</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getFc <em>Fc</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getName <em>Name</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getCDC <em>CDC</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getParentCDC <em>Parent CDC</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getReferredBySubDataObjectAsSizeAttribute <em>Referred By Sub Data Object As Size Attribute</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getReferredBySubDataObjectAsMaxIndexAttribute <em>Referred By Sub Data Object As Max Index Attribute</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getRefersToFunctionalConstraint <em>Refers To Functional Constraint</em>}</li>
@@ -1268,6 +1268,52 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
      * @generated
      */
     @Override
+    public CDC getParentCDC() {
+        if( eContainerFeatureID() != NsdPackage.DATA_ATTRIBUTE__PARENT_CDC ) return null;
+        return ( CDC ) eInternalContainer();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetParentCDC( CDC newParentCDC, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newParentCDC, NsdPackage.DATA_ATTRIBUTE__PARENT_CDC, msgs );
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setParentCDC( CDC newParentCDC ) {
+        if( newParentCDC != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.DATA_ATTRIBUTE__PARENT_CDC && newParentCDC != null ) ) {
+            if( EcoreUtil.isAncestor( this, newParentCDC ) )
+                throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            NotificationChain msgs = null;
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
+            if( newParentCDC != null )
+                msgs = ( ( InternalEObject ) newParentCDC ).eInverseAdd( this, NsdPackage.CDC__DATA_ATTRIBUTE,
+                        CDC.class, msgs );
+            msgs = basicSetParentCDC( newParentCDC, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__PARENT_CDC, newParentCDC,
+                    newParentCDC ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public String getPresCond() {
         return presCond;
     }
@@ -1624,51 +1670,6 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     @Override
     public boolean isSetTypeKind() {
         return typeKindESet;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public CDC getCDC() {
-        if( eContainerFeatureID() != NsdPackage.DATA_ATTRIBUTE__CDC ) return null;
-        return ( CDC ) eInternalContainer();
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public NotificationChain basicSetCDC( CDC newCDC, NotificationChain msgs ) {
-        msgs = eBasicSetContainer( ( InternalEObject ) newCDC, NsdPackage.DATA_ATTRIBUTE__CDC, msgs );
-        return msgs;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setCDC( CDC newCDC ) {
-        if( newCDC != eInternalContainer()
-                || ( eContainerFeatureID() != NsdPackage.DATA_ATTRIBUTE__CDC && newCDC != null ) ) {
-            if( EcoreUtil.isAncestor( this, newCDC ) )
-                throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
-            NotificationChain msgs = null;
-            if( eInternalContainer() != null )
-                msgs = eBasicRemoveFromContainer( msgs );
-            if( newCDC != null )
-                msgs = ( ( InternalEObject ) newCDC ).eInverseAdd( this, NsdPackage.CDC__DATA_ATTRIBUTE, CDC.class,
-                        msgs );
-            msgs = basicSetCDC( newCDC, msgs );
-            if( msgs != null ) msgs.dispatch();
-        }
-        else if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__CDC, newCDC, newCDC ) );
     }
 
     /**
@@ -2420,10 +2421,10 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
-        case NsdPackage.DATA_ATTRIBUTE__CDC:
+        case NsdPackage.DATA_ATTRIBUTE__PARENT_CDC:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            return basicSetCDC( ( CDC ) otherEnd, msgs );
+            return basicSetParentCDC( ( CDC ) otherEnd, msgs );
         case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_SIZE_ATTRIBUTE:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredBySubDataObjectAsSizeAttribute() )
                     .basicAdd( otherEnd, msgs );
@@ -2476,8 +2477,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     @Override
     public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
-        case NsdPackage.DATA_ATTRIBUTE__CDC:
-            return basicSetCDC( null, msgs );
+        case NsdPackage.DATA_ATTRIBUTE__PARENT_CDC:
+            return basicSetParentCDC( null, msgs );
         case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_SIZE_ATTRIBUTE:
             return ( ( InternalEList< ? > ) getReferredBySubDataObjectAsSizeAttribute() ).basicRemove( otherEnd, msgs );
         case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_MAX_INDEX_ATTRIBUTE:
@@ -2510,7 +2511,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
         switch( eContainerFeatureID() ) {
-        case NsdPackage.DATA_ATTRIBUTE__CDC:
+        case NsdPackage.DATA_ATTRIBUTE__PARENT_CDC:
             return eInternalContainer().eInverseRemove( this, NsdPackage.CDC__DATA_ATTRIBUTE, CDC.class, msgs );
         }
         return super.eBasicRemoveFromContainerFeature( msgs );
@@ -2558,8 +2559,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
             return getFc();
         case NsdPackage.DATA_ATTRIBUTE__NAME:
             return getName();
-        case NsdPackage.DATA_ATTRIBUTE__CDC:
-            return getCDC();
+        case NsdPackage.DATA_ATTRIBUTE__PARENT_CDC:
+            return getParentCDC();
         case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_SIZE_ATTRIBUTE:
             return getReferredBySubDataObjectAsSizeAttribute();
         case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_MAX_INDEX_ATTRIBUTE:
@@ -2642,8 +2643,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         case NsdPackage.DATA_ATTRIBUTE__NAME:
             setName( ( String ) newValue );
             return;
-        case NsdPackage.DATA_ATTRIBUTE__CDC:
-            setCDC( ( CDC ) newValue );
+        case NsdPackage.DATA_ATTRIBUTE__PARENT_CDC:
+            setParentCDC( ( CDC ) newValue );
             return;
         case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_SIZE_ATTRIBUTE:
             getReferredBySubDataObjectAsSizeAttribute().clear();
@@ -2741,8 +2742,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         case NsdPackage.DATA_ATTRIBUTE__NAME:
             unsetName();
             return;
-        case NsdPackage.DATA_ATTRIBUTE__CDC:
-            setCDC( ( CDC ) null );
+        case NsdPackage.DATA_ATTRIBUTE__PARENT_CDC:
+            setParentCDC( ( CDC ) null );
             return;
         case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_SIZE_ATTRIBUTE:
             unsetReferredBySubDataObjectAsSizeAttribute();
@@ -2817,8 +2818,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
             return isSetFc();
         case NsdPackage.DATA_ATTRIBUTE__NAME:
             return isSetName();
-        case NsdPackage.DATA_ATTRIBUTE__CDC:
-            return getCDC() != null;
+        case NsdPackage.DATA_ATTRIBUTE__PARENT_CDC:
+            return getParentCDC() != null;
         case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_SIZE_ATTRIBUTE:
             return isSetReferredBySubDataObjectAsSizeAttribute();
         case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_MAX_INDEX_ATTRIBUTE:
@@ -3090,7 +3091,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
-        NS ns = getCDC().getCDCs().getNS();
+        NS ns = getParentCDC().getParentCDCs().getParentNS();
 
         if( isSetFc() ) {
             FunctionalConstraint foundFC = ns.findFunctionalConstraint( getFc(), console );
@@ -3103,7 +3104,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                 setRefersToFunctionalConstraint( foundFC );
                 console.verbose( "FunctionalConstraint (abbreviation: " + getFc() + ") refers by DataAttribute (name: "
                         + getName() + ") in NS (id:" + ns.getId() + ") found in NS (id:"
-                        + getRefersToFunctionalConstraint().getFunctionalConstraints().getNS().getId() + ")" );
+                        + getRefersToFunctionalConstraint().getParentFunctionalConstraints().getParentNS().getId()
+                        + ")" );
             }
         }
 
@@ -3118,12 +3120,12 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                 setRefersToPresenceCondition( foundPC );
                 console.verbose( "PresenceCondition (name: " + getPresCond() + ") refers by DataAttribute (name: "
                         + getName() + ") in NS (id:" + ns.getId() + ") found in NS (id:"
-                        + getRefersToPresenceCondition().getPresenceConditions().getNS().getId() + ")" );
+                        + getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId() + ")" );
             }
         }
 
         if( isSetSizeAttribute() ) {
-            getCDC()
+            getParentCDC()
                     .getDataAttribute()
                     .stream()
                     .filter( att -> att.getName().equals( getSizeAttribute() ) )
@@ -3143,7 +3145,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         }
 
         if( isSetMaxIndexAttribute() ) {
-            getCDC()
+            getParentCDC()
                     .getDataAttribute()
                     .stream()
                     .filter( att -> att.getName().equals( getMaxIndexAttribute() ) )
@@ -3173,7 +3175,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                 setRefersToBasicType( foundBT );
                 console.verbose( "BasicType (name: " + getType() + ") refers as type by DataAttribute (name: "
                         + getName() + ") in NS (id:" + ns.getId() + ") found in NS (id:"
-                        + getRefersToBasicType().getBasicTypes().getNS().getId() + ")" );
+                        + getRefersToBasicType().getParentBasicTypes().getParentNS().getId() + ")" );
             }
         }
 

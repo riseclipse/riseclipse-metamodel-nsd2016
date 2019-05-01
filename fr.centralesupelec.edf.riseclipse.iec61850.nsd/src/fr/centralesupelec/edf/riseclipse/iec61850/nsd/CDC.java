@@ -38,7 +38,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#isStatistics <em>Statistics</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#isTypeKindParameterized <em>Type Kind Parameterized</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getVariant <em>Variant</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getCDCs <em>CD Cs</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getParentCDCs <em>Parent CD Cs</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getReferredByDataObject <em>Referred By Data Object</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getReferredBySubDataObject <em>Referred By Sub Data Object</em>}</li>
  * </ul>
@@ -53,7 +53,7 @@ public interface CDC extends TitledClass {
     /**
      * Returns the value of the '<em><b>Sub Data Object</b></em>' containment reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject}.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getCDC <em>CDC</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getParentCDC <em>Parent CDC</em>}'.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Sub Data Object</em>' containment reference list isn't clear,
@@ -64,8 +64,8 @@ public interface CDC extends TitledClass {
      * @see #isSetSubDataObject()
      * @see #unsetSubDataObject()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCDC_SubDataObject()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getCDC
-     * @model opposite="cDC" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getParentCDC
+     * @model opposite="parentCDC" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='SubDataObject' namespace='##targetNamespace'"
      * @generated
      */
@@ -95,7 +95,7 @@ public interface CDC extends TitledClass {
     /**
      * Returns the value of the '<em><b>Data Attribute</b></em>' containment reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute}.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getCDC <em>CDC</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getParentCDC <em>Parent CDC</em>}'.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Data Attribute</em>' containment reference list isn't clear,
@@ -106,8 +106,8 @@ public interface CDC extends TitledClass {
      * @see #isSetDataAttribute()
      * @see #unsetDataAttribute()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCDC_DataAttribute()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getCDC
-     * @model opposite="cDC" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getParentCDC
+     * @model opposite="parentCDC" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='DataAttribute' namespace='##targetNamespace'"
      * @generated
      */
@@ -136,7 +136,7 @@ public interface CDC extends TitledClass {
 
     /**
      * Returns the value of the '<em><b>Service Parameter</b></em>' containment reference.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceParameter#getCDC <em>CDC</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceParameter#getParentCDC <em>Parent CDC</em>}'.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Service Parameter</em>' containment reference isn't clear,
@@ -148,8 +148,8 @@ public interface CDC extends TitledClass {
      * @see #unsetServiceParameter()
      * @see #setServiceParameter(ServiceParameter)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCDC_ServiceParameter()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceParameter#getCDC
-     * @model opposite="cDC" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceParameter#getParentCDC
+     * @model opposite="parentCDC" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='ServiceParameter' namespace='##targetNamespace'"
      * @generated
      */
@@ -444,32 +444,28 @@ public interface CDC extends TitledClass {
     boolean isSetVariant();
 
     /**
-     * Returns the value of the '<em><b>CD Cs</b></em>' container reference.
+     * Returns the value of the '<em><b>Parent CD Cs</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs#getCDC <em>CDC</em>}'.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>CD Cs</em>' container reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>CD Cs</em>' container reference.
-     * @see #setCDCs(CDCs)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCDC_CDCs()
+     * @return the value of the '<em>Parent CD Cs</em>' container reference.
+     * @see #setParentCDCs(CDCs)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCDC_ParentCDCs()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs#getCDC
      * @model opposite="cDC" resolveProxies="false" unsettable="true" ordered="false"
      * @generated
      */
-    CDCs getCDCs();
+    CDCs getParentCDCs();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getCDCs <em>CD Cs</em>}' container reference.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getParentCDCs <em>Parent CD Cs</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>CD Cs</em>' container reference.
-     * @see #getCDCs()
+     * @param value the new value of the '<em>Parent CD Cs</em>' container reference.
+     * @see #getParentCDCs()
      * @generated
      */
-    void setCDCs( CDCs value );
+    void setParentCDCs( CDCs value );
 
     /**
      * Returns the value of the '<em><b>Referred By Data Object</b></em>' reference list.

@@ -41,7 +41,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * </p>
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceConstructedAttributeImpl#isTypeKindParameterized <em>Type Kind Parameterized</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceConstructedAttributeImpl#getServiceConstructedAttribute <em>Service Constructed Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceConstructedAttributeImpl#getParentServiceConstructedAttributes <em>Parent Service Constructed Attributes</em>}</li>
  * </ul>
  *
  * @generated
@@ -155,8 +155,8 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
      * @generated
      */
     @Override
-    public ServiceConstructedAttributes getServiceConstructedAttribute() {
-        if( eContainerFeatureID() != NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__SERVICE_CONSTRUCTED_ATTRIBUTE )
+    public ServiceConstructedAttributes getParentServiceConstructedAttributes() {
+        if( eContainerFeatureID() != NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_CONSTRUCTED_ATTRIBUTES )
             return null;
         return ( ServiceConstructedAttributes ) eInternalContainer();
     }
@@ -166,10 +166,10 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetServiceConstructedAttribute(
-            ServiceConstructedAttributes newServiceConstructedAttribute, NotificationChain msgs ) {
-        msgs = eBasicSetContainer( ( InternalEObject ) newServiceConstructedAttribute,
-                NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__SERVICE_CONSTRUCTED_ATTRIBUTE, msgs );
+    public NotificationChain basicSetParentServiceConstructedAttributes(
+            ServiceConstructedAttributes newParentServiceConstructedAttributes, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newParentServiceConstructedAttributes,
+                NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_CONSTRUCTED_ATTRIBUTES, msgs );
         return msgs;
     }
 
@@ -179,26 +179,27 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
      * @generated
      */
     @Override
-    public void setServiceConstructedAttribute( ServiceConstructedAttributes newServiceConstructedAttribute ) {
-        if( newServiceConstructedAttribute != eInternalContainer()
-                || ( eContainerFeatureID() != NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__SERVICE_CONSTRUCTED_ATTRIBUTE
-                        && newServiceConstructedAttribute != null ) ) {
-            if( EcoreUtil.isAncestor( this, newServiceConstructedAttribute ) )
+    public void setParentServiceConstructedAttributes(
+            ServiceConstructedAttributes newParentServiceConstructedAttributes ) {
+        if( newParentServiceConstructedAttributes != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_CONSTRUCTED_ATTRIBUTES
+                        && newParentServiceConstructedAttributes != null ) ) {
+            if( EcoreUtil.isAncestor( this, newParentServiceConstructedAttributes ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newServiceConstructedAttribute != null )
-                msgs = ( ( InternalEObject ) newServiceConstructedAttribute ).eInverseAdd( this,
+            if( newParentServiceConstructedAttributes != null )
+                msgs = ( ( InternalEObject ) newParentServiceConstructedAttributes ).eInverseAdd( this,
                         NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_CONSTRUCTED_ATTRIBUTE,
                         ServiceConstructedAttributes.class, msgs );
-            msgs = basicSetServiceConstructedAttribute( newServiceConstructedAttribute, msgs );
+            msgs = basicSetParentServiceConstructedAttributes( newParentServiceConstructedAttributes, msgs );
             if( msgs != null ) msgs.dispatch();
         }
         else if( eNotificationRequired() )
             eNotify( new ENotificationImpl( this, Notification.SET,
-                    NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__SERVICE_CONSTRUCTED_ATTRIBUTE,
-                    newServiceConstructedAttribute, newServiceConstructedAttribute ) );
+                    NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_CONSTRUCTED_ATTRIBUTES,
+                    newParentServiceConstructedAttributes, newParentServiceConstructedAttributes ) );
     }
 
     /**
@@ -209,10 +210,10 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
     @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
-        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__SERVICE_CONSTRUCTED_ATTRIBUTE:
+        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_CONSTRUCTED_ATTRIBUTES:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            return basicSetServiceConstructedAttribute( ( ServiceConstructedAttributes ) otherEnd, msgs );
+            return basicSetParentServiceConstructedAttributes( ( ServiceConstructedAttributes ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
     }
@@ -225,8 +226,8 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
     @Override
     public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
-        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__SERVICE_CONSTRUCTED_ATTRIBUTE:
-            return basicSetServiceConstructedAttribute( null, msgs );
+        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_CONSTRUCTED_ATTRIBUTES:
+            return basicSetParentServiceConstructedAttributes( null, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -239,7 +240,7 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
         switch( eContainerFeatureID() ) {
-        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__SERVICE_CONSTRUCTED_ATTRIBUTE:
+        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_CONSTRUCTED_ATTRIBUTES:
             return eInternalContainer().eInverseRemove( this,
                     NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_CONSTRUCTED_ATTRIBUTE,
                     ServiceConstructedAttributes.class, msgs );
@@ -257,8 +258,8 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
         switch( featureID ) {
         case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__TYPE_KIND_PARAMETERIZED:
             return isTypeKindParameterized();
-        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__SERVICE_CONSTRUCTED_ATTRIBUTE:
-            return getServiceConstructedAttribute();
+        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_CONSTRUCTED_ATTRIBUTES:
+            return getParentServiceConstructedAttributes();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -274,8 +275,8 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
         case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__TYPE_KIND_PARAMETERIZED:
             setTypeKindParameterized( ( Boolean ) newValue );
             return;
-        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__SERVICE_CONSTRUCTED_ATTRIBUTE:
-            setServiceConstructedAttribute( ( ServiceConstructedAttributes ) newValue );
+        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_CONSTRUCTED_ATTRIBUTES:
+            setParentServiceConstructedAttributes( ( ServiceConstructedAttributes ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -292,8 +293,8 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
         case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__TYPE_KIND_PARAMETERIZED:
             unsetTypeKindParameterized();
             return;
-        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__SERVICE_CONSTRUCTED_ATTRIBUTE:
-            setServiceConstructedAttribute( ( ServiceConstructedAttributes ) null );
+        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_CONSTRUCTED_ATTRIBUTES:
+            setParentServiceConstructedAttributes( ( ServiceConstructedAttributes ) null );
             return;
         }
         super.eUnset( featureID );
@@ -309,8 +310,8 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
         switch( featureID ) {
         case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__TYPE_KIND_PARAMETERIZED:
             return isSetTypeKindParameterized();
-        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__SERVICE_CONSTRUCTED_ATTRIBUTE:
-            return getServiceConstructedAttribute() != null;
+        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_CONSTRUCTED_ATTRIBUTES:
+            return getParentServiceConstructedAttributes() != null;
         }
         return super.eIsSet( featureID );
     }

@@ -49,7 +49,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DependsOnImpl#getId <em>Id</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DependsOnImpl#getRevision <em>Revision</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DependsOnImpl#getPublicationStage <em>Publication Stage</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DependsOnImpl#getNS <em>NS</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DependsOnImpl#getParentNS <em>Parent NS</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DependsOnImpl#getRefersToNS <em>Refers To NS</em>}</li>
  * </ul>
  *
@@ -490,8 +490,8 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
      * @generated
      */
     @Override
-    public NS getNS() {
-        if( eContainerFeatureID() != NsdPackage.DEPENDS_ON__NS ) return null;
+    public NS getParentNS() {
+        if( eContainerFeatureID() != NsdPackage.DEPENDS_ON__PARENT_NS ) return null;
         return ( NS ) eInternalContainer();
     }
 
@@ -500,8 +500,8 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetNS( NS newNS, NotificationChain msgs ) {
-        msgs = eBasicSetContainer( ( InternalEObject ) newNS, NsdPackage.DEPENDS_ON__NS, msgs );
+    public NotificationChain basicSetParentNS( NS newParentNS, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newParentNS, NsdPackage.DEPENDS_ON__PARENT_NS, msgs );
         return msgs;
     }
 
@@ -511,20 +511,23 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
      * @generated
      */
     @Override
-    public void setNS( NS newNS ) {
-        if( newNS != eInternalContainer() || ( eContainerFeatureID() != NsdPackage.DEPENDS_ON__NS && newNS != null ) ) {
-            if( EcoreUtil.isAncestor( this, newNS ) )
+    public void setParentNS( NS newParentNS ) {
+        if( newParentNS != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.DEPENDS_ON__PARENT_NS && newParentNS != null ) ) {
+            if( EcoreUtil.isAncestor( this, newParentNS ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newNS != null )
-                msgs = ( ( InternalEObject ) newNS ).eInverseAdd( this, NsdPackage.NS__DEPENDS_ON, NS.class, msgs );
-            msgs = basicSetNS( newNS, msgs );
+            if( newParentNS != null )
+                msgs = ( ( InternalEObject ) newParentNS ).eInverseAdd( this, NsdPackage.NS__DEPENDS_ON, NS.class,
+                        msgs );
+            msgs = basicSetParentNS( newParentNS, msgs );
             if( msgs != null ) msgs.dispatch();
         }
         else if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DEPENDS_ON__NS, newNS, newNS ) );
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DEPENDS_ON__PARENT_NS, newParentNS,
+                    newParentNS ) );
     }
 
     /**
@@ -647,10 +650,10 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
     @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
-        case NsdPackage.DEPENDS_ON__NS:
+        case NsdPackage.DEPENDS_ON__PARENT_NS:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            return basicSetNS( ( NS ) otherEnd, msgs );
+            return basicSetParentNS( ( NS ) otherEnd, msgs );
         case NsdPackage.DEPENDS_ON__REFERS_TO_NS:
             if( refersToNS != null )
                 msgs = ( ( InternalEObject ) refersToNS ).eInverseRemove( this, NsdPackage.NS__REFERRED_BY_DEPENDS_ON,
@@ -668,8 +671,8 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
     @Override
     public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
-        case NsdPackage.DEPENDS_ON__NS:
-            return basicSetNS( null, msgs );
+        case NsdPackage.DEPENDS_ON__PARENT_NS:
+            return basicSetParentNS( null, msgs );
         case NsdPackage.DEPENDS_ON__REFERS_TO_NS:
             return basicUnsetRefersToNS( msgs );
         }
@@ -684,7 +687,7 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
         switch( eContainerFeatureID() ) {
-        case NsdPackage.DEPENDS_ON__NS:
+        case NsdPackage.DEPENDS_ON__PARENT_NS:
             return eInternalContainer().eInverseRemove( this, NsdPackage.NS__DEPENDS_ON, NS.class, msgs );
         }
         return super.eBasicRemoveFromContainerFeature( msgs );
@@ -708,8 +711,8 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
             return getRevision();
         case NsdPackage.DEPENDS_ON__PUBLICATION_STAGE:
             return getPublicationStage();
-        case NsdPackage.DEPENDS_ON__NS:
-            return getNS();
+        case NsdPackage.DEPENDS_ON__PARENT_NS:
+            return getParentNS();
         case NsdPackage.DEPENDS_ON__REFERS_TO_NS:
             return getRefersToNS();
         }
@@ -739,8 +742,8 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         case NsdPackage.DEPENDS_ON__PUBLICATION_STAGE:
             setPublicationStage( ( PubStage ) newValue );
             return;
-        case NsdPackage.DEPENDS_ON__NS:
-            setNS( ( NS ) newValue );
+        case NsdPackage.DEPENDS_ON__PARENT_NS:
+            setParentNS( ( NS ) newValue );
             return;
         case NsdPackage.DEPENDS_ON__REFERS_TO_NS:
             setRefersToNS( ( NS ) newValue );
@@ -772,8 +775,8 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         case NsdPackage.DEPENDS_ON__PUBLICATION_STAGE:
             unsetPublicationStage();
             return;
-        case NsdPackage.DEPENDS_ON__NS:
-            setNS( ( NS ) null );
+        case NsdPackage.DEPENDS_ON__PARENT_NS:
+            setParentNS( ( NS ) null );
             return;
         case NsdPackage.DEPENDS_ON__REFERS_TO_NS:
             unsetRefersToNS();
@@ -800,8 +803,8 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
             return isSetRevision();
         case NsdPackage.DEPENDS_ON__PUBLICATION_STAGE:
             return isSetPublicationStage();
-        case NsdPackage.DEPENDS_ON__NS:
-            return getNS() != null;
+        case NsdPackage.DEPENDS_ON__PARENT_NS:
+            return getParentNS() != null;
         case NsdPackage.DEPENDS_ON__REFERS_TO_NS:
             return isSetRefersToNS();
         }
@@ -909,12 +912,12 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         NS ns = ( ( NsdResourceSetImpl ) eResource().getResourceSet() ).getNS( getId() );
         if( ns == null ) {
             console.error(
-                    "NS (id: " + getId() + ") and refers by DependsOn in NS (id:" + getNS().getId() + ") is unknown" );
+                    "NS (id: " + getId() + ") and refers by DependsOn in NS (id:" + getParentNS().getId() + ") is unknown" );
         }
         else {
             setRefersToNS( ns );
             console.verbose(
-                    "NS (id: " + getId() + ") and refers by DependsOn in NS (id:" + getNS().getId() + ") found" );
+                    "NS (id: " + getId() + ") and refers by DependsOn in NS (id:" + getParentNS().getId() + ") found" );
         }
         return false;
     }

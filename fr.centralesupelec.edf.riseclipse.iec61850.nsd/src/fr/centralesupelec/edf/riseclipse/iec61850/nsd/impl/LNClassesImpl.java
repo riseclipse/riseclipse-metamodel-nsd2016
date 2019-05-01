@@ -50,7 +50,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.LNClassesImpl#getAbstractLNClass <em>Abstract LN Class</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.LNClassesImpl#getLNClass <em>LN Class</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.LNClassesImpl#getNS <em>NS</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.LNClassesImpl#getParentNS <em>Parent NS</em>}</li>
  * </ul>
  *
  * @generated
@@ -105,7 +105,7 @@ public class LNClassesImpl extends NsdObjectImpl implements LNClasses {
         if( abstractLNClass == null ) {
             abstractLNClass = new EObjectContainmentWithInverseEList.Unsettable< AbstractLNClass >(
                     AbstractLNClass.class, this, NsdPackage.LN_CLASSES__ABSTRACT_LN_CLASS,
-                    NsdPackage.ABSTRACT_LN_CLASS__LN_CLASSES );
+                    NsdPackage.ABSTRACT_LN_CLASS__PARENT_LN_CLASSES );
         }
         return abstractLNClass;
     }
@@ -139,7 +139,7 @@ public class LNClassesImpl extends NsdObjectImpl implements LNClasses {
     public EList< LNClass > getLNClass() {
         if( lNClass == null ) {
             lNClass = new EObjectContainmentWithInverseEList.Unsettable< LNClass >( LNClass.class, this,
-                    NsdPackage.LN_CLASSES__LN_CLASS, NsdPackage.LN_CLASS__LN_CLASSES );
+                    NsdPackage.LN_CLASSES__LN_CLASS, NsdPackage.LN_CLASS__PARENT_LN_CLASSES );
         }
         return lNClass;
     }
@@ -170,8 +170,8 @@ public class LNClassesImpl extends NsdObjectImpl implements LNClasses {
      * @generated
      */
     @Override
-    public NS getNS() {
-        if( eContainerFeatureID() != NsdPackage.LN_CLASSES__NS ) return null;
+    public NS getParentNS() {
+        if( eContainerFeatureID() != NsdPackage.LN_CLASSES__PARENT_NS ) return null;
         return ( NS ) eInternalContainer();
     }
 
@@ -180,8 +180,8 @@ public class LNClassesImpl extends NsdObjectImpl implements LNClasses {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetNS( NS newNS, NotificationChain msgs ) {
-        msgs = eBasicSetContainer( ( InternalEObject ) newNS, NsdPackage.LN_CLASSES__NS, msgs );
+    public NotificationChain basicSetParentNS( NS newParentNS, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newParentNS, NsdPackage.LN_CLASSES__PARENT_NS, msgs );
         return msgs;
     }
 
@@ -191,20 +191,23 @@ public class LNClassesImpl extends NsdObjectImpl implements LNClasses {
      * @generated
      */
     @Override
-    public void setNS( NS newNS ) {
-        if( newNS != eInternalContainer() || ( eContainerFeatureID() != NsdPackage.LN_CLASSES__NS && newNS != null ) ) {
-            if( EcoreUtil.isAncestor( this, newNS ) )
+    public void setParentNS( NS newParentNS ) {
+        if( newParentNS != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.LN_CLASSES__PARENT_NS && newParentNS != null ) ) {
+            if( EcoreUtil.isAncestor( this, newParentNS ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newNS != null )
-                msgs = ( ( InternalEObject ) newNS ).eInverseAdd( this, NsdPackage.NS__LN_CLASSES, NS.class, msgs );
-            msgs = basicSetNS( newNS, msgs );
+            if( newParentNS != null )
+                msgs = ( ( InternalEObject ) newParentNS ).eInverseAdd( this, NsdPackage.NS__LN_CLASSES, NS.class,
+                        msgs );
+            msgs = basicSetParentNS( newParentNS, msgs );
             if( msgs != null ) msgs.dispatch();
         }
         else if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.LN_CLASSES__NS, newNS, newNS ) );
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.LN_CLASSES__PARENT_NS, newParentNS,
+                    newParentNS ) );
     }
 
     /**
@@ -222,10 +225,10 @@ public class LNClassesImpl extends NsdObjectImpl implements LNClasses {
         case NsdPackage.LN_CLASSES__LN_CLASS:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getLNClass() ).basicAdd( otherEnd,
                     msgs );
-        case NsdPackage.LN_CLASSES__NS:
+        case NsdPackage.LN_CLASSES__PARENT_NS:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            return basicSetNS( ( NS ) otherEnd, msgs );
+            return basicSetParentNS( ( NS ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
     }
@@ -242,8 +245,8 @@ public class LNClassesImpl extends NsdObjectImpl implements LNClasses {
             return ( ( InternalEList< ? > ) getAbstractLNClass() ).basicRemove( otherEnd, msgs );
         case NsdPackage.LN_CLASSES__LN_CLASS:
             return ( ( InternalEList< ? > ) getLNClass() ).basicRemove( otherEnd, msgs );
-        case NsdPackage.LN_CLASSES__NS:
-            return basicSetNS( null, msgs );
+        case NsdPackage.LN_CLASSES__PARENT_NS:
+            return basicSetParentNS( null, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -256,7 +259,7 @@ public class LNClassesImpl extends NsdObjectImpl implements LNClasses {
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
         switch( eContainerFeatureID() ) {
-        case NsdPackage.LN_CLASSES__NS:
+        case NsdPackage.LN_CLASSES__PARENT_NS:
             return eInternalContainer().eInverseRemove( this, NsdPackage.NS__LN_CLASSES, NS.class, msgs );
         }
         return super.eBasicRemoveFromContainerFeature( msgs );
@@ -274,8 +277,8 @@ public class LNClassesImpl extends NsdObjectImpl implements LNClasses {
             return getAbstractLNClass();
         case NsdPackage.LN_CLASSES__LN_CLASS:
             return getLNClass();
-        case NsdPackage.LN_CLASSES__NS:
-            return getNS();
+        case NsdPackage.LN_CLASSES__PARENT_NS:
+            return getParentNS();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -297,8 +300,8 @@ public class LNClassesImpl extends NsdObjectImpl implements LNClasses {
             getLNClass().clear();
             getLNClass().addAll( ( Collection< ? extends LNClass > ) newValue );
             return;
-        case NsdPackage.LN_CLASSES__NS:
-            setNS( ( NS ) newValue );
+        case NsdPackage.LN_CLASSES__PARENT_NS:
+            setParentNS( ( NS ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -318,8 +321,8 @@ public class LNClassesImpl extends NsdObjectImpl implements LNClasses {
         case NsdPackage.LN_CLASSES__LN_CLASS:
             unsetLNClass();
             return;
-        case NsdPackage.LN_CLASSES__NS:
-            setNS( ( NS ) null );
+        case NsdPackage.LN_CLASSES__PARENT_NS:
+            setParentNS( ( NS ) null );
             return;
         }
         super.eUnset( featureID );
@@ -337,8 +340,8 @@ public class LNClassesImpl extends NsdObjectImpl implements LNClasses {
             return isSetAbstractLNClass();
         case NsdPackage.LN_CLASSES__LN_CLASS:
             return isSetLNClass();
-        case NsdPackage.LN_CLASSES__NS:
-            return getNS() != null;
+        case NsdPackage.LN_CLASSES__PARENT_NS:
+            return getParentNS() != null;
         }
         return super.eIsSet( featureID );
     }

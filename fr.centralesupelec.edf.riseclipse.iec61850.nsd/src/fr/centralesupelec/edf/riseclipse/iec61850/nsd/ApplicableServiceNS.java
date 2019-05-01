@@ -47,15 +47,15 @@ public interface ApplicableServiceNS extends Copyrighted {
     /**
      * Returns the value of the '<em><b>Service Ns Usage</b></em>' containment reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage}.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getApplicableServiceNS <em>Applicable Service NS</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getParentApplicableServiceNS <em>Parent Applicable Service NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>Service Ns Usage</em>' containment reference list.
      * @see #isSetServiceNsUsage()
      * @see #unsetServiceNsUsage()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getApplicableServiceNS_ServiceNsUsage()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getApplicableServiceNS
-     * @model opposite="applicableServiceNS" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getParentApplicableServiceNS
+     * @model opposite="parentApplicableServiceNS" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='ServiceNsUsage' namespace='##targetNamespace'"
      * @generated
      */

@@ -31,7 +31,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttributes#getServiceConstructedAttribute <em>Service Constructed Attribute</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttributes#getServiceNS <em>Service NS</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttributes#getParentServiceNS <em>Parent Service NS</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceConstructedAttributes()
@@ -42,15 +42,15 @@ public interface ServiceConstructedAttributes extends NsdObject {
     /**
      * Returns the value of the '<em><b>Service Constructed Attribute</b></em>' containment reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute}.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute#getServiceConstructedAttribute <em>Service Constructed Attribute</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute#getParentServiceConstructedAttributes <em>Parent Service Constructed Attributes</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>Service Constructed Attribute</em>' containment reference list.
      * @see #isSetServiceConstructedAttribute()
      * @see #unsetServiceConstructedAttribute()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceConstructedAttributes_ServiceConstructedAttribute()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute#getServiceConstructedAttribute
-     * @model opposite="serviceConstructedAttribute" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute#getParentServiceConstructedAttributes
+     * @model opposite="parentServiceConstructedAttributes" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='ServiceConstructedAttribute' namespace='##targetNamespace'"
      * @generated
      */
@@ -78,31 +78,27 @@ public interface ServiceConstructedAttributes extends NsdObject {
     boolean isSetServiceConstructedAttribute();
 
     /**
-     * Returns the value of the '<em><b>Service NS</b></em>' container reference.
+     * Returns the value of the '<em><b>Parent Service NS</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS#getServiceConstructedAttributes <em>Service Constructed Attributes</em>}'.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Service NS</em>' container reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Service NS</em>' container reference.
-     * @see #setServiceNS(ServiceNS)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceConstructedAttributes_ServiceNS()
+     * @return the value of the '<em>Parent Service NS</em>' container reference.
+     * @see #setParentServiceNS(ServiceNS)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceConstructedAttributes_ParentServiceNS()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS#getServiceConstructedAttributes
      * @model opposite="serviceConstructedAttributes" resolveProxies="false" unsettable="true" ordered="false"
      * @generated
      */
-    ServiceNS getServiceNS();
+    ServiceNS getParentServiceNS();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttributes#getServiceNS <em>Service NS</em>}' container reference.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttributes#getParentServiceNS <em>Parent Service NS</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Service NS</em>' container reference.
-     * @see #getServiceNS()
+     * @param value the new value of the '<em>Parent Service NS</em>' container reference.
+     * @see #getParentServiceNS()
      * @generated
      */
-    void setServiceNS( ServiceNS value );
+    void setParentServiceNS( ServiceNS value );
 
 } // ServiceConstructedAttributes

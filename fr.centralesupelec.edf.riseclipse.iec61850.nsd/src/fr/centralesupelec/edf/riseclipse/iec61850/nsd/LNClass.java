@@ -31,7 +31,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass#isCanHaveLOG <em>Can Have LOG</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass#isIsExtension <em>Is Extension</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass#getName <em>Name</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass#getLNClasses <em>LN Classes</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass#getParentLNClasses <em>Parent LN Classes</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getLNClass()
@@ -195,32 +195,27 @@ public interface LNClass extends AnyLNClass {
     boolean isSetName();
 
     /**
-     * Returns the value of the '<em><b>LN Classes</b></em>' container reference.
+     * Returns the value of the '<em><b>Parent LN Classes</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses#getLNClass <em>LN Class</em>}'.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>LN Classes</em>' container reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>LN Classes</em>' container reference.
-     * @see #setLNClasses(LNClasses)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getLNClass_LNClasses()
+     * @return the value of the '<em>Parent LN Classes</em>' container reference.
+     * @see #setParentLNClasses(LNClasses)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getLNClass_ParentLNClasses()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses#getLNClass
      * @model opposite="lNClass" resolveProxies="false" unsettable="true" ordered="false"
      * @generated
      */
-    @Override
-    LNClasses getLNClasses();
+    LNClasses getParentLNClasses();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass#getLNClasses <em>LN Classes</em>}' container reference.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass#getParentLNClasses <em>Parent LN Classes</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>LN Classes</em>' container reference.
-     * @see #getLNClasses()
+     * @param value the new value of the '<em>Parent LN Classes</em>' container reference.
+     * @see #getParentLNClasses()
      * @generated
      */
-    void setLNClasses( LNClasses value );
+    void setParentLNClasses( LNClasses value );
 
 } // LNClass

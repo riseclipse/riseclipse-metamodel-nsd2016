@@ -31,7 +31,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getAppliesTo <em>Applies To</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getApplicableServiceNS <em>Applicable Service NS</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getParentApplicableServiceNS <em>Parent Applicable Service NS</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceNsUsage()
@@ -42,15 +42,15 @@ public interface ServiceNsUsage extends NsdObject, AgNSIdentification {
     /**
      * Returns the value of the '<em><b>Applies To</b></em>' containment reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType}.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getServiceNsUsage <em>Service Ns Usage</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getParentServiceNsUsage <em>Parent Service Ns Usage</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>Applies To</em>' containment reference list.
      * @see #isSetAppliesTo()
      * @see #unsetAppliesTo()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceNsUsage_AppliesTo()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getServiceNsUsage
-     * @model opposite="serviceNsUsage" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getParentServiceNsUsage
+     * @model opposite="parentServiceNsUsage" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='AppliesTo' namespace='##targetNamespace'"
      * @generated
      */
@@ -78,31 +78,27 @@ public interface ServiceNsUsage extends NsdObject, AgNSIdentification {
     boolean isSetAppliesTo();
 
     /**
-     * Returns the value of the '<em><b>Applicable Service NS</b></em>' container reference.
+     * Returns the value of the '<em><b>Parent Applicable Service NS</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServiceNS#getServiceNsUsage <em>Service Ns Usage</em>}'.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Applicable Service NS</em>' container reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Applicable Service NS</em>' container reference.
-     * @see #setApplicableServiceNS(ApplicableServiceNS)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceNsUsage_ApplicableServiceNS()
+     * @return the value of the '<em>Parent Applicable Service NS</em>' container reference.
+     * @see #setParentApplicableServiceNS(ApplicableServiceNS)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceNsUsage_ParentApplicableServiceNS()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServiceNS#getServiceNsUsage
      * @model opposite="serviceNsUsage" unsettable="true" ordered="false"
      * @generated
      */
-    ApplicableServiceNS getApplicableServiceNS();
+    ApplicableServiceNS getParentApplicableServiceNS();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getApplicableServiceNS <em>Applicable Service NS</em>}' container reference.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getParentApplicableServiceNS <em>Parent Applicable Service NS</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Applicable Service NS</em>' container reference.
-     * @see #getApplicableServiceNS()
+     * @param value the new value of the '<em>Parent Applicable Service NS</em>' container reference.
+     * @see #getParentApplicableServiceNS()
      * @generated
      */
-    void setApplicableServiceNS( ApplicableServiceNS value );
+    void setParentApplicableServiceNS( ApplicableServiceNS value );
 
 } // ServiceNsUsage

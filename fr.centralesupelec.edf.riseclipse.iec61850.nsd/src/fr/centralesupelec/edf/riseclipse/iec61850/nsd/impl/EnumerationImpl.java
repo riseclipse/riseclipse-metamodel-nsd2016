@@ -53,7 +53,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationImpl#getLiteral <em>Literal</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationImpl#getInheritedFrom <em>Inherited From</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationImpl#getName <em>Name</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationImpl#getEnumerations <em>Enumerations</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationImpl#getParentEnumerations <em>Parent Enumerations</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationImpl#getRefersToBaseEnumeration <em>Refers To Base Enumeration</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationImpl#getReferredByEnumerationAsBase <em>Referred By Enumeration As Base</em>}</li>
  * </ul>
@@ -186,7 +186,7 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
     public EList< Literal > getLiteral() {
         if( literal == null ) {
             literal = new EObjectContainmentWithInverseEList.Unsettable< Literal >( Literal.class, this,
-                    NsdPackage.ENUMERATION__LITERAL, NsdPackage.LITERAL__ENUMERATION );
+                    NsdPackage.ENUMERATION__LITERAL, NsdPackage.LITERAL__PARENT_ENUMERATION );
         }
         return literal;
     }
@@ -321,8 +321,8 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
      * @generated
      */
     @Override
-    public Enumerations getEnumerations() {
-        if( eContainerFeatureID() != NsdPackage.ENUMERATION__ENUMERATIONS ) return null;
+    public Enumerations getParentEnumerations() {
+        if( eContainerFeatureID() != NsdPackage.ENUMERATION__PARENT_ENUMERATIONS ) return null;
         return ( Enumerations ) eInternalContainer();
     }
 
@@ -331,8 +331,9 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetEnumerations( Enumerations newEnumerations, NotificationChain msgs ) {
-        msgs = eBasicSetContainer( ( InternalEObject ) newEnumerations, NsdPackage.ENUMERATION__ENUMERATIONS, msgs );
+    public NotificationChain basicSetParentEnumerations( Enumerations newParentEnumerations, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newParentEnumerations,
+                NsdPackage.ENUMERATION__PARENT_ENUMERATIONS, msgs );
         return msgs;
     }
 
@@ -342,23 +343,24 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
      * @generated
      */
     @Override
-    public void setEnumerations( Enumerations newEnumerations ) {
-        if( newEnumerations != eInternalContainer()
-                || ( eContainerFeatureID() != NsdPackage.ENUMERATION__ENUMERATIONS && newEnumerations != null ) ) {
-            if( EcoreUtil.isAncestor( this, newEnumerations ) )
+    public void setParentEnumerations( Enumerations newParentEnumerations ) {
+        if( newParentEnumerations != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.ENUMERATION__PARENT_ENUMERATIONS
+                        && newParentEnumerations != null ) ) {
+            if( EcoreUtil.isAncestor( this, newParentEnumerations ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newEnumerations != null )
-                msgs = ( ( InternalEObject ) newEnumerations ).eInverseAdd( this, NsdPackage.ENUMERATIONS__ENUMERATION,
-                        Enumerations.class, msgs );
-            msgs = basicSetEnumerations( newEnumerations, msgs );
+            if( newParentEnumerations != null )
+                msgs = ( ( InternalEObject ) newParentEnumerations ).eInverseAdd( this,
+                        NsdPackage.ENUMERATIONS__ENUMERATION, Enumerations.class, msgs );
+            msgs = basicSetParentEnumerations( newParentEnumerations, msgs );
             if( msgs != null ) msgs.dispatch();
         }
         else if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.ENUMERATION__ENUMERATIONS,
-                    newEnumerations, newEnumerations ) );
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.ENUMERATION__PARENT_ENUMERATIONS,
+                    newParentEnumerations, newParentEnumerations ) );
     }
 
     /**
@@ -527,10 +529,10 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
         case NsdPackage.ENUMERATION__LITERAL:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getLiteral() ).basicAdd( otherEnd,
                     msgs );
-        case NsdPackage.ENUMERATION__ENUMERATIONS:
+        case NsdPackage.ENUMERATION__PARENT_ENUMERATIONS:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            return basicSetEnumerations( ( Enumerations ) otherEnd, msgs );
+            return basicSetParentEnumerations( ( Enumerations ) otherEnd, msgs );
         case NsdPackage.ENUMERATION__REFERS_TO_BASE_ENUMERATION:
             if( refersToBaseEnumeration != null )
                 msgs = ( ( InternalEObject ) refersToBaseEnumeration ).eInverseRemove( this,
@@ -553,8 +555,8 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
         switch( featureID ) {
         case NsdPackage.ENUMERATION__LITERAL:
             return ( ( InternalEList< ? > ) getLiteral() ).basicRemove( otherEnd, msgs );
-        case NsdPackage.ENUMERATION__ENUMERATIONS:
-            return basicSetEnumerations( null, msgs );
+        case NsdPackage.ENUMERATION__PARENT_ENUMERATIONS:
+            return basicSetParentEnumerations( null, msgs );
         case NsdPackage.ENUMERATION__REFERS_TO_BASE_ENUMERATION:
             return basicUnsetRefersToBaseEnumeration( msgs );
         case NsdPackage.ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE:
@@ -571,7 +573,7 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
         switch( eContainerFeatureID() ) {
-        case NsdPackage.ENUMERATION__ENUMERATIONS:
+        case NsdPackage.ENUMERATION__PARENT_ENUMERATIONS:
             return eInternalContainer().eInverseRemove( this, NsdPackage.ENUMERATIONS__ENUMERATION, Enumerations.class,
                     msgs );
         }
@@ -592,8 +594,8 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
             return getInheritedFrom();
         case NsdPackage.ENUMERATION__NAME:
             return getName();
-        case NsdPackage.ENUMERATION__ENUMERATIONS:
-            return getEnumerations();
+        case NsdPackage.ENUMERATION__PARENT_ENUMERATIONS:
+            return getParentEnumerations();
         case NsdPackage.ENUMERATION__REFERS_TO_BASE_ENUMERATION:
             return getRefersToBaseEnumeration();
         case NsdPackage.ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE:
@@ -621,8 +623,8 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
         case NsdPackage.ENUMERATION__NAME:
             setName( ( String ) newValue );
             return;
-        case NsdPackage.ENUMERATION__ENUMERATIONS:
-            setEnumerations( ( Enumerations ) newValue );
+        case NsdPackage.ENUMERATION__PARENT_ENUMERATIONS:
+            setParentEnumerations( ( Enumerations ) newValue );
             return;
         case NsdPackage.ENUMERATION__REFERS_TO_BASE_ENUMERATION:
             setRefersToBaseEnumeration( ( Enumeration ) newValue );
@@ -652,8 +654,8 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
         case NsdPackage.ENUMERATION__NAME:
             unsetName();
             return;
-        case NsdPackage.ENUMERATION__ENUMERATIONS:
-            setEnumerations( ( Enumerations ) null );
+        case NsdPackage.ENUMERATION__PARENT_ENUMERATIONS:
+            setParentEnumerations( ( Enumerations ) null );
             return;
         case NsdPackage.ENUMERATION__REFERS_TO_BASE_ENUMERATION:
             unsetRefersToBaseEnumeration();
@@ -679,8 +681,8 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
             return isSetInheritedFrom();
         case NsdPackage.ENUMERATION__NAME:
             return isSetName();
-        case NsdPackage.ENUMERATION__ENUMERATIONS:
-            return getEnumerations() != null;
+        case NsdPackage.ENUMERATION__PARENT_ENUMERATIONS:
+            return getParentEnumerations() != null;
         case NsdPackage.ENUMERATION__REFERS_TO_BASE_ENUMERATION:
             return isSetRefersToBaseEnumeration();
         case NsdPackage.ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE:
@@ -720,7 +722,7 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
     public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
-        NS ns = getEnumerations().getNS();
+        NS ns = getParentEnumerations().getParentNS();
         if( isSetInheritedFrom() ) {
             Enumeration foundBase = ns.findEnumeration( getInheritedFrom(), console );
             if( foundBase == null ) {
@@ -731,7 +733,7 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
                 setRefersToBaseEnumeration( foundBase );
                 console.verbose( "Enumeration (name: " + getInheritedFrom() + ") refers by Enumeration (name: "
                         + getName() + ") in NS (id:" + ns.getId() + ") found in NS (id:"
-                        + getRefersToBaseEnumeration().getEnumerations().getNS().getId() + ")" );
+                        + getRefersToBaseEnumeration().getParentEnumerations().getParentNS().getId() + ")" );
             }
         }
 

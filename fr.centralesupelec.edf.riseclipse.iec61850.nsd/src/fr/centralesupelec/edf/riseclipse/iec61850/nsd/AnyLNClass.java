@@ -46,15 +46,15 @@ public interface AnyLNClass extends TitledClass {
     /**
      * Returns the value of the '<em><b>Data Object</b></em>' containment reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject}.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getAnyLNClass <em>Any LN Class</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getParentAnyLNClass <em>Parent Any LN Class</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>Data Object</em>' containment reference list.
      * @see #isSetDataObject()
      * @see #unsetDataObject()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAnyLNClass_DataObject()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getAnyLNClass
-     * @model opposite="anyLNClass" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getParentAnyLNClass
+     * @model opposite="parentAnyLNClass" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='DataObject' namespace='##targetNamespace'"
      * @generated
      */
@@ -200,6 +200,6 @@ public interface AnyLNClass extends TitledClass {
      * @model kind="operation"
      * @generated
      */
-    LNClasses getLNClasses();
+    LNClasses getParentLNClasses();
 
 } // AnyLNClass

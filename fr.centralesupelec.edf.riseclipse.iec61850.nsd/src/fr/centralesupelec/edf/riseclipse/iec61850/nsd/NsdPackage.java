@@ -790,13 +790,13 @@ public interface NsdPackage extends EPackage {
     int APPLIES_TO_TYPE__PUBLICATION_STAGE = NSD_OBJECT_FEATURE_COUNT + 4;
 
     /**
-     * The feature id for the '<em><b>Service Ns Usage</b></em>' container reference.
+     * The feature id for the '<em><b>Parent Service Ns Usage</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int APPLIES_TO_TYPE__SERVICE_NS_USAGE = NSD_OBJECT_FEATURE_COUNT + 5;
+    int APPLIES_TO_TYPE__PARENT_SERVICE_NS_USAGE = NSD_OBJECT_FEATURE_COUNT + 5;
 
     /**
      * The number of structural features of the '<em>Applies To Type</em>' class.
@@ -889,13 +889,13 @@ public interface NsdPackage extends EPackage {
     int DEPENDS_ON__PUBLICATION_STAGE = NSD_OBJECT_FEATURE_COUNT + 4;
 
     /**
-     * The feature id for the '<em><b>NS</b></em>' container reference.
+     * The feature id for the '<em><b>Parent NS</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DEPENDS_ON__NS = NSD_OBJECT_FEATURE_COUNT + 5;
+    int DEPENDS_ON__PARENT_NS = NSD_OBJECT_FEATURE_COUNT + 5;
 
     /**
      * The feature id for the '<em><b>Refers To NS</b></em>' reference.
@@ -1042,13 +1042,13 @@ public interface NsdPackage extends EPackage {
     int SERVICE_TYPE__NAME = NSD_OBJECT_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Applicable Services</b></em>' container reference.
+     * The feature id for the '<em><b>Parent Applicable Services</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SERVICE_TYPE__APPLICABLE_SERVICES = NSD_OBJECT_FEATURE_COUNT + 1;
+    int SERVICE_TYPE__PARENT_APPLICABLE_SERVICES = NSD_OBJECT_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Service Type</em>' class.
@@ -1114,13 +1114,13 @@ public interface NsdPackage extends EPackage {
     int ABBREVIATION__NAME = NSD_OBJECT_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Abbreviations</b></em>' container reference.
+     * The feature id for the '<em><b>Parent Abbreviations</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ABBREVIATION__ABBREVIATIONS = NSD_OBJECT_FEATURE_COUNT + 2;
+    int ABBREVIATION__PARENT_ABBREVIATIONS = NSD_OBJECT_FEATURE_COUNT + 2;
 
     /**
      * The number of structural features of the '<em>Abbreviation</em>' class.
@@ -1177,22 +1177,22 @@ public interface NsdPackage extends EPackage {
     int ABBREVIATIONS__ABBREVIATION = NSD_OBJECT_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>NS</b></em>' container reference.
+     * The feature id for the '<em><b>Parent NS</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ABBREVIATIONS__NS = NSD_OBJECT_FEATURE_COUNT + 1;
+    int ABBREVIATIONS__PARENT_NS = NSD_OBJECT_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Service NS</b></em>' container reference.
+     * The feature id for the '<em><b>Parent Service NS</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ABBREVIATIONS__SERVICE_NS = NSD_OBJECT_FEATURE_COUNT + 2;
+    int ABBREVIATIONS__PARENT_SERVICE_NS = NSD_OBJECT_FEATURE_COUNT + 2;
 
     /**
      * The number of structural features of the '<em>Abbreviations</em>' class.
@@ -1483,13 +1483,13 @@ public interface NsdPackage extends EPackage {
     int ANY_LN_CLASS___GET_NAME = TITLED_CLASS_OPERATION_COUNT + 0;
 
     /**
-     * The operation id for the '<em>Get LN Classes</em>' operation.
+     * The operation id for the '<em>Get Parent LN Classes</em>' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ANY_LN_CLASS___GET_LN_CLASSES = TITLED_CLASS_OPERATION_COUNT + 1;
+    int ANY_LN_CLASS___GET_PARENT_LN_CLASSES = TITLED_CLASS_OPERATION_COUNT + 1;
 
     /**
      * The number of operations of the '<em>Any LN Class</em>' class.
@@ -1591,13 +1591,13 @@ public interface NsdPackage extends EPackage {
     int ABSTRACT_LN_CLASS__NAME = ANY_LN_CLASS_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>LN Classes</b></em>' container reference.
+     * The feature id for the '<em><b>Parent LN Classes</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ABSTRACT_LN_CLASS__LN_CLASSES = ANY_LN_CLASS_FEATURE_COUNT + 1;
+    int ABSTRACT_LN_CLASS__PARENT_LN_CLASSES = ANY_LN_CLASS_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Referred By Any LN Class</b></em>' reference list.
@@ -1636,13 +1636,13 @@ public interface NsdPackage extends EPackage {
     int ABSTRACT_LN_CLASS___GET_NAME = ANY_LN_CLASS___GET_NAME;
 
     /**
-     * The operation id for the '<em>Get LN Classes</em>' operation.
+     * The operation id for the '<em>Get Parent LN Classes</em>' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ABSTRACT_LN_CLASS___GET_LN_CLASSES = ANY_LN_CLASS___GET_LN_CLASSES;
+    int ABSTRACT_LN_CLASS___GET_PARENT_LN_CLASSES = ANY_LN_CLASS___GET_PARENT_LN_CLASSES;
 
     /**
      * The number of operations of the '<em>Abstract LN Class</em>' class.
@@ -1825,13 +1825,13 @@ public interface NsdPackage extends EPackage {
     int APPLICABLE_SERVICES__DATA_SET_MEMBER_OF = NSD_OBJECT_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Functional Constraint</b></em>' container reference.
+     * The feature id for the '<em><b>Parent Functional Constraint</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int APPLICABLE_SERVICES__FUNCTIONAL_CONSTRAINT = NSD_OBJECT_FEATURE_COUNT + 2;
+    int APPLICABLE_SERVICES__PARENT_FUNCTIONAL_CONSTRAINT = NSD_OBJECT_FEATURE_COUNT + 2;
 
     /**
      * The number of structural features of the '<em>Applicable Services</em>' class.
@@ -1897,13 +1897,13 @@ public interface NsdPackage extends EPackage {
     int BASIC_TYPE__NAME = NSD_OBJECT_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Basic Types</b></em>' container reference.
+     * The feature id for the '<em><b>Parent Basic Types</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int BASIC_TYPE__BASIC_TYPES = NSD_OBJECT_FEATURE_COUNT + 2;
+    int BASIC_TYPE__PARENT_BASIC_TYPES = NSD_OBJECT_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Referred By Data Attribute</b></em>' reference list.
@@ -1969,13 +1969,13 @@ public interface NsdPackage extends EPackage {
     int BASIC_TYPES__BASIC_TYPE = NSD_OBJECT_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>NS</b></em>' container reference.
+     * The feature id for the '<em><b>Parent NS</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int BASIC_TYPES__NS = NSD_OBJECT_FEATURE_COUNT + 1;
+    int BASIC_TYPES__PARENT_NS = NSD_OBJECT_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Basic Types</em>' class.
@@ -2131,13 +2131,13 @@ public interface NsdPackage extends EPackage {
     int CDC__VARIANT = TITLED_CLASS_FEATURE_COUNT + 7;
 
     /**
-     * The feature id for the '<em><b>CD Cs</b></em>' container reference.
+     * The feature id for the '<em><b>Parent CD Cs</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CDC__CD_CS = TITLED_CLASS_FEATURE_COUNT + 8;
+    int CDC__PARENT_CD_CS = TITLED_CLASS_FEATURE_COUNT + 8;
 
     /**
      * The feature id for the '<em><b>Referred By Data Object</b></em>' reference list.
@@ -2212,13 +2212,13 @@ public interface NsdPackage extends EPackage {
     int CD_CS__CDC = NSD_OBJECT_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>NS</b></em>' container reference.
+     * The feature id for the '<em><b>Parent NS</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CD_CS__NS = NSD_OBJECT_FEATURE_COUNT + 1;
+    int CD_CS__PARENT_NS = NSD_OBJECT_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>CD Cs</em>' class.
@@ -2302,22 +2302,22 @@ public interface NsdPackage extends EPackage {
     int CHANGES__TISSUES = NSD_OBJECT_FEATURE_COUNT + 3;
 
     /**
-     * The feature id for the '<em><b>NS</b></em>' container reference.
+     * The feature id for the '<em><b>Parent NS</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CHANGES__NS = NSD_OBJECT_FEATURE_COUNT + 4;
+    int CHANGES__PARENT_NS = NSD_OBJECT_FEATURE_COUNT + 4;
 
     /**
-     * The feature id for the '<em><b>Service NS</b></em>' container reference.
+     * The feature id for the '<em><b>Parent Service NS</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CHANGES__SERVICE_NS = NSD_OBJECT_FEATURE_COUNT + 5;
+    int CHANGES__PARENT_SERVICE_NS = NSD_OBJECT_FEATURE_COUNT + 5;
 
     /**
      * The feature id for the '<em><b>Release</b></em>' attribute.
@@ -2437,22 +2437,22 @@ public interface NsdPackage extends EPackage {
     int CONSTRUCTED_ATTRIBUTE__NAME = TITLED_CLASS_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Constructed Attributes</b></em>' container reference.
+     * The feature id for the '<em><b>Parent Constructed Attributes</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CONSTRUCTED_ATTRIBUTE__CONSTRUCTED_ATTRIBUTES = TITLED_CLASS_FEATURE_COUNT + 2;
+    int CONSTRUCTED_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTES = TITLED_CLASS_FEATURE_COUNT + 2;
 
     /**
-     * The feature id for the '<em><b>Service Type Realizations</b></em>' container reference.
+     * The feature id for the '<em><b>Parent Service Type Realizations</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CONSTRUCTED_ATTRIBUTE__SERVICE_TYPE_REALIZATIONS = TITLED_CLASS_FEATURE_COUNT + 3;
+    int CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_TYPE_REALIZATIONS = TITLED_CLASS_FEATURE_COUNT + 3;
 
     /**
      * The number of structural features of the '<em>Constructed Attribute</em>' class.
@@ -2509,13 +2509,13 @@ public interface NsdPackage extends EPackage {
     int CONSTRUCTED_ATTRIBUTES__CONSTRUCTED_ATTRIBUTE = NSD_OBJECT_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>NS</b></em>' container reference.
+     * The feature id for the '<em><b>Parent NS</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CONSTRUCTED_ATTRIBUTES__NS = NSD_OBJECT_FEATURE_COUNT + 1;
+    int CONSTRUCTED_ATTRIBUTES__PARENT_NS = NSD_OBJECT_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Constructed Attributes</em>' class.
@@ -2581,13 +2581,13 @@ public interface NsdPackage extends EPackage {
     int COPYRIGHT_NOTICE__LICENSE = NSD_OBJECT_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Copyrighted</b></em>' container reference.
+     * The feature id for the '<em><b>Parent Copyrighted</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int COPYRIGHT_NOTICE__COPYRIGHTED = NSD_OBJECT_FEATURE_COUNT + 2;
+    int COPYRIGHT_NOTICE__PARENT_COPYRIGHTED = NSD_OBJECT_FEATURE_COUNT + 2;
 
     /**
      * The number of structural features of the '<em>Copyright Notice</em>' class.
@@ -2815,13 +2815,13 @@ public interface NsdPackage extends EPackage {
     int DATA_ATTRIBUTE__NAME = DOCUMENTED_CLASS_FEATURE_COUNT + 16;
 
     /**
-     * The feature id for the '<em><b>CDC</b></em>' container reference.
+     * The feature id for the '<em><b>Parent CDC</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE__CDC = DOCUMENTED_CLASS_FEATURE_COUNT + 17;
+    int DATA_ATTRIBUTE__PARENT_CDC = DOCUMENTED_CLASS_FEATURE_COUNT + 17;
 
     /**
      * The feature id for the '<em><b>Referred By Sub Data Object As Size Attribute</b></em>' reference list.
@@ -3076,13 +3076,13 @@ public interface NsdPackage extends EPackage {
     int DATA_OBJECT__TYPE = DOCUMENTED_CLASS_FEATURE_COUNT + 10;
 
     /**
-     * The feature id for the '<em><b>Any LN Class</b></em>' container reference.
+     * The feature id for the '<em><b>Parent Any LN Class</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DATA_OBJECT__ANY_LN_CLASS = DOCUMENTED_CLASS_FEATURE_COUNT + 11;
+    int DATA_OBJECT__PARENT_ANY_LN_CLASS = DOCUMENTED_CLASS_FEATURE_COUNT + 11;
 
     /**
      * The feature id for the '<em><b>Refers To CDC</b></em>' reference.
@@ -3166,13 +3166,13 @@ public interface NsdPackage extends EPackage {
     int DATA_SET_MEMBER_OF__CB = NSD_OBJECT_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Applicable Services</b></em>' container reference.
+     * The feature id for the '<em><b>Parent Applicable Services</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DATA_SET_MEMBER_OF__APPLICABLE_SERVICES = NSD_OBJECT_FEATURE_COUNT + 1;
+    int DATA_SET_MEMBER_OF__PARENT_APPLICABLE_SERVICES = NSD_OBJECT_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Data Set Member Of</em>' class.
@@ -3256,13 +3256,13 @@ public interface NsdPackage extends EPackage {
     int DOC__ID = NSD_OBJECT_FEATURE_COUNT + 3;
 
     /**
-     * The feature id for the '<em><b>NS Doc</b></em>' container reference.
+     * The feature id for the '<em><b>Parent NS Doc</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DOC__NS_DOC = NSD_OBJECT_FEATURE_COUNT + 4;
+    int DOC__PARENT_NS_DOC = NSD_OBJECT_FEATURE_COUNT + 4;
 
     /**
      * The number of structural features of the '<em>Doc</em>' class.
@@ -3373,13 +3373,13 @@ public interface NsdPackage extends EPackage {
     int ENUMERATION__NAME = TITLED_CLASS_FEATURE_COUNT + 2;
 
     /**
-     * The feature id for the '<em><b>Enumerations</b></em>' container reference.
+     * The feature id for the '<em><b>Parent Enumerations</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ENUMERATION__ENUMERATIONS = TITLED_CLASS_FEATURE_COUNT + 3;
+    int ENUMERATION__PARENT_ENUMERATIONS = TITLED_CLASS_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Refers To Base Enumeration</b></em>' reference.
@@ -3454,13 +3454,13 @@ public interface NsdPackage extends EPackage {
     int ENUMERATIONS__ENUMERATION = NSD_OBJECT_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>NS</b></em>' container reference.
+     * The feature id for the '<em><b>Parent NS</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ENUMERATIONS__NS = NSD_OBJECT_FEATURE_COUNT + 1;
+    int ENUMERATIONS__PARENT_NS = NSD_OBJECT_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Enumerations</em>' class.
@@ -3544,13 +3544,13 @@ public interface NsdPackage extends EPackage {
     int FUNCTIONAL_CONSTRAINT__TITLE_ID = NSD_OBJECT_FEATURE_COUNT + 3;
 
     /**
-     * The feature id for the '<em><b>Functional Constraints</b></em>' container reference.
+     * The feature id for the '<em><b>Parent Functional Constraints</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int FUNCTIONAL_CONSTRAINT__FUNCTIONAL_CONSTRAINTS = NSD_OBJECT_FEATURE_COUNT + 4;
+    int FUNCTIONAL_CONSTRAINT__PARENT_FUNCTIONAL_CONSTRAINTS = NSD_OBJECT_FEATURE_COUNT + 4;
 
     /**
      * The feature id for the '<em><b>Referred By Data Attribute</b></em>' reference list.
@@ -3616,22 +3616,22 @@ public interface NsdPackage extends EPackage {
     int FUNCTIONAL_CONSTRAINTS__FUNCTIONAL_CONSTRAINT = NSD_OBJECT_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>NS</b></em>' container reference.
+     * The feature id for the '<em><b>Parent NS</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int FUNCTIONAL_CONSTRAINTS__NS = NSD_OBJECT_FEATURE_COUNT + 1;
+    int FUNCTIONAL_CONSTRAINTS__PARENT_NS = NSD_OBJECT_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Service NS</b></em>' container reference.
+     * The feature id for the '<em><b>Parent Service NS</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int FUNCTIONAL_CONSTRAINTS__SERVICE_NS = NSD_OBJECT_FEATURE_COUNT + 2;
+    int FUNCTIONAL_CONSTRAINTS__PARENT_SERVICE_NS = NSD_OBJECT_FEATURE_COUNT + 2;
 
     /**
      * The number of structural features of the '<em>Functional Constraints</em>' class.
@@ -3706,13 +3706,13 @@ public interface NsdPackage extends EPackage {
     int LICENSE__URI = NSD_OBJECT_FEATURE_COUNT + 2;
 
     /**
-     * The feature id for the '<em><b>Copyright Notice</b></em>' container reference.
+     * The feature id for the '<em><b>Parent Copyright Notice</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int LICENSE__COPYRIGHT_NOTICE = NSD_OBJECT_FEATURE_COUNT + 3;
+    int LICENSE__PARENT_COPYRIGHT_NOTICE = NSD_OBJECT_FEATURE_COUNT + 3;
 
     /**
      * The number of structural features of the '<em>License</em>' class.
@@ -3805,13 +3805,13 @@ public interface NsdPackage extends EPackage {
     int LITERAL__NAME = DOCUMENTED_CLASS_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Enumeration</b></em>' container reference.
+     * The feature id for the '<em><b>Parent Enumeration</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int LITERAL__ENUMERATION = DOCUMENTED_CLASS_FEATURE_COUNT + 2;
+    int LITERAL__PARENT_ENUMERATION = DOCUMENTED_CLASS_FEATURE_COUNT + 2;
 
     /**
      * The number of structural features of the '<em>Literal</em>' class.
@@ -3949,13 +3949,13 @@ public interface NsdPackage extends EPackage {
     int LN_CLASS__NAME = ANY_LN_CLASS_FEATURE_COUNT + 2;
 
     /**
-     * The feature id for the '<em><b>LN Classes</b></em>' container reference.
+     * The feature id for the '<em><b>Parent LN Classes</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int LN_CLASS__LN_CLASSES = ANY_LN_CLASS_FEATURE_COUNT + 3;
+    int LN_CLASS__PARENT_LN_CLASSES = ANY_LN_CLASS_FEATURE_COUNT + 3;
 
     /**
      * The number of structural features of the '<em>LN Class</em>' class.
@@ -3985,13 +3985,13 @@ public interface NsdPackage extends EPackage {
     int LN_CLASS___GET_NAME = ANY_LN_CLASS___GET_NAME;
 
     /**
-     * The operation id for the '<em>Get LN Classes</em>' operation.
+     * The operation id for the '<em>Get Parent LN Classes</em>' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int LN_CLASS___GET_LN_CLASSES = ANY_LN_CLASS___GET_LN_CLASSES;
+    int LN_CLASS___GET_PARENT_LN_CLASSES = ANY_LN_CLASS___GET_PARENT_LN_CLASSES;
 
     /**
      * The number of operations of the '<em>LN Class</em>' class.
@@ -4039,13 +4039,13 @@ public interface NsdPackage extends EPackage {
     int LN_CLASSES__LN_CLASS = NSD_OBJECT_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>NS</b></em>' container reference.
+     * The feature id for the '<em><b>Parent NS</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int LN_CLASSES__NS = NSD_OBJECT_FEATURE_COUNT + 2;
+    int LN_CLASSES__PARENT_NS = NSD_OBJECT_FEATURE_COUNT + 2;
 
     /**
      * The number of structural features of the '<em>LN Classes</em>' class.
@@ -4102,13 +4102,13 @@ public interface NsdPackage extends EPackage {
     int NOTICE__MIXED = NSD_OBJECT_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Copyright Notice</b></em>' container reference.
+     * The feature id for the '<em><b>Parent Copyright Notice</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int NOTICE__COPYRIGHT_NOTICE = NSD_OBJECT_FEATURE_COUNT + 1;
+    int NOTICE__PARENT_COPYRIGHT_NOTICE = NSD_OBJECT_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Notice</em>' class.
@@ -4597,13 +4597,13 @@ public interface NsdPackage extends EPackage {
     int PRESENCE_CONDITION__TITLE_ID = NSD_OBJECT_FEATURE_COUNT + 3;
 
     /**
-     * The feature id for the '<em><b>Presence Conditions</b></em>' container reference.
+     * The feature id for the '<em><b>Parent Presence Conditions</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PRESENCE_CONDITION__PRESENCE_CONDITIONS = NSD_OBJECT_FEATURE_COUNT + 4;
+    int PRESENCE_CONDITION__PARENT_PRESENCE_CONDITIONS = NSD_OBJECT_FEATURE_COUNT + 4;
 
     /**
      * The feature id for the '<em><b>Referred By Data Object</b></em>' reference list.
@@ -4705,22 +4705,22 @@ public interface NsdPackage extends EPackage {
     int PRESENCE_CONDITIONS__PRESENCE_CONDITION = NSD_OBJECT_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>NS</b></em>' container reference.
+     * The feature id for the '<em><b>Parent NS</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PRESENCE_CONDITIONS__NS = NSD_OBJECT_FEATURE_COUNT + 1;
+    int PRESENCE_CONDITIONS__PARENT_NS = NSD_OBJECT_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Service NS</b></em>' container reference.
+     * The feature id for the '<em><b>Parent Service NS</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PRESENCE_CONDITIONS__SERVICE_NS = NSD_OBJECT_FEATURE_COUNT + 2;
+    int PRESENCE_CONDITIONS__PARENT_SERVICE_NS = NSD_OBJECT_FEATURE_COUNT + 2;
 
     /**
      * The number of structural features of the '<em>Presence Conditions</em>' class.
@@ -4795,13 +4795,13 @@ public interface NsdPackage extends EPackage {
     int SERVICE_CDC__VARIANT = NSD_OBJECT_FEATURE_COUNT + 2;
 
     /**
-     * The feature id for the '<em><b>Service CD Cs</b></em>' container reference.
+     * The feature id for the '<em><b>Parent Service CD Cs</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SERVICE_CDC__SERVICE_CD_CS = NSD_OBJECT_FEATURE_COUNT + 3;
+    int SERVICE_CDC__PARENT_SERVICE_CD_CS = NSD_OBJECT_FEATURE_COUNT + 3;
 
     /**
      * The number of structural features of the '<em>Service CDC</em>' class.
@@ -4858,13 +4858,13 @@ public interface NsdPackage extends EPackage {
     int SERVICE_CD_CS__SERVICE_CDC = NSD_OBJECT_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Service NS</b></em>' container reference.
+     * The feature id for the '<em><b>Parent Service NS</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SERVICE_CD_CS__SERVICE_NS = NSD_OBJECT_FEATURE_COUNT + 1;
+    int SERVICE_CD_CS__PARENT_SERVICE_NS = NSD_OBJECT_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Service CD Cs</em>' class.
@@ -4966,22 +4966,22 @@ public interface NsdPackage extends EPackage {
     int SERVICE_CONSTRUCTED_ATTRIBUTE__NAME = CONSTRUCTED_ATTRIBUTE__NAME;
 
     /**
-     * The feature id for the '<em><b>Constructed Attributes</b></em>' container reference.
+     * The feature id for the '<em><b>Parent Constructed Attributes</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SERVICE_CONSTRUCTED_ATTRIBUTE__CONSTRUCTED_ATTRIBUTES = CONSTRUCTED_ATTRIBUTE__CONSTRUCTED_ATTRIBUTES;
+    int SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTES = CONSTRUCTED_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTES;
 
     /**
-     * The feature id for the '<em><b>Service Type Realizations</b></em>' container reference.
+     * The feature id for the '<em><b>Parent Service Type Realizations</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SERVICE_CONSTRUCTED_ATTRIBUTE__SERVICE_TYPE_REALIZATIONS = CONSTRUCTED_ATTRIBUTE__SERVICE_TYPE_REALIZATIONS;
+    int SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_TYPE_REALIZATIONS = CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_TYPE_REALIZATIONS;
 
     /**
      * The feature id for the '<em><b>Type Kind Parameterized</b></em>' attribute.
@@ -4993,13 +4993,13 @@ public interface NsdPackage extends EPackage {
     int SERVICE_CONSTRUCTED_ATTRIBUTE__TYPE_KIND_PARAMETERIZED = CONSTRUCTED_ATTRIBUTE_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Service Constructed Attribute</b></em>' container reference.
+     * The feature id for the '<em><b>Parent Service Constructed Attributes</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SERVICE_CONSTRUCTED_ATTRIBUTE__SERVICE_CONSTRUCTED_ATTRIBUTE = CONSTRUCTED_ATTRIBUTE_FEATURE_COUNT + 1;
+    int SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_CONSTRUCTED_ATTRIBUTES = CONSTRUCTED_ATTRIBUTE_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Service Constructed Attribute</em>' class.
@@ -5056,13 +5056,13 @@ public interface NsdPackage extends EPackage {
     int SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_CONSTRUCTED_ATTRIBUTE = NSD_OBJECT_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Service NS</b></em>' container reference.
+     * The feature id for the '<em><b>Parent Service NS</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_NS = NSD_OBJECT_FEATURE_COUNT + 1;
+    int SERVICE_CONSTRUCTED_ATTRIBUTES__PARENT_SERVICE_NS = NSD_OBJECT_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Service Constructed Attributes</em>' class.
@@ -5218,13 +5218,13 @@ public interface NsdPackage extends EPackage {
     int SERVICE_DATA_ATTRIBUTE__NAME = DOCUMENTED_CLASS_FEATURE_COUNT + 8;
 
     /**
-     * The feature id for the '<em><b>Service CDC</b></em>' container reference.
+     * The feature id for the '<em><b>Parent Service CDC</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SERVICE_DATA_ATTRIBUTE__SERVICE_CDC = DOCUMENTED_CLASS_FEATURE_COUNT + 9;
+    int SERVICE_DATA_ATTRIBUTE__PARENT_SERVICE_CDC = DOCUMENTED_CLASS_FEATURE_COUNT + 9;
 
     /**
      * The number of structural features of the '<em>Service Data Attribute</em>' class.
@@ -5515,13 +5515,13 @@ public interface NsdPackage extends EPackage {
     int SERVICE_NS_USAGE__APPLIES_TO = NSD_OBJECT_FEATURE_COUNT + 5;
 
     /**
-     * The feature id for the '<em><b>Applicable Service NS</b></em>' container reference.
+     * The feature id for the '<em><b>Parent Applicable Service NS</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SERVICE_NS_USAGE__APPLICABLE_SERVICE_NS = NSD_OBJECT_FEATURE_COUNT + 6;
+    int SERVICE_NS_USAGE__PARENT_APPLICABLE_SERVICE_NS = NSD_OBJECT_FEATURE_COUNT + 6;
 
     /**
      * The number of structural features of the '<em>Service Ns Usage</em>' class.
@@ -5650,13 +5650,13 @@ public interface NsdPackage extends EPackage {
     int SERVICE_PARAMETER__NAME = DOCUMENTED_CLASS_FEATURE_COUNT + 5;
 
     /**
-     * The feature id for the '<em><b>CDC</b></em>' container reference.
+     * The feature id for the '<em><b>Parent CDC</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SERVICE_PARAMETER__CDC = DOCUMENTED_CLASS_FEATURE_COUNT + 6;
+    int SERVICE_PARAMETER__PARENT_CDC = DOCUMENTED_CLASS_FEATURE_COUNT + 6;
 
     /**
      * The number of structural features of the '<em>Service Parameter</em>' class.
@@ -5713,13 +5713,13 @@ public interface NsdPackage extends EPackage {
     int SERVICE_TYPE_REALIZATIONS__SERVICE_TYPE_REALIZATION = NSD_OBJECT_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Service NS</b></em>' container reference.
+     * The feature id for the '<em><b>Parent Service NS</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SERVICE_TYPE_REALIZATIONS__SERVICE_NS = NSD_OBJECT_FEATURE_COUNT + 1;
+    int SERVICE_TYPE_REALIZATIONS__PARENT_SERVICE_NS = NSD_OBJECT_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Service Type Realizations</em>' class.
@@ -5911,13 +5911,13 @@ public interface NsdPackage extends EPackage {
     int SUB_DATA_ATTRIBUTE__NAME = DOCUMENTED_CLASS_FEATURE_COUNT + 12;
 
     /**
-     * The feature id for the '<em><b>Constructed Attribute</b></em>' container reference.
+     * The feature id for the '<em><b>Parent Constructed Attribute</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SUB_DATA_ATTRIBUTE__CONSTRUCTED_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 13;
+    int SUB_DATA_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 13;
 
     /**
      * The feature id for the '<em><b>Refers To Presence Condition</b></em>' reference.
@@ -6100,13 +6100,13 @@ public interface NsdPackage extends EPackage {
     int SUB_DATA_OBJECT__TYPE = DOCUMENTED_CLASS_FEATURE_COUNT + 10;
 
     /**
-     * The feature id for the '<em><b>CDC</b></em>' container reference.
+     * The feature id for the '<em><b>Parent CDC</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SUB_DATA_OBJECT__CDC = DOCUMENTED_CLASS_FEATURE_COUNT + 11;
+    int SUB_DATA_OBJECT__PARENT_CDC = DOCUMENTED_CLASS_FEATURE_COUNT + 11;
 
     /**
      * The feature id for the '<em><b>Refers To CDC</b></em>' reference.
@@ -6790,15 +6790,15 @@ public interface NsdPackage extends EPackage {
     EClass getAppliesToType();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getServiceNsUsage <em>Service Ns Usage</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getParentServiceNsUsage <em>Parent Service Ns Usage</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Service Ns Usage</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getServiceNsUsage()
+     * @return the meta object for the container reference '<em>Parent Service Ns Usage</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType#getParentServiceNsUsage()
      * @see #getAppliesToType()
      * @generated
      */
-    EReference getAppliesToType_ServiceNsUsage();
+    EReference getAppliesToType_ParentServiceNsUsage();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn <em>Depends On</em>}'.
@@ -6811,15 +6811,15 @@ public interface NsdPackage extends EPackage {
     EClass getDependsOn();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getNS <em>NS</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getParentNS <em>Parent NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>NS</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getNS()
+     * @return the meta object for the container reference '<em>Parent NS</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getParentNS()
      * @see #getDependsOn()
      * @generated
      */
-    EReference getDependsOn_NS();
+    EReference getDependsOn_ParentNS();
 
     /**
      * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getRefersToNS <em>Refers To NS</em>}'.
@@ -6941,15 +6941,15 @@ public interface NsdPackage extends EPackage {
     EAttribute getServiceType_Name();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType#getApplicableServices <em>Applicable Services</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType#getParentApplicableServices <em>Parent Applicable Services</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Applicable Services</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType#getApplicableServices()
+     * @return the meta object for the container reference '<em>Parent Applicable Services</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType#getParentApplicableServices()
      * @see #getServiceType()
      * @generated
      */
-    EReference getServiceType_ApplicableServices();
+    EReference getServiceType_ParentApplicableServices();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation <em>Abbreviation</em>}'.
@@ -6984,15 +6984,15 @@ public interface NsdPackage extends EPackage {
     EAttribute getAbbreviation_Name();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation#getAbbreviations <em>Abbreviations</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation#getParentAbbreviations <em>Parent Abbreviations</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Abbreviations</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation#getAbbreviations()
+     * @return the meta object for the container reference '<em>Parent Abbreviations</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation#getParentAbbreviations()
      * @see #getAbbreviation()
      * @generated
      */
-    EReference getAbbreviation_Abbreviations();
+    EReference getAbbreviation_ParentAbbreviations();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations <em>Abbreviations</em>}'.
@@ -7016,26 +7016,26 @@ public interface NsdPackage extends EPackage {
     EReference getAbbreviations_Abbreviation();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations#getNS <em>NS</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations#getParentNS <em>Parent NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>NS</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations#getNS()
+     * @return the meta object for the container reference '<em>Parent NS</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations#getParentNS()
      * @see #getAbbreviations()
      * @generated
      */
-    EReference getAbbreviations_NS();
+    EReference getAbbreviations_ParentNS();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations#getServiceNS <em>Service NS</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations#getParentServiceNS <em>Parent Service NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Service NS</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations#getServiceNS()
+     * @return the meta object for the container reference '<em>Parent Service NS</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations#getParentServiceNS()
      * @see #getAbbreviations()
      * @generated
      */
-    EReference getAbbreviations_ServiceNS();
+    EReference getAbbreviations_ParentServiceNS();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass <em>Abstract LN Class</em>}'.
@@ -7059,15 +7059,15 @@ public interface NsdPackage extends EPackage {
     EAttribute getAbstractLNClass_Name();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass#getLNClasses <em>LN Classes</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass#getParentLNClasses <em>Parent LN Classes</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>LN Classes</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass#getLNClasses()
+     * @return the meta object for the container reference '<em>Parent LN Classes</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass#getParentLNClasses()
      * @see #getAbstractLNClass()
      * @generated
      */
-    EReference getAbstractLNClass_LNClasses();
+    EReference getAbstractLNClass_ParentLNClasses();
 
     /**
      * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass#getReferredByAnyLNClass <em>Referred By Any LN Class</em>}'.
@@ -7134,14 +7134,14 @@ public interface NsdPackage extends EPackage {
     EOperation getAnyLNClass__GetName();
 
     /**
-     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass#getLNClasses() <em>Get LN Classes</em>}' operation.
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass#getParentLNClasses() <em>Get Parent LN Classes</em>}' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the '<em>Get LN Classes</em>' operation.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass#getLNClasses()
+     * @return the meta object for the '<em>Get Parent LN Classes</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass#getParentLNClasses()
      * @generated
      */
-    EOperation getAnyLNClass__GetLNClasses();
+    EOperation getAnyLNClass__GetParentLNClasses();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServiceNS <em>Applicable Service NS</em>}'.
@@ -7219,15 +7219,15 @@ public interface NsdPackage extends EPackage {
     EReference getApplicableServices_DataSetMemberOf();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices#getFunctionalConstraint <em>Functional Constraint</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices#getParentFunctionalConstraint <em>Parent Functional Constraint</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Functional Constraint</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices#getFunctionalConstraint()
+     * @return the meta object for the container reference '<em>Parent Functional Constraint</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices#getParentFunctionalConstraint()
      * @see #getApplicableServices()
      * @generated
      */
-    EReference getApplicableServices_FunctionalConstraint();
+    EReference getApplicableServices_ParentFunctionalConstraint();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType <em>Basic Type</em>}'.
@@ -7262,15 +7262,15 @@ public interface NsdPackage extends EPackage {
     EAttribute getBasicType_Name();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getBasicTypes <em>Basic Types</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getParentBasicTypes <em>Parent Basic Types</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Basic Types</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getBasicTypes()
+     * @return the meta object for the container reference '<em>Parent Basic Types</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getParentBasicTypes()
      * @see #getBasicType()
      * @generated
      */
-    EReference getBasicType_BasicTypes();
+    EReference getBasicType_ParentBasicTypes();
 
     /**
      * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getReferredByDataAttribute <em>Referred By Data Attribute</em>}'.
@@ -7305,15 +7305,15 @@ public interface NsdPackage extends EPackage {
     EReference getBasicTypes_BasicType();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes#getNS <em>NS</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes#getParentNS <em>Parent NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>NS</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes#getNS()
+     * @return the meta object for the container reference '<em>Parent NS</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes#getParentNS()
      * @see #getBasicTypes()
      * @generated
      */
-    EReference getBasicTypes_NS();
+    EReference getBasicTypes_ParentNS();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC <em>CDC</em>}'.
@@ -7414,15 +7414,15 @@ public interface NsdPackage extends EPackage {
     EAttribute getCDC_Variant();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getCDCs <em>CD Cs</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getParentCDCs <em>Parent CD Cs</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>CD Cs</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getCDCs()
+     * @return the meta object for the container reference '<em>Parent CD Cs</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getParentCDCs()
      * @see #getCDC()
      * @generated
      */
-    EReference getCDC_CDCs();
+    EReference getCDC_ParentCDCs();
 
     /**
      * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getReferredByDataObject <em>Referred By Data Object</em>}'.
@@ -7468,15 +7468,15 @@ public interface NsdPackage extends EPackage {
     EReference getCDCs_CDC();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs#getNS <em>NS</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs#getParentNS <em>Parent NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>NS</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs#getNS()
+     * @return the meta object for the container reference '<em>Parent NS</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs#getParentNS()
      * @see #getCDCs()
      * @generated
      */
-    EReference getCDCs_NS();
+    EReference getCDCs_ParentNS();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes <em>Changes</em>}'.
@@ -7533,26 +7533,26 @@ public interface NsdPackage extends EPackage {
     EAttribute getChanges_Tissues();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getNS <em>NS</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getParentNS <em>Parent NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>NS</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getNS()
+     * @return the meta object for the container reference '<em>Parent NS</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getParentNS()
      * @see #getChanges()
      * @generated
      */
-    EReference getChanges_NS();
+    EReference getChanges_ParentNS();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getServiceNS <em>Service NS</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getParentServiceNS <em>Parent Service NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Service NS</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getServiceNS()
+     * @return the meta object for the container reference '<em>Parent Service NS</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getParentServiceNS()
      * @see #getChanges()
      * @generated
      */
-    EReference getChanges_ServiceNS();
+    EReference getChanges_ParentServiceNS();
 
     /**
      * Returns the meta object for the attribute '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getRelease <em>Release</em>}'.
@@ -7609,26 +7609,26 @@ public interface NsdPackage extends EPackage {
     EAttribute getConstructedAttribute_Name();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getConstructedAttributes <em>Constructed Attributes</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getParentConstructedAttributes <em>Parent Constructed Attributes</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Constructed Attributes</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getConstructedAttributes()
+     * @return the meta object for the container reference '<em>Parent Constructed Attributes</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getParentConstructedAttributes()
      * @see #getConstructedAttribute()
      * @generated
      */
-    EReference getConstructedAttribute_ConstructedAttributes();
+    EReference getConstructedAttribute_ParentConstructedAttributes();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getServiceTypeRealizations <em>Service Type Realizations</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getParentServiceTypeRealizations <em>Parent Service Type Realizations</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Service Type Realizations</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getServiceTypeRealizations()
+     * @return the meta object for the container reference '<em>Parent Service Type Realizations</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getParentServiceTypeRealizations()
      * @see #getConstructedAttribute()
      * @generated
      */
-    EReference getConstructedAttribute_ServiceTypeRealizations();
+    EReference getConstructedAttribute_ParentServiceTypeRealizations();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes <em>Constructed Attributes</em>}'.
@@ -7652,15 +7652,15 @@ public interface NsdPackage extends EPackage {
     EReference getConstructedAttributes_ConstructedAttribute();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes#getNS <em>NS</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes#getParentNS <em>Parent NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>NS</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes#getNS()
+     * @return the meta object for the container reference '<em>Parent NS</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes#getParentNS()
      * @see #getConstructedAttributes()
      * @generated
      */
-    EReference getConstructedAttributes_NS();
+    EReference getConstructedAttributes_ParentNS();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Copyrighted <em>Copyrighted</em>}'.
@@ -7716,15 +7716,15 @@ public interface NsdPackage extends EPackage {
     EReference getCopyrightNotice_License();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CopyrightNotice#getCopyrighted <em>Copyrighted</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CopyrightNotice#getParentCopyrighted <em>Parent Copyrighted</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Copyrighted</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CopyrightNotice#getCopyrighted()
+     * @return the meta object for the container reference '<em>Parent Copyrighted</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CopyrightNotice#getParentCopyrighted()
      * @see #getCopyrightNotice()
      * @generated
      */
-    EReference getCopyrightNotice_Copyrighted();
+    EReference getCopyrightNotice_ParentCopyrighted();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute <em>Data Attribute</em>}'.
@@ -7759,15 +7759,15 @@ public interface NsdPackage extends EPackage {
     EAttribute getDataAttribute_Name();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getCDC <em>CDC</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getParentCDC <em>Parent CDC</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>CDC</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getCDC()
+     * @return the meta object for the container reference '<em>Parent CDC</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getParentCDC()
      * @see #getDataAttribute()
      * @generated
      */
-    EReference getDataAttribute_CDC();
+    EReference getDataAttribute_ParentCDC();
 
     /**
      * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredBySubDataObjectAsSizeAttribute <em>Referred By Sub Data Object As Size Attribute</em>}'.
@@ -7912,15 +7912,15 @@ public interface NsdPackage extends EPackage {
     EAttribute getDataObject_Type();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getAnyLNClass <em>Any LN Class</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getParentAnyLNClass <em>Parent Any LN Class</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Any LN Class</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getAnyLNClass()
+     * @return the meta object for the container reference '<em>Parent Any LN Class</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getParentAnyLNClass()
      * @see #getDataObject()
      * @generated
      */
-    EReference getDataObject_AnyLNClass();
+    EReference getDataObject_ParentAnyLNClass();
 
     /**
      * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getRefersToCDC <em>Refers To CDC</em>}'.
@@ -7977,15 +7977,15 @@ public interface NsdPackage extends EPackage {
     EAttribute getDataSetMemberOf_Cb();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataSetMemberOf#getApplicableServices <em>Applicable Services</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataSetMemberOf#getParentApplicableServices <em>Parent Applicable Services</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Applicable Services</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataSetMemberOf#getApplicableServices()
+     * @return the meta object for the container reference '<em>Parent Applicable Services</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataSetMemberOf#getParentApplicableServices()
      * @see #getDataSetMemberOf()
      * @generated
      */
-    EReference getDataSetMemberOf_ApplicableServices();
+    EReference getDataSetMemberOf_ParentApplicableServices();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc <em>Doc</em>}'.
@@ -8042,15 +8042,15 @@ public interface NsdPackage extends EPackage {
     EAttribute getDoc_Id();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getNSDoc <em>NS Doc</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getParentNSDoc <em>Parent NS Doc</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>NS Doc</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getNSDoc()
+     * @return the meta object for the container reference '<em>Parent NS Doc</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getParentNSDoc()
      * @see #getDoc()
      * @generated
      */
-    EReference getDoc_NSDoc();
+    EReference getDoc_ParentNSDoc();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentedClass <em>Documented Class</em>}'.
@@ -8139,15 +8139,15 @@ public interface NsdPackage extends EPackage {
     EAttribute getEnumeration_Name();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getEnumerations <em>Enumerations</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getParentEnumerations <em>Parent Enumerations</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Enumerations</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getEnumerations()
+     * @return the meta object for the container reference '<em>Parent Enumerations</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getParentEnumerations()
      * @see #getEnumeration()
      * @generated
      */
-    EReference getEnumeration_Enumerations();
+    EReference getEnumeration_ParentEnumerations();
 
     /**
      * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getRefersToBaseEnumeration <em>Refers To Base Enumeration</em>}'.
@@ -8193,15 +8193,15 @@ public interface NsdPackage extends EPackage {
     EReference getEnumerations_Enumeration();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations#getNS <em>NS</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations#getParentNS <em>Parent NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>NS</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations#getNS()
+     * @return the meta object for the container reference '<em>Parent NS</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations#getParentNS()
      * @see #getEnumerations()
      * @generated
      */
-    EReference getEnumerations_NS();
+    EReference getEnumerations_ParentNS();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint <em>Functional Constraint</em>}'.
@@ -8258,15 +8258,15 @@ public interface NsdPackage extends EPackage {
     EAttribute getFunctionalConstraint_TitleID();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getFunctionalConstraints <em>Functional Constraints</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getParentFunctionalConstraints <em>Parent Functional Constraints</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Functional Constraints</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getFunctionalConstraints()
+     * @return the meta object for the container reference '<em>Parent Functional Constraints</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getParentFunctionalConstraints()
      * @see #getFunctionalConstraint()
      * @generated
      */
-    EReference getFunctionalConstraint_FunctionalConstraints();
+    EReference getFunctionalConstraint_ParentFunctionalConstraints();
 
     /**
      * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getReferredByDataAttribute <em>Referred By Data Attribute</em>}'.
@@ -8301,26 +8301,26 @@ public interface NsdPackage extends EPackage {
     EReference getFunctionalConstraints_FunctionalConstraint();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints#getNS <em>NS</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints#getParentNS <em>Parent NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>NS</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints#getNS()
+     * @return the meta object for the container reference '<em>Parent NS</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints#getParentNS()
      * @see #getFunctionalConstraints()
      * @generated
      */
-    EReference getFunctionalConstraints_NS();
+    EReference getFunctionalConstraints_ParentNS();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints#getServiceNS <em>Service NS</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints#getParentServiceNS <em>Parent Service NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Service NS</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints#getServiceNS()
+     * @return the meta object for the container reference '<em>Parent Service NS</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints#getParentServiceNS()
      * @see #getFunctionalConstraints()
      * @generated
      */
-    EReference getFunctionalConstraints_ServiceNS();
+    EReference getFunctionalConstraints_ParentServiceNS();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.License <em>License</em>}'.
@@ -8366,15 +8366,15 @@ public interface NsdPackage extends EPackage {
     EAttribute getLicense_Uri();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.License#getCopyrightNotice <em>Copyright Notice</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.License#getParentCopyrightNotice <em>Parent Copyright Notice</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Copyright Notice</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.License#getCopyrightNotice()
+     * @return the meta object for the container reference '<em>Parent Copyright Notice</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.License#getParentCopyrightNotice()
      * @see #getLicense()
      * @generated
      */
-    EReference getLicense_CopyrightNotice();
+    EReference getLicense_ParentCopyrightNotice();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal <em>Literal</em>}'.
@@ -8409,15 +8409,15 @@ public interface NsdPackage extends EPackage {
     EAttribute getLiteral_Name();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal#getEnumeration <em>Enumeration</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal#getParentEnumeration <em>Parent Enumeration</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Enumeration</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal#getEnumeration()
+     * @return the meta object for the container reference '<em>Parent Enumeration</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal#getParentEnumeration()
      * @see #getLiteral()
      * @generated
      */
-    EReference getLiteral_Enumeration();
+    EReference getLiteral_ParentEnumeration();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass <em>LN Class</em>}'.
@@ -8463,15 +8463,15 @@ public interface NsdPackage extends EPackage {
     EAttribute getLNClass_Name();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass#getLNClasses <em>LN Classes</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass#getParentLNClasses <em>Parent LN Classes</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>LN Classes</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass#getLNClasses()
+     * @return the meta object for the container reference '<em>Parent LN Classes</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass#getParentLNClasses()
      * @see #getLNClass()
      * @generated
      */
-    EReference getLNClass_LNClasses();
+    EReference getLNClass_ParentLNClasses();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses <em>LN Classes</em>}'.
@@ -8506,15 +8506,15 @@ public interface NsdPackage extends EPackage {
     EReference getLNClasses_LNClass();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses#getNS <em>NS</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses#getParentNS <em>Parent NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>NS</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses#getNS()
+     * @return the meta object for the container reference '<em>Parent NS</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses#getParentNS()
      * @see #getLNClasses()
      * @generated
      */
-    EReference getLNClasses_NS();
+    EReference getLNClasses_ParentNS();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Notice <em>Notice</em>}'.
@@ -8538,15 +8538,15 @@ public interface NsdPackage extends EPackage {
     EAttribute getNotice_Mixed();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Notice#getCopyrightNotice <em>Copyright Notice</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Notice#getParentCopyrightNotice <em>Parent Copyright Notice</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Copyright Notice</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Notice#getCopyrightNotice()
+     * @return the meta object for the container reference '<em>Parent Copyright Notice</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Notice#getParentCopyrightNotice()
      * @see #getNotice()
      * @generated
      */
-    EReference getNotice_CopyrightNotice();
+    EReference getNotice_ParentCopyrightNotice();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS <em>NS</em>}'.
@@ -8816,15 +8816,15 @@ public interface NsdPackage extends EPackage {
     EAttribute getPresenceCondition_TitleID();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getPresenceConditions <em>Presence Conditions</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getParentPresenceConditions <em>Parent Presence Conditions</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Presence Conditions</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getPresenceConditions()
+     * @return the meta object for the container reference '<em>Parent Presence Conditions</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getParentPresenceConditions()
      * @see #getPresenceCondition()
      * @generated
      */
-    EReference getPresenceCondition_PresenceConditions();
+    EReference getPresenceCondition_ParentPresenceConditions();
 
     /**
      * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getReferredByDataObject <em>Referred By Data Object</em>}'.
@@ -8903,26 +8903,26 @@ public interface NsdPackage extends EPackage {
     EReference getPresenceConditions_PresenceCondition();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions#getNS <em>NS</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions#getParentNS <em>Parent NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>NS</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions#getNS()
+     * @return the meta object for the container reference '<em>Parent NS</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions#getParentNS()
      * @see #getPresenceConditions()
      * @generated
      */
-    EReference getPresenceConditions_NS();
+    EReference getPresenceConditions_ParentNS();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions#getServiceNS <em>Service NS</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions#getParentServiceNS <em>Parent Service NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Service NS</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions#getServiceNS()
+     * @return the meta object for the container reference '<em>Parent Service NS</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions#getParentServiceNS()
      * @see #getPresenceConditions()
      * @generated
      */
-    EReference getPresenceConditions_ServiceNS();
+    EReference getPresenceConditions_ParentServiceNS();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC <em>Service CDC</em>}'.
@@ -8968,15 +8968,15 @@ public interface NsdPackage extends EPackage {
     EAttribute getServiceCDC_Variant();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC#getServiceCDCs <em>Service CD Cs</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC#getParentServiceCDCs <em>Parent Service CD Cs</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Service CD Cs</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC#getServiceCDCs()
+     * @return the meta object for the container reference '<em>Parent Service CD Cs</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC#getParentServiceCDCs()
      * @see #getServiceCDC()
      * @generated
      */
-    EReference getServiceCDC_ServiceCDCs();
+    EReference getServiceCDC_ParentServiceCDCs();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDCs <em>Service CD Cs</em>}'.
@@ -9000,15 +9000,15 @@ public interface NsdPackage extends EPackage {
     EReference getServiceCDCs_ServiceCDC();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDCs#getServiceNS <em>Service NS</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDCs#getParentServiceNS <em>Parent Service NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Service NS</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDCs#getServiceNS()
+     * @return the meta object for the container reference '<em>Parent Service NS</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDCs#getParentServiceNS()
      * @see #getServiceCDCs()
      * @generated
      */
-    EReference getServiceCDCs_ServiceNS();
+    EReference getServiceCDCs_ParentServiceNS();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute <em>Service Constructed Attribute</em>}'.
@@ -9032,15 +9032,15 @@ public interface NsdPackage extends EPackage {
     EAttribute getServiceConstructedAttribute_TypeKindParameterized();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute#getServiceConstructedAttribute <em>Service Constructed Attribute</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute#getParentServiceConstructedAttributes <em>Parent Service Constructed Attributes</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Service Constructed Attribute</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute#getServiceConstructedAttribute()
+     * @return the meta object for the container reference '<em>Parent Service Constructed Attributes</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute#getParentServiceConstructedAttributes()
      * @see #getServiceConstructedAttribute()
      * @generated
      */
-    EReference getServiceConstructedAttribute_ServiceConstructedAttribute();
+    EReference getServiceConstructedAttribute_ParentServiceConstructedAttributes();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttributes <em>Service Constructed Attributes</em>}'.
@@ -9064,15 +9064,15 @@ public interface NsdPackage extends EPackage {
     EReference getServiceConstructedAttributes_ServiceConstructedAttribute();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttributes#getServiceNS <em>Service NS</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttributes#getParentServiceNS <em>Parent Service NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Service NS</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttributes#getServiceNS()
+     * @return the meta object for the container reference '<em>Parent Service NS</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttributes#getParentServiceNS()
      * @see #getServiceConstructedAttributes()
      * @generated
      */
-    EReference getServiceConstructedAttributes_ServiceNS();
+    EReference getServiceConstructedAttributes_ParentServiceNS();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute <em>Service Data Attribute</em>}'.
@@ -9107,15 +9107,15 @@ public interface NsdPackage extends EPackage {
     EAttribute getServiceDataAttribute_Name();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute#getServiceCDC <em>Service CDC</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute#getParentServiceCDC <em>Parent Service CDC</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Service CDC</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute#getServiceCDC()
+     * @return the meta object for the container reference '<em>Parent Service CDC</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute#getParentServiceCDC()
      * @see #getServiceDataAttribute()
      * @generated
      */
-    EReference getServiceDataAttribute_ServiceCDC();
+    EReference getServiceDataAttribute_ParentServiceCDC();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS <em>Service NS</em>}'.
@@ -9226,15 +9226,15 @@ public interface NsdPackage extends EPackage {
     EReference getServiceNsUsage_AppliesTo();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getApplicableServiceNS <em>Applicable Service NS</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getParentApplicableServiceNS <em>Parent Applicable Service NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Applicable Service NS</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getApplicableServiceNS()
+     * @return the meta object for the container reference '<em>Parent Applicable Service NS</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage#getParentApplicableServiceNS()
      * @see #getServiceNsUsage()
      * @generated
      */
-    EReference getServiceNsUsage_ApplicableServiceNS();
+    EReference getServiceNsUsage_ParentApplicableServiceNS();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceParameter <em>Service Parameter</em>}'.
@@ -9258,15 +9258,15 @@ public interface NsdPackage extends EPackage {
     EAttribute getServiceParameter_Name();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceParameter#getCDC <em>CDC</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceParameter#getParentCDC <em>Parent CDC</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>CDC</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceParameter#getCDC()
+     * @return the meta object for the container reference '<em>Parent CDC</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceParameter#getParentCDC()
      * @see #getServiceParameter()
      * @generated
      */
-    EReference getServiceParameter_CDC();
+    EReference getServiceParameter_ParentCDC();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations <em>Service Type Realizations</em>}'.
@@ -9290,15 +9290,15 @@ public interface NsdPackage extends EPackage {
     EReference getServiceTypeRealizations_ServiceTypeRealization();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations#getServiceNS <em>Service NS</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations#getParentServiceNS <em>Parent Service NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Service NS</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations#getServiceNS()
+     * @return the meta object for the container reference '<em>Parent Service NS</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations#getParentServiceNS()
      * @see #getServiceTypeRealizations()
      * @generated
      */
-    EReference getServiceTypeRealizations_ServiceNS();
+    EReference getServiceTypeRealizations_ParentServiceNS();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute <em>Sub Data Attribute</em>}'.
@@ -9322,15 +9322,15 @@ public interface NsdPackage extends EPackage {
     EAttribute getSubDataAttribute_Name();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute#getConstructedAttribute <em>Constructed Attribute</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute#getParentConstructedAttribute <em>Parent Constructed Attribute</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Constructed Attribute</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute#getConstructedAttribute()
+     * @return the meta object for the container reference '<em>Parent Constructed Attribute</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute#getParentConstructedAttribute()
      * @see #getSubDataAttribute()
      * @generated
      */
-    EReference getSubDataAttribute_ConstructedAttribute();
+    EReference getSubDataAttribute_ParentConstructedAttribute();
 
     /**
      * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute#getRefersToPresenceCondition <em>Refers To Presence Condition</em>}'.
@@ -9376,15 +9376,15 @@ public interface NsdPackage extends EPackage {
     EAttribute getSubDataObject_Type();
 
     /**
-     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getCDC <em>CDC</em>}'.
+     * Returns the meta object for the container reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getParentCDC <em>Parent CDC</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>CDC</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getCDC()
+     * @return the meta object for the container reference '<em>Parent CDC</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getParentCDC()
      * @see #getSubDataObject()
      * @generated
      */
-    EReference getSubDataObject_CDC();
+    EReference getSubDataObject_ParentCDC();
 
     /**
      * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#getRefersToCDC <em>Refers To CDC</em>}'.
@@ -10090,12 +10090,12 @@ public interface NsdPackage extends EPackage {
         EClass APPLIES_TO_TYPE = eINSTANCE.getAppliesToType();
 
         /**
-         * The meta object literal for the '<em><b>Service Ns Usage</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent Service Ns Usage</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference APPLIES_TO_TYPE__SERVICE_NS_USAGE = eINSTANCE.getAppliesToType_ServiceNsUsage();
+        EReference APPLIES_TO_TYPE__PARENT_SERVICE_NS_USAGE = eINSTANCE.getAppliesToType_ParentServiceNsUsage();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DependsOnImpl <em>Depends On</em>}' class.
@@ -10108,12 +10108,12 @@ public interface NsdPackage extends EPackage {
         EClass DEPENDS_ON = eINSTANCE.getDependsOn();
 
         /**
-         * The meta object literal for the '<em><b>NS</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent NS</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DEPENDS_ON__NS = eINSTANCE.getDependsOn_NS();
+        EReference DEPENDS_ON__PARENT_NS = eINSTANCE.getDependsOn_ParentNS();
 
         /**
          * The meta object literal for the '<em><b>Refers To NS</b></em>' reference feature.
@@ -10208,12 +10208,12 @@ public interface NsdPackage extends EPackage {
         EAttribute SERVICE_TYPE__NAME = eINSTANCE.getServiceType_Name();
 
         /**
-         * The meta object literal for the '<em><b>Applicable Services</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent Applicable Services</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SERVICE_TYPE__APPLICABLE_SERVICES = eINSTANCE.getServiceType_ApplicableServices();
+        EReference SERVICE_TYPE__PARENT_APPLICABLE_SERVICES = eINSTANCE.getServiceType_ParentApplicableServices();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AbbreviationImpl <em>Abbreviation</em>}' class.
@@ -10242,12 +10242,12 @@ public interface NsdPackage extends EPackage {
         EAttribute ABBREVIATION__NAME = eINSTANCE.getAbbreviation_Name();
 
         /**
-         * The meta object literal for the '<em><b>Abbreviations</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent Abbreviations</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ABBREVIATION__ABBREVIATIONS = eINSTANCE.getAbbreviation_Abbreviations();
+        EReference ABBREVIATION__PARENT_ABBREVIATIONS = eINSTANCE.getAbbreviation_ParentAbbreviations();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AbbreviationsImpl <em>Abbreviations</em>}' class.
@@ -10268,20 +10268,20 @@ public interface NsdPackage extends EPackage {
         EReference ABBREVIATIONS__ABBREVIATION = eINSTANCE.getAbbreviations_Abbreviation();
 
         /**
-         * The meta object literal for the '<em><b>NS</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent NS</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ABBREVIATIONS__NS = eINSTANCE.getAbbreviations_NS();
+        EReference ABBREVIATIONS__PARENT_NS = eINSTANCE.getAbbreviations_ParentNS();
 
         /**
-         * The meta object literal for the '<em><b>Service NS</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent Service NS</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ABBREVIATIONS__SERVICE_NS = eINSTANCE.getAbbreviations_ServiceNS();
+        EReference ABBREVIATIONS__PARENT_SERVICE_NS = eINSTANCE.getAbbreviations_ParentServiceNS();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AbstractLNClassImpl <em>Abstract LN Class</em>}' class.
@@ -10302,12 +10302,12 @@ public interface NsdPackage extends EPackage {
         EAttribute ABSTRACT_LN_CLASS__NAME = eINSTANCE.getAbstractLNClass_Name();
 
         /**
-         * The meta object literal for the '<em><b>LN Classes</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent LN Classes</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ABSTRACT_LN_CLASS__LN_CLASSES = eINSTANCE.getAbstractLNClass_LNClasses();
+        EReference ABSTRACT_LN_CLASS__PARENT_LN_CLASSES = eINSTANCE.getAbstractLNClass_ParentLNClasses();
 
         /**
          * The meta object literal for the '<em><b>Referred By Any LN Class</b></em>' reference list feature.
@@ -10360,12 +10360,12 @@ public interface NsdPackage extends EPackage {
         EOperation ANY_LN_CLASS___GET_NAME = eINSTANCE.getAnyLNClass__GetName();
 
         /**
-         * The meta object literal for the '<em><b>Get LN Classes</b></em>' operation.
+         * The meta object literal for the '<em><b>Get Parent LN Classes</b></em>' operation.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EOperation ANY_LN_CLASS___GET_LN_CLASSES = eINSTANCE.getAnyLNClass__GetLNClasses();
+        EOperation ANY_LN_CLASS___GET_PARENT_LN_CLASSES = eINSTANCE.getAnyLNClass__GetParentLNClasses();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ApplicableServiceNSImpl <em>Applicable Service NS</em>}' class.
@@ -10428,12 +10428,13 @@ public interface NsdPackage extends EPackage {
         EReference APPLICABLE_SERVICES__DATA_SET_MEMBER_OF = eINSTANCE.getApplicableServices_DataSetMemberOf();
 
         /**
-         * The meta object literal for the '<em><b>Functional Constraint</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent Functional Constraint</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference APPLICABLE_SERVICES__FUNCTIONAL_CONSTRAINT = eINSTANCE.getApplicableServices_FunctionalConstraint();
+        EReference APPLICABLE_SERVICES__PARENT_FUNCTIONAL_CONSTRAINT = eINSTANCE
+                .getApplicableServices_ParentFunctionalConstraint();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.BasicTypeImpl <em>Basic Type</em>}' class.
@@ -10462,12 +10463,12 @@ public interface NsdPackage extends EPackage {
         EAttribute BASIC_TYPE__NAME = eINSTANCE.getBasicType_Name();
 
         /**
-         * The meta object literal for the '<em><b>Basic Types</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent Basic Types</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference BASIC_TYPE__BASIC_TYPES = eINSTANCE.getBasicType_BasicTypes();
+        EReference BASIC_TYPE__PARENT_BASIC_TYPES = eINSTANCE.getBasicType_ParentBasicTypes();
 
         /**
          * The meta object literal for the '<em><b>Referred By Data Attribute</b></em>' reference list feature.
@@ -10496,12 +10497,12 @@ public interface NsdPackage extends EPackage {
         EReference BASIC_TYPES__BASIC_TYPE = eINSTANCE.getBasicTypes_BasicType();
 
         /**
-         * The meta object literal for the '<em><b>NS</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent NS</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference BASIC_TYPES__NS = eINSTANCE.getBasicTypes_NS();
+        EReference BASIC_TYPES__PARENT_NS = eINSTANCE.getBasicTypes_ParentNS();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CDCImpl <em>CDC</em>}' class.
@@ -10578,12 +10579,12 @@ public interface NsdPackage extends EPackage {
         EAttribute CDC__VARIANT = eINSTANCE.getCDC_Variant();
 
         /**
-         * The meta object literal for the '<em><b>CD Cs</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent CD Cs</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference CDC__CD_CS = eINSTANCE.getCDC_CDCs();
+        EReference CDC__PARENT_CD_CS = eINSTANCE.getCDC_ParentCDCs();
 
         /**
          * The meta object literal for the '<em><b>Referred By Data Object</b></em>' reference list feature.
@@ -10620,12 +10621,12 @@ public interface NsdPackage extends EPackage {
         EReference CD_CS__CDC = eINSTANCE.getCDCs_CDC();
 
         /**
-         * The meta object literal for the '<em><b>NS</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent NS</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference CD_CS__NS = eINSTANCE.getCDCs_NS();
+        EReference CD_CS__PARENT_NS = eINSTANCE.getCDCs_ParentNS();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ChangesImpl <em>Changes</em>}' class.
@@ -10670,20 +10671,20 @@ public interface NsdPackage extends EPackage {
         EAttribute CHANGES__TISSUES = eINSTANCE.getChanges_Tissues();
 
         /**
-         * The meta object literal for the '<em><b>NS</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent NS</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference CHANGES__NS = eINSTANCE.getChanges_NS();
+        EReference CHANGES__PARENT_NS = eINSTANCE.getChanges_ParentNS();
 
         /**
-         * The meta object literal for the '<em><b>Service NS</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent Service NS</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference CHANGES__SERVICE_NS = eINSTANCE.getChanges_ServiceNS();
+        EReference CHANGES__PARENT_SERVICE_NS = eINSTANCE.getChanges_ParentServiceNS();
 
         /**
          * The meta object literal for the '<em><b>Release</b></em>' attribute feature.
@@ -10728,22 +10729,22 @@ public interface NsdPackage extends EPackage {
         EAttribute CONSTRUCTED_ATTRIBUTE__NAME = eINSTANCE.getConstructedAttribute_Name();
 
         /**
-         * The meta object literal for the '<em><b>Constructed Attributes</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent Constructed Attributes</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference CONSTRUCTED_ATTRIBUTE__CONSTRUCTED_ATTRIBUTES = eINSTANCE
-                .getConstructedAttribute_ConstructedAttributes();
+        EReference CONSTRUCTED_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTES = eINSTANCE
+                .getConstructedAttribute_ParentConstructedAttributes();
 
         /**
-         * The meta object literal for the '<em><b>Service Type Realizations</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent Service Type Realizations</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference CONSTRUCTED_ATTRIBUTE__SERVICE_TYPE_REALIZATIONS = eINSTANCE
-                .getConstructedAttribute_ServiceTypeRealizations();
+        EReference CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_TYPE_REALIZATIONS = eINSTANCE
+                .getConstructedAttribute_ParentServiceTypeRealizations();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ConstructedAttributesImpl <em>Constructed Attributes</em>}' class.
@@ -10765,12 +10766,12 @@ public interface NsdPackage extends EPackage {
                 .getConstructedAttributes_ConstructedAttribute();
 
         /**
-         * The meta object literal for the '<em><b>NS</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent NS</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference CONSTRUCTED_ATTRIBUTES__NS = eINSTANCE.getConstructedAttributes_NS();
+        EReference CONSTRUCTED_ATTRIBUTES__PARENT_NS = eINSTANCE.getConstructedAttributes_ParentNS();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CopyrightedImpl <em>Copyrighted</em>}' class.
@@ -10817,12 +10818,12 @@ public interface NsdPackage extends EPackage {
         EReference COPYRIGHT_NOTICE__LICENSE = eINSTANCE.getCopyrightNotice_License();
 
         /**
-         * The meta object literal for the '<em><b>Copyrighted</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent Copyrighted</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference COPYRIGHT_NOTICE__COPYRIGHTED = eINSTANCE.getCopyrightNotice_Copyrighted();
+        EReference COPYRIGHT_NOTICE__PARENT_COPYRIGHTED = eINSTANCE.getCopyrightNotice_ParentCopyrighted();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl <em>Data Attribute</em>}' class.
@@ -10851,12 +10852,12 @@ public interface NsdPackage extends EPackage {
         EAttribute DATA_ATTRIBUTE__NAME = eINSTANCE.getDataAttribute_Name();
 
         /**
-         * The meta object literal for the '<em><b>CDC</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent CDC</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DATA_ATTRIBUTE__CDC = eINSTANCE.getDataAttribute_CDC();
+        EReference DATA_ATTRIBUTE__PARENT_CDC = eINSTANCE.getDataAttribute_ParentCDC();
 
         /**
          * The meta object literal for the '<em><b>Referred By Sub Data Object As Size Attribute</b></em>' reference list feature.
@@ -10972,12 +10973,12 @@ public interface NsdPackage extends EPackage {
         EAttribute DATA_OBJECT__TYPE = eINSTANCE.getDataObject_Type();
 
         /**
-         * The meta object literal for the '<em><b>Any LN Class</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent Any LN Class</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DATA_OBJECT__ANY_LN_CLASS = eINSTANCE.getDataObject_AnyLNClass();
+        EReference DATA_OBJECT__PARENT_ANY_LN_CLASS = eINSTANCE.getDataObject_ParentAnyLNClass();
 
         /**
          * The meta object literal for the '<em><b>Refers To CDC</b></em>' reference feature.
@@ -11023,12 +11024,13 @@ public interface NsdPackage extends EPackage {
         EAttribute DATA_SET_MEMBER_OF__CB = eINSTANCE.getDataSetMemberOf_Cb();
 
         /**
-         * The meta object literal for the '<em><b>Applicable Services</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent Applicable Services</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DATA_SET_MEMBER_OF__APPLICABLE_SERVICES = eINSTANCE.getDataSetMemberOf_ApplicableServices();
+        EReference DATA_SET_MEMBER_OF__PARENT_APPLICABLE_SERVICES = eINSTANCE
+                .getDataSetMemberOf_ParentApplicableServices();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DocImpl <em>Doc</em>}' class.
@@ -11073,12 +11075,12 @@ public interface NsdPackage extends EPackage {
         EAttribute DOC__ID = eINSTANCE.getDoc_Id();
 
         /**
-         * The meta object literal for the '<em><b>NS Doc</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent NS Doc</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOC__NS_DOC = eINSTANCE.getDoc_NSDoc();
+        EReference DOC__PARENT_NS_DOC = eINSTANCE.getDoc_ParentNSDoc();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DocumentedClassImpl <em>Documented Class</em>}' class.
@@ -11149,12 +11151,12 @@ public interface NsdPackage extends EPackage {
         EAttribute ENUMERATION__NAME = eINSTANCE.getEnumeration_Name();
 
         /**
-         * The meta object literal for the '<em><b>Enumerations</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent Enumerations</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ENUMERATION__ENUMERATIONS = eINSTANCE.getEnumeration_Enumerations();
+        EReference ENUMERATION__PARENT_ENUMERATIONS = eINSTANCE.getEnumeration_ParentEnumerations();
 
         /**
          * The meta object literal for the '<em><b>Refers To Base Enumeration</b></em>' reference feature.
@@ -11192,12 +11194,12 @@ public interface NsdPackage extends EPackage {
         EReference ENUMERATIONS__ENUMERATION = eINSTANCE.getEnumerations_Enumeration();
 
         /**
-         * The meta object literal for the '<em><b>NS</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent NS</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ENUMERATIONS__NS = eINSTANCE.getEnumerations_NS();
+        EReference ENUMERATIONS__PARENT_NS = eINSTANCE.getEnumerations_ParentNS();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.FunctionalConstraintImpl <em>Functional Constraint</em>}' class.
@@ -11242,13 +11244,13 @@ public interface NsdPackage extends EPackage {
         EAttribute FUNCTIONAL_CONSTRAINT__TITLE_ID = eINSTANCE.getFunctionalConstraint_TitleID();
 
         /**
-         * The meta object literal for the '<em><b>Functional Constraints</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent Functional Constraints</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference FUNCTIONAL_CONSTRAINT__FUNCTIONAL_CONSTRAINTS = eINSTANCE
-                .getFunctionalConstraint_FunctionalConstraints();
+        EReference FUNCTIONAL_CONSTRAINT__PARENT_FUNCTIONAL_CONSTRAINTS = eINSTANCE
+                .getFunctionalConstraint_ParentFunctionalConstraints();
 
         /**
          * The meta object literal for the '<em><b>Referred By Data Attribute</b></em>' reference list feature.
@@ -11279,20 +11281,20 @@ public interface NsdPackage extends EPackage {
                 .getFunctionalConstraints_FunctionalConstraint();
 
         /**
-         * The meta object literal for the '<em><b>NS</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent NS</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference FUNCTIONAL_CONSTRAINTS__NS = eINSTANCE.getFunctionalConstraints_NS();
+        EReference FUNCTIONAL_CONSTRAINTS__PARENT_NS = eINSTANCE.getFunctionalConstraints_ParentNS();
 
         /**
-         * The meta object literal for the '<em><b>Service NS</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent Service NS</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference FUNCTIONAL_CONSTRAINTS__SERVICE_NS = eINSTANCE.getFunctionalConstraints_ServiceNS();
+        EReference FUNCTIONAL_CONSTRAINTS__PARENT_SERVICE_NS = eINSTANCE.getFunctionalConstraints_ParentServiceNS();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.LicenseImpl <em>License</em>}' class.
@@ -11329,12 +11331,12 @@ public interface NsdPackage extends EPackage {
         EAttribute LICENSE__URI = eINSTANCE.getLicense_Uri();
 
         /**
-         * The meta object literal for the '<em><b>Copyright Notice</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent Copyright Notice</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference LICENSE__COPYRIGHT_NOTICE = eINSTANCE.getLicense_CopyrightNotice();
+        EReference LICENSE__PARENT_COPYRIGHT_NOTICE = eINSTANCE.getLicense_ParentCopyrightNotice();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.LiteralImpl <em>Literal</em>}' class.
@@ -11363,12 +11365,12 @@ public interface NsdPackage extends EPackage {
         EAttribute LITERAL__NAME = eINSTANCE.getLiteral_Name();
 
         /**
-         * The meta object literal for the '<em><b>Enumeration</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent Enumeration</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference LITERAL__ENUMERATION = eINSTANCE.getLiteral_Enumeration();
+        EReference LITERAL__PARENT_ENUMERATION = eINSTANCE.getLiteral_ParentEnumeration();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.LNClassImpl <em>LN Class</em>}' class.
@@ -11405,12 +11407,12 @@ public interface NsdPackage extends EPackage {
         EAttribute LN_CLASS__NAME = eINSTANCE.getLNClass_Name();
 
         /**
-         * The meta object literal for the '<em><b>LN Classes</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent LN Classes</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference LN_CLASS__LN_CLASSES = eINSTANCE.getLNClass_LNClasses();
+        EReference LN_CLASS__PARENT_LN_CLASSES = eINSTANCE.getLNClass_ParentLNClasses();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.LNClassesImpl <em>LN Classes</em>}' class.
@@ -11439,12 +11441,12 @@ public interface NsdPackage extends EPackage {
         EReference LN_CLASSES__LN_CLASS = eINSTANCE.getLNClasses_LNClass();
 
         /**
-         * The meta object literal for the '<em><b>NS</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent NS</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference LN_CLASSES__NS = eINSTANCE.getLNClasses_NS();
+        EReference LN_CLASSES__PARENT_NS = eINSTANCE.getLNClasses_ParentNS();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NoticeImpl <em>Notice</em>}' class.
@@ -11465,12 +11467,12 @@ public interface NsdPackage extends EPackage {
         EAttribute NOTICE__MIXED = eINSTANCE.getNotice_Mixed();
 
         /**
-         * The meta object literal for the '<em><b>Copyright Notice</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent Copyright Notice</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference NOTICE__COPYRIGHT_NOTICE = eINSTANCE.getNotice_CopyrightNotice();
+        EReference NOTICE__PARENT_COPYRIGHT_NOTICE = eINSTANCE.getNotice_ParentCopyrightNotice();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSImpl <em>NS</em>}' class.
@@ -11683,12 +11685,13 @@ public interface NsdPackage extends EPackage {
         EAttribute PRESENCE_CONDITION__TITLE_ID = eINSTANCE.getPresenceCondition_TitleID();
 
         /**
-         * The meta object literal for the '<em><b>Presence Conditions</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent Presence Conditions</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PRESENCE_CONDITION__PRESENCE_CONDITIONS = eINSTANCE.getPresenceCondition_PresenceConditions();
+        EReference PRESENCE_CONDITION__PARENT_PRESENCE_CONDITIONS = eINSTANCE
+                .getPresenceCondition_ParentPresenceConditions();
 
         /**
          * The meta object literal for the '<em><b>Referred By Data Object</b></em>' reference list feature.
@@ -11753,20 +11756,20 @@ public interface NsdPackage extends EPackage {
         EReference PRESENCE_CONDITIONS__PRESENCE_CONDITION = eINSTANCE.getPresenceConditions_PresenceCondition();
 
         /**
-         * The meta object literal for the '<em><b>NS</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent NS</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PRESENCE_CONDITIONS__NS = eINSTANCE.getPresenceConditions_NS();
+        EReference PRESENCE_CONDITIONS__PARENT_NS = eINSTANCE.getPresenceConditions_ParentNS();
 
         /**
-         * The meta object literal for the '<em><b>Service NS</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent Service NS</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PRESENCE_CONDITIONS__SERVICE_NS = eINSTANCE.getPresenceConditions_ServiceNS();
+        EReference PRESENCE_CONDITIONS__PARENT_SERVICE_NS = eINSTANCE.getPresenceConditions_ParentServiceNS();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceCDCImpl <em>Service CDC</em>}' class.
@@ -11803,12 +11806,12 @@ public interface NsdPackage extends EPackage {
         EAttribute SERVICE_CDC__VARIANT = eINSTANCE.getServiceCDC_Variant();
 
         /**
-         * The meta object literal for the '<em><b>Service CD Cs</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent Service CD Cs</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SERVICE_CDC__SERVICE_CD_CS = eINSTANCE.getServiceCDC_ServiceCDCs();
+        EReference SERVICE_CDC__PARENT_SERVICE_CD_CS = eINSTANCE.getServiceCDC_ParentServiceCDCs();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceCDCsImpl <em>Service CD Cs</em>}' class.
@@ -11829,12 +11832,12 @@ public interface NsdPackage extends EPackage {
         EReference SERVICE_CD_CS__SERVICE_CDC = eINSTANCE.getServiceCDCs_ServiceCDC();
 
         /**
-         * The meta object literal for the '<em><b>Service NS</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent Service NS</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SERVICE_CD_CS__SERVICE_NS = eINSTANCE.getServiceCDCs_ServiceNS();
+        EReference SERVICE_CD_CS__PARENT_SERVICE_NS = eINSTANCE.getServiceCDCs_ParentServiceNS();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceConstructedAttributeImpl <em>Service Constructed Attribute</em>}' class.
@@ -11856,13 +11859,13 @@ public interface NsdPackage extends EPackage {
                 .getServiceConstructedAttribute_TypeKindParameterized();
 
         /**
-         * The meta object literal for the '<em><b>Service Constructed Attribute</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent Service Constructed Attributes</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SERVICE_CONSTRUCTED_ATTRIBUTE__SERVICE_CONSTRUCTED_ATTRIBUTE = eINSTANCE
-                .getServiceConstructedAttribute_ServiceConstructedAttribute();
+        EReference SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_CONSTRUCTED_ATTRIBUTES = eINSTANCE
+                .getServiceConstructedAttribute_ParentServiceConstructedAttributes();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceConstructedAttributesImpl <em>Service Constructed Attributes</em>}' class.
@@ -11884,12 +11887,13 @@ public interface NsdPackage extends EPackage {
                 .getServiceConstructedAttributes_ServiceConstructedAttribute();
 
         /**
-         * The meta object literal for the '<em><b>Service NS</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent Service NS</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_NS = eINSTANCE.getServiceConstructedAttributes_ServiceNS();
+        EReference SERVICE_CONSTRUCTED_ATTRIBUTES__PARENT_SERVICE_NS = eINSTANCE
+                .getServiceConstructedAttributes_ParentServiceNS();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceDataAttributeImpl <em>Service Data Attribute</em>}' class.
@@ -11918,12 +11922,12 @@ public interface NsdPackage extends EPackage {
         EAttribute SERVICE_DATA_ATTRIBUTE__NAME = eINSTANCE.getServiceDataAttribute_Name();
 
         /**
-         * The meta object literal for the '<em><b>Service CDC</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent Service CDC</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SERVICE_DATA_ATTRIBUTE__SERVICE_CDC = eINSTANCE.getServiceDataAttribute_ServiceCDC();
+        EReference SERVICE_DATA_ATTRIBUTE__PARENT_SERVICE_CDC = eINSTANCE.getServiceDataAttribute_ParentServiceCDC();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl <em>Service NS</em>}' class.
@@ -12010,12 +12014,13 @@ public interface NsdPackage extends EPackage {
         EReference SERVICE_NS_USAGE__APPLIES_TO = eINSTANCE.getServiceNsUsage_AppliesTo();
 
         /**
-         * The meta object literal for the '<em><b>Applicable Service NS</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent Applicable Service NS</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SERVICE_NS_USAGE__APPLICABLE_SERVICE_NS = eINSTANCE.getServiceNsUsage_ApplicableServiceNS();
+        EReference SERVICE_NS_USAGE__PARENT_APPLICABLE_SERVICE_NS = eINSTANCE
+                .getServiceNsUsage_ParentApplicableServiceNS();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceParameterImpl <em>Service Parameter</em>}' class.
@@ -12036,12 +12041,12 @@ public interface NsdPackage extends EPackage {
         EAttribute SERVICE_PARAMETER__NAME = eINSTANCE.getServiceParameter_Name();
 
         /**
-         * The meta object literal for the '<em><b>CDC</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent CDC</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SERVICE_PARAMETER__CDC = eINSTANCE.getServiceParameter_CDC();
+        EReference SERVICE_PARAMETER__PARENT_CDC = eINSTANCE.getServiceParameter_ParentCDC();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceTypeRealizationsImpl <em>Service Type Realizations</em>}' class.
@@ -12063,12 +12068,13 @@ public interface NsdPackage extends EPackage {
                 .getServiceTypeRealizations_ServiceTypeRealization();
 
         /**
-         * The meta object literal for the '<em><b>Service NS</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent Service NS</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SERVICE_TYPE_REALIZATIONS__SERVICE_NS = eINSTANCE.getServiceTypeRealizations_ServiceNS();
+        EReference SERVICE_TYPE_REALIZATIONS__PARENT_SERVICE_NS = eINSTANCE
+                .getServiceTypeRealizations_ParentServiceNS();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataAttributeImpl <em>Sub Data Attribute</em>}' class.
@@ -12089,12 +12095,13 @@ public interface NsdPackage extends EPackage {
         EAttribute SUB_DATA_ATTRIBUTE__NAME = eINSTANCE.getSubDataAttribute_Name();
 
         /**
-         * The meta object literal for the '<em><b>Constructed Attribute</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent Constructed Attribute</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SUB_DATA_ATTRIBUTE__CONSTRUCTED_ATTRIBUTE = eINSTANCE.getSubDataAttribute_ConstructedAttribute();
+        EReference SUB_DATA_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTE = eINSTANCE
+                .getSubDataAttribute_ParentConstructedAttribute();
 
         /**
          * The meta object literal for the '<em><b>Refers To Presence Condition</b></em>' reference feature.
@@ -12132,12 +12139,12 @@ public interface NsdPackage extends EPackage {
         EAttribute SUB_DATA_OBJECT__TYPE = eINSTANCE.getSubDataObject_Type();
 
         /**
-         * The meta object literal for the '<em><b>CDC</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent CDC</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SUB_DATA_OBJECT__CDC = eINSTANCE.getSubDataObject_CDC();
+        EReference SUB_DATA_OBJECT__PARENT_CDC = eINSTANCE.getSubDataObject_ParentCDC();
 
         /**
          * The meta object literal for the '<em><b>Refers To CDC</b></em>' reference feature.

@@ -29,7 +29,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
  * </p>
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType#getName <em>Name</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType#getApplicableServices <em>Applicable Services</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType#getParentApplicableServices <em>Parent Applicable Services</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceType()
@@ -97,31 +97,27 @@ public interface ServiceType extends NsdObject {
     boolean isSetName();
 
     /**
-     * Returns the value of the '<em><b>Applicable Services</b></em>' container reference.
+     * Returns the value of the '<em><b>Parent Applicable Services</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices#getService <em>Service</em>}'.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Applicable Services</em>' container reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Applicable Services</em>' container reference.
-     * @see #setApplicableServices(ApplicableServices)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceType_ApplicableServices()
+     * @return the value of the '<em>Parent Applicable Services</em>' container reference.
+     * @see #setParentApplicableServices(ApplicableServices)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceType_ParentApplicableServices()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices#getService
      * @model opposite="service" resolveProxies="false" unsettable="true" ordered="false"
      * @generated
      */
-    ApplicableServices getApplicableServices();
+    ApplicableServices getParentApplicableServices();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType#getApplicableServices <em>Applicable Services</em>}' container reference.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType#getParentApplicableServices <em>Parent Applicable Services</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Applicable Services</em>' container reference.
-     * @see #getApplicableServices()
+     * @param value the new value of the '<em>Parent Applicable Services</em>' container reference.
+     * @see #getParentApplicableServices()
      * @generated
      */
-    void setApplicableServices( ApplicableServices value );
+    void setParentApplicableServices( ApplicableServices value );
 
 } // ServiceType

@@ -32,7 +32,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses#getAbstractLNClass <em>Abstract LN Class</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses#getLNClass <em>LN Class</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses#getNS <em>NS</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses#getParentNS <em>Parent NS</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getLNClasses()
@@ -45,15 +45,15 @@ public interface LNClasses extends NsdObject {
     /**
      * Returns the value of the '<em><b>Abstract LN Class</b></em>' containment reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass}.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass#getLNClasses <em>LN Classes</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass#getParentLNClasses <em>Parent LN Classes</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>Abstract LN Class</em>' containment reference list.
      * @see #isSetAbstractLNClass()
      * @see #unsetAbstractLNClass()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getLNClasses_AbstractLNClass()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass#getLNClasses
-     * @model opposite="lNClasses" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass#getParentLNClasses
+     * @model opposite="parentLNClasses" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='AbstractLNClass' namespace='##targetNamespace'"
      * @generated
      */
@@ -83,15 +83,15 @@ public interface LNClasses extends NsdObject {
     /**
      * Returns the value of the '<em><b>LN Class</b></em>' containment reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass}.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass#getLNClasses <em>LN Classes</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass#getParentLNClasses <em>Parent LN Classes</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>LN Class</em>' containment reference list.
      * @see #isSetLNClass()
      * @see #unsetLNClass()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getLNClasses_LNClass()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass#getLNClasses
-     * @model opposite="lNClasses" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass#getParentLNClasses
+     * @model opposite="parentLNClasses" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='LNClass' namespace='##targetNamespace'"
      * @generated
      */
@@ -119,31 +119,27 @@ public interface LNClasses extends NsdObject {
     boolean isSetLNClass();
 
     /**
-     * Returns the value of the '<em><b>NS</b></em>' container reference.
+     * Returns the value of the '<em><b>Parent NS</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getLNClasses <em>LN Classes</em>}'.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>NS</em>' container reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>NS</em>' container reference.
-     * @see #setNS(NS)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getLNClasses_NS()
+     * @return the value of the '<em>Parent NS</em>' container reference.
+     * @see #setParentNS(NS)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getLNClasses_ParentNS()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getLNClasses
      * @model opposite="lNClasses" resolveProxies="false" unsettable="true" ordered="false"
      * @generated
      */
-    NS getNS();
+    NS getParentNS();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses#getNS <em>NS</em>}' container reference.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses#getParentNS <em>Parent NS</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>NS</em>' container reference.
-     * @see #getNS()
+     * @param value the new value of the '<em>Parent NS</em>' container reference.
+     * @see #getParentNS()
      * @generated
      */
-    void setNS( NS value );
+    void setParentNS( NS value );
 
 } // LNClasses

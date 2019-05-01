@@ -34,7 +34,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getAbbreviation <em>Abbreviation</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getDescID <em>Desc ID</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getTitleID <em>Title ID</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getFunctionalConstraints <em>Functional Constraints</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getParentFunctionalConstraints <em>Parent Functional Constraints</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getReferredByDataAttribute <em>Referred By Data Attribute</em>}</li>
  * </ul>
  *
@@ -47,7 +47,7 @@ import org.eclipse.emf.common.util.EList;
 public interface FunctionalConstraint extends NsdObject {
     /**
      * Returns the value of the '<em><b>Applicable Services</b></em>' containment reference.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices#getFunctionalConstraint <em>Functional Constraint</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices#getParentFunctionalConstraint <em>Parent Functional Constraint</em>}'.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Applicable Services</em>' containment reference isn't clear,
@@ -59,8 +59,8 @@ public interface FunctionalConstraint extends NsdObject {
      * @see #unsetApplicableServices()
      * @see #setApplicableServices(ApplicableServices)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getFunctionalConstraint_ApplicableServices()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices#getFunctionalConstraint
-     * @model opposite="functionalConstraint" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices#getParentFunctionalConstraint
+     * @model opposite="parentFunctionalConstraint" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='ApplicableServices' namespace='##targetNamespace'"
      * @generated
      */
@@ -252,32 +252,28 @@ public interface FunctionalConstraint extends NsdObject {
     boolean isSetTitleID();
 
     /**
-     * Returns the value of the '<em><b>Functional Constraints</b></em>' container reference.
+     * Returns the value of the '<em><b>Parent Functional Constraints</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints#getFunctionalConstraint <em>Functional Constraint</em>}'.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Functional Constraints</em>' container reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Functional Constraints</em>' container reference.
-     * @see #setFunctionalConstraints(FunctionalConstraints)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getFunctionalConstraint_FunctionalConstraints()
+     * @return the value of the '<em>Parent Functional Constraints</em>' container reference.
+     * @see #setParentFunctionalConstraints(FunctionalConstraints)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getFunctionalConstraint_ParentFunctionalConstraints()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints#getFunctionalConstraint
      * @model opposite="functionalConstraint" resolveProxies="false" unsettable="true" ordered="false"
      * @generated
      */
-    FunctionalConstraints getFunctionalConstraints();
+    FunctionalConstraints getParentFunctionalConstraints();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getFunctionalConstraints <em>Functional Constraints</em>}' container reference.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getParentFunctionalConstraints <em>Parent Functional Constraints</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Functional Constraints</em>' container reference.
-     * @see #getFunctionalConstraints()
+     * @param value the new value of the '<em>Parent Functional Constraints</em>' container reference.
+     * @see #getParentFunctionalConstraints()
      * @generated
      */
-    void setFunctionalConstraints( FunctionalConstraints value );
+    void setParentFunctionalConstraints( FunctionalConstraints value );
 
     /**
      * Returns the value of the '<em><b>Referred By Data Attribute</b></em>' reference list.

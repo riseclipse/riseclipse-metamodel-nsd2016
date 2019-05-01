@@ -31,7 +31,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getName <em>Name</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#isTransient <em>Transient</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getType <em>Type</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getAnyLNClass <em>Any LN Class</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getParentAnyLNClass <em>Parent Any LN Class</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getRefersToCDC <em>Refers To CDC</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getRefersToPresenceCondition <em>Refers To Presence Condition</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getRefersToPresenceConditionDerivedStatistics <em>Refers To Presence Condition Derived Statistics</em>}</li>
@@ -197,32 +197,28 @@ public interface DataObject
     boolean isSetType();
 
     /**
-     * Returns the value of the '<em><b>Any LN Class</b></em>' container reference.
+     * Returns the value of the '<em><b>Parent Any LN Class</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass#getDataObject <em>Data Object</em>}'.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Any LN Class</em>' container reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Any LN Class</em>' container reference.
-     * @see #setAnyLNClass(AnyLNClass)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataObject_AnyLNClass()
+     * @return the value of the '<em>Parent Any LN Class</em>' container reference.
+     * @see #setParentAnyLNClass(AnyLNClass)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataObject_ParentAnyLNClass()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass#getDataObject
      * @model opposite="dataObject" resolveProxies="false" unsettable="true" ordered="false"
      * @generated
      */
-    AnyLNClass getAnyLNClass();
+    AnyLNClass getParentAnyLNClass();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getAnyLNClass <em>Any LN Class</em>}' container reference.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#getParentAnyLNClass <em>Parent Any LN Class</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Any LN Class</em>' container reference.
-     * @see #getAnyLNClass()
+     * @param value the new value of the '<em>Parent Any LN Class</em>' container reference.
+     * @see #getParentAnyLNClass()
      * @generated
      */
-    void setAnyLNClass( AnyLNClass value );
+    void setParentAnyLNClass( AnyLNClass value );
 
     /**
      * Returns the value of the '<em><b>Refers To CDC</b></em>' reference.

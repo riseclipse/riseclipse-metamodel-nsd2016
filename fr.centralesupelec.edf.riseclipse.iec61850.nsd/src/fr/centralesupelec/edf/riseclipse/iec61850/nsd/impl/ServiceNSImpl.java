@@ -496,10 +496,10 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         if( newChanges != changes ) {
             NotificationChain msgs = null;
             if( changes != null )
-                msgs = ( ( InternalEObject ) changes ).eInverseRemove( this, NsdPackage.CHANGES__SERVICE_NS,
+                msgs = ( ( InternalEObject ) changes ).eInverseRemove( this, NsdPackage.CHANGES__PARENT_SERVICE_NS,
                         Changes.class, msgs );
             if( newChanges != null )
-                msgs = ( ( InternalEObject ) newChanges ).eInverseAdd( this, NsdPackage.CHANGES__SERVICE_NS,
+                msgs = ( ( InternalEObject ) newChanges ).eInverseAdd( this, NsdPackage.CHANGES__PARENT_SERVICE_NS,
                         Changes.class, msgs );
             msgs = basicSetChanges( newChanges, msgs );
             if( msgs != null ) msgs.dispatch();
@@ -543,8 +543,8 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
     public void unsetChanges() {
         if( changes != null ) {
             NotificationChain msgs = null;
-            msgs = ( ( InternalEObject ) changes ).eInverseRemove( this, NsdPackage.CHANGES__SERVICE_NS, Changes.class,
-                    msgs );
+            msgs = ( ( InternalEObject ) changes ).eInverseRemove( this, NsdPackage.CHANGES__PARENT_SERVICE_NS,
+                    Changes.class, msgs );
             msgs = basicUnsetChanges( msgs );
             if( msgs != null ) msgs.dispatch();
         }
@@ -611,10 +611,10 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
             NotificationChain msgs = null;
             if( functionalConstraints != null )
                 msgs = ( ( InternalEObject ) functionalConstraints ).eInverseRemove( this,
-                        NsdPackage.FUNCTIONAL_CONSTRAINTS__SERVICE_NS, FunctionalConstraints.class, msgs );
+                        NsdPackage.FUNCTIONAL_CONSTRAINTS__PARENT_SERVICE_NS, FunctionalConstraints.class, msgs );
             if( newFunctionalConstraints != null )
                 msgs = ( ( InternalEObject ) newFunctionalConstraints ).eInverseAdd( this,
-                        NsdPackage.FUNCTIONAL_CONSTRAINTS__SERVICE_NS, FunctionalConstraints.class, msgs );
+                        NsdPackage.FUNCTIONAL_CONSTRAINTS__PARENT_SERVICE_NS, FunctionalConstraints.class, msgs );
             msgs = basicSetFunctionalConstraints( newFunctionalConstraints, msgs );
             if( msgs != null ) msgs.dispatch();
         }
@@ -659,7 +659,7 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         if( functionalConstraints != null ) {
             NotificationChain msgs = null;
             msgs = ( ( InternalEObject ) functionalConstraints ).eInverseRemove( this,
-                    NsdPackage.FUNCTIONAL_CONSTRAINTS__SERVICE_NS, FunctionalConstraints.class, msgs );
+                    NsdPackage.FUNCTIONAL_CONSTRAINTS__PARENT_SERVICE_NS, FunctionalConstraints.class, msgs );
             msgs = basicUnsetFunctionalConstraints( msgs );
             if( msgs != null ) msgs.dispatch();
         }
@@ -726,10 +726,10 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
             NotificationChain msgs = null;
             if( presenceConditions != null )
                 msgs = ( ( InternalEObject ) presenceConditions ).eInverseRemove( this,
-                        NsdPackage.PRESENCE_CONDITIONS__SERVICE_NS, PresenceConditions.class, msgs );
+                        NsdPackage.PRESENCE_CONDITIONS__PARENT_SERVICE_NS, PresenceConditions.class, msgs );
             if( newPresenceConditions != null )
                 msgs = ( ( InternalEObject ) newPresenceConditions ).eInverseAdd( this,
-                        NsdPackage.PRESENCE_CONDITIONS__SERVICE_NS, PresenceConditions.class, msgs );
+                        NsdPackage.PRESENCE_CONDITIONS__PARENT_SERVICE_NS, PresenceConditions.class, msgs );
             msgs = basicSetPresenceConditions( newPresenceConditions, msgs );
             if( msgs != null ) msgs.dispatch();
         }
@@ -774,7 +774,7 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         if( presenceConditions != null ) {
             NotificationChain msgs = null;
             msgs = ( ( InternalEObject ) presenceConditions ).eInverseRemove( this,
-                    NsdPackage.PRESENCE_CONDITIONS__SERVICE_NS, PresenceConditions.class, msgs );
+                    NsdPackage.PRESENCE_CONDITIONS__PARENT_SERVICE_NS, PresenceConditions.class, msgs );
             msgs = basicUnsetPresenceConditions( msgs );
             if( msgs != null ) msgs.dispatch();
         }
@@ -838,11 +838,11 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         if( newAbbreviations != abbreviations ) {
             NotificationChain msgs = null;
             if( abbreviations != null )
-                msgs = ( ( InternalEObject ) abbreviations ).eInverseRemove( this, NsdPackage.ABBREVIATIONS__SERVICE_NS,
-                        Abbreviations.class, msgs );
+                msgs = ( ( InternalEObject ) abbreviations ).eInverseRemove( this,
+                        NsdPackage.ABBREVIATIONS__PARENT_SERVICE_NS, Abbreviations.class, msgs );
             if( newAbbreviations != null )
-                msgs = ( ( InternalEObject ) newAbbreviations ).eInverseAdd( this, NsdPackage.ABBREVIATIONS__SERVICE_NS,
-                        Abbreviations.class, msgs );
+                msgs = ( ( InternalEObject ) newAbbreviations ).eInverseAdd( this,
+                        NsdPackage.ABBREVIATIONS__PARENT_SERVICE_NS, Abbreviations.class, msgs );
             msgs = basicSetAbbreviations( newAbbreviations, msgs );
             if( msgs != null ) msgs.dispatch();
         }
@@ -885,8 +885,8 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
     public void unsetAbbreviations() {
         if( abbreviations != null ) {
             NotificationChain msgs = null;
-            msgs = ( ( InternalEObject ) abbreviations ).eInverseRemove( this, NsdPackage.ABBREVIATIONS__SERVICE_NS,
-                    Abbreviations.class, msgs );
+            msgs = ( ( InternalEObject ) abbreviations ).eInverseRemove( this,
+                    NsdPackage.ABBREVIATIONS__PARENT_SERVICE_NS, Abbreviations.class, msgs );
             msgs = basicUnsetAbbreviations( msgs );
             if( msgs != null ) msgs.dispatch();
         }
@@ -953,10 +953,10 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
             NotificationChain msgs = null;
             if( serviceTypeRealizations != null )
                 msgs = ( ( InternalEObject ) serviceTypeRealizations ).eInverseRemove( this,
-                        NsdPackage.SERVICE_TYPE_REALIZATIONS__SERVICE_NS, ServiceTypeRealizations.class, msgs );
+                        NsdPackage.SERVICE_TYPE_REALIZATIONS__PARENT_SERVICE_NS, ServiceTypeRealizations.class, msgs );
             if( newServiceTypeRealizations != null )
                 msgs = ( ( InternalEObject ) newServiceTypeRealizations ).eInverseAdd( this,
-                        NsdPackage.SERVICE_TYPE_REALIZATIONS__SERVICE_NS, ServiceTypeRealizations.class, msgs );
+                        NsdPackage.SERVICE_TYPE_REALIZATIONS__PARENT_SERVICE_NS, ServiceTypeRealizations.class, msgs );
             msgs = basicSetServiceTypeRealizations( newServiceTypeRealizations, msgs );
             if( msgs != null ) msgs.dispatch();
         }
@@ -1002,7 +1002,7 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         if( serviceTypeRealizations != null ) {
             NotificationChain msgs = null;
             msgs = ( ( InternalEObject ) serviceTypeRealizations ).eInverseRemove( this,
-                    NsdPackage.SERVICE_TYPE_REALIZATIONS__SERVICE_NS, ServiceTypeRealizations.class, msgs );
+                    NsdPackage.SERVICE_TYPE_REALIZATIONS__PARENT_SERVICE_NS, ServiceTypeRealizations.class, msgs );
             msgs = basicUnsetServiceTypeRealizations( msgs );
             if( msgs != null ) msgs.dispatch();
         }
@@ -1070,12 +1070,12 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
             NotificationChain msgs = null;
             if( serviceConstructedAttributes != null )
                 msgs = ( ( InternalEObject ) serviceConstructedAttributes ).eInverseRemove( this,
-                        NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_NS, ServiceConstructedAttributes.class,
-                        msgs );
+                        NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__PARENT_SERVICE_NS,
+                        ServiceConstructedAttributes.class, msgs );
             if( newServiceConstructedAttributes != null )
                 msgs = ( ( InternalEObject ) newServiceConstructedAttributes ).eInverseAdd( this,
-                        NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_NS, ServiceConstructedAttributes.class,
-                        msgs );
+                        NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__PARENT_SERVICE_NS,
+                        ServiceConstructedAttributes.class, msgs );
             msgs = basicSetServiceConstructedAttributes( newServiceConstructedAttributes, msgs );
             if( msgs != null ) msgs.dispatch();
         }
@@ -1121,7 +1121,8 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         if( serviceConstructedAttributes != null ) {
             NotificationChain msgs = null;
             msgs = ( ( InternalEObject ) serviceConstructedAttributes ).eInverseRemove( this,
-                    NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_NS, ServiceConstructedAttributes.class, msgs );
+                    NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__PARENT_SERVICE_NS, ServiceConstructedAttributes.class,
+                    msgs );
             msgs = basicUnsetServiceConstructedAttributes( msgs );
             if( msgs != null ) msgs.dispatch();
         }
@@ -1186,11 +1187,11 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         if( newServiceCDCs != serviceCDCs ) {
             NotificationChain msgs = null;
             if( serviceCDCs != null )
-                msgs = ( ( InternalEObject ) serviceCDCs ).eInverseRemove( this, NsdPackage.SERVICE_CD_CS__SERVICE_NS,
-                        ServiceCDCs.class, msgs );
+                msgs = ( ( InternalEObject ) serviceCDCs ).eInverseRemove( this,
+                        NsdPackage.SERVICE_CD_CS__PARENT_SERVICE_NS, ServiceCDCs.class, msgs );
             if( newServiceCDCs != null )
-                msgs = ( ( InternalEObject ) newServiceCDCs ).eInverseAdd( this, NsdPackage.SERVICE_CD_CS__SERVICE_NS,
-                        ServiceCDCs.class, msgs );
+                msgs = ( ( InternalEObject ) newServiceCDCs ).eInverseAdd( this,
+                        NsdPackage.SERVICE_CD_CS__PARENT_SERVICE_NS, ServiceCDCs.class, msgs );
             msgs = basicSetServiceCDCs( newServiceCDCs, msgs );
             if( msgs != null ) msgs.dispatch();
         }
@@ -1233,8 +1234,8 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
     public void unsetServiceCDCs() {
         if( serviceCDCs != null ) {
             NotificationChain msgs = null;
-            msgs = ( ( InternalEObject ) serviceCDCs ).eInverseRemove( this, NsdPackage.SERVICE_CD_CS__SERVICE_NS,
-                    ServiceCDCs.class, msgs );
+            msgs = ( ( InternalEObject ) serviceCDCs ).eInverseRemove( this,
+                    NsdPackage.SERVICE_CD_CS__PARENT_SERVICE_NS, ServiceCDCs.class, msgs );
             msgs = basicUnsetServiceCDCs( msgs );
             if( msgs != null ) msgs.dispatch();
         }

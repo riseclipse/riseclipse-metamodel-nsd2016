@@ -65,7 +65,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataAttributeImpl#getMaxValue <em>Max Value</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataAttributeImpl#getMinValue <em>Min Value</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataAttributeImpl#getName <em>Name</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataAttributeImpl#getConstructedAttribute <em>Constructed Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataAttributeImpl#getParentConstructedAttribute <em>Parent Constructed Attribute</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataAttributeImpl#getRefersToPresenceCondition <em>Refers To Presence Condition</em>}</li>
  * </ul>
  *
@@ -859,6 +859,56 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
      * @generated
      */
     @Override
+    public ConstructedAttribute getParentConstructedAttribute() {
+        if( eContainerFeatureID() != NsdPackage.SUB_DATA_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTE ) return null;
+        return ( ConstructedAttribute ) eInternalContainer();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetParentConstructedAttribute( ConstructedAttribute newParentConstructedAttribute,
+            NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newParentConstructedAttribute,
+                NsdPackage.SUB_DATA_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTE, msgs );
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setParentConstructedAttribute( ConstructedAttribute newParentConstructedAttribute ) {
+        if( newParentConstructedAttribute != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.SUB_DATA_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTE
+                        && newParentConstructedAttribute != null ) ) {
+            if( EcoreUtil.isAncestor( this, newParentConstructedAttribute ) )
+                throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            NotificationChain msgs = null;
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
+            if( newParentConstructedAttribute != null )
+                msgs = ( ( InternalEObject ) newParentConstructedAttribute ).eInverseAdd( this,
+                        NsdPackage.CONSTRUCTED_ATTRIBUTE__SUB_DATA_ATTRIBUTE, ConstructedAttribute.class, msgs );
+            msgs = basicSetParentConstructedAttribute( newParentConstructedAttribute, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.SUB_DATA_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTE, newParentConstructedAttribute,
+                    newParentConstructedAttribute ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public String getPresCond() {
         return presCond;
     }
@@ -1171,56 +1221,6 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
      * @generated
      */
     @Override
-    public ConstructedAttribute getConstructedAttribute() {
-        if( eContainerFeatureID() != NsdPackage.SUB_DATA_ATTRIBUTE__CONSTRUCTED_ATTRIBUTE ) return null;
-        return ( ConstructedAttribute ) eInternalContainer();
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public NotificationChain basicSetConstructedAttribute( ConstructedAttribute newConstructedAttribute,
-            NotificationChain msgs ) {
-        msgs = eBasicSetContainer( ( InternalEObject ) newConstructedAttribute,
-                NsdPackage.SUB_DATA_ATTRIBUTE__CONSTRUCTED_ATTRIBUTE, msgs );
-        return msgs;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setConstructedAttribute( ConstructedAttribute newConstructedAttribute ) {
-        if( newConstructedAttribute != eInternalContainer()
-                || ( eContainerFeatureID() != NsdPackage.SUB_DATA_ATTRIBUTE__CONSTRUCTED_ATTRIBUTE
-                        && newConstructedAttribute != null ) ) {
-            if( EcoreUtil.isAncestor( this, newConstructedAttribute ) )
-                throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
-            NotificationChain msgs = null;
-            if( eInternalContainer() != null )
-                msgs = eBasicRemoveFromContainer( msgs );
-            if( newConstructedAttribute != null )
-                msgs = ( ( InternalEObject ) newConstructedAttribute ).eInverseAdd( this,
-                        NsdPackage.CONSTRUCTED_ATTRIBUTE__SUB_DATA_ATTRIBUTE, ConstructedAttribute.class, msgs );
-            msgs = basicSetConstructedAttribute( newConstructedAttribute, msgs );
-            if( msgs != null ) msgs.dispatch();
-        }
-        else if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET,
-                    NsdPackage.SUB_DATA_ATTRIBUTE__CONSTRUCTED_ATTRIBUTE, newConstructedAttribute,
-                    newConstructedAttribute ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public PresenceCondition getRefersToPresenceCondition() {
         return refersToPresenceCondition;
     }
@@ -1340,10 +1340,10 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
     @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
-        case NsdPackage.SUB_DATA_ATTRIBUTE__CONSTRUCTED_ATTRIBUTE:
+        case NsdPackage.SUB_DATA_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTE:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            return basicSetConstructedAttribute( ( ConstructedAttribute ) otherEnd, msgs );
+            return basicSetParentConstructedAttribute( ( ConstructedAttribute ) otherEnd, msgs );
         case NsdPackage.SUB_DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION:
             if( refersToPresenceCondition != null )
                 msgs = ( ( InternalEObject ) refersToPresenceCondition ).eInverseRemove( this,
@@ -1361,8 +1361,8 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
     @Override
     public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
-        case NsdPackage.SUB_DATA_ATTRIBUTE__CONSTRUCTED_ATTRIBUTE:
-            return basicSetConstructedAttribute( null, msgs );
+        case NsdPackage.SUB_DATA_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTE:
+            return basicSetParentConstructedAttribute( null, msgs );
         case NsdPackage.SUB_DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION:
             return basicUnsetRefersToPresenceCondition( msgs );
         }
@@ -1377,7 +1377,7 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
         switch( eContainerFeatureID() ) {
-        case NsdPackage.SUB_DATA_ATTRIBUTE__CONSTRUCTED_ATTRIBUTE:
+        case NsdPackage.SUB_DATA_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTE:
             return eInternalContainer().eInverseRemove( this, NsdPackage.CONSTRUCTED_ATTRIBUTE__SUB_DATA_ATTRIBUTE,
                     ConstructedAttribute.class, msgs );
         }
@@ -1418,8 +1418,8 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
             return getMinValue();
         case NsdPackage.SUB_DATA_ATTRIBUTE__NAME:
             return getName();
-        case NsdPackage.SUB_DATA_ATTRIBUTE__CONSTRUCTED_ATTRIBUTE:
-            return getConstructedAttribute();
+        case NsdPackage.SUB_DATA_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTE:
+            return getParentConstructedAttribute();
         case NsdPackage.SUB_DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION:
             return getRefersToPresenceCondition();
         }
@@ -1473,8 +1473,8 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
         case NsdPackage.SUB_DATA_ATTRIBUTE__NAME:
             setName( ( String ) newValue );
             return;
-        case NsdPackage.SUB_DATA_ATTRIBUTE__CONSTRUCTED_ATTRIBUTE:
-            setConstructedAttribute( ( ConstructedAttribute ) newValue );
+        case NsdPackage.SUB_DATA_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTE:
+            setParentConstructedAttribute( ( ConstructedAttribute ) newValue );
             return;
         case NsdPackage.SUB_DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION:
             setRefersToPresenceCondition( ( PresenceCondition ) newValue );
@@ -1530,8 +1530,8 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
         case NsdPackage.SUB_DATA_ATTRIBUTE__NAME:
             unsetName();
             return;
-        case NsdPackage.SUB_DATA_ATTRIBUTE__CONSTRUCTED_ATTRIBUTE:
-            setConstructedAttribute( ( ConstructedAttribute ) null );
+        case NsdPackage.SUB_DATA_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTE:
+            setParentConstructedAttribute( ( ConstructedAttribute ) null );
             return;
         case NsdPackage.SUB_DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION:
             unsetRefersToPresenceCondition();
@@ -1574,8 +1574,8 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
             return isSetMinValue();
         case NsdPackage.SUB_DATA_ATTRIBUTE__NAME:
             return isSetName();
-        case NsdPackage.SUB_DATA_ATTRIBUTE__CONSTRUCTED_ATTRIBUTE:
-            return getConstructedAttribute() != null;
+        case NsdPackage.SUB_DATA_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTE:
+            return getParentConstructedAttribute() != null;
         case NsdPackage.SUB_DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION:
             return isSetRefersToPresenceCondition();
         }
@@ -1786,7 +1786,7 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
     public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
-        NS ns = getConstructedAttribute().getConstructedAttributes().getNS();
+        NS ns = getParentConstructedAttribute().getParentConstructedAttributes().getParentNS();
         if( isSetPresCond() ) {
             PresenceCondition foundPC = ns.findPresenceCondition( getPresCond(), console );
             if( foundPC == null ) {
@@ -1797,7 +1797,7 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
                 setRefersToPresenceCondition( foundPC );
                 console.verbose( "PresenceCondition (name: " + getPresCond() + ") refers by SubDataAttribute (name: "
                         + getName() + ") in NS (id:" + ns.getId() + ") found in NS (id:"
-                        + getRefersToPresenceCondition().getPresenceConditions().getNS().getId() + ")" );
+                        + getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId() + ")" );
             }
         }
 

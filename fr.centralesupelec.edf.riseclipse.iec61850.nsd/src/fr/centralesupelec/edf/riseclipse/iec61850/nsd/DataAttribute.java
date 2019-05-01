@@ -32,7 +32,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getFc <em>Fc</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getName <em>Name</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getCDC <em>CDC</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getParentCDC <em>Parent CDC</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredBySubDataObjectAsSizeAttribute <em>Referred By Sub Data Object As Size Attribute</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredBySubDataObjectAsMaxIndexAttribute <em>Referred By Sub Data Object As Max Index Attribute</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToFunctionalConstraint <em>Refers To Functional Constraint</em>}</li>
@@ -153,32 +153,28 @@ public interface DataAttribute
     boolean isSetName();
 
     /**
-     * Returns the value of the '<em><b>CDC</b></em>' container reference.
+     * Returns the value of the '<em><b>Parent CDC</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getDataAttribute <em>Data Attribute</em>}'.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>CDC</em>' container reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>CDC</em>' container reference.
-     * @see #setCDC(CDC)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_CDC()
+     * @return the value of the '<em>Parent CDC</em>' container reference.
+     * @see #setParentCDC(CDC)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_ParentCDC()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getDataAttribute
      * @model opposite="dataAttribute" resolveProxies="false" unsettable="true" ordered="false"
      * @generated
      */
-    CDC getCDC();
+    CDC getParentCDC();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getCDC <em>CDC</em>}' container reference.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getParentCDC <em>Parent CDC</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>CDC</em>' container reference.
-     * @see #getCDC()
+     * @param value the new value of the '<em>Parent CDC</em>' container reference.
+     * @see #getParentCDC()
      * @generated
      */
-    void setCDC( CDC value );
+    void setParentCDC( CDC value );
 
     /**
      * Returns the value of the '<em><b>Referred By Sub Data Object As Size Attribute</b></em>' reference list.

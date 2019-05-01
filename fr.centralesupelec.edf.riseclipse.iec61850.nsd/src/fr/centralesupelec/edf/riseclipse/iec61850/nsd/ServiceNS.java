@@ -44,7 +44,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 public interface ServiceNS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
     /**
      * Returns the value of the '<em><b>Changes</b></em>' containment reference.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getServiceNS <em>Service NS</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getParentServiceNS <em>Parent Service NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>Changes</em>' containment reference.
@@ -52,8 +52,8 @@ public interface ServiceNS extends Copyrighted, AgNSIdentification, AgUML, AgNSd
      * @see #unsetChanges()
      * @see #setChanges(Changes)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceNS_Changes()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getServiceNS
-     * @model opposite="serviceNS" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getParentServiceNS
+     * @model opposite="parentServiceNS" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='Changes' namespace='##targetNamespace'"
      * @generated
      */
@@ -96,7 +96,7 @@ public interface ServiceNS extends Copyrighted, AgNSIdentification, AgUML, AgNSd
 
     /**
      * Returns the value of the '<em><b>Functional Constraints</b></em>' containment reference.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints#getServiceNS <em>Service NS</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints#getParentServiceNS <em>Parent Service NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>Functional Constraints</em>' containment reference.
@@ -104,8 +104,8 @@ public interface ServiceNS extends Copyrighted, AgNSIdentification, AgUML, AgNSd
      * @see #unsetFunctionalConstraints()
      * @see #setFunctionalConstraints(FunctionalConstraints)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceNS_FunctionalConstraints()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints#getServiceNS
-     * @model opposite="serviceNS" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints#getParentServiceNS
+     * @model opposite="parentServiceNS" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='FunctionalConstraints' namespace='##targetNamespace'"
      * @generated
      */
@@ -148,7 +148,7 @@ public interface ServiceNS extends Copyrighted, AgNSIdentification, AgUML, AgNSd
 
     /**
      * Returns the value of the '<em><b>Presence Conditions</b></em>' containment reference.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions#getServiceNS <em>Service NS</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions#getParentServiceNS <em>Parent Service NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>Presence Conditions</em>' containment reference.
@@ -156,8 +156,8 @@ public interface ServiceNS extends Copyrighted, AgNSIdentification, AgUML, AgNSd
      * @see #unsetPresenceConditions()
      * @see #setPresenceConditions(PresenceConditions)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceNS_PresenceConditions()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions#getServiceNS
-     * @model opposite="serviceNS" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions#getParentServiceNS
+     * @model opposite="parentServiceNS" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='PresenceConditions' namespace='##targetNamespace'"
      * @generated
      */
@@ -200,7 +200,7 @@ public interface ServiceNS extends Copyrighted, AgNSIdentification, AgUML, AgNSd
 
     /**
      * Returns the value of the '<em><b>Abbreviations</b></em>' containment reference.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations#getServiceNS <em>Service NS</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations#getParentServiceNS <em>Parent Service NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>Abbreviations</em>' containment reference.
@@ -208,8 +208,8 @@ public interface ServiceNS extends Copyrighted, AgNSIdentification, AgUML, AgNSd
      * @see #unsetAbbreviations()
      * @see #setAbbreviations(Abbreviations)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceNS_Abbreviations()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations#getServiceNS
-     * @model opposite="serviceNS" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations#getParentServiceNS
+     * @model opposite="parentServiceNS" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='Abbreviations' namespace='##targetNamespace'"
      * @generated
      */
@@ -252,7 +252,7 @@ public interface ServiceNS extends Copyrighted, AgNSIdentification, AgUML, AgNSd
 
     /**
      * Returns the value of the '<em><b>Service Type Realizations</b></em>' containment reference.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations#getServiceNS <em>Service NS</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations#getParentServiceNS <em>Parent Service NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>Service Type Realizations</em>' containment reference.
@@ -260,8 +260,8 @@ public interface ServiceNS extends Copyrighted, AgNSIdentification, AgUML, AgNSd
      * @see #unsetServiceTypeRealizations()
      * @see #setServiceTypeRealizations(ServiceTypeRealizations)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceNS_ServiceTypeRealizations()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations#getServiceNS
-     * @model opposite="serviceNS" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations#getParentServiceNS
+     * @model opposite="parentServiceNS" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='ServiceTypeRealizations' namespace='##targetNamespace'"
      * @generated
      */
@@ -304,7 +304,7 @@ public interface ServiceNS extends Copyrighted, AgNSIdentification, AgUML, AgNSd
 
     /**
      * Returns the value of the '<em><b>Service Constructed Attributes</b></em>' containment reference.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttributes#getServiceNS <em>Service NS</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttributes#getParentServiceNS <em>Parent Service NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>Service Constructed Attributes</em>' containment reference.
@@ -312,8 +312,8 @@ public interface ServiceNS extends Copyrighted, AgNSIdentification, AgUML, AgNSd
      * @see #unsetServiceConstructedAttributes()
      * @see #setServiceConstructedAttributes(ServiceConstructedAttributes)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceNS_ServiceConstructedAttributes()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttributes#getServiceNS
-     * @model opposite="serviceNS" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttributes#getParentServiceNS
+     * @model opposite="parentServiceNS" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='ServiceConstructedAttributes' namespace='##targetNamespace'"
      * @generated
      */
@@ -356,7 +356,7 @@ public interface ServiceNS extends Copyrighted, AgNSIdentification, AgUML, AgNSd
 
     /**
      * Returns the value of the '<em><b>Service CD Cs</b></em>' containment reference.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDCs#getServiceNS <em>Service NS</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDCs#getParentServiceNS <em>Parent Service NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>Service CD Cs</em>' containment reference.
@@ -364,8 +364,8 @@ public interface ServiceNS extends Copyrighted, AgNSIdentification, AgUML, AgNSd
      * @see #unsetServiceCDCs()
      * @see #setServiceCDCs(ServiceCDCs)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceNS_ServiceCDCs()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDCs#getServiceNS
-     * @model opposite="serviceNS" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDCs#getParentServiceNS
+     * @model opposite="parentServiceNS" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='ServiceCDCs' namespace='##targetNamespace'"
      * @generated
      */
