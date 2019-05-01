@@ -25,6 +25,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
+import fr.centralesupelec.edf.riseclipse.util.RiseClipseFatalException;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
@@ -142,7 +143,7 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
     public EList< DataObject > getDataObject() {
         if( dataObject == null ) {
             dataObject = new EObjectContainmentWithInverseEList.Unsettable< DataObject >( DataObject.class, this,
-                    NsdPackage.ANY_LN_CLASS__DATA_OBJECT, NsdPackage.DATA_OBJECT__ANY_LN_CLASS );
+                    NsdPackage.ANY_LN_CLASS__DATA_OBJECT, NsdPackage.DATA_OBJECT__PARENT_ANY_LN_CLASS );
         }
         return dataObject;
     }
@@ -353,9 +354,8 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
      * @generated NOT
      */
     @Override
-    public LNClasses getLNClasses() {
-        // TODO: use a RiseClipseException ?
-        throw new UnsupportedOperationException();
+    public LNClasses getParentLNClasses() {
+        throw new RiseClipseFatalException( "AnyLNClass.getParentLNClasses() called", null );
     }
 
     /**
@@ -485,8 +485,8 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
         switch( operationID ) {
         case NsdPackage.ANY_LN_CLASS___GET_NAME:
             return getName();
-        case NsdPackage.ANY_LN_CLASS___GET_LN_CLASSES:
-            return getLNClasses();
+        case NsdPackage.ANY_LN_CLASS___GET_PARENT_LN_CLASSES:
+            return getParentLNClasses();
         }
         return super.eInvoke( operationID, arguments );
     }
@@ -521,7 +521,7 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
 
             // This code assumes that the referred AbstractLNClass is in the same NS
             // TODO: check that it is right
-            getLNClasses()
+            getParentLNClasses()
                     .getAbstractLNClass()
                     .stream()
                     .filter( abstractLNClass -> abstractLNClass.getName().equals( getBase() ) )
@@ -530,12 +530,12 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
 
             if( isSetRefersToAbstractLNClass() ) {
                 console.verbose( "AbstractLNClass (name: " + getBase() + ") refers by AnyLNClass (name: " + getName()
-                        + ") in NS (id:" + getLNClasses().getNS().getId() + ") found in NS (id:"
-                        + getRefersToAbstractLNClass().getLNClasses().getNS().getId() + ")" );
+                        + ") in NS (id:" + getParentLNClasses().getParentNS().getId() + ") found in NS (id:"
+                        + getRefersToAbstractLNClass().getParentLNClasses().getParentNS().getId() + ")" );
             }
             else {
                 console.error( "AbstractLNClass (name: " + getBase() + ") refers by AnyLNClass (name: " + getName()
-                        + ") in NS (id:" + getLNClasses().getNS().getId() + ") is unknown" );
+                        + ") in NS (id:" + getParentLNClasses().getParentNS().getId() + ") is unknown" );
             }
         }
 

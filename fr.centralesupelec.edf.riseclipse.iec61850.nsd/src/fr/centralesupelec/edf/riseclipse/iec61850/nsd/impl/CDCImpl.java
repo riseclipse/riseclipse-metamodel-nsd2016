@@ -59,7 +59,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CDCImpl#isStatistics <em>Statistics</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CDCImpl#isTypeKindParameterized <em>Type Kind Parameterized</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CDCImpl#getVariant <em>Variant</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CDCImpl#getCDCs <em>CD Cs</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CDCImpl#getParentCDCs <em>Parent CD Cs</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CDCImpl#getReferredByDataObject <em>Referred By Data Object</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CDCImpl#getReferredBySubDataObject <em>Referred By Sub Data Object</em>}</li>
  * </ul>
@@ -299,7 +299,7 @@ public class CDCImpl extends TitledClassImpl implements CDC {
     public EList< SubDataObject > getSubDataObject() {
         if( subDataObject == null ) {
             subDataObject = new EObjectContainmentWithInverseEList.Unsettable< SubDataObject >( SubDataObject.class,
-                    this, NsdPackage.CDC__SUB_DATA_OBJECT, NsdPackage.SUB_DATA_OBJECT__CDC );
+                    this, NsdPackage.CDC__SUB_DATA_OBJECT, NsdPackage.SUB_DATA_OBJECT__PARENT_CDC );
         }
         return subDataObject;
     }
@@ -333,7 +333,7 @@ public class CDCImpl extends TitledClassImpl implements CDC {
     public EList< DataAttribute > getDataAttribute() {
         if( dataAttribute == null ) {
             dataAttribute = new EObjectContainmentWithInverseEList.Unsettable< DataAttribute >( DataAttribute.class,
-                    this, NsdPackage.CDC__DATA_ATTRIBUTE, NsdPackage.DATA_ATTRIBUTE__CDC );
+                    this, NsdPackage.CDC__DATA_ATTRIBUTE, NsdPackage.DATA_ATTRIBUTE__PARENT_CDC );
         }
         return dataAttribute;
     }
@@ -400,11 +400,11 @@ public class CDCImpl extends TitledClassImpl implements CDC {
         if( newServiceParameter != serviceParameter ) {
             NotificationChain msgs = null;
             if( serviceParameter != null )
-                msgs = ( ( InternalEObject ) serviceParameter ).eInverseRemove( this, NsdPackage.SERVICE_PARAMETER__CDC,
-                        ServiceParameter.class, msgs );
+                msgs = ( ( InternalEObject ) serviceParameter ).eInverseRemove( this,
+                        NsdPackage.SERVICE_PARAMETER__PARENT_CDC, ServiceParameter.class, msgs );
             if( newServiceParameter != null )
-                msgs = ( ( InternalEObject ) newServiceParameter ).eInverseAdd( this, NsdPackage.SERVICE_PARAMETER__CDC,
-                        ServiceParameter.class, msgs );
+                msgs = ( ( InternalEObject ) newServiceParameter ).eInverseAdd( this,
+                        NsdPackage.SERVICE_PARAMETER__PARENT_CDC, ServiceParameter.class, msgs );
             msgs = basicSetServiceParameter( newServiceParameter, msgs );
             if( msgs != null ) msgs.dispatch();
         }
@@ -447,8 +447,8 @@ public class CDCImpl extends TitledClassImpl implements CDC {
     public void unsetServiceParameter() {
         if( serviceParameter != null ) {
             NotificationChain msgs = null;
-            msgs = ( ( InternalEObject ) serviceParameter ).eInverseRemove( this, NsdPackage.SERVICE_PARAMETER__CDC,
-                    ServiceParameter.class, msgs );
+            msgs = ( ( InternalEObject ) serviceParameter ).eInverseRemove( this,
+                    NsdPackage.SERVICE_PARAMETER__PARENT_CDC, ServiceParameter.class, msgs );
             msgs = basicUnsetServiceParameter( msgs );
             if( msgs != null ) msgs.dispatch();
         }
@@ -737,8 +737,8 @@ public class CDCImpl extends TitledClassImpl implements CDC {
      * @generated
      */
     @Override
-    public CDCs getCDCs() {
-        if( eContainerFeatureID() != NsdPackage.CDC__CD_CS ) return null;
+    public CDCs getParentCDCs() {
+        if( eContainerFeatureID() != NsdPackage.CDC__PARENT_CD_CS ) return null;
         return ( CDCs ) eInternalContainer();
     }
 
@@ -747,8 +747,8 @@ public class CDCImpl extends TitledClassImpl implements CDC {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetCDCs( CDCs newCDCs, NotificationChain msgs ) {
-        msgs = eBasicSetContainer( ( InternalEObject ) newCDCs, NsdPackage.CDC__CD_CS, msgs );
+    public NotificationChain basicSetParentCDCs( CDCs newParentCDCs, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newParentCDCs, NsdPackage.CDC__PARENT_CD_CS, msgs );
         return msgs;
     }
 
@@ -758,20 +758,23 @@ public class CDCImpl extends TitledClassImpl implements CDC {
      * @generated
      */
     @Override
-    public void setCDCs( CDCs newCDCs ) {
-        if( newCDCs != eInternalContainer() || ( eContainerFeatureID() != NsdPackage.CDC__CD_CS && newCDCs != null ) ) {
-            if( EcoreUtil.isAncestor( this, newCDCs ) )
+    public void setParentCDCs( CDCs newParentCDCs ) {
+        if( newParentCDCs != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.CDC__PARENT_CD_CS && newParentCDCs != null ) ) {
+            if( EcoreUtil.isAncestor( this, newParentCDCs ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newCDCs != null )
-                msgs = ( ( InternalEObject ) newCDCs ).eInverseAdd( this, NsdPackage.CD_CS__CDC, CDCs.class, msgs );
-            msgs = basicSetCDCs( newCDCs, msgs );
+            if( newParentCDCs != null )
+                msgs = ( ( InternalEObject ) newParentCDCs ).eInverseAdd( this, NsdPackage.CD_CS__CDC, CDCs.class,
+                        msgs );
+            msgs = basicSetParentCDCs( newParentCDCs, msgs );
             if( msgs != null ) msgs.dispatch();
         }
         else if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CDC__CD_CS, newCDCs, newCDCs ) );
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CDC__PARENT_CD_CS, newParentCDCs,
+                    newParentCDCs ) );
     }
 
     /**
@@ -862,10 +865,10 @@ public class CDCImpl extends TitledClassImpl implements CDC {
                 msgs = ( ( InternalEObject ) serviceParameter ).eInverseRemove( this,
                         EOPPOSITE_FEATURE_BASE - NsdPackage.CDC__SERVICE_PARAMETER, null, msgs );
             return basicSetServiceParameter( ( ServiceParameter ) otherEnd, msgs );
-        case NsdPackage.CDC__CD_CS:
+        case NsdPackage.CDC__PARENT_CD_CS:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            return basicSetCDCs( ( CDCs ) otherEnd, msgs );
+            return basicSetParentCDCs( ( CDCs ) otherEnd, msgs );
         case NsdPackage.CDC__REFERRED_BY_DATA_OBJECT:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByDataObject() )
                     .basicAdd( otherEnd, msgs );
@@ -890,8 +893,8 @@ public class CDCImpl extends TitledClassImpl implements CDC {
             return ( ( InternalEList< ? > ) getDataAttribute() ).basicRemove( otherEnd, msgs );
         case NsdPackage.CDC__SERVICE_PARAMETER:
             return basicUnsetServiceParameter( msgs );
-        case NsdPackage.CDC__CD_CS:
-            return basicSetCDCs( null, msgs );
+        case NsdPackage.CDC__PARENT_CD_CS:
+            return basicSetParentCDCs( null, msgs );
         case NsdPackage.CDC__REFERRED_BY_DATA_OBJECT:
             return ( ( InternalEList< ? > ) getReferredByDataObject() ).basicRemove( otherEnd, msgs );
         case NsdPackage.CDC__REFERRED_BY_SUB_DATA_OBJECT:
@@ -908,7 +911,7 @@ public class CDCImpl extends TitledClassImpl implements CDC {
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
         switch( eContainerFeatureID() ) {
-        case NsdPackage.CDC__CD_CS:
+        case NsdPackage.CDC__PARENT_CD_CS:
             return eInternalContainer().eInverseRemove( this, NsdPackage.CD_CS__CDC, CDCs.class, msgs );
         }
         return super.eBasicRemoveFromContainerFeature( msgs );
@@ -938,8 +941,8 @@ public class CDCImpl extends TitledClassImpl implements CDC {
             return isTypeKindParameterized();
         case NsdPackage.CDC__VARIANT:
             return getVariant();
-        case NsdPackage.CDC__CD_CS:
-            return getCDCs();
+        case NsdPackage.CDC__PARENT_CD_CS:
+            return getParentCDCs();
         case NsdPackage.CDC__REFERRED_BY_DATA_OBJECT:
             return getReferredByDataObject();
         case NsdPackage.CDC__REFERRED_BY_SUB_DATA_OBJECT:
@@ -983,8 +986,8 @@ public class CDCImpl extends TitledClassImpl implements CDC {
         case NsdPackage.CDC__VARIANT:
             setVariant( ( String ) newValue );
             return;
-        case NsdPackage.CDC__CD_CS:
-            setCDCs( ( CDCs ) newValue );
+        case NsdPackage.CDC__PARENT_CD_CS:
+            setParentCDCs( ( CDCs ) newValue );
             return;
         case NsdPackage.CDC__REFERRED_BY_DATA_OBJECT:
             getReferredByDataObject().clear();
@@ -1030,8 +1033,8 @@ public class CDCImpl extends TitledClassImpl implements CDC {
         case NsdPackage.CDC__VARIANT:
             unsetVariant();
             return;
-        case NsdPackage.CDC__CD_CS:
-            setCDCs( ( CDCs ) null );
+        case NsdPackage.CDC__PARENT_CD_CS:
+            setParentCDCs( ( CDCs ) null );
             return;
         case NsdPackage.CDC__REFERRED_BY_DATA_OBJECT:
             unsetReferredByDataObject();
@@ -1067,8 +1070,8 @@ public class CDCImpl extends TitledClassImpl implements CDC {
             return isSetTypeKindParameterized();
         case NsdPackage.CDC__VARIANT:
             return isSetVariant();
-        case NsdPackage.CDC__CD_CS:
-            return getCDCs() != null;
+        case NsdPackage.CDC__PARENT_CD_CS:
+            return getParentCDCs() != null;
         case NsdPackage.CDC__REFERRED_BY_DATA_OBJECT:
             return isSetReferredByDataObject();
         case NsdPackage.CDC__REFERRED_BY_SUB_DATA_OBJECT:

@@ -51,7 +51,7 @@ import org.eclipse.emf.common.util.EList;
 public interface NS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
     /**
      * Returns the value of the '<em><b>Changes</b></em>' containment reference.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getNS <em>NS</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getParentNS <em>Parent NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>Changes</em>' containment reference.
@@ -59,8 +59,8 @@ public interface NS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
      * @see #unsetChanges()
      * @see #setChanges(Changes)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNS_Changes()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getNS
-     * @model opposite="nS" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getParentNS
+     * @model opposite="parentNS" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='Changes' namespace='##targetNamespace'"
      * @generated
      */
@@ -103,7 +103,7 @@ public interface NS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
 
     /**
      * Returns the value of the '<em><b>Depends On</b></em>' containment reference.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getNS <em>NS</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getParentNS <em>Parent NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>Depends On</em>' containment reference.
@@ -111,8 +111,8 @@ public interface NS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
      * @see #unsetDependsOn()
      * @see #setDependsOn(DependsOn)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNS_DependsOn()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getNS
-     * @model opposite="nS" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getParentNS
+     * @model opposite="parentNS" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='DependsOn' namespace='##targetNamespace'"
      * @generated
      */
@@ -155,7 +155,7 @@ public interface NS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
 
     /**
      * Returns the value of the '<em><b>Basic Types</b></em>' containment reference.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes#getNS <em>NS</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes#getParentNS <em>Parent NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>Basic Types</em>' containment reference.
@@ -163,8 +163,8 @@ public interface NS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
      * @see #unsetBasicTypes()
      * @see #setBasicTypes(BasicTypes)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNS_BasicTypes()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes#getNS
-     * @model opposite="nS" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes#getParentNS
+     * @model opposite="parentNS" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='BasicTypes' namespace='##targetNamespace'"
      * @generated
      */
@@ -207,7 +207,7 @@ public interface NS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
 
     /**
      * Returns the value of the '<em><b>Functional Constraints</b></em>' containment reference.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints#getNS <em>NS</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints#getParentNS <em>Parent NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>Functional Constraints</em>' containment reference.
@@ -215,8 +215,8 @@ public interface NS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
      * @see #unsetFunctionalConstraints()
      * @see #setFunctionalConstraints(FunctionalConstraints)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNS_FunctionalConstraints()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints#getNS
-     * @model opposite="nS" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints#getParentNS
+     * @model opposite="parentNS" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='FunctionalConstraints' namespace='##targetNamespace'"
      * @generated
      */
@@ -259,7 +259,7 @@ public interface NS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
 
     /**
      * Returns the value of the '<em><b>Presence Conditions</b></em>' containment reference.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions#getNS <em>NS</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions#getParentNS <em>Parent NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>Presence Conditions</em>' containment reference.
@@ -267,8 +267,8 @@ public interface NS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
      * @see #unsetPresenceConditions()
      * @see #setPresenceConditions(PresenceConditions)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNS_PresenceConditions()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions#getNS
-     * @model opposite="nS" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions#getParentNS
+     * @model opposite="parentNS" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='PresenceConditions' namespace='##targetNamespace'"
      * @generated
      */
@@ -311,7 +311,7 @@ public interface NS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
 
     /**
      * Returns the value of the '<em><b>Abbreviations</b></em>' containment reference.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations#getNS <em>NS</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations#getParentNS <em>Parent NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>Abbreviations</em>' containment reference.
@@ -319,8 +319,8 @@ public interface NS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
      * @see #unsetAbbreviations()
      * @see #setAbbreviations(Abbreviations)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNS_Abbreviations()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations#getNS
-     * @model opposite="nS" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations#getParentNS
+     * @model opposite="parentNS" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='Abbreviations' namespace='##targetNamespace'"
      * @generated
      */
@@ -363,7 +363,7 @@ public interface NS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
 
     /**
      * Returns the value of the '<em><b>Enumerations</b></em>' containment reference.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations#getNS <em>NS</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations#getParentNS <em>Parent NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>Enumerations</em>' containment reference.
@@ -371,8 +371,8 @@ public interface NS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
      * @see #unsetEnumerations()
      * @see #setEnumerations(Enumerations)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNS_Enumerations()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations#getNS
-     * @model opposite="nS" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations#getParentNS
+     * @model opposite="parentNS" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='Enumerations' namespace='##targetNamespace'"
      * @generated
      */
@@ -415,7 +415,7 @@ public interface NS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
 
     /**
      * Returns the value of the '<em><b>Constructed Attributes</b></em>' containment reference.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes#getNS <em>NS</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes#getParentNS <em>Parent NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>Constructed Attributes</em>' containment reference.
@@ -423,8 +423,8 @@ public interface NS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
      * @see #unsetConstructedAttributes()
      * @see #setConstructedAttributes(ConstructedAttributes)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNS_ConstructedAttributes()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes#getNS
-     * @model opposite="nS" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes#getParentNS
+     * @model opposite="parentNS" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='ConstructedAttributes' namespace='##targetNamespace'"
      * @generated
      */
@@ -467,7 +467,7 @@ public interface NS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
 
     /**
      * Returns the value of the '<em><b>CD Cs</b></em>' containment reference.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs#getNS <em>NS</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs#getParentNS <em>Parent NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>CD Cs</em>' containment reference.
@@ -475,8 +475,8 @@ public interface NS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
      * @see #unsetCDCs()
      * @see #setCDCs(CDCs)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNS_CDCs()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs#getNS
-     * @model opposite="nS" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs#getParentNS
+     * @model opposite="parentNS" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='CDCs' namespace='##targetNamespace'"
      * @generated
      */
@@ -519,7 +519,7 @@ public interface NS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
 
     /**
      * Returns the value of the '<em><b>LN Classes</b></em>' containment reference.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses#getNS <em>NS</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses#getParentNS <em>Parent NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>LN Classes</em>' containment reference.
@@ -527,8 +527,8 @@ public interface NS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
      * @see #unsetLNClasses()
      * @see #setLNClasses(LNClasses)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNS_LNClasses()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses#getNS
-     * @model opposite="nS" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses#getParentNS
+     * @model opposite="parentNS" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='LNClasses' namespace='##targetNamespace'"
      * @generated
      */

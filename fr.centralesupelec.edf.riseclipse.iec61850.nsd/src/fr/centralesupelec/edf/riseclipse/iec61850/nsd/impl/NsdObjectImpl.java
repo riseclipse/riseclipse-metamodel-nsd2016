@@ -159,7 +159,7 @@ public abstract class NsdObjectImpl extends MinimalEObjectImpl.Container impleme
      */
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
-        if( ( ! forceUpdate ) && isExplicitLinksBuilt() ) return true;
+        if( ( !forceUpdate ) && isExplicitLinksBuilt() ) return true;
 
         TreeIterator< EObject > it = eAllContents();
         while( it.hasNext() ) {

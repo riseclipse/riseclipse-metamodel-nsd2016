@@ -29,7 +29,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
  * </p>
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute#isTypeKindParameterized <em>Type Kind Parameterized</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute#getServiceConstructedAttribute <em>Service Constructed Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute#getParentServiceConstructedAttributes <em>Parent Service Constructed Attributes</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceConstructedAttribute()
@@ -89,31 +89,27 @@ public interface ServiceConstructedAttribute extends ConstructedAttribute {
     boolean isSetTypeKindParameterized();
 
     /**
-     * Returns the value of the '<em><b>Service Constructed Attribute</b></em>' container reference.
+     * Returns the value of the '<em><b>Parent Service Constructed Attributes</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttributes#getServiceConstructedAttribute <em>Service Constructed Attribute</em>}'.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Service Constructed Attribute</em>' container reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Service Constructed Attribute</em>' container reference.
-     * @see #setServiceConstructedAttribute(ServiceConstructedAttributes)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceConstructedAttribute_ServiceConstructedAttribute()
+     * @return the value of the '<em>Parent Service Constructed Attributes</em>' container reference.
+     * @see #setParentServiceConstructedAttributes(ServiceConstructedAttributes)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceConstructedAttribute_ParentServiceConstructedAttributes()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttributes#getServiceConstructedAttribute
      * @model opposite="serviceConstructedAttribute" resolveProxies="false" unsettable="true" ordered="false"
      * @generated
      */
-    ServiceConstructedAttributes getServiceConstructedAttribute();
+    ServiceConstructedAttributes getParentServiceConstructedAttributes();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute#getServiceConstructedAttribute <em>Service Constructed Attribute</em>}' container reference.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute#getParentServiceConstructedAttributes <em>Parent Service Constructed Attributes</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Service Constructed Attribute</em>' container reference.
-     * @see #getServiceConstructedAttribute()
+     * @param value the new value of the '<em>Parent Service Constructed Attributes</em>' container reference.
+     * @see #getParentServiceConstructedAttributes()
      * @generated
      */
-    void setServiceConstructedAttribute( ServiceConstructedAttributes value );
+    void setParentServiceConstructedAttributes( ServiceConstructedAttributes value );
 
 } // ServiceConstructedAttribute

@@ -42,7 +42,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.LiteralImpl#getLiteralVal <em>Literal Val</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.LiteralImpl#getName <em>Name</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.LiteralImpl#getEnumeration <em>Enumeration</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.LiteralImpl#getParentEnumeration <em>Parent Enumeration</em>}</li>
  * </ul>
  *
  * @generated
@@ -235,8 +235,8 @@ public class LiteralImpl extends DocumentedClassImpl implements Literal {
      * @generated
      */
     @Override
-    public Enumeration getEnumeration() {
-        if( eContainerFeatureID() != NsdPackage.LITERAL__ENUMERATION ) return null;
+    public Enumeration getParentEnumeration() {
+        if( eContainerFeatureID() != NsdPackage.LITERAL__PARENT_ENUMERATION ) return null;
         return ( Enumeration ) eInternalContainer();
     }
 
@@ -245,8 +245,9 @@ public class LiteralImpl extends DocumentedClassImpl implements Literal {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetEnumeration( Enumeration newEnumeration, NotificationChain msgs ) {
-        msgs = eBasicSetContainer( ( InternalEObject ) newEnumeration, NsdPackage.LITERAL__ENUMERATION, msgs );
+    public NotificationChain basicSetParentEnumeration( Enumeration newParentEnumeration, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newParentEnumeration, NsdPackage.LITERAL__PARENT_ENUMERATION,
+                msgs );
         return msgs;
     }
 
@@ -256,23 +257,24 @@ public class LiteralImpl extends DocumentedClassImpl implements Literal {
      * @generated
      */
     @Override
-    public void setEnumeration( Enumeration newEnumeration ) {
-        if( newEnumeration != eInternalContainer()
-                || ( eContainerFeatureID() != NsdPackage.LITERAL__ENUMERATION && newEnumeration != null ) ) {
-            if( EcoreUtil.isAncestor( this, newEnumeration ) )
+    public void setParentEnumeration( Enumeration newParentEnumeration ) {
+        if( newParentEnumeration != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.LITERAL__PARENT_ENUMERATION
+                        && newParentEnumeration != null ) ) {
+            if( EcoreUtil.isAncestor( this, newParentEnumeration ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newEnumeration != null )
-                msgs = ( ( InternalEObject ) newEnumeration ).eInverseAdd( this, NsdPackage.ENUMERATION__LITERAL,
+            if( newParentEnumeration != null )
+                msgs = ( ( InternalEObject ) newParentEnumeration ).eInverseAdd( this, NsdPackage.ENUMERATION__LITERAL,
                         Enumeration.class, msgs );
-            msgs = basicSetEnumeration( newEnumeration, msgs );
+            msgs = basicSetParentEnumeration( newParentEnumeration, msgs );
             if( msgs != null ) msgs.dispatch();
         }
         else if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.LITERAL__ENUMERATION, newEnumeration,
-                    newEnumeration ) );
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.LITERAL__PARENT_ENUMERATION,
+                    newParentEnumeration, newParentEnumeration ) );
     }
 
     /**
@@ -283,10 +285,10 @@ public class LiteralImpl extends DocumentedClassImpl implements Literal {
     @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
-        case NsdPackage.LITERAL__ENUMERATION:
+        case NsdPackage.LITERAL__PARENT_ENUMERATION:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            return basicSetEnumeration( ( Enumeration ) otherEnd, msgs );
+            return basicSetParentEnumeration( ( Enumeration ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
     }
@@ -299,8 +301,8 @@ public class LiteralImpl extends DocumentedClassImpl implements Literal {
     @Override
     public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
-        case NsdPackage.LITERAL__ENUMERATION:
-            return basicSetEnumeration( null, msgs );
+        case NsdPackage.LITERAL__PARENT_ENUMERATION:
+            return basicSetParentEnumeration( null, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -313,7 +315,7 @@ public class LiteralImpl extends DocumentedClassImpl implements Literal {
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
         switch( eContainerFeatureID() ) {
-        case NsdPackage.LITERAL__ENUMERATION:
+        case NsdPackage.LITERAL__PARENT_ENUMERATION:
             return eInternalContainer().eInverseRemove( this, NsdPackage.ENUMERATION__LITERAL, Enumeration.class,
                     msgs );
         }
@@ -332,8 +334,8 @@ public class LiteralImpl extends DocumentedClassImpl implements Literal {
             return getLiteralVal();
         case NsdPackage.LITERAL__NAME:
             return getName();
-        case NsdPackage.LITERAL__ENUMERATION:
-            return getEnumeration();
+        case NsdPackage.LITERAL__PARENT_ENUMERATION:
+            return getParentEnumeration();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -352,8 +354,8 @@ public class LiteralImpl extends DocumentedClassImpl implements Literal {
         case NsdPackage.LITERAL__NAME:
             setName( ( String ) newValue );
             return;
-        case NsdPackage.LITERAL__ENUMERATION:
-            setEnumeration( ( Enumeration ) newValue );
+        case NsdPackage.LITERAL__PARENT_ENUMERATION:
+            setParentEnumeration( ( Enumeration ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -373,8 +375,8 @@ public class LiteralImpl extends DocumentedClassImpl implements Literal {
         case NsdPackage.LITERAL__NAME:
             unsetName();
             return;
-        case NsdPackage.LITERAL__ENUMERATION:
-            setEnumeration( ( Enumeration ) null );
+        case NsdPackage.LITERAL__PARENT_ENUMERATION:
+            setParentEnumeration( ( Enumeration ) null );
             return;
         }
         super.eUnset( featureID );
@@ -392,8 +394,8 @@ public class LiteralImpl extends DocumentedClassImpl implements Literal {
             return isSetLiteralVal();
         case NsdPackage.LITERAL__NAME:
             return isSetName();
-        case NsdPackage.LITERAL__ENUMERATION:
-            return getEnumeration() != null;
+        case NsdPackage.LITERAL__PARENT_ENUMERATION:
+            return getParentEnumeration() != null;
         }
         return super.eIsSet( featureID );
     }

@@ -56,7 +56,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceDataAttributeImpl#getUnderlyingTypeKind <em>Underlying Type Kind</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceDataAttributeImpl#getFc <em>Fc</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceDataAttributeImpl#getName <em>Name</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceDataAttributeImpl#getServiceCDC <em>Service CDC</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceDataAttributeImpl#getParentServiceCDC <em>Parent Service CDC</em>}</li>
  * </ul>
  *
  * @generated
@@ -453,6 +453,54 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
      * @generated
      */
     @Override
+    public ServiceCDC getParentServiceCDC() {
+        if( eContainerFeatureID() != NsdPackage.SERVICE_DATA_ATTRIBUTE__PARENT_SERVICE_CDC ) return null;
+        return ( ServiceCDC ) eInternalContainer();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetParentServiceCDC( ServiceCDC newParentServiceCDC, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newParentServiceCDC,
+                NsdPackage.SERVICE_DATA_ATTRIBUTE__PARENT_SERVICE_CDC, msgs );
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setParentServiceCDC( ServiceCDC newParentServiceCDC ) {
+        if( newParentServiceCDC != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.SERVICE_DATA_ATTRIBUTE__PARENT_SERVICE_CDC
+                        && newParentServiceCDC != null ) ) {
+            if( EcoreUtil.isAncestor( this, newParentServiceCDC ) )
+                throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            NotificationChain msgs = null;
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
+            if( newParentServiceCDC != null )
+                msgs = ( ( InternalEObject ) newParentServiceCDC ).eInverseAdd( this,
+                        NsdPackage.SERVICE_CDC__SERVICE_DATA_ATTRIBUTE, ServiceCDC.class, msgs );
+            msgs = basicSetParentServiceCDC( newParentServiceCDC, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.SERVICE_DATA_ATTRIBUTE__PARENT_SERVICE_CDC, newParentServiceCDC, newParentServiceCDC ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public String getPresCond() {
         return presCond;
     }
@@ -822,60 +870,12 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
      * @generated
      */
     @Override
-    public ServiceCDC getServiceCDC() {
-        if( eContainerFeatureID() != NsdPackage.SERVICE_DATA_ATTRIBUTE__SERVICE_CDC ) return null;
-        return ( ServiceCDC ) eInternalContainer();
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public NotificationChain basicSetServiceCDC( ServiceCDC newServiceCDC, NotificationChain msgs ) {
-        msgs = eBasicSetContainer( ( InternalEObject ) newServiceCDC, NsdPackage.SERVICE_DATA_ATTRIBUTE__SERVICE_CDC,
-                msgs );
-        return msgs;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setServiceCDC( ServiceCDC newServiceCDC ) {
-        if( newServiceCDC != eInternalContainer()
-                || ( eContainerFeatureID() != NsdPackage.SERVICE_DATA_ATTRIBUTE__SERVICE_CDC
-                        && newServiceCDC != null ) ) {
-            if( EcoreUtil.isAncestor( this, newServiceCDC ) )
-                throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
-            NotificationChain msgs = null;
-            if( eInternalContainer() != null )
-                msgs = eBasicRemoveFromContainer( msgs );
-            if( newServiceCDC != null )
-                msgs = ( ( InternalEObject ) newServiceCDC ).eInverseAdd( this,
-                        NsdPackage.SERVICE_CDC__SERVICE_DATA_ATTRIBUTE, ServiceCDC.class, msgs );
-            msgs = basicSetServiceCDC( newServiceCDC, msgs );
-            if( msgs != null ) msgs.dispatch();
-        }
-        else if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_DATA_ATTRIBUTE__SERVICE_CDC,
-                    newServiceCDC, newServiceCDC ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
-        case NsdPackage.SERVICE_DATA_ATTRIBUTE__SERVICE_CDC:
+        case NsdPackage.SERVICE_DATA_ATTRIBUTE__PARENT_SERVICE_CDC:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            return basicSetServiceCDC( ( ServiceCDC ) otherEnd, msgs );
+            return basicSetParentServiceCDC( ( ServiceCDC ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
     }
@@ -888,8 +888,8 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
     @Override
     public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
-        case NsdPackage.SERVICE_DATA_ATTRIBUTE__SERVICE_CDC:
-            return basicSetServiceCDC( null, msgs );
+        case NsdPackage.SERVICE_DATA_ATTRIBUTE__PARENT_SERVICE_CDC:
+            return basicSetParentServiceCDC( null, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -902,7 +902,7 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
         switch( eContainerFeatureID() ) {
-        case NsdPackage.SERVICE_DATA_ATTRIBUTE__SERVICE_CDC:
+        case NsdPackage.SERVICE_DATA_ATTRIBUTE__PARENT_SERVICE_CDC:
             return eInternalContainer().eInverseRemove( this, NsdPackage.SERVICE_CDC__SERVICE_DATA_ATTRIBUTE,
                     ServiceCDC.class, msgs );
         }
@@ -935,8 +935,8 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
             return getFc();
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__NAME:
             return getName();
-        case NsdPackage.SERVICE_DATA_ATTRIBUTE__SERVICE_CDC:
-            return getServiceCDC();
+        case NsdPackage.SERVICE_DATA_ATTRIBUTE__PARENT_SERVICE_CDC:
+            return getParentServiceCDC();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -976,8 +976,8 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__NAME:
             setName( ( String ) newValue );
             return;
-        case NsdPackage.SERVICE_DATA_ATTRIBUTE__SERVICE_CDC:
-            setServiceCDC( ( ServiceCDC ) newValue );
+        case NsdPackage.SERVICE_DATA_ATTRIBUTE__PARENT_SERVICE_CDC:
+            setParentServiceCDC( ( ServiceCDC ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -1018,8 +1018,8 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__NAME:
             unsetName();
             return;
-        case NsdPackage.SERVICE_DATA_ATTRIBUTE__SERVICE_CDC:
-            setServiceCDC( ( ServiceCDC ) null );
+        case NsdPackage.SERVICE_DATA_ATTRIBUTE__PARENT_SERVICE_CDC:
+            setParentServiceCDC( ( ServiceCDC ) null );
             return;
         }
         super.eUnset( featureID );
@@ -1051,8 +1051,8 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
             return isSetFc();
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__NAME:
             return isSetName();
-        case NsdPackage.SERVICE_DATA_ATTRIBUTE__SERVICE_CDC:
-            return getServiceCDC() != null;
+        case NsdPackage.SERVICE_DATA_ATTRIBUTE__PARENT_SERVICE_CDC:
+            return getParentServiceCDC() != null;
         }
         return super.eIsSet( featureID );
     }

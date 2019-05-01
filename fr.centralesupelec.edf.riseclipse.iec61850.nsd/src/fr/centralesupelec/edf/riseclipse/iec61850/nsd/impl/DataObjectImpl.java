@@ -60,7 +60,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#isTransient <em>Transient</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getType <em>Type</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getAnyLNClass <em>Any LN Class</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getParentAnyLNClass <em>Parent Any LN Class</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getRefersToCDC <em>Refers To CDC</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getRefersToPresenceCondition <em>Refers To Presence Condition</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getRefersToPresenceConditionDerivedStatistics <em>Refers To Presence Condition Derived Statistics</em>}</li>
@@ -938,6 +938,54 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
      * @generated
      */
     @Override
+    public AnyLNClass getParentAnyLNClass() {
+        if( eContainerFeatureID() != NsdPackage.DATA_OBJECT__PARENT_ANY_LN_CLASS ) return null;
+        return ( AnyLNClass ) eInternalContainer();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetParentAnyLNClass( AnyLNClass newParentAnyLNClass, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newParentAnyLNClass, NsdPackage.DATA_OBJECT__PARENT_ANY_LN_CLASS,
+                msgs );
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setParentAnyLNClass( AnyLNClass newParentAnyLNClass ) {
+        if( newParentAnyLNClass != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.DATA_OBJECT__PARENT_ANY_LN_CLASS
+                        && newParentAnyLNClass != null ) ) {
+            if( EcoreUtil.isAncestor( this, newParentAnyLNClass ) )
+                throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            NotificationChain msgs = null;
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
+            if( newParentAnyLNClass != null )
+                msgs = ( ( InternalEObject ) newParentAnyLNClass ).eInverseAdd( this,
+                        NsdPackage.ANY_LN_CLASS__DATA_OBJECT, AnyLNClass.class, msgs );
+            msgs = basicSetParentAnyLNClass( newParentAnyLNClass, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_OBJECT__PARENT_ANY_LN_CLASS,
+                    newParentAnyLNClass, newParentAnyLNClass ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public String getUnderlyingType() {
         return underlyingType;
     }
@@ -1034,52 +1082,6 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     @Override
     public boolean isSetUnderlyingTypeKind() {
         return underlyingTypeKindESet;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public AnyLNClass getAnyLNClass() {
-        if( eContainerFeatureID() != NsdPackage.DATA_OBJECT__ANY_LN_CLASS ) return null;
-        return ( AnyLNClass ) eInternalContainer();
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public NotificationChain basicSetAnyLNClass( AnyLNClass newAnyLNClass, NotificationChain msgs ) {
-        msgs = eBasicSetContainer( ( InternalEObject ) newAnyLNClass, NsdPackage.DATA_OBJECT__ANY_LN_CLASS, msgs );
-        return msgs;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setAnyLNClass( AnyLNClass newAnyLNClass ) {
-        if( newAnyLNClass != eInternalContainer()
-                || ( eContainerFeatureID() != NsdPackage.DATA_OBJECT__ANY_LN_CLASS && newAnyLNClass != null ) ) {
-            if( EcoreUtil.isAncestor( this, newAnyLNClass ) )
-                throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
-            NotificationChain msgs = null;
-            if( eInternalContainer() != null )
-                msgs = eBasicRemoveFromContainer( msgs );
-            if( newAnyLNClass != null )
-                msgs = ( ( InternalEObject ) newAnyLNClass ).eInverseAdd( this, NsdPackage.ANY_LN_CLASS__DATA_OBJECT,
-                        AnyLNClass.class, msgs );
-            msgs = basicSetAnyLNClass( newAnyLNClass, msgs );
-            if( msgs != null ) msgs.dispatch();
-        }
-        else if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_OBJECT__ANY_LN_CLASS, newAnyLNClass,
-                    newAnyLNClass ) );
     }
 
     /**
@@ -1444,10 +1446,10 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
-        case NsdPackage.DATA_OBJECT__ANY_LN_CLASS:
+        case NsdPackage.DATA_OBJECT__PARENT_ANY_LN_CLASS:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            return basicSetAnyLNClass( ( AnyLNClass ) otherEnd, msgs );
+            return basicSetParentAnyLNClass( ( AnyLNClass ) otherEnd, msgs );
         case NsdPackage.DATA_OBJECT__REFERS_TO_CDC:
             if( refersToCDC != null )
                 msgs = ( ( InternalEObject ) refersToCDC ).eInverseRemove( this,
@@ -1476,8 +1478,8 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     @Override
     public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
-        case NsdPackage.DATA_OBJECT__ANY_LN_CLASS:
-            return basicSetAnyLNClass( null, msgs );
+        case NsdPackage.DATA_OBJECT__PARENT_ANY_LN_CLASS:
+            return basicSetParentAnyLNClass( null, msgs );
         case NsdPackage.DATA_OBJECT__REFERS_TO_CDC:
             return basicUnsetRefersToCDC( msgs );
         case NsdPackage.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION:
@@ -1496,7 +1498,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
         switch( eContainerFeatureID() ) {
-        case NsdPackage.DATA_OBJECT__ANY_LN_CLASS:
+        case NsdPackage.DATA_OBJECT__PARENT_ANY_LN_CLASS:
             return eInternalContainer().eInverseRemove( this, NsdPackage.ANY_LN_CLASS__DATA_OBJECT, AnyLNClass.class,
                     msgs );
         }
@@ -1533,8 +1535,8 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             return isTransient();
         case NsdPackage.DATA_OBJECT__TYPE:
             return getType();
-        case NsdPackage.DATA_OBJECT__ANY_LN_CLASS:
-            return getAnyLNClass();
+        case NsdPackage.DATA_OBJECT__PARENT_ANY_LN_CLASS:
+            return getParentAnyLNClass();
         case NsdPackage.DATA_OBJECT__REFERS_TO_CDC:
             return getRefersToCDC();
         case NsdPackage.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION:
@@ -1586,8 +1588,8 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         case NsdPackage.DATA_OBJECT__TYPE:
             setType( ( String ) newValue );
             return;
-        case NsdPackage.DATA_OBJECT__ANY_LN_CLASS:
-            setAnyLNClass( ( AnyLNClass ) newValue );
+        case NsdPackage.DATA_OBJECT__PARENT_ANY_LN_CLASS:
+            setParentAnyLNClass( ( AnyLNClass ) newValue );
             return;
         case NsdPackage.DATA_OBJECT__REFERS_TO_CDC:
             setRefersToCDC( ( CDC ) newValue );
@@ -1643,8 +1645,8 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         case NsdPackage.DATA_OBJECT__TYPE:
             unsetType();
             return;
-        case NsdPackage.DATA_OBJECT__ANY_LN_CLASS:
-            setAnyLNClass( ( AnyLNClass ) null );
+        case NsdPackage.DATA_OBJECT__PARENT_ANY_LN_CLASS:
+            setParentAnyLNClass( ( AnyLNClass ) null );
             return;
         case NsdPackage.DATA_OBJECT__REFERS_TO_CDC:
             unsetRefersToCDC();
@@ -1689,8 +1691,8 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             return isSetTransient();
         case NsdPackage.DATA_OBJECT__TYPE:
             return isSetType();
-        case NsdPackage.DATA_OBJECT__ANY_LN_CLASS:
-            return getAnyLNClass() != null;
+        case NsdPackage.DATA_OBJECT__PARENT_ANY_LN_CLASS:
+            return getParentAnyLNClass() != null;
         case NsdPackage.DATA_OBJECT__REFERS_TO_CDC:
             return isSetRefersToCDC();
         case NsdPackage.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION:
@@ -1867,7 +1869,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
-        NS ns = getAnyLNClass().getLNClasses().getNS();
+        NS ns = getParentAnyLNClass().getParentLNClasses().getParentNS();
         if( isSetType() ) {
             CDC foundCDC = ns.findCDC( getType(), console );
 
@@ -1879,7 +1881,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                 setRefersToCDC( foundCDC );
                 console.verbose( "CDC (name: " + getType() + ") refers by DataObject (name: " + getName()
                         + ") in NS (id:" + ns.getId() + ") found in NS (id:"
-                        + getRefersToCDC().getCDCs().getNS().getId() + ")" );
+                        + getRefersToCDC().getParentCDCs().getParentNS().getId() + ")" );
             }
         }
 
@@ -1894,7 +1896,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                 setRefersToPresenceCondition( foundPC );
                 console.verbose( "PresenceCondition (name: " + getPresCond() + ") refers by DataObject (name: "
                         + getName() + ") in NS (id:" + ns.getId() + ") found in NS (id:"
-                        + getRefersToPresenceCondition().getPresenceConditions().getNS().getId() + ")" );
+                        + getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId() + ")" );
             }
         }
 
@@ -1903,14 +1905,15 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             if( foundPC == null ) {
                 console.error(
                         "PresenceCondition (name: " + getDsPresCond() + ") refers by DataObject (name: " + getName()
-                                + ") in NS (id:" + getAnyLNClass().getLNClasses().getNS().getId() + ") is unknown" );
+                                + ") in NS (id:" + getParentAnyLNClass().getParentLNClasses().getParentNS().getId()
+                                + ") is unknown" );
             }
             else {
                 setRefersToPresenceConditionDerivedStatistics( foundPC );
                 console.verbose( "PresenceCondition (name: " + getDsPresCond() + ") refers by DataObject (name: "
-                        + getName() + ") in NS (id:" + getAnyLNClass().getLNClasses().getNS().getId()
+                        + getName() + ") in NS (id:" + getParentAnyLNClass().getParentLNClasses().getParentNS().getId()
                         + ") found in NS (id:"
-                        + getRefersToPresenceConditionDerivedStatistics().getPresenceConditions().getNS().getId()
+                        + getRefersToPresenceConditionDerivedStatistics().getParentPresenceConditions().getParentNS().getId()
                         + ")" );
             }
         }

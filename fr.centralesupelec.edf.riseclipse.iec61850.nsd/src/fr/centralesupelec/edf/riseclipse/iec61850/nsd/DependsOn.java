@@ -28,7 +28,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getNS <em>NS</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getParentNS <em>Parent NS</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getRefersToNS <em>Refers To NS</em>}</li>
  * </ul>
  *
@@ -38,32 +38,28 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
  */
 public interface DependsOn extends NsdObject, AgNSIdentification {
     /**
-     * Returns the value of the '<em><b>NS</b></em>' container reference.
+     * Returns the value of the '<em><b>Parent NS</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getDependsOn <em>Depends On</em>}'.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>NS</em>' container reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>NS</em>' container reference.
-     * @see #setNS(NS)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDependsOn_NS()
+     * @return the value of the '<em>Parent NS</em>' container reference.
+     * @see #setParentNS(NS)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDependsOn_ParentNS()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getDependsOn
      * @model opposite="dependsOn" resolveProxies="false" unsettable="true" ordered="false"
      * @generated
      */
-    NS getNS();
+    NS getParentNS();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getNS <em>NS</em>}' container reference.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getParentNS <em>Parent NS</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>NS</em>' container reference.
-     * @see #getNS()
+     * @param value the new value of the '<em>Parent NS</em>' container reference.
+     * @see #getParentNS()
      * @generated
      */
-    void setNS( NS value );
+    void setParentNS( NS value );
 
     /**
      * Returns the value of the '<em><b>Refers To NS</b></em>' reference.

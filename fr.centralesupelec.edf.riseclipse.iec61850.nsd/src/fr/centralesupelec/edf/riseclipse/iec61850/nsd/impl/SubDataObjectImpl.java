@@ -59,7 +59,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getUnderlyingTypeKind <em>Underlying Type Kind</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getType <em>Type</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getCDC <em>CDC</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getParentCDC <em>Parent CDC</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getRefersToCDC <em>Refers To CDC</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getRefersToPresenceCondition <em>Refers To Presence Condition</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getRefersToSizeAttribute <em>Refers To Size Attribute</em>}</li>
@@ -957,6 +957,52 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
      * @generated
      */
     @Override
+    public CDC getParentCDC() {
+        if( eContainerFeatureID() != NsdPackage.SUB_DATA_OBJECT__PARENT_CDC ) return null;
+        return ( CDC ) eInternalContainer();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetParentCDC( CDC newParentCDC, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newParentCDC, NsdPackage.SUB_DATA_OBJECT__PARENT_CDC, msgs );
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setParentCDC( CDC newParentCDC ) {
+        if( newParentCDC != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.SUB_DATA_OBJECT__PARENT_CDC && newParentCDC != null ) ) {
+            if( EcoreUtil.isAncestor( this, newParentCDC ) )
+                throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            NotificationChain msgs = null;
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
+            if( newParentCDC != null )
+                msgs = ( ( InternalEObject ) newParentCDC ).eInverseAdd( this, NsdPackage.CDC__SUB_DATA_OBJECT,
+                        CDC.class, msgs );
+            msgs = basicSetParentCDC( newParentCDC, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SUB_DATA_OBJECT__PARENT_CDC,
+                    newParentCDC, newParentCDC ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public String getUnderlyingType() {
         return underlyingType;
     }
@@ -1053,51 +1099,6 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
     @Override
     public boolean isSetUnderlyingTypeKind() {
         return underlyingTypeKindESet;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public CDC getCDC() {
-        if( eContainerFeatureID() != NsdPackage.SUB_DATA_OBJECT__CDC ) return null;
-        return ( CDC ) eInternalContainer();
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public NotificationChain basicSetCDC( CDC newCDC, NotificationChain msgs ) {
-        msgs = eBasicSetContainer( ( InternalEObject ) newCDC, NsdPackage.SUB_DATA_OBJECT__CDC, msgs );
-        return msgs;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setCDC( CDC newCDC ) {
-        if( newCDC != eInternalContainer()
-                || ( eContainerFeatureID() != NsdPackage.SUB_DATA_OBJECT__CDC && newCDC != null ) ) {
-            if( EcoreUtil.isAncestor( this, newCDC ) )
-                throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
-            NotificationChain msgs = null;
-            if( eInternalContainer() != null )
-                msgs = eBasicRemoveFromContainer( msgs );
-            if( newCDC != null )
-                msgs = ( ( InternalEObject ) newCDC ).eInverseAdd( this, NsdPackage.CDC__SUB_DATA_OBJECT, CDC.class,
-                        msgs );
-            msgs = basicSetCDC( newCDC, msgs );
-            if( msgs != null ) msgs.dispatch();
-        }
-        else if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SUB_DATA_OBJECT__CDC, newCDC, newCDC ) );
     }
 
     /**
@@ -1577,10 +1578,10 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
     @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
-        case NsdPackage.SUB_DATA_OBJECT__CDC:
+        case NsdPackage.SUB_DATA_OBJECT__PARENT_CDC:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            return basicSetCDC( ( CDC ) otherEnd, msgs );
+            return basicSetParentCDC( ( CDC ) otherEnd, msgs );
         case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_CDC:
             if( refersToCDC != null )
                 msgs = ( ( InternalEObject ) refersToCDC ).eInverseRemove( this,
@@ -1615,8 +1616,8 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
     @Override
     public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
-        case NsdPackage.SUB_DATA_OBJECT__CDC:
-            return basicSetCDC( null, msgs );
+        case NsdPackage.SUB_DATA_OBJECT__PARENT_CDC:
+            return basicSetParentCDC( null, msgs );
         case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_CDC:
             return basicUnsetRefersToCDC( msgs );
         case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION:
@@ -1637,7 +1638,7 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
         switch( eContainerFeatureID() ) {
-        case NsdPackage.SUB_DATA_OBJECT__CDC:
+        case NsdPackage.SUB_DATA_OBJECT__PARENT_CDC:
             return eInternalContainer().eInverseRemove( this, NsdPackage.CDC__SUB_DATA_OBJECT, CDC.class, msgs );
         }
         return super.eBasicRemoveFromContainerFeature( msgs );
@@ -1673,8 +1674,8 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
             return getName();
         case NsdPackage.SUB_DATA_OBJECT__TYPE:
             return getType();
-        case NsdPackage.SUB_DATA_OBJECT__CDC:
-            return getCDC();
+        case NsdPackage.SUB_DATA_OBJECT__PARENT_CDC:
+            return getParentCDC();
         case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_CDC:
             return getRefersToCDC();
         case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION:
@@ -1728,8 +1729,8 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
         case NsdPackage.SUB_DATA_OBJECT__TYPE:
             setType( ( String ) newValue );
             return;
-        case NsdPackage.SUB_DATA_OBJECT__CDC:
-            setCDC( ( CDC ) newValue );
+        case NsdPackage.SUB_DATA_OBJECT__PARENT_CDC:
+            setParentCDC( ( CDC ) newValue );
             return;
         case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_CDC:
             setRefersToCDC( ( CDC ) newValue );
@@ -1788,8 +1789,8 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
         case NsdPackage.SUB_DATA_OBJECT__TYPE:
             unsetType();
             return;
-        case NsdPackage.SUB_DATA_OBJECT__CDC:
-            setCDC( ( CDC ) null );
+        case NsdPackage.SUB_DATA_OBJECT__PARENT_CDC:
+            setParentCDC( ( CDC ) null );
             return;
         case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_CDC:
             unsetRefersToCDC();
@@ -1837,8 +1838,8 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
             return isSetName();
         case NsdPackage.SUB_DATA_OBJECT__TYPE:
             return isSetType();
-        case NsdPackage.SUB_DATA_OBJECT__CDC:
-            return getCDC() != null;
+        case NsdPackage.SUB_DATA_OBJECT__PARENT_CDC:
+            return getParentCDC() != null;
         case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_CDC:
             return isSetRefersToCDC();
         case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION:
@@ -2022,7 +2023,7 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
     public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
-        NS ns = getCDC().getCDCs().getNS();
+        NS ns = getParentCDC().getParentCDCs().getParentNS();
         if( isSetType() ) {
             CDC foundCDC = ns.findCDC( getType(), console );
 
@@ -2035,7 +2036,7 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                 setRefersToCDC( foundCDC );
                 console.verbose( "CDC (name: " + getType() + ") refers by SubDataObject (name: " + getName()
                         + ") in NS (id:" + ns.getId() + ") found in NS (id:"
-                        + getRefersToCDC().getCDCs().getNS().getId() + ")" );
+                        + getRefersToCDC().getParentCDCs().getParentNS().getId() + ")" );
             }
         }
 
@@ -2050,12 +2051,12 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                 setRefersToPresenceCondition( foundPC );
                 console.verbose( "PresenceCondition (name: " + getPresCond() + ") refers by SubDataObject (name: "
                         + getName() + ") in NS (id:" + ns.getId() + ") found in NS (id:"
-                        + getRefersToPresenceCondition().getPresenceConditions().getNS().getId() + ")" );
+                        + getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId() + ")" );
             }
         }
 
         if( isSetSizeAttribute() ) {
-            getCDC()
+            getParentCDC()
                     .getDataAttribute()
                     .stream()
                     .filter( att -> att.getName().equals( getSizeAttribute() ) )
@@ -2075,7 +2076,7 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
         }
 
         if( isSetMaxIndexAttribute() ) {
-            getCDC()
+            getParentCDC()
                     .getDataAttribute()
                     .stream()
                     .filter( att -> att.getName().equals( getSizeAttribute() ) )

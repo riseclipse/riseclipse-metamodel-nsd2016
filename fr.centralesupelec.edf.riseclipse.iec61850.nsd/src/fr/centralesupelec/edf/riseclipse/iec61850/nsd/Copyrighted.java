@@ -38,7 +38,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 public interface Copyrighted extends NsdObject {
     /**
      * Returns the value of the '<em><b>Copyright</b></em>' containment reference.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CopyrightNotice#getCopyrighted <em>Copyrighted</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CopyrightNotice#getParentCopyrighted <em>Parent Copyrighted</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>Copyright</em>' containment reference.
@@ -46,8 +46,8 @@ public interface Copyrighted extends NsdObject {
      * @see #unsetCopyright()
      * @see #setCopyright(CopyrightNotice)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCopyrighted_Copyright()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CopyrightNotice#getCopyrighted
-     * @model opposite="copyrighted" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CopyrightNotice#getParentCopyrighted
+     * @model opposite="parentCopyrighted" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='Copyright' namespace='##targetNamespace'"
      * @generated
      */

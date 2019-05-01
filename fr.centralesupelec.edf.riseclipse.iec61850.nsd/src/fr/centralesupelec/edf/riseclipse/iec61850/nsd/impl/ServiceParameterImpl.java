@@ -53,7 +53,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceParameterImpl#getMaxValue <em>Max Value</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceParameterImpl#getMinValue <em>Min Value</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceParameterImpl#getName <em>Name</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceParameterImpl#getCDC <em>CDC</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceParameterImpl#getParentCDC <em>Parent CDC</em>}</li>
  * </ul>
  *
  * @generated
@@ -467,6 +467,52 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
      * @generated
      */
     @Override
+    public CDC getParentCDC() {
+        if( eContainerFeatureID() != NsdPackage.SERVICE_PARAMETER__PARENT_CDC ) return null;
+        return ( CDC ) eInternalContainer();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetParentCDC( CDC newParentCDC, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newParentCDC, NsdPackage.SERVICE_PARAMETER__PARENT_CDC, msgs );
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setParentCDC( CDC newParentCDC ) {
+        if( newParentCDC != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.SERVICE_PARAMETER__PARENT_CDC && newParentCDC != null ) ) {
+            if( EcoreUtil.isAncestor( this, newParentCDC ) )
+                throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            NotificationChain msgs = null;
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
+            if( newParentCDC != null )
+                msgs = ( ( InternalEObject ) newParentCDC ).eInverseAdd( this, NsdPackage.CDC__SERVICE_PARAMETER,
+                        CDC.class, msgs );
+            msgs = basicSetParentCDC( newParentCDC, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_PARAMETER__PARENT_CDC,
+                    newParentCDC, newParentCDC ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public String getType() {
         return type;
     }
@@ -571,58 +617,12 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
      * @generated
      */
     @Override
-    public CDC getCDC() {
-        if( eContainerFeatureID() != NsdPackage.SERVICE_PARAMETER__CDC ) return null;
-        return ( CDC ) eInternalContainer();
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public NotificationChain basicSetCDC( CDC newCDC, NotificationChain msgs ) {
-        msgs = eBasicSetContainer( ( InternalEObject ) newCDC, NsdPackage.SERVICE_PARAMETER__CDC, msgs );
-        return msgs;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setCDC( CDC newCDC ) {
-        if( newCDC != eInternalContainer()
-                || ( eContainerFeatureID() != NsdPackage.SERVICE_PARAMETER__CDC && newCDC != null ) ) {
-            if( EcoreUtil.isAncestor( this, newCDC ) )
-                throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
-            NotificationChain msgs = null;
-            if( eInternalContainer() != null )
-                msgs = eBasicRemoveFromContainer( msgs );
-            if( newCDC != null )
-                msgs = ( ( InternalEObject ) newCDC ).eInverseAdd( this, NsdPackage.CDC__SERVICE_PARAMETER, CDC.class,
-                        msgs );
-            msgs = basicSetCDC( newCDC, msgs );
-            if( msgs != null ) msgs.dispatch();
-        }
-        else if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_PARAMETER__CDC, newCDC,
-                    newCDC ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
-        case NsdPackage.SERVICE_PARAMETER__CDC:
+        case NsdPackage.SERVICE_PARAMETER__PARENT_CDC:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            return basicSetCDC( ( CDC ) otherEnd, msgs );
+            return basicSetParentCDC( ( CDC ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
     }
@@ -635,8 +635,8 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
     @Override
     public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
-        case NsdPackage.SERVICE_PARAMETER__CDC:
-            return basicSetCDC( null, msgs );
+        case NsdPackage.SERVICE_PARAMETER__PARENT_CDC:
+            return basicSetParentCDC( null, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -649,7 +649,7 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
         switch( eContainerFeatureID() ) {
-        case NsdPackage.SERVICE_PARAMETER__CDC:
+        case NsdPackage.SERVICE_PARAMETER__PARENT_CDC:
             return eInternalContainer().eInverseRemove( this, NsdPackage.CDC__SERVICE_PARAMETER, CDC.class, msgs );
         }
         return super.eBasicRemoveFromContainerFeature( msgs );
@@ -675,8 +675,8 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
             return getMinValue();
         case NsdPackage.SERVICE_PARAMETER__NAME:
             return getName();
-        case NsdPackage.SERVICE_PARAMETER__CDC:
-            return getCDC();
+        case NsdPackage.SERVICE_PARAMETER__PARENT_CDC:
+            return getParentCDC();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -707,8 +707,8 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
         case NsdPackage.SERVICE_PARAMETER__NAME:
             setName( ( String ) newValue );
             return;
-        case NsdPackage.SERVICE_PARAMETER__CDC:
-            setCDC( ( CDC ) newValue );
+        case NsdPackage.SERVICE_PARAMETER__PARENT_CDC:
+            setParentCDC( ( CDC ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -740,8 +740,8 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
         case NsdPackage.SERVICE_PARAMETER__NAME:
             unsetName();
             return;
-        case NsdPackage.SERVICE_PARAMETER__CDC:
-            setCDC( ( CDC ) null );
+        case NsdPackage.SERVICE_PARAMETER__PARENT_CDC:
+            setParentCDC( ( CDC ) null );
             return;
         }
         super.eUnset( featureID );
@@ -767,8 +767,8 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
             return isSetMinValue();
         case NsdPackage.SERVICE_PARAMETER__NAME:
             return isSetName();
-        case NsdPackage.SERVICE_PARAMETER__CDC:
-            return getCDC() != null;
+        case NsdPackage.SERVICE_PARAMETER__PARENT_CDC:
+            return getParentCDC() != null;
         }
         return super.eIsSet( featureID );
     }

@@ -48,7 +48,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.BasicTypesImpl#getBasicType <em>Basic Type</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.BasicTypesImpl#getNS <em>NS</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.BasicTypesImpl#getParentNS <em>Parent NS</em>}</li>
  * </ul>
  *
  * @generated
@@ -92,7 +92,7 @@ public class BasicTypesImpl extends NsdObjectImpl implements BasicTypes {
     public EList< BasicType > getBasicType() {
         if( basicType == null ) {
             basicType = new EObjectContainmentWithInverseEList.Unsettable< BasicType >( BasicType.class, this,
-                    NsdPackage.BASIC_TYPES__BASIC_TYPE, NsdPackage.BASIC_TYPE__BASIC_TYPES );
+                    NsdPackage.BASIC_TYPES__BASIC_TYPE, NsdPackage.BASIC_TYPE__PARENT_BASIC_TYPES );
         }
         return basicType;
     }
@@ -123,8 +123,8 @@ public class BasicTypesImpl extends NsdObjectImpl implements BasicTypes {
      * @generated
      */
     @Override
-    public NS getNS() {
-        if( eContainerFeatureID() != NsdPackage.BASIC_TYPES__NS ) return null;
+    public NS getParentNS() {
+        if( eContainerFeatureID() != NsdPackage.BASIC_TYPES__PARENT_NS ) return null;
         return ( NS ) eInternalContainer();
     }
 
@@ -133,8 +133,8 @@ public class BasicTypesImpl extends NsdObjectImpl implements BasicTypes {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetNS( NS newNS, NotificationChain msgs ) {
-        msgs = eBasicSetContainer( ( InternalEObject ) newNS, NsdPackage.BASIC_TYPES__NS, msgs );
+    public NotificationChain basicSetParentNS( NS newParentNS, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newParentNS, NsdPackage.BASIC_TYPES__PARENT_NS, msgs );
         return msgs;
     }
 
@@ -144,21 +144,23 @@ public class BasicTypesImpl extends NsdObjectImpl implements BasicTypes {
      * @generated
      */
     @Override
-    public void setNS( NS newNS ) {
-        if( newNS != eInternalContainer()
-                || ( eContainerFeatureID() != NsdPackage.BASIC_TYPES__NS && newNS != null ) ) {
-            if( EcoreUtil.isAncestor( this, newNS ) )
+    public void setParentNS( NS newParentNS ) {
+        if( newParentNS != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.BASIC_TYPES__PARENT_NS && newParentNS != null ) ) {
+            if( EcoreUtil.isAncestor( this, newParentNS ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newNS != null )
-                msgs = ( ( InternalEObject ) newNS ).eInverseAdd( this, NsdPackage.NS__BASIC_TYPES, NS.class, msgs );
-            msgs = basicSetNS( newNS, msgs );
+            if( newParentNS != null )
+                msgs = ( ( InternalEObject ) newParentNS ).eInverseAdd( this, NsdPackage.NS__BASIC_TYPES, NS.class,
+                        msgs );
+            msgs = basicSetParentNS( newParentNS, msgs );
             if( msgs != null ) msgs.dispatch();
         }
         else if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.BASIC_TYPES__NS, newNS, newNS ) );
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.BASIC_TYPES__PARENT_NS, newParentNS,
+                    newParentNS ) );
     }
 
     /**
@@ -173,10 +175,10 @@ public class BasicTypesImpl extends NsdObjectImpl implements BasicTypes {
         case NsdPackage.BASIC_TYPES__BASIC_TYPE:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getBasicType() ).basicAdd( otherEnd,
                     msgs );
-        case NsdPackage.BASIC_TYPES__NS:
+        case NsdPackage.BASIC_TYPES__PARENT_NS:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            return basicSetNS( ( NS ) otherEnd, msgs );
+            return basicSetParentNS( ( NS ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
     }
@@ -191,8 +193,8 @@ public class BasicTypesImpl extends NsdObjectImpl implements BasicTypes {
         switch( featureID ) {
         case NsdPackage.BASIC_TYPES__BASIC_TYPE:
             return ( ( InternalEList< ? > ) getBasicType() ).basicRemove( otherEnd, msgs );
-        case NsdPackage.BASIC_TYPES__NS:
-            return basicSetNS( null, msgs );
+        case NsdPackage.BASIC_TYPES__PARENT_NS:
+            return basicSetParentNS( null, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -205,7 +207,7 @@ public class BasicTypesImpl extends NsdObjectImpl implements BasicTypes {
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
         switch( eContainerFeatureID() ) {
-        case NsdPackage.BASIC_TYPES__NS:
+        case NsdPackage.BASIC_TYPES__PARENT_NS:
             return eInternalContainer().eInverseRemove( this, NsdPackage.NS__BASIC_TYPES, NS.class, msgs );
         }
         return super.eBasicRemoveFromContainerFeature( msgs );
@@ -221,8 +223,8 @@ public class BasicTypesImpl extends NsdObjectImpl implements BasicTypes {
         switch( featureID ) {
         case NsdPackage.BASIC_TYPES__BASIC_TYPE:
             return getBasicType();
-        case NsdPackage.BASIC_TYPES__NS:
-            return getNS();
+        case NsdPackage.BASIC_TYPES__PARENT_NS:
+            return getParentNS();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -240,8 +242,8 @@ public class BasicTypesImpl extends NsdObjectImpl implements BasicTypes {
             getBasicType().clear();
             getBasicType().addAll( ( Collection< ? extends BasicType > ) newValue );
             return;
-        case NsdPackage.BASIC_TYPES__NS:
-            setNS( ( NS ) newValue );
+        case NsdPackage.BASIC_TYPES__PARENT_NS:
+            setParentNS( ( NS ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -258,8 +260,8 @@ public class BasicTypesImpl extends NsdObjectImpl implements BasicTypes {
         case NsdPackage.BASIC_TYPES__BASIC_TYPE:
             unsetBasicType();
             return;
-        case NsdPackage.BASIC_TYPES__NS:
-            setNS( ( NS ) null );
+        case NsdPackage.BASIC_TYPES__PARENT_NS:
+            setParentNS( ( NS ) null );
             return;
         }
         super.eUnset( featureID );
@@ -275,8 +277,8 @@ public class BasicTypesImpl extends NsdObjectImpl implements BasicTypes {
         switch( featureID ) {
         case NsdPackage.BASIC_TYPES__BASIC_TYPE:
             return isSetBasicType();
-        case NsdPackage.BASIC_TYPES__NS:
-            return getNS() != null;
+        case NsdPackage.BASIC_TYPES__PARENT_NS:
+            return getParentNS() != null;
         }
         return super.eIsSet( featureID );
     }

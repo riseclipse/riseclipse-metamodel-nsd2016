@@ -30,7 +30,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CopyrightNotice#getNotice <em>Notice</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CopyrightNotice#getLicense <em>License</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CopyrightNotice#getCopyrighted <em>Copyrighted</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CopyrightNotice#getParentCopyrighted <em>Parent Copyrighted</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCopyrightNotice()
@@ -40,7 +40,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 public interface CopyrightNotice extends NsdObject {
     /**
      * Returns the value of the '<em><b>Notice</b></em>' containment reference.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Notice#getCopyrightNotice <em>Copyright Notice</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Notice#getParentCopyrightNotice <em>Parent Copyright Notice</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>Notice</em>' containment reference.
@@ -48,8 +48,8 @@ public interface CopyrightNotice extends NsdObject {
      * @see #unsetNotice()
      * @see #setNotice(Notice)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCopyrightNotice_Notice()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Notice#getCopyrightNotice
-     * @model opposite="copyrightNotice" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Notice#getParentCopyrightNotice
+     * @model opposite="parentCopyrightNotice" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='Notice' namespace='##targetNamespace'"
      * @generated
      */
@@ -92,7 +92,7 @@ public interface CopyrightNotice extends NsdObject {
 
     /**
      * Returns the value of the '<em><b>License</b></em>' containment reference.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.License#getCopyrightNotice <em>Copyright Notice</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.License#getParentCopyrightNotice <em>Parent Copyright Notice</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>License</em>' containment reference.
@@ -100,8 +100,8 @@ public interface CopyrightNotice extends NsdObject {
      * @see #unsetLicense()
      * @see #setLicense(License)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCopyrightNotice_License()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.License#getCopyrightNotice
-     * @model opposite="copyrightNotice" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.License#getParentCopyrightNotice
+     * @model opposite="parentCopyrightNotice" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='License' namespace='##targetNamespace'"
      * @generated
      */
@@ -143,31 +143,27 @@ public interface CopyrightNotice extends NsdObject {
     boolean isSetLicense();
 
     /**
-     * Returns the value of the '<em><b>Copyrighted</b></em>' container reference.
+     * Returns the value of the '<em><b>Parent Copyrighted</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Copyrighted#getCopyright <em>Copyright</em>}'.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Copyrighted</em>' container reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Copyrighted</em>' container reference.
-     * @see #setCopyrighted(Copyrighted)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCopyrightNotice_Copyrighted()
+     * @return the value of the '<em>Parent Copyrighted</em>' container reference.
+     * @see #setParentCopyrighted(Copyrighted)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCopyrightNotice_ParentCopyrighted()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Copyrighted#getCopyright
      * @model opposite="copyright" resolveProxies="false" unsettable="true" ordered="false"
      * @generated
      */
-    Copyrighted getCopyrighted();
+    Copyrighted getParentCopyrighted();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CopyrightNotice#getCopyrighted <em>Copyrighted</em>}' container reference.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CopyrightNotice#getParentCopyrighted <em>Parent Copyrighted</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Copyrighted</em>' container reference.
-     * @see #getCopyrighted()
+     * @param value the new value of the '<em>Parent Copyrighted</em>' container reference.
+     * @see #getParentCopyrighted()
      * @generated
      */
-    void setCopyrighted( Copyrighted value );
+    void setParentCopyrighted( Copyrighted value );
 
 } // CopyrightNotice

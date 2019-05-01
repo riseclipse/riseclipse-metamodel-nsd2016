@@ -50,7 +50,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.FunctionalConstraintImpl#getAbbreviation <em>Abbreviation</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.FunctionalConstraintImpl#getDescID <em>Desc ID</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.FunctionalConstraintImpl#getTitleID <em>Title ID</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.FunctionalConstraintImpl#getFunctionalConstraints <em>Functional Constraints</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.FunctionalConstraintImpl#getParentFunctionalConstraints <em>Parent Functional Constraints</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.FunctionalConstraintImpl#getReferredByDataAttribute <em>Referred By Data Attribute</em>}</li>
  * </ul>
  *
@@ -236,10 +236,10 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
             NotificationChain msgs = null;
             if( applicableServices != null )
                 msgs = ( ( InternalEObject ) applicableServices ).eInverseRemove( this,
-                        NsdPackage.APPLICABLE_SERVICES__FUNCTIONAL_CONSTRAINT, ApplicableServices.class, msgs );
+                        NsdPackage.APPLICABLE_SERVICES__PARENT_FUNCTIONAL_CONSTRAINT, ApplicableServices.class, msgs );
             if( newApplicableServices != null )
                 msgs = ( ( InternalEObject ) newApplicableServices ).eInverseAdd( this,
-                        NsdPackage.APPLICABLE_SERVICES__FUNCTIONAL_CONSTRAINT, ApplicableServices.class, msgs );
+                        NsdPackage.APPLICABLE_SERVICES__PARENT_FUNCTIONAL_CONSTRAINT, ApplicableServices.class, msgs );
             msgs = basicSetApplicableServices( newApplicableServices, msgs );
             if( msgs != null ) msgs.dispatch();
         }
@@ -285,7 +285,7 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
         if( applicableServices != null ) {
             NotificationChain msgs = null;
             msgs = ( ( InternalEObject ) applicableServices ).eInverseRemove( this,
-                    NsdPackage.APPLICABLE_SERVICES__FUNCTIONAL_CONSTRAINT, ApplicableServices.class, msgs );
+                    NsdPackage.APPLICABLE_SERVICES__PARENT_FUNCTIONAL_CONSTRAINT, ApplicableServices.class, msgs );
             msgs = basicUnsetApplicableServices( msgs );
             if( msgs != null ) msgs.dispatch();
         }
@@ -471,8 +471,8 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
      * @generated
      */
     @Override
-    public FunctionalConstraints getFunctionalConstraints() {
-        if( eContainerFeatureID() != NsdPackage.FUNCTIONAL_CONSTRAINT__FUNCTIONAL_CONSTRAINTS ) return null;
+    public FunctionalConstraints getParentFunctionalConstraints() {
+        if( eContainerFeatureID() != NsdPackage.FUNCTIONAL_CONSTRAINT__PARENT_FUNCTIONAL_CONSTRAINTS ) return null;
         return ( FunctionalConstraints ) eInternalContainer();
     }
 
@@ -481,10 +481,10 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetFunctionalConstraints( FunctionalConstraints newFunctionalConstraints,
+    public NotificationChain basicSetParentFunctionalConstraints( FunctionalConstraints newParentFunctionalConstraints,
             NotificationChain msgs ) {
-        msgs = eBasicSetContainer( ( InternalEObject ) newFunctionalConstraints,
-                NsdPackage.FUNCTIONAL_CONSTRAINT__FUNCTIONAL_CONSTRAINTS, msgs );
+        msgs = eBasicSetContainer( ( InternalEObject ) newParentFunctionalConstraints,
+                NsdPackage.FUNCTIONAL_CONSTRAINT__PARENT_FUNCTIONAL_CONSTRAINTS, msgs );
         return msgs;
     }
 
@@ -494,25 +494,25 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
      * @generated
      */
     @Override
-    public void setFunctionalConstraints( FunctionalConstraints newFunctionalConstraints ) {
-        if( newFunctionalConstraints != eInternalContainer()
-                || ( eContainerFeatureID() != NsdPackage.FUNCTIONAL_CONSTRAINT__FUNCTIONAL_CONSTRAINTS
-                        && newFunctionalConstraints != null ) ) {
-            if( EcoreUtil.isAncestor( this, newFunctionalConstraints ) )
+    public void setParentFunctionalConstraints( FunctionalConstraints newParentFunctionalConstraints ) {
+        if( newParentFunctionalConstraints != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.FUNCTIONAL_CONSTRAINT__PARENT_FUNCTIONAL_CONSTRAINTS
+                        && newParentFunctionalConstraints != null ) ) {
+            if( EcoreUtil.isAncestor( this, newParentFunctionalConstraints ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newFunctionalConstraints != null )
-                msgs = ( ( InternalEObject ) newFunctionalConstraints ).eInverseAdd( this,
+            if( newParentFunctionalConstraints != null )
+                msgs = ( ( InternalEObject ) newParentFunctionalConstraints ).eInverseAdd( this,
                         NsdPackage.FUNCTIONAL_CONSTRAINTS__FUNCTIONAL_CONSTRAINT, FunctionalConstraints.class, msgs );
-            msgs = basicSetFunctionalConstraints( newFunctionalConstraints, msgs );
+            msgs = basicSetParentFunctionalConstraints( newParentFunctionalConstraints, msgs );
             if( msgs != null ) msgs.dispatch();
         }
         else if( eNotificationRequired() )
             eNotify( new ENotificationImpl( this, Notification.SET,
-                    NsdPackage.FUNCTIONAL_CONSTRAINT__FUNCTIONAL_CONSTRAINTS, newFunctionalConstraints,
-                    newFunctionalConstraints ) );
+                    NsdPackage.FUNCTIONAL_CONSTRAINT__PARENT_FUNCTIONAL_CONSTRAINTS, newParentFunctionalConstraints,
+                    newParentFunctionalConstraints ) );
     }
 
     /**
@@ -564,10 +564,10 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
                 msgs = ( ( InternalEObject ) applicableServices ).eInverseRemove( this,
                         EOPPOSITE_FEATURE_BASE - NsdPackage.FUNCTIONAL_CONSTRAINT__APPLICABLE_SERVICES, null, msgs );
             return basicSetApplicableServices( ( ApplicableServices ) otherEnd, msgs );
-        case NsdPackage.FUNCTIONAL_CONSTRAINT__FUNCTIONAL_CONSTRAINTS:
+        case NsdPackage.FUNCTIONAL_CONSTRAINT__PARENT_FUNCTIONAL_CONSTRAINTS:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            return basicSetFunctionalConstraints( ( FunctionalConstraints ) otherEnd, msgs );
+            return basicSetParentFunctionalConstraints( ( FunctionalConstraints ) otherEnd, msgs );
         case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByDataAttribute() )
                     .basicAdd( otherEnd, msgs );
@@ -585,8 +585,8 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
         switch( featureID ) {
         case NsdPackage.FUNCTIONAL_CONSTRAINT__APPLICABLE_SERVICES:
             return basicUnsetApplicableServices( msgs );
-        case NsdPackage.FUNCTIONAL_CONSTRAINT__FUNCTIONAL_CONSTRAINTS:
-            return basicSetFunctionalConstraints( null, msgs );
+        case NsdPackage.FUNCTIONAL_CONSTRAINT__PARENT_FUNCTIONAL_CONSTRAINTS:
+            return basicSetParentFunctionalConstraints( null, msgs );
         case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE:
             return ( ( InternalEList< ? > ) getReferredByDataAttribute() ).basicRemove( otherEnd, msgs );
         }
@@ -601,7 +601,7 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
         switch( eContainerFeatureID() ) {
-        case NsdPackage.FUNCTIONAL_CONSTRAINT__FUNCTIONAL_CONSTRAINTS:
+        case NsdPackage.FUNCTIONAL_CONSTRAINT__PARENT_FUNCTIONAL_CONSTRAINTS:
             return eInternalContainer().eInverseRemove( this, NsdPackage.FUNCTIONAL_CONSTRAINTS__FUNCTIONAL_CONSTRAINT,
                     FunctionalConstraints.class, msgs );
         }
@@ -624,8 +624,8 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
             return getDescID();
         case NsdPackage.FUNCTIONAL_CONSTRAINT__TITLE_ID:
             return getTitleID();
-        case NsdPackage.FUNCTIONAL_CONSTRAINT__FUNCTIONAL_CONSTRAINTS:
-            return getFunctionalConstraints();
+        case NsdPackage.FUNCTIONAL_CONSTRAINT__PARENT_FUNCTIONAL_CONSTRAINTS:
+            return getParentFunctionalConstraints();
         case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE:
             return getReferredByDataAttribute();
         }
@@ -653,8 +653,8 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
         case NsdPackage.FUNCTIONAL_CONSTRAINT__TITLE_ID:
             setTitleID( ( String ) newValue );
             return;
-        case NsdPackage.FUNCTIONAL_CONSTRAINT__FUNCTIONAL_CONSTRAINTS:
-            setFunctionalConstraints( ( FunctionalConstraints ) newValue );
+        case NsdPackage.FUNCTIONAL_CONSTRAINT__PARENT_FUNCTIONAL_CONSTRAINTS:
+            setParentFunctionalConstraints( ( FunctionalConstraints ) newValue );
             return;
         case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE:
             getReferredByDataAttribute().clear();
@@ -684,8 +684,8 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
         case NsdPackage.FUNCTIONAL_CONSTRAINT__TITLE_ID:
             unsetTitleID();
             return;
-        case NsdPackage.FUNCTIONAL_CONSTRAINT__FUNCTIONAL_CONSTRAINTS:
-            setFunctionalConstraints( ( FunctionalConstraints ) null );
+        case NsdPackage.FUNCTIONAL_CONSTRAINT__PARENT_FUNCTIONAL_CONSTRAINTS:
+            setParentFunctionalConstraints( ( FunctionalConstraints ) null );
             return;
         case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE:
             unsetReferredByDataAttribute();
@@ -710,8 +710,8 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
             return isSetDescID();
         case NsdPackage.FUNCTIONAL_CONSTRAINT__TITLE_ID:
             return isSetTitleID();
-        case NsdPackage.FUNCTIONAL_CONSTRAINT__FUNCTIONAL_CONSTRAINTS:
-            return getFunctionalConstraints() != null;
+        case NsdPackage.FUNCTIONAL_CONSTRAINT__PARENT_FUNCTIONAL_CONSTRAINTS:
+            return getParentFunctionalConstraints() != null;
         case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE:
             return isSetReferredByDataAttribute();
         }

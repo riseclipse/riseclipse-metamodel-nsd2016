@@ -44,15 +44,15 @@ public interface NSDoc extends Copyrighted, AgNSIdentification, AgUML {
     /**
      * Returns the value of the '<em><b>Doc</b></em>' containment reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc}.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getNSDoc <em>NS Doc</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getParentNSDoc <em>Parent NS Doc</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>Doc</em>' containment reference list.
      * @see #isSetDoc()
      * @see #unsetDoc()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNSDoc_Doc()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getNSDoc
-     * @model opposite="nSDoc" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getParentNSDoc
+     * @model opposite="parentNSDoc" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='Doc' namespace='##targetNamespace'"
      * @generated
      */

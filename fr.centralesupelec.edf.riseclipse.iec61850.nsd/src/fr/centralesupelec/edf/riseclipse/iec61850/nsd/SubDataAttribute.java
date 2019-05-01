@@ -29,7 +29,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
  * </p>
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute#getName <em>Name</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute#getConstructedAttribute <em>Constructed Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute#getParentConstructedAttribute <em>Parent Constructed Attribute</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute#getRefersToPresenceCondition <em>Refers To Presence Condition</em>}</li>
  * </ul>
  *
@@ -91,32 +91,28 @@ public interface SubDataAttribute extends DocumentedClass, AgPresenceCondition, 
     boolean isSetName();
 
     /**
-     * Returns the value of the '<em><b>Constructed Attribute</b></em>' container reference.
+     * Returns the value of the '<em><b>Parent Constructed Attribute</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getSubDataAttribute <em>Sub Data Attribute</em>}'.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Constructed Attribute</em>' container reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Constructed Attribute</em>' container reference.
-     * @see #setConstructedAttribute(ConstructedAttribute)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getSubDataAttribute_ConstructedAttribute()
+     * @return the value of the '<em>Parent Constructed Attribute</em>' container reference.
+     * @see #setParentConstructedAttribute(ConstructedAttribute)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getSubDataAttribute_ParentConstructedAttribute()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getSubDataAttribute
      * @model opposite="subDataAttribute" resolveProxies="false" unsettable="true" ordered="false"
      * @generated
      */
-    ConstructedAttribute getConstructedAttribute();
+    ConstructedAttribute getParentConstructedAttribute();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute#getConstructedAttribute <em>Constructed Attribute</em>}' container reference.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute#getParentConstructedAttribute <em>Parent Constructed Attribute</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Constructed Attribute</em>' container reference.
-     * @see #getConstructedAttribute()
+     * @param value the new value of the '<em>Parent Constructed Attribute</em>' container reference.
+     * @see #getParentConstructedAttribute()
      * @generated
      */
-    void setConstructedAttribute( ConstructedAttribute value );
+    void setParentConstructedAttribute( ConstructedAttribute value );
 
     /**
      * Returns the value of the '<em><b>Refers To Presence Condition</b></em>' reference.

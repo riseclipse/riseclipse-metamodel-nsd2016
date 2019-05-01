@@ -30,7 +30,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation#getDescID <em>Desc ID</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation#getName <em>Name</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation#getAbbreviations <em>Abbreviations</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation#getParentAbbreviations <em>Parent Abbreviations</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAbbreviation()
@@ -141,31 +141,27 @@ public interface Abbreviation extends NsdObject {
     boolean isSetName();
 
     /**
-     * Returns the value of the '<em><b>Abbreviations</b></em>' container reference.
+     * Returns the value of the '<em><b>Parent Abbreviations</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations#getAbbreviation <em>Abbreviation</em>}'.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Abbreviations</em>' container reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Abbreviations</em>' container reference.
-     * @see #setAbbreviations(Abbreviations)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAbbreviation_Abbreviations()
+     * @return the value of the '<em>Parent Abbreviations</em>' container reference.
+     * @see #setParentAbbreviations(Abbreviations)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAbbreviation_ParentAbbreviations()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations#getAbbreviation
      * @model opposite="abbreviation" resolveProxies="false" unsettable="true" transient="false" ordered="false"
      * @generated
      */
-    Abbreviations getAbbreviations();
+    Abbreviations getParentAbbreviations();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation#getAbbreviations <em>Abbreviations</em>}' container reference.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation#getParentAbbreviations <em>Parent Abbreviations</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Abbreviations</em>' container reference.
-     * @see #getAbbreviations()
+     * @param value the new value of the '<em>Parent Abbreviations</em>' container reference.
+     * @see #getParentAbbreviations()
      * @generated
      */
-    void setAbbreviations( Abbreviations value );
+    void setParentAbbreviations( Abbreviations value );
 
 } // Abbreviation

@@ -152,7 +152,7 @@ public class ApplicableServiceNSImpl extends CopyrightedImpl implements Applicab
         if( serviceNsUsage == null ) {
             serviceNsUsage = new EObjectContainmentWithInverseEList.Unsettable< ServiceNsUsage >( ServiceNsUsage.class,
                     this, NsdPackage.APPLICABLE_SERVICE_NS__SERVICE_NS_USAGE,
-                    NsdPackage.SERVICE_NS_USAGE__APPLICABLE_SERVICE_NS );
+                    NsdPackage.SERVICE_NS_USAGE__PARENT_APPLICABLE_SERVICE_NS );
         }
         return serviceNsUsage;
     }

@@ -48,7 +48,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationsImpl#getEnumeration <em>Enumeration</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationsImpl#getNS <em>NS</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationsImpl#getParentNS <em>Parent NS</em>}</li>
  * </ul>
  *
  * @generated
@@ -92,7 +92,7 @@ public class EnumerationsImpl extends NsdObjectImpl implements Enumerations {
     public EList< Enumeration > getEnumeration() {
         if( enumeration == null ) {
             enumeration = new EObjectContainmentWithInverseEList.Unsettable< Enumeration >( Enumeration.class, this,
-                    NsdPackage.ENUMERATIONS__ENUMERATION, NsdPackage.ENUMERATION__ENUMERATIONS );
+                    NsdPackage.ENUMERATIONS__ENUMERATION, NsdPackage.ENUMERATION__PARENT_ENUMERATIONS );
         }
         return enumeration;
     }
@@ -123,8 +123,8 @@ public class EnumerationsImpl extends NsdObjectImpl implements Enumerations {
      * @generated
      */
     @Override
-    public NS getNS() {
-        if( eContainerFeatureID() != NsdPackage.ENUMERATIONS__NS ) return null;
+    public NS getParentNS() {
+        if( eContainerFeatureID() != NsdPackage.ENUMERATIONS__PARENT_NS ) return null;
         return ( NS ) eInternalContainer();
     }
 
@@ -133,8 +133,8 @@ public class EnumerationsImpl extends NsdObjectImpl implements Enumerations {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetNS( NS newNS, NotificationChain msgs ) {
-        msgs = eBasicSetContainer( ( InternalEObject ) newNS, NsdPackage.ENUMERATIONS__NS, msgs );
+    public NotificationChain basicSetParentNS( NS newParentNS, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newParentNS, NsdPackage.ENUMERATIONS__PARENT_NS, msgs );
         return msgs;
     }
 
@@ -144,21 +144,23 @@ public class EnumerationsImpl extends NsdObjectImpl implements Enumerations {
      * @generated
      */
     @Override
-    public void setNS( NS newNS ) {
-        if( newNS != eInternalContainer()
-                || ( eContainerFeatureID() != NsdPackage.ENUMERATIONS__NS && newNS != null ) ) {
-            if( EcoreUtil.isAncestor( this, newNS ) )
+    public void setParentNS( NS newParentNS ) {
+        if( newParentNS != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.ENUMERATIONS__PARENT_NS && newParentNS != null ) ) {
+            if( EcoreUtil.isAncestor( this, newParentNS ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newNS != null )
-                msgs = ( ( InternalEObject ) newNS ).eInverseAdd( this, NsdPackage.NS__ENUMERATIONS, NS.class, msgs );
-            msgs = basicSetNS( newNS, msgs );
+            if( newParentNS != null )
+                msgs = ( ( InternalEObject ) newParentNS ).eInverseAdd( this, NsdPackage.NS__ENUMERATIONS, NS.class,
+                        msgs );
+            msgs = basicSetParentNS( newParentNS, msgs );
             if( msgs != null ) msgs.dispatch();
         }
         else if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.ENUMERATIONS__NS, newNS, newNS ) );
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.ENUMERATIONS__PARENT_NS, newParentNS,
+                    newParentNS ) );
     }
 
     /**
@@ -173,10 +175,10 @@ public class EnumerationsImpl extends NsdObjectImpl implements Enumerations {
         case NsdPackage.ENUMERATIONS__ENUMERATION:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getEnumeration() ).basicAdd( otherEnd,
                     msgs );
-        case NsdPackage.ENUMERATIONS__NS:
+        case NsdPackage.ENUMERATIONS__PARENT_NS:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            return basicSetNS( ( NS ) otherEnd, msgs );
+            return basicSetParentNS( ( NS ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
     }
@@ -191,8 +193,8 @@ public class EnumerationsImpl extends NsdObjectImpl implements Enumerations {
         switch( featureID ) {
         case NsdPackage.ENUMERATIONS__ENUMERATION:
             return ( ( InternalEList< ? > ) getEnumeration() ).basicRemove( otherEnd, msgs );
-        case NsdPackage.ENUMERATIONS__NS:
-            return basicSetNS( null, msgs );
+        case NsdPackage.ENUMERATIONS__PARENT_NS:
+            return basicSetParentNS( null, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -205,7 +207,7 @@ public class EnumerationsImpl extends NsdObjectImpl implements Enumerations {
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
         switch( eContainerFeatureID() ) {
-        case NsdPackage.ENUMERATIONS__NS:
+        case NsdPackage.ENUMERATIONS__PARENT_NS:
             return eInternalContainer().eInverseRemove( this, NsdPackage.NS__ENUMERATIONS, NS.class, msgs );
         }
         return super.eBasicRemoveFromContainerFeature( msgs );
@@ -221,8 +223,8 @@ public class EnumerationsImpl extends NsdObjectImpl implements Enumerations {
         switch( featureID ) {
         case NsdPackage.ENUMERATIONS__ENUMERATION:
             return getEnumeration();
-        case NsdPackage.ENUMERATIONS__NS:
-            return getNS();
+        case NsdPackage.ENUMERATIONS__PARENT_NS:
+            return getParentNS();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -240,8 +242,8 @@ public class EnumerationsImpl extends NsdObjectImpl implements Enumerations {
             getEnumeration().clear();
             getEnumeration().addAll( ( Collection< ? extends Enumeration > ) newValue );
             return;
-        case NsdPackage.ENUMERATIONS__NS:
-            setNS( ( NS ) newValue );
+        case NsdPackage.ENUMERATIONS__PARENT_NS:
+            setParentNS( ( NS ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -258,8 +260,8 @@ public class EnumerationsImpl extends NsdObjectImpl implements Enumerations {
         case NsdPackage.ENUMERATIONS__ENUMERATION:
             unsetEnumeration();
             return;
-        case NsdPackage.ENUMERATIONS__NS:
-            setNS( ( NS ) null );
+        case NsdPackage.ENUMERATIONS__PARENT_NS:
+            setParentNS( ( NS ) null );
             return;
         }
         super.eUnset( featureID );
@@ -275,8 +277,8 @@ public class EnumerationsImpl extends NsdObjectImpl implements Enumerations {
         switch( featureID ) {
         case NsdPackage.ENUMERATIONS__ENUMERATION:
             return isSetEnumeration();
-        case NsdPackage.ENUMERATIONS__NS:
-            return getNS() != null;
+        case NsdPackage.ENUMERATIONS__PARENT_NS:
+            return getParentNS() != null;
         }
         return super.eIsSet( featureID );
     }

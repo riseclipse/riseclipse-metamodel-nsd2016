@@ -50,8 +50,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ConstructedAttributeImpl#getSubDataAttribute <em>Sub Data Attribute</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ConstructedAttributeImpl#getName <em>Name</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ConstructedAttributeImpl#getConstructedAttributes <em>Constructed Attributes</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ConstructedAttributeImpl#getServiceTypeRealizations <em>Service Type Realizations</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ConstructedAttributeImpl#getParentConstructedAttributes <em>Parent Constructed Attributes</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ConstructedAttributeImpl#getParentServiceTypeRealizations <em>Parent Service Type Realizations</em>}</li>
  * </ul>
  *
  * @generated
@@ -125,7 +125,7 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
         if( subDataAttribute == null ) {
             subDataAttribute = new EObjectContainmentWithInverseEList.Unsettable< SubDataAttribute >(
                     SubDataAttribute.class, this, NsdPackage.CONSTRUCTED_ATTRIBUTE__SUB_DATA_ATTRIBUTE,
-                    NsdPackage.SUB_DATA_ATTRIBUTE__CONSTRUCTED_ATTRIBUTE );
+                    NsdPackage.SUB_DATA_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTE );
         }
         return subDataAttribute;
     }
@@ -208,8 +208,8 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
      * @generated
      */
     @Override
-    public ConstructedAttributes getConstructedAttributes() {
-        if( eContainerFeatureID() != NsdPackage.CONSTRUCTED_ATTRIBUTE__CONSTRUCTED_ATTRIBUTES ) return null;
+    public ConstructedAttributes getParentConstructedAttributes() {
+        if( eContainerFeatureID() != NsdPackage.CONSTRUCTED_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTES ) return null;
         return ( ConstructedAttributes ) eInternalContainer();
     }
 
@@ -218,10 +218,10 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetConstructedAttributes( ConstructedAttributes newConstructedAttributes,
+    public NotificationChain basicSetParentConstructedAttributes( ConstructedAttributes newParentConstructedAttributes,
             NotificationChain msgs ) {
-        msgs = eBasicSetContainer( ( InternalEObject ) newConstructedAttributes,
-                NsdPackage.CONSTRUCTED_ATTRIBUTE__CONSTRUCTED_ATTRIBUTES, msgs );
+        msgs = eBasicSetContainer( ( InternalEObject ) newParentConstructedAttributes,
+                NsdPackage.CONSTRUCTED_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTES, msgs );
         return msgs;
     }
 
@@ -231,25 +231,25 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
      * @generated
      */
     @Override
-    public void setConstructedAttributes( ConstructedAttributes newConstructedAttributes ) {
-        if( newConstructedAttributes != eInternalContainer()
-                || ( eContainerFeatureID() != NsdPackage.CONSTRUCTED_ATTRIBUTE__CONSTRUCTED_ATTRIBUTES
-                        && newConstructedAttributes != null ) ) {
-            if( EcoreUtil.isAncestor( this, newConstructedAttributes ) )
+    public void setParentConstructedAttributes( ConstructedAttributes newParentConstructedAttributes ) {
+        if( newParentConstructedAttributes != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.CONSTRUCTED_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTES
+                        && newParentConstructedAttributes != null ) ) {
+            if( EcoreUtil.isAncestor( this, newParentConstructedAttributes ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newConstructedAttributes != null )
-                msgs = ( ( InternalEObject ) newConstructedAttributes ).eInverseAdd( this,
+            if( newParentConstructedAttributes != null )
+                msgs = ( ( InternalEObject ) newParentConstructedAttributes ).eInverseAdd( this,
                         NsdPackage.CONSTRUCTED_ATTRIBUTES__CONSTRUCTED_ATTRIBUTE, ConstructedAttributes.class, msgs );
-            msgs = basicSetConstructedAttributes( newConstructedAttributes, msgs );
+            msgs = basicSetParentConstructedAttributes( newParentConstructedAttributes, msgs );
             if( msgs != null ) msgs.dispatch();
         }
         else if( eNotificationRequired() )
             eNotify( new ENotificationImpl( this, Notification.SET,
-                    NsdPackage.CONSTRUCTED_ATTRIBUTE__CONSTRUCTED_ATTRIBUTES, newConstructedAttributes,
-                    newConstructedAttributes ) );
+                    NsdPackage.CONSTRUCTED_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTES, newParentConstructedAttributes,
+                    newParentConstructedAttributes ) );
     }
 
     /**
@@ -258,8 +258,8 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
      * @generated
      */
     @Override
-    public ServiceTypeRealizations getServiceTypeRealizations() {
-        if( eContainerFeatureID() != NsdPackage.CONSTRUCTED_ATTRIBUTE__SERVICE_TYPE_REALIZATIONS ) return null;
+    public ServiceTypeRealizations getParentServiceTypeRealizations() {
+        if( eContainerFeatureID() != NsdPackage.CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_TYPE_REALIZATIONS ) return null;
         return ( ServiceTypeRealizations ) eInternalContainer();
     }
 
@@ -268,10 +268,10 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetServiceTypeRealizations( ServiceTypeRealizations newServiceTypeRealizations,
-            NotificationChain msgs ) {
-        msgs = eBasicSetContainer( ( InternalEObject ) newServiceTypeRealizations,
-                NsdPackage.CONSTRUCTED_ATTRIBUTE__SERVICE_TYPE_REALIZATIONS, msgs );
+    public NotificationChain basicSetParentServiceTypeRealizations(
+            ServiceTypeRealizations newParentServiceTypeRealizations, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newParentServiceTypeRealizations,
+                NsdPackage.CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_TYPE_REALIZATIONS, msgs );
         return msgs;
     }
 
@@ -281,26 +281,26 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
      * @generated
      */
     @Override
-    public void setServiceTypeRealizations( ServiceTypeRealizations newServiceTypeRealizations ) {
-        if( newServiceTypeRealizations != eInternalContainer()
-                || ( eContainerFeatureID() != NsdPackage.CONSTRUCTED_ATTRIBUTE__SERVICE_TYPE_REALIZATIONS
-                        && newServiceTypeRealizations != null ) ) {
-            if( EcoreUtil.isAncestor( this, newServiceTypeRealizations ) )
+    public void setParentServiceTypeRealizations( ServiceTypeRealizations newParentServiceTypeRealizations ) {
+        if( newParentServiceTypeRealizations != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_TYPE_REALIZATIONS
+                        && newParentServiceTypeRealizations != null ) ) {
+            if( EcoreUtil.isAncestor( this, newParentServiceTypeRealizations ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newServiceTypeRealizations != null )
-                msgs = ( ( InternalEObject ) newServiceTypeRealizations ).eInverseAdd( this,
+            if( newParentServiceTypeRealizations != null )
+                msgs = ( ( InternalEObject ) newParentServiceTypeRealizations ).eInverseAdd( this,
                         NsdPackage.SERVICE_TYPE_REALIZATIONS__SERVICE_TYPE_REALIZATION, ServiceTypeRealizations.class,
                         msgs );
-            msgs = basicSetServiceTypeRealizations( newServiceTypeRealizations, msgs );
+            msgs = basicSetParentServiceTypeRealizations( newParentServiceTypeRealizations, msgs );
             if( msgs != null ) msgs.dispatch();
         }
         else if( eNotificationRequired() )
             eNotify( new ENotificationImpl( this, Notification.SET,
-                    NsdPackage.CONSTRUCTED_ATTRIBUTE__SERVICE_TYPE_REALIZATIONS, newServiceTypeRealizations,
-                    newServiceTypeRealizations ) );
+                    NsdPackage.CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_TYPE_REALIZATIONS,
+                    newParentServiceTypeRealizations, newParentServiceTypeRealizations ) );
     }
 
     /**
@@ -315,14 +315,14 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
         case NsdPackage.CONSTRUCTED_ATTRIBUTE__SUB_DATA_ATTRIBUTE:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getSubDataAttribute() )
                     .basicAdd( otherEnd, msgs );
-        case NsdPackage.CONSTRUCTED_ATTRIBUTE__CONSTRUCTED_ATTRIBUTES:
+        case NsdPackage.CONSTRUCTED_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTES:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            return basicSetConstructedAttributes( ( ConstructedAttributes ) otherEnd, msgs );
-        case NsdPackage.CONSTRUCTED_ATTRIBUTE__SERVICE_TYPE_REALIZATIONS:
+            return basicSetParentConstructedAttributes( ( ConstructedAttributes ) otherEnd, msgs );
+        case NsdPackage.CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_TYPE_REALIZATIONS:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            return basicSetServiceTypeRealizations( ( ServiceTypeRealizations ) otherEnd, msgs );
+            return basicSetParentServiceTypeRealizations( ( ServiceTypeRealizations ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
     }
@@ -337,10 +337,10 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
         switch( featureID ) {
         case NsdPackage.CONSTRUCTED_ATTRIBUTE__SUB_DATA_ATTRIBUTE:
             return ( ( InternalEList< ? > ) getSubDataAttribute() ).basicRemove( otherEnd, msgs );
-        case NsdPackage.CONSTRUCTED_ATTRIBUTE__CONSTRUCTED_ATTRIBUTES:
-            return basicSetConstructedAttributes( null, msgs );
-        case NsdPackage.CONSTRUCTED_ATTRIBUTE__SERVICE_TYPE_REALIZATIONS:
-            return basicSetServiceTypeRealizations( null, msgs );
+        case NsdPackage.CONSTRUCTED_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTES:
+            return basicSetParentConstructedAttributes( null, msgs );
+        case NsdPackage.CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_TYPE_REALIZATIONS:
+            return basicSetParentServiceTypeRealizations( null, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -353,10 +353,10 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
         switch( eContainerFeatureID() ) {
-        case NsdPackage.CONSTRUCTED_ATTRIBUTE__CONSTRUCTED_ATTRIBUTES:
+        case NsdPackage.CONSTRUCTED_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTES:
             return eInternalContainer().eInverseRemove( this, NsdPackage.CONSTRUCTED_ATTRIBUTES__CONSTRUCTED_ATTRIBUTE,
                     ConstructedAttributes.class, msgs );
-        case NsdPackage.CONSTRUCTED_ATTRIBUTE__SERVICE_TYPE_REALIZATIONS:
+        case NsdPackage.CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_TYPE_REALIZATIONS:
             return eInternalContainer().eInverseRemove( this,
                     NsdPackage.SERVICE_TYPE_REALIZATIONS__SERVICE_TYPE_REALIZATION, ServiceTypeRealizations.class,
                     msgs );
@@ -376,10 +376,10 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
             return getSubDataAttribute();
         case NsdPackage.CONSTRUCTED_ATTRIBUTE__NAME:
             return getName();
-        case NsdPackage.CONSTRUCTED_ATTRIBUTE__CONSTRUCTED_ATTRIBUTES:
-            return getConstructedAttributes();
-        case NsdPackage.CONSTRUCTED_ATTRIBUTE__SERVICE_TYPE_REALIZATIONS:
-            return getServiceTypeRealizations();
+        case NsdPackage.CONSTRUCTED_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTES:
+            return getParentConstructedAttributes();
+        case NsdPackage.CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_TYPE_REALIZATIONS:
+            return getParentServiceTypeRealizations();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -400,11 +400,11 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
         case NsdPackage.CONSTRUCTED_ATTRIBUTE__NAME:
             setName( ( String ) newValue );
             return;
-        case NsdPackage.CONSTRUCTED_ATTRIBUTE__CONSTRUCTED_ATTRIBUTES:
-            setConstructedAttributes( ( ConstructedAttributes ) newValue );
+        case NsdPackage.CONSTRUCTED_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTES:
+            setParentConstructedAttributes( ( ConstructedAttributes ) newValue );
             return;
-        case NsdPackage.CONSTRUCTED_ATTRIBUTE__SERVICE_TYPE_REALIZATIONS:
-            setServiceTypeRealizations( ( ServiceTypeRealizations ) newValue );
+        case NsdPackage.CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_TYPE_REALIZATIONS:
+            setParentServiceTypeRealizations( ( ServiceTypeRealizations ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -424,11 +424,11 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
         case NsdPackage.CONSTRUCTED_ATTRIBUTE__NAME:
             unsetName();
             return;
-        case NsdPackage.CONSTRUCTED_ATTRIBUTE__CONSTRUCTED_ATTRIBUTES:
-            setConstructedAttributes( ( ConstructedAttributes ) null );
+        case NsdPackage.CONSTRUCTED_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTES:
+            setParentConstructedAttributes( ( ConstructedAttributes ) null );
             return;
-        case NsdPackage.CONSTRUCTED_ATTRIBUTE__SERVICE_TYPE_REALIZATIONS:
-            setServiceTypeRealizations( ( ServiceTypeRealizations ) null );
+        case NsdPackage.CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_TYPE_REALIZATIONS:
+            setParentServiceTypeRealizations( ( ServiceTypeRealizations ) null );
             return;
         }
         super.eUnset( featureID );
@@ -446,10 +446,10 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
             return isSetSubDataAttribute();
         case NsdPackage.CONSTRUCTED_ATTRIBUTE__NAME:
             return isSetName();
-        case NsdPackage.CONSTRUCTED_ATTRIBUTE__CONSTRUCTED_ATTRIBUTES:
-            return getConstructedAttributes() != null;
-        case NsdPackage.CONSTRUCTED_ATTRIBUTE__SERVICE_TYPE_REALIZATIONS:
-            return getServiceTypeRealizations() != null;
+        case NsdPackage.CONSTRUCTED_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTES:
+            return getParentConstructedAttributes() != null;
+        case NsdPackage.CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_TYPE_REALIZATIONS:
+            return getParentServiceTypeRealizations() != null;
         }
         return super.eIsSet( featureID );
     }

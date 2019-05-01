@@ -334,7 +334,7 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
     public EList< Doc > getDoc() {
         if( doc == null ) {
             doc = new EObjectContainmentWithInverseEList.Unsettable< Doc >( Doc.class, this, NsdPackage.NS_DOC__DOC,
-                    NsdPackage.DOC__NS_DOC );
+                    NsdPackage.DOC__PARENT_NS_DOC );
         }
         return doc;
     }

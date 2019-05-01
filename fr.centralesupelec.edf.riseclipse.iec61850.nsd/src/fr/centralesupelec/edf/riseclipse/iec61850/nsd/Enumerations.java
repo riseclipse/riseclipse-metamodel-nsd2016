@@ -31,7 +31,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations#getEnumeration <em>Enumeration</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations#getNS <em>NS</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations#getParentNS <em>Parent NS</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getEnumerations()
@@ -44,15 +44,15 @@ public interface Enumerations extends NsdObject {
     /**
      * Returns the value of the '<em><b>Enumeration</b></em>' containment reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration}.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getEnumerations <em>Enumerations</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getParentEnumerations <em>Parent Enumerations</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>Enumeration</em>' containment reference list.
      * @see #isSetEnumeration()
      * @see #unsetEnumeration()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getEnumerations_Enumeration()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getEnumerations
-     * @model opposite="enumerations" containment="true" unsettable="true"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getParentEnumerations
+     * @model opposite="parentEnumerations" containment="true" unsettable="true"
      *        extendedMetaData="kind='element' name='Enumeration' namespace='##targetNamespace'"
      * @generated
      */
@@ -80,31 +80,27 @@ public interface Enumerations extends NsdObject {
     boolean isSetEnumeration();
 
     /**
-     * Returns the value of the '<em><b>NS</b></em>' container reference.
+     * Returns the value of the '<em><b>Parent NS</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getEnumerations <em>Enumerations</em>}'.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>NS</em>' container reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>NS</em>' container reference.
-     * @see #setNS(NS)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getEnumerations_NS()
+     * @return the value of the '<em>Parent NS</em>' container reference.
+     * @see #setParentNS(NS)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getEnumerations_ParentNS()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getEnumerations
      * @model opposite="enumerations" resolveProxies="false" unsettable="true" ordered="false"
      * @generated
      */
-    NS getNS();
+    NS getParentNS();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations#getNS <em>NS</em>}' container reference.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations#getParentNS <em>Parent NS</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>NS</em>' container reference.
-     * @see #getNS()
+     * @param value the new value of the '<em>Parent NS</em>' container reference.
+     * @see #getParentNS()
      * @generated
      */
-    void setNS( NS value );
+    void setParentNS( NS value );
 
 } // Enumerations

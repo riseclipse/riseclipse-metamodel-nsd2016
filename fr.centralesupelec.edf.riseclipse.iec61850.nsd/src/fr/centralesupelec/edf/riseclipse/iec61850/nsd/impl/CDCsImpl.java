@@ -48,7 +48,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CDCsImpl#getCDC <em>CDC</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CDCsImpl#getNS <em>NS</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CDCsImpl#getParentNS <em>Parent NS</em>}</li>
  * </ul>
  *
  * @generated
@@ -92,7 +92,7 @@ public class CDCsImpl extends NsdObjectImpl implements CDCs {
     public EList< CDC > getCDC() {
         if( cDC == null ) {
             cDC = new EObjectContainmentWithInverseEList.Unsettable< CDC >( CDC.class, this, NsdPackage.CD_CS__CDC,
-                    NsdPackage.CDC__CD_CS );
+                    NsdPackage.CDC__PARENT_CD_CS );
         }
         return cDC;
     }
@@ -123,8 +123,8 @@ public class CDCsImpl extends NsdObjectImpl implements CDCs {
      * @generated
      */
     @Override
-    public NS getNS() {
-        if( eContainerFeatureID() != NsdPackage.CD_CS__NS ) return null;
+    public NS getParentNS() {
+        if( eContainerFeatureID() != NsdPackage.CD_CS__PARENT_NS ) return null;
         return ( NS ) eInternalContainer();
     }
 
@@ -133,8 +133,8 @@ public class CDCsImpl extends NsdObjectImpl implements CDCs {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetNS( NS newNS, NotificationChain msgs ) {
-        msgs = eBasicSetContainer( ( InternalEObject ) newNS, NsdPackage.CD_CS__NS, msgs );
+    public NotificationChain basicSetParentNS( NS newParentNS, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newParentNS, NsdPackage.CD_CS__PARENT_NS, msgs );
         return msgs;
     }
 
@@ -144,20 +144,22 @@ public class CDCsImpl extends NsdObjectImpl implements CDCs {
      * @generated
      */
     @Override
-    public void setNS( NS newNS ) {
-        if( newNS != eInternalContainer() || ( eContainerFeatureID() != NsdPackage.CD_CS__NS && newNS != null ) ) {
-            if( EcoreUtil.isAncestor( this, newNS ) )
+    public void setParentNS( NS newParentNS ) {
+        if( newParentNS != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.CD_CS__PARENT_NS && newParentNS != null ) ) {
+            if( EcoreUtil.isAncestor( this, newParentNS ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newNS != null )
-                msgs = ( ( InternalEObject ) newNS ).eInverseAdd( this, NsdPackage.NS__CD_CS, NS.class, msgs );
-            msgs = basicSetNS( newNS, msgs );
+            if( newParentNS != null )
+                msgs = ( ( InternalEObject ) newParentNS ).eInverseAdd( this, NsdPackage.NS__CD_CS, NS.class, msgs );
+            msgs = basicSetParentNS( newParentNS, msgs );
             if( msgs != null ) msgs.dispatch();
         }
         else if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CD_CS__NS, newNS, newNS ) );
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CD_CS__PARENT_NS, newParentNS,
+                    newParentNS ) );
     }
 
     /**
@@ -171,10 +173,10 @@ public class CDCsImpl extends NsdObjectImpl implements CDCs {
         switch( featureID ) {
         case NsdPackage.CD_CS__CDC:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getCDC() ).basicAdd( otherEnd, msgs );
-        case NsdPackage.CD_CS__NS:
+        case NsdPackage.CD_CS__PARENT_NS:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            return basicSetNS( ( NS ) otherEnd, msgs );
+            return basicSetParentNS( ( NS ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
     }
@@ -189,8 +191,8 @@ public class CDCsImpl extends NsdObjectImpl implements CDCs {
         switch( featureID ) {
         case NsdPackage.CD_CS__CDC:
             return ( ( InternalEList< ? > ) getCDC() ).basicRemove( otherEnd, msgs );
-        case NsdPackage.CD_CS__NS:
-            return basicSetNS( null, msgs );
+        case NsdPackage.CD_CS__PARENT_NS:
+            return basicSetParentNS( null, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -203,7 +205,7 @@ public class CDCsImpl extends NsdObjectImpl implements CDCs {
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
         switch( eContainerFeatureID() ) {
-        case NsdPackage.CD_CS__NS:
+        case NsdPackage.CD_CS__PARENT_NS:
             return eInternalContainer().eInverseRemove( this, NsdPackage.NS__CD_CS, NS.class, msgs );
         }
         return super.eBasicRemoveFromContainerFeature( msgs );
@@ -219,8 +221,8 @@ public class CDCsImpl extends NsdObjectImpl implements CDCs {
         switch( featureID ) {
         case NsdPackage.CD_CS__CDC:
             return getCDC();
-        case NsdPackage.CD_CS__NS:
-            return getNS();
+        case NsdPackage.CD_CS__PARENT_NS:
+            return getParentNS();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -238,8 +240,8 @@ public class CDCsImpl extends NsdObjectImpl implements CDCs {
             getCDC().clear();
             getCDC().addAll( ( Collection< ? extends CDC > ) newValue );
             return;
-        case NsdPackage.CD_CS__NS:
-            setNS( ( NS ) newValue );
+        case NsdPackage.CD_CS__PARENT_NS:
+            setParentNS( ( NS ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -256,8 +258,8 @@ public class CDCsImpl extends NsdObjectImpl implements CDCs {
         case NsdPackage.CD_CS__CDC:
             unsetCDC();
             return;
-        case NsdPackage.CD_CS__NS:
-            setNS( ( NS ) null );
+        case NsdPackage.CD_CS__PARENT_NS:
+            setParentNS( ( NS ) null );
             return;
         }
         super.eUnset( featureID );
@@ -273,8 +275,8 @@ public class CDCsImpl extends NsdObjectImpl implements CDCs {
         switch( featureID ) {
         case NsdPackage.CD_CS__CDC:
             return isSetCDC();
-        case NsdPackage.CD_CS__NS:
-            return getNS() != null;
+        case NsdPackage.CD_CS__PARENT_NS:
+            return getParentNS() != null;
         }
         return super.eIsSet( featureID );
     }

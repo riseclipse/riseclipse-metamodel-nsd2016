@@ -31,8 +31,8 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints#getFunctionalConstraint <em>Functional Constraint</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints#getNS <em>NS</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints#getServiceNS <em>Service NS</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints#getParentNS <em>Parent NS</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints#getParentServiceNS <em>Parent Service NS</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getFunctionalConstraints()
@@ -45,15 +45,15 @@ public interface FunctionalConstraints extends NsdObject {
     /**
      * Returns the value of the '<em><b>Functional Constraint</b></em>' containment reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint}.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getFunctionalConstraints <em>Functional Constraints</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getParentFunctionalConstraints <em>Parent Functional Constraints</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>Functional Constraint</em>' containment reference list.
      * @see #isSetFunctionalConstraint()
      * @see #unsetFunctionalConstraint()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getFunctionalConstraints_FunctionalConstraint()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getFunctionalConstraints
-     * @model opposite="functionalConstraints" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getParentFunctionalConstraints
+     * @model opposite="parentFunctionalConstraints" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='FunctionalConstraint' namespace='##targetNamespace'"
      * @generated
      */
@@ -81,59 +81,51 @@ public interface FunctionalConstraints extends NsdObject {
     boolean isSetFunctionalConstraint();
 
     /**
-     * Returns the value of the '<em><b>NS</b></em>' container reference.
+     * Returns the value of the '<em><b>Parent NS</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getFunctionalConstraints <em>Functional Constraints</em>}'.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>NS</em>' container reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>NS</em>' container reference.
-     * @see #setNS(NS)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getFunctionalConstraints_NS()
+     * @return the value of the '<em>Parent NS</em>' container reference.
+     * @see #setParentNS(NS)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getFunctionalConstraints_ParentNS()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getFunctionalConstraints
      * @model opposite="functionalConstraints" resolveProxies="false" unsettable="true" ordered="false"
      * @generated
      */
-    NS getNS();
+    NS getParentNS();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints#getNS <em>NS</em>}' container reference.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints#getParentNS <em>Parent NS</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>NS</em>' container reference.
-     * @see #getNS()
+     * @param value the new value of the '<em>Parent NS</em>' container reference.
+     * @see #getParentNS()
      * @generated
      */
-    void setNS( NS value );
+    void setParentNS( NS value );
 
     /**
-     * Returns the value of the '<em><b>Service NS</b></em>' container reference.
+     * Returns the value of the '<em><b>Parent Service NS</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS#getFunctionalConstraints <em>Functional Constraints</em>}'.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Service NS</em>' container reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Service NS</em>' container reference.
-     * @see #setServiceNS(ServiceNS)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getFunctionalConstraints_ServiceNS()
+     * @return the value of the '<em>Parent Service NS</em>' container reference.
+     * @see #setParentServiceNS(ServiceNS)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getFunctionalConstraints_ParentServiceNS()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS#getFunctionalConstraints
      * @model opposite="functionalConstraints" resolveProxies="false" unsettable="true" ordered="false"
      * @generated
      */
-    ServiceNS getServiceNS();
+    ServiceNS getParentServiceNS();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints#getServiceNS <em>Service NS</em>}' container reference.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints#getParentServiceNS <em>Parent Service NS</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Service NS</em>' container reference.
-     * @see #getServiceNS()
+     * @param value the new value of the '<em>Parent Service NS</em>' container reference.
+     * @see #getParentServiceNS()
      * @generated
      */
-    void setServiceNS( ServiceNS value );
+    void setParentServiceNS( ServiceNS value );
 
 } // FunctionalConstraints

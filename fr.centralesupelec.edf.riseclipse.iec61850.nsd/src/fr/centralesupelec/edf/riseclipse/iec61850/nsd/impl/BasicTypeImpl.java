@@ -47,7 +47,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.BasicTypeImpl#getDescID <em>Desc ID</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.BasicTypeImpl#getName <em>Name</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.BasicTypeImpl#getBasicTypes <em>Basic Types</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.BasicTypeImpl#getParentBasicTypes <em>Parent Basic Types</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.BasicTypeImpl#getReferredByDataAttribute <em>Referred By Data Attribute</em>}</li>
  * </ul>
  *
@@ -251,8 +251,8 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
      * @generated
      */
     @Override
-    public BasicTypes getBasicTypes() {
-        if( eContainerFeatureID() != NsdPackage.BASIC_TYPE__BASIC_TYPES ) return null;
+    public BasicTypes getParentBasicTypes() {
+        if( eContainerFeatureID() != NsdPackage.BASIC_TYPE__PARENT_BASIC_TYPES ) return null;
         return ( BasicTypes ) eInternalContainer();
     }
 
@@ -261,8 +261,9 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetBasicTypes( BasicTypes newBasicTypes, NotificationChain msgs ) {
-        msgs = eBasicSetContainer( ( InternalEObject ) newBasicTypes, NsdPackage.BASIC_TYPE__BASIC_TYPES, msgs );
+    public NotificationChain basicSetParentBasicTypes( BasicTypes newParentBasicTypes, NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newParentBasicTypes, NsdPackage.BASIC_TYPE__PARENT_BASIC_TYPES,
+                msgs );
         return msgs;
     }
 
@@ -272,23 +273,24 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
      * @generated
      */
     @Override
-    public void setBasicTypes( BasicTypes newBasicTypes ) {
-        if( newBasicTypes != eInternalContainer()
-                || ( eContainerFeatureID() != NsdPackage.BASIC_TYPE__BASIC_TYPES && newBasicTypes != null ) ) {
-            if( EcoreUtil.isAncestor( this, newBasicTypes ) )
+    public void setParentBasicTypes( BasicTypes newParentBasicTypes ) {
+        if( newParentBasicTypes != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.BASIC_TYPE__PARENT_BASIC_TYPES
+                        && newParentBasicTypes != null ) ) {
+            if( EcoreUtil.isAncestor( this, newParentBasicTypes ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newBasicTypes != null )
-                msgs = ( ( InternalEObject ) newBasicTypes ).eInverseAdd( this, NsdPackage.BASIC_TYPES__BASIC_TYPE,
-                        BasicTypes.class, msgs );
-            msgs = basicSetBasicTypes( newBasicTypes, msgs );
+            if( newParentBasicTypes != null )
+                msgs = ( ( InternalEObject ) newParentBasicTypes ).eInverseAdd( this,
+                        NsdPackage.BASIC_TYPES__BASIC_TYPE, BasicTypes.class, msgs );
+            msgs = basicSetParentBasicTypes( newParentBasicTypes, msgs );
             if( msgs != null ) msgs.dispatch();
         }
         else if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.BASIC_TYPE__BASIC_TYPES, newBasicTypes,
-                    newBasicTypes ) );
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.BASIC_TYPE__PARENT_BASIC_TYPES,
+                    newParentBasicTypes, newParentBasicTypes ) );
     }
 
     /**
@@ -335,10 +337,10 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
     @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
-        case NsdPackage.BASIC_TYPE__BASIC_TYPES:
+        case NsdPackage.BASIC_TYPE__PARENT_BASIC_TYPES:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            return basicSetBasicTypes( ( BasicTypes ) otherEnd, msgs );
+            return basicSetParentBasicTypes( ( BasicTypes ) otherEnd, msgs );
         case NsdPackage.BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByDataAttribute() )
                     .basicAdd( otherEnd, msgs );
@@ -354,8 +356,8 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
     @Override
     public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
-        case NsdPackage.BASIC_TYPE__BASIC_TYPES:
-            return basicSetBasicTypes( null, msgs );
+        case NsdPackage.BASIC_TYPE__PARENT_BASIC_TYPES:
+            return basicSetParentBasicTypes( null, msgs );
         case NsdPackage.BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE:
             return ( ( InternalEList< ? > ) getReferredByDataAttribute() ).basicRemove( otherEnd, msgs );
         }
@@ -370,7 +372,7 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
         switch( eContainerFeatureID() ) {
-        case NsdPackage.BASIC_TYPE__BASIC_TYPES:
+        case NsdPackage.BASIC_TYPE__PARENT_BASIC_TYPES:
             return eInternalContainer().eInverseRemove( this, NsdPackage.BASIC_TYPES__BASIC_TYPE, BasicTypes.class,
                     msgs );
         }
@@ -389,8 +391,8 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
             return getDescID();
         case NsdPackage.BASIC_TYPE__NAME:
             return getName();
-        case NsdPackage.BASIC_TYPE__BASIC_TYPES:
-            return getBasicTypes();
+        case NsdPackage.BASIC_TYPE__PARENT_BASIC_TYPES:
+            return getParentBasicTypes();
         case NsdPackage.BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE:
             return getReferredByDataAttribute();
         }
@@ -412,8 +414,8 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
         case NsdPackage.BASIC_TYPE__NAME:
             setName( ( String ) newValue );
             return;
-        case NsdPackage.BASIC_TYPE__BASIC_TYPES:
-            setBasicTypes( ( BasicTypes ) newValue );
+        case NsdPackage.BASIC_TYPE__PARENT_BASIC_TYPES:
+            setParentBasicTypes( ( BasicTypes ) newValue );
             return;
         case NsdPackage.BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE:
             getReferredByDataAttribute().clear();
@@ -437,8 +439,8 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
         case NsdPackage.BASIC_TYPE__NAME:
             unsetName();
             return;
-        case NsdPackage.BASIC_TYPE__BASIC_TYPES:
-            setBasicTypes( ( BasicTypes ) null );
+        case NsdPackage.BASIC_TYPE__PARENT_BASIC_TYPES:
+            setParentBasicTypes( ( BasicTypes ) null );
             return;
         case NsdPackage.BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE:
             unsetReferredByDataAttribute();
@@ -459,8 +461,8 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
             return isSetDescID();
         case NsdPackage.BASIC_TYPE__NAME:
             return isSetName();
-        case NsdPackage.BASIC_TYPE__BASIC_TYPES:
-            return getBasicTypes() != null;
+        case NsdPackage.BASIC_TYPE__PARENT_BASIC_TYPES:
+            return getParentBasicTypes() != null;
         case NsdPackage.BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE:
             return isSetReferredByDataAttribute();
         }

@@ -33,7 +33,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getLiteral <em>Literal</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getInheritedFrom <em>Inherited From</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getName <em>Name</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getEnumerations <em>Enumerations</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getParentEnumerations <em>Parent Enumerations</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getRefersToBaseEnumeration <em>Refers To Base Enumeration</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getReferredByEnumerationAsBase <em>Referred By Enumeration As Base</em>}</li>
  * </ul>
@@ -48,7 +48,7 @@ public interface Enumeration extends TitledClass {
     /**
      * Returns the value of the '<em><b>Literal</b></em>' containment reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal}.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal#getEnumeration <em>Enumeration</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal#getParentEnumeration <em>Parent Enumeration</em>}'.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Literal</em>' containment reference list isn't clear,
@@ -59,8 +59,8 @@ public interface Enumeration extends TitledClass {
      * @see #isSetLiteral()
      * @see #unsetLiteral()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getEnumeration_Literal()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal#getEnumeration
-     * @model opposite="enumeration" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal#getParentEnumeration
+     * @model opposite="parentEnumeration" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='Literal' namespace='##targetNamespace'"
      * @generated
      */
@@ -188,32 +188,28 @@ public interface Enumeration extends TitledClass {
     boolean isSetName();
 
     /**
-     * Returns the value of the '<em><b>Enumerations</b></em>' container reference.
+     * Returns the value of the '<em><b>Parent Enumerations</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations#getEnumeration <em>Enumeration</em>}'.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Enumerations</em>' container reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Enumerations</em>' container reference.
-     * @see #setEnumerations(Enumerations)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getEnumeration_Enumerations()
+     * @return the value of the '<em>Parent Enumerations</em>' container reference.
+     * @see #setParentEnumerations(Enumerations)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getEnumeration_ParentEnumerations()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations#getEnumeration
      * @model opposite="enumeration" resolveProxies="false" unsettable="true" ordered="false"
      * @generated
      */
-    Enumerations getEnumerations();
+    Enumerations getParentEnumerations();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getEnumerations <em>Enumerations</em>}' container reference.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getParentEnumerations <em>Parent Enumerations</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Enumerations</em>' container reference.
-     * @see #getEnumerations()
+     * @param value the new value of the '<em>Parent Enumerations</em>' container reference.
+     * @see #getParentEnumerations()
      * @generated
      */
-    void setEnumerations( Enumerations value );
+    void setParentEnumerations( Enumerations value );
 
     /**
      * Returns the value of the '<em><b>Refers To Base Enumeration</b></em>' reference.

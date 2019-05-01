@@ -55,7 +55,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getRevision <em>Revision</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getPublicationStage <em>Publication Stage</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getAppliesTo <em>Applies To</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getApplicableServiceNS <em>Applicable Service NS</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getParentApplicableServiceNS <em>Parent Applicable Service NS</em>}</li>
  * </ul>
  *
  * @generated
@@ -348,7 +348,7 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
     public EList< AppliesToType > getAppliesTo() {
         if( appliesTo == null ) {
             appliesTo = new EObjectContainmentWithInverseEList.Unsettable< AppliesToType >( AppliesToType.class, this,
-                    NsdPackage.SERVICE_NS_USAGE__APPLIES_TO, NsdPackage.APPLIES_TO_TYPE__SERVICE_NS_USAGE );
+                    NsdPackage.SERVICE_NS_USAGE__APPLIES_TO, NsdPackage.APPLIES_TO_TYPE__PARENT_SERVICE_NS_USAGE );
         }
         return appliesTo;
     }
@@ -371,6 +371,56 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
     @Override
     public boolean isSetAppliesTo() {
         return appliesTo != null && ( ( InternalEList.Unsettable< ? > ) appliesTo ).isSet();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public ApplicableServiceNS getParentApplicableServiceNS() {
+        if( eContainerFeatureID() != NsdPackage.SERVICE_NS_USAGE__PARENT_APPLICABLE_SERVICE_NS ) return null;
+        return ( ApplicableServiceNS ) eInternalContainer();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetParentApplicableServiceNS( ApplicableServiceNS newParentApplicableServiceNS,
+            NotificationChain msgs ) {
+        msgs = eBasicSetContainer( ( InternalEObject ) newParentApplicableServiceNS,
+                NsdPackage.SERVICE_NS_USAGE__PARENT_APPLICABLE_SERVICE_NS, msgs );
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setParentApplicableServiceNS( ApplicableServiceNS newParentApplicableServiceNS ) {
+        if( newParentApplicableServiceNS != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.SERVICE_NS_USAGE__PARENT_APPLICABLE_SERVICE_NS
+                        && newParentApplicableServiceNS != null ) ) {
+            if( EcoreUtil.isAncestor( this, newParentApplicableServiceNS ) )
+                throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            NotificationChain msgs = null;
+            if( eInternalContainer() != null )
+                msgs = eBasicRemoveFromContainer( msgs );
+            if( newParentApplicableServiceNS != null )
+                msgs = ( ( InternalEObject ) newParentApplicableServiceNS ).eInverseAdd( this,
+                        NsdPackage.APPLICABLE_SERVICE_NS__SERVICE_NS_USAGE, ApplicableServiceNS.class, msgs );
+            msgs = basicSetParentApplicableServiceNS( newParentApplicableServiceNS, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.SERVICE_NS_USAGE__PARENT_APPLICABLE_SERVICE_NS, newParentApplicableServiceNS,
+                    newParentApplicableServiceNS ) );
     }
 
     /**
@@ -534,55 +584,6 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public ApplicableServiceNS getApplicableServiceNS() {
-        if( eContainerFeatureID() != NsdPackage.SERVICE_NS_USAGE__APPLICABLE_SERVICE_NS ) return null;
-        return ( ApplicableServiceNS ) eInternalContainer();
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public NotificationChain basicSetApplicableServiceNS( ApplicableServiceNS newApplicableServiceNS,
-            NotificationChain msgs ) {
-        msgs = eBasicSetContainer( ( InternalEObject ) newApplicableServiceNS,
-                NsdPackage.SERVICE_NS_USAGE__APPLICABLE_SERVICE_NS, msgs );
-        return msgs;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setApplicableServiceNS( ApplicableServiceNS newApplicableServiceNS ) {
-        if( newApplicableServiceNS != eInternalContainer()
-                || ( eContainerFeatureID() != NsdPackage.SERVICE_NS_USAGE__APPLICABLE_SERVICE_NS
-                        && newApplicableServiceNS != null ) ) {
-            if( EcoreUtil.isAncestor( this, newApplicableServiceNS ) )
-                throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
-            NotificationChain msgs = null;
-            if( eInternalContainer() != null )
-                msgs = eBasicRemoveFromContainer( msgs );
-            if( newApplicableServiceNS != null )
-                msgs = ( ( InternalEObject ) newApplicableServiceNS ).eInverseAdd( this,
-                        NsdPackage.APPLICABLE_SERVICE_NS__SERVICE_NS_USAGE, ApplicableServiceNS.class, msgs );
-            msgs = basicSetApplicableServiceNS( newApplicableServiceNS, msgs );
-            if( msgs != null ) msgs.dispatch();
-        }
-        else if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_NS_USAGE__APPLICABLE_SERVICE_NS,
-                    newApplicableServiceNS, newApplicableServiceNS ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     @SuppressWarnings( "unchecked" )
     @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
@@ -590,10 +591,10 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
         case NsdPackage.SERVICE_NS_USAGE__APPLIES_TO:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getAppliesTo() ).basicAdd( otherEnd,
                     msgs );
-        case NsdPackage.SERVICE_NS_USAGE__APPLICABLE_SERVICE_NS:
+        case NsdPackage.SERVICE_NS_USAGE__PARENT_APPLICABLE_SERVICE_NS:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            return basicSetApplicableServiceNS( ( ApplicableServiceNS ) otherEnd, msgs );
+            return basicSetParentApplicableServiceNS( ( ApplicableServiceNS ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
     }
@@ -608,8 +609,8 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
         switch( featureID ) {
         case NsdPackage.SERVICE_NS_USAGE__APPLIES_TO:
             return ( ( InternalEList< ? > ) getAppliesTo() ).basicRemove( otherEnd, msgs );
-        case NsdPackage.SERVICE_NS_USAGE__APPLICABLE_SERVICE_NS:
-            return basicSetApplicableServiceNS( null, msgs );
+        case NsdPackage.SERVICE_NS_USAGE__PARENT_APPLICABLE_SERVICE_NS:
+            return basicSetParentApplicableServiceNS( null, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -622,7 +623,7 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
         switch( eContainerFeatureID() ) {
-        case NsdPackage.SERVICE_NS_USAGE__APPLICABLE_SERVICE_NS:
+        case NsdPackage.SERVICE_NS_USAGE__PARENT_APPLICABLE_SERVICE_NS:
             return eInternalContainer().eInverseRemove( this, NsdPackage.APPLICABLE_SERVICE_NS__SERVICE_NS_USAGE,
                     ApplicableServiceNS.class, msgs );
         }
@@ -649,8 +650,8 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
             return getPublicationStage();
         case NsdPackage.SERVICE_NS_USAGE__APPLIES_TO:
             return getAppliesTo();
-        case NsdPackage.SERVICE_NS_USAGE__APPLICABLE_SERVICE_NS:
-            return getApplicableServiceNS();
+        case NsdPackage.SERVICE_NS_USAGE__PARENT_APPLICABLE_SERVICE_NS:
+            return getParentApplicableServiceNS();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -683,8 +684,8 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
             getAppliesTo().clear();
             getAppliesTo().addAll( ( Collection< ? extends AppliesToType > ) newValue );
             return;
-        case NsdPackage.SERVICE_NS_USAGE__APPLICABLE_SERVICE_NS:
-            setApplicableServiceNS( ( ApplicableServiceNS ) newValue );
+        case NsdPackage.SERVICE_NS_USAGE__PARENT_APPLICABLE_SERVICE_NS:
+            setParentApplicableServiceNS( ( ApplicableServiceNS ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -716,8 +717,8 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
         case NsdPackage.SERVICE_NS_USAGE__APPLIES_TO:
             unsetAppliesTo();
             return;
-        case NsdPackage.SERVICE_NS_USAGE__APPLICABLE_SERVICE_NS:
-            setApplicableServiceNS( ( ApplicableServiceNS ) null );
+        case NsdPackage.SERVICE_NS_USAGE__PARENT_APPLICABLE_SERVICE_NS:
+            setParentApplicableServiceNS( ( ApplicableServiceNS ) null );
             return;
         }
         super.eUnset( featureID );
@@ -743,8 +744,8 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
             return isSetPublicationStage();
         case NsdPackage.SERVICE_NS_USAGE__APPLIES_TO:
             return isSetAppliesTo();
-        case NsdPackage.SERVICE_NS_USAGE__APPLICABLE_SERVICE_NS:
-            return getApplicableServiceNS() != null;
+        case NsdPackage.SERVICE_NS_USAGE__PARENT_APPLICABLE_SERVICE_NS:
+            return getParentApplicableServiceNS() != null;
         }
         return super.eIsSet( featureID );
     }

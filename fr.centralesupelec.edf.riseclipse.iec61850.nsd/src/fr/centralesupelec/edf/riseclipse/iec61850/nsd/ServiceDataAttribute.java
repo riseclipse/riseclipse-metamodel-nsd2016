@@ -30,7 +30,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute#getFc <em>Fc</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute#getName <em>Name</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute#getServiceCDC <em>Service CDC</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute#getParentServiceCDC <em>Parent Service CDC</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceDataAttribute()
@@ -141,31 +141,27 @@ public interface ServiceDataAttribute extends DocumentedClass, AgPresenceConditi
     boolean isSetName();
 
     /**
-     * Returns the value of the '<em><b>Service CDC</b></em>' container reference.
+     * Returns the value of the '<em><b>Parent Service CDC</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC#getServiceDataAttribute <em>Service Data Attribute</em>}'.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Service CDC</em>' container reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Service CDC</em>' container reference.
-     * @see #setServiceCDC(ServiceCDC)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceDataAttribute_ServiceCDC()
+     * @return the value of the '<em>Parent Service CDC</em>' container reference.
+     * @see #setParentServiceCDC(ServiceCDC)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceDataAttribute_ParentServiceCDC()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC#getServiceDataAttribute
      * @model opposite="serviceDataAttribute" resolveProxies="false" unsettable="true" ordered="false"
      * @generated
      */
-    ServiceCDC getServiceCDC();
+    ServiceCDC getParentServiceCDC();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute#getServiceCDC <em>Service CDC</em>}' container reference.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute#getParentServiceCDC <em>Parent Service CDC</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Service CDC</em>' container reference.
-     * @see #getServiceCDC()
+     * @param value the new value of the '<em>Parent Service CDC</em>' container reference.
+     * @see #getParentServiceCDC()
      * @generated
      */
-    void setServiceCDC( ServiceCDC value );
+    void setParentServiceCDC( ServiceCDC value );
 
 } // ServiceDataAttribute

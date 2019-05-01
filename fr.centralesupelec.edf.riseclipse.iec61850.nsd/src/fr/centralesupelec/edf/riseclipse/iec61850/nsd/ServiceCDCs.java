@@ -31,7 +31,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDCs#getServiceCDC <em>Service CDC</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDCs#getServiceNS <em>Service NS</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDCs#getParentServiceNS <em>Parent Service NS</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceCDCs()
@@ -42,15 +42,15 @@ public interface ServiceCDCs extends NsdObject {
     /**
      * Returns the value of the '<em><b>Service CDC</b></em>' containment reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC}.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC#getServiceCDCs <em>Service CD Cs</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC#getParentServiceCDCs <em>Parent Service CD Cs</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>Service CDC</em>' containment reference list.
      * @see #isSetServiceCDC()
      * @see #unsetServiceCDC()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceCDCs_ServiceCDC()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC#getServiceCDCs
-     * @model opposite="serviceCDCs" containment="true" unsettable="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC#getParentServiceCDCs
+     * @model opposite="parentServiceCDCs" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='ServiceCDC' namespace='##targetNamespace'"
      * @generated
      */
@@ -78,31 +78,27 @@ public interface ServiceCDCs extends NsdObject {
     boolean isSetServiceCDC();
 
     /**
-     * Returns the value of the '<em><b>Service NS</b></em>' container reference.
+     * Returns the value of the '<em><b>Parent Service NS</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS#getServiceCDCs <em>Service CD Cs</em>}'.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Service NS</em>' container reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Service NS</em>' container reference.
-     * @see #setServiceNS(ServiceNS)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceCDCs_ServiceNS()
+     * @return the value of the '<em>Parent Service NS</em>' container reference.
+     * @see #setParentServiceNS(ServiceNS)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceCDCs_ParentServiceNS()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS#getServiceCDCs
      * @model opposite="serviceCDCs" resolveProxies="false" unsettable="true" ordered="false"
      * @generated
      */
-    ServiceNS getServiceNS();
+    ServiceNS getParentServiceNS();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDCs#getServiceNS <em>Service NS</em>}' container reference.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDCs#getParentServiceNS <em>Parent Service NS</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Service NS</em>' container reference.
-     * @see #getServiceNS()
+     * @param value the new value of the '<em>Parent Service NS</em>' container reference.
+     * @see #getParentServiceNS()
      * @generated
      */
-    void setServiceNS( ServiceNS value );
+    void setParentServiceNS( ServiceNS value );
 
 } // ServiceCDCs

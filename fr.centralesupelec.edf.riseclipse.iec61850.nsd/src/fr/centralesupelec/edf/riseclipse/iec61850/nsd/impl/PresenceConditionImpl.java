@@ -52,7 +52,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.PresenceConditionImpl#getDescID <em>Desc ID</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.PresenceConditionImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.PresenceConditionImpl#getTitleID <em>Title ID</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.PresenceConditionImpl#getPresenceConditions <em>Presence Conditions</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.PresenceConditionImpl#getParentPresenceConditions <em>Parent Presence Conditions</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.PresenceConditionImpl#getReferredByDataObject <em>Referred By Data Object</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.PresenceConditionImpl#getReferredByDataObjectForDerivedStatistics <em>Referred By Data Object For Derived Statistics</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.PresenceConditionImpl#getReferredBySubDataObject <em>Referred By Sub Data Object</em>}</li>
@@ -462,8 +462,8 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
      * @generated
      */
     @Override
-    public PresenceConditions getPresenceConditions() {
-        if( eContainerFeatureID() != NsdPackage.PRESENCE_CONDITION__PRESENCE_CONDITIONS ) return null;
+    public PresenceConditions getParentPresenceConditions() {
+        if( eContainerFeatureID() != NsdPackage.PRESENCE_CONDITION__PARENT_PRESENCE_CONDITIONS ) return null;
         return ( PresenceConditions ) eInternalContainer();
     }
 
@@ -472,10 +472,10 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetPresenceConditions( PresenceConditions newPresenceConditions,
+    public NotificationChain basicSetParentPresenceConditions( PresenceConditions newParentPresenceConditions,
             NotificationChain msgs ) {
-        msgs = eBasicSetContainer( ( InternalEObject ) newPresenceConditions,
-                NsdPackage.PRESENCE_CONDITION__PRESENCE_CONDITIONS, msgs );
+        msgs = eBasicSetContainer( ( InternalEObject ) newParentPresenceConditions,
+                NsdPackage.PRESENCE_CONDITION__PARENT_PRESENCE_CONDITIONS, msgs );
         return msgs;
     }
 
@@ -485,24 +485,25 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
      * @generated
      */
     @Override
-    public void setPresenceConditions( PresenceConditions newPresenceConditions ) {
-        if( newPresenceConditions != eInternalContainer()
-                || ( eContainerFeatureID() != NsdPackage.PRESENCE_CONDITION__PRESENCE_CONDITIONS
-                        && newPresenceConditions != null ) ) {
-            if( EcoreUtil.isAncestor( this, newPresenceConditions ) )
+    public void setParentPresenceConditions( PresenceConditions newParentPresenceConditions ) {
+        if( newParentPresenceConditions != eInternalContainer()
+                || ( eContainerFeatureID() != NsdPackage.PRESENCE_CONDITION__PARENT_PRESENCE_CONDITIONS
+                        && newParentPresenceConditions != null ) ) {
+            if( EcoreUtil.isAncestor( this, newParentPresenceConditions ) )
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
             NotificationChain msgs = null;
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newPresenceConditions != null )
-                msgs = ( ( InternalEObject ) newPresenceConditions ).eInverseAdd( this,
+            if( newParentPresenceConditions != null )
+                msgs = ( ( InternalEObject ) newParentPresenceConditions ).eInverseAdd( this,
                         NsdPackage.PRESENCE_CONDITIONS__PRESENCE_CONDITION, PresenceConditions.class, msgs );
-            msgs = basicSetPresenceConditions( newPresenceConditions, msgs );
+            msgs = basicSetParentPresenceConditions( newParentPresenceConditions, msgs );
             if( msgs != null ) msgs.dispatch();
         }
         else if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.PRESENCE_CONDITION__PRESENCE_CONDITIONS,
-                    newPresenceConditions, newPresenceConditions ) );
+            eNotify( new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.PRESENCE_CONDITION__PARENT_PRESENCE_CONDITIONS, newParentPresenceConditions,
+                    newParentPresenceConditions ) );
     }
 
     /**
@@ -694,10 +695,10 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
     @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
-        case NsdPackage.PRESENCE_CONDITION__PRESENCE_CONDITIONS:
+        case NsdPackage.PRESENCE_CONDITION__PARENT_PRESENCE_CONDITIONS:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
-            return basicSetPresenceConditions( ( PresenceConditions ) otherEnd, msgs );
+            return basicSetParentPresenceConditions( ( PresenceConditions ) otherEnd, msgs );
         case NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByDataObject() )
                     .basicAdd( otherEnd, msgs );
@@ -725,8 +726,8 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
     @Override
     public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
-        case NsdPackage.PRESENCE_CONDITION__PRESENCE_CONDITIONS:
-            return basicSetPresenceConditions( null, msgs );
+        case NsdPackage.PRESENCE_CONDITION__PARENT_PRESENCE_CONDITIONS:
+            return basicSetParentPresenceConditions( null, msgs );
         case NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT:
             return ( ( InternalEList< ? > ) getReferredByDataObject() ).basicRemove( otherEnd, msgs );
         case NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT_FOR_DERIVED_STATISTICS:
@@ -750,7 +751,7 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature( NotificationChain msgs ) {
         switch( eContainerFeatureID() ) {
-        case NsdPackage.PRESENCE_CONDITION__PRESENCE_CONDITIONS:
+        case NsdPackage.PRESENCE_CONDITION__PARENT_PRESENCE_CONDITIONS:
             return eInternalContainer().eInverseRemove( this, NsdPackage.PRESENCE_CONDITIONS__PRESENCE_CONDITION,
                     PresenceConditions.class, msgs );
         }
@@ -773,8 +774,8 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
             return getName();
         case NsdPackage.PRESENCE_CONDITION__TITLE_ID:
             return getTitleID();
-        case NsdPackage.PRESENCE_CONDITION__PRESENCE_CONDITIONS:
-            return getPresenceConditions();
+        case NsdPackage.PRESENCE_CONDITION__PARENT_PRESENCE_CONDITIONS:
+            return getParentPresenceConditions();
         case NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT:
             return getReferredByDataObject();
         case NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT_FOR_DERIVED_STATISTICS:
@@ -810,8 +811,8 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
         case NsdPackage.PRESENCE_CONDITION__TITLE_ID:
             setTitleID( ( String ) newValue );
             return;
-        case NsdPackage.PRESENCE_CONDITION__PRESENCE_CONDITIONS:
-            setPresenceConditions( ( PresenceConditions ) newValue );
+        case NsdPackage.PRESENCE_CONDITION__PARENT_PRESENCE_CONDITIONS:
+            setParentPresenceConditions( ( PresenceConditions ) newValue );
             return;
         case NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT:
             getReferredByDataObject().clear();
@@ -857,8 +858,8 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
         case NsdPackage.PRESENCE_CONDITION__TITLE_ID:
             unsetTitleID();
             return;
-        case NsdPackage.PRESENCE_CONDITION__PRESENCE_CONDITIONS:
-            setPresenceConditions( ( PresenceConditions ) null );
+        case NsdPackage.PRESENCE_CONDITION__PARENT_PRESENCE_CONDITIONS:
+            setParentPresenceConditions( ( PresenceConditions ) null );
             return;
         case NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT:
             unsetReferredByDataObject();
@@ -895,8 +896,8 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
             return isSetName();
         case NsdPackage.PRESENCE_CONDITION__TITLE_ID:
             return isSetTitleID();
-        case NsdPackage.PRESENCE_CONDITION__PRESENCE_CONDITIONS:
-            return getPresenceConditions() != null;
+        case NsdPackage.PRESENCE_CONDITION__PARENT_PRESENCE_CONDITIONS:
+            return getParentPresenceConditions() != null;
         case NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT:
             return isSetReferredByDataObject();
         case NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT_FOR_DERIVED_STATISTICS:
