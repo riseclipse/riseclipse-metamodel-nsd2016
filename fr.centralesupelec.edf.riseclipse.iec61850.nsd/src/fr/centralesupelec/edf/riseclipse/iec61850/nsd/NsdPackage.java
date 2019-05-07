@@ -1123,13 +1123,22 @@ public interface NsdPackage extends EPackage {
     int ABBREVIATION__PARENT_ABBREVIATIONS = NSD_OBJECT_FEATURE_COUNT + 2;
 
     /**
+     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABBREVIATION__REFERS_TO_DOC = NSD_OBJECT_FEATURE_COUNT + 3;
+
+    /**
      * The number of structural features of the '<em>Abbreviation</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ABBREVIATION_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 3;
+    int ABBREVIATION_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 4;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -1267,13 +1276,22 @@ public interface NsdPackage extends EPackage {
     int DOCUMENTED_CLASS__INFORMATIVE = NSD_OBJECT_FEATURE_COUNT + 2;
 
     /**
+     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DOCUMENTED_CLASS__REFERS_TO_DOC = NSD_OBJECT_FEATURE_COUNT + 3;
+
+    /**
      * The number of structural features of the '<em>Documented Class</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DOCUMENTED_CLASS_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 3;
+    int DOCUMENTED_CLASS_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 4;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -1337,6 +1355,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int TITLED_CLASS__INFORMATIVE = DOCUMENTED_CLASS__INFORMATIVE;
+
+    /**
+     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TITLED_CLASS__REFERS_TO_DOC = DOCUMENTED_CLASS__REFERS_TO_DOC;
 
     /**
      * The feature id for the '<em><b>Title ID</b></em>' attribute.
@@ -1418,6 +1445,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int ANY_LN_CLASS__INFORMATIVE = TITLED_CLASS__INFORMATIVE;
+
+    /**
+     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ANY_LN_CLASS__REFERS_TO_DOC = TITLED_CLASS__REFERS_TO_DOC;
 
     /**
      * The feature id for the '<em><b>Title ID</b></em>' attribute.
@@ -1544,6 +1580,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int ABSTRACT_LN_CLASS__INFORMATIVE = ANY_LN_CLASS__INFORMATIVE;
+
+    /**
+     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_LN_CLASS__REFERS_TO_DOC = ANY_LN_CLASS__REFERS_TO_DOC;
 
     /**
      * The feature id for the '<em><b>Title ID</b></em>' attribute.
@@ -1915,13 +1960,22 @@ public interface NsdPackage extends EPackage {
     int BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE = NSD_OBJECT_FEATURE_COUNT + 3;
 
     /**
+     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BASIC_TYPE__REFERS_TO_DOC = NSD_OBJECT_FEATURE_COUNT + 4;
+
+    /**
      * The number of structural features of the '<em>Basic Type</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int BASIC_TYPE_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 4;
+    int BASIC_TYPE_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 5;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -2048,6 +2102,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int CDC__INFORMATIVE = TITLED_CLASS__INFORMATIVE;
+
+    /**
+     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CDC__REFERS_TO_DOC = TITLED_CLASS__REFERS_TO_DOC;
 
     /**
      * The feature id for the '<em><b>Title ID</b></em>' attribute.
@@ -2410,6 +2473,15 @@ public interface NsdPackage extends EPackage {
     int CONSTRUCTED_ATTRIBUTE__INFORMATIVE = TITLED_CLASS__INFORMATIVE;
 
     /**
+     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONSTRUCTED_ATTRIBUTE__REFERS_TO_DOC = TITLED_CLASS__REFERS_TO_DOC;
+
+    /**
      * The feature id for the '<em><b>Title ID</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2662,6 +2734,15 @@ public interface NsdPackage extends EPackage {
     int DATA_ATTRIBUTE__INFORMATIVE = DOCUMENTED_CLASS__INFORMATIVE;
 
     /**
+     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_ATTRIBUTE__REFERS_TO_DOC = DOCUMENTED_CLASS__REFERS_TO_DOC;
+
+    /**
      * The feature id for the '<em><b>Pres Cond</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2689,13 +2770,22 @@ public interface NsdPackage extends EPackage {
     int DATA_ATTRIBUTE__PRES_COND_ARGS_ID = DOCUMENTED_CLASS_FEATURE_COUNT + 2;
 
     /**
+     * The feature id for the '<em><b>Refers To Pres Cond Args Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC = DOCUMENTED_CLASS_FEATURE_COUNT + 3;
+
+    /**
      * The feature id for the '<em><b>Is Array</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE__IS_ARRAY = DOCUMENTED_CLASS_FEATURE_COUNT + 3;
+    int DATA_ATTRIBUTE__IS_ARRAY = DOCUMENTED_CLASS_FEATURE_COUNT + 4;
 
     /**
      * The feature id for the '<em><b>Max Index Attribute</b></em>' attribute.
@@ -2704,7 +2794,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE__MAX_INDEX_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 4;
+    int DATA_ATTRIBUTE__MAX_INDEX_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 5;
 
     /**
      * The feature id for the '<em><b>Min Index</b></em>' attribute.
@@ -2713,7 +2803,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE__MIN_INDEX = DOCUMENTED_CLASS_FEATURE_COUNT + 5;
+    int DATA_ATTRIBUTE__MIN_INDEX = DOCUMENTED_CLASS_FEATURE_COUNT + 6;
 
     /**
      * The feature id for the '<em><b>Size Attribute</b></em>' attribute.
@@ -2722,7 +2812,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE__SIZE_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 6;
+    int DATA_ATTRIBUTE__SIZE_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 7;
 
     /**
      * The feature id for the '<em><b>Dchg</b></em>' attribute.
@@ -2731,7 +2821,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE__DCHG = DOCUMENTED_CLASS_FEATURE_COUNT + 7;
+    int DATA_ATTRIBUTE__DCHG = DOCUMENTED_CLASS_FEATURE_COUNT + 8;
 
     /**
      * The feature id for the '<em><b>Dupd</b></em>' attribute.
@@ -2740,7 +2830,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE__DUPD = DOCUMENTED_CLASS_FEATURE_COUNT + 8;
+    int DATA_ATTRIBUTE__DUPD = DOCUMENTED_CLASS_FEATURE_COUNT + 9;
 
     /**
      * The feature id for the '<em><b>Qchg</b></em>' attribute.
@@ -2749,7 +2839,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE__QCHG = DOCUMENTED_CLASS_FEATURE_COUNT + 9;
+    int DATA_ATTRIBUTE__QCHG = DOCUMENTED_CLASS_FEATURE_COUNT + 10;
 
     /**
      * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -2758,7 +2848,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE__TYPE = DOCUMENTED_CLASS_FEATURE_COUNT + 10;
+    int DATA_ATTRIBUTE__TYPE = DOCUMENTED_CLASS_FEATURE_COUNT + 11;
 
     /**
      * The feature id for the '<em><b>Type Kind</b></em>' attribute.
@@ -2767,7 +2857,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE__TYPE_KIND = DOCUMENTED_CLASS_FEATURE_COUNT + 11;
+    int DATA_ATTRIBUTE__TYPE_KIND = DOCUMENTED_CLASS_FEATURE_COUNT + 12;
 
     /**
      * The feature id for the '<em><b>Default Value</b></em>' attribute.
@@ -2776,7 +2866,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE__DEFAULT_VALUE = DOCUMENTED_CLASS_FEATURE_COUNT + 12;
+    int DATA_ATTRIBUTE__DEFAULT_VALUE = DOCUMENTED_CLASS_FEATURE_COUNT + 13;
 
     /**
      * The feature id for the '<em><b>Max Value</b></em>' attribute.
@@ -2785,7 +2875,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE__MAX_VALUE = DOCUMENTED_CLASS_FEATURE_COUNT + 13;
+    int DATA_ATTRIBUTE__MAX_VALUE = DOCUMENTED_CLASS_FEATURE_COUNT + 14;
 
     /**
      * The feature id for the '<em><b>Min Value</b></em>' attribute.
@@ -2794,7 +2884,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE__MIN_VALUE = DOCUMENTED_CLASS_FEATURE_COUNT + 14;
+    int DATA_ATTRIBUTE__MIN_VALUE = DOCUMENTED_CLASS_FEATURE_COUNT + 15;
 
     /**
      * The feature id for the '<em><b>Fc</b></em>' attribute.
@@ -2803,7 +2893,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE__FC = DOCUMENTED_CLASS_FEATURE_COUNT + 15;
+    int DATA_ATTRIBUTE__FC = DOCUMENTED_CLASS_FEATURE_COUNT + 16;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2812,7 +2902,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE__NAME = DOCUMENTED_CLASS_FEATURE_COUNT + 16;
+    int DATA_ATTRIBUTE__NAME = DOCUMENTED_CLASS_FEATURE_COUNT + 17;
 
     /**
      * The feature id for the '<em><b>Parent CDC</b></em>' container reference.
@@ -2821,7 +2911,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE__PARENT_CDC = DOCUMENTED_CLASS_FEATURE_COUNT + 17;
+    int DATA_ATTRIBUTE__PARENT_CDC = DOCUMENTED_CLASS_FEATURE_COUNT + 18;
 
     /**
      * The feature id for the '<em><b>Referred By Sub Data Object As Size Attribute</b></em>' reference list.
@@ -2830,7 +2920,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_SIZE_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 18;
+    int DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_SIZE_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 19;
 
     /**
      * The feature id for the '<em><b>Referred By Sub Data Object As Max Index Attribute</b></em>' reference list.
@@ -2839,7 +2929,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_MAX_INDEX_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 19;
+    int DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_MAX_INDEX_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 20;
 
     /**
      * The feature id for the '<em><b>Refers To Functional Constraint</b></em>' reference.
@@ -2848,7 +2938,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE__REFERS_TO_FUNCTIONAL_CONSTRAINT = DOCUMENTED_CLASS_FEATURE_COUNT + 20;
+    int DATA_ATTRIBUTE__REFERS_TO_FUNCTIONAL_CONSTRAINT = DOCUMENTED_CLASS_FEATURE_COUNT + 21;
 
     /**
      * The feature id for the '<em><b>Refers To Presence Condition</b></em>' reference.
@@ -2857,7 +2947,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION = DOCUMENTED_CLASS_FEATURE_COUNT + 21;
+    int DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION = DOCUMENTED_CLASS_FEATURE_COUNT + 22;
 
     /**
      * The feature id for the '<em><b>Refers To Size Attribute</b></em>' reference.
@@ -2866,7 +2956,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE__REFERS_TO_SIZE_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 22;
+    int DATA_ATTRIBUTE__REFERS_TO_SIZE_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 23;
 
     /**
      * The feature id for the '<em><b>Refers To Max Index Attribute</b></em>' reference.
@@ -2875,7 +2965,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE__REFERS_TO_MAX_INDEX_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 23;
+    int DATA_ATTRIBUTE__REFERS_TO_MAX_INDEX_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 24;
 
     /**
      * The feature id for the '<em><b>Referred By Data Attribute As Size Attribute</b></em>' reference list.
@@ -2884,7 +2974,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_SIZE_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 24;
+    int DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_SIZE_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 25;
 
     /**
      * The feature id for the '<em><b>Referred By Data Attribute As Max Index Attribute</b></em>' reference list.
@@ -2893,7 +2983,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_MAX_INDEX_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 25;
+    int DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_MAX_INDEX_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 26;
 
     /**
      * The feature id for the '<em><b>Refers To Basic Type</b></em>' reference.
@@ -2902,7 +2992,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE = DOCUMENTED_CLASS_FEATURE_COUNT + 26;
+    int DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE = DOCUMENTED_CLASS_FEATURE_COUNT + 27;
 
     /**
      * The number of structural features of the '<em>Data Attribute</em>' class.
@@ -2911,7 +3001,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE_FEATURE_COUNT = DOCUMENTED_CLASS_FEATURE_COUNT + 27;
+    int DATA_ATTRIBUTE_FEATURE_COUNT = DOCUMENTED_CLASS_FEATURE_COUNT + 28;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -2977,6 +3067,15 @@ public interface NsdPackage extends EPackage {
     int DATA_OBJECT__INFORMATIVE = DOCUMENTED_CLASS__INFORMATIVE;
 
     /**
+     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_OBJECT__REFERS_TO_DOC = DOCUMENTED_CLASS__REFERS_TO_DOC;
+
+    /**
      * The feature id for the '<em><b>Pres Cond</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3004,13 +3103,22 @@ public interface NsdPackage extends EPackage {
     int DATA_OBJECT__PRES_COND_ARGS_ID = DOCUMENTED_CLASS_FEATURE_COUNT + 2;
 
     /**
+     * The feature id for the '<em><b>Refers To Pres Cond Args Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_OBJECT__REFERS_TO_PRES_COND_ARGS_DOC = DOCUMENTED_CLASS_FEATURE_COUNT + 3;
+
+    /**
      * The feature id for the '<em><b>Ds Pres Cond</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DATA_OBJECT__DS_PRES_COND = DOCUMENTED_CLASS_FEATURE_COUNT + 3;
+    int DATA_OBJECT__DS_PRES_COND = DOCUMENTED_CLASS_FEATURE_COUNT + 4;
 
     /**
      * The feature id for the '<em><b>Ds Pres Cond Args</b></em>' attribute.
@@ -3019,7 +3127,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_OBJECT__DS_PRES_COND_ARGS = DOCUMENTED_CLASS_FEATURE_COUNT + 4;
+    int DATA_OBJECT__DS_PRES_COND_ARGS = DOCUMENTED_CLASS_FEATURE_COUNT + 5;
 
     /**
      * The feature id for the '<em><b>Ds Pres Cond Args ID</b></em>' attribute.
@@ -3028,7 +3136,16 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_OBJECT__DS_PRES_COND_ARGS_ID = DOCUMENTED_CLASS_FEATURE_COUNT + 5;
+    int DATA_OBJECT__DS_PRES_COND_ARGS_ID = DOCUMENTED_CLASS_FEATURE_COUNT + 6;
+
+    /**
+     * The feature id for the '<em><b>Refers To Ds Pres Cond Args Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_OBJECT__REFERS_TO_DS_PRES_COND_ARGS_DOC = DOCUMENTED_CLASS_FEATURE_COUNT + 7;
 
     /**
      * The feature id for the '<em><b>Underlying Type</b></em>' attribute.
@@ -3037,7 +3154,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_OBJECT__UNDERLYING_TYPE = DOCUMENTED_CLASS_FEATURE_COUNT + 6;
+    int DATA_OBJECT__UNDERLYING_TYPE = DOCUMENTED_CLASS_FEATURE_COUNT + 8;
 
     /**
      * The feature id for the '<em><b>Underlying Type Kind</b></em>' attribute.
@@ -3046,7 +3163,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_OBJECT__UNDERLYING_TYPE_KIND = DOCUMENTED_CLASS_FEATURE_COUNT + 7;
+    int DATA_OBJECT__UNDERLYING_TYPE_KIND = DOCUMENTED_CLASS_FEATURE_COUNT + 9;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3055,7 +3172,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_OBJECT__NAME = DOCUMENTED_CLASS_FEATURE_COUNT + 8;
+    int DATA_OBJECT__NAME = DOCUMENTED_CLASS_FEATURE_COUNT + 10;
 
     /**
      * The feature id for the '<em><b>Transient</b></em>' attribute.
@@ -3064,7 +3181,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_OBJECT__TRANSIENT = DOCUMENTED_CLASS_FEATURE_COUNT + 9;
+    int DATA_OBJECT__TRANSIENT = DOCUMENTED_CLASS_FEATURE_COUNT + 11;
 
     /**
      * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -3073,7 +3190,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_OBJECT__TYPE = DOCUMENTED_CLASS_FEATURE_COUNT + 10;
+    int DATA_OBJECT__TYPE = DOCUMENTED_CLASS_FEATURE_COUNT + 12;
 
     /**
      * The feature id for the '<em><b>Parent Any LN Class</b></em>' container reference.
@@ -3082,7 +3199,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_OBJECT__PARENT_ANY_LN_CLASS = DOCUMENTED_CLASS_FEATURE_COUNT + 11;
+    int DATA_OBJECT__PARENT_ANY_LN_CLASS = DOCUMENTED_CLASS_FEATURE_COUNT + 13;
 
     /**
      * The feature id for the '<em><b>Refers To CDC</b></em>' reference.
@@ -3091,7 +3208,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_OBJECT__REFERS_TO_CDC = DOCUMENTED_CLASS_FEATURE_COUNT + 12;
+    int DATA_OBJECT__REFERS_TO_CDC = DOCUMENTED_CLASS_FEATURE_COUNT + 14;
 
     /**
      * The feature id for the '<em><b>Refers To Presence Condition</b></em>' reference.
@@ -3100,7 +3217,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION = DOCUMENTED_CLASS_FEATURE_COUNT + 13;
+    int DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION = DOCUMENTED_CLASS_FEATURE_COUNT + 15;
 
     /**
      * The feature id for the '<em><b>Refers To Presence Condition Derived Statistics</b></em>' reference.
@@ -3109,7 +3226,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION_DERIVED_STATISTICS = DOCUMENTED_CLASS_FEATURE_COUNT + 14;
+    int DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION_DERIVED_STATISTICS = DOCUMENTED_CLASS_FEATURE_COUNT + 16;
 
     /**
      * The number of structural features of the '<em>Data Object</em>' class.
@@ -3118,7 +3235,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_OBJECT_FEATURE_COUNT = DOCUMENTED_CLASS_FEATURE_COUNT + 15;
+    int DATA_OBJECT_FEATURE_COUNT = DOCUMENTED_CLASS_FEATURE_COUNT + 17;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -3265,13 +3382,85 @@ public interface NsdPackage extends EPackage {
     int DOC__PARENT_NS_DOC = NSD_OBJECT_FEATURE_COUNT + 4;
 
     /**
+     * The feature id for the '<em><b>Referred By Ag NS Desc</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DOC__REFERRED_BY_AG_NS_DESC = NSD_OBJECT_FEATURE_COUNT + 5;
+
+    /**
+     * The feature id for the '<em><b>Referred By Presence Condition</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DOC__REFERRED_BY_PRESENCE_CONDITION = NSD_OBJECT_FEATURE_COUNT + 6;
+
+    /**
+     * The feature id for the '<em><b>Referred By Ag Presence Condition</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DOC__REFERRED_BY_AG_PRESENCE_CONDITION = NSD_OBJECT_FEATURE_COUNT + 7;
+
+    /**
+     * The feature id for the '<em><b>Referred By Abbreviation</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DOC__REFERRED_BY_ABBREVIATION = NSD_OBJECT_FEATURE_COUNT + 8;
+
+    /**
+     * The feature id for the '<em><b>Referred By Basic Type</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DOC__REFERRED_BY_BASIC_TYPE = NSD_OBJECT_FEATURE_COUNT + 9;
+
+    /**
+     * The feature id for the '<em><b>Referred By Documented Class</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DOC__REFERRED_BY_DOCUMENTED_CLASS = NSD_OBJECT_FEATURE_COUNT + 10;
+
+    /**
+     * The feature id for the '<em><b>Referred By Functional Constraint</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT = NSD_OBJECT_FEATURE_COUNT + 11;
+
+    /**
+     * The feature id for the '<em><b>Referred By Ag Presence Condition Derived Statistics</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DOC__REFERRED_BY_AG_PRESENCE_CONDITION_DERIVED_STATISTICS = NSD_OBJECT_FEATURE_COUNT + 12;
+
+    /**
      * The number of structural features of the '<em>Doc</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DOC_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 5;
+    int DOC_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 13;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -3335,6 +3524,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int ENUMERATION__INFORMATIVE = TITLED_CLASS__INFORMATIVE;
+
+    /**
+     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ENUMERATION__REFERS_TO_DOC = TITLED_CLASS__REFERS_TO_DOC;
 
     /**
      * The feature id for the '<em><b>Title ID</b></em>' attribute.
@@ -3562,13 +3760,22 @@ public interface NsdPackage extends EPackage {
     int FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE = NSD_OBJECT_FEATURE_COUNT + 5;
 
     /**
+     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FUNCTIONAL_CONSTRAINT__REFERS_TO_DOC = NSD_OBJECT_FEATURE_COUNT + 6;
+
+    /**
      * The number of structural features of the '<em>Functional Constraint</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int FUNCTIONAL_CONSTRAINT_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 6;
+    int FUNCTIONAL_CONSTRAINT_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 7;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -3787,6 +3994,15 @@ public interface NsdPackage extends EPackage {
     int LITERAL__INFORMATIVE = DOCUMENTED_CLASS__INFORMATIVE;
 
     /**
+     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LITERAL__REFERS_TO_DOC = DOCUMENTED_CLASS__REFERS_TO_DOC;
+
+    /**
      * The feature id for the '<em><b>Literal Val</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3884,6 +4100,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int LN_CLASS__INFORMATIVE = ANY_LN_CLASS__INFORMATIVE;
+
+    /**
+     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LN_CLASS__REFERS_TO_DOC = ANY_LN_CLASS__REFERS_TO_DOC;
 
     /**
      * The feature id for the '<em><b>Title ID</b></em>' attribute.
@@ -4237,13 +4462,22 @@ public interface NsdPackage extends EPackage {
     int NS__DESC_ID = COPYRIGHTED_FEATURE_COUNT + 7;
 
     /**
+     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NS__REFERS_TO_DOC = COPYRIGHTED_FEATURE_COUNT + 8;
+
+    /**
      * The feature id for the '<em><b>Changes</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int NS__CHANGES = COPYRIGHTED_FEATURE_COUNT + 8;
+    int NS__CHANGES = COPYRIGHTED_FEATURE_COUNT + 9;
 
     /**
      * The feature id for the '<em><b>Depends On</b></em>' containment reference.
@@ -4252,7 +4486,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS__DEPENDS_ON = COPYRIGHTED_FEATURE_COUNT + 9;
+    int NS__DEPENDS_ON = COPYRIGHTED_FEATURE_COUNT + 10;
 
     /**
      * The feature id for the '<em><b>Basic Types</b></em>' containment reference.
@@ -4261,7 +4495,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS__BASIC_TYPES = COPYRIGHTED_FEATURE_COUNT + 10;
+    int NS__BASIC_TYPES = COPYRIGHTED_FEATURE_COUNT + 11;
 
     /**
      * The feature id for the '<em><b>Functional Constraints</b></em>' containment reference.
@@ -4270,7 +4504,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS__FUNCTIONAL_CONSTRAINTS = COPYRIGHTED_FEATURE_COUNT + 11;
+    int NS__FUNCTIONAL_CONSTRAINTS = COPYRIGHTED_FEATURE_COUNT + 12;
 
     /**
      * The feature id for the '<em><b>Presence Conditions</b></em>' containment reference.
@@ -4279,7 +4513,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS__PRESENCE_CONDITIONS = COPYRIGHTED_FEATURE_COUNT + 12;
+    int NS__PRESENCE_CONDITIONS = COPYRIGHTED_FEATURE_COUNT + 13;
 
     /**
      * The feature id for the '<em><b>Abbreviations</b></em>' containment reference.
@@ -4288,7 +4522,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS__ABBREVIATIONS = COPYRIGHTED_FEATURE_COUNT + 13;
+    int NS__ABBREVIATIONS = COPYRIGHTED_FEATURE_COUNT + 14;
 
     /**
      * The feature id for the '<em><b>Enumerations</b></em>' containment reference.
@@ -4297,7 +4531,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS__ENUMERATIONS = COPYRIGHTED_FEATURE_COUNT + 14;
+    int NS__ENUMERATIONS = COPYRIGHTED_FEATURE_COUNT + 15;
 
     /**
      * The feature id for the '<em><b>Constructed Attributes</b></em>' containment reference.
@@ -4306,7 +4540,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS__CONSTRUCTED_ATTRIBUTES = COPYRIGHTED_FEATURE_COUNT + 15;
+    int NS__CONSTRUCTED_ATTRIBUTES = COPYRIGHTED_FEATURE_COUNT + 16;
 
     /**
      * The feature id for the '<em><b>CD Cs</b></em>' containment reference.
@@ -4315,7 +4549,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS__CD_CS = COPYRIGHTED_FEATURE_COUNT + 16;
+    int NS__CD_CS = COPYRIGHTED_FEATURE_COUNT + 17;
 
     /**
      * The feature id for the '<em><b>LN Classes</b></em>' containment reference.
@@ -4324,7 +4558,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS__LN_CLASSES = COPYRIGHTED_FEATURE_COUNT + 17;
+    int NS__LN_CLASSES = COPYRIGHTED_FEATURE_COUNT + 18;
 
     /**
      * The feature id for the '<em><b>Referred By Depends On</b></em>' reference list.
@@ -4333,7 +4567,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS__REFERRED_BY_DEPENDS_ON = COPYRIGHTED_FEATURE_COUNT + 18;
+    int NS__REFERRED_BY_DEPENDS_ON = COPYRIGHTED_FEATURE_COUNT + 19;
 
     /**
      * The number of structural features of the '<em>NS</em>' class.
@@ -4342,7 +4576,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS_FEATURE_COUNT = COPYRIGHTED_FEATURE_COUNT + 19;
+    int NS_FEATURE_COUNT = COPYRIGHTED_FEATURE_COUNT + 20;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -4651,13 +4885,22 @@ public interface NsdPackage extends EPackage {
     int PRESENCE_CONDITION__REFERRED_BY_SUB_DATA_ATTRIBUTE = NSD_OBJECT_FEATURE_COUNT + 9;
 
     /**
+     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PRESENCE_CONDITION__REFERS_TO_DOC = NSD_OBJECT_FEATURE_COUNT + 10;
+
+    /**
      * The number of structural features of the '<em>Presence Condition</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PRESENCE_CONDITION_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 10;
+    int PRESENCE_CONDITION_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 11;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -4939,6 +5182,15 @@ public interface NsdPackage extends EPackage {
     int SERVICE_CONSTRUCTED_ATTRIBUTE__INFORMATIVE = CONSTRUCTED_ATTRIBUTE__INFORMATIVE;
 
     /**
+     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_CONSTRUCTED_ATTRIBUTE__REFERS_TO_DOC = CONSTRUCTED_ATTRIBUTE__REFERS_TO_DOC;
+
+    /**
      * The feature id for the '<em><b>Title ID</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5137,6 +5389,15 @@ public interface NsdPackage extends EPackage {
     int SERVICE_DATA_ATTRIBUTE__INFORMATIVE = DOCUMENTED_CLASS__INFORMATIVE;
 
     /**
+     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_DATA_ATTRIBUTE__REFERS_TO_DOC = DOCUMENTED_CLASS__REFERS_TO_DOC;
+
+    /**
      * The feature id for the '<em><b>Pres Cond</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5164,13 +5425,22 @@ public interface NsdPackage extends EPackage {
     int SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS_ID = DOCUMENTED_CLASS_FEATURE_COUNT + 2;
 
     /**
+     * The feature id for the '<em><b>Refers To Pres Cond Args Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC = DOCUMENTED_CLASS_FEATURE_COUNT + 3;
+
+    /**
      * The feature id for the '<em><b>Type</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SERVICE_DATA_ATTRIBUTE__TYPE = DOCUMENTED_CLASS_FEATURE_COUNT + 3;
+    int SERVICE_DATA_ATTRIBUTE__TYPE = DOCUMENTED_CLASS_FEATURE_COUNT + 4;
 
     /**
      * The feature id for the '<em><b>Type Kind</b></em>' attribute.
@@ -5179,7 +5449,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_DATA_ATTRIBUTE__TYPE_KIND = DOCUMENTED_CLASS_FEATURE_COUNT + 4;
+    int SERVICE_DATA_ATTRIBUTE__TYPE_KIND = DOCUMENTED_CLASS_FEATURE_COUNT + 5;
 
     /**
      * The feature id for the '<em><b>Underlying Type</b></em>' attribute.
@@ -5188,7 +5458,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE = DOCUMENTED_CLASS_FEATURE_COUNT + 5;
+    int SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE = DOCUMENTED_CLASS_FEATURE_COUNT + 6;
 
     /**
      * The feature id for the '<em><b>Underlying Type Kind</b></em>' attribute.
@@ -5197,7 +5467,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE_KIND = DOCUMENTED_CLASS_FEATURE_COUNT + 6;
+    int SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE_KIND = DOCUMENTED_CLASS_FEATURE_COUNT + 7;
 
     /**
      * The feature id for the '<em><b>Fc</b></em>' attribute.
@@ -5206,7 +5476,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_DATA_ATTRIBUTE__FC = DOCUMENTED_CLASS_FEATURE_COUNT + 7;
+    int SERVICE_DATA_ATTRIBUTE__FC = DOCUMENTED_CLASS_FEATURE_COUNT + 8;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -5215,7 +5485,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_DATA_ATTRIBUTE__NAME = DOCUMENTED_CLASS_FEATURE_COUNT + 8;
+    int SERVICE_DATA_ATTRIBUTE__NAME = DOCUMENTED_CLASS_FEATURE_COUNT + 9;
 
     /**
      * The feature id for the '<em><b>Parent Service CDC</b></em>' container reference.
@@ -5224,7 +5494,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_DATA_ATTRIBUTE__PARENT_SERVICE_CDC = DOCUMENTED_CLASS_FEATURE_COUNT + 9;
+    int SERVICE_DATA_ATTRIBUTE__PARENT_SERVICE_CDC = DOCUMENTED_CLASS_FEATURE_COUNT + 10;
 
     /**
      * The number of structural features of the '<em>Service Data Attribute</em>' class.
@@ -5233,7 +5503,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_DATA_ATTRIBUTE_FEATURE_COUNT = DOCUMENTED_CLASS_FEATURE_COUNT + 10;
+    int SERVICE_DATA_ATTRIBUTE_FEATURE_COUNT = DOCUMENTED_CLASS_FEATURE_COUNT + 11;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -5353,13 +5623,22 @@ public interface NsdPackage extends EPackage {
     int SERVICE_NS__DESC_ID = COPYRIGHTED_FEATURE_COUNT + 7;
 
     /**
+     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_NS__REFERS_TO_DOC = COPYRIGHTED_FEATURE_COUNT + 8;
+
+    /**
      * The feature id for the '<em><b>Changes</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SERVICE_NS__CHANGES = COPYRIGHTED_FEATURE_COUNT + 8;
+    int SERVICE_NS__CHANGES = COPYRIGHTED_FEATURE_COUNT + 9;
 
     /**
      * The feature id for the '<em><b>Functional Constraints</b></em>' containment reference.
@@ -5368,7 +5647,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_NS__FUNCTIONAL_CONSTRAINTS = COPYRIGHTED_FEATURE_COUNT + 9;
+    int SERVICE_NS__FUNCTIONAL_CONSTRAINTS = COPYRIGHTED_FEATURE_COUNT + 10;
 
     /**
      * The feature id for the '<em><b>Presence Conditions</b></em>' containment reference.
@@ -5377,7 +5656,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_NS__PRESENCE_CONDITIONS = COPYRIGHTED_FEATURE_COUNT + 10;
+    int SERVICE_NS__PRESENCE_CONDITIONS = COPYRIGHTED_FEATURE_COUNT + 11;
 
     /**
      * The feature id for the '<em><b>Abbreviations</b></em>' containment reference.
@@ -5386,7 +5665,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_NS__ABBREVIATIONS = COPYRIGHTED_FEATURE_COUNT + 11;
+    int SERVICE_NS__ABBREVIATIONS = COPYRIGHTED_FEATURE_COUNT + 12;
 
     /**
      * The feature id for the '<em><b>Service Type Realizations</b></em>' containment reference.
@@ -5395,7 +5674,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_NS__SERVICE_TYPE_REALIZATIONS = COPYRIGHTED_FEATURE_COUNT + 12;
+    int SERVICE_NS__SERVICE_TYPE_REALIZATIONS = COPYRIGHTED_FEATURE_COUNT + 13;
 
     /**
      * The feature id for the '<em><b>Service Constructed Attributes</b></em>' containment reference.
@@ -5404,7 +5683,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_NS__SERVICE_CONSTRUCTED_ATTRIBUTES = COPYRIGHTED_FEATURE_COUNT + 13;
+    int SERVICE_NS__SERVICE_CONSTRUCTED_ATTRIBUTES = COPYRIGHTED_FEATURE_COUNT + 14;
 
     /**
      * The feature id for the '<em><b>Service CD Cs</b></em>' containment reference.
@@ -5413,7 +5692,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_NS__SERVICE_CD_CS = COPYRIGHTED_FEATURE_COUNT + 14;
+    int SERVICE_NS__SERVICE_CD_CS = COPYRIGHTED_FEATURE_COUNT + 15;
 
     /**
      * The number of structural features of the '<em>Service NS</em>' class.
@@ -5422,7 +5701,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_NS_FEATURE_COUNT = COPYRIGHTED_FEATURE_COUNT + 15;
+    int SERVICE_NS_FEATURE_COUNT = COPYRIGHTED_FEATURE_COUNT + 16;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -5594,6 +5873,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int SERVICE_PARAMETER__INFORMATIVE = DOCUMENTED_CLASS__INFORMATIVE;
+
+    /**
+     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_PARAMETER__REFERS_TO_DOC = DOCUMENTED_CLASS__REFERS_TO_DOC;
 
     /**
      * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -5794,6 +6082,15 @@ public interface NsdPackage extends EPackage {
     int SUB_DATA_ATTRIBUTE__INFORMATIVE = DOCUMENTED_CLASS__INFORMATIVE;
 
     /**
+     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SUB_DATA_ATTRIBUTE__REFERS_TO_DOC = DOCUMENTED_CLASS__REFERS_TO_DOC;
+
+    /**
      * The feature id for the '<em><b>Pres Cond</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5821,13 +6118,22 @@ public interface NsdPackage extends EPackage {
     int SUB_DATA_ATTRIBUTE__PRES_COND_ARGS_ID = DOCUMENTED_CLASS_FEATURE_COUNT + 2;
 
     /**
+     * The feature id for the '<em><b>Refers To Pres Cond Args Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SUB_DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC = DOCUMENTED_CLASS_FEATURE_COUNT + 3;
+
+    /**
      * The feature id for the '<em><b>Is Array</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SUB_DATA_ATTRIBUTE__IS_ARRAY = DOCUMENTED_CLASS_FEATURE_COUNT + 3;
+    int SUB_DATA_ATTRIBUTE__IS_ARRAY = DOCUMENTED_CLASS_FEATURE_COUNT + 4;
 
     /**
      * The feature id for the '<em><b>Max Index Attribute</b></em>' attribute.
@@ -5836,7 +6142,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_DATA_ATTRIBUTE__MAX_INDEX_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 4;
+    int SUB_DATA_ATTRIBUTE__MAX_INDEX_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 5;
 
     /**
      * The feature id for the '<em><b>Min Index</b></em>' attribute.
@@ -5845,7 +6151,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_DATA_ATTRIBUTE__MIN_INDEX = DOCUMENTED_CLASS_FEATURE_COUNT + 5;
+    int SUB_DATA_ATTRIBUTE__MIN_INDEX = DOCUMENTED_CLASS_FEATURE_COUNT + 6;
 
     /**
      * The feature id for the '<em><b>Size Attribute</b></em>' attribute.
@@ -5854,7 +6160,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_DATA_ATTRIBUTE__SIZE_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 6;
+    int SUB_DATA_ATTRIBUTE__SIZE_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 7;
 
     /**
      * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -5863,7 +6169,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_DATA_ATTRIBUTE__TYPE = DOCUMENTED_CLASS_FEATURE_COUNT + 7;
+    int SUB_DATA_ATTRIBUTE__TYPE = DOCUMENTED_CLASS_FEATURE_COUNT + 8;
 
     /**
      * The feature id for the '<em><b>Type Kind</b></em>' attribute.
@@ -5872,7 +6178,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_DATA_ATTRIBUTE__TYPE_KIND = DOCUMENTED_CLASS_FEATURE_COUNT + 8;
+    int SUB_DATA_ATTRIBUTE__TYPE_KIND = DOCUMENTED_CLASS_FEATURE_COUNT + 9;
 
     /**
      * The feature id for the '<em><b>Default Value</b></em>' attribute.
@@ -5881,7 +6187,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_DATA_ATTRIBUTE__DEFAULT_VALUE = DOCUMENTED_CLASS_FEATURE_COUNT + 9;
+    int SUB_DATA_ATTRIBUTE__DEFAULT_VALUE = DOCUMENTED_CLASS_FEATURE_COUNT + 10;
 
     /**
      * The feature id for the '<em><b>Max Value</b></em>' attribute.
@@ -5890,7 +6196,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_DATA_ATTRIBUTE__MAX_VALUE = DOCUMENTED_CLASS_FEATURE_COUNT + 10;
+    int SUB_DATA_ATTRIBUTE__MAX_VALUE = DOCUMENTED_CLASS_FEATURE_COUNT + 11;
 
     /**
      * The feature id for the '<em><b>Min Value</b></em>' attribute.
@@ -5899,7 +6205,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_DATA_ATTRIBUTE__MIN_VALUE = DOCUMENTED_CLASS_FEATURE_COUNT + 11;
+    int SUB_DATA_ATTRIBUTE__MIN_VALUE = DOCUMENTED_CLASS_FEATURE_COUNT + 12;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -5908,7 +6214,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_DATA_ATTRIBUTE__NAME = DOCUMENTED_CLASS_FEATURE_COUNT + 12;
+    int SUB_DATA_ATTRIBUTE__NAME = DOCUMENTED_CLASS_FEATURE_COUNT + 13;
 
     /**
      * The feature id for the '<em><b>Parent Constructed Attribute</b></em>' container reference.
@@ -5917,7 +6223,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_DATA_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 13;
+    int SUB_DATA_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 14;
 
     /**
      * The feature id for the '<em><b>Refers To Presence Condition</b></em>' reference.
@@ -5926,7 +6232,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION = DOCUMENTED_CLASS_FEATURE_COUNT + 14;
+    int SUB_DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION = DOCUMENTED_CLASS_FEATURE_COUNT + 15;
 
     /**
      * The number of structural features of the '<em>Sub Data Attribute</em>' class.
@@ -5935,7 +6241,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_DATA_ATTRIBUTE_FEATURE_COUNT = DOCUMENTED_CLASS_FEATURE_COUNT + 15;
+    int SUB_DATA_ATTRIBUTE_FEATURE_COUNT = DOCUMENTED_CLASS_FEATURE_COUNT + 16;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -6001,6 +6307,15 @@ public interface NsdPackage extends EPackage {
     int SUB_DATA_OBJECT__INFORMATIVE = DOCUMENTED_CLASS__INFORMATIVE;
 
     /**
+     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SUB_DATA_OBJECT__REFERS_TO_DOC = DOCUMENTED_CLASS__REFERS_TO_DOC;
+
+    /**
      * The feature id for the '<em><b>Pres Cond</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6028,13 +6343,22 @@ public interface NsdPackage extends EPackage {
     int SUB_DATA_OBJECT__PRES_COND_ARGS_ID = DOCUMENTED_CLASS_FEATURE_COUNT + 2;
 
     /**
+     * The feature id for the '<em><b>Refers To Pres Cond Args Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SUB_DATA_OBJECT__REFERS_TO_PRES_COND_ARGS_DOC = DOCUMENTED_CLASS_FEATURE_COUNT + 3;
+
+    /**
      * The feature id for the '<em><b>Is Array</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SUB_DATA_OBJECT__IS_ARRAY = DOCUMENTED_CLASS_FEATURE_COUNT + 3;
+    int SUB_DATA_OBJECT__IS_ARRAY = DOCUMENTED_CLASS_FEATURE_COUNT + 4;
 
     /**
      * The feature id for the '<em><b>Max Index Attribute</b></em>' attribute.
@@ -6043,7 +6367,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_DATA_OBJECT__MAX_INDEX_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 4;
+    int SUB_DATA_OBJECT__MAX_INDEX_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 5;
 
     /**
      * The feature id for the '<em><b>Min Index</b></em>' attribute.
@@ -6052,7 +6376,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_DATA_OBJECT__MIN_INDEX = DOCUMENTED_CLASS_FEATURE_COUNT + 5;
+    int SUB_DATA_OBJECT__MIN_INDEX = DOCUMENTED_CLASS_FEATURE_COUNT + 6;
 
     /**
      * The feature id for the '<em><b>Size Attribute</b></em>' attribute.
@@ -6061,7 +6385,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_DATA_OBJECT__SIZE_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 6;
+    int SUB_DATA_OBJECT__SIZE_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 7;
 
     /**
      * The feature id for the '<em><b>Underlying Type</b></em>' attribute.
@@ -6070,7 +6394,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_DATA_OBJECT__UNDERLYING_TYPE = DOCUMENTED_CLASS_FEATURE_COUNT + 7;
+    int SUB_DATA_OBJECT__UNDERLYING_TYPE = DOCUMENTED_CLASS_FEATURE_COUNT + 8;
 
     /**
      * The feature id for the '<em><b>Underlying Type Kind</b></em>' attribute.
@@ -6079,7 +6403,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_DATA_OBJECT__UNDERLYING_TYPE_KIND = DOCUMENTED_CLASS_FEATURE_COUNT + 8;
+    int SUB_DATA_OBJECT__UNDERLYING_TYPE_KIND = DOCUMENTED_CLASS_FEATURE_COUNT + 9;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -6088,7 +6412,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_DATA_OBJECT__NAME = DOCUMENTED_CLASS_FEATURE_COUNT + 9;
+    int SUB_DATA_OBJECT__NAME = DOCUMENTED_CLASS_FEATURE_COUNT + 10;
 
     /**
      * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -6097,7 +6421,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_DATA_OBJECT__TYPE = DOCUMENTED_CLASS_FEATURE_COUNT + 10;
+    int SUB_DATA_OBJECT__TYPE = DOCUMENTED_CLASS_FEATURE_COUNT + 11;
 
     /**
      * The feature id for the '<em><b>Parent CDC</b></em>' container reference.
@@ -6106,7 +6430,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_DATA_OBJECT__PARENT_CDC = DOCUMENTED_CLASS_FEATURE_COUNT + 11;
+    int SUB_DATA_OBJECT__PARENT_CDC = DOCUMENTED_CLASS_FEATURE_COUNT + 12;
 
     /**
      * The feature id for the '<em><b>Refers To CDC</b></em>' reference.
@@ -6115,7 +6439,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_DATA_OBJECT__REFERS_TO_CDC = DOCUMENTED_CLASS_FEATURE_COUNT + 12;
+    int SUB_DATA_OBJECT__REFERS_TO_CDC = DOCUMENTED_CLASS_FEATURE_COUNT + 13;
 
     /**
      * The feature id for the '<em><b>Refers To Presence Condition</b></em>' reference.
@@ -6124,7 +6448,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION = DOCUMENTED_CLASS_FEATURE_COUNT + 13;
+    int SUB_DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION = DOCUMENTED_CLASS_FEATURE_COUNT + 14;
 
     /**
      * The feature id for the '<em><b>Refers To Size Attribute</b></em>' reference.
@@ -6133,7 +6457,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_DATA_OBJECT__REFERS_TO_SIZE_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 14;
+    int SUB_DATA_OBJECT__REFERS_TO_SIZE_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 15;
 
     /**
      * The feature id for the '<em><b>Refers To Max Index Attribute</b></em>' reference.
@@ -6142,7 +6466,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_DATA_OBJECT__REFERS_TO_MAX_INDEX_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 15;
+    int SUB_DATA_OBJECT__REFERS_TO_MAX_INDEX_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 16;
 
     /**
      * The number of structural features of the '<em>Sub Data Object</em>' class.
@@ -6151,7 +6475,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_DATA_OBJECT_FEATURE_COUNT = DOCUMENTED_CLASS_FEATURE_COUNT + 16;
+    int SUB_DATA_OBJECT_FEATURE_COUNT = DOCUMENTED_CLASS_FEATURE_COUNT + 17;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -6262,13 +6586,22 @@ public interface NsdPackage extends EPackage {
     int AG_PRESENCE_CONDITION__PRES_COND_ARGS_ID = 2;
 
     /**
+     * The feature id for the '<em><b>Refers To Pres Cond Args Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AG_PRESENCE_CONDITION__REFERS_TO_PRES_COND_ARGS_DOC = 3;
+
+    /**
      * The number of structural features of the '<em>Ag Presence Condition</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int AG_PRESENCE_CONDITION_FEATURE_COUNT = 3;
+    int AG_PRESENCE_CONDITION_FEATURE_COUNT = 4;
 
     /**
      * The number of operations of the '<em>Ag Presence Condition</em>' class.
@@ -6307,13 +6640,22 @@ public interface NsdPackage extends EPackage {
     int AG_PRESENCE_CONDITION_DERIVED_STATISTICS__DS_PRES_COND_ARGS_ID = 2;
 
     /**
+     * The feature id for the '<em><b>Refers To Ds Pres Cond Args Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AG_PRESENCE_CONDITION_DERIVED_STATISTICS__REFERS_TO_DS_PRES_COND_ARGS_DOC = 3;
+
+    /**
      * The number of structural features of the '<em>Ag Presence Condition Derived Statistics</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int AG_PRESENCE_CONDITION_DERIVED_STATISTICS_FEATURE_COUNT = 3;
+    int AG_PRESENCE_CONDITION_DERIVED_STATISTICS_FEATURE_COUNT = 4;
 
     /**
      * The number of operations of the '<em>Ag Presence Condition Derived Statistics</em>' class.
@@ -6604,13 +6946,22 @@ public interface NsdPackage extends EPackage {
     int AG_NSDESC__DESC_ID = 0;
 
     /**
+     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AG_NSDESC__REFERS_TO_DOC = 1;
+
+    /**
      * The number of structural features of the '<em>Ag NSdesc</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int AG_NSDESC_FEATURE_COUNT = 1;
+    int AG_NSDESC_FEATURE_COUNT = 2;
 
     /**
      * The number of operations of the '<em>Ag NSdesc</em>' class.
@@ -6995,6 +7346,17 @@ public interface NsdPackage extends EPackage {
     EReference getAbbreviation_ParentAbbreviations();
 
     /**
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation#getRefersToDoc <em>Refers To Doc</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Refers To Doc</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation#getRefersToDoc()
+     * @see #getAbbreviation()
+     * @generated
+     */
+    EReference getAbbreviation_RefersToDoc();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations <em>Abbreviations</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7282,6 +7644,17 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EReference getBasicType_ReferredByDataAttribute();
+
+    /**
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getRefersToDoc <em>Refers To Doc</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Refers To Doc</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getRefersToDoc()
+     * @see #getBasicType()
+     * @generated
+     */
+    EReference getBasicType_RefersToDoc();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes <em>Basic Types</em>}'.
@@ -8053,6 +8426,94 @@ public interface NsdPackage extends EPackage {
     EReference getDoc_ParentNSDoc();
 
     /**
+     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByAgNSDesc <em>Referred By Ag NS Desc</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Referred By Ag NS Desc</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByAgNSDesc()
+     * @see #getDoc()
+     * @generated
+     */
+    EReference getDoc_ReferredByAgNSDesc();
+
+    /**
+     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByPresenceCondition <em>Referred By Presence Condition</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Referred By Presence Condition</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByPresenceCondition()
+     * @see #getDoc()
+     * @generated
+     */
+    EReference getDoc_ReferredByPresenceCondition();
+
+    /**
+     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByAgPresenceCondition <em>Referred By Ag Presence Condition</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Referred By Ag Presence Condition</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByAgPresenceCondition()
+     * @see #getDoc()
+     * @generated
+     */
+    EReference getDoc_ReferredByAgPresenceCondition();
+
+    /**
+     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByAbbreviation <em>Referred By Abbreviation</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Referred By Abbreviation</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByAbbreviation()
+     * @see #getDoc()
+     * @generated
+     */
+    EReference getDoc_ReferredByAbbreviation();
+
+    /**
+     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByBasicType <em>Referred By Basic Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Referred By Basic Type</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByBasicType()
+     * @see #getDoc()
+     * @generated
+     */
+    EReference getDoc_ReferredByBasicType();
+
+    /**
+     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByDocumentedClass <em>Referred By Documented Class</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Referred By Documented Class</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByDocumentedClass()
+     * @see #getDoc()
+     * @generated
+     */
+    EReference getDoc_ReferredByDocumentedClass();
+
+    /**
+     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByFunctionalConstraint <em>Referred By Functional Constraint</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Referred By Functional Constraint</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByFunctionalConstraint()
+     * @see #getDoc()
+     * @generated
+     */
+    EReference getDoc_ReferredByFunctionalConstraint();
+
+    /**
+     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByAgPresenceConditionDerivedStatistics <em>Referred By Ag Presence Condition Derived Statistics</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Referred By Ag Presence Condition Derived Statistics</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByAgPresenceConditionDerivedStatistics()
+     * @see #getDoc()
+     * @generated
+     */
+    EReference getDoc_ReferredByAgPresenceConditionDerivedStatistics();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentedClass <em>Documented Class</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8094,6 +8555,17 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EAttribute getDocumentedClass_Informative();
+
+    /**
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentedClass#getRefersToDoc <em>Refers To Doc</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Refers To Doc</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentedClass#getRefersToDoc()
+     * @see #getDocumentedClass()
+     * @generated
+     */
+    EReference getDocumentedClass_RefersToDoc();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration <em>Enumeration</em>}'.
@@ -8278,6 +8750,17 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EReference getFunctionalConstraint_ReferredByDataAttribute();
+
+    /**
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getRefersToDoc <em>Refers To Doc</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Refers To Doc</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getRefersToDoc()
+     * @see #getFunctionalConstraint()
+     * @generated
+     */
+    EReference getFunctionalConstraint_RefersToDoc();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints <em>Functional Constraints</em>}'.
@@ -8880,6 +9363,17 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EReference getPresenceCondition_ReferredBySubDataAttribute();
+
+    /**
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getRefersToDoc <em>Refers To Doc</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Refers To Doc</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getRefersToDoc()
+     * @see #getPresenceCondition()
+     * @generated
+     */
+    EReference getPresenceCondition_RefersToDoc();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions <em>Presence Conditions</em>}'.
@@ -9602,6 +10096,17 @@ public interface NsdPackage extends EPackage {
     EAttribute getAgPresenceCondition_PresCondArgsID();
 
     /**
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceCondition#getRefersToPresCondArgsDoc <em>Refers To Pres Cond Args Doc</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Refers To Pres Cond Args Doc</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceCondition#getRefersToPresCondArgsDoc()
+     * @see #getAgPresenceCondition()
+     * @generated
+     */
+    EReference getAgPresenceCondition_RefersToPresCondArgsDoc();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceConditionDerivedStatistics <em>Ag Presence Condition Derived Statistics</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -9643,6 +10148,17 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EAttribute getAgPresenceConditionDerivedStatistics_DsPresCondArgsID();
+
+    /**
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceConditionDerivedStatistics#getRefersToDsPresCondArgsDoc <em>Refers To Ds Pres Cond Args Doc</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Refers To Ds Pres Cond Args Doc</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceConditionDerivedStatistics#getRefersToDsPresCondArgsDoc()
+     * @see #getAgPresenceConditionDerivedStatistics()
+     * @generated
+     */
+    EReference getAgPresenceConditionDerivedStatistics_RefersToDsPresCondArgsDoc();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgArray <em>Ag Array</em>}'.
@@ -9900,6 +10416,17 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EAttribute getAgNSdesc_DescID();
+
+    /**
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSdesc#getRefersToDoc <em>Refers To Doc</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Refers To Doc</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSdesc#getRefersToDoc()
+     * @see #getAgNSdesc()
+     * @generated
+     */
+    EReference getAgNSdesc_RefersToDoc();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole <em>IRise Clipse Console</em>}'.
@@ -10250,6 +10777,14 @@ public interface NsdPackage extends EPackage {
         EReference ABBREVIATION__PARENT_ABBREVIATIONS = eINSTANCE.getAbbreviation_ParentAbbreviations();
 
         /**
+         * The meta object literal for the '<em><b>Refers To Doc</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference ABBREVIATION__REFERS_TO_DOC = eINSTANCE.getAbbreviation_RefersToDoc();
+
+        /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AbbreviationsImpl <em>Abbreviations</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -10477,6 +11012,14 @@ public interface NsdPackage extends EPackage {
          * @generated
          */
         EReference BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE = eINSTANCE.getBasicType_ReferredByDataAttribute();
+
+        /**
+         * The meta object literal for the '<em><b>Refers To Doc</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference BASIC_TYPE__REFERS_TO_DOC = eINSTANCE.getBasicType_RefersToDoc();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.BasicTypesImpl <em>Basic Types</em>}' class.
@@ -11083,6 +11626,71 @@ public interface NsdPackage extends EPackage {
         EReference DOC__PARENT_NS_DOC = eINSTANCE.getDoc_ParentNSDoc();
 
         /**
+         * The meta object literal for the '<em><b>Referred By Ag NS Desc</b></em>' reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DOC__REFERRED_BY_AG_NS_DESC = eINSTANCE.getDoc_ReferredByAgNSDesc();
+
+        /**
+         * The meta object literal for the '<em><b>Referred By Presence Condition</b></em>' reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DOC__REFERRED_BY_PRESENCE_CONDITION = eINSTANCE.getDoc_ReferredByPresenceCondition();
+
+        /**
+         * The meta object literal for the '<em><b>Referred By Ag Presence Condition</b></em>' reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DOC__REFERRED_BY_AG_PRESENCE_CONDITION = eINSTANCE.getDoc_ReferredByAgPresenceCondition();
+
+        /**
+         * The meta object literal for the '<em><b>Referred By Abbreviation</b></em>' reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DOC__REFERRED_BY_ABBREVIATION = eINSTANCE.getDoc_ReferredByAbbreviation();
+
+        /**
+         * The meta object literal for the '<em><b>Referred By Basic Type</b></em>' reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DOC__REFERRED_BY_BASIC_TYPE = eINSTANCE.getDoc_ReferredByBasicType();
+
+        /**
+         * The meta object literal for the '<em><b>Referred By Documented Class</b></em>' reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DOC__REFERRED_BY_DOCUMENTED_CLASS = eINSTANCE.getDoc_ReferredByDocumentedClass();
+
+        /**
+         * The meta object literal for the '<em><b>Referred By Functional Constraint</b></em>' reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT = eINSTANCE.getDoc_ReferredByFunctionalConstraint();
+
+        /**
+         * The meta object literal for the '<em><b>Referred By Ag Presence Condition Derived Statistics</b></em>' reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DOC__REFERRED_BY_AG_PRESENCE_CONDITION_DERIVED_STATISTICS = eINSTANCE
+                .getDoc_ReferredByAgPresenceConditionDerivedStatistics();
+
+        /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DocumentedClassImpl <em>Documented Class</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -11115,6 +11723,14 @@ public interface NsdPackage extends EPackage {
          * @generated
          */
         EAttribute DOCUMENTED_CLASS__INFORMATIVE = eINSTANCE.getDocumentedClass_Informative();
+
+        /**
+         * The meta object literal for the '<em><b>Refers To Doc</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DOCUMENTED_CLASS__REFERS_TO_DOC = eINSTANCE.getDocumentedClass_RefersToDoc();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationImpl <em>Enumeration</em>}' class.
@@ -11260,6 +11876,14 @@ public interface NsdPackage extends EPackage {
          */
         EReference FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE = eINSTANCE
                 .getFunctionalConstraint_ReferredByDataAttribute();
+
+        /**
+         * The meta object literal for the '<em><b>Refers To Doc</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference FUNCTIONAL_CONSTRAINT__REFERS_TO_DOC = eINSTANCE.getFunctionalConstraint_RefersToDoc();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.FunctionalConstraintsImpl <em>Functional Constraints</em>}' class.
@@ -11736,6 +12360,14 @@ public interface NsdPackage extends EPackage {
          */
         EReference PRESENCE_CONDITION__REFERRED_BY_SUB_DATA_ATTRIBUTE = eINSTANCE
                 .getPresenceCondition_ReferredBySubDataAttribute();
+
+        /**
+         * The meta object literal for the '<em><b>Refers To Doc</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference PRESENCE_CONDITION__REFERS_TO_DOC = eINSTANCE.getPresenceCondition_RefersToDoc();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.PresenceConditionsImpl <em>Presence Conditions</em>}' class.
@@ -12318,6 +12950,15 @@ public interface NsdPackage extends EPackage {
         EAttribute AG_PRESENCE_CONDITION__PRES_COND_ARGS_ID = eINSTANCE.getAgPresenceCondition_PresCondArgsID();
 
         /**
+         * The meta object literal for the '<em><b>Refers To Pres Cond Args Doc</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference AG_PRESENCE_CONDITION__REFERS_TO_PRES_COND_ARGS_DOC = eINSTANCE
+                .getAgPresenceCondition_RefersToPresCondArgsDoc();
+
+        /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AgPresenceConditionDerivedStatisticsImpl <em>Ag Presence Condition Derived Statistics</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -12353,6 +12994,15 @@ public interface NsdPackage extends EPackage {
          */
         EAttribute AG_PRESENCE_CONDITION_DERIVED_STATISTICS__DS_PRES_COND_ARGS_ID = eINSTANCE
                 .getAgPresenceConditionDerivedStatistics_DsPresCondArgsID();
+
+        /**
+         * The meta object literal for the '<em><b>Refers To Ds Pres Cond Args Doc</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference AG_PRESENCE_CONDITION_DERIVED_STATISTICS__REFERS_TO_DS_PRES_COND_ARGS_DOC = eINSTANCE
+                .getAgPresenceConditionDerivedStatistics_RefersToDsPresCondArgsDoc();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AgArrayImpl <em>Ag Array</em>}' class.
@@ -12559,6 +13209,14 @@ public interface NsdPackage extends EPackage {
          * @generated
          */
         EAttribute AG_NSDESC__DESC_ID = eINSTANCE.getAgNSdesc_DescID();
+
+        /**
+         * The meta object literal for the '<em><b>Refers To Doc</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference AG_NSDESC__REFERS_TO_DOC = eINSTANCE.getAgNSdesc_RefersToDoc();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole <em>IRise Clipse Console</em>}' class.

@@ -142,6 +142,8 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentAbbreviations" ordered="false"
         eType="#//Abbreviations" unsettable="true" resolveProxies="false" eOpposite="#//Abbreviations/abbreviation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refersToDoc" ordered="false"
+        eType="#//Doc" transient="true" unsettable="true" resolveProxies="false" eOpposite="#//Doc/referredByAbbreviation"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Abbreviations" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -403,6 +405,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="referredByDataAttribute"
         ordered="false" upperBound="-1" eType="#//DataAttribute" transient="true"
         unsettable="true" resolveProxies="false" eOpposite="#//DataAttribute/refersToBasicType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refersToDoc" ordered="false"
+        eType="#//Doc" transient="true" unsettable="true" resolveProxies="false" eOpposite="#//Doc/referredByBasicType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BasicTypes" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -898,6 +902,30 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentNSDoc" ordered="false"
         eType="#//NSDoc" transient="true" unsettable="true" resolveProxies="false"
         eOpposite="#//NSDoc/doc"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ReferredByAgNSDesc" ordered="false"
+        upperBound="-1" eType="#//AgNSdesc" transient="true" unsettable="true" resolveProxies="false"
+        eOpposite="#//AgNSdesc/refersToDoc"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referredByPresenceCondition"
+        ordered="false" upperBound="-1" eType="#//PresenceCondition" transient="true"
+        unsettable="true" resolveProxies="false" eOpposite="#//PresenceCondition/refersToDoc"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referredByAgPresenceCondition"
+        ordered="false" upperBound="-1" eType="#//AgPresenceCondition" transient="true"
+        unsettable="true" resolveProxies="false" eOpposite="#//AgPresenceCondition/refersToPresCondArgsDoc"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referredByAbbreviation"
+        ordered="false" upperBound="-1" eType="#//Abbreviation" transient="true" unsettable="true"
+        resolveProxies="false" eOpposite="#//Abbreviation/refersToDoc"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referredByBasicType" ordered="false"
+        upperBound="-1" eType="#//BasicType" transient="true" unsettable="true" resolveProxies="false"
+        eOpposite="#//BasicType/refersToDoc"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referredByDocumentedClass"
+        ordered="false" upperBound="-1" eType="#//DocumentedClass" transient="true"
+        unsettable="true" resolveProxies="false" eOpposite="#//DocumentedClass/refersToDoc"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referredByFunctionalConstraint"
+        ordered="false" upperBound="-1" eType="#//FunctionalConstraint" transient="true"
+        unsettable="true" resolveProxies="false" eOpposite="#//FunctionalConstraint/refersToDoc"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referredByAgPresenceConditionDerivedStatistics"
+        ordered="false" upperBound="-1" eType="#//AgPresenceConditionDerivedStatistics"
+        transient="true" unsettable="true" resolveProxies="false" eOpposite="#//AgPresenceConditionDerivedStatistics/refersToDsPresCondArgsDoc"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DocumentedClass" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -925,6 +953,8 @@
         <details key="name" value="informative"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refersToDoc" ordered="false"
+        eType="#//Doc" transient="true" unsettable="true" resolveProxies="false" eOpposite="#//Doc/referredByDocumentedClass"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Enumeration" eSuperTypes="#//TitledClass">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -1042,6 +1072,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="referredByDataAttribute"
         ordered="false" upperBound="-1" eType="#//DataAttribute" transient="true"
         unsettable="true" resolveProxies="false" eOpposite="#//DataAttribute/refersToFunctionalConstraint"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refersToDoc" ordered="false"
+        eType="#//Doc" transient="true" unsettable="true" resolveProxies="false" eOpposite="#//Doc/referredByFunctionalConstraint"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FunctionalConstraints" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -1431,6 +1463,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="referredBySubDataAttribute"
         ordered="false" upperBound="-1" eType="#//SubDataAttribute" transient="true"
         unsettable="true" resolveProxies="false" eOpposite="#//SubDataAttribute/refersToPresenceCondition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refersToDoc" ordered="false"
+        eType="#//Doc" transient="true" unsettable="true" resolveProxies="false" eOpposite="#//Doc/referredByPresenceCondition"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PresenceConditions" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -1940,6 +1974,9 @@
         <details key="name" value="presCondArgsID"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refersToPresCondArgsDoc"
+        ordered="false" eType="#//Doc" transient="true" unsettable="true" resolveProxies="false"
+        eOpposite="#//Doc/referredByAgPresenceCondition"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AgPresenceConditionDerivedStatistics"
       abstract="true">
@@ -1964,6 +2001,9 @@
         <details key="name" value="dsPresCondArgsID"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refersToDsPresCondArgsDoc"
+        ordered="false" eType="#//Doc" transient="true" unsettable="true" resolveProxies="false"
+        eOpposite="#//Doc/referredByAgPresenceConditionDerivedStatistics"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AgArray" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isArray" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
@@ -2098,6 +2138,8 @@
         <details key="name" value="descID"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refersToDoc" ordered="false"
+        eType="#//Doc" transient="true" unsettable="true" resolveProxies="false" eOpposite="#//Doc/ReferredByAgNSDesc"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IRiseClipseConsole" instanceClassName="fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole"
       abstract="true" interface="true"/>

@@ -19,18 +19,29 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSdesc;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceCondition;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceConditionDerivedStatistics;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentedClass;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.BasicFeatureMap;
+import org.eclipse.emf.ecore.util.EObjectWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -48,6 +59,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DocImpl#getAny <em>Any</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DocImpl#getId <em>Id</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DocImpl#getParentNSDoc <em>Parent NS Doc</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DocImpl#getReferredByAgNSDesc <em>Referred By Ag NS Desc</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DocImpl#getReferredByPresenceCondition <em>Referred By Presence Condition</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DocImpl#getReferredByAgPresenceCondition <em>Referred By Ag Presence Condition</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DocImpl#getReferredByAbbreviation <em>Referred By Abbreviation</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DocImpl#getReferredByBasicType <em>Referred By Basic Type</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DocImpl#getReferredByDocumentedClass <em>Referred By Documented Class</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DocImpl#getReferredByFunctionalConstraint <em>Referred By Functional Constraint</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DocImpl#getReferredByAgPresenceConditionDerivedStatistics <em>Referred By Ag Presence Condition Derived Statistics</em>}</li>
  * </ul>
  *
  * @generated
@@ -91,6 +110,86 @@ public class DocImpl extends NsdObjectImpl implements Doc {
      * @ordered
      */
     protected boolean idESet;
+
+    /**
+     * The cached value of the '{@link #getReferredByAgNSDesc() <em>Referred By Ag NS Desc</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getReferredByAgNSDesc()
+     * @generated
+     * @ordered
+     */
+    protected EList< AgNSdesc > referredByAgNSDesc;
+
+    /**
+     * The cached value of the '{@link #getReferredByPresenceCondition() <em>Referred By Presence Condition</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getReferredByPresenceCondition()
+     * @generated
+     * @ordered
+     */
+    protected EList< PresenceCondition > referredByPresenceCondition;
+
+    /**
+     * The cached value of the '{@link #getReferredByAgPresenceCondition() <em>Referred By Ag Presence Condition</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getReferredByAgPresenceCondition()
+     * @generated
+     * @ordered
+     */
+    protected EList< AgPresenceCondition > referredByAgPresenceCondition;
+
+    /**
+     * The cached value of the '{@link #getReferredByAbbreviation() <em>Referred By Abbreviation</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getReferredByAbbreviation()
+     * @generated
+     * @ordered
+     */
+    protected EList< Abbreviation > referredByAbbreviation;
+
+    /**
+     * The cached value of the '{@link #getReferredByBasicType() <em>Referred By Basic Type</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getReferredByBasicType()
+     * @generated
+     * @ordered
+     */
+    protected EList< BasicType > referredByBasicType;
+
+    /**
+     * The cached value of the '{@link #getReferredByDocumentedClass() <em>Referred By Documented Class</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getReferredByDocumentedClass()
+     * @generated
+     * @ordered
+     */
+    protected EList< DocumentedClass > referredByDocumentedClass;
+
+    /**
+     * The cached value of the '{@link #getReferredByFunctionalConstraint() <em>Referred By Functional Constraint</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getReferredByFunctionalConstraint()
+     * @generated
+     * @ordered
+     */
+    protected EList< FunctionalConstraint > referredByFunctionalConstraint;
+
+    /**
+     * The cached value of the '{@link #getReferredByAgPresenceConditionDerivedStatistics() <em>Referred By Ag Presence Condition Derived Statistics</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getReferredByAgPresenceConditionDerivedStatistics()
+     * @generated
+     * @ordered
+     */
+    protected EList< AgPresenceConditionDerivedStatistics > referredByAgPresenceConditionDerivedStatistics;
 
     /**
      * <!-- begin-user-doc -->
@@ -247,12 +346,324 @@ public class DocImpl extends NsdObjectImpl implements Doc {
      * @generated
      */
     @Override
+    public EList< AgNSdesc > getReferredByAgNSDesc() {
+        if( referredByAgNSDesc == null ) {
+            referredByAgNSDesc = new EObjectWithInverseEList.Unsettable< AgNSdesc >( AgNSdesc.class, this,
+                    NsdPackage.DOC__REFERRED_BY_AG_NS_DESC, NsdPackage.AG_NSDESC__REFERS_TO_DOC );
+        }
+        return referredByAgNSDesc;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetReferredByAgNSDesc() {
+        if( referredByAgNSDesc != null ) ( ( InternalEList.Unsettable< ? > ) referredByAgNSDesc ).unset();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetReferredByAgNSDesc() {
+        return referredByAgNSDesc != null && ( ( InternalEList.Unsettable< ? > ) referredByAgNSDesc ).isSet();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EList< PresenceCondition > getReferredByPresenceCondition() {
+        if( referredByPresenceCondition == null ) {
+            referredByPresenceCondition = new EObjectWithInverseEList.Unsettable< PresenceCondition >(
+                    PresenceCondition.class, this, NsdPackage.DOC__REFERRED_BY_PRESENCE_CONDITION,
+                    NsdPackage.PRESENCE_CONDITION__REFERS_TO_DOC );
+        }
+        return referredByPresenceCondition;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetReferredByPresenceCondition() {
+        if( referredByPresenceCondition != null )
+            ( ( InternalEList.Unsettable< ? > ) referredByPresenceCondition ).unset();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetReferredByPresenceCondition() {
+        return referredByPresenceCondition != null
+                && ( ( InternalEList.Unsettable< ? > ) referredByPresenceCondition ).isSet();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EList< AgPresenceCondition > getReferredByAgPresenceCondition() {
+        if( referredByAgPresenceCondition == null ) {
+            referredByAgPresenceCondition = new EObjectWithInverseEList.Unsettable< AgPresenceCondition >(
+                    AgPresenceCondition.class, this, NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION,
+                    NsdPackage.AG_PRESENCE_CONDITION__REFERS_TO_PRES_COND_ARGS_DOC );
+        }
+        return referredByAgPresenceCondition;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetReferredByAgPresenceCondition() {
+        if( referredByAgPresenceCondition != null )
+            ( ( InternalEList.Unsettable< ? > ) referredByAgPresenceCondition ).unset();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetReferredByAgPresenceCondition() {
+        return referredByAgPresenceCondition != null
+                && ( ( InternalEList.Unsettable< ? > ) referredByAgPresenceCondition ).isSet();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EList< Abbreviation > getReferredByAbbreviation() {
+        if( referredByAbbreviation == null ) {
+            referredByAbbreviation = new EObjectWithInverseEList.Unsettable< Abbreviation >( Abbreviation.class, this,
+                    NsdPackage.DOC__REFERRED_BY_ABBREVIATION, NsdPackage.ABBREVIATION__REFERS_TO_DOC );
+        }
+        return referredByAbbreviation;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetReferredByAbbreviation() {
+        if( referredByAbbreviation != null ) ( ( InternalEList.Unsettable< ? > ) referredByAbbreviation ).unset();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetReferredByAbbreviation() {
+        return referredByAbbreviation != null && ( ( InternalEList.Unsettable< ? > ) referredByAbbreviation ).isSet();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EList< BasicType > getReferredByBasicType() {
+        if( referredByBasicType == null ) {
+            referredByBasicType = new EObjectWithInverseEList.Unsettable< BasicType >( BasicType.class, this,
+                    NsdPackage.DOC__REFERRED_BY_BASIC_TYPE, NsdPackage.BASIC_TYPE__REFERS_TO_DOC );
+        }
+        return referredByBasicType;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetReferredByBasicType() {
+        if( referredByBasicType != null ) ( ( InternalEList.Unsettable< ? > ) referredByBasicType ).unset();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetReferredByBasicType() {
+        return referredByBasicType != null && ( ( InternalEList.Unsettable< ? > ) referredByBasicType ).isSet();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EList< DocumentedClass > getReferredByDocumentedClass() {
+        if( referredByDocumentedClass == null ) {
+            referredByDocumentedClass = new EObjectWithInverseEList.Unsettable< DocumentedClass >(
+                    DocumentedClass.class, this, NsdPackage.DOC__REFERRED_BY_DOCUMENTED_CLASS,
+                    NsdPackage.DOCUMENTED_CLASS__REFERS_TO_DOC );
+        }
+        return referredByDocumentedClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetReferredByDocumentedClass() {
+        if( referredByDocumentedClass != null ) ( ( InternalEList.Unsettable< ? > ) referredByDocumentedClass ).unset();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetReferredByDocumentedClass() {
+        return referredByDocumentedClass != null
+                && ( ( InternalEList.Unsettable< ? > ) referredByDocumentedClass ).isSet();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EList< FunctionalConstraint > getReferredByFunctionalConstraint() {
+        if( referredByFunctionalConstraint == null ) {
+            referredByFunctionalConstraint = new EObjectWithInverseEList.Unsettable< FunctionalConstraint >(
+                    FunctionalConstraint.class, this, NsdPackage.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT,
+                    NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DOC );
+        }
+        return referredByFunctionalConstraint;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetReferredByFunctionalConstraint() {
+        if( referredByFunctionalConstraint != null )
+            ( ( InternalEList.Unsettable< ? > ) referredByFunctionalConstraint ).unset();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetReferredByFunctionalConstraint() {
+        return referredByFunctionalConstraint != null
+                && ( ( InternalEList.Unsettable< ? > ) referredByFunctionalConstraint ).isSet();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EList< AgPresenceConditionDerivedStatistics > getReferredByAgPresenceConditionDerivedStatistics() {
+        if( referredByAgPresenceConditionDerivedStatistics == null ) {
+            referredByAgPresenceConditionDerivedStatistics = new EObjectWithInverseEList.Unsettable< AgPresenceConditionDerivedStatistics >(
+                    AgPresenceConditionDerivedStatistics.class, this,
+                    NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION_DERIVED_STATISTICS,
+                    NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__REFERS_TO_DS_PRES_COND_ARGS_DOC );
+        }
+        return referredByAgPresenceConditionDerivedStatistics;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetReferredByAgPresenceConditionDerivedStatistics() {
+        if( referredByAgPresenceConditionDerivedStatistics != null )
+            ( ( InternalEList.Unsettable< ? > ) referredByAgPresenceConditionDerivedStatistics ).unset();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetReferredByAgPresenceConditionDerivedStatistics() {
+        return referredByAgPresenceConditionDerivedStatistics != null
+                && ( ( InternalEList.Unsettable< ? > ) referredByAgPresenceConditionDerivedStatistics ).isSet();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @SuppressWarnings( "unchecked" )
+    @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.DOC__PARENT_NS_DOC:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
             return basicSetParentNSDoc( ( NSDoc ) otherEnd, msgs );
+        case NsdPackage.DOC__REFERRED_BY_AG_NS_DESC:
+            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByAgNSDesc() )
+                    .basicAdd( otherEnd, msgs );
+        case NsdPackage.DOC__REFERRED_BY_PRESENCE_CONDITION:
+            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByPresenceCondition() )
+                    .basicAdd( otherEnd, msgs );
+        case NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION:
+            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByAgPresenceCondition() )
+                    .basicAdd( otherEnd, msgs );
+        case NsdPackage.DOC__REFERRED_BY_ABBREVIATION:
+            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByAbbreviation() )
+                    .basicAdd( otherEnd, msgs );
+        case NsdPackage.DOC__REFERRED_BY_BASIC_TYPE:
+            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByBasicType() )
+                    .basicAdd( otherEnd, msgs );
+        case NsdPackage.DOC__REFERRED_BY_DOCUMENTED_CLASS:
+            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByDocumentedClass() )
+                    .basicAdd( otherEnd, msgs );
+        case NsdPackage.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT:
+            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByFunctionalConstraint() )
+                    .basicAdd( otherEnd, msgs );
+        case NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION_DERIVED_STATISTICS:
+            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByAgPresenceConditionDerivedStatistics() )
+                    .basicAdd( otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
     }
@@ -273,6 +684,23 @@ public class DocImpl extends NsdObjectImpl implements Doc {
             return ( ( InternalEList< ? > ) getAny() ).basicRemove( otherEnd, msgs );
         case NsdPackage.DOC__PARENT_NS_DOC:
             return basicSetParentNSDoc( null, msgs );
+        case NsdPackage.DOC__REFERRED_BY_AG_NS_DESC:
+            return ( ( InternalEList< ? > ) getReferredByAgNSDesc() ).basicRemove( otherEnd, msgs );
+        case NsdPackage.DOC__REFERRED_BY_PRESENCE_CONDITION:
+            return ( ( InternalEList< ? > ) getReferredByPresenceCondition() ).basicRemove( otherEnd, msgs );
+        case NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION:
+            return ( ( InternalEList< ? > ) getReferredByAgPresenceCondition() ).basicRemove( otherEnd, msgs );
+        case NsdPackage.DOC__REFERRED_BY_ABBREVIATION:
+            return ( ( InternalEList< ? > ) getReferredByAbbreviation() ).basicRemove( otherEnd, msgs );
+        case NsdPackage.DOC__REFERRED_BY_BASIC_TYPE:
+            return ( ( InternalEList< ? > ) getReferredByBasicType() ).basicRemove( otherEnd, msgs );
+        case NsdPackage.DOC__REFERRED_BY_DOCUMENTED_CLASS:
+            return ( ( InternalEList< ? > ) getReferredByDocumentedClass() ).basicRemove( otherEnd, msgs );
+        case NsdPackage.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT:
+            return ( ( InternalEList< ? > ) getReferredByFunctionalConstraint() ).basicRemove( otherEnd, msgs );
+        case NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION_DERIVED_STATISTICS:
+            return ( ( InternalEList< ? > ) getReferredByAgPresenceConditionDerivedStatistics() ).basicRemove( otherEnd,
+                    msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -312,6 +740,22 @@ public class DocImpl extends NsdObjectImpl implements Doc {
             return getId();
         case NsdPackage.DOC__PARENT_NS_DOC:
             return getParentNSDoc();
+        case NsdPackage.DOC__REFERRED_BY_AG_NS_DESC:
+            return getReferredByAgNSDesc();
+        case NsdPackage.DOC__REFERRED_BY_PRESENCE_CONDITION:
+            return getReferredByPresenceCondition();
+        case NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION:
+            return getReferredByAgPresenceCondition();
+        case NsdPackage.DOC__REFERRED_BY_ABBREVIATION:
+            return getReferredByAbbreviation();
+        case NsdPackage.DOC__REFERRED_BY_BASIC_TYPE:
+            return getReferredByBasicType();
+        case NsdPackage.DOC__REFERRED_BY_DOCUMENTED_CLASS:
+            return getReferredByDocumentedClass();
+        case NsdPackage.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT:
+            return getReferredByFunctionalConstraint();
+        case NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION_DERIVED_STATISTICS:
+            return getReferredByAgPresenceConditionDerivedStatistics();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -321,6 +765,7 @@ public class DocImpl extends NsdObjectImpl implements Doc {
      * <!-- end-user-doc -->
      * @generated
      */
+    @SuppressWarnings( "unchecked" )
     @Override
     public void eSet( int featureID, Object newValue ) {
         switch( featureID ) {
@@ -338,6 +783,39 @@ public class DocImpl extends NsdObjectImpl implements Doc {
             return;
         case NsdPackage.DOC__PARENT_NS_DOC:
             setParentNSDoc( ( NSDoc ) newValue );
+            return;
+        case NsdPackage.DOC__REFERRED_BY_AG_NS_DESC:
+            getReferredByAgNSDesc().clear();
+            getReferredByAgNSDesc().addAll( ( Collection< ? extends AgNSdesc > ) newValue );
+            return;
+        case NsdPackage.DOC__REFERRED_BY_PRESENCE_CONDITION:
+            getReferredByPresenceCondition().clear();
+            getReferredByPresenceCondition().addAll( ( Collection< ? extends PresenceCondition > ) newValue );
+            return;
+        case NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION:
+            getReferredByAgPresenceCondition().clear();
+            getReferredByAgPresenceCondition().addAll( ( Collection< ? extends AgPresenceCondition > ) newValue );
+            return;
+        case NsdPackage.DOC__REFERRED_BY_ABBREVIATION:
+            getReferredByAbbreviation().clear();
+            getReferredByAbbreviation().addAll( ( Collection< ? extends Abbreviation > ) newValue );
+            return;
+        case NsdPackage.DOC__REFERRED_BY_BASIC_TYPE:
+            getReferredByBasicType().clear();
+            getReferredByBasicType().addAll( ( Collection< ? extends BasicType > ) newValue );
+            return;
+        case NsdPackage.DOC__REFERRED_BY_DOCUMENTED_CLASS:
+            getReferredByDocumentedClass().clear();
+            getReferredByDocumentedClass().addAll( ( Collection< ? extends DocumentedClass > ) newValue );
+            return;
+        case NsdPackage.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT:
+            getReferredByFunctionalConstraint().clear();
+            getReferredByFunctionalConstraint().addAll( ( Collection< ? extends FunctionalConstraint > ) newValue );
+            return;
+        case NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION_DERIVED_STATISTICS:
+            getReferredByAgPresenceConditionDerivedStatistics().clear();
+            getReferredByAgPresenceConditionDerivedStatistics()
+                    .addAll( ( Collection< ? extends AgPresenceConditionDerivedStatistics > ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -366,6 +844,30 @@ public class DocImpl extends NsdObjectImpl implements Doc {
         case NsdPackage.DOC__PARENT_NS_DOC:
             setParentNSDoc( ( NSDoc ) null );
             return;
+        case NsdPackage.DOC__REFERRED_BY_AG_NS_DESC:
+            unsetReferredByAgNSDesc();
+            return;
+        case NsdPackage.DOC__REFERRED_BY_PRESENCE_CONDITION:
+            unsetReferredByPresenceCondition();
+            return;
+        case NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION:
+            unsetReferredByAgPresenceCondition();
+            return;
+        case NsdPackage.DOC__REFERRED_BY_ABBREVIATION:
+            unsetReferredByAbbreviation();
+            return;
+        case NsdPackage.DOC__REFERRED_BY_BASIC_TYPE:
+            unsetReferredByBasicType();
+            return;
+        case NsdPackage.DOC__REFERRED_BY_DOCUMENTED_CLASS:
+            unsetReferredByDocumentedClass();
+            return;
+        case NsdPackage.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT:
+            unsetReferredByFunctionalConstraint();
+            return;
+        case NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION_DERIVED_STATISTICS:
+            unsetReferredByAgPresenceConditionDerivedStatistics();
+            return;
         }
         super.eUnset( featureID );
     }
@@ -388,6 +890,22 @@ public class DocImpl extends NsdObjectImpl implements Doc {
             return isSetId();
         case NsdPackage.DOC__PARENT_NS_DOC:
             return getParentNSDoc() != null;
+        case NsdPackage.DOC__REFERRED_BY_AG_NS_DESC:
+            return isSetReferredByAgNSDesc();
+        case NsdPackage.DOC__REFERRED_BY_PRESENCE_CONDITION:
+            return isSetReferredByPresenceCondition();
+        case NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION:
+            return isSetReferredByAgPresenceCondition();
+        case NsdPackage.DOC__REFERRED_BY_ABBREVIATION:
+            return isSetReferredByAbbreviation();
+        case NsdPackage.DOC__REFERRED_BY_BASIC_TYPE:
+            return isSetReferredByBasicType();
+        case NsdPackage.DOC__REFERRED_BY_DOCUMENTED_CLASS:
+            return isSetReferredByDocumentedClass();
+        case NsdPackage.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT:
+            return isSetReferredByFunctionalConstraint();
+        case NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION_DERIVED_STATISTICS:
+            return isSetReferredByAgPresenceConditionDerivedStatistics();
         }
         return super.eIsSet( featureID );
     }

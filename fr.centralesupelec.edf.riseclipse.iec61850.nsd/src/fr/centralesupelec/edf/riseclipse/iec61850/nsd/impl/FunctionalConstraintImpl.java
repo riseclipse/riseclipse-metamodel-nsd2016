@@ -21,9 +21,12 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetImpl;
+import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
@@ -52,6 +55,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.FunctionalConstraintImpl#getTitleID <em>Title ID</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.FunctionalConstraintImpl#getParentFunctionalConstraints <em>Parent Functional Constraints</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.FunctionalConstraintImpl#getReferredByDataAttribute <em>Referred By Data Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.FunctionalConstraintImpl#getRefersToDoc <em>Refers To Doc</em>}</li>
  * </ul>
  *
  * @generated
@@ -172,6 +176,25 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
      * @ordered
      */
     protected EList< DataAttribute > referredByDataAttribute;
+
+    /**
+     * The cached value of the '{@link #getRefersToDoc() <em>Refers To Doc</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRefersToDoc()
+     * @generated
+     * @ordered
+     */
+    protected Doc refersToDoc;
+
+    /**
+     * This is true if the Refers To Doc reference has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean refersToDocESet;
 
     /**
      * <!-- begin-user-doc -->
@@ -555,6 +578,119 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
+    public Doc getRefersToDoc() {
+        return refersToDoc;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetRefersToDoc( Doc newRefersToDoc, NotificationChain msgs ) {
+        Doc oldRefersToDoc = refersToDoc;
+        refersToDoc = newRefersToDoc;
+        boolean oldRefersToDocESet = refersToDocESet;
+        refersToDocESet = true;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DOC, oldRefersToDoc, newRefersToDoc,
+                    !oldRefersToDocESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setRefersToDoc( Doc newRefersToDoc ) {
+        if( newRefersToDoc != refersToDoc ) {
+            NotificationChain msgs = null;
+            if( refersToDoc != null )
+                msgs = ( ( InternalEObject ) refersToDoc ).eInverseRemove( this,
+                        NsdPackage.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT, Doc.class, msgs );
+            if( newRefersToDoc != null )
+                msgs = ( ( InternalEObject ) newRefersToDoc ).eInverseAdd( this,
+                        NsdPackage.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT, Doc.class, msgs );
+            msgs = basicSetRefersToDoc( newRefersToDoc, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToDocESet = refersToDocESet;
+            refersToDocESet = true;
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DOC,
+                        newRefersToDoc, newRefersToDoc, !oldRefersToDocESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicUnsetRefersToDoc( NotificationChain msgs ) {
+        Doc oldRefersToDoc = refersToDoc;
+        refersToDoc = null;
+        boolean oldRefersToDocESet = refersToDocESet;
+        refersToDocESet = false;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DOC, oldRefersToDoc, null, oldRefersToDocESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetRefersToDoc() {
+        if( refersToDoc != null ) {
+            NotificationChain msgs = null;
+            msgs = ( ( InternalEObject ) refersToDoc ).eInverseRemove( this,
+                    NsdPackage.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT, Doc.class, msgs );
+            msgs = basicUnsetRefersToDoc( msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToDocESet = refersToDocESet;
+            refersToDocESet = false;
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.UNSET,
+                        NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DOC, null, null, oldRefersToDocESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetRefersToDoc() {
+        return refersToDocESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @SuppressWarnings( "unchecked" )
     @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
@@ -571,6 +707,11 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
         case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByDataAttribute() )
                     .basicAdd( otherEnd, msgs );
+        case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DOC:
+            if( refersToDoc != null )
+                msgs = ( ( InternalEObject ) refersToDoc ).eInverseRemove( this,
+                        NsdPackage.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT, Doc.class, msgs );
+            return basicSetRefersToDoc( ( Doc ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
     }
@@ -589,6 +730,8 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
             return basicSetParentFunctionalConstraints( null, msgs );
         case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE:
             return ( ( InternalEList< ? > ) getReferredByDataAttribute() ).basicRemove( otherEnd, msgs );
+        case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DOC:
+            return basicUnsetRefersToDoc( msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -628,6 +771,8 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
             return getParentFunctionalConstraints();
         case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE:
             return getReferredByDataAttribute();
+        case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DOC:
+            return getRefersToDoc();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -660,6 +805,9 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
             getReferredByDataAttribute().clear();
             getReferredByDataAttribute().addAll( ( Collection< ? extends DataAttribute > ) newValue );
             return;
+        case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DOC:
+            setRefersToDoc( ( Doc ) newValue );
+            return;
         }
         super.eSet( featureID, newValue );
     }
@@ -690,6 +838,9 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
         case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE:
             unsetReferredByDataAttribute();
             return;
+        case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DOC:
+            unsetRefersToDoc();
+            return;
         }
         super.eUnset( featureID );
     }
@@ -714,6 +865,8 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
             return getParentFunctionalConstraints() != null;
         case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE:
             return isSetReferredByDataAttribute();
+        case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DOC:
+            return isSetRefersToDoc();
         }
         return super.eIsSet( featureID );
     }
@@ -745,6 +898,20 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
             result.append( "<unset>" );
         result.append( ')' );
         return result.toString();
+    }
+
+    @Override
+    public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
+        if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
+        
+        if( isSetDescID() ) {
+            if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
+                Doc doc = (( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getDescID() );
+                if( doc != null ) setRefersToDoc( doc );
+            }
+        }
+
+        return false;
     }
 
 } //FunctionalConstraintImpl

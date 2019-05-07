@@ -64,6 +64,7 @@ public class ServiceDataAttributeItemProvider extends DocumentedClassItemProvide
             addPresCondPropertyDescriptor( object );
             addPresCondArgsPropertyDescriptor( object );
             addPresCondArgsIDPropertyDescriptor( object );
+            addRefersToPresCondArgsDocPropertyDescriptor( object );
             addTypePropertyDescriptor( object );
             addTypeKindPropertyDescriptor( object );
             addUnderlyingTypePropertyDescriptor( object );
@@ -182,6 +183,28 @@ public class ServiceDataAttributeItemProvider extends DocumentedClassItemProvide
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
                         null,
                         null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Refers To Pres Cond Args Doc feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addRefersToPresCondArgsDocPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add( createItemPropertyDescriptor(
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                getResourceLocator(),
+                getString( "_UI_AgPresenceCondition_refersToPresCondArgsDoc_feature" ),
+                getString( "_UI_PropertyDescriptor_description",
+                        "_UI_AgPresenceCondition_refersToPresCondArgsDoc_feature", "_UI_AgPresenceCondition_type" ),
+                NsdPackage.Literals.AG_PRESENCE_CONDITION__REFERS_TO_PRES_COND_ARGS_DOC,
+                true,
+                false,
+                true,
+                null,
+                null,
+                null ) );
     }
 
     /**

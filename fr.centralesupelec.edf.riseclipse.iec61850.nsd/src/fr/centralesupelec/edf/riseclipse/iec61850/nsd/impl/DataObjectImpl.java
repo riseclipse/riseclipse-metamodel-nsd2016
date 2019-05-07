@@ -26,10 +26,12 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetImpl;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -52,9 +54,11 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getPresCond <em>Pres Cond</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getPresCondArgs <em>Pres Cond Args</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getPresCondArgsID <em>Pres Cond Args ID</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getRefersToPresCondArgsDoc <em>Refers To Pres Cond Args Doc</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getDsPresCond <em>Ds Pres Cond</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getDsPresCondArgs <em>Ds Pres Cond Args</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getDsPresCondArgsID <em>Ds Pres Cond Args ID</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getRefersToDsPresCondArgsDoc <em>Refers To Ds Pres Cond Args Doc</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getUnderlyingType <em>Underlying Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getUnderlyingTypeKind <em>Underlying Type Kind</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getName <em>Name</em>}</li>
@@ -157,6 +161,25 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     protected boolean presCondArgsIDESet;
 
     /**
+     * The cached value of the '{@link #getRefersToPresCondArgsDoc() <em>Refers To Pres Cond Args Doc</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRefersToPresCondArgsDoc()
+     * @generated
+     * @ordered
+     */
+    protected Doc refersToPresCondArgsDoc;
+
+    /**
+     * This is true if the Refers To Pres Cond Args Doc reference has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean refersToPresCondArgsDocESet;
+
+    /**
      * The default value of the '{@link #getDsPresCond() <em>Ds Pres Cond</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -242,6 +265,25 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
      * @ordered
      */
     protected boolean dsPresCondArgsIDESet;
+
+    /**
+     * The cached value of the '{@link #getRefersToDsPresCondArgsDoc() <em>Refers To Ds Pres Cond Args Doc</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRefersToDsPresCondArgsDoc()
+     * @generated
+     * @ordered
+     */
+    protected Doc refersToDsPresCondArgsDoc;
+
+    /**
+     * This is true if the Refers To Ds Pres Cond Args Doc reference has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean refersToDsPresCondArgsDocESet;
 
     /**
      * The default value of the '{@link #getUnderlyingType() <em>Underlying Type</em>}' attribute.
@@ -626,6 +668,123 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
      * @generated
      */
     @Override
+    public Doc getRefersToDsPresCondArgsDoc() {
+        return refersToDsPresCondArgsDoc;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetRefersToDsPresCondArgsDoc( Doc newRefersToDsPresCondArgsDoc,
+            NotificationChain msgs ) {
+        Doc oldRefersToDsPresCondArgsDoc = refersToDsPresCondArgsDoc;
+        refersToDsPresCondArgsDoc = newRefersToDsPresCondArgsDoc;
+        boolean oldRefersToDsPresCondArgsDocESet = refersToDsPresCondArgsDocESet;
+        refersToDsPresCondArgsDocESet = true;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.DATA_OBJECT__REFERS_TO_DS_PRES_COND_ARGS_DOC, oldRefersToDsPresCondArgsDoc,
+                    newRefersToDsPresCondArgsDoc, !oldRefersToDsPresCondArgsDocESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setRefersToDsPresCondArgsDoc( Doc newRefersToDsPresCondArgsDoc ) {
+        if( newRefersToDsPresCondArgsDoc != refersToDsPresCondArgsDoc ) {
+            NotificationChain msgs = null;
+            if( refersToDsPresCondArgsDoc != null )
+                msgs = ( ( InternalEObject ) refersToDsPresCondArgsDoc ).eInverseRemove( this,
+                        NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION_DERIVED_STATISTICS, Doc.class, msgs );
+            if( newRefersToDsPresCondArgsDoc != null )
+                msgs = ( ( InternalEObject ) newRefersToDsPresCondArgsDoc ).eInverseAdd( this,
+                        NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION_DERIVED_STATISTICS, Doc.class, msgs );
+            msgs = basicSetRefersToDsPresCondArgsDoc( newRefersToDsPresCondArgsDoc, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToDsPresCondArgsDocESet = refersToDsPresCondArgsDocESet;
+            refersToDsPresCondArgsDocESet = true;
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.SET,
+                        NsdPackage.DATA_OBJECT__REFERS_TO_DS_PRES_COND_ARGS_DOC, newRefersToDsPresCondArgsDoc,
+                        newRefersToDsPresCondArgsDoc, !oldRefersToDsPresCondArgsDocESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicUnsetRefersToDsPresCondArgsDoc( NotificationChain msgs ) {
+        Doc oldRefersToDsPresCondArgsDoc = refersToDsPresCondArgsDoc;
+        refersToDsPresCondArgsDoc = null;
+        boolean oldRefersToDsPresCondArgsDocESet = refersToDsPresCondArgsDocESet;
+        refersToDsPresCondArgsDocESet = false;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.DATA_OBJECT__REFERS_TO_DS_PRES_COND_ARGS_DOC, oldRefersToDsPresCondArgsDoc, null,
+                    oldRefersToDsPresCondArgsDocESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetRefersToDsPresCondArgsDoc() {
+        if( refersToDsPresCondArgsDoc != null ) {
+            NotificationChain msgs = null;
+            msgs = ( ( InternalEObject ) refersToDsPresCondArgsDoc ).eInverseRemove( this,
+                    NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION_DERIVED_STATISTICS, Doc.class, msgs );
+            msgs = basicUnsetRefersToDsPresCondArgsDoc( msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToDsPresCondArgsDocESet = refersToDsPresCondArgsDocESet;
+            refersToDsPresCondArgsDocESet = false;
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.UNSET,
+                        NsdPackage.DATA_OBJECT__REFERS_TO_DS_PRES_COND_ARGS_DOC, null, null,
+                        oldRefersToDsPresCondArgsDocESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetRefersToDsPresCondArgsDoc() {
+        return refersToDsPresCondArgsDocESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public String getName() {
         return name;
     }
@@ -826,6 +985,122 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     @Override
     public boolean isSetPresCondArgsID() {
         return presCondArgsIDESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Doc getRefersToPresCondArgsDoc() {
+        return refersToPresCondArgsDoc;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetRefersToPresCondArgsDoc( Doc newRefersToPresCondArgsDoc, NotificationChain msgs ) {
+        Doc oldRefersToPresCondArgsDoc = refersToPresCondArgsDoc;
+        refersToPresCondArgsDoc = newRefersToPresCondArgsDoc;
+        boolean oldRefersToPresCondArgsDocESet = refersToPresCondArgsDocESet;
+        refersToPresCondArgsDocESet = true;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.DATA_OBJECT__REFERS_TO_PRES_COND_ARGS_DOC, oldRefersToPresCondArgsDoc,
+                    newRefersToPresCondArgsDoc, !oldRefersToPresCondArgsDocESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setRefersToPresCondArgsDoc( Doc newRefersToPresCondArgsDoc ) {
+        if( newRefersToPresCondArgsDoc != refersToPresCondArgsDoc ) {
+            NotificationChain msgs = null;
+            if( refersToPresCondArgsDoc != null )
+                msgs = ( ( InternalEObject ) refersToPresCondArgsDoc ).eInverseRemove( this,
+                        NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION, Doc.class, msgs );
+            if( newRefersToPresCondArgsDoc != null )
+                msgs = ( ( InternalEObject ) newRefersToPresCondArgsDoc ).eInverseAdd( this,
+                        NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION, Doc.class, msgs );
+            msgs = basicSetRefersToPresCondArgsDoc( newRefersToPresCondArgsDoc, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToPresCondArgsDocESet = refersToPresCondArgsDocESet;
+            refersToPresCondArgsDocESet = true;
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.SET,
+                        NsdPackage.DATA_OBJECT__REFERS_TO_PRES_COND_ARGS_DOC, newRefersToPresCondArgsDoc,
+                        newRefersToPresCondArgsDoc, !oldRefersToPresCondArgsDocESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicUnsetRefersToPresCondArgsDoc( NotificationChain msgs ) {
+        Doc oldRefersToPresCondArgsDoc = refersToPresCondArgsDoc;
+        refersToPresCondArgsDoc = null;
+        boolean oldRefersToPresCondArgsDocESet = refersToPresCondArgsDocESet;
+        refersToPresCondArgsDocESet = false;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.DATA_OBJECT__REFERS_TO_PRES_COND_ARGS_DOC, oldRefersToPresCondArgsDoc, null,
+                    oldRefersToPresCondArgsDocESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetRefersToPresCondArgsDoc() {
+        if( refersToPresCondArgsDoc != null ) {
+            NotificationChain msgs = null;
+            msgs = ( ( InternalEObject ) refersToPresCondArgsDoc ).eInverseRemove( this,
+                    NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION, Doc.class, msgs );
+            msgs = basicUnsetRefersToPresCondArgsDoc( msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToPresCondArgsDocESet = refersToPresCondArgsDocESet;
+            refersToPresCondArgsDocESet = false;
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.UNSET,
+                        NsdPackage.DATA_OBJECT__REFERS_TO_PRES_COND_ARGS_DOC, null, null,
+                        oldRefersToPresCondArgsDocESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetRefersToPresCondArgsDoc() {
+        return refersToPresCondArgsDocESet;
     }
 
     /**
@@ -1446,6 +1721,16 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
+        case NsdPackage.DATA_OBJECT__REFERS_TO_PRES_COND_ARGS_DOC:
+            if( refersToPresCondArgsDoc != null )
+                msgs = ( ( InternalEObject ) refersToPresCondArgsDoc ).eInverseRemove( this,
+                        NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION, Doc.class, msgs );
+            return basicSetRefersToPresCondArgsDoc( ( Doc ) otherEnd, msgs );
+        case NsdPackage.DATA_OBJECT__REFERS_TO_DS_PRES_COND_ARGS_DOC:
+            if( refersToDsPresCondArgsDoc != null )
+                msgs = ( ( InternalEObject ) refersToDsPresCondArgsDoc ).eInverseRemove( this,
+                        NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION_DERIVED_STATISTICS, Doc.class, msgs );
+            return basicSetRefersToDsPresCondArgsDoc( ( Doc ) otherEnd, msgs );
         case NsdPackage.DATA_OBJECT__PARENT_ANY_LN_CLASS:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
@@ -1478,6 +1763,10 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     @Override
     public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
+        case NsdPackage.DATA_OBJECT__REFERS_TO_PRES_COND_ARGS_DOC:
+            return basicUnsetRefersToPresCondArgsDoc( msgs );
+        case NsdPackage.DATA_OBJECT__REFERS_TO_DS_PRES_COND_ARGS_DOC:
+            return basicUnsetRefersToDsPresCondArgsDoc( msgs );
         case NsdPackage.DATA_OBJECT__PARENT_ANY_LN_CLASS:
             return basicSetParentAnyLNClass( null, msgs );
         case NsdPackage.DATA_OBJECT__REFERS_TO_CDC:
@@ -1519,12 +1808,16 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             return getPresCondArgs();
         case NsdPackage.DATA_OBJECT__PRES_COND_ARGS_ID:
             return getPresCondArgsID();
+        case NsdPackage.DATA_OBJECT__REFERS_TO_PRES_COND_ARGS_DOC:
+            return getRefersToPresCondArgsDoc();
         case NsdPackage.DATA_OBJECT__DS_PRES_COND:
             return getDsPresCond();
         case NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS:
             return getDsPresCondArgs();
         case NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS_ID:
             return getDsPresCondArgsID();
+        case NsdPackage.DATA_OBJECT__REFERS_TO_DS_PRES_COND_ARGS_DOC:
+            return getRefersToDsPresCondArgsDoc();
         case NsdPackage.DATA_OBJECT__UNDERLYING_TYPE:
             return getUnderlyingType();
         case NsdPackage.DATA_OBJECT__UNDERLYING_TYPE_KIND:
@@ -1564,6 +1857,9 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         case NsdPackage.DATA_OBJECT__PRES_COND_ARGS_ID:
             setPresCondArgsID( ( String ) newValue );
             return;
+        case NsdPackage.DATA_OBJECT__REFERS_TO_PRES_COND_ARGS_DOC:
+            setRefersToPresCondArgsDoc( ( Doc ) newValue );
+            return;
         case NsdPackage.DATA_OBJECT__DS_PRES_COND:
             setDsPresCond( ( String ) newValue );
             return;
@@ -1572,6 +1868,9 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             return;
         case NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS_ID:
             setDsPresCondArgsID( ( String ) newValue );
+            return;
+        case NsdPackage.DATA_OBJECT__REFERS_TO_DS_PRES_COND_ARGS_DOC:
+            setRefersToDsPresCondArgsDoc( ( Doc ) newValue );
             return;
         case NsdPackage.DATA_OBJECT__UNDERLYING_TYPE:
             setUnderlyingType( ( String ) newValue );
@@ -1621,6 +1920,9 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         case NsdPackage.DATA_OBJECT__PRES_COND_ARGS_ID:
             unsetPresCondArgsID();
             return;
+        case NsdPackage.DATA_OBJECT__REFERS_TO_PRES_COND_ARGS_DOC:
+            unsetRefersToPresCondArgsDoc();
+            return;
         case NsdPackage.DATA_OBJECT__DS_PRES_COND:
             unsetDsPresCond();
             return;
@@ -1629,6 +1931,9 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             return;
         case NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS_ID:
             unsetDsPresCondArgsID();
+            return;
+        case NsdPackage.DATA_OBJECT__REFERS_TO_DS_PRES_COND_ARGS_DOC:
+            unsetRefersToDsPresCondArgsDoc();
             return;
         case NsdPackage.DATA_OBJECT__UNDERLYING_TYPE:
             unsetUnderlyingType();
@@ -1675,12 +1980,16 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             return isSetPresCondArgs();
         case NsdPackage.DATA_OBJECT__PRES_COND_ARGS_ID:
             return isSetPresCondArgsID();
+        case NsdPackage.DATA_OBJECT__REFERS_TO_PRES_COND_ARGS_DOC:
+            return isSetRefersToPresCondArgsDoc();
         case NsdPackage.DATA_OBJECT__DS_PRES_COND:
             return isSetDsPresCond();
         case NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS:
             return isSetDsPresCondArgs();
         case NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS_ID:
             return isSetDsPresCondArgsID();
+        case NsdPackage.DATA_OBJECT__REFERS_TO_DS_PRES_COND_ARGS_DOC:
+            return isSetRefersToDsPresCondArgsDoc();
         case NsdPackage.DATA_OBJECT__UNDERLYING_TYPE:
             return isSetUnderlyingType();
         case NsdPackage.DATA_OBJECT__UNDERLYING_TYPE_KIND:
@@ -1718,6 +2027,8 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                 return NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS;
             case NsdPackage.DATA_OBJECT__PRES_COND_ARGS_ID:
                 return NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS_ID;
+            case NsdPackage.DATA_OBJECT__REFERS_TO_PRES_COND_ARGS_DOC:
+                return NsdPackage.AG_PRESENCE_CONDITION__REFERS_TO_PRES_COND_ARGS_DOC;
             default:
                 return -1;
             }
@@ -1730,6 +2041,8 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                 return NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__DS_PRES_COND_ARGS;
             case NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS_ID:
                 return NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__DS_PRES_COND_ARGS_ID;
+            case NsdPackage.DATA_OBJECT__REFERS_TO_DS_PRES_COND_ARGS_DOC:
+                return NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__REFERS_TO_DS_PRES_COND_ARGS_DOC;
             default:
                 return -1;
             }
@@ -1762,6 +2075,8 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                 return NsdPackage.DATA_OBJECT__PRES_COND_ARGS;
             case NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS_ID:
                 return NsdPackage.DATA_OBJECT__PRES_COND_ARGS_ID;
+            case NsdPackage.AG_PRESENCE_CONDITION__REFERS_TO_PRES_COND_ARGS_DOC:
+                return NsdPackage.DATA_OBJECT__REFERS_TO_PRES_COND_ARGS_DOC;
             default:
                 return -1;
             }
@@ -1774,6 +2089,8 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                 return NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS;
             case NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__DS_PRES_COND_ARGS_ID:
                 return NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS_ID;
+            case NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__REFERS_TO_DS_PRES_COND_ARGS_DOC:
+                return NsdPackage.DATA_OBJECT__REFERS_TO_DS_PRES_COND_ARGS_DOC;
             default:
                 return -1;
             }
@@ -1913,11 +2230,27 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                 console.verbose( "PresenceCondition (name: " + getDsPresCond() + ") refers by DataObject (name: "
                         + getName() + ") in NS (id:" + getParentAnyLNClass().getParentLNClasses().getParentNS().getId()
                         + ") found in NS (id:"
-                        + getRefersToPresenceConditionDerivedStatistics().getParentPresenceConditions().getParentNS().getId()
+                        + getRefersToPresenceConditionDerivedStatistics().getParentPresenceConditions().getParentNS()
+                                .getId()
                         + ")" );
             }
         }
-        return false;
+
+        if( isSetPresCondArgsID() ) {
+            if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
+                Doc doc = (( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getPresCondArgsID() );
+                if( doc != null ) setRefersToPresCondArgsDoc( doc );
+            }
+        }
+
+        if( isSetDsPresCondArgsID() ) {
+            if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
+                Doc doc = (( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getDsPresCondArgsID() );
+                if( doc != null ) setRefersToDsPresCondArgsDoc( doc );
+            }
+        }
+
+       return false;
     }
 
 } //DataObjectImpl

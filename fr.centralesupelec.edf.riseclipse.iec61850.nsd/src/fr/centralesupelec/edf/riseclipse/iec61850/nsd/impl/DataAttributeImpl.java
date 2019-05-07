@@ -28,6 +28,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
@@ -35,6 +36,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetImpl;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
 import java.math.BigDecimal;
@@ -65,6 +67,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getPresCond <em>Pres Cond</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getPresCondArgs <em>Pres Cond Args</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getPresCondArgsID <em>Pres Cond Args ID</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getRefersToPresCondArgsDoc <em>Refers To Pres Cond Args Doc</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#isIsArray <em>Is Array</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getMaxIndexAttribute <em>Max Index Attribute</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataAttributeImpl#getMinIndex <em>Min Index</em>}</li>
@@ -180,6 +183,25 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
      * @ordered
      */
     protected boolean presCondArgsIDESet;
+
+    /**
+     * The cached value of the '{@link #getRefersToPresCondArgsDoc() <em>Refers To Pres Cond Args Doc</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRefersToPresCondArgsDoc()
+     * @generated
+     * @ordered
+     */
+    protected Doc refersToPresCondArgsDoc;
+
+    /**
+     * This is true if the Refers To Pres Cond Args Doc reference has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean refersToPresCondArgsDocESet;
 
     /**
      * The default value of the '{@link #isIsArray() <em>Is Array</em>}' attribute.
@@ -1470,6 +1492,122 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
      * @generated
      */
     @Override
+    public Doc getRefersToPresCondArgsDoc() {
+        return refersToPresCondArgsDoc;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetRefersToPresCondArgsDoc( Doc newRefersToPresCondArgsDoc, NotificationChain msgs ) {
+        Doc oldRefersToPresCondArgsDoc = refersToPresCondArgsDoc;
+        refersToPresCondArgsDoc = newRefersToPresCondArgsDoc;
+        boolean oldRefersToPresCondArgsDocESet = refersToPresCondArgsDocESet;
+        refersToPresCondArgsDocESet = true;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC, oldRefersToPresCondArgsDoc,
+                    newRefersToPresCondArgsDoc, !oldRefersToPresCondArgsDocESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setRefersToPresCondArgsDoc( Doc newRefersToPresCondArgsDoc ) {
+        if( newRefersToPresCondArgsDoc != refersToPresCondArgsDoc ) {
+            NotificationChain msgs = null;
+            if( refersToPresCondArgsDoc != null )
+                msgs = ( ( InternalEObject ) refersToPresCondArgsDoc ).eInverseRemove( this,
+                        NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION, Doc.class, msgs );
+            if( newRefersToPresCondArgsDoc != null )
+                msgs = ( ( InternalEObject ) newRefersToPresCondArgsDoc ).eInverseAdd( this,
+                        NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION, Doc.class, msgs );
+            msgs = basicSetRefersToPresCondArgsDoc( newRefersToPresCondArgsDoc, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToPresCondArgsDocESet = refersToPresCondArgsDocESet;
+            refersToPresCondArgsDocESet = true;
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.SET,
+                        NsdPackage.DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC, newRefersToPresCondArgsDoc,
+                        newRefersToPresCondArgsDoc, !oldRefersToPresCondArgsDocESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicUnsetRefersToPresCondArgsDoc( NotificationChain msgs ) {
+        Doc oldRefersToPresCondArgsDoc = refersToPresCondArgsDoc;
+        refersToPresCondArgsDoc = null;
+        boolean oldRefersToPresCondArgsDocESet = refersToPresCondArgsDocESet;
+        refersToPresCondArgsDocESet = false;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC, oldRefersToPresCondArgsDoc, null,
+                    oldRefersToPresCondArgsDocESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetRefersToPresCondArgsDoc() {
+        if( refersToPresCondArgsDoc != null ) {
+            NotificationChain msgs = null;
+            msgs = ( ( InternalEObject ) refersToPresCondArgsDoc ).eInverseRemove( this,
+                    NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION, Doc.class, msgs );
+            msgs = basicUnsetRefersToPresCondArgsDoc( msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToPresCondArgsDocESet = refersToPresCondArgsDocESet;
+            refersToPresCondArgsDocESet = false;
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.UNSET,
+                        NsdPackage.DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC, null, null,
+                        oldRefersToPresCondArgsDocESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetRefersToPresCondArgsDoc() {
+        return refersToPresCondArgsDocESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public boolean isQchg() {
         return qchg;
     }
@@ -2421,6 +2559,11 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC:
+            if( refersToPresCondArgsDoc != null )
+                msgs = ( ( InternalEObject ) refersToPresCondArgsDoc ).eInverseRemove( this,
+                        NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION, Doc.class, msgs );
+            return basicSetRefersToPresCondArgsDoc( ( Doc ) otherEnd, msgs );
         case NsdPackage.DATA_ATTRIBUTE__PARENT_CDC:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
@@ -2477,6 +2620,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     @Override
     public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC:
+            return basicUnsetRefersToPresCondArgsDoc( msgs );
         case NsdPackage.DATA_ATTRIBUTE__PARENT_CDC:
             return basicSetParentCDC( null, msgs );
         case NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_SIZE_ATTRIBUTE:
@@ -2531,6 +2676,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
             return getPresCondArgs();
         case NsdPackage.DATA_ATTRIBUTE__PRES_COND_ARGS_ID:
             return getPresCondArgsID();
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC:
+            return getRefersToPresCondArgsDoc();
         case NsdPackage.DATA_ATTRIBUTE__IS_ARRAY:
             return isIsArray();
         case NsdPackage.DATA_ATTRIBUTE__MAX_INDEX_ATTRIBUTE:
@@ -2600,6 +2747,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
             return;
         case NsdPackage.DATA_ATTRIBUTE__PRES_COND_ARGS_ID:
             setPresCondArgsID( ( String ) newValue );
+            return;
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC:
+            setRefersToPresCondArgsDoc( ( Doc ) newValue );
             return;
         case NsdPackage.DATA_ATTRIBUTE__IS_ARRAY:
             setIsArray( ( Boolean ) newValue );
@@ -2700,6 +2850,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         case NsdPackage.DATA_ATTRIBUTE__PRES_COND_ARGS_ID:
             unsetPresCondArgsID();
             return;
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC:
+            unsetRefersToPresCondArgsDoc();
+            return;
         case NsdPackage.DATA_ATTRIBUTE__IS_ARRAY:
             unsetIsArray();
             return;
@@ -2790,6 +2943,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
             return isSetPresCondArgs();
         case NsdPackage.DATA_ATTRIBUTE__PRES_COND_ARGS_ID:
             return isSetPresCondArgsID();
+        case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC:
+            return isSetRefersToPresCondArgsDoc();
         case NsdPackage.DATA_ATTRIBUTE__IS_ARRAY:
             return isSetIsArray();
         case NsdPackage.DATA_ATTRIBUTE__MAX_INDEX_ATTRIBUTE:
@@ -2857,6 +3012,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                 return NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS;
             case NsdPackage.DATA_ATTRIBUTE__PRES_COND_ARGS_ID:
                 return NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS_ID;
+            case NsdPackage.DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC:
+                return NsdPackage.AG_PRESENCE_CONDITION__REFERS_TO_PRES_COND_ARGS_DOC;
             default:
                 return -1;
             }
@@ -2927,6 +3084,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                 return NsdPackage.DATA_ATTRIBUTE__PRES_COND_ARGS;
             case NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS_ID:
                 return NsdPackage.DATA_ATTRIBUTE__PRES_COND_ARGS_ID;
+            case NsdPackage.AG_PRESENCE_CONDITION__REFERS_TO_PRES_COND_ARGS_DOC:
+                return NsdPackage.DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC;
             default:
                 return -1;
             }
@@ -3176,6 +3335,13 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                 console.verbose( "BasicType (name: " + getType() + ") refers as type by DataAttribute (name: "
                         + getName() + ") in NS (id:" + ns.getId() + ") found in NS (id:"
                         + getRefersToBasicType().getParentBasicTypes().getParentNS().getId() + ")" );
+            }
+        }
+        
+        if( isSetPresCondArgsID() ) {
+            if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
+                Doc doc = (( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getPresCondArgsID() );
+                if( doc != null ) setRefersToPresCondArgsDoc( doc );
             }
         }
 

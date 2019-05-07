@@ -20,12 +20,15 @@
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceCondition;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -40,6 +43,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AgPresenceConditionImpl#getPresCond <em>Pres Cond</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AgPresenceConditionImpl#getPresCondArgs <em>Pres Cond Args</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AgPresenceConditionImpl#getPresCondArgsID <em>Pres Cond Args ID</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AgPresenceConditionImpl#getRefersToPresCondArgsDoc <em>Refers To Pres Cond Args Doc</em>}</li>
  * </ul>
  *
  * @generated
@@ -131,6 +135,25 @@ public abstract class AgPresenceConditionImpl extends MinimalEObjectImpl.Contain
      * @ordered
      */
     protected boolean presCondArgsIDESet;
+
+    /**
+     * The cached value of the '{@link #getRefersToPresCondArgsDoc() <em>Refers To Pres Cond Args Doc</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRefersToPresCondArgsDoc()
+     * @generated
+     * @ordered
+     */
+    protected Doc refersToPresCondArgsDoc;
+
+    /**
+     * This is true if the Refers To Pres Cond Args Doc reference has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean refersToPresCondArgsDocESet;
 
     /**
      * <!-- begin-user-doc -->
@@ -314,6 +337,153 @@ public abstract class AgPresenceConditionImpl extends MinimalEObjectImpl.Contain
      * @generated
      */
     @Override
+    public Doc getRefersToPresCondArgsDoc() {
+        return refersToPresCondArgsDoc;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetRefersToPresCondArgsDoc( Doc newRefersToPresCondArgsDoc, NotificationChain msgs ) {
+        Doc oldRefersToPresCondArgsDoc = refersToPresCondArgsDoc;
+        refersToPresCondArgsDoc = newRefersToPresCondArgsDoc;
+        boolean oldRefersToPresCondArgsDocESet = refersToPresCondArgsDocESet;
+        refersToPresCondArgsDocESet = true;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.AG_PRESENCE_CONDITION__REFERS_TO_PRES_COND_ARGS_DOC, oldRefersToPresCondArgsDoc,
+                    newRefersToPresCondArgsDoc, !oldRefersToPresCondArgsDocESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setRefersToPresCondArgsDoc( Doc newRefersToPresCondArgsDoc ) {
+        if( newRefersToPresCondArgsDoc != refersToPresCondArgsDoc ) {
+            NotificationChain msgs = null;
+            if( refersToPresCondArgsDoc != null )
+                msgs = ( ( InternalEObject ) refersToPresCondArgsDoc ).eInverseRemove( this,
+                        NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION, Doc.class, msgs );
+            if( newRefersToPresCondArgsDoc != null )
+                msgs = ( ( InternalEObject ) newRefersToPresCondArgsDoc ).eInverseAdd( this,
+                        NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION, Doc.class, msgs );
+            msgs = basicSetRefersToPresCondArgsDoc( newRefersToPresCondArgsDoc, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToPresCondArgsDocESet = refersToPresCondArgsDocESet;
+            refersToPresCondArgsDocESet = true;
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.SET,
+                        NsdPackage.AG_PRESENCE_CONDITION__REFERS_TO_PRES_COND_ARGS_DOC, newRefersToPresCondArgsDoc,
+                        newRefersToPresCondArgsDoc, !oldRefersToPresCondArgsDocESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicUnsetRefersToPresCondArgsDoc( NotificationChain msgs ) {
+        Doc oldRefersToPresCondArgsDoc = refersToPresCondArgsDoc;
+        refersToPresCondArgsDoc = null;
+        boolean oldRefersToPresCondArgsDocESet = refersToPresCondArgsDocESet;
+        refersToPresCondArgsDocESet = false;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.AG_PRESENCE_CONDITION__REFERS_TO_PRES_COND_ARGS_DOC, oldRefersToPresCondArgsDoc, null,
+                    oldRefersToPresCondArgsDocESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetRefersToPresCondArgsDoc() {
+        if( refersToPresCondArgsDoc != null ) {
+            NotificationChain msgs = null;
+            msgs = ( ( InternalEObject ) refersToPresCondArgsDoc ).eInverseRemove( this,
+                    NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION, Doc.class, msgs );
+            msgs = basicUnsetRefersToPresCondArgsDoc( msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToPresCondArgsDocESet = refersToPresCondArgsDocESet;
+            refersToPresCondArgsDocESet = false;
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.UNSET,
+                        NsdPackage.AG_PRESENCE_CONDITION__REFERS_TO_PRES_COND_ARGS_DOC, null, null,
+                        oldRefersToPresCondArgsDocESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetRefersToPresCondArgsDoc() {
+        return refersToPresCondArgsDocESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.AG_PRESENCE_CONDITION__REFERS_TO_PRES_COND_ARGS_DOC:
+            if( refersToPresCondArgsDoc != null )
+                msgs = ( ( InternalEObject ) refersToPresCondArgsDoc ).eInverseRemove( this,
+                        NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION, Doc.class, msgs );
+            return basicSetRefersToPresCondArgsDoc( ( Doc ) otherEnd, msgs );
+        }
+        return super.eInverseAdd( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.AG_PRESENCE_CONDITION__REFERS_TO_PRES_COND_ARGS_DOC:
+            return basicUnsetRefersToPresCondArgsDoc( msgs );
+        }
+        return super.eInverseRemove( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
         case NsdPackage.AG_PRESENCE_CONDITION__PRES_COND:
@@ -322,6 +492,8 @@ public abstract class AgPresenceConditionImpl extends MinimalEObjectImpl.Contain
             return getPresCondArgs();
         case NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS_ID:
             return getPresCondArgsID();
+        case NsdPackage.AG_PRESENCE_CONDITION__REFERS_TO_PRES_COND_ARGS_DOC:
+            return getRefersToPresCondArgsDoc();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -342,6 +514,9 @@ public abstract class AgPresenceConditionImpl extends MinimalEObjectImpl.Contain
             return;
         case NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS_ID:
             setPresCondArgsID( ( String ) newValue );
+            return;
+        case NsdPackage.AG_PRESENCE_CONDITION__REFERS_TO_PRES_COND_ARGS_DOC:
+            setRefersToPresCondArgsDoc( ( Doc ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -364,6 +539,9 @@ public abstract class AgPresenceConditionImpl extends MinimalEObjectImpl.Contain
         case NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS_ID:
             unsetPresCondArgsID();
             return;
+        case NsdPackage.AG_PRESENCE_CONDITION__REFERS_TO_PRES_COND_ARGS_DOC:
+            unsetRefersToPresCondArgsDoc();
+            return;
         }
         super.eUnset( featureID );
     }
@@ -382,6 +560,8 @@ public abstract class AgPresenceConditionImpl extends MinimalEObjectImpl.Contain
             return isSetPresCondArgs();
         case NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS_ID:
             return isSetPresCondArgsID();
+        case NsdPackage.AG_PRESENCE_CONDITION__REFERS_TO_PRES_COND_ARGS_DOC:
+            return isSetRefersToPresCondArgsDoc();
         }
         return super.eIsSet( featureID );
     }

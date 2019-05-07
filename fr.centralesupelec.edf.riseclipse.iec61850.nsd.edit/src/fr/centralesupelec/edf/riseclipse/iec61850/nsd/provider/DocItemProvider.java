@@ -70,6 +70,14 @@ public class DocItemProvider extends NsdObjectItemProvider {
             super.getPropertyDescriptors( object );
 
             addIdPropertyDescriptor( object );
+            addReferredByAgNSDescPropertyDescriptor( object );
+            addReferredByPresenceConditionPropertyDescriptor( object );
+            addReferredByAgPresenceConditionPropertyDescriptor( object );
+            addReferredByAbbreviationPropertyDescriptor( object );
+            addReferredByBasicTypePropertyDescriptor( object );
+            addReferredByDocumentedClassPropertyDescriptor( object );
+            addReferredByFunctionalConstraintPropertyDescriptor( object );
+            addReferredByAgPresenceConditionDerivedStatisticsPropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -91,6 +99,182 @@ public class DocItemProvider extends NsdObjectItemProvider {
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Referred By Ag NS Desc feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReferredByAgNSDescPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_Doc_ReferredByAgNSDesc_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_Doc_ReferredByAgNSDesc_feature",
+                                "_UI_Doc_type" ),
+                        NsdPackage.Literals.DOC__REFERRED_BY_AG_NS_DESC,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Referred By Presence Condition feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReferredByPresenceConditionPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_Doc_referredByPresenceCondition_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_Doc_referredByPresenceCondition_feature",
+                                "_UI_Doc_type" ),
+                        NsdPackage.Literals.DOC__REFERRED_BY_PRESENCE_CONDITION,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Referred By Ag Presence Condition feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReferredByAgPresenceConditionPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_Doc_referredByAgPresenceCondition_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_Doc_referredByAgPresenceCondition_feature", "_UI_Doc_type" ),
+                        NsdPackage.Literals.DOC__REFERRED_BY_AG_PRESENCE_CONDITION,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Referred By Abbreviation feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReferredByAbbreviationPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_Doc_referredByAbbreviation_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_Doc_referredByAbbreviation_feature",
+                                "_UI_Doc_type" ),
+                        NsdPackage.Literals.DOC__REFERRED_BY_ABBREVIATION,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Referred By Basic Type feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReferredByBasicTypePropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_Doc_referredByBasicType_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_Doc_referredByBasicType_feature",
+                                "_UI_Doc_type" ),
+                        NsdPackage.Literals.DOC__REFERRED_BY_BASIC_TYPE,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Referred By Documented Class feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReferredByDocumentedClassPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_Doc_referredByDocumentedClass_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_Doc_referredByDocumentedClass_feature",
+                                "_UI_Doc_type" ),
+                        NsdPackage.Literals.DOC__REFERRED_BY_DOCUMENTED_CLASS,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Referred By Functional Constraint feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReferredByFunctionalConstraintPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_Doc_referredByFunctionalConstraint_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_Doc_referredByFunctionalConstraint_feature", "_UI_Doc_type" ),
+                        NsdPackage.Literals.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Referred By Ag Presence Condition Derived Statistics feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReferredByAgPresenceConditionDerivedStatisticsPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_Doc_referredByAgPresenceConditionDerivedStatistics_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_Doc_referredByAgPresenceConditionDerivedStatistics_feature", "_UI_Doc_type" ),
+                        NsdPackage.Literals.DOC__REFERRED_BY_AG_PRESENCE_CONDITION_DERIVED_STATISTICS,
+                        true,
+                        false,
+                        true,
+                        null,
                         null,
                         null ) );
     }

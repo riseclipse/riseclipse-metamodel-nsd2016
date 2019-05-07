@@ -25,10 +25,12 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetImpl;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -51,6 +53,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getPresCond <em>Pres Cond</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getPresCondArgs <em>Pres Cond Args</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getPresCondArgsID <em>Pres Cond Args ID</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getRefersToPresCondArgsDoc <em>Refers To Pres Cond Args Doc</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#isIsArray <em>Is Array</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getMaxIndexAttribute <em>Max Index Attribute</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getMinIndex <em>Min Index</em>}</li>
@@ -155,6 +158,25 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
      * @ordered
      */
     protected boolean presCondArgsIDESet;
+
+    /**
+     * The cached value of the '{@link #getRefersToPresCondArgsDoc() <em>Refers To Pres Cond Args Doc</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRefersToPresCondArgsDoc()
+     * @generated
+     * @ordered
+     */
+    protected Doc refersToPresCondArgsDoc;
+
+    /**
+     * This is true if the Refers To Pres Cond Args Doc reference has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean refersToPresCondArgsDocESet;
 
     /**
      * The default value of the '{@link #isIsArray() <em>Is Array</em>}' attribute.
@@ -845,6 +867,122 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
     @Override
     public boolean isSetPresCondArgsID() {
         return presCondArgsIDESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Doc getRefersToPresCondArgsDoc() {
+        return refersToPresCondArgsDoc;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetRefersToPresCondArgsDoc( Doc newRefersToPresCondArgsDoc, NotificationChain msgs ) {
+        Doc oldRefersToPresCondArgsDoc = refersToPresCondArgsDoc;
+        refersToPresCondArgsDoc = newRefersToPresCondArgsDoc;
+        boolean oldRefersToPresCondArgsDocESet = refersToPresCondArgsDocESet;
+        refersToPresCondArgsDocESet = true;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.SUB_DATA_OBJECT__REFERS_TO_PRES_COND_ARGS_DOC, oldRefersToPresCondArgsDoc,
+                    newRefersToPresCondArgsDoc, !oldRefersToPresCondArgsDocESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setRefersToPresCondArgsDoc( Doc newRefersToPresCondArgsDoc ) {
+        if( newRefersToPresCondArgsDoc != refersToPresCondArgsDoc ) {
+            NotificationChain msgs = null;
+            if( refersToPresCondArgsDoc != null )
+                msgs = ( ( InternalEObject ) refersToPresCondArgsDoc ).eInverseRemove( this,
+                        NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION, Doc.class, msgs );
+            if( newRefersToPresCondArgsDoc != null )
+                msgs = ( ( InternalEObject ) newRefersToPresCondArgsDoc ).eInverseAdd( this,
+                        NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION, Doc.class, msgs );
+            msgs = basicSetRefersToPresCondArgsDoc( newRefersToPresCondArgsDoc, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToPresCondArgsDocESet = refersToPresCondArgsDocESet;
+            refersToPresCondArgsDocESet = true;
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.SET,
+                        NsdPackage.SUB_DATA_OBJECT__REFERS_TO_PRES_COND_ARGS_DOC, newRefersToPresCondArgsDoc,
+                        newRefersToPresCondArgsDoc, !oldRefersToPresCondArgsDocESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicUnsetRefersToPresCondArgsDoc( NotificationChain msgs ) {
+        Doc oldRefersToPresCondArgsDoc = refersToPresCondArgsDoc;
+        refersToPresCondArgsDoc = null;
+        boolean oldRefersToPresCondArgsDocESet = refersToPresCondArgsDocESet;
+        refersToPresCondArgsDocESet = false;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.SUB_DATA_OBJECT__REFERS_TO_PRES_COND_ARGS_DOC, oldRefersToPresCondArgsDoc, null,
+                    oldRefersToPresCondArgsDocESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetRefersToPresCondArgsDoc() {
+        if( refersToPresCondArgsDoc != null ) {
+            NotificationChain msgs = null;
+            msgs = ( ( InternalEObject ) refersToPresCondArgsDoc ).eInverseRemove( this,
+                    NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION, Doc.class, msgs );
+            msgs = basicUnsetRefersToPresCondArgsDoc( msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToPresCondArgsDocESet = refersToPresCondArgsDocESet;
+            refersToPresCondArgsDocESet = false;
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.UNSET,
+                        NsdPackage.SUB_DATA_OBJECT__REFERS_TO_PRES_COND_ARGS_DOC, null, null,
+                        oldRefersToPresCondArgsDocESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetRefersToPresCondArgsDoc() {
+        return refersToPresCondArgsDocESet;
     }
 
     /**
@@ -1578,6 +1716,11 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
     @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_PRES_COND_ARGS_DOC:
+            if( refersToPresCondArgsDoc != null )
+                msgs = ( ( InternalEObject ) refersToPresCondArgsDoc ).eInverseRemove( this,
+                        NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION, Doc.class, msgs );
+            return basicSetRefersToPresCondArgsDoc( ( Doc ) otherEnd, msgs );
         case NsdPackage.SUB_DATA_OBJECT__PARENT_CDC:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
@@ -1616,6 +1759,8 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
     @Override
     public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_PRES_COND_ARGS_DOC:
+            return basicUnsetRefersToPresCondArgsDoc( msgs );
         case NsdPackage.SUB_DATA_OBJECT__PARENT_CDC:
             return basicSetParentCDC( null, msgs );
         case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_CDC:
@@ -1658,6 +1803,8 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
             return getPresCondArgs();
         case NsdPackage.SUB_DATA_OBJECT__PRES_COND_ARGS_ID:
             return getPresCondArgsID();
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_PRES_COND_ARGS_DOC:
+            return getRefersToPresCondArgsDoc();
         case NsdPackage.SUB_DATA_OBJECT__IS_ARRAY:
             return isIsArray();
         case NsdPackage.SUB_DATA_OBJECT__MAX_INDEX_ATTRIBUTE:
@@ -1704,6 +1851,9 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
             return;
         case NsdPackage.SUB_DATA_OBJECT__PRES_COND_ARGS_ID:
             setPresCondArgsID( ( String ) newValue );
+            return;
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_PRES_COND_ARGS_DOC:
+            setRefersToPresCondArgsDoc( ( Doc ) newValue );
             return;
         case NsdPackage.SUB_DATA_OBJECT__IS_ARRAY:
             setIsArray( ( Boolean ) newValue );
@@ -1765,6 +1915,9 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
         case NsdPackage.SUB_DATA_OBJECT__PRES_COND_ARGS_ID:
             unsetPresCondArgsID();
             return;
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_PRES_COND_ARGS_DOC:
+            unsetRefersToPresCondArgsDoc();
+            return;
         case NsdPackage.SUB_DATA_OBJECT__IS_ARRAY:
             unsetIsArray();
             return;
@@ -1822,6 +1975,8 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
             return isSetPresCondArgs();
         case NsdPackage.SUB_DATA_OBJECT__PRES_COND_ARGS_ID:
             return isSetPresCondArgsID();
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_PRES_COND_ARGS_DOC:
+            return isSetRefersToPresCondArgsDoc();
         case NsdPackage.SUB_DATA_OBJECT__IS_ARRAY:
             return isSetIsArray();
         case NsdPackage.SUB_DATA_OBJECT__MAX_INDEX_ATTRIBUTE:
@@ -1867,6 +2022,8 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                 return NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS;
             case NsdPackage.SUB_DATA_OBJECT__PRES_COND_ARGS_ID:
                 return NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS_ID;
+            case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_PRES_COND_ARGS_DOC:
+                return NsdPackage.AG_PRESENCE_CONDITION__REFERS_TO_PRES_COND_ARGS_DOC;
             default:
                 return -1;
             }
@@ -1913,6 +2070,8 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                 return NsdPackage.SUB_DATA_OBJECT__PRES_COND_ARGS;
             case NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS_ID:
                 return NsdPackage.SUB_DATA_OBJECT__PRES_COND_ARGS_ID;
+            case NsdPackage.AG_PRESENCE_CONDITION__REFERS_TO_PRES_COND_ARGS_DOC:
+                return NsdPackage.SUB_DATA_OBJECT__REFERS_TO_PRES_COND_ARGS_DOC;
             default:
                 return -1;
             }
@@ -2092,6 +2251,13 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                 console.error( "DataAttribute (name: " + getMaxIndexAttribute()
                         + ") refers as maxIndexAttribute by SubDataObject (name: " + getName() + ") in NS (id:"
                         + ns.getId() + ") is unknown" );
+            }
+        }
+
+        if( isSetPresCondArgsID() ) {
+            if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
+                Doc doc = (( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getPresCondArgsID() );
+                if( doc != null ) setRefersToPresCondArgsDoc( doc );
             }
         }
 

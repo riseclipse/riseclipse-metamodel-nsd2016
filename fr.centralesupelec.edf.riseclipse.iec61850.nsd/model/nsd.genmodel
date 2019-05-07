@@ -131,6 +131,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//Abbreviation/descID"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//Abbreviation/name"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//Abbreviation/parentAbbreviations"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//Abbreviation/refersToDoc"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//Abbreviations">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//Abbreviations/abbreviation"/>
@@ -164,6 +165,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//BasicType/name"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//BasicType/parentBasicTypes"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//BasicType/referredByDataAttribute"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//BasicType/refersToDoc"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//BasicTypes">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//BasicTypes/basicType"/>
@@ -247,11 +249,20 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//Doc/any"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//Doc/id"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//Doc/parentNSDoc"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//Doc/ReferredByAgNSDesc"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//Doc/referredByPresenceCondition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//Doc/referredByAgPresenceCondition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//Doc/referredByAbbreviation"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//Doc/referredByBasicType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//Doc/referredByDocumentedClass"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//Doc/referredByFunctionalConstraint"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//Doc/referredByAgPresenceConditionDerivedStatistics"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//DocumentedClass">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//DocumentedClass/deprecated"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//DocumentedClass/descID"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//DocumentedClass/informative"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//DocumentedClass/refersToDoc"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//Enumeration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//Enumeration/literal"/>
@@ -272,6 +283,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//FunctionalConstraint/titleID"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//FunctionalConstraint/parentFunctionalConstraints"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//FunctionalConstraint/referredByDataAttribute"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//FunctionalConstraint/refersToDoc"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//FunctionalConstraints">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//FunctionalConstraints/functionalConstraint"/>
@@ -352,6 +364,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//PresenceCondition/referredBySubDataObject"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//PresenceCondition/referredByDataAttribute"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//PresenceCondition/referredBySubDataAttribute"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//PresenceCondition/refersToDoc"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//PresenceConditions">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//PresenceConditions/presenceCondition"/>
@@ -438,11 +451,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgPresenceCondition/presCond"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgPresenceCondition/presCondArgs"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgPresenceCondition/presCondArgsID"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//AgPresenceCondition/refersToPresCondArgsDoc"/>
     </genClasses>
     <genClasses image="false" ecoreClass="nsd.ecore#//AgPresenceConditionDerivedStatistics">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgPresenceConditionDerivedStatistics/dsPresCond"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgPresenceConditionDerivedStatistics/dsPresCondArgs"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgPresenceConditionDerivedStatistics/dsPresCondArgsID"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//AgPresenceConditionDerivedStatistics/refersToDsPresCondArgsDoc"/>
     </genClasses>
     <genClasses image="false" ecoreClass="nsd.ecore#//AgArray">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgArray/isArray"/>
@@ -474,6 +489,7 @@
     </genClasses>
     <genClasses image="false" ecoreClass="nsd.ecore#//AgNSdesc">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgNSdesc/descID"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//AgNSdesc/refersToDoc"/>
     </genClasses>
     <genClasses image="false" ecoreClass="nsd.ecore#//IRiseClipseConsole"/>
   </genPackages>

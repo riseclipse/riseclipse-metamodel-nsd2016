@@ -74,6 +74,7 @@ public class AgPresenceConditionDerivedStatisticsItemProvider extends ItemProvid
             addDsPresCondPropertyDescriptor( object );
             addDsPresCondArgsPropertyDescriptor( object );
             addDsPresCondArgsIDPropertyDescriptor( object );
+            addRefersToDsPresCondArgsDocPropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -143,6 +144,29 @@ public class AgPresenceConditionDerivedStatisticsItemProvider extends ItemProvid
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Refers To Ds Pres Cond Args Doc feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addRefersToDsPresCondArgsDocPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_AgPresenceConditionDerivedStatistics_refersToDsPresCondArgsDoc_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_AgPresenceConditionDerivedStatistics_refersToDsPresCondArgsDoc_feature",
+                                "_UI_AgPresenceConditionDerivedStatistics_type" ),
+                        NsdPackage.Literals.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__REFERS_TO_DS_PRES_COND_ARGS_DOC,
+                        true,
+                        false,
+                        true,
+                        null,
                         null,
                         null ) );
     }

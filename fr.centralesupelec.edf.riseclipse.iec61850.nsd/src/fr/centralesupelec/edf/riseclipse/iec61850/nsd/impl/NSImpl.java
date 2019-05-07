@@ -30,6 +30,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint;
@@ -40,6 +41,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetImpl;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
@@ -72,6 +74,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSImpl#getUmlDate <em>Uml Date</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSImpl#getUmlVersion <em>Uml Version</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSImpl#getDescID <em>Desc ID</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSImpl#getRefersToDoc <em>Refers To Doc</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSImpl#getChanges <em>Changes</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSImpl#getDependsOn <em>Depends On</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSImpl#getBasicTypes <em>Basic Types</em>}</li>
@@ -319,6 +322,25 @@ public class NSImpl extends CopyrightedImpl implements NS {
      * @ordered
      */
     protected boolean descIDESet;
+
+    /**
+     * The cached value of the '{@link #getRefersToDoc() <em>Refers To Doc</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRefersToDoc()
+     * @generated
+     * @ordered
+     */
+    protected Doc refersToDoc;
+
+    /**
+     * This is true if the Refers To Doc reference has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean refersToDocESet;
 
     /**
      * The cached value of the '{@link #getChanges() <em>Changes</em>}' containment reference.
@@ -1875,6 +1897,118 @@ public class NSImpl extends CopyrightedImpl implements NS {
      * @generated
      */
     @Override
+    public Doc getRefersToDoc() {
+        return refersToDoc;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetRefersToDoc( Doc newRefersToDoc, NotificationChain msgs ) {
+        Doc oldRefersToDoc = refersToDoc;
+        refersToDoc = newRefersToDoc;
+        boolean oldRefersToDocESet = refersToDocESet;
+        refersToDocESet = true;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.NS__REFERS_TO_DOC, oldRefersToDoc, newRefersToDoc, !oldRefersToDocESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setRefersToDoc( Doc newRefersToDoc ) {
+        if( newRefersToDoc != refersToDoc ) {
+            NotificationChain msgs = null;
+            if( refersToDoc != null )
+                msgs = ( ( InternalEObject ) refersToDoc ).eInverseRemove( this, NsdPackage.DOC__REFERRED_BY_AG_NS_DESC,
+                        Doc.class, msgs );
+            if( newRefersToDoc != null )
+                msgs = ( ( InternalEObject ) newRefersToDoc ).eInverseAdd( this, NsdPackage.DOC__REFERRED_BY_AG_NS_DESC,
+                        Doc.class, msgs );
+            msgs = basicSetRefersToDoc( newRefersToDoc, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToDocESet = refersToDocESet;
+            refersToDocESet = true;
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS__REFERS_TO_DOC, newRefersToDoc,
+                        newRefersToDoc, !oldRefersToDocESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicUnsetRefersToDoc( NotificationChain msgs ) {
+        Doc oldRefersToDoc = refersToDoc;
+        refersToDoc = null;
+        boolean oldRefersToDocESet = refersToDocESet;
+        refersToDocESet = false;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.NS__REFERS_TO_DOC, oldRefersToDoc, null, oldRefersToDocESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetRefersToDoc() {
+        if( refersToDoc != null ) {
+            NotificationChain msgs = null;
+            msgs = ( ( InternalEObject ) refersToDoc ).eInverseRemove( this, NsdPackage.DOC__REFERRED_BY_AG_NS_DESC,
+                    Doc.class, msgs );
+            msgs = basicUnsetRefersToDoc( msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToDocESet = refersToDocESet;
+            refersToDocESet = false;
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS__REFERS_TO_DOC, null, null,
+                        oldRefersToDocESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetRefersToDoc() {
+        return refersToDocESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public String getId() {
         return id;
     }
@@ -2189,6 +2323,11 @@ public class NSImpl extends CopyrightedImpl implements NS {
     @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
+        case NsdPackage.NS__REFERS_TO_DOC:
+            if( refersToDoc != null )
+                msgs = ( ( InternalEObject ) refersToDoc ).eInverseRemove( this, NsdPackage.DOC__REFERRED_BY_AG_NS_DESC,
+                        Doc.class, msgs );
+            return basicSetRefersToDoc( ( Doc ) otherEnd, msgs );
         case NsdPackage.NS__CHANGES:
             if( changes != null )
                 msgs = ( ( InternalEObject ) changes ).eInverseRemove( this,
@@ -2306,6 +2445,8 @@ public class NSImpl extends CopyrightedImpl implements NS {
     @Override
     public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
+        case NsdPackage.NS__REFERS_TO_DOC:
+            return basicUnsetRefersToDoc( msgs );
         case NsdPackage.NS__CHANGES:
             return basicUnsetChanges( msgs );
         case NsdPackage.NS__DEPENDS_ON:
@@ -2356,6 +2497,8 @@ public class NSImpl extends CopyrightedImpl implements NS {
             return getUmlVersion();
         case NsdPackage.NS__DESC_ID:
             return getDescID();
+        case NsdPackage.NS__REFERS_TO_DOC:
+            return getRefersToDoc();
         case NsdPackage.NS__CHANGES:
             return getChanges();
         case NsdPackage.NS__DEPENDS_ON:
@@ -2414,6 +2557,9 @@ public class NSImpl extends CopyrightedImpl implements NS {
             return;
         case NsdPackage.NS__DESC_ID:
             setDescID( ( String ) newValue );
+            return;
+        case NsdPackage.NS__REFERS_TO_DOC:
+            setRefersToDoc( ( Doc ) newValue );
             return;
         case NsdPackage.NS__CHANGES:
             setChanges( ( Changes ) newValue );
@@ -2485,6 +2631,9 @@ public class NSImpl extends CopyrightedImpl implements NS {
         case NsdPackage.NS__DESC_ID:
             unsetDescID();
             return;
+        case NsdPackage.NS__REFERS_TO_DOC:
+            unsetRefersToDoc();
+            return;
         case NsdPackage.NS__CHANGES:
             unsetChanges();
             return;
@@ -2546,6 +2695,8 @@ public class NSImpl extends CopyrightedImpl implements NS {
             return isSetUmlVersion();
         case NsdPackage.NS__DESC_ID:
             return isSetDescID();
+        case NsdPackage.NS__REFERS_TO_DOC:
+            return isSetRefersToDoc();
         case NsdPackage.NS__CHANGES:
             return isSetChanges();
         case NsdPackage.NS__DEPENDS_ON:
@@ -2609,6 +2760,8 @@ public class NSImpl extends CopyrightedImpl implements NS {
             switch( derivedFeatureID ) {
             case NsdPackage.NS__DESC_ID:
                 return NsdPackage.AG_NSDESC__DESC_ID;
+            case NsdPackage.NS__REFERS_TO_DOC:
+                return NsdPackage.AG_NSDESC__REFERS_TO_DOC;
             default:
                 return -1;
             }
@@ -2653,6 +2806,8 @@ public class NSImpl extends CopyrightedImpl implements NS {
             switch( baseFeatureID ) {
             case NsdPackage.AG_NSDESC__DESC_ID:
                 return NsdPackage.NS__DESC_ID;
+            case NsdPackage.AG_NSDESC__REFERS_TO_DOC:
+                return NsdPackage.NS__REFERS_TO_DOC;
             default:
                 return -1;
             }
@@ -2734,6 +2889,20 @@ public class NSImpl extends CopyrightedImpl implements NS {
             result.append( "<unset>" );
         result.append( ')' );
         return result.toString();
+    }
+
+    @Override
+    public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
+        if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
+        
+        if( isSetDescID() ) {
+            if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
+                Doc doc = (( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getDescID() );
+                if( doc != null ) setRefersToDoc( doc );
+            }
+        }
+
+        return false;
     }
 
 } //NSImpl

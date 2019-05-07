@@ -23,10 +23,13 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceCondition;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetImpl;
+import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -50,6 +53,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceDataAttributeImpl#getPresCond <em>Pres Cond</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceDataAttributeImpl#getPresCondArgs <em>Pres Cond Args</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceDataAttributeImpl#getPresCondArgsID <em>Pres Cond Args ID</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceDataAttributeImpl#getRefersToPresCondArgsDoc <em>Refers To Pres Cond Args Doc</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceDataAttributeImpl#getType <em>Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceDataAttributeImpl#getTypeKind <em>Type Kind</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceDataAttributeImpl#getUnderlyingType <em>Underlying Type</em>}</li>
@@ -148,6 +152,25 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
      * @ordered
      */
     protected boolean presCondArgsIDESet;
+
+    /**
+     * The cached value of the '{@link #getRefersToPresCondArgsDoc() <em>Refers To Pres Cond Args Doc</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRefersToPresCondArgsDoc()
+     * @generated
+     * @ordered
+     */
+    protected Doc refersToPresCondArgsDoc;
+
+    /**
+     * This is true if the Refers To Pres Cond Args Doc reference has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean refersToPresCondArgsDocESet;
 
     /**
      * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -659,6 +682,122 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
      * @generated
      */
     @Override
+    public Doc getRefersToPresCondArgsDoc() {
+        return refersToPresCondArgsDoc;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetRefersToPresCondArgsDoc( Doc newRefersToPresCondArgsDoc, NotificationChain msgs ) {
+        Doc oldRefersToPresCondArgsDoc = refersToPresCondArgsDoc;
+        refersToPresCondArgsDoc = newRefersToPresCondArgsDoc;
+        boolean oldRefersToPresCondArgsDocESet = refersToPresCondArgsDocESet;
+        refersToPresCondArgsDocESet = true;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC, oldRefersToPresCondArgsDoc,
+                    newRefersToPresCondArgsDoc, !oldRefersToPresCondArgsDocESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setRefersToPresCondArgsDoc( Doc newRefersToPresCondArgsDoc ) {
+        if( newRefersToPresCondArgsDoc != refersToPresCondArgsDoc ) {
+            NotificationChain msgs = null;
+            if( refersToPresCondArgsDoc != null )
+                msgs = ( ( InternalEObject ) refersToPresCondArgsDoc ).eInverseRemove( this,
+                        NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION, Doc.class, msgs );
+            if( newRefersToPresCondArgsDoc != null )
+                msgs = ( ( InternalEObject ) newRefersToPresCondArgsDoc ).eInverseAdd( this,
+                        NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION, Doc.class, msgs );
+            msgs = basicSetRefersToPresCondArgsDoc( newRefersToPresCondArgsDoc, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToPresCondArgsDocESet = refersToPresCondArgsDocESet;
+            refersToPresCondArgsDocESet = true;
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.SET,
+                        NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC, newRefersToPresCondArgsDoc,
+                        newRefersToPresCondArgsDoc, !oldRefersToPresCondArgsDocESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicUnsetRefersToPresCondArgsDoc( NotificationChain msgs ) {
+        Doc oldRefersToPresCondArgsDoc = refersToPresCondArgsDoc;
+        refersToPresCondArgsDoc = null;
+        boolean oldRefersToPresCondArgsDocESet = refersToPresCondArgsDocESet;
+        refersToPresCondArgsDocESet = false;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC, oldRefersToPresCondArgsDoc, null,
+                    oldRefersToPresCondArgsDocESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetRefersToPresCondArgsDoc() {
+        if( refersToPresCondArgsDoc != null ) {
+            NotificationChain msgs = null;
+            msgs = ( ( InternalEObject ) refersToPresCondArgsDoc ).eInverseRemove( this,
+                    NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION, Doc.class, msgs );
+            msgs = basicUnsetRefersToPresCondArgsDoc( msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToPresCondArgsDocESet = refersToPresCondArgsDocESet;
+            refersToPresCondArgsDocESet = false;
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.UNSET,
+                        NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC, null, null,
+                        oldRefersToPresCondArgsDocESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetRefersToPresCondArgsDoc() {
+        return refersToPresCondArgsDocESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public String getType() {
         return type;
     }
@@ -872,6 +1011,11 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
     @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
+        case NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC:
+            if( refersToPresCondArgsDoc != null )
+                msgs = ( ( InternalEObject ) refersToPresCondArgsDoc ).eInverseRemove( this,
+                        NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION, Doc.class, msgs );
+            return basicSetRefersToPresCondArgsDoc( ( Doc ) otherEnd, msgs );
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__PARENT_SERVICE_CDC:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
@@ -888,6 +1032,8 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
     @Override
     public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
+        case NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC:
+            return basicUnsetRefersToPresCondArgsDoc( msgs );
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__PARENT_SERVICE_CDC:
             return basicSetParentServiceCDC( null, msgs );
         }
@@ -923,6 +1069,8 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
             return getPresCondArgs();
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS_ID:
             return getPresCondArgsID();
+        case NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC:
+            return getRefersToPresCondArgsDoc();
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__TYPE:
             return getType();
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__TYPE_KIND:
@@ -957,6 +1105,9 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
             return;
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS_ID:
             setPresCondArgsID( ( String ) newValue );
+            return;
+        case NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC:
+            setRefersToPresCondArgsDoc( ( Doc ) newValue );
             return;
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__TYPE:
             setType( ( String ) newValue );
@@ -1000,6 +1151,9 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS_ID:
             unsetPresCondArgsID();
             return;
+        case NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC:
+            unsetRefersToPresCondArgsDoc();
+            return;
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__TYPE:
             unsetType();
             return;
@@ -1039,6 +1193,8 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
             return isSetPresCondArgs();
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS_ID:
             return isSetPresCondArgsID();
+        case NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC:
+            return isSetRefersToPresCondArgsDoc();
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__TYPE:
             return isSetType();
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__TYPE_KIND:
@@ -1072,6 +1228,8 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                 return NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS;
             case NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS_ID:
                 return NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS_ID;
+            case NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC:
+                return NsdPackage.AG_PRESENCE_CONDITION__REFERS_TO_PRES_COND_ARGS_DOC;
             default:
                 return -1;
             }
@@ -1114,6 +1272,8 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                 return NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS;
             case NsdPackage.AG_PRESENCE_CONDITION__PRES_COND_ARGS_ID:
                 return NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS_ID;
+            case NsdPackage.AG_PRESENCE_CONDITION__REFERS_TO_PRES_COND_ARGS_DOC:
+                return NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC;
             default:
                 return -1;
             }
@@ -1198,6 +1358,20 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
             result.append( "<unset>" );
         result.append( ')' );
         return result.toString();
+    }
+
+    @Override
+    public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
+        if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
+        
+        if( isSetPresCondArgsID() ) {
+            if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
+                Doc doc = (( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getPresCondArgsID() );
+                if( doc != null ) setRefersToPresCondArgsDoc( doc );
+            }
+        }
+
+        return false;
     }
 
 } //ServiceDataAttributeImpl
