@@ -19,13 +19,18 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentedClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetImpl;
+import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -39,6 +44,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DocumentedClassImpl#isDeprecated <em>Deprecated</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DocumentedClassImpl#getDescID <em>Desc ID</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DocumentedClassImpl#isInformative <em>Informative</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DocumentedClassImpl#getRefersToDoc <em>Refers To Doc</em>}</li>
  * </ul>
  *
  * @generated
@@ -130,6 +136,25 @@ public class DocumentedClassImpl extends NsdObjectImpl implements DocumentedClas
      * @ordered
      */
     protected boolean informativeESet;
+
+    /**
+     * The cached value of the '{@link #getRefersToDoc() <em>Refers To Doc</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRefersToDoc()
+     * @generated
+     * @ordered
+     */
+    protected Doc refersToDoc;
+
+    /**
+     * This is true if the Refers To Doc reference has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean refersToDocESet;
 
     /**
      * <!-- begin-user-doc -->
@@ -312,6 +337,149 @@ public class DocumentedClassImpl extends NsdObjectImpl implements DocumentedClas
      * @generated
      */
     @Override
+    public Doc getRefersToDoc() {
+        return refersToDoc;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetRefersToDoc( Doc newRefersToDoc, NotificationChain msgs ) {
+        Doc oldRefersToDoc = refersToDoc;
+        refersToDoc = newRefersToDoc;
+        boolean oldRefersToDocESet = refersToDocESet;
+        refersToDocESet = true;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.DOCUMENTED_CLASS__REFERS_TO_DOC, oldRefersToDoc, newRefersToDoc, !oldRefersToDocESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setRefersToDoc( Doc newRefersToDoc ) {
+        if( newRefersToDoc != refersToDoc ) {
+            NotificationChain msgs = null;
+            if( refersToDoc != null )
+                msgs = ( ( InternalEObject ) refersToDoc ).eInverseRemove( this,
+                        NsdPackage.DOC__REFERRED_BY_DOCUMENTED_CLASS, Doc.class, msgs );
+            if( newRefersToDoc != null )
+                msgs = ( ( InternalEObject ) newRefersToDoc ).eInverseAdd( this,
+                        NsdPackage.DOC__REFERRED_BY_DOCUMENTED_CLASS, Doc.class, msgs );
+            msgs = basicSetRefersToDoc( newRefersToDoc, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToDocESet = refersToDocESet;
+            refersToDocESet = true;
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DOCUMENTED_CLASS__REFERS_TO_DOC,
+                        newRefersToDoc, newRefersToDoc, !oldRefersToDocESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicUnsetRefersToDoc( NotificationChain msgs ) {
+        Doc oldRefersToDoc = refersToDoc;
+        refersToDoc = null;
+        boolean oldRefersToDocESet = refersToDocESet;
+        refersToDocESet = false;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.DOCUMENTED_CLASS__REFERS_TO_DOC, oldRefersToDoc, null, oldRefersToDocESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetRefersToDoc() {
+        if( refersToDoc != null ) {
+            NotificationChain msgs = null;
+            msgs = ( ( InternalEObject ) refersToDoc ).eInverseRemove( this,
+                    NsdPackage.DOC__REFERRED_BY_DOCUMENTED_CLASS, Doc.class, msgs );
+            msgs = basicUnsetRefersToDoc( msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToDocESet = refersToDocESet;
+            refersToDocESet = false;
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DOCUMENTED_CLASS__REFERS_TO_DOC,
+                        null, null, oldRefersToDocESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetRefersToDoc() {
+        return refersToDocESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.DOCUMENTED_CLASS__REFERS_TO_DOC:
+            if( refersToDoc != null )
+                msgs = ( ( InternalEObject ) refersToDoc ).eInverseRemove( this,
+                        NsdPackage.DOC__REFERRED_BY_DOCUMENTED_CLASS, Doc.class, msgs );
+            return basicSetRefersToDoc( ( Doc ) otherEnd, msgs );
+        }
+        return super.eInverseAdd( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.DOCUMENTED_CLASS__REFERS_TO_DOC:
+            return basicUnsetRefersToDoc( msgs );
+        }
+        return super.eInverseRemove( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
         case NsdPackage.DOCUMENTED_CLASS__DEPRECATED:
@@ -320,6 +488,8 @@ public class DocumentedClassImpl extends NsdObjectImpl implements DocumentedClas
             return getDescID();
         case NsdPackage.DOCUMENTED_CLASS__INFORMATIVE:
             return isInformative();
+        case NsdPackage.DOCUMENTED_CLASS__REFERS_TO_DOC:
+            return getRefersToDoc();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -340,6 +510,9 @@ public class DocumentedClassImpl extends NsdObjectImpl implements DocumentedClas
             return;
         case NsdPackage.DOCUMENTED_CLASS__INFORMATIVE:
             setInformative( ( Boolean ) newValue );
+            return;
+        case NsdPackage.DOCUMENTED_CLASS__REFERS_TO_DOC:
+            setRefersToDoc( ( Doc ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -362,6 +535,9 @@ public class DocumentedClassImpl extends NsdObjectImpl implements DocumentedClas
         case NsdPackage.DOCUMENTED_CLASS__INFORMATIVE:
             unsetInformative();
             return;
+        case NsdPackage.DOCUMENTED_CLASS__REFERS_TO_DOC:
+            unsetRefersToDoc();
+            return;
         }
         super.eUnset( featureID );
     }
@@ -380,6 +556,8 @@ public class DocumentedClassImpl extends NsdObjectImpl implements DocumentedClas
             return isSetDescID();
         case NsdPackage.DOCUMENTED_CLASS__INFORMATIVE:
             return isSetInformative();
+        case NsdPackage.DOCUMENTED_CLASS__REFERS_TO_DOC:
+            return isSetRefersToDoc();
         }
         return super.eIsSet( featureID );
     }
@@ -411,6 +589,20 @@ public class DocumentedClassImpl extends NsdObjectImpl implements DocumentedClas
             result.append( "<unset>" );
         result.append( ')' );
         return result.toString();
+    }
+
+    @Override
+    public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
+        if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
+        
+        if( isSetDescID() ) {
+            if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
+                Doc doc = (( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getDescID() );
+                if( doc != null ) setRefersToDoc( doc );
+            }
+        }
+
+        return false;
     }
 
 } //DocumentedClassImpl

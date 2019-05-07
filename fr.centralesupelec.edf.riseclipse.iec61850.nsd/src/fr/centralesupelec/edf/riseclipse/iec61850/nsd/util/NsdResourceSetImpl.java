@@ -23,13 +23,17 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 import org.eclipse.emf.ecore.resource.Resource;
+
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc;
 import fr.centralesupelec.edf.riseclipse.util.AbstractRiseClipseConsole;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 import fr.centralesupelec.edf.riseclipse.util.RiseClipseResourceSet;
@@ -38,11 +42,13 @@ import fr.centralesupelec.edf.riseclipse.util.RiseClipseResourceSet;
 public class NsdResourceSetImpl extends RiseClipseResourceSet {
     
     private Map< String, NS > nsdResources;
+    private Map< String, NSDoc > nsdocResources;
 
     public NsdResourceSetImpl( boolean strictContent, IRiseClipseConsole console ) {
         super( strictContent, console );
         
-        nsdResources = new HashMap< String, NS >();
+        nsdResources = new HashMap<>();
+        nsdocResources = new HashMap<>();
     }
 
     @Override
@@ -60,18 +66,29 @@ public class NsdResourceSetImpl extends RiseClipseResourceSet {
             return;
         }
         DocumentRoot root = (DocumentRoot) resource.getContents().get( 0 );
-        if( ! ( root.getNS() instanceof NS )) {
-            AbstractRiseClipseConsole.getConsole().error( "The file " + resource.getURI() + " is not an NSD file" );
-            this.getResources().remove( resource );
+        if( root.getNS() != null ) {
+            NS ns = ( NS ) root.getNS();
+            if( nsdResources.get( ns.getId() ) != null ) {
+                AbstractRiseClipseConsole.getConsole().error( "There is already an NSD file with is " + ns.getId() + ", " + resource.getURI() + " is ignored" );
+                this.getResources().remove( resource );
+                return;
+            }
+            nsdResources.put( ns.getId(), ns );
             return;
         }
-        NS ns = ( NS ) root.getNS();
-        if( nsdResources.get( ns.getId() ) != null ) {
-            AbstractRiseClipseConsole.getConsole().error( "There is already an NSD file with is " + ns.getId() + ", " + resource.getURI() + " is ignored" );
-            this.getResources().remove( resource );
+        if( root.getNSDoc() != null ) {
+            NSDoc nsdoc = ( NSDoc ) root.getNSDoc();
+            if( nsdocResources.get( nsdoc.getId() ) != null ) {
+                AbstractRiseClipseConsole.getConsole().error( "There is already an NSDoc file with is " + nsdoc.getId() + ", " + resource.getURI() + " is ignored" );
+                this.getResources().remove( resource );
+                return;
+            }
+            nsdocResources.put( nsdoc.getId(), nsdoc );
             return;
         }
-        nsdResources.put( ns.getId(), ns );
+        AbstractRiseClipseConsole.getConsole().error( "The file " + resource.getURI() + " is not an NSD file" );
+        this.getResources().remove( resource );
+        return;
     }
 
     /* (non-Javadoc)
@@ -116,8 +133,9 @@ public class NsdResourceSetImpl extends RiseClipseResourceSet {
         for( Resource resource : getResources() ) {
             if( resource instanceof NsdResourceImpl ) {
                 DocumentRoot root = (DocumentRoot) resource.getContents().get( 0 );
-                NS ns = ( NS ) root.getNS();
-                ns.buildExplicitLinks( console, true );
+                if( root.getNS() != null ) {
+                    root.getNS().buildExplicitLinks( console, true );
+                }
             }
         }
         
@@ -233,28 +251,33 @@ public class NsdResourceSetImpl extends RiseClipseResourceSet {
      */
     
     public Stream< LNClass > getLNClassStream() {
-        if( nsdResources.isEmpty() ) {
-            return null;
-        }
-        Stream< LNClass > lnClassStream = null;
+        Stream< LNClass > lnClassStream = Stream.empty();
         Iterator< NS > it = nsdResources.values().iterator();
         while( it.hasNext() ) {
             LNClasses lnClasses = it.next().getLNClasses();
             if( lnClasses != null ) {
-                if( lnClassStream == null ) {
-                    lnClassStream = lnClasses.getLNClass().stream();
-                }
-                else {
-                    // Warning: Resource leak: 'lnClassStream' is not closed at this location ??
-                    //lnClassStream = Stream.concat( lnClassStream, lnClasses.getLNClass().stream() );
-                    Stream< LNClass > tmp = Stream.concat( lnClassStream, lnClasses.getLNClass().stream() );
-                    lnClassStream = tmp;
-                }
+                // Warning: Resource leak: 'lnClassStream' is not closed at this location ??
+                //lnClassStream = Stream.concat( lnClassStream, lnClasses.getLNClass().stream() );
+                Stream< LNClass > tmp = Stream.concat( lnClassStream, lnClasses.getLNClass().stream() );
+                lnClassStream = tmp;
             }
         }
         return lnClassStream;
     }
 
+    public Doc findDoc( String id ) {
+        for( NSDoc nsdoc : nsdocResources.values() ) {
+            Optional< Doc > doc = nsdoc
+                    .getDoc()
+                    .stream()
+                    .filter( d -> d.getId().equals( id ))
+                    .findFirst();
+            if( doc.isPresent() ) {
+                return doc.get();
+            }
+        }
+        return null;
+    }
 }
 
 

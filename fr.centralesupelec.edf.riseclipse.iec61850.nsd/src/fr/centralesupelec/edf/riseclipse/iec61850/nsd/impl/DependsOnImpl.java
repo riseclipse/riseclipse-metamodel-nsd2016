@@ -912,7 +912,8 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         NS ns = ( ( NsdResourceSetImpl ) eResource().getResourceSet() ).getNS( getId() );
         if( ns == null ) {
             console.error(
-                    "NS (id: " + getId() + ") and refers by DependsOn in NS (id:" + getParentNS().getId() + ") is unknown" );
+                    "NS (id: " + getId() + ") and refers by DependsOn in NS (id:" + getParentNS().getId()
+                            + ") is unknown" );
         }
         else {
             setRefersToNS( ns );

@@ -36,6 +36,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getTitleID <em>Title ID</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getParentFunctionalConstraints <em>Parent Functional Constraints</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getReferredByDataAttribute <em>Referred By Data Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getRefersToDoc <em>Refers To Doc</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getFunctionalConstraint()
@@ -315,5 +316,56 @@ public interface FunctionalConstraint extends NsdObject {
      * @generated
      */
     boolean isSetReferredByDataAttribute();
+
+    /**
+     * Returns the value of the '<em><b>Refers To Doc</b></em>' reference.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByFunctionalConstraint <em>Referred By Functional Constraint</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Refers To Doc</em>' reference.
+     * @see #isSetRefersToDoc()
+     * @see #unsetRefersToDoc()
+     * @see #setRefersToDoc(Doc)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getFunctionalConstraint_RefersToDoc()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByFunctionalConstraint
+     * @model opposite="referredByFunctionalConstraint" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @generated
+     */
+    Doc getRefersToDoc();
+
+    /**
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getRefersToDoc <em>Refers To Doc</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Refers To Doc</em>' reference.
+     * @see #isSetRefersToDoc()
+     * @see #unsetRefersToDoc()
+     * @see #getRefersToDoc()
+     * @generated
+     */
+    void setRefersToDoc( Doc value );
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getRefersToDoc <em>Refers To Doc</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetRefersToDoc()
+     * @see #getRefersToDoc()
+     * @see #setRefersToDoc(Doc)
+     * @generated
+     */
+    void unsetRefersToDoc();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getRefersToDoc <em>Refers To Doc</em>}' reference is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Refers To Doc</em>' reference is set.
+     * @see #unsetRefersToDoc()
+     * @see #getRefersToDoc()
+     * @see #setRefersToDoc(Doc)
+     * @generated
+     */
+    boolean isSetRefersToDoc();
 
 } // FunctionalConstraint

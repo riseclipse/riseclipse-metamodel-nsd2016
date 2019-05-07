@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceConditionDerivedStatistics#getDsPresCond <em>Ds Pres Cond</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceConditionDerivedStatistics#getDsPresCondArgs <em>Ds Pres Cond Args</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceConditionDerivedStatistics#getDsPresCondArgsID <em>Ds Pres Cond Args ID</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceConditionDerivedStatistics#getRefersToDsPresCondArgsDoc <em>Refers To Ds Pres Cond Args Doc</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgPresenceConditionDerivedStatistics()
@@ -202,5 +203,56 @@ public interface AgPresenceConditionDerivedStatistics extends EObject {
      * @generated
      */
     boolean isSetDsPresCondArgsID();
+
+    /**
+     * Returns the value of the '<em><b>Refers To Ds Pres Cond Args Doc</b></em>' reference.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByAgPresenceConditionDerivedStatistics <em>Referred By Ag Presence Condition Derived Statistics</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Refers To Ds Pres Cond Args Doc</em>' reference.
+     * @see #isSetRefersToDsPresCondArgsDoc()
+     * @see #unsetRefersToDsPresCondArgsDoc()
+     * @see #setRefersToDsPresCondArgsDoc(Doc)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgPresenceConditionDerivedStatistics_RefersToDsPresCondArgsDoc()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByAgPresenceConditionDerivedStatistics
+     * @model opposite="referredByAgPresenceConditionDerivedStatistics" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @generated
+     */
+    Doc getRefersToDsPresCondArgsDoc();
+
+    /**
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceConditionDerivedStatistics#getRefersToDsPresCondArgsDoc <em>Refers To Ds Pres Cond Args Doc</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Refers To Ds Pres Cond Args Doc</em>' reference.
+     * @see #isSetRefersToDsPresCondArgsDoc()
+     * @see #unsetRefersToDsPresCondArgsDoc()
+     * @see #getRefersToDsPresCondArgsDoc()
+     * @generated
+     */
+    void setRefersToDsPresCondArgsDoc( Doc value );
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceConditionDerivedStatistics#getRefersToDsPresCondArgsDoc <em>Refers To Ds Pres Cond Args Doc</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetRefersToDsPresCondArgsDoc()
+     * @see #getRefersToDsPresCondArgsDoc()
+     * @see #setRefersToDsPresCondArgsDoc(Doc)
+     * @generated
+     */
+    void unsetRefersToDsPresCondArgsDoc();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceConditionDerivedStatistics#getRefersToDsPresCondArgsDoc <em>Refers To Ds Pres Cond Args Doc</em>}' reference is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Refers To Ds Pres Cond Args Doc</em>' reference is set.
+     * @see #unsetRefersToDsPresCondArgsDoc()
+     * @see #getRefersToDsPresCondArgsDoc()
+     * @see #setRefersToDsPresCondArgsDoc(Doc)
+     * @generated
+     */
+    boolean isSetRefersToDsPresCondArgsDoc();
 
 } // AgPresenceConditionDerivedStatistics

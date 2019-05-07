@@ -20,12 +20,15 @@
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceConditionDerivedStatistics;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -40,6 +43,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AgPresenceConditionDerivedStatisticsImpl#getDsPresCond <em>Ds Pres Cond</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AgPresenceConditionDerivedStatisticsImpl#getDsPresCondArgs <em>Ds Pres Cond Args</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AgPresenceConditionDerivedStatisticsImpl#getDsPresCondArgsID <em>Ds Pres Cond Args ID</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AgPresenceConditionDerivedStatisticsImpl#getRefersToDsPresCondArgsDoc <em>Refers To Ds Pres Cond Args Doc</em>}</li>
  * </ul>
  *
  * @generated
@@ -132,6 +136,25 @@ public abstract class AgPresenceConditionDerivedStatisticsImpl extends MinimalEO
      * @ordered
      */
     protected boolean dsPresCondArgsIDESet;
+
+    /**
+     * The cached value of the '{@link #getRefersToDsPresCondArgsDoc() <em>Refers To Ds Pres Cond Args Doc</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRefersToDsPresCondArgsDoc()
+     * @generated
+     * @ordered
+     */
+    protected Doc refersToDsPresCondArgsDoc;
+
+    /**
+     * This is true if the Refers To Ds Pres Cond Args Doc reference has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean refersToDsPresCondArgsDocESet;
 
     /**
      * <!-- begin-user-doc -->
@@ -320,6 +343,155 @@ public abstract class AgPresenceConditionDerivedStatisticsImpl extends MinimalEO
      * @generated
      */
     @Override
+    public Doc getRefersToDsPresCondArgsDoc() {
+        return refersToDsPresCondArgsDoc;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetRefersToDsPresCondArgsDoc( Doc newRefersToDsPresCondArgsDoc,
+            NotificationChain msgs ) {
+        Doc oldRefersToDsPresCondArgsDoc = refersToDsPresCondArgsDoc;
+        refersToDsPresCondArgsDoc = newRefersToDsPresCondArgsDoc;
+        boolean oldRefersToDsPresCondArgsDocESet = refersToDsPresCondArgsDocESet;
+        refersToDsPresCondArgsDocESet = true;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__REFERS_TO_DS_PRES_COND_ARGS_DOC,
+                    oldRefersToDsPresCondArgsDoc, newRefersToDsPresCondArgsDoc, !oldRefersToDsPresCondArgsDocESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setRefersToDsPresCondArgsDoc( Doc newRefersToDsPresCondArgsDoc ) {
+        if( newRefersToDsPresCondArgsDoc != refersToDsPresCondArgsDoc ) {
+            NotificationChain msgs = null;
+            if( refersToDsPresCondArgsDoc != null )
+                msgs = ( ( InternalEObject ) refersToDsPresCondArgsDoc ).eInverseRemove( this,
+                        NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION_DERIVED_STATISTICS, Doc.class, msgs );
+            if( newRefersToDsPresCondArgsDoc != null )
+                msgs = ( ( InternalEObject ) newRefersToDsPresCondArgsDoc ).eInverseAdd( this,
+                        NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION_DERIVED_STATISTICS, Doc.class, msgs );
+            msgs = basicSetRefersToDsPresCondArgsDoc( newRefersToDsPresCondArgsDoc, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToDsPresCondArgsDocESet = refersToDsPresCondArgsDocESet;
+            refersToDsPresCondArgsDocESet = true;
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.SET,
+                        NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__REFERS_TO_DS_PRES_COND_ARGS_DOC,
+                        newRefersToDsPresCondArgsDoc, newRefersToDsPresCondArgsDoc,
+                        !oldRefersToDsPresCondArgsDocESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicUnsetRefersToDsPresCondArgsDoc( NotificationChain msgs ) {
+        Doc oldRefersToDsPresCondArgsDoc = refersToDsPresCondArgsDoc;
+        refersToDsPresCondArgsDoc = null;
+        boolean oldRefersToDsPresCondArgsDocESet = refersToDsPresCondArgsDocESet;
+        refersToDsPresCondArgsDocESet = false;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__REFERS_TO_DS_PRES_COND_ARGS_DOC,
+                    oldRefersToDsPresCondArgsDoc, null, oldRefersToDsPresCondArgsDocESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetRefersToDsPresCondArgsDoc() {
+        if( refersToDsPresCondArgsDoc != null ) {
+            NotificationChain msgs = null;
+            msgs = ( ( InternalEObject ) refersToDsPresCondArgsDoc ).eInverseRemove( this,
+                    NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION_DERIVED_STATISTICS, Doc.class, msgs );
+            msgs = basicUnsetRefersToDsPresCondArgsDoc( msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToDsPresCondArgsDocESet = refersToDsPresCondArgsDocESet;
+            refersToDsPresCondArgsDocESet = false;
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.UNSET,
+                        NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__REFERS_TO_DS_PRES_COND_ARGS_DOC, null,
+                        null, oldRefersToDsPresCondArgsDocESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetRefersToDsPresCondArgsDoc() {
+        return refersToDsPresCondArgsDocESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__REFERS_TO_DS_PRES_COND_ARGS_DOC:
+            if( refersToDsPresCondArgsDoc != null )
+                msgs = ( ( InternalEObject ) refersToDsPresCondArgsDoc ).eInverseRemove( this,
+                        NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION_DERIVED_STATISTICS, Doc.class, msgs );
+            return basicSetRefersToDsPresCondArgsDoc( ( Doc ) otherEnd, msgs );
+        }
+        return super.eInverseAdd( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__REFERS_TO_DS_PRES_COND_ARGS_DOC:
+            return basicUnsetRefersToDsPresCondArgsDoc( msgs );
+        }
+        return super.eInverseRemove( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
         case NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__DS_PRES_COND:
@@ -328,6 +500,8 @@ public abstract class AgPresenceConditionDerivedStatisticsImpl extends MinimalEO
             return getDsPresCondArgs();
         case NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__DS_PRES_COND_ARGS_ID:
             return getDsPresCondArgsID();
+        case NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__REFERS_TO_DS_PRES_COND_ARGS_DOC:
+            return getRefersToDsPresCondArgsDoc();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -348,6 +522,9 @@ public abstract class AgPresenceConditionDerivedStatisticsImpl extends MinimalEO
             return;
         case NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__DS_PRES_COND_ARGS_ID:
             setDsPresCondArgsID( ( String ) newValue );
+            return;
+        case NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__REFERS_TO_DS_PRES_COND_ARGS_DOC:
+            setRefersToDsPresCondArgsDoc( ( Doc ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -370,6 +547,9 @@ public abstract class AgPresenceConditionDerivedStatisticsImpl extends MinimalEO
         case NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__DS_PRES_COND_ARGS_ID:
             unsetDsPresCondArgsID();
             return;
+        case NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__REFERS_TO_DS_PRES_COND_ARGS_DOC:
+            unsetRefersToDsPresCondArgsDoc();
+            return;
         }
         super.eUnset( featureID );
     }
@@ -388,6 +568,8 @@ public abstract class AgPresenceConditionDerivedStatisticsImpl extends MinimalEO
             return isSetDsPresCondArgs();
         case NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__DS_PRES_COND_ARGS_ID:
             return isSetDsPresCondArgsID();
+        case NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__REFERS_TO_DS_PRES_COND_ARGS_DOC:
+            return isSetRefersToDsPresCondArgsDoc();
         }
         return super.eIsSet( featureID );
     }

@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceCondition#getPresCond <em>Pres Cond</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceCondition#getPresCondArgs <em>Pres Cond Args</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceCondition#getPresCondArgsID <em>Pres Cond Args ID</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceCondition#getRefersToPresCondArgsDoc <em>Refers To Pres Cond Args Doc</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgPresenceCondition()
@@ -202,5 +203,56 @@ public interface AgPresenceCondition extends EObject {
      * @generated
      */
     boolean isSetPresCondArgsID();
+
+    /**
+     * Returns the value of the '<em><b>Refers To Pres Cond Args Doc</b></em>' reference.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByAgPresenceCondition <em>Referred By Ag Presence Condition</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Refers To Pres Cond Args Doc</em>' reference.
+     * @see #isSetRefersToPresCondArgsDoc()
+     * @see #unsetRefersToPresCondArgsDoc()
+     * @see #setRefersToPresCondArgsDoc(Doc)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgPresenceCondition_RefersToPresCondArgsDoc()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByAgPresenceCondition
+     * @model opposite="referredByAgPresenceCondition" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @generated
+     */
+    Doc getRefersToPresCondArgsDoc();
+
+    /**
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceCondition#getRefersToPresCondArgsDoc <em>Refers To Pres Cond Args Doc</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Refers To Pres Cond Args Doc</em>' reference.
+     * @see #isSetRefersToPresCondArgsDoc()
+     * @see #unsetRefersToPresCondArgsDoc()
+     * @see #getRefersToPresCondArgsDoc()
+     * @generated
+     */
+    void setRefersToPresCondArgsDoc( Doc value );
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceCondition#getRefersToPresCondArgsDoc <em>Refers To Pres Cond Args Doc</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetRefersToPresCondArgsDoc()
+     * @see #getRefersToPresCondArgsDoc()
+     * @see #setRefersToPresCondArgsDoc(Doc)
+     * @generated
+     */
+    void unsetRefersToPresCondArgsDoc();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceCondition#getRefersToPresCondArgsDoc <em>Refers To Pres Cond Args Doc</em>}' reference is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Refers To Pres Cond Args Doc</em>' reference is set.
+     * @see #unsetRefersToPresCondArgsDoc()
+     * @see #getRefersToPresCondArgsDoc()
+     * @see #setRefersToPresCondArgsDoc(Doc)
+     * @generated
+     */
+    boolean isSetRefersToPresCondArgsDoc();
 
 } // AgPresenceCondition
