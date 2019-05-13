@@ -24,15 +24,17 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceFactoryImpl;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetImpl;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
-import fr.centralesupelec.edf.riseclipse.util.RiseClipseModelLoader;
+import fr.centralesupelec.edf.riseclipse.util.AbstractRiseClipseModelLoader;
 
-public class NsdModelLoader extends RiseClipseModelLoader {
+public class NsdModelLoader extends AbstractRiseClipseModelLoader {
 
     public NsdModelLoader( IRiseClipseConsole console ) {
         super( console );
+        
+        reset();
     }
 
-    @Override
+//    @Override
     public void reset() {
         super.reset( new NsdResourceSetImpl( true, console ) );
 
