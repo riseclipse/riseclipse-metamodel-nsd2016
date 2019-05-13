@@ -36,10 +36,10 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc;
 import fr.centralesupelec.edf.riseclipse.util.AbstractRiseClipseConsole;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
-import fr.centralesupelec.edf.riseclipse.util.RiseClipseResourceSet;
+import fr.centralesupelec.edf.riseclipse.util.AbstractRiseClipseResourceSet;
 
 
-public class NsdResourceSetImpl extends RiseClipseResourceSet {
+public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
     
     private Map< String, NS > nsdResources;
     private Map< String, NSDoc > nsdocResources;
@@ -92,7 +92,7 @@ public class NsdResourceSetImpl extends RiseClipseResourceSet {
     }
 
     /* (non-Javadoc)
-     * @see fr.centralesupelec.edf.riseclipse.util.RiseClipseResourceSet#finalizeLoad(fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole)
+     * @see fr.centralesupelec.edf.riseclipse.util.AbstractRiseClipseResourceSet#finalizeLoad(fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole)
      */
     @Override
     public void finalizeLoad( IRiseClipseConsole console ) {
