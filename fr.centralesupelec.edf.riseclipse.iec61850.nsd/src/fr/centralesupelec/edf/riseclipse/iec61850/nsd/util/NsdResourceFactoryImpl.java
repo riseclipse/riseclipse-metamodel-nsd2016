@@ -21,11 +21,11 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd.util;
 
 import org.eclipse.emf.common.util.URI;
 
-import org.eclipse.emf.ecore.resource.Resource;
-
 import org.eclipse.emf.ecore.resource.impl.ResourceFactoryImpl;
 
 import org.eclipse.emf.ecore.xmi.XMLResource;
+
+import fr.centralesupelec.edf.riseclipse.util.IRiseClipseResourceFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,7 +34,7 @@ import org.eclipse.emf.ecore.xmi.XMLResource;
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceImpl
  * @generated
  */
-public class NsdResourceFactoryImpl extends ResourceFactoryImpl {
+public class NsdResourceFactoryImpl extends ResourceFactoryImpl implements IRiseClipseResourceFactory {
     /**
      * Creates an instance of the resource factory.
      * <!-- begin-user-doc -->
@@ -52,8 +52,8 @@ public class NsdResourceFactoryImpl extends ResourceFactoryImpl {
      * @generated
      */
     @Override
-    public Resource createResource( URI uri ) {
-        XMLResource result = new NsdResourceImpl( uri );
+    public NsdResourceImpl createResource( URI uri ) {
+        NsdResourceImpl result = new NsdResourceImpl( uri );
         result.getDefaultSaveOptions().put( XMLResource.OPTION_EXTENDED_META_DATA, Boolean.TRUE );
         result.getDefaultLoadOptions().put( XMLResource.OPTION_EXTENDED_META_DATA, Boolean.TRUE );
 
