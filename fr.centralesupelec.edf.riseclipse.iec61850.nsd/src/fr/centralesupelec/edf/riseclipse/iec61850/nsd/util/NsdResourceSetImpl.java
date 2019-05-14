@@ -26,6 +26,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Stream;
 
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
@@ -34,8 +35,10 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.util.AbstractRiseClipseConsole;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
+import fr.centralesupelec.edf.riseclipse.util.RiseClipseMetamodel;
 import fr.centralesupelec.edf.riseclipse.util.AbstractRiseClipseResourceSet;
 
 
@@ -43,12 +46,23 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
     
     private Map< String, NS > nsdResources;
     private Map< String, NSDoc > nsdocResources;
+    private NsdResourceFactoryImpl resourceFactory;
 
     public NsdResourceSetImpl( boolean strictContent, IRiseClipseConsole console ) {
         super( strictContent, console );
         
         nsdResources = new HashMap<>();
         nsdocResources = new HashMap<>();
+        resourceFactory = new NsdResourceFactoryImpl();
+    }
+
+    @Override
+    protected NsdResourceImpl createRiseClipseResource( URI uri, String contentType ) {
+        Optional< String > metamodel = RiseClipseMetamodel.findMetamodelFor( uri );
+        if( metamodel.isPresent() && NsdPackage.eNS_URI.equals( metamodel.get() )) {
+            return resourceFactory.createResource( uri );
+        }
+        return null;
     }
 
     @Override
