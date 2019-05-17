@@ -2187,16 +2187,19 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
         NS ns = getParentAnyLNClass().getParentLNClasses().getParentNS();
+
+        String messagePrefix = "[NSD links] while resolving link from DataObject (name: " + getName()
+                                + ", NS id: " + ns.getId() + ", line: " + getLineNumber() + "): ";
+
         if( isSetType() ) {
             CDC foundCDC = ns.findCDC( getType(), console );
 
             if( foundCDC == null ) {
-                console.error( "CDC (name: " + getType() + ") refers by DataObject (name: " + getName() + ") in NS (id:"
-                        + ns.getId() + ") is unknown" );
+                console.warning( messagePrefix + "CDC (name: " + getType() + ") not found" );
             }
             else {
                 setRefersToCDC( foundCDC );
-                console.verbose( "CDC (name: " + getType() + ") refers by DataObject (name: " + getName()
+                console.info( "[NSD links] CDC (name: " + getType() + ") refers by DataObject (name: " + getName()
                         + ") in NS (id:" + ns.getId() + ") found in NS (id:"
                         + getRefersToCDC().getParentCDCs().getParentNS().getId() + ")" );
             }
@@ -2206,12 +2209,11 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             PresenceCondition foundPC = ns.findPresenceCondition( getPresCond(), console );
 
             if( foundPC == null ) {
-                console.error( "PresenceCondition (name: " + getPresCond() + ") refers by DataObject (name: "
-                        + getName() + ") in NS (id:" + ns.getId() + ") is unknown" );
+                console.warning( messagePrefix + "PresenceCondition (name: " + getPresCond() + ") not found" );
             }
             else {
                 setRefersToPresenceCondition( foundPC );
-                console.verbose( "PresenceCondition (name: " + getPresCond() + ") refers by DataObject (name: "
+                console.info( "[NSD links] PresenceCondition (name: " + getPresCond() + ") refers by DataObject (name: "
                         + getName() + ") in NS (id:" + ns.getId() + ") found in NS (id:"
                         + getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId() + ")" );
             }
@@ -2220,14 +2222,11 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         if( isSetDsPresCond() ) {
             PresenceCondition foundPC = ns.findPresenceCondition( getDsPresCond(), console );
             if( foundPC == null ) {
-                console.error(
-                        "PresenceCondition (name: " + getDsPresCond() + ") refers by DataObject (name: " + getName()
-                                + ") in NS (id:" + getParentAnyLNClass().getParentLNClasses().getParentNS().getId()
-                                + ") is unknown" );
+                console.warning( messagePrefix + "PresenceCondition (name: " + getDsPresCond() + ") not found" );
             }
             else {
                 setRefersToPresenceConditionDerivedStatistics( foundPC );
-                console.verbose( "PresenceCondition (name: " + getDsPresCond() + ") refers by DataObject (name: "
+                console.info( "[NSD links] PresenceCondition (name: " + getDsPresCond() + ") refers by DataObject (name: "
                         + getName() + ") in NS (id:" + getParentAnyLNClass().getParentLNClasses().getParentNS().getId()
                         + ") found in NS (id:"
                         + getRefersToPresenceConditionDerivedStatistics().getParentPresenceConditions().getParentNS()

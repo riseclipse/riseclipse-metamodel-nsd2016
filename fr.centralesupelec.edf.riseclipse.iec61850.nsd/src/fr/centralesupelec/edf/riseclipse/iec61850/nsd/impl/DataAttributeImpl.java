@@ -3252,16 +3252,18 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
 
         NS ns = getParentCDC().getParentCDCs().getParentNS();
 
+        String messagePrefix = "[NSD links] while resolving link from DataAttribute (name: " + getName()
+                                + ", NS id: " + ns.getId() + ", line: " + getLineNumber() + "): ";
+
         if( isSetFc() ) {
             FunctionalConstraint foundFC = ns.findFunctionalConstraint( getFc(), console );
 
             if( foundFC == null ) {
-                console.error( "FunctionalConstraint (abbreviation: " + getFc() + ") refers by DataAttribute (name: "
-                        + getName() + ") in NS (id:" + ns.getId() + ") is unknown" );
+                console.warning( messagePrefix + "FunctionalConstraint (abbreviation: " + getFc() + ") not found" );
             }
             else {
                 setRefersToFunctionalConstraint( foundFC );
-                console.verbose( "FunctionalConstraint (abbreviation: " + getFc() + ") refers by DataAttribute (name: "
+                console.info( "[NSD links] FunctionalConstraint (abbreviation: " + getFc() + ") refers by DataAttribute (name: "
                         + getName() + ") in NS (id:" + ns.getId() + ") found in NS (id:"
                         + getRefersToFunctionalConstraint().getParentFunctionalConstraints().getParentNS().getId()
                         + ")" );
@@ -3272,12 +3274,11 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
             PresenceCondition foundPC = ns.findPresenceCondition( getPresCond(), console );
 
             if( foundPC == null ) {
-                console.error( "PresenceCondition (name: " + getPresCond() + ") refers by DataAttribute (name: "
-                        + getName() + ") in NS (id:" + ns.getId() + ") is unknown" );
+                console.warning( messagePrefix + "PresenceCondition (name: " + getPresCond() + ") not found" );
             }
             else {
                 setRefersToPresenceCondition( foundPC );
-                console.verbose( "PresenceCondition (name: " + getPresCond() + ") refers by DataAttribute (name: "
+                console.info( "[NSD links] PresenceCondition (name: " + getPresCond() + ") refers by DataAttribute (name: "
                         + getName() + ") in NS (id:" + ns.getId() + ") found in NS (id:"
                         + getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId() + ")" );
             }
@@ -3292,14 +3293,12 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                     .ifPresent( att -> setRefersToSizeAttribute( att ) );
 
             if( isSetRefersToSizeAttribute() ) {
-                console.verbose( "DataAttribute (name: " + getSizeAttribute()
+                console.info( "[NSD links] DataAttribute (name: " + getSizeAttribute()
                         + ") refers as sizeAttribute by DataAttribute (name: " + getName() + ") in NS (id:"
                         + ns.getId() + ") found" );
             }
             else {
-                console.error( "DataAttribute (name: " + getSizeAttribute()
-                        + ") refers as sizeAttribute by DataAttribute (name: " + getName() + ") in NS (id:"
-                        + ns.getId() + ") is unknown" );
+                console.warning( messagePrefix + "DataAttribute (name: " + getSizeAttribute() + ") not found" );
             }
         }
 
@@ -3312,14 +3311,12 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                     .ifPresent( att -> setRefersToMaxIndexAttribute( att ) );
 
             if( isSetRefersToMaxIndexAttribute() ) {
-                console.verbose( "DataAttribute (name: " + getMaxIndexAttribute()
+                console.info( "[NSD links] DataAttribute (name: " + getMaxIndexAttribute()
                         + ") refers as maxIndexAttribute by DataAttribute (name: " + getName() + ") in NS (id:"
                         + ns.getId() + ") found" );
             }
             else {
-                console.error( "DataAttribute (name: " + getMaxIndexAttribute()
-                        + ") refers as maxIndexAttribute by DataAttribute (name: " + getName() + ") in NS (id:"
-                        + ns.getId() + ") is unknown" );
+                console.warning( messagePrefix + "DataAttribute (name: " + getMaxIndexAttribute() + ") not found" );
             }
         }
 
@@ -3327,12 +3324,11 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
             BasicType foundBT = ns.findBasicType( getType(), console );
 
             if( foundBT == null ) {
-                console.error( "BasicType (name: " + getType() + ") refers as type by DataAttribute (name: " + getName()
-                        + ") in NS (id:" + ns.getId() + ") is unknown" );
+                console.warning( messagePrefix + "BasicType (name: " + getType() + ") not found" );
             }
             else {
                 setRefersToBasicType( foundBT );
-                console.verbose( "BasicType (name: " + getType() + ") refers as type by DataAttribute (name: "
+                console.info( "[NSD links] BasicType (name: " + getType() + ") refers as type by DataAttribute (name: "
                         + getName() + ") in NS (id:" + ns.getId() + ") found in NS (id:"
                         + getRefersToBasicType().getParentBasicTypes().getParentNS().getId() + ")" );
             }
