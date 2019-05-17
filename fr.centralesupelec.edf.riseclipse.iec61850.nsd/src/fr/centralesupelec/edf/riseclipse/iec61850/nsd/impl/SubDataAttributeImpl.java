@@ -1946,15 +1946,18 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
         NS ns = getParentConstructedAttribute().getParentConstructedAttributes().getParentNS();
+
+        String messagePrefix = "[NSD links] while resolving link from SubDataAttribute (name: " + getName()
+                                + ", NS id: " + ns.getId() + ", line: " + getLineNumber() + "): ";
+
         if( isSetPresCond() ) {
             PresenceCondition foundPC = ns.findPresenceCondition( getPresCond(), console );
             if( foundPC == null ) {
-                console.error( "PresenceCondition (name: " + getPresCond() + ") refers by SubDataAttribute (name: "
-                        + getName() + ") in NS (id:" + ns.getId() + ") is unknown" );
+                console.warning( messagePrefix + "PresenceCondition (name: " + getPresCond() + ") not found" );
             }
             else {
                 setRefersToPresenceCondition( foundPC );
-                console.verbose( "PresenceCondition (name: " + getPresCond() + ") refers by SubDataAttribute (name: "
+                console.info( "[NSD links] PresenceCondition (name: " + getPresCond() + ") refers by SubDataAttribute (name: "
                         + getName() + ") in NS (id:" + ns.getId() + ") found in NS (id:"
                         + getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId() + ")" );
             }

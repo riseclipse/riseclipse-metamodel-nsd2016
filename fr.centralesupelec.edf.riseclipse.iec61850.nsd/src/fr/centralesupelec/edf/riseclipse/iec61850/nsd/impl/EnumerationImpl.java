@@ -721,17 +721,21 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
-
+        
         NS ns = getParentEnumerations().getParentNS();
+
+        String messagePrefix = "[NSD links] while resolving link from Enumeration (name: " + getName()
+                                + ", NS id: " + ns.getId() + ", line: " + getLineNumber() + "): ";
+
+
         if( isSetInheritedFrom() ) {
             Enumeration foundBase = ns.findEnumeration( getInheritedFrom(), console );
             if( foundBase == null ) {
-                console.error( "Enumeration (name: " + getInheritedFrom() + ") refers by Enumeration (name: "
-                        + getName() + ") in NS (id:" + ns.getId() + ") is unknown" );
-            }
+                console.warning( messagePrefix + "Enumeration (name: " + getInheritedFrom() + ") not found" );
+             }
             else {
                 setRefersToBaseEnumeration( foundBase );
-                console.verbose( "Enumeration (name: " + getInheritedFrom() + ") refers by Enumeration (name: "
+                console.info( "[NSD links] Enumeration (name: " + getInheritedFrom() + ") refers by Enumeration (name: "
                         + getName() + ") in NS (id:" + ns.getId() + ") found in NS (id:"
                         + getRefersToBaseEnumeration().getParentEnumerations().getParentNS().getId() + ")" );
             }

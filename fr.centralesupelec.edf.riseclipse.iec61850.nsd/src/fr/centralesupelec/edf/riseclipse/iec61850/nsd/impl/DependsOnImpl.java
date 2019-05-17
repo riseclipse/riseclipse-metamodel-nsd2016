@@ -909,16 +909,15 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
     public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
+        String messagePrefix = "[NSD links] while resolving link from DependsOn (NS id: " + getParentNS().getId() + ", line: " + getLineNumber() + "): ";
+
         NS ns = ( ( NsdResourceSetImpl ) eResource().getResourceSet() ).getNS( getId() );
         if( ns == null ) {
-            console.error(
-                    "NS (id: " + getId() + ") and refers by DependsOn in NS (id:" + getParentNS().getId()
-                            + ") is unknown" );
+            console.warning( messagePrefix + "NS (id: " + getId() + ") not found" );
         }
         else {
             setRefersToNS( ns );
-            console.verbose(
-                    "NS (id: " + getId() + ") and refers by DependsOn in NS (id:" + getParentNS().getId() + ") found" );
+            console.info( "[NSD links] NS (id: " + getId() + ") refers by DependsOn in NS (id:" + getParentNS().getId() + ") found" );
         }
         return false;
     }

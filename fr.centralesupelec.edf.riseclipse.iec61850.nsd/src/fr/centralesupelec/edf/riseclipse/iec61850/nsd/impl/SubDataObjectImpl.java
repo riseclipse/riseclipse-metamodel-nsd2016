@@ -2183,17 +2183,19 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
         NS ns = getParentCDC().getParentCDCs().getParentNS();
+
+        String messagePrefix = "[NSD links] while resolving link from SubDataObject (name: " + getName()
+                                + ", NS id: " + ns.getId() + ", line: " + getLineNumber() + "): ";
+
         if( isSetType() ) {
             CDC foundCDC = ns.findCDC( getType(), console );
 
             if( foundCDC == null ) {
-                console.error(
-                        "CDC (name: " + getType() + ") refers by SubDataObject (name: " + getName() + ") in NS (id:"
-                                + ns.getId() + ") is unknown" );
+                console.warning( messagePrefix + "CDC (name: " + getType() + ") not found" );
             }
             else {
                 setRefersToCDC( foundCDC );
-                console.verbose( "CDC (name: " + getType() + ") refers by SubDataObject (name: " + getName()
+                console.info( "[NSD links] CDC (name: " + getType() + ") refers by SubDataObject (name: " + getName()
                         + ") in NS (id:" + ns.getId() + ") found in NS (id:"
                         + getRefersToCDC().getParentCDCs().getParentNS().getId() + ")" );
             }
@@ -2203,12 +2205,11 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
             PresenceCondition foundPC = ns.findPresenceCondition( getPresCond(), console );
 
             if( foundPC == null ) {
-                console.error( "PresenceCondition (name: " + getPresCond() + ") refers by SubDataObject (name: "
-                        + getName() + ") in NS (id:" + ns.getId() + ") is unknown" );
+                console.warning( messagePrefix + "PresenceCondition (name: " + getPresCond() + ") not found" );
             }
             else {
                 setRefersToPresenceCondition( foundPC );
-                console.verbose( "PresenceCondition (name: " + getPresCond() + ") refers by SubDataObject (name: "
+                console.info( "[NSD links] PresenceCondition (name: " + getPresCond() + ") refers by SubDataObject (name: "
                         + getName() + ") in NS (id:" + ns.getId() + ") found in NS (id:"
                         + getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId() + ")" );
             }
@@ -2223,14 +2224,12 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                     .ifPresent( att -> setRefersToSizeAttribute( att ) );
 
             if( isSetRefersToSizeAttribute() ) {
-                console.verbose( "DataAttribute (name: " + getSizeAttribute()
+                console.info( "[NSD links] DataAttribute (name: " + getSizeAttribute()
                         + ") refers as sizeAttribute by SubDataObject (name: " + getName() + ") in NS (id:"
                         + ns.getId() + ") found" );
             }
             else {
-                console.error( "DataAttribute (name: " + getSizeAttribute()
-                        + ") refers as sizeAttribute by SubDataObject (name: " + getName() + ") in NS (id:"
-                        + ns.getId() + ") is unknown" );
+                console.warning( messagePrefix + "DataAttribute (name: " + getSizeAttribute() + ") not found" );
             }
         }
 
@@ -2243,14 +2242,12 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                     .ifPresent( att -> setRefersToMaxIndexAttribute( att ) );
 
             if( isSetRefersToMaxIndexAttribute() ) {
-                console.verbose( "DataAttribute (name: " + getMaxIndexAttribute()
-                        + ") refers as maxIndexAttribute by SubDataObject (name: " + getName() + ") in NS (id:"
+                console.info( "[NSD links] DataAttribute (name: " + getMaxIndexAttribute()
+                        + ") refers as maxIndexAttribute by DataAttribute (name: " + getName() + ") in NS (id:"
                         + ns.getId() + ") found" );
             }
             else {
-                console.error( "DataAttribute (name: " + getMaxIndexAttribute()
-                        + ") refers as maxIndexAttribute by SubDataObject (name: " + getName() + ") in NS (id:"
-                        + ns.getId() + ") is unknown" );
+                console.warning( messagePrefix + "DataAttribute (name: " + getMaxIndexAttribute() + ") not found" );
             }
         }
 

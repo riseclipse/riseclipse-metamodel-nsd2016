@@ -519,6 +519,9 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
 
         if( isSetBase() ) {
 
+            String messagePrefix = "[NSD links] while resolving link from AnyLNClass (name: " + getName()
+                + ", NS id: " + getParentLNClasses().getParentNS().getId() + ", line: " + getLineNumber() + "): ";
+
             // This code assumes that the referred AbstractLNClass is in the same NS
             // TODO: check that it is right
             getParentLNClasses()
@@ -529,13 +532,12 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
                     .ifPresent( abstractLNClass -> setRefersToAbstractLNClass( abstractLNClass ) );
 
             if( isSetRefersToAbstractLNClass() ) {
-                console.verbose( "AbstractLNClass (name: " + getBase() + ") refers by AnyLNClass (name: " + getName()
+                console.info( "[NSD links] AbstractLNClass (name: " + getBase() + ") refers by AnyLNClass (name: " + getName()
                         + ") in NS (id:" + getParentLNClasses().getParentNS().getId() + ") found in NS (id:"
                         + getRefersToAbstractLNClass().getParentLNClasses().getParentNS().getId() + ")" );
             }
             else {
-                console.error( "AbstractLNClass (name: " + getBase() + ") refers by AnyLNClass (name: " + getName()
-                        + ") in NS (id:" + getParentLNClasses().getParentNS().getId() + ") is unknown" );
+                console.warning( messagePrefix + "AbstractLNClass (name: " + getBase() + ") not found" );
             }
         }
 
