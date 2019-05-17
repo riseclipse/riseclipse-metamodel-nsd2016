@@ -36,7 +36,7 @@ public class NsdModelLoader extends AbstractRiseClipseModelLoader {
 
 //    @Override
     public void reset() {
-        super.reset( new NsdResourceSetImpl( true, console ) );
+        super.reset( new NsdResourceSetImpl( false, console ) );
 
         // Register the appropriate resource factory to handle all file
         // extensions.
