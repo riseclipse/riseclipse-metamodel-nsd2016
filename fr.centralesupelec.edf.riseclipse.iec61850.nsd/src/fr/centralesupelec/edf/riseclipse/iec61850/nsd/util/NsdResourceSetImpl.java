@@ -29,13 +29,27 @@ import java.util.stream.Stream;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions;
 import fr.centralesupelec.edf.riseclipse.util.AbstractRiseClipseConsole;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 import fr.centralesupelec.edf.riseclipse.util.RiseClipseMetamodel;
@@ -277,6 +291,97 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
             }
         }
         return lnClassStream;
+    }
+
+    public Stream< Abbreviation > getAbbreviationStream() {
+        Stream< Abbreviation > abbreviationStream = Stream.empty();
+        Iterator< NS > it = nsdResources.values().iterator();
+        while( it.hasNext() ) {
+            Abbreviations abbreviations = it.next().getAbbreviations();
+            if( abbreviations != null ) {
+                Stream< Abbreviation > tmp = Stream.concat( abbreviationStream, abbreviations.getAbbreviation().stream() );
+                abbreviationStream = tmp;
+            }
+        }
+        return abbreviationStream;
+    }
+
+    public Stream< Enumeration > getEnumerationStream() {
+        Stream< Enumeration > enumerationStream = Stream.empty();
+        Iterator< NS > it = nsdResources.values().iterator();
+        while( it.hasNext() ) {
+            Enumerations enumerations = it.next().getEnumerations();
+            if( enumerations != null ) {
+                Stream< Enumeration > tmp = Stream.concat( enumerationStream, enumerations.getEnumeration().stream() );
+                enumerationStream = tmp;
+            }
+        }
+        return enumerationStream;
+    }
+
+    public Stream< CDC > getCDCStream() {
+        Stream< CDC > cdcStream = Stream.empty();
+        Iterator< NS > it = nsdResources.values().iterator();
+        while( it.hasNext() ) {
+            CDCs cdcs = it.next().getCDCs();
+            if( cdcs != null ) {
+                Stream< CDC > tmp = Stream.concat( cdcStream, cdcs.getCDC().stream() );
+                cdcStream = tmp;
+            }
+        }
+        return cdcStream;
+    }
+
+    public Stream< ConstructedAttribute > getConstructedAttributeStream() {
+        Stream< ConstructedAttribute > constructedAttributeStream = Stream.empty();
+        Iterator< NS > it = nsdResources.values().iterator();
+        while( it.hasNext() ) {
+            ConstructedAttributes constructedAttributes = it.next().getConstructedAttributes();
+            if( constructedAttributes != null ) {
+                Stream< ConstructedAttribute > tmp = Stream.concat( constructedAttributeStream, constructedAttributes.getConstructedAttribute().stream() );
+                constructedAttributeStream = tmp;
+            }
+        }
+        return constructedAttributeStream;
+    }
+
+    public Stream< BasicType > getBasicTypeStream() {
+        Stream< BasicType > basicTypeStream = Stream.empty();
+        Iterator< NS > it = nsdResources.values().iterator();
+        while( it.hasNext() ) {
+            BasicTypes basicTypes = it.next().getBasicTypes();
+            if( basicTypes != null ) {
+                Stream< BasicType > tmp = Stream.concat( basicTypeStream, basicTypes.getBasicType().stream() );
+                basicTypeStream = tmp;
+            }
+        }
+        return basicTypeStream;
+    }
+
+    public Stream< FunctionalConstraint > getFunctionalConstraintStream() {
+        Stream< FunctionalConstraint > functionalConstraintStream = Stream.empty();
+        Iterator< NS > it = nsdResources.values().iterator();
+        while( it.hasNext() ) {
+            FunctionalConstraints functionalConstraints = it.next().getFunctionalConstraints();
+            if( functionalConstraints != null ) {
+                Stream< FunctionalConstraint > tmp = Stream.concat( functionalConstraintStream, functionalConstraints.getFunctionalConstraint().stream() );
+                functionalConstraintStream = tmp;
+            }
+        }
+        return functionalConstraintStream;
+    }
+
+    public Stream< PresenceCondition > getPresenceConditionStream() {
+        Stream< PresenceCondition > presenceConditionStream = Stream.empty();
+        Iterator< NS > it = nsdResources.values().iterator();
+        while( it.hasNext() ) {
+            PresenceConditions presenceConditions = it.next().getPresenceConditions();
+            if( presenceConditions != null ) {
+                Stream< PresenceCondition > tmp = Stream.concat( presenceConditionStream, presenceConditions.getPresenceCondition().stream() );
+                presenceConditionStream = tmp;
+            }
+        }
+        return presenceConditionStream;
     }
 
     public Doc findDoc( String id ) {
