@@ -62,7 +62,7 @@ public class BasicTypeItemProvider extends NsdObjectItemProvider {
 
             addDescIDPropertyDescriptor( object );
             addNamePropertyDescriptor( object );
-            addReferredByDataAttributePropertyDescriptor( object );
+            addReferredByAttributeTypePropertyDescriptor( object );
             addRefersToDocPropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
@@ -113,19 +113,19 @@ public class BasicTypeItemProvider extends NsdObjectItemProvider {
     }
 
     /**
-     * This adds a property descriptor for the Referred By Data Attribute feature.
+     * This adds a property descriptor for the Referred By Attribute Type feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addReferredByDataAttributePropertyDescriptor( Object object ) {
+    protected void addReferredByAttributeTypePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
                         getResourceLocator(),
-                        getString( "_UI_BasicType_referredByDataAttribute_feature" ),
+                        getString( "_UI_BasicType_referredByAttributeType_feature" ),
                         getString( "_UI_PropertyDescriptor_description",
-                                "_UI_BasicType_referredByDataAttribute_feature", "_UI_BasicType_type" ),
-                        NsdPackage.Literals.BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE,
+                                "_UI_BasicType_referredByAttributeType_feature", "_UI_BasicType_type" ),
+                        NsdPackage.Literals.BASIC_TYPE__REFERRED_BY_ATTRIBUTE_TYPE,
                         true,
                         false,
                         true,

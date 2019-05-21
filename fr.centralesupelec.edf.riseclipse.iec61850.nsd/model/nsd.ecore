@@ -402,9 +402,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentBasicTypes" ordered="false"
         eType="#//BasicTypes" transient="true" unsettable="true" resolveProxies="false"
         eOpposite="#//BasicTypes/basicType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="referredByDataAttribute"
-        ordered="false" upperBound="-1" eType="#//DataAttribute" transient="true"
-        unsettable="true" resolveProxies="false" eOpposite="#//DataAttribute/refersToBasicType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referredByAttributeType"
+        ordered="false" upperBound="-1" eType="#//AgAttributeType" transient="true"
+        unsettable="true" resolveProxies="false" eOpposite="#//AgAttributeType/refersToBasicType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="refersToDoc" ordered="false"
         eType="#//Doc" transient="true" unsettable="true" resolveProxies="false" eOpposite="#//Doc/referredByBasicType"/>
   </eClassifiers>
@@ -641,6 +641,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentServiceTypeRealizations"
         ordered="false" eType="#//ServiceTypeRealizations" transient="true" unsettable="true"
         resolveProxies="false" eOpposite="#//ServiceTypeRealizations/serviceTypeRealization"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referredByAttributeType"
+        ordered="false" upperBound="-1" eType="#//AgAttributeType" transient="true"
+        unsettable="true" resolveProxies="false" eOpposite="#//AgAttributeType/refersToConstructedAttribute"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConstructedAttributes" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -759,9 +762,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="referredByDataAttributeAsMaxIndexAttribute"
         ordered="false" upperBound="-1" eType="#//DataAttribute" transient="true"
         unsettable="true" resolveProxies="false" eOpposite="#//DataAttribute/refersToMaxIndexAttribute"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="refersToBasicType" ordered="false"
-        eType="#//BasicType" transient="true" unsettable="true" resolveProxies="false"
-        eOpposite="#//BasicType/referredByDataAttribute"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataObject" eSuperTypes="#//DocumentedClass #//AgPresenceCondition #//AgPresenceConditionDerivedStatistics #//AgUnderlyingType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -1001,6 +1001,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="referredByEnumerationAsBase"
         ordered="false" upperBound="-1" eType="#//Enumeration" transient="true" unsettable="true"
         resolveProxies="false" eOpposite="#//Enumeration/refersToBaseEnumeration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referredByAttributeType"
+        ordered="false" upperBound="-1" eType="#//AgAttributeType" transient="true"
+        unsettable="true" resolveProxies="false" eOpposite="#//AgAttributeType/refersToEnumeration"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Enumerations" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -1283,6 +1286,10 @@
     </eOperations>
     <eOperations name="findBasicType" eType="#//BasicType">
       <eParameters name="basicTypeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="console" eType="#//IRiseClipseConsole"/>
+    </eOperations>
+    <eOperations name="findConstructedAttribute" eType="#//ConstructedAttribute">
+      <eParameters name="constructedAttributeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="console" eType="#//IRiseClipseConsole"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="changes" ordered="false"
@@ -2073,6 +2080,15 @@
         <details key="name" value="typeKind"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refersToBasicType" ordered="false"
+        eType="#//BasicType" transient="true" unsettable="true" resolveProxies="false"
+        eOpposite="#//BasicType/referredByAttributeType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refersToConstructedAttribute"
+        ordered="false" eType="#//ConstructedAttribute" transient="true" unsettable="true"
+        resolveProxies="false" eOpposite="#//ConstructedAttribute/referredByAttributeType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refersToEnumeration" ordered="false"
+        eType="#//Enumeration" transient="true" unsettable="true" resolveProxies="false"
+        eOpposite="#//Enumeration/referredByAttributeType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AgAttributeTypeAndValues" abstract="true"
       eSuperTypes="#//AgAttributeType">

@@ -34,6 +34,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getName <em>Name</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getParentConstructedAttributes <em>Parent Constructed Attributes</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getParentServiceTypeRealizations <em>Parent Service Type Realizations</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getReferredByAttributeType <em>Referred By Attribute Type</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getConstructedAttribute()
@@ -182,5 +183,42 @@ public interface ConstructedAttribute extends TitledClass {
      * @generated
      */
     void setParentServiceTypeRealizations( ServiceTypeRealizations value );
+
+    /**
+     * Returns the value of the '<em><b>Referred By Attribute Type</b></em>' reference list.
+     * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType}.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType#getRefersToConstructedAttribute <em>Refers To Constructed Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Referred By Attribute Type</em>' reference list.
+     * @see #isSetReferredByAttributeType()
+     * @see #unsetReferredByAttributeType()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getConstructedAttribute_ReferredByAttributeType()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType#getRefersToConstructedAttribute
+     * @model opposite="refersToConstructedAttribute" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @generated
+     */
+    EList< AgAttributeType > getReferredByAttributeType();
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getReferredByAttributeType <em>Referred By Attribute Type</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetReferredByAttributeType()
+     * @see #getReferredByAttributeType()
+     * @generated
+     */
+    void unsetReferredByAttributeType();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getReferredByAttributeType <em>Referred By Attribute Type</em>}' reference list is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Referred By Attribute Type</em>' reference list is set.
+     * @see #unsetReferredByAttributeType()
+     * @see #getReferredByAttributeType()
+     * @generated
+     */
+    boolean isSetReferredByAttributeType();
 
 } // ConstructedAttribute

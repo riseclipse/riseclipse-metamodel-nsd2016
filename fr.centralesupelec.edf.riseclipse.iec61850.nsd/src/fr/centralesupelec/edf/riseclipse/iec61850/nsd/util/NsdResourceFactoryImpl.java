@@ -32,7 +32,7 @@ import fr.centralesupelec.edf.riseclipse.util.IRiseClipseResourceFactory;
  * The <b>Resource Factory</b> associated with the package.
  * <!-- end-user-doc -->
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceImpl
- * @generated
+ * @generated NOT
  */
 public class NsdResourceFactoryImpl extends ResourceFactoryImpl implements IRiseClipseResourceFactory {
     /**
@@ -49,7 +49,7 @@ public class NsdResourceFactoryImpl extends ResourceFactoryImpl implements IRise
      * Creates an instance of the resource.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     * @generated NOT
      */
     @Override
     public NsdResourceImpl createResource( URI uri ) {

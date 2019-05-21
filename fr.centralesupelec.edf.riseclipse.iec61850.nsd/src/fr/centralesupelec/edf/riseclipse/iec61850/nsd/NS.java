@@ -651,4 +651,12 @@ public interface NS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
      */
     BasicType findBasicType( String basicTypeName, IRiseClipseConsole console );
 
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model consoleType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.IRiseClipseConsole"
+     * @generated
+     */
+    ConstructedAttribute findConstructedAttribute( String constructedAttributeName, IRiseClipseConsole console );
+
 } // NS
