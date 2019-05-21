@@ -65,7 +65,7 @@ public class ConstructedAttributeItemProvider extends TitledClassItemProvider {
             super.getPropertyDescriptors( object );
 
             addNamePropertyDescriptor( object );
-            addReferredByDataAttributePropertyDescriptor( object );
+            addReferredByAttributeTypePropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -93,19 +93,19 @@ public class ConstructedAttributeItemProvider extends TitledClassItemProvider {
     }
 
     /**
-     * This adds a property descriptor for the Referred By Data Attribute feature.
+     * This adds a property descriptor for the Referred By Attribute Type feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addReferredByDataAttributePropertyDescriptor( Object object ) {
+    protected void addReferredByAttributeTypePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add( createItemPropertyDescriptor(
                 ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
                 getResourceLocator(),
-                getString( "_UI_ConstructedAttribute_referredByDataAttribute_feature" ),
+                getString( "_UI_ConstructedAttribute_referredByAttributeType_feature" ),
                 getString( "_UI_PropertyDescriptor_description",
-                        "_UI_ConstructedAttribute_referredByDataAttribute_feature", "_UI_ConstructedAttribute_type" ),
-                NsdPackage.Literals.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE,
+                        "_UI_ConstructedAttribute_referredByAttributeType_feature", "_UI_ConstructedAttribute_type" ),
+                NsdPackage.Literals.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_ATTRIBUTE_TYPE,
                 true,
                 false,
                 true,

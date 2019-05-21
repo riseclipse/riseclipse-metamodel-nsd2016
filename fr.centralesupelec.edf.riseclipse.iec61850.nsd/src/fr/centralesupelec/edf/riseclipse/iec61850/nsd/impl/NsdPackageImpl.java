@@ -1180,7 +1180,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getBasicType_ReferredByDataAttribute() {
+    public EReference getBasicType_ReferredByAttributeType() {
         return ( EReference ) basicTypeEClass.getEStructuralFeatures().get( 3 );
     }
 
@@ -1520,7 +1520,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getConstructedAttribute_ReferredByDataAttribute() {
+    public EReference getConstructedAttribute_ReferredByAttributeType() {
         return ( EReference ) constructedAttributeEClass.getEStructuralFeatures().get( 4 );
     }
 
@@ -1732,36 +1732,6 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EReference getDataAttribute_ReferredByDataAttributeAsMaxIndexAttribute() {
         return ( EReference ) dataAttributeEClass.getEStructuralFeatures().get( 10 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EReference getDataAttribute_RefersToBasicType() {
-        return ( EReference ) dataAttributeEClass.getEStructuralFeatures().get( 11 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EReference getDataAttribute_RefersToConstructedAttribute() {
-        return ( EReference ) dataAttributeEClass.getEStructuralFeatures().get( 12 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EReference getDataAttribute_RefersToEnumeration() {
-        return ( EReference ) dataAttributeEClass.getEStructuralFeatures().get( 13 );
     }
 
     /**
@@ -2140,7 +2110,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getEnumeration_ReferredByDataAttribute() {
+    public EReference getEnumeration_ReferredByAttributeType() {
         return ( EReference ) enumerationEClass.getEStructuralFeatures().get( 6 );
     }
 
@@ -3690,6 +3660,36 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EReference getAgAttributeType_RefersToBasicType() {
+        return ( EReference ) agAttributeTypeEClass.getEStructuralFeatures().get( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getAgAttributeType_RefersToConstructedAttribute() {
+        return ( EReference ) agAttributeTypeEClass.getEStructuralFeatures().get( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getAgAttributeType_RefersToEnumeration() {
+        return ( EReference ) agAttributeTypeEClass.getEStructuralFeatures().get( 4 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getAgAttributeTypeAndValues() {
         return agAttributeTypeAndValuesEClass;
     }
@@ -4040,7 +4040,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEAttribute( basicTypeEClass, BASIC_TYPE__DESC_ID );
         createEAttribute( basicTypeEClass, BASIC_TYPE__NAME );
         createEReference( basicTypeEClass, BASIC_TYPE__PARENT_BASIC_TYPES );
-        createEReference( basicTypeEClass, BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE );
+        createEReference( basicTypeEClass, BASIC_TYPE__REFERRED_BY_ATTRIBUTE_TYPE );
         createEReference( basicTypeEClass, BASIC_TYPE__REFERS_TO_DOC );
 
         basicTypesEClass = createEClass( BASIC_TYPES );
@@ -4079,7 +4079,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEAttribute( constructedAttributeEClass, CONSTRUCTED_ATTRIBUTE__NAME );
         createEReference( constructedAttributeEClass, CONSTRUCTED_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTES );
         createEReference( constructedAttributeEClass, CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_TYPE_REALIZATIONS );
-        createEReference( constructedAttributeEClass, CONSTRUCTED_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE );
+        createEReference( constructedAttributeEClass, CONSTRUCTED_ATTRIBUTE__REFERRED_BY_ATTRIBUTE_TYPE );
 
         constructedAttributesEClass = createEClass( CONSTRUCTED_ATTRIBUTES );
         createEReference( constructedAttributesEClass, CONSTRUCTED_ATTRIBUTES__CONSTRUCTED_ATTRIBUTE );
@@ -4105,9 +4105,6 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEReference( dataAttributeEClass, DATA_ATTRIBUTE__REFERS_TO_MAX_INDEX_ATTRIBUTE );
         createEReference( dataAttributeEClass, DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_SIZE_ATTRIBUTE );
         createEReference( dataAttributeEClass, DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_MAX_INDEX_ATTRIBUTE );
-        createEReference( dataAttributeEClass, DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE );
-        createEReference( dataAttributeEClass, DATA_ATTRIBUTE__REFERS_TO_CONSTRUCTED_ATTRIBUTE );
-        createEReference( dataAttributeEClass, DATA_ATTRIBUTE__REFERS_TO_ENUMERATION );
 
         dataObjectEClass = createEClass( DATA_OBJECT );
         createEAttribute( dataObjectEClass, DATA_OBJECT__NAME );
@@ -4150,7 +4147,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEReference( enumerationEClass, ENUMERATION__PARENT_ENUMERATIONS );
         createEReference( enumerationEClass, ENUMERATION__REFERS_TO_BASE_ENUMERATION );
         createEReference( enumerationEClass, ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE );
-        createEReference( enumerationEClass, ENUMERATION__REFERRED_BY_DATA_ATTRIBUTE );
+        createEReference( enumerationEClass, ENUMERATION__REFERRED_BY_ATTRIBUTE_TYPE );
 
         enumerationsEClass = createEClass( ENUMERATIONS );
         createEReference( enumerationsEClass, ENUMERATIONS__ENUMERATION );
@@ -4342,6 +4339,9 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         agAttributeTypeEClass = createEClass( AG_ATTRIBUTE_TYPE );
         createEAttribute( agAttributeTypeEClass, AG_ATTRIBUTE_TYPE__TYPE );
         createEAttribute( agAttributeTypeEClass, AG_ATTRIBUTE_TYPE__TYPE_KIND );
+        createEReference( agAttributeTypeEClass, AG_ATTRIBUTE_TYPE__REFERS_TO_BASIC_TYPE );
+        createEReference( agAttributeTypeEClass, AG_ATTRIBUTE_TYPE__REFERS_TO_CONSTRUCTED_ATTRIBUTE );
+        createEReference( agAttributeTypeEClass, AG_ATTRIBUTE_TYPE__REFERS_TO_ENUMERATION );
 
         agAttributeTypeAndValuesEClass = createEClass( AG_ATTRIBUTE_TYPE_AND_VALUES );
         createEAttribute( agAttributeTypeAndValuesEClass, AG_ATTRIBUTE_TYPE_AND_VALUES__DEFAULT_VALUE );
@@ -4633,8 +4633,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEReference( getBasicType_ParentBasicTypes(), this.getBasicTypes(), this.getBasicTypes_BasicType(),
                 "parentBasicTypes", null, 0, 1, BasicType.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
-        initEReference( getBasicType_ReferredByDataAttribute(), this.getDataAttribute(),
-                this.getDataAttribute_RefersToBasicType(), "referredByDataAttribute", null, 0, -1, BasicType.class,
+        initEReference( getBasicType_ReferredByAttributeType(), this.getAgAttributeType(),
+                this.getAgAttributeType_RefersToBasicType(), "referredByAttributeType", null, 0, -1, BasicType.class,
                 IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
                 !IS_DERIVED, !IS_ORDERED );
         initEReference( getBasicType_RefersToDoc(), this.getDoc(), this.getDoc_ReferredByBasicType(), "refersToDoc",
@@ -4736,8 +4736,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 this.getServiceTypeRealizations_ServiceTypeRealization(), "parentServiceTypeRealizations", null, 0, 1,
                 ConstructedAttribute.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
-        initEReference( getConstructedAttribute_ReferredByDataAttribute(), this.getDataAttribute(),
-                this.getDataAttribute_RefersToConstructedAttribute(), "referredByDataAttribute", null, 0, -1,
+        initEReference( getConstructedAttribute_ReferredByAttributeType(), this.getAgAttributeType(),
+                this.getAgAttributeType_RefersToConstructedAttribute(), "referredByAttributeType", null, 0, -1,
                 ConstructedAttribute.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
@@ -4811,18 +4811,6 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 this.getDataAttribute_RefersToMaxIndexAttribute(), "referredByDataAttributeAsMaxIndexAttribute", null,
                 0, -1, DataAttribute.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
-        initEReference( getDataAttribute_RefersToBasicType(), this.getBasicType(),
-                this.getBasicType_ReferredByDataAttribute(), "refersToBasicType", null, 0, 1, DataAttribute.class,
-                IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
-                !IS_DERIVED, !IS_ORDERED );
-        initEReference( getDataAttribute_RefersToConstructedAttribute(), this.getConstructedAttribute(),
-                this.getConstructedAttribute_ReferredByDataAttribute(), "refersToConstructedAttribute", null, 0, 1,
-                DataAttribute.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
-        initEReference( getDataAttribute_RefersToEnumeration(), this.getEnumeration(),
-                this.getEnumeration_ReferredByDataAttribute(), "refersToEnumeration", null, 0, 1, DataAttribute.class,
-                IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
-                !IS_DERIVED, !IS_ORDERED );
 
         initEClass( dataObjectEClass, DataObject.class, "DataObject", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
@@ -4937,10 +4925,10 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 this.getEnumeration_RefersToBaseEnumeration(), "referredByEnumerationAsBase", null, 0, -1,
                 Enumeration.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
-        initEReference( getEnumeration_ReferredByDataAttribute(), this.getDataAttribute(),
-                this.getDataAttribute_RefersToEnumeration(), "referredByDataAttribute", null, 0, -1, Enumeration.class,
-                IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
-                !IS_DERIVED, !IS_ORDERED );
+        initEReference( getEnumeration_ReferredByAttributeType(), this.getAgAttributeType(),
+                this.getAgAttributeType_RefersToEnumeration(), "referredByAttributeType", null, 0, -1,
+                Enumeration.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( enumerationsEClass, Enumerations.class, "Enumerations", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
@@ -5437,6 +5425,18 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getAgAttributeType_TypeKind(), this.getAttributeTypeKind(), "typeKind", "BASIC", 0, 1,
                 AgAttributeType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
+        initEReference( getAgAttributeType_RefersToBasicType(), this.getBasicType(),
+                this.getBasicType_ReferredByAttributeType(), "refersToBasicType", null, 0, 1, AgAttributeType.class,
+                IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
+                !IS_DERIVED, !IS_ORDERED );
+        initEReference( getAgAttributeType_RefersToConstructedAttribute(), this.getConstructedAttribute(),
+                this.getConstructedAttribute_ReferredByAttributeType(), "refersToConstructedAttribute", null, 0, 1,
+                AgAttributeType.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getAgAttributeType_RefersToEnumeration(), this.getEnumeration(),
+                this.getEnumeration_ReferredByAttributeType(), "refersToEnumeration", null, 0, 1, AgAttributeType.class,
+                IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
+                !IS_DERIVED, !IS_ORDERED );
 
         initEClass( agAttributeTypeAndValuesEClass, AgAttributeTypeAndValues.class, "AgAttributeTypeAndValues",
                 IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );

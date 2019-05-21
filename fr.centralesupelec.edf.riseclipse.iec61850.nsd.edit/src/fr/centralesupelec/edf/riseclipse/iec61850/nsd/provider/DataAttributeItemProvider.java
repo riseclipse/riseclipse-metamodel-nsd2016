@@ -74,6 +74,9 @@ public class DataAttributeItemProvider extends DocumentedClassItemProvider {
             addQchgPropertyDescriptor( object );
             addTypePropertyDescriptor( object );
             addTypeKindPropertyDescriptor( object );
+            addRefersToBasicTypePropertyDescriptor( object );
+            addRefersToConstructedAttributePropertyDescriptor( object );
+            addRefersToEnumerationPropertyDescriptor( object );
             addDefaultValuePropertyDescriptor( object );
             addMaxValuePropertyDescriptor( object );
             addMinValuePropertyDescriptor( object );
@@ -87,9 +90,6 @@ public class DataAttributeItemProvider extends DocumentedClassItemProvider {
             addRefersToMaxIndexAttributePropertyDescriptor( object );
             addReferredByDataAttributeAsSizeAttributePropertyDescriptor( object );
             addReferredByDataAttributeAsMaxIndexAttributePropertyDescriptor( object );
-            addRefersToBasicTypePropertyDescriptor( object );
-            addRefersToConstructedAttributePropertyDescriptor( object );
-            addRefersToEnumerationPropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -502,10 +502,10 @@ public class DataAttributeItemProvider extends DocumentedClassItemProvider {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
                         getResourceLocator(),
-                        getString( "_UI_DataAttribute_refersToBasicType_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_DataAttribute_refersToBasicType_feature",
-                                "_UI_DataAttribute_type" ),
-                        NsdPackage.Literals.DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE,
+                        getString( "_UI_AgAttributeType_refersToBasicType_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_AgAttributeType_refersToBasicType_feature", "_UI_AgAttributeType_type" ),
+                        NsdPackage.Literals.AG_ATTRIBUTE_TYPE__REFERS_TO_BASIC_TYPE,
                         true,
                         false,
                         true,
@@ -521,19 +521,19 @@ public class DataAttributeItemProvider extends DocumentedClassItemProvider {
      * @generated
      */
     protected void addRefersToConstructedAttributePropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add(
-                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString( "_UI_DataAttribute_refersToConstructedAttribute_feature" ),
-                        getString( "_UI_PropertyDescriptor_description",
-                                "_UI_DataAttribute_refersToConstructedAttribute_feature", "_UI_DataAttribute_type" ),
-                        NsdPackage.Literals.DATA_ATTRIBUTE__REFERS_TO_CONSTRUCTED_ATTRIBUTE,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add( createItemPropertyDescriptor(
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                getResourceLocator(),
+                getString( "_UI_AgAttributeType_refersToConstructedAttribute_feature" ),
+                getString( "_UI_PropertyDescriptor_description",
+                        "_UI_AgAttributeType_refersToConstructedAttribute_feature", "_UI_AgAttributeType_type" ),
+                NsdPackage.Literals.AG_ATTRIBUTE_TYPE__REFERS_TO_CONSTRUCTED_ATTRIBUTE,
+                true,
+                false,
+                true,
+                null,
+                null,
+                null ) );
     }
 
     /**
@@ -546,10 +546,10 @@ public class DataAttributeItemProvider extends DocumentedClassItemProvider {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
                         getResourceLocator(),
-                        getString( "_UI_DataAttribute_refersToEnumeration_feature" ),
+                        getString( "_UI_AgAttributeType_refersToEnumeration_feature" ),
                         getString( "_UI_PropertyDescriptor_description",
-                                "_UI_DataAttribute_refersToEnumeration_feature", "_UI_DataAttribute_type" ),
-                        NsdPackage.Literals.DATA_ATTRIBUTE__REFERS_TO_ENUMERATION,
+                                "_UI_AgAttributeType_refersToEnumeration_feature", "_UI_AgAttributeType_type" ),
+                        NsdPackage.Literals.AG_ATTRIBUTE_TYPE__REFERS_TO_ENUMERATION,
                         true,
                         false,
                         true,

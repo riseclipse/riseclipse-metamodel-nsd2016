@@ -19,7 +19,7 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal;
@@ -57,7 +57,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationImpl#getParentEnumerations <em>Parent Enumerations</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationImpl#getRefersToBaseEnumeration <em>Refers To Base Enumeration</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationImpl#getReferredByEnumerationAsBase <em>Referred By Enumeration As Base</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationImpl#getReferredByDataAttribute <em>Referred By Data Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationImpl#getReferredByAttributeType <em>Referred By Attribute Type</em>}</li>
  * </ul>
  *
  * @generated
@@ -161,14 +161,14 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
     protected EList< Enumeration > referredByEnumerationAsBase;
 
     /**
-     * The cached value of the '{@link #getReferredByDataAttribute() <em>Referred By Data Attribute</em>}' reference list.
+     * The cached value of the '{@link #getReferredByAttributeType() <em>Referred By Attribute Type</em>}' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getReferredByDataAttribute()
+     * @see #getReferredByAttributeType()
      * @generated
      * @ordered
      */
-    protected EList< DataAttribute > referredByDataAttribute;
+    protected EList< AgAttributeType > referredByAttributeType;
 
     /**
      * <!-- begin-user-doc -->
@@ -535,13 +535,13 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
      * @generated
      */
     @Override
-    public EList< DataAttribute > getReferredByDataAttribute() {
-        if( referredByDataAttribute == null ) {
-            referredByDataAttribute = new EObjectWithInverseEList.Unsettable< DataAttribute >( DataAttribute.class,
-                    this, NsdPackage.ENUMERATION__REFERRED_BY_DATA_ATTRIBUTE,
-                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_ENUMERATION );
+    public EList< AgAttributeType > getReferredByAttributeType() {
+        if( referredByAttributeType == null ) {
+            referredByAttributeType = new EObjectWithInverseEList.Unsettable< AgAttributeType >( AgAttributeType.class,
+                    this, NsdPackage.ENUMERATION__REFERRED_BY_ATTRIBUTE_TYPE,
+                    NsdPackage.AG_ATTRIBUTE_TYPE__REFERS_TO_ENUMERATION );
         }
-        return referredByDataAttribute;
+        return referredByAttributeType;
     }
 
     /**
@@ -550,8 +550,8 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
      * @generated
      */
     @Override
-    public void unsetReferredByDataAttribute() {
-        if( referredByDataAttribute != null ) ( ( InternalEList.Unsettable< ? > ) referredByDataAttribute ).unset();
+    public void unsetReferredByAttributeType() {
+        if( referredByAttributeType != null ) ( ( InternalEList.Unsettable< ? > ) referredByAttributeType ).unset();
     }
 
     /**
@@ -560,8 +560,8 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
      * @generated
      */
     @Override
-    public boolean isSetReferredByDataAttribute() {
-        return referredByDataAttribute != null && ( ( InternalEList.Unsettable< ? > ) referredByDataAttribute ).isSet();
+    public boolean isSetReferredByAttributeType() {
+        return referredByAttributeType != null && ( ( InternalEList.Unsettable< ? > ) referredByAttributeType ).isSet();
     }
 
     /**
@@ -588,8 +588,8 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
         case NsdPackage.ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByEnumerationAsBase() )
                     .basicAdd( otherEnd, msgs );
-        case NsdPackage.ENUMERATION__REFERRED_BY_DATA_ATTRIBUTE:
-            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByDataAttribute() )
+        case NsdPackage.ENUMERATION__REFERRED_BY_ATTRIBUTE_TYPE:
+            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByAttributeType() )
                     .basicAdd( otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
@@ -611,8 +611,8 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
             return basicUnsetRefersToBaseEnumeration( msgs );
         case NsdPackage.ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE:
             return ( ( InternalEList< ? > ) getReferredByEnumerationAsBase() ).basicRemove( otherEnd, msgs );
-        case NsdPackage.ENUMERATION__REFERRED_BY_DATA_ATTRIBUTE:
-            return ( ( InternalEList< ? > ) getReferredByDataAttribute() ).basicRemove( otherEnd, msgs );
+        case NsdPackage.ENUMERATION__REFERRED_BY_ATTRIBUTE_TYPE:
+            return ( ( InternalEList< ? > ) getReferredByAttributeType() ).basicRemove( otherEnd, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -652,8 +652,8 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
             return getRefersToBaseEnumeration();
         case NsdPackage.ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE:
             return getReferredByEnumerationAsBase();
-        case NsdPackage.ENUMERATION__REFERRED_BY_DATA_ATTRIBUTE:
-            return getReferredByDataAttribute();
+        case NsdPackage.ENUMERATION__REFERRED_BY_ATTRIBUTE_TYPE:
+            return getReferredByAttributeType();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -687,9 +687,9 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
             getReferredByEnumerationAsBase().clear();
             getReferredByEnumerationAsBase().addAll( ( Collection< ? extends Enumeration > ) newValue );
             return;
-        case NsdPackage.ENUMERATION__REFERRED_BY_DATA_ATTRIBUTE:
-            getReferredByDataAttribute().clear();
-            getReferredByDataAttribute().addAll( ( Collection< ? extends DataAttribute > ) newValue );
+        case NsdPackage.ENUMERATION__REFERRED_BY_ATTRIBUTE_TYPE:
+            getReferredByAttributeType().clear();
+            getReferredByAttributeType().addAll( ( Collection< ? extends AgAttributeType > ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -721,8 +721,8 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
         case NsdPackage.ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE:
             unsetReferredByEnumerationAsBase();
             return;
-        case NsdPackage.ENUMERATION__REFERRED_BY_DATA_ATTRIBUTE:
-            unsetReferredByDataAttribute();
+        case NsdPackage.ENUMERATION__REFERRED_BY_ATTRIBUTE_TYPE:
+            unsetReferredByAttributeType();
             return;
         }
         super.eUnset( featureID );
@@ -748,8 +748,8 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
             return isSetRefersToBaseEnumeration();
         case NsdPackage.ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE:
             return isSetReferredByEnumerationAsBase();
-        case NsdPackage.ENUMERATION__REFERRED_BY_DATA_ATTRIBUTE:
-            return isSetReferredByDataAttribute();
+        case NsdPackage.ENUMERATION__REFERRED_BY_ATTRIBUTE_TYPE:
+            return isSetReferredByAttributeType();
         }
         return super.eIsSet( featureID );
     }

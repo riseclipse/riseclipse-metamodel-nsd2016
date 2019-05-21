@@ -36,7 +36,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getParentEnumerations <em>Parent Enumerations</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getRefersToBaseEnumeration <em>Refers To Base Enumeration</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getReferredByEnumerationAsBase <em>Referred By Enumeration As Base</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getReferredByDataAttribute <em>Referred By Data Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getReferredByAttributeType <em>Referred By Attribute Type</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getEnumeration()
@@ -309,40 +309,40 @@ public interface Enumeration extends TitledClass {
     boolean isSetReferredByEnumerationAsBase();
 
     /**
-     * Returns the value of the '<em><b>Referred By Data Attribute</b></em>' reference list.
-     * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute}.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToEnumeration <em>Refers To Enumeration</em>}'.
+     * Returns the value of the '<em><b>Referred By Attribute Type</b></em>' reference list.
+     * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType}.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType#getRefersToEnumeration <em>Refers To Enumeration</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Referred By Data Attribute</em>' reference list.
-     * @see #isSetReferredByDataAttribute()
-     * @see #unsetReferredByDataAttribute()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getEnumeration_ReferredByDataAttribute()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToEnumeration
+     * @return the value of the '<em>Referred By Attribute Type</em>' reference list.
+     * @see #isSetReferredByAttributeType()
+     * @see #unsetReferredByAttributeType()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getEnumeration_ReferredByAttributeType()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType#getRefersToEnumeration
      * @model opposite="refersToEnumeration" resolveProxies="false" unsettable="true" transient="true" ordered="false"
      * @generated
      */
-    EList< DataAttribute > getReferredByDataAttribute();
+    EList< AgAttributeType > getReferredByAttributeType();
 
     /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getReferredByDataAttribute <em>Referred By Data Attribute</em>}' reference list.
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getReferredByAttributeType <em>Referred By Attribute Type</em>}' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #isSetReferredByDataAttribute()
-     * @see #getReferredByDataAttribute()
+     * @see #isSetReferredByAttributeType()
+     * @see #getReferredByAttributeType()
      * @generated
      */
-    void unsetReferredByDataAttribute();
+    void unsetReferredByAttributeType();
 
     /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getReferredByDataAttribute <em>Referred By Data Attribute</em>}' reference list is set.
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getReferredByAttributeType <em>Referred By Attribute Type</em>}' reference list is set.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Referred By Data Attribute</em>' reference list is set.
-     * @see #unsetReferredByDataAttribute()
-     * @see #getReferredByDataAttribute()
+     * @return whether the value of the '<em>Referred By Attribute Type</em>' reference list is set.
+     * @see #unsetReferredByAttributeType()
+     * @see #getReferredByAttributeType()
      * @generated
      */
-    boolean isSetReferredByDataAttribute();
+    boolean isSetReferredByAttributeType();
 
 } // Enumeration

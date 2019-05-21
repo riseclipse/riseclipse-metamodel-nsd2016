@@ -68,7 +68,7 @@ public class EnumerationItemProvider extends TitledClassItemProvider {
             addNamePropertyDescriptor( object );
             addRefersToBaseEnumerationPropertyDescriptor( object );
             addReferredByEnumerationAsBasePropertyDescriptor( object );
-            addReferredByDataAttributePropertyDescriptor( object );
+            addReferredByAttributeTypePropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -162,19 +162,19 @@ public class EnumerationItemProvider extends TitledClassItemProvider {
     }
 
     /**
-     * This adds a property descriptor for the Referred By Data Attribute feature.
+     * This adds a property descriptor for the Referred By Attribute Type feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addReferredByDataAttributePropertyDescriptor( Object object ) {
+    protected void addReferredByAttributeTypePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
                         getResourceLocator(),
-                        getString( "_UI_Enumeration_referredByDataAttribute_feature" ),
+                        getString( "_UI_Enumeration_referredByAttributeType_feature" ),
                         getString( "_UI_PropertyDescriptor_description",
-                                "_UI_Enumeration_referredByDataAttribute_feature", "_UI_Enumeration_type" ),
-                        NsdPackage.Literals.ENUMERATION__REFERRED_BY_DATA_ATTRIBUTE,
+                                "_UI_Enumeration_referredByAttributeType_feature", "_UI_Enumeration_type" ),
+                        NsdPackage.Literals.ENUMERATION__REFERRED_BY_ATTRIBUTE_TYPE,
                         true,
                         false,
                         true,

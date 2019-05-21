@@ -19,9 +19,9 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetImpl;
@@ -51,7 +51,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.BasicTypeImpl#getDescID <em>Desc ID</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.BasicTypeImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.BasicTypeImpl#getParentBasicTypes <em>Parent Basic Types</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.BasicTypeImpl#getReferredByDataAttribute <em>Referred By Data Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.BasicTypeImpl#getReferredByAttributeType <em>Referred By Attribute Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.BasicTypeImpl#getRefersToDoc <em>Refers To Doc</em>}</li>
  * </ul>
  *
@@ -117,14 +117,14 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
     protected boolean nameESet;
 
     /**
-     * The cached value of the '{@link #getReferredByDataAttribute() <em>Referred By Data Attribute</em>}' reference list.
+     * The cached value of the '{@link #getReferredByAttributeType() <em>Referred By Attribute Type</em>}' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getReferredByDataAttribute()
+     * @see #getReferredByAttributeType()
      * @generated
      * @ordered
      */
-    protected EList< DataAttribute > referredByDataAttribute;
+    protected EList< AgAttributeType > referredByAttributeType;
 
     /**
      * The cached value of the '{@link #getRefersToDoc() <em>Refers To Doc</em>}' reference.
@@ -322,13 +322,13 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
      * @generated
      */
     @Override
-    public EList< DataAttribute > getReferredByDataAttribute() {
-        if( referredByDataAttribute == null ) {
-            referredByDataAttribute = new EObjectWithInverseEList.Unsettable< DataAttribute >( DataAttribute.class,
-                    this, NsdPackage.BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE,
-                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE );
+    public EList< AgAttributeType > getReferredByAttributeType() {
+        if( referredByAttributeType == null ) {
+            referredByAttributeType = new EObjectWithInverseEList.Unsettable< AgAttributeType >( AgAttributeType.class,
+                    this, NsdPackage.BASIC_TYPE__REFERRED_BY_ATTRIBUTE_TYPE,
+                    NsdPackage.AG_ATTRIBUTE_TYPE__REFERS_TO_BASIC_TYPE );
         }
-        return referredByDataAttribute;
+        return referredByAttributeType;
     }
 
     /**
@@ -337,8 +337,8 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
      * @generated
      */
     @Override
-    public void unsetReferredByDataAttribute() {
-        if( referredByDataAttribute != null ) ( ( InternalEList.Unsettable< ? > ) referredByDataAttribute ).unset();
+    public void unsetReferredByAttributeType() {
+        if( referredByAttributeType != null ) ( ( InternalEList.Unsettable< ? > ) referredByAttributeType ).unset();
     }
 
     /**
@@ -347,8 +347,8 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
      * @generated
      */
     @Override
-    public boolean isSetReferredByDataAttribute() {
-        return referredByDataAttribute != null && ( ( InternalEList.Unsettable< ? > ) referredByDataAttribute ).isSet();
+    public boolean isSetReferredByAttributeType() {
+        return referredByAttributeType != null && ( ( InternalEList.Unsettable< ? > ) referredByAttributeType ).isSet();
     }
 
     /**
@@ -476,8 +476,8 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
             return basicSetParentBasicTypes( ( BasicTypes ) otherEnd, msgs );
-        case NsdPackage.BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE:
-            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByDataAttribute() )
+        case NsdPackage.BASIC_TYPE__REFERRED_BY_ATTRIBUTE_TYPE:
+            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByAttributeType() )
                     .basicAdd( otherEnd, msgs );
         case NsdPackage.BASIC_TYPE__REFERS_TO_DOC:
             if( refersToDoc != null )
@@ -498,8 +498,8 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
         switch( featureID ) {
         case NsdPackage.BASIC_TYPE__PARENT_BASIC_TYPES:
             return basicSetParentBasicTypes( null, msgs );
-        case NsdPackage.BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE:
-            return ( ( InternalEList< ? > ) getReferredByDataAttribute() ).basicRemove( otherEnd, msgs );
+        case NsdPackage.BASIC_TYPE__REFERRED_BY_ATTRIBUTE_TYPE:
+            return ( ( InternalEList< ? > ) getReferredByAttributeType() ).basicRemove( otherEnd, msgs );
         case NsdPackage.BASIC_TYPE__REFERS_TO_DOC:
             return basicUnsetRefersToDoc( msgs );
         }
@@ -535,8 +535,8 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
             return getName();
         case NsdPackage.BASIC_TYPE__PARENT_BASIC_TYPES:
             return getParentBasicTypes();
-        case NsdPackage.BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE:
-            return getReferredByDataAttribute();
+        case NsdPackage.BASIC_TYPE__REFERRED_BY_ATTRIBUTE_TYPE:
+            return getReferredByAttributeType();
         case NsdPackage.BASIC_TYPE__REFERS_TO_DOC:
             return getRefersToDoc();
         }
@@ -561,9 +561,9 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
         case NsdPackage.BASIC_TYPE__PARENT_BASIC_TYPES:
             setParentBasicTypes( ( BasicTypes ) newValue );
             return;
-        case NsdPackage.BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE:
-            getReferredByDataAttribute().clear();
-            getReferredByDataAttribute().addAll( ( Collection< ? extends DataAttribute > ) newValue );
+        case NsdPackage.BASIC_TYPE__REFERRED_BY_ATTRIBUTE_TYPE:
+            getReferredByAttributeType().clear();
+            getReferredByAttributeType().addAll( ( Collection< ? extends AgAttributeType > ) newValue );
             return;
         case NsdPackage.BASIC_TYPE__REFERS_TO_DOC:
             setRefersToDoc( ( Doc ) newValue );
@@ -589,8 +589,8 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
         case NsdPackage.BASIC_TYPE__PARENT_BASIC_TYPES:
             setParentBasicTypes( ( BasicTypes ) null );
             return;
-        case NsdPackage.BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE:
-            unsetReferredByDataAttribute();
+        case NsdPackage.BASIC_TYPE__REFERRED_BY_ATTRIBUTE_TYPE:
+            unsetReferredByAttributeType();
             return;
         case NsdPackage.BASIC_TYPE__REFERS_TO_DOC:
             unsetRefersToDoc();
@@ -613,8 +613,8 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
             return isSetName();
         case NsdPackage.BASIC_TYPE__PARENT_BASIC_TYPES:
             return getParentBasicTypes() != null;
-        case NsdPackage.BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE:
-            return isSetReferredByDataAttribute();
+        case NsdPackage.BASIC_TYPE__REFERRED_BY_ATTRIBUTE_TYPE:
+            return isSetReferredByAttributeType();
         case NsdPackage.BASIC_TYPE__REFERS_TO_DOC:
             return isSetRefersToDoc();
         }
@@ -648,10 +648,10 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
-        
+
         if( isSetDescID() ) {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
-                Doc doc = (( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getDescID() );
+                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getDescID() );
                 if( doc != null ) setRefersToDoc( doc );
             }
         }

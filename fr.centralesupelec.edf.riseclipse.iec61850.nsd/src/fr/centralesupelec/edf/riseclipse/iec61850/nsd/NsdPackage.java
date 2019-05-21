@@ -1951,13 +1951,13 @@ public interface NsdPackage extends EPackage {
     int BASIC_TYPE__PARENT_BASIC_TYPES = NSD_OBJECT_FEATURE_COUNT + 2;
 
     /**
-     * The feature id for the '<em><b>Referred By Data Attribute</b></em>' reference list.
+     * The feature id for the '<em><b>Referred By Attribute Type</b></em>' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE = NSD_OBJECT_FEATURE_COUNT + 3;
+    int BASIC_TYPE__REFERRED_BY_ATTRIBUTE_TYPE = NSD_OBJECT_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
@@ -2527,13 +2527,13 @@ public interface NsdPackage extends EPackage {
     int CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_TYPE_REALIZATIONS = TITLED_CLASS_FEATURE_COUNT + 3;
 
     /**
-     * The feature id for the '<em><b>Referred By Data Attribute</b></em>' reference list.
+     * The feature id for the '<em><b>Referred By Attribute Type</b></em>' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CONSTRUCTED_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE = TITLED_CLASS_FEATURE_COUNT + 4;
+    int CONSTRUCTED_ATTRIBUTE__REFERRED_BY_ATTRIBUTE_TYPE = TITLED_CLASS_FEATURE_COUNT + 4;
 
     /**
      * The number of structural features of the '<em>Constructed Attribute</em>' class.
@@ -2869,139 +2869,13 @@ public interface NsdPackage extends EPackage {
     int DATA_ATTRIBUTE__TYPE_KIND = DOCUMENTED_CLASS_FEATURE_COUNT + 12;
 
     /**
-     * The feature id for the '<em><b>Default Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DATA_ATTRIBUTE__DEFAULT_VALUE = DOCUMENTED_CLASS_FEATURE_COUNT + 13;
-
-    /**
-     * The feature id for the '<em><b>Max Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DATA_ATTRIBUTE__MAX_VALUE = DOCUMENTED_CLASS_FEATURE_COUNT + 14;
-
-    /**
-     * The feature id for the '<em><b>Min Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DATA_ATTRIBUTE__MIN_VALUE = DOCUMENTED_CLASS_FEATURE_COUNT + 15;
-
-    /**
-     * The feature id for the '<em><b>Fc</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DATA_ATTRIBUTE__FC = DOCUMENTED_CLASS_FEATURE_COUNT + 16;
-
-    /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DATA_ATTRIBUTE__NAME = DOCUMENTED_CLASS_FEATURE_COUNT + 17;
-
-    /**
-     * The feature id for the '<em><b>Parent CDC</b></em>' container reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DATA_ATTRIBUTE__PARENT_CDC = DOCUMENTED_CLASS_FEATURE_COUNT + 18;
-
-    /**
-     * The feature id for the '<em><b>Referred By Sub Data Object As Size Attribute</b></em>' reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_SIZE_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 19;
-
-    /**
-     * The feature id for the '<em><b>Referred By Sub Data Object As Max Index Attribute</b></em>' reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_MAX_INDEX_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 20;
-
-    /**
-     * The feature id for the '<em><b>Refers To Functional Constraint</b></em>' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DATA_ATTRIBUTE__REFERS_TO_FUNCTIONAL_CONSTRAINT = DOCUMENTED_CLASS_FEATURE_COUNT + 21;
-
-    /**
-     * The feature id for the '<em><b>Refers To Presence Condition</b></em>' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION = DOCUMENTED_CLASS_FEATURE_COUNT + 22;
-
-    /**
-     * The feature id for the '<em><b>Refers To Size Attribute</b></em>' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DATA_ATTRIBUTE__REFERS_TO_SIZE_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 23;
-
-    /**
-     * The feature id for the '<em><b>Refers To Max Index Attribute</b></em>' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DATA_ATTRIBUTE__REFERS_TO_MAX_INDEX_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 24;
-
-    /**
-     * The feature id for the '<em><b>Referred By Data Attribute As Size Attribute</b></em>' reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_SIZE_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 25;
-
-    /**
-     * The feature id for the '<em><b>Referred By Data Attribute As Max Index Attribute</b></em>' reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_MAX_INDEX_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 26;
-
-    /**
      * The feature id for the '<em><b>Refers To Basic Type</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE = DOCUMENTED_CLASS_FEATURE_COUNT + 27;
+    int DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE = DOCUMENTED_CLASS_FEATURE_COUNT + 13;
 
     /**
      * The feature id for the '<em><b>Refers To Constructed Attribute</b></em>' reference.
@@ -3010,7 +2884,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE__REFERS_TO_CONSTRUCTED_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 28;
+    int DATA_ATTRIBUTE__REFERS_TO_CONSTRUCTED_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 14;
 
     /**
      * The feature id for the '<em><b>Refers To Enumeration</b></em>' reference.
@@ -3019,7 +2893,133 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE__REFERS_TO_ENUMERATION = DOCUMENTED_CLASS_FEATURE_COUNT + 29;
+    int DATA_ATTRIBUTE__REFERS_TO_ENUMERATION = DOCUMENTED_CLASS_FEATURE_COUNT + 15;
+
+    /**
+     * The feature id for the '<em><b>Default Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_ATTRIBUTE__DEFAULT_VALUE = DOCUMENTED_CLASS_FEATURE_COUNT + 16;
+
+    /**
+     * The feature id for the '<em><b>Max Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_ATTRIBUTE__MAX_VALUE = DOCUMENTED_CLASS_FEATURE_COUNT + 17;
+
+    /**
+     * The feature id for the '<em><b>Min Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_ATTRIBUTE__MIN_VALUE = DOCUMENTED_CLASS_FEATURE_COUNT + 18;
+
+    /**
+     * The feature id for the '<em><b>Fc</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_ATTRIBUTE__FC = DOCUMENTED_CLASS_FEATURE_COUNT + 19;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_ATTRIBUTE__NAME = DOCUMENTED_CLASS_FEATURE_COUNT + 20;
+
+    /**
+     * The feature id for the '<em><b>Parent CDC</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_ATTRIBUTE__PARENT_CDC = DOCUMENTED_CLASS_FEATURE_COUNT + 21;
+
+    /**
+     * The feature id for the '<em><b>Referred By Sub Data Object As Size Attribute</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_SIZE_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 22;
+
+    /**
+     * The feature id for the '<em><b>Referred By Sub Data Object As Max Index Attribute</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_MAX_INDEX_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 23;
+
+    /**
+     * The feature id for the '<em><b>Refers To Functional Constraint</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_ATTRIBUTE__REFERS_TO_FUNCTIONAL_CONSTRAINT = DOCUMENTED_CLASS_FEATURE_COUNT + 24;
+
+    /**
+     * The feature id for the '<em><b>Refers To Presence Condition</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION = DOCUMENTED_CLASS_FEATURE_COUNT + 25;
+
+    /**
+     * The feature id for the '<em><b>Refers To Size Attribute</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_ATTRIBUTE__REFERS_TO_SIZE_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 26;
+
+    /**
+     * The feature id for the '<em><b>Refers To Max Index Attribute</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_ATTRIBUTE__REFERS_TO_MAX_INDEX_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 27;
+
+    /**
+     * The feature id for the '<em><b>Referred By Data Attribute As Size Attribute</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_SIZE_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 28;
+
+    /**
+     * The feature id for the '<em><b>Referred By Data Attribute As Max Index Attribute</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_MAX_INDEX_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 29;
 
     /**
      * The number of structural features of the '<em>Data Attribute</em>' class.
@@ -3625,13 +3625,13 @@ public interface NsdPackage extends EPackage {
     int ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE = TITLED_CLASS_FEATURE_COUNT + 5;
 
     /**
-     * The feature id for the '<em><b>Referred By Data Attribute</b></em>' reference list.
+     * The feature id for the '<em><b>Referred By Attribute Type</b></em>' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ENUMERATION__REFERRED_BY_DATA_ATTRIBUTE = TITLED_CLASS_FEATURE_COUNT + 6;
+    int ENUMERATION__REFERRED_BY_ATTRIBUTE_TYPE = TITLED_CLASS_FEATURE_COUNT + 6;
 
     /**
      * The number of structural features of the '<em>Enumeration</em>' class.
@@ -5281,13 +5281,13 @@ public interface NsdPackage extends EPackage {
     int SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_TYPE_REALIZATIONS = CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_TYPE_REALIZATIONS;
 
     /**
-     * The feature id for the '<em><b>Referred By Data Attribute</b></em>' reference list.
+     * The feature id for the '<em><b>Referred By Attribute Type</b></em>' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SERVICE_CONSTRUCTED_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE = CONSTRUCTED_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE;
+    int SERVICE_CONSTRUCTED_ATTRIBUTE__REFERRED_BY_ATTRIBUTE_TYPE = CONSTRUCTED_ATTRIBUTE__REFERRED_BY_ATTRIBUTE_TYPE;
 
     /**
      * The feature id for the '<em><b>Type Kind Parameterized</b></em>' attribute.
@@ -5506,13 +5506,40 @@ public interface NsdPackage extends EPackage {
     int SERVICE_DATA_ATTRIBUTE__TYPE_KIND = DOCUMENTED_CLASS_FEATURE_COUNT + 5;
 
     /**
+     * The feature id for the '<em><b>Refers To Basic Type</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE = DOCUMENTED_CLASS_FEATURE_COUNT + 6;
+
+    /**
+     * The feature id for the '<em><b>Refers To Constructed Attribute</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_DATA_ATTRIBUTE__REFERS_TO_CONSTRUCTED_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 7;
+
+    /**
+     * The feature id for the '<em><b>Refers To Enumeration</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_DATA_ATTRIBUTE__REFERS_TO_ENUMERATION = DOCUMENTED_CLASS_FEATURE_COUNT + 8;
+
+    /**
      * The feature id for the '<em><b>Underlying Type</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE = DOCUMENTED_CLASS_FEATURE_COUNT + 6;
+    int SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE = DOCUMENTED_CLASS_FEATURE_COUNT + 9;
 
     /**
      * The feature id for the '<em><b>Underlying Type Kind</b></em>' attribute.
@@ -5521,7 +5548,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE_KIND = DOCUMENTED_CLASS_FEATURE_COUNT + 7;
+    int SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE_KIND = DOCUMENTED_CLASS_FEATURE_COUNT + 10;
 
     /**
      * The feature id for the '<em><b>Fc</b></em>' attribute.
@@ -5530,7 +5557,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_DATA_ATTRIBUTE__FC = DOCUMENTED_CLASS_FEATURE_COUNT + 8;
+    int SERVICE_DATA_ATTRIBUTE__FC = DOCUMENTED_CLASS_FEATURE_COUNT + 11;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -5539,7 +5566,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_DATA_ATTRIBUTE__NAME = DOCUMENTED_CLASS_FEATURE_COUNT + 9;
+    int SERVICE_DATA_ATTRIBUTE__NAME = DOCUMENTED_CLASS_FEATURE_COUNT + 12;
 
     /**
      * The feature id for the '<em><b>Parent Service CDC</b></em>' container reference.
@@ -5548,7 +5575,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_DATA_ATTRIBUTE__PARENT_SERVICE_CDC = DOCUMENTED_CLASS_FEATURE_COUNT + 10;
+    int SERVICE_DATA_ATTRIBUTE__PARENT_SERVICE_CDC = DOCUMENTED_CLASS_FEATURE_COUNT + 13;
 
     /**
      * The number of structural features of the '<em>Service Data Attribute</em>' class.
@@ -5557,7 +5584,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_DATA_ATTRIBUTE_FEATURE_COUNT = DOCUMENTED_CLASS_FEATURE_COUNT + 11;
+    int SERVICE_DATA_ATTRIBUTE_FEATURE_COUNT = DOCUMENTED_CLASS_FEATURE_COUNT + 14;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -5956,13 +5983,40 @@ public interface NsdPackage extends EPackage {
     int SERVICE_PARAMETER__TYPE_KIND = DOCUMENTED_CLASS_FEATURE_COUNT + 1;
 
     /**
+     * The feature id for the '<em><b>Refers To Basic Type</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_PARAMETER__REFERS_TO_BASIC_TYPE = DOCUMENTED_CLASS_FEATURE_COUNT + 2;
+
+    /**
+     * The feature id for the '<em><b>Refers To Constructed Attribute</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_PARAMETER__REFERS_TO_CONSTRUCTED_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 3;
+
+    /**
+     * The feature id for the '<em><b>Refers To Enumeration</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_PARAMETER__REFERS_TO_ENUMERATION = DOCUMENTED_CLASS_FEATURE_COUNT + 4;
+
+    /**
      * The feature id for the '<em><b>Default Value</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SERVICE_PARAMETER__DEFAULT_VALUE = DOCUMENTED_CLASS_FEATURE_COUNT + 2;
+    int SERVICE_PARAMETER__DEFAULT_VALUE = DOCUMENTED_CLASS_FEATURE_COUNT + 5;
 
     /**
      * The feature id for the '<em><b>Max Value</b></em>' attribute.
@@ -5971,7 +6025,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_PARAMETER__MAX_VALUE = DOCUMENTED_CLASS_FEATURE_COUNT + 3;
+    int SERVICE_PARAMETER__MAX_VALUE = DOCUMENTED_CLASS_FEATURE_COUNT + 6;
 
     /**
      * The feature id for the '<em><b>Min Value</b></em>' attribute.
@@ -5980,7 +6034,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_PARAMETER__MIN_VALUE = DOCUMENTED_CLASS_FEATURE_COUNT + 4;
+    int SERVICE_PARAMETER__MIN_VALUE = DOCUMENTED_CLASS_FEATURE_COUNT + 7;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -5989,7 +6043,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_PARAMETER__NAME = DOCUMENTED_CLASS_FEATURE_COUNT + 5;
+    int SERVICE_PARAMETER__NAME = DOCUMENTED_CLASS_FEATURE_COUNT + 8;
 
     /**
      * The feature id for the '<em><b>Parent CDC</b></em>' container reference.
@@ -5998,7 +6052,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_PARAMETER__PARENT_CDC = DOCUMENTED_CLASS_FEATURE_COUNT + 6;
+    int SERVICE_PARAMETER__PARENT_CDC = DOCUMENTED_CLASS_FEATURE_COUNT + 9;
 
     /**
      * The number of structural features of the '<em>Service Parameter</em>' class.
@@ -6007,7 +6061,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_PARAMETER_FEATURE_COUNT = DOCUMENTED_CLASS_FEATURE_COUNT + 7;
+    int SERVICE_PARAMETER_FEATURE_COUNT = DOCUMENTED_CLASS_FEATURE_COUNT + 10;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -6235,13 +6289,40 @@ public interface NsdPackage extends EPackage {
     int SUB_DATA_ATTRIBUTE__TYPE_KIND = DOCUMENTED_CLASS_FEATURE_COUNT + 9;
 
     /**
+     * The feature id for the '<em><b>Refers To Basic Type</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SUB_DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE = DOCUMENTED_CLASS_FEATURE_COUNT + 10;
+
+    /**
+     * The feature id for the '<em><b>Refers To Constructed Attribute</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SUB_DATA_ATTRIBUTE__REFERS_TO_CONSTRUCTED_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 11;
+
+    /**
+     * The feature id for the '<em><b>Refers To Enumeration</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SUB_DATA_ATTRIBUTE__REFERS_TO_ENUMERATION = DOCUMENTED_CLASS_FEATURE_COUNT + 12;
+
+    /**
      * The feature id for the '<em><b>Default Value</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SUB_DATA_ATTRIBUTE__DEFAULT_VALUE = DOCUMENTED_CLASS_FEATURE_COUNT + 10;
+    int SUB_DATA_ATTRIBUTE__DEFAULT_VALUE = DOCUMENTED_CLASS_FEATURE_COUNT + 13;
 
     /**
      * The feature id for the '<em><b>Max Value</b></em>' attribute.
@@ -6250,7 +6331,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_DATA_ATTRIBUTE__MAX_VALUE = DOCUMENTED_CLASS_FEATURE_COUNT + 11;
+    int SUB_DATA_ATTRIBUTE__MAX_VALUE = DOCUMENTED_CLASS_FEATURE_COUNT + 14;
 
     /**
      * The feature id for the '<em><b>Min Value</b></em>' attribute.
@@ -6259,7 +6340,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_DATA_ATTRIBUTE__MIN_VALUE = DOCUMENTED_CLASS_FEATURE_COUNT + 12;
+    int SUB_DATA_ATTRIBUTE__MIN_VALUE = DOCUMENTED_CLASS_FEATURE_COUNT + 15;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -6268,7 +6349,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_DATA_ATTRIBUTE__NAME = DOCUMENTED_CLASS_FEATURE_COUNT + 13;
+    int SUB_DATA_ATTRIBUTE__NAME = DOCUMENTED_CLASS_FEATURE_COUNT + 16;
 
     /**
      * The feature id for the '<em><b>Parent Constructed Attribute</b></em>' container reference.
@@ -6277,7 +6358,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_DATA_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 14;
+    int SUB_DATA_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 17;
 
     /**
      * The feature id for the '<em><b>Refers To Presence Condition</b></em>' reference.
@@ -6286,7 +6367,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION = DOCUMENTED_CLASS_FEATURE_COUNT + 15;
+    int SUB_DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION = DOCUMENTED_CLASS_FEATURE_COUNT + 18;
 
     /**
      * The number of structural features of the '<em>Sub Data Attribute</em>' class.
@@ -6295,7 +6376,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_DATA_ATTRIBUTE_FEATURE_COUNT = DOCUMENTED_CLASS_FEATURE_COUNT + 16;
+    int SUB_DATA_ATTRIBUTE_FEATURE_COUNT = DOCUMENTED_CLASS_FEATURE_COUNT + 19;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -6838,13 +6919,40 @@ public interface NsdPackage extends EPackage {
     int AG_ATTRIBUTE_TYPE__TYPE_KIND = 1;
 
     /**
+     * The feature id for the '<em><b>Refers To Basic Type</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AG_ATTRIBUTE_TYPE__REFERS_TO_BASIC_TYPE = 2;
+
+    /**
+     * The feature id for the '<em><b>Refers To Constructed Attribute</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AG_ATTRIBUTE_TYPE__REFERS_TO_CONSTRUCTED_ATTRIBUTE = 3;
+
+    /**
+     * The feature id for the '<em><b>Refers To Enumeration</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AG_ATTRIBUTE_TYPE__REFERS_TO_ENUMERATION = 4;
+
+    /**
      * The number of structural features of the '<em>Ag Attribute Type</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int AG_ATTRIBUTE_TYPE_FEATURE_COUNT = 2;
+    int AG_ATTRIBUTE_TYPE_FEATURE_COUNT = 5;
 
     /**
      * The number of operations of the '<em>Ag Attribute Type</em>' class.
@@ -6872,6 +6980,33 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int AG_ATTRIBUTE_TYPE_AND_VALUES__TYPE_KIND = AG_ATTRIBUTE_TYPE__TYPE_KIND;
+
+    /**
+     * The feature id for the '<em><b>Refers To Basic Type</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AG_ATTRIBUTE_TYPE_AND_VALUES__REFERS_TO_BASIC_TYPE = AG_ATTRIBUTE_TYPE__REFERS_TO_BASIC_TYPE;
+
+    /**
+     * The feature id for the '<em><b>Refers To Constructed Attribute</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AG_ATTRIBUTE_TYPE_AND_VALUES__REFERS_TO_CONSTRUCTED_ATTRIBUTE = AG_ATTRIBUTE_TYPE__REFERS_TO_CONSTRUCTED_ATTRIBUTE;
+
+    /**
+     * The feature id for the '<em><b>Refers To Enumeration</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AG_ATTRIBUTE_TYPE_AND_VALUES__REFERS_TO_ENUMERATION = AG_ATTRIBUTE_TYPE__REFERS_TO_ENUMERATION;
 
     /**
      * The feature id for the '<em><b>Default Value</b></em>' attribute.
@@ -7689,15 +7824,15 @@ public interface NsdPackage extends EPackage {
     EReference getBasicType_ParentBasicTypes();
 
     /**
-     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getReferredByDataAttribute <em>Referred By Data Attribute</em>}'.
+     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getReferredByAttributeType <em>Referred By Attribute Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the reference list '<em>Referred By Data Attribute</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getReferredByDataAttribute()
+     * @return the meta object for the reference list '<em>Referred By Attribute Type</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getReferredByAttributeType()
      * @see #getBasicType()
      * @generated
      */
-    EReference getBasicType_ReferredByDataAttribute();
+    EReference getBasicType_ReferredByAttributeType();
 
     /**
      * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getRefersToDoc <em>Refers To Doc</em>}'.
@@ -8058,15 +8193,15 @@ public interface NsdPackage extends EPackage {
     EReference getConstructedAttribute_ParentServiceTypeRealizations();
 
     /**
-     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getReferredByDataAttribute <em>Referred By Data Attribute</em>}'.
+     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getReferredByAttributeType <em>Referred By Attribute Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the reference list '<em>Referred By Data Attribute</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getReferredByDataAttribute()
+     * @return the meta object for the reference list '<em>Referred By Attribute Type</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getReferredByAttributeType()
      * @see #getConstructedAttribute()
      * @generated
      */
-    EReference getConstructedAttribute_ReferredByDataAttribute();
+    EReference getConstructedAttribute_ReferredByAttributeType();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes <em>Constructed Attributes</em>}'.
@@ -8294,39 +8429,6 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EReference getDataAttribute_ReferredByDataAttributeAsMaxIndexAttribute();
-
-    /**
-     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToBasicType <em>Refers To Basic Type</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Refers To Basic Type</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToBasicType()
-     * @see #getDataAttribute()
-     * @generated
-     */
-    EReference getDataAttribute_RefersToBasicType();
-
-    /**
-     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToConstructedAttribute <em>Refers To Constructed Attribute</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Refers To Constructed Attribute</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToConstructedAttribute()
-     * @see #getDataAttribute()
-     * @generated
-     */
-    EReference getDataAttribute_RefersToConstructedAttribute();
-
-    /**
-     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToEnumeration <em>Refers To Enumeration</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Refers To Enumeration</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToEnumeration()
-     * @see #getDataAttribute()
-     * @generated
-     */
-    EReference getDataAttribute_RefersToEnumeration();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject <em>Data Object</em>}'.
@@ -8731,15 +8833,15 @@ public interface NsdPackage extends EPackage {
     EReference getEnumeration_ReferredByEnumerationAsBase();
 
     /**
-     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getReferredByDataAttribute <em>Referred By Data Attribute</em>}'.
+     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getReferredByAttributeType <em>Referred By Attribute Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the reference list '<em>Referred By Data Attribute</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getReferredByDataAttribute()
+     * @return the meta object for the reference list '<em>Referred By Attribute Type</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getReferredByAttributeType()
      * @see #getEnumeration()
      * @generated
      */
-    EReference getEnumeration_ReferredByDataAttribute();
+    EReference getEnumeration_ReferredByAttributeType();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations <em>Enumerations</em>}'.
@@ -10398,6 +10500,39 @@ public interface NsdPackage extends EPackage {
     EAttribute getAgAttributeType_TypeKind();
 
     /**
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType#getRefersToBasicType <em>Refers To Basic Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Refers To Basic Type</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType#getRefersToBasicType()
+     * @see #getAgAttributeType()
+     * @generated
+     */
+    EReference getAgAttributeType_RefersToBasicType();
+
+    /**
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType#getRefersToConstructedAttribute <em>Refers To Constructed Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Refers To Constructed Attribute</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType#getRefersToConstructedAttribute()
+     * @see #getAgAttributeType()
+     * @generated
+     */
+    EReference getAgAttributeType_RefersToConstructedAttribute();
+
+    /**
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType#getRefersToEnumeration <em>Refers To Enumeration</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Refers To Enumeration</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType#getRefersToEnumeration()
+     * @see #getAgAttributeType()
+     * @generated
+     */
+    EReference getAgAttributeType_RefersToEnumeration();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeTypeAndValues <em>Ag Attribute Type And Values</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -11114,12 +11249,12 @@ public interface NsdPackage extends EPackage {
         EReference BASIC_TYPE__PARENT_BASIC_TYPES = eINSTANCE.getBasicType_ParentBasicTypes();
 
         /**
-         * The meta object literal for the '<em><b>Referred By Data Attribute</b></em>' reference list feature.
+         * The meta object literal for the '<em><b>Referred By Attribute Type</b></em>' reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference BASIC_TYPE__REFERRED_BY_DATA_ATTRIBUTE = eINSTANCE.getBasicType_ReferredByDataAttribute();
+        EReference BASIC_TYPE__REFERRED_BY_ATTRIBUTE_TYPE = eINSTANCE.getBasicType_ReferredByAttributeType();
 
         /**
          * The meta object literal for the '<em><b>Refers To Doc</b></em>' reference feature.
@@ -11398,13 +11533,13 @@ public interface NsdPackage extends EPackage {
                 .getConstructedAttribute_ParentServiceTypeRealizations();
 
         /**
-         * The meta object literal for the '<em><b>Referred By Data Attribute</b></em>' reference list feature.
+         * The meta object literal for the '<em><b>Referred By Attribute Type</b></em>' reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference CONSTRUCTED_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE = eINSTANCE
-                .getConstructedAttribute_ReferredByDataAttribute();
+        EReference CONSTRUCTED_ATTRIBUTE__REFERRED_BY_ATTRIBUTE_TYPE = eINSTANCE
+                .getConstructedAttribute_ReferredByAttributeType();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ConstructedAttributesImpl <em>Constructed Attributes</em>}' class.
@@ -11589,31 +11724,6 @@ public interface NsdPackage extends EPackage {
          */
         EReference DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_MAX_INDEX_ATTRIBUTE = eINSTANCE
                 .getDataAttribute_ReferredByDataAttributeAsMaxIndexAttribute();
-
-        /**
-         * The meta object literal for the '<em><b>Refers To Basic Type</b></em>' reference feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE = eINSTANCE.getDataAttribute_RefersToBasicType();
-
-        /**
-         * The meta object literal for the '<em><b>Refers To Constructed Attribute</b></em>' reference feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference DATA_ATTRIBUTE__REFERS_TO_CONSTRUCTED_ATTRIBUTE = eINSTANCE
-                .getDataAttribute_RefersToConstructedAttribute();
-
-        /**
-         * The meta object literal for the '<em><b>Refers To Enumeration</b></em>' reference feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference DATA_ATTRIBUTE__REFERS_TO_ENUMERATION = eINSTANCE.getDataAttribute_RefersToEnumeration();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl <em>Data Object</em>}' class.
@@ -11926,12 +12036,12 @@ public interface NsdPackage extends EPackage {
                 .getEnumeration_ReferredByEnumerationAsBase();
 
         /**
-         * The meta object literal for the '<em><b>Referred By Data Attribute</b></em>' reference list feature.
+         * The meta object literal for the '<em><b>Referred By Attribute Type</b></em>' reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ENUMERATION__REFERRED_BY_DATA_ATTRIBUTE = eINSTANCE.getEnumeration_ReferredByDataAttribute();
+        EReference ENUMERATION__REFERRED_BY_ATTRIBUTE_TYPE = eINSTANCE.getEnumeration_ReferredByAttributeType();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationsImpl <em>Enumerations</em>}' class.
@@ -13256,6 +13366,31 @@ public interface NsdPackage extends EPackage {
          * @generated
          */
         EAttribute AG_ATTRIBUTE_TYPE__TYPE_KIND = eINSTANCE.getAgAttributeType_TypeKind();
+
+        /**
+         * The meta object literal for the '<em><b>Refers To Basic Type</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference AG_ATTRIBUTE_TYPE__REFERS_TO_BASIC_TYPE = eINSTANCE.getAgAttributeType_RefersToBasicType();
+
+        /**
+         * The meta object literal for the '<em><b>Refers To Constructed Attribute</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference AG_ATTRIBUTE_TYPE__REFERS_TO_CONSTRUCTED_ATTRIBUTE = eINSTANCE
+                .getAgAttributeType_RefersToConstructedAttribute();
+
+        /**
+         * The meta object literal for the '<em><b>Refers To Enumeration</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference AG_ATTRIBUTE_TYPE__REFERS_TO_ENUMERATION = eINSTANCE.getAgAttributeType_RefersToEnumeration();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AgAttributeTypeAndValuesImpl <em>Ag Attribute Type And Values</em>}' class.
