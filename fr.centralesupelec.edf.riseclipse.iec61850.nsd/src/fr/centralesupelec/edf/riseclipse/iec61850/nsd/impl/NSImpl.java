@@ -28,6 +28,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
@@ -1842,6 +1843,29 @@ public class NSImpl extends CopyrightedImpl implements NS {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @generated NOT
+     */
+    @Override
+    public ConstructedAttribute findConstructedAttribute( String constructedAttributeName, IRiseClipseConsole console ) {
+        if( isSetConstructedAttributes() ) {
+            ConstructedAttribute found = getConstructedAttributes().getConstructedAttribute().stream()
+                    .filter( ca -> ca.getName().equals( constructedAttributeName ) ).findAny().orElse( null );
+            if( found != null ) return found;
+        }
+
+        // Look for in NS referred by DependsOn
+        // Warning: NS referred by DependsOn may not be loaded
+        if( isSetDependsOn() && ( getDependsOn().isSetRefersToNS() ) ) {
+            getDependsOn().buildExplicitLinks( console, false );
+            return getDependsOn().getRefersToNS().findConstructedAttribute( constructedAttributeName, console );
+        }
+
+        return null;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     @Override
@@ -2833,6 +2857,8 @@ public class NSImpl extends CopyrightedImpl implements NS {
             return findEnumeration( ( String ) arguments.get( 0 ), ( IRiseClipseConsole ) arguments.get( 1 ) );
         case NsdPackage.NS___FIND_BASIC_TYPE__STRING_IRISECLIPSECONSOLE:
             return findBasicType( ( String ) arguments.get( 0 ), ( IRiseClipseConsole ) arguments.get( 1 ) );
+        case NsdPackage.NS___FIND_CONSTRUCTED_ATTRIBUTE__STRING_IRISECLIPSECONSOLE:
+            return findConstructedAttribute( ( String ) arguments.get( 0 ), ( IRiseClipseConsole ) arguments.get( 1 ) );
         }
         return super.eInvoke( operationID, arguments );
     }
@@ -2894,10 +2920,10 @@ public class NSImpl extends CopyrightedImpl implements NS {
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
-        
+
         if( isSetDescID() ) {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
-                Doc doc = (( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getDescID() );
+                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getDescID() );
                 if( doc != null ) setRefersToDoc( doc );
             }
         }

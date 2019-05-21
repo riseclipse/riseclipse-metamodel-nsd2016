@@ -2527,13 +2527,22 @@ public interface NsdPackage extends EPackage {
     int CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_TYPE_REALIZATIONS = TITLED_CLASS_FEATURE_COUNT + 3;
 
     /**
+     * The feature id for the '<em><b>Referred By Data Attribute</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONSTRUCTED_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE = TITLED_CLASS_FEATURE_COUNT + 4;
+
+    /**
      * The number of structural features of the '<em>Constructed Attribute</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CONSTRUCTED_ATTRIBUTE_FEATURE_COUNT = TITLED_CLASS_FEATURE_COUNT + 4;
+    int CONSTRUCTED_ATTRIBUTE_FEATURE_COUNT = TITLED_CLASS_FEATURE_COUNT + 5;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -2995,13 +3004,31 @@ public interface NsdPackage extends EPackage {
     int DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE = DOCUMENTED_CLASS_FEATURE_COUNT + 27;
 
     /**
+     * The feature id for the '<em><b>Refers To Constructed Attribute</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_ATTRIBUTE__REFERS_TO_CONSTRUCTED_ATTRIBUTE = DOCUMENTED_CLASS_FEATURE_COUNT + 28;
+
+    /**
+     * The feature id for the '<em><b>Refers To Enumeration</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_ATTRIBUTE__REFERS_TO_ENUMERATION = DOCUMENTED_CLASS_FEATURE_COUNT + 29;
+
+    /**
      * The number of structural features of the '<em>Data Attribute</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE_FEATURE_COUNT = DOCUMENTED_CLASS_FEATURE_COUNT + 28;
+    int DATA_ATTRIBUTE_FEATURE_COUNT = DOCUMENTED_CLASS_FEATURE_COUNT + 30;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -3598,13 +3625,22 @@ public interface NsdPackage extends EPackage {
     int ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE = TITLED_CLASS_FEATURE_COUNT + 5;
 
     /**
+     * The feature id for the '<em><b>Referred By Data Attribute</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ENUMERATION__REFERRED_BY_DATA_ATTRIBUTE = TITLED_CLASS_FEATURE_COUNT + 6;
+
+    /**
      * The number of structural features of the '<em>Enumeration</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ENUMERATION_FEATURE_COUNT = TITLED_CLASS_FEATURE_COUNT + 6;
+    int ENUMERATION_FEATURE_COUNT = TITLED_CLASS_FEATURE_COUNT + 7;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -4633,13 +4669,22 @@ public interface NsdPackage extends EPackage {
     int NS___FIND_BASIC_TYPE__STRING_IRISECLIPSECONSOLE = COPYRIGHTED_OPERATION_COUNT + 4;
 
     /**
+     * The operation id for the '<em>Find Constructed Attribute</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NS___FIND_CONSTRUCTED_ATTRIBUTE__STRING_IRISECLIPSECONSOLE = COPYRIGHTED_OPERATION_COUNT + 5;
+
+    /**
      * The number of operations of the '<em>NS</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int NS_OPERATION_COUNT = COPYRIGHTED_OPERATION_COUNT + 5;
+    int NS_OPERATION_COUNT = COPYRIGHTED_OPERATION_COUNT + 6;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -5234,6 +5279,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_TYPE_REALIZATIONS = CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_TYPE_REALIZATIONS;
+
+    /**
+     * The feature id for the '<em><b>Referred By Data Attribute</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_CONSTRUCTED_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE = CONSTRUCTED_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE;
 
     /**
      * The feature id for the '<em><b>Type Kind Parameterized</b></em>' attribute.
@@ -8004,6 +8058,17 @@ public interface NsdPackage extends EPackage {
     EReference getConstructedAttribute_ParentServiceTypeRealizations();
 
     /**
+     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getReferredByDataAttribute <em>Referred By Data Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Referred By Data Attribute</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getReferredByDataAttribute()
+     * @see #getConstructedAttribute()
+     * @generated
+     */
+    EReference getConstructedAttribute_ReferredByDataAttribute();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes <em>Constructed Attributes</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8240,6 +8305,28 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EReference getDataAttribute_RefersToBasicType();
+
+    /**
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToConstructedAttribute <em>Refers To Constructed Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Refers To Constructed Attribute</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToConstructedAttribute()
+     * @see #getDataAttribute()
+     * @generated
+     */
+    EReference getDataAttribute_RefersToConstructedAttribute();
+
+    /**
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToEnumeration <em>Refers To Enumeration</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Refers To Enumeration</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToEnumeration()
+     * @see #getDataAttribute()
+     * @generated
+     */
+    EReference getDataAttribute_RefersToEnumeration();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject <em>Data Object</em>}'.
@@ -8642,6 +8729,17 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EReference getEnumeration_ReferredByEnumerationAsBase();
+
+    /**
+     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getReferredByDataAttribute <em>Referred By Data Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Referred By Data Attribute</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getReferredByDataAttribute()
+     * @see #getEnumeration()
+     * @generated
+     */
+    EReference getEnumeration_ReferredByDataAttribute();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations <em>Enumerations</em>}'.
@@ -9211,6 +9309,16 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EOperation getNS__FindBasicType__String_IRiseClipseConsole();
+
+    /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findConstructedAttribute(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole) <em>Find Constructed Attribute</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Find Constructed Attribute</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findConstructedAttribute(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole)
+     * @generated
+     */
+    EOperation getNS__FindConstructedAttribute__String_IRiseClipseConsole();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc <em>NS Doc</em>}'.
@@ -11290,6 +11398,15 @@ public interface NsdPackage extends EPackage {
                 .getConstructedAttribute_ParentServiceTypeRealizations();
 
         /**
+         * The meta object literal for the '<em><b>Referred By Data Attribute</b></em>' reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference CONSTRUCTED_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE = eINSTANCE
+                .getConstructedAttribute_ReferredByDataAttribute();
+
+        /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ConstructedAttributesImpl <em>Constructed Attributes</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -11480,6 +11597,23 @@ public interface NsdPackage extends EPackage {
          * @generated
          */
         EReference DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE = eINSTANCE.getDataAttribute_RefersToBasicType();
+
+        /**
+         * The meta object literal for the '<em><b>Refers To Constructed Attribute</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DATA_ATTRIBUTE__REFERS_TO_CONSTRUCTED_ATTRIBUTE = eINSTANCE
+                .getDataAttribute_RefersToConstructedAttribute();
+
+        /**
+         * The meta object literal for the '<em><b>Refers To Enumeration</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DATA_ATTRIBUTE__REFERS_TO_ENUMERATION = eINSTANCE.getDataAttribute_RefersToEnumeration();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl <em>Data Object</em>}' class.
@@ -11790,6 +11924,14 @@ public interface NsdPackage extends EPackage {
          */
         EReference ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE = eINSTANCE
                 .getEnumeration_ReferredByEnumerationAsBase();
+
+        /**
+         * The meta object literal for the '<em><b>Referred By Data Attribute</b></em>' reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference ENUMERATION__REFERRED_BY_DATA_ATTRIBUTE = eINSTANCE.getEnumeration_ReferredByDataAttribute();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationsImpl <em>Enumerations</em>}' class.
@@ -12239,6 +12381,15 @@ public interface NsdPackage extends EPackage {
          */
         EOperation NS___FIND_BASIC_TYPE__STRING_IRISECLIPSECONSOLE = eINSTANCE
                 .getNS__FindBasicType__String_IRiseClipseConsole();
+
+        /**
+         * The meta object literal for the '<em><b>Find Constructed Attribute</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation NS___FIND_CONSTRUCTED_ATTRIBUTE__STRING_IRISECLIPSECONSOLE = eINSTANCE
+                .getNS__FindConstructedAttribute__String_IRiseClipseConsole();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl <em>NS Doc</em>}' class.

@@ -203,6 +203,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//ConstructedAttribute/name"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//ConstructedAttribute/parentConstructedAttributes"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//ConstructedAttribute/parentServiceTypeRealizations"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//ConstructedAttribute/referredByDataAttribute"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//ConstructedAttributes">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//ConstructedAttributes/constructedAttribute"/>
@@ -229,6 +230,8 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//DataAttribute/referredByDataAttributeAsSizeAttribute"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//DataAttribute/referredByDataAttributeAsMaxIndexAttribute"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//DataAttribute/refersToBasicType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//DataAttribute/refersToConstructedAttribute"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//DataAttribute/refersToEnumeration"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//DataObject">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//DataObject/name"/>
@@ -271,6 +274,7 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//Enumeration/parentEnumerations"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//Enumeration/refersToBaseEnumeration"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//Enumeration/referredByEnumerationAsBase"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//Enumeration/referredByDataAttribute"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//Enumerations">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//Enumerations/enumeration"/>
@@ -347,6 +351,10 @@
       <genOperations ecoreOperation="nsd.ecore#//NS/findBasicType">
         <genParameters ecoreParameter="nsd.ecore#//NS/findBasicType/basicTypeName"/>
         <genParameters ecoreParameter="nsd.ecore#//NS/findBasicType/console"/>
+      </genOperations>
+      <genOperations ecoreOperation="nsd.ecore#//NS/findConstructedAttribute">
+        <genParameters ecoreParameter="nsd.ecore#//NS/findConstructedAttribute/constructedAttributeName"/>
+        <genParameters ecoreParameter="nsd.ecore#//NS/findConstructedAttribute/console"/>
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//NSDoc">

@@ -42,6 +42,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredByDataAttributeAsSizeAttribute <em>Referred By Data Attribute As Size Attribute</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredByDataAttributeAsMaxIndexAttribute <em>Referred By Data Attribute As Max Index Attribute</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToBasicType <em>Refers To Basic Type</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToConstructedAttribute <em>Refers To Constructed Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToEnumeration <em>Refers To Enumeration</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute()
@@ -614,5 +616,107 @@ public interface DataAttribute
      * @generated
      */
     boolean isSetRefersToBasicType();
+
+    /**
+     * Returns the value of the '<em><b>Refers To Constructed Attribute</b></em>' reference.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getReferredByDataAttribute <em>Referred By Data Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Refers To Constructed Attribute</em>' reference.
+     * @see #isSetRefersToConstructedAttribute()
+     * @see #unsetRefersToConstructedAttribute()
+     * @see #setRefersToConstructedAttribute(ConstructedAttribute)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_RefersToConstructedAttribute()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getReferredByDataAttribute
+     * @model opposite="referredByDataAttribute" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @generated
+     */
+    ConstructedAttribute getRefersToConstructedAttribute();
+
+    /**
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToConstructedAttribute <em>Refers To Constructed Attribute</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Refers To Constructed Attribute</em>' reference.
+     * @see #isSetRefersToConstructedAttribute()
+     * @see #unsetRefersToConstructedAttribute()
+     * @see #getRefersToConstructedAttribute()
+     * @generated
+     */
+    void setRefersToConstructedAttribute( ConstructedAttribute value );
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToConstructedAttribute <em>Refers To Constructed Attribute</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetRefersToConstructedAttribute()
+     * @see #getRefersToConstructedAttribute()
+     * @see #setRefersToConstructedAttribute(ConstructedAttribute)
+     * @generated
+     */
+    void unsetRefersToConstructedAttribute();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToConstructedAttribute <em>Refers To Constructed Attribute</em>}' reference is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Refers To Constructed Attribute</em>' reference is set.
+     * @see #unsetRefersToConstructedAttribute()
+     * @see #getRefersToConstructedAttribute()
+     * @see #setRefersToConstructedAttribute(ConstructedAttribute)
+     * @generated
+     */
+    boolean isSetRefersToConstructedAttribute();
+
+    /**
+     * Returns the value of the '<em><b>Refers To Enumeration</b></em>' reference.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getReferredByDataAttribute <em>Referred By Data Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Refers To Enumeration</em>' reference.
+     * @see #isSetRefersToEnumeration()
+     * @see #unsetRefersToEnumeration()
+     * @see #setRefersToEnumeration(Enumeration)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_RefersToEnumeration()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getReferredByDataAttribute
+     * @model opposite="referredByDataAttribute" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @generated
+     */
+    Enumeration getRefersToEnumeration();
+
+    /**
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToEnumeration <em>Refers To Enumeration</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Refers To Enumeration</em>' reference.
+     * @see #isSetRefersToEnumeration()
+     * @see #unsetRefersToEnumeration()
+     * @see #getRefersToEnumeration()
+     * @generated
+     */
+    void setRefersToEnumeration( Enumeration value );
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToEnumeration <em>Refers To Enumeration</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetRefersToEnumeration()
+     * @see #getRefersToEnumeration()
+     * @see #setRefersToEnumeration(Enumeration)
+     * @generated
+     */
+    void unsetRefersToEnumeration();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToEnumeration <em>Refers To Enumeration</em>}' reference is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Refers To Enumeration</em>' reference is set.
+     * @see #unsetRefersToEnumeration()
+     * @see #getRefersToEnumeration()
+     * @see #setRefersToEnumeration(Enumeration)
+     * @generated
+     */
+    boolean isSetRefersToEnumeration();
 
 } // DataAttribute

@@ -88,6 +88,8 @@ public class DataAttributeItemProvider extends DocumentedClassItemProvider {
             addReferredByDataAttributeAsSizeAttributePropertyDescriptor( object );
             addReferredByDataAttributeAsMaxIndexAttributePropertyDescriptor( object );
             addRefersToBasicTypePropertyDescriptor( object );
+            addRefersToConstructedAttributePropertyDescriptor( object );
+            addRefersToEnumerationPropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -504,6 +506,50 @@ public class DataAttributeItemProvider extends DocumentedClassItemProvider {
                         getString( "_UI_PropertyDescriptor_description", "_UI_DataAttribute_refersToBasicType_feature",
                                 "_UI_DataAttribute_type" ),
                         NsdPackage.Literals.DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Refers To Constructed Attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addRefersToConstructedAttributePropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_DataAttribute_refersToConstructedAttribute_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_DataAttribute_refersToConstructedAttribute_feature", "_UI_DataAttribute_type" ),
+                        NsdPackage.Literals.DATA_ATTRIBUTE__REFERS_TO_CONSTRUCTED_ATTRIBUTE,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Refers To Enumeration feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addRefersToEnumerationPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_DataAttribute_refersToEnumeration_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_DataAttribute_refersToEnumeration_feature", "_UI_DataAttribute_type" ),
+                        NsdPackage.Literals.DATA_ATTRIBUTE__REFERS_TO_ENUMERATION,
                         true,
                         false,
                         true,

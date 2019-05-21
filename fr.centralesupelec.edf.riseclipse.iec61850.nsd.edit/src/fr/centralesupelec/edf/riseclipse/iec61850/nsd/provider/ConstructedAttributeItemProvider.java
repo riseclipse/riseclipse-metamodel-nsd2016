@@ -65,6 +65,7 @@ public class ConstructedAttributeItemProvider extends TitledClassItemProvider {
             super.getPropertyDescriptors( object );
 
             addNamePropertyDescriptor( object );
+            addReferredByDataAttributePropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -89,6 +90,28 @@ public class ConstructedAttributeItemProvider extends TitledClassItemProvider {
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
                         null,
                         null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Referred By Data Attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReferredByDataAttributePropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add( createItemPropertyDescriptor(
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                getResourceLocator(),
+                getString( "_UI_ConstructedAttribute_referredByDataAttribute_feature" ),
+                getString( "_UI_PropertyDescriptor_description",
+                        "_UI_ConstructedAttribute_referredByDataAttribute_feature", "_UI_ConstructedAttribute_type" ),
+                NsdPackage.Literals.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE,
+                true,
+                false,
+                true,
+                null,
+                null,
+                null ) );
     }
 
     /**

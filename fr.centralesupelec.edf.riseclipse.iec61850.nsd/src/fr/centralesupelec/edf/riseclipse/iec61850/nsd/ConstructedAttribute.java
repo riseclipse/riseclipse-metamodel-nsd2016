@@ -34,6 +34,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getName <em>Name</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getParentConstructedAttributes <em>Parent Constructed Attributes</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getParentServiceTypeRealizations <em>Parent Service Type Realizations</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getReferredByDataAttribute <em>Referred By Data Attribute</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getConstructedAttribute()
@@ -182,5 +183,42 @@ public interface ConstructedAttribute extends TitledClass {
      * @generated
      */
     void setParentServiceTypeRealizations( ServiceTypeRealizations value );
+
+    /**
+     * Returns the value of the '<em><b>Referred By Data Attribute</b></em>' reference list.
+     * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute}.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToConstructedAttribute <em>Refers To Constructed Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Referred By Data Attribute</em>' reference list.
+     * @see #isSetReferredByDataAttribute()
+     * @see #unsetReferredByDataAttribute()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getConstructedAttribute_ReferredByDataAttribute()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getRefersToConstructedAttribute
+     * @model opposite="refersToConstructedAttribute" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @generated
+     */
+    EList< DataAttribute > getReferredByDataAttribute();
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getReferredByDataAttribute <em>Referred By Data Attribute</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetReferredByDataAttribute()
+     * @see #getReferredByDataAttribute()
+     * @generated
+     */
+    void unsetReferredByDataAttribute();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getReferredByDataAttribute <em>Referred By Data Attribute</em>}' reference list is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Referred By Data Attribute</em>' reference list is set.
+     * @see #unsetReferredByDataAttribute()
+     * @see #getReferredByDataAttribute()
+     * @generated
+     */
+    boolean isSetReferredByDataAttribute();
 
 } // ConstructedAttribute

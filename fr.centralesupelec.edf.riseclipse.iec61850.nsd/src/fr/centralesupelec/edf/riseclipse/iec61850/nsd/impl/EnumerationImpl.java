@@ -19,6 +19,7 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal;
@@ -56,6 +57,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationImpl#getParentEnumerations <em>Parent Enumerations</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationImpl#getRefersToBaseEnumeration <em>Refers To Base Enumeration</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationImpl#getReferredByEnumerationAsBase <em>Referred By Enumeration As Base</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationImpl#getReferredByDataAttribute <em>Referred By Data Attribute</em>}</li>
  * </ul>
  *
  * @generated
@@ -157,6 +159,16 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
      * @ordered
      */
     protected EList< Enumeration > referredByEnumerationAsBase;
+
+    /**
+     * The cached value of the '{@link #getReferredByDataAttribute() <em>Referred By Data Attribute</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getReferredByDataAttribute()
+     * @generated
+     * @ordered
+     */
+    protected EList< DataAttribute > referredByDataAttribute;
 
     /**
      * <!-- begin-user-doc -->
@@ -522,6 +534,41 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
+    public EList< DataAttribute > getReferredByDataAttribute() {
+        if( referredByDataAttribute == null ) {
+            referredByDataAttribute = new EObjectWithInverseEList.Unsettable< DataAttribute >( DataAttribute.class,
+                    this, NsdPackage.ENUMERATION__REFERRED_BY_DATA_ATTRIBUTE,
+                    NsdPackage.DATA_ATTRIBUTE__REFERS_TO_ENUMERATION );
+        }
+        return referredByDataAttribute;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetReferredByDataAttribute() {
+        if( referredByDataAttribute != null ) ( ( InternalEList.Unsettable< ? > ) referredByDataAttribute ).unset();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetReferredByDataAttribute() {
+        return referredByDataAttribute != null && ( ( InternalEList.Unsettable< ? > ) referredByDataAttribute ).isSet();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @SuppressWarnings( "unchecked" )
     @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
@@ -540,6 +587,9 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
             return basicSetRefersToBaseEnumeration( ( Enumeration ) otherEnd, msgs );
         case NsdPackage.ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByEnumerationAsBase() )
+                    .basicAdd( otherEnd, msgs );
+        case NsdPackage.ENUMERATION__REFERRED_BY_DATA_ATTRIBUTE:
+            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByDataAttribute() )
                     .basicAdd( otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
@@ -561,6 +611,8 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
             return basicUnsetRefersToBaseEnumeration( msgs );
         case NsdPackage.ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE:
             return ( ( InternalEList< ? > ) getReferredByEnumerationAsBase() ).basicRemove( otherEnd, msgs );
+        case NsdPackage.ENUMERATION__REFERRED_BY_DATA_ATTRIBUTE:
+            return ( ( InternalEList< ? > ) getReferredByDataAttribute() ).basicRemove( otherEnd, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -600,6 +652,8 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
             return getRefersToBaseEnumeration();
         case NsdPackage.ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE:
             return getReferredByEnumerationAsBase();
+        case NsdPackage.ENUMERATION__REFERRED_BY_DATA_ATTRIBUTE:
+            return getReferredByDataAttribute();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -633,6 +687,10 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
             getReferredByEnumerationAsBase().clear();
             getReferredByEnumerationAsBase().addAll( ( Collection< ? extends Enumeration > ) newValue );
             return;
+        case NsdPackage.ENUMERATION__REFERRED_BY_DATA_ATTRIBUTE:
+            getReferredByDataAttribute().clear();
+            getReferredByDataAttribute().addAll( ( Collection< ? extends DataAttribute > ) newValue );
+            return;
         }
         super.eSet( featureID, newValue );
     }
@@ -663,6 +721,9 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
         case NsdPackage.ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE:
             unsetReferredByEnumerationAsBase();
             return;
+        case NsdPackage.ENUMERATION__REFERRED_BY_DATA_ATTRIBUTE:
+            unsetReferredByDataAttribute();
+            return;
         }
         super.eUnset( featureID );
     }
@@ -687,6 +748,8 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
             return isSetRefersToBaseEnumeration();
         case NsdPackage.ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE:
             return isSetReferredByEnumerationAsBase();
+        case NsdPackage.ENUMERATION__REFERRED_BY_DATA_ATTRIBUTE:
+            return isSetReferredByDataAttribute();
         }
         return super.eIsSet( featureID );
     }
@@ -721,18 +784,17 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
-        
+
         NS ns = getParentEnumerations().getParentNS();
 
         String messagePrefix = "[NSD links] while resolving link from Enumeration (name: " + getName()
-                                + ", NS id: " + ns.getId() + ", line: " + getLineNumber() + "): ";
-
+                + ", NS id: " + ns.getId() + ", line: " + getLineNumber() + "): ";
 
         if( isSetInheritedFrom() ) {
             Enumeration foundBase = ns.findEnumeration( getInheritedFrom(), console );
             if( foundBase == null ) {
                 console.warning( messagePrefix + "Enumeration (name: " + getInheritedFrom() + ") not found" );
-             }
+            }
             else {
                 setRefersToBaseEnumeration( foundBase );
                 console.info( "[NSD links] Enumeration (name: " + getInheritedFrom() + ") refers by Enumeration (name: "
