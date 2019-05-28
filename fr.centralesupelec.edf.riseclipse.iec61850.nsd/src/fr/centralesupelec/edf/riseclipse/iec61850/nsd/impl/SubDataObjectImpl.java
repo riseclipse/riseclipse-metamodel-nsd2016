@@ -30,6 +30,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetImpl;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
@@ -2185,7 +2186,7 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
         NS ns = getParentCDC().getParentCDCs().getParentNS();
 
         String messagePrefix = "[NSD links] while resolving link from SubDataObject (name: " + getName()
-                                + ", NS id: " + ns.getId() + ", line: " + getLineNumber() + "): ";
+                + ", NS id: " + ns.getId() + ", line: " + getLineNumber() + "): ";
 
         if( isSetType() ) {
             CDC foundCDC = ns.findCDC( getType(), console );
@@ -2209,7 +2210,8 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
             }
             else {
                 setRefersToPresenceCondition( foundPC );
-                console.info( "[NSD links] PresenceCondition (name: " + getPresCond() + ") refers by SubDataObject (name: "
+                console.info( "[NSD links] PresenceCondition (name: " + getPresCond()
+                        + ") refers by SubDataObject (name: "
                         + getName() + ") in NS (id:" + ns.getId() + ") found in NS (id:"
                         + getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId() + ")" );
             }
@@ -2253,12 +2255,18 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
 
         if( isSetPresCondArgsID() ) {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
-                Doc doc = (( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getPresCondArgsID() );
+                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getNsIdentification(),
+                        getPresCondArgsID() );
                 if( doc != null ) setRefersToPresCondArgsDoc( doc );
             }
         }
 
         return false;
+    }
+
+    @Override
+    protected NsIdentification getNsIdentification() {
+        return new NsIdentification( getParentCDC().getParentCDCs().getParentNS() );
     }
 
 } //SubDataObjectImpl

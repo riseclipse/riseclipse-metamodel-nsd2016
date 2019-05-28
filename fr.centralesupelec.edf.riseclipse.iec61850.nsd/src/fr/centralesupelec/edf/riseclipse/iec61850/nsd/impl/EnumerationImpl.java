@@ -25,6 +25,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
 import java.util.Collection;
@@ -804,6 +805,11 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
         }
 
         return false;
+    }
+
+    @Override
+    protected NsIdentification getNsIdentification() {
+        return new NsIdentification( getParentEnumerations().getParentNS() );
     }
 
 } //EnumerationImpl

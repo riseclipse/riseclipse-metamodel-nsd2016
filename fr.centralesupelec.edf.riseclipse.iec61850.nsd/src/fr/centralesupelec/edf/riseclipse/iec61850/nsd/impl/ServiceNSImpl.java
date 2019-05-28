@@ -33,6 +33,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDCs;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttributes;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetImpl;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
@@ -2246,10 +2247,11 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
-        
+
         if( isSetDescID() ) {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
-                Doc doc = (( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getDescID() );
+                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() )
+                        .findDoc( new NsIdentification( this ), getDescID() );
                 if( doc != null ) setRefersToDoc( doc );
             }
         }

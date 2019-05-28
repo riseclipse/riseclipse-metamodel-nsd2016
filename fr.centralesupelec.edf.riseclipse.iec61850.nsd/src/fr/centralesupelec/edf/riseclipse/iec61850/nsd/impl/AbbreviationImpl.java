@@ -23,6 +23,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetImpl;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
@@ -583,7 +584,7 @@ public class AbbreviationImpl extends NsdObjectImpl implements Abbreviation {
         
         if( isSetDescID() ) {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
-                Doc doc = (( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getDescID() );
+                Doc doc = (( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( new NsIdentification( getParentAbbreviations().getParentNS() ), getDescID() );
                 if( doc != null ) setRefersToDoc( doc );
             }
         }

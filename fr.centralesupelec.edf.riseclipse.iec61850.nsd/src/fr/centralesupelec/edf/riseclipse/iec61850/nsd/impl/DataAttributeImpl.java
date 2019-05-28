@@ -38,6 +38,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetImpl;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
@@ -3701,11 +3702,18 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
 
         if( isSetPresCondArgsID() ) {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
-                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getPresCondArgsID() );
+                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getNsIdentification(),
+                        getPresCondArgsID() );
                 if( doc != null ) setRefersToPresCondArgsDoc( doc );
             }
         }
 
         return false;
     }
+
+    @Override
+    protected NsIdentification getNsIdentification() {
+        return new NsIdentification( getParentCDC().getParentCDCs().getParentNS() );
+    }
+
 } //DataAttributeImpl

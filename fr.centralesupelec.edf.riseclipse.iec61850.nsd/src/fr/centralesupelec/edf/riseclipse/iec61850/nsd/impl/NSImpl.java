@@ -42,6 +42,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetImpl;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 import java.lang.reflect.InvocationTargetException;
@@ -1846,7 +1847,8 @@ public class NSImpl extends CopyrightedImpl implements NS {
      * @generated NOT
      */
     @Override
-    public ConstructedAttribute findConstructedAttribute( String constructedAttributeName, IRiseClipseConsole console ) {
+    public ConstructedAttribute findConstructedAttribute( String constructedAttributeName,
+            IRiseClipseConsole console ) {
         if( isSetConstructedAttributes() ) {
             ConstructedAttribute found = getConstructedAttributes().getConstructedAttribute().stream()
                     .filter( ca -> ca.getName().equals( constructedAttributeName ) ).findAny().orElse( null );
@@ -2923,7 +2925,8 @@ public class NSImpl extends CopyrightedImpl implements NS {
 
         if( isSetDescID() ) {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
-                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getDescID() );
+                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() )
+                        .findDoc( new NsIdentification( this ), getDescID() );
                 if( doc != null ) setRefersToDoc( doc );
             }
         }

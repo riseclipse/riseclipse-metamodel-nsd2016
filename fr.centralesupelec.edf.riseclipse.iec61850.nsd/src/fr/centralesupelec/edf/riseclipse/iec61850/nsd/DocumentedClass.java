@@ -35,7 +35,8 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDocumentedClass()
- * @model extendedMetaData="name='tDocumentedClass' kind='empty'"
+ * @model abstract="true"
+ *        extendedMetaData="name='tDocumentedClass' kind='empty'"
  * @generated
  */
 public interface DocumentedClass extends NsdObject {

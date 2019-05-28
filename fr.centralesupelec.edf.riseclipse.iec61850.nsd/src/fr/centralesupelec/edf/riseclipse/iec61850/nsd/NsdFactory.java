@@ -93,15 +93,6 @@ public interface NsdFactory extends EFactory {
     Abbreviations createAbbreviations();
 
     /**
-     * Returns a new object of class '<em>Abstract LN Class</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Abstract LN Class</em>'.
-     * @generated
-     */
-    AbstractLNClass createAbstractLNClass();
-
-    /**
      * Returns a new object of class '<em>Applicable Service NS</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -235,15 +226,6 @@ public interface NsdFactory extends EFactory {
      * @generated
      */
     Doc createDoc();
-
-    /**
-     * Returns a new object of class '<em>Documented Class</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Documented Class</em>'.
-     * @generated
-     */
-    DocumentedClass createDocumentedClass();
 
     /**
      * Returns a new object of class '<em>Enumeration</em>'.
@@ -460,15 +442,6 @@ public interface NsdFactory extends EFactory {
      * @generated
      */
     SubDataObject createSubDataObject();
-
-    /**
-     * Returns a new object of class '<em>Titled Class</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Titled Class</em>'.
-     * @generated
-     */
-    TitledClass createTitledClass();
 
     /**
      * Returns the package supported by this factory.

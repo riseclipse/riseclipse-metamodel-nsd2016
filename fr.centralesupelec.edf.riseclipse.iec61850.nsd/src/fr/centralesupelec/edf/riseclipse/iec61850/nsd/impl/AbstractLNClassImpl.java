@@ -52,7 +52,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class AbstractLNClassImpl extends AnyLNClassImpl implements AbstractLNClass {
+public abstract class AbstractLNClassImpl extends AnyLNClassImpl implements AbstractLNClass {
     /**
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->

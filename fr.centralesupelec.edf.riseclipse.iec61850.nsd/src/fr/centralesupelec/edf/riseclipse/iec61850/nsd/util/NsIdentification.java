@@ -23,13 +23,13 @@ import java.util.Objects;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 
-public class NSIdentification {
+public class NsIdentification {
     private String id;
     private Integer version;
     private String revision;
     private Integer release;
 
-    public NSIdentification( String id, Integer version, String revision, Integer release ) {
+    public NsIdentification( String id, Integer version, String revision, Integer release ) {
         super();
         this.id = id;
         this.version = version;
@@ -37,7 +37,7 @@ public class NSIdentification {
         this.release = release;
     }
     
-    public NSIdentification( AgNSIdentification identification ) {
+    public NsIdentification( AgNSIdentification identification ) {
         super();
         this.id = identification.getId();
         this.version = identification.getVersion();
@@ -55,14 +55,14 @@ public class NSIdentification {
         if( this == obj ) return true;
         if( obj == null ) return false;
         if( getClass() != obj.getClass() ) return false;
-        NSIdentification other = ( NSIdentification ) obj;
+        NsIdentification other = ( NsIdentification ) obj;
         return Objects.equals( id, other.id ) && Objects.equals( release, other.release )
                 && Objects.equals( revision, other.revision ) && Objects.equals( version, other.version );
     }
 
     @Override
     public String toString() {
-        return "NSIdentification [" + ( id != null ? "id=" + id + ", " : "" )
+        return "NsIdentification [" + ( id != null ? "id=" + id + ", " : "" )
                 + ( version != null ? "version=" + version + ", " : "" )
                 + ( revision != null ? "revision=" + revision + ", " : "" )
                 + ( release != null ? "release=" + release : "" ) + "]";

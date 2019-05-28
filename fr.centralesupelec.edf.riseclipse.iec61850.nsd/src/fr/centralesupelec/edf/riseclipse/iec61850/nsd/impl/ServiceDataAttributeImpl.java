@@ -31,6 +31,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetImpl;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
@@ -1845,12 +1846,19 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
 
         if( isSetPresCondArgsID() ) {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
-                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getPresCondArgsID() );
+                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc(
+                        new NsIdentification( getParentServiceCDC().getParentServiceCDCs().getParentServiceNS() ),
+                        getPresCondArgsID() );
                 if( doc != null ) setRefersToPresCondArgsDoc( doc );
             }
         }
 
         return false;
+    }
+
+    @Override
+    protected NsIdentification getNsIdentification() {
+        return new NsIdentification( getParentServiceCDC().getParentServiceCDCs().getParentServiceNS() );
     }
 
 } //ServiceDataAttributeImpl

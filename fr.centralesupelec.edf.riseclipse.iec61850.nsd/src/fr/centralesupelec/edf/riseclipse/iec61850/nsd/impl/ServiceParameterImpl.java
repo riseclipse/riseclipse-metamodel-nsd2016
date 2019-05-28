@@ -28,6 +28,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceParameter;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
 
 import java.math.BigDecimal;
 
@@ -1355,6 +1356,11 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
             result.append( "<unset>" );
         result.append( ')' );
         return result.toString();
+    }
+
+    @Override
+    protected NsIdentification getNsIdentification() {
+        return new NsIdentification( getParentCDC().getParentCDCs().getParentNS() );
     }
 
 } //ServiceParameterImpl

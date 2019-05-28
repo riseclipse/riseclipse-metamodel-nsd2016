@@ -32,7 +32,8 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getTitledClass()
- * @model extendedMetaData="name='tTitledClass' kind='empty'"
+ * @model abstract="true"
+ *        extendedMetaData="name='tTitledClass' kind='empty'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='titleIDAttributeRequired'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot titleIDAttributeRequired='Tuple {\n\tmessage : String = \'The titleID attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.titleID &lt;&gt; null\n}.status'"
  * @generated

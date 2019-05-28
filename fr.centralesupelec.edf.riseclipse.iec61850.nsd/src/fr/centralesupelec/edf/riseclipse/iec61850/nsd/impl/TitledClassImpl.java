@@ -41,7 +41,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class TitledClassImpl extends DocumentedClassImpl implements TitledClass {
+public abstract class TitledClassImpl extends DocumentedClassImpl implements TitledClass {
     /**
      * The default value of the '{@link #getTitleID() <em>Title ID</em>}' attribute.
      * <!-- begin-user-doc -->

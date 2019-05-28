@@ -31,6 +31,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetImpl;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
@@ -2189,7 +2190,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         NS ns = getParentAnyLNClass().getParentLNClasses().getParentNS();
 
         String messagePrefix = "[NSD links] while resolving link from DataObject (name: " + getName()
-                                + ", NS id: " + ns.getId() + ", line: " + getLineNumber() + "): ";
+                + ", NS id: " + ns.getId() + ", line: " + getLineNumber() + "): ";
 
         if( isSetType() ) {
             CDC foundCDC = ns.findCDC( getType(), console );
@@ -2226,7 +2227,8 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             }
             else {
                 setRefersToPresenceConditionDerivedStatistics( foundPC );
-                console.info( "[NSD links] PresenceCondition (name: " + getDsPresCond() + ") refers by DataObject (name: "
+                console.info( "[NSD links] PresenceCondition (name: " + getDsPresCond()
+                        + ") refers by DataObject (name: "
                         + getName() + ") in NS (id:" + getParentAnyLNClass().getParentLNClasses().getParentNS().getId()
                         + ") found in NS (id:"
                         + getRefersToPresenceConditionDerivedStatistics().getParentPresenceConditions().getParentNS()
@@ -2237,19 +2239,26 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
 
         if( isSetPresCondArgsID() ) {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
-                Doc doc = (( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getPresCondArgsID() );
+                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getNsIdentification(),
+                        getPresCondArgsID() );
                 if( doc != null ) setRefersToPresCondArgsDoc( doc );
             }
         }
 
         if( isSetDsPresCondArgsID() ) {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
-                Doc doc = (( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getDsPresCondArgsID() );
+                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getNsIdentification(),
+                        getDsPresCondArgsID() );
                 if( doc != null ) setRefersToDsPresCondArgsDoc( doc );
             }
         }
 
-       return false;
+        return false;
+    }
+
+    @Override
+    protected NsIdentification getNsIdentification() {
+        return new NsIdentification( getParentAnyLNClass().getParentLNClasses().getParentNS() );
     }
 
 } //DataObjectImpl

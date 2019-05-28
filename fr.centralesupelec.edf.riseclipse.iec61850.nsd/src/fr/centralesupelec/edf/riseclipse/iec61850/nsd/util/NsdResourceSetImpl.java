@@ -31,6 +31,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
@@ -58,8 +59,8 @@ import fr.centralesupelec.edf.riseclipse.util.AbstractRiseClipseResourceSet;
 
 public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
     
-    private Map< NSIdentification, NS > nsdResources;
-    private Map< NSIdentification, NSDoc > nsdocResources;
+    private Map< NsIdentification, NS > nsdResources;
+    private Map< NsIdentification, NSDoc > nsdocResources;
     private NsdResourceFactoryImpl resourceFactory;
 
     public NsdResourceSetImpl( boolean strictContent, IRiseClipseConsole console ) {
@@ -96,9 +97,9 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         DocumentRoot root = (DocumentRoot) resource.getContents().get( 0 );
         if( root.getNS() != null ) {
             NS ns = ( NS ) root.getNS();
-            NSIdentification id = new NSIdentification( ns );
+            NsIdentification id = new NsIdentification( ns );
             if( nsdResources.get( id ) != null ) {
-                AbstractRiseClipseConsole.getConsole().error( "There is already an NSD file with NSIdentification " + id + ", " + resource.getURI() + " is ignored" );
+                AbstractRiseClipseConsole.getConsole().error( "There is already an NSD file with NsIdentification " + id + ", " + resource.getURI() + " is ignored" );
                 this.getResources().remove( resource );
                 return;
             }
@@ -107,9 +108,9 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         }
         if( root.getNSDoc() != null ) {
             NSDoc nsdoc = ( NSDoc ) root.getNSDoc();
-            NSIdentification id = new NSIdentification( nsdoc );
+            NsIdentification id = new NsIdentification( nsdoc );
             if( nsdocResources.get( id ) != null ) {
-                AbstractRiseClipseConsole.getConsole().error( "There is already an NSDoc file with NSIdentification " + id + ", " + resource.getURI() + " is ignored" );
+                AbstractRiseClipseConsole.getConsole().error( "There is already an NSDoc file with NsIdentification " + id + ", " + resource.getURI() + " is ignored" );
                 this.getResources().remove( resource );
                 return;
             }
@@ -171,7 +172,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         
     }
 
-    public NS getNS( NSIdentification id ) {
+    public NS getNS( NsIdentification id ) {
         return nsdResources.get( id );
     }
 
@@ -386,7 +387,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         return presenceConditionStream;
     }
 
-    public Doc findDoc( String id ) {
+    public Doc findDoc( NsIdentification identification, String id ) {
         for( NSDoc nsdoc : nsdocResources.values() ) {
             Optional< Doc > doc = nsdoc
                     .getDoc()

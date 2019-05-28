@@ -22,6 +22,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -422,6 +423,11 @@ public class LiteralImpl extends DocumentedClassImpl implements Literal {
             result.append( "<unset>" );
         result.append( ')' );
         return result.toString();
+    }
+
+    @Override
+    protected NsIdentification getNsIdentification() {
+        return new NsIdentification( getParentEnumeration().getParentEnumerations().getParentNS() );
     }
 
 } //LiteralImpl

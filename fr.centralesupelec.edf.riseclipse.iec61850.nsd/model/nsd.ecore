@@ -171,7 +171,7 @@
         eType="#//ServiceNS" transient="true" unsettable="true" resolveProxies="false"
         eOpposite="#//ServiceNS/abbreviations"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AbstractLNClass" eSuperTypes="#//AnyLNClass">
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractLNClass" abstract="true" eSuperTypes="#//AnyLNClass">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tAbstractLNClass"/>
       <details key="kind" value="elementOnly"/>
@@ -927,7 +927,7 @@
         ordered="false" upperBound="-1" eType="#//AgPresenceConditionDerivedStatistics"
         transient="true" unsettable="true" resolveProxies="false" eOpposite="#//AgPresenceConditionDerivedStatistics/refersToDsPresCondArgsDoc"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DocumentedClass" eSuperTypes="#//NsdObject">
+  <eClassifiers xsi:type="ecore:EClass" name="DocumentedClass" abstract="true" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tDocumentedClass"/>
       <details key="kind" value="empty"/>
@@ -1867,7 +1867,7 @@
         ordered="false" eType="#//DataAttribute" transient="true" unsettable="true"
         resolveProxies="false" eOpposite="#//DataAttribute/referredBySubDataObjectAsMaxIndexAttribute"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TitledClass" eSuperTypes="#//DocumentedClass">
+  <eClassifiers xsi:type="ecore:EClass" name="TitledClass" abstract="true" eSuperTypes="#//DocumentedClass">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tTitledClass"/>
       <details key="kind" value="empty"/>

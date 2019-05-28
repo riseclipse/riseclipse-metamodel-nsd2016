@@ -22,6 +22,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentedClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetImpl;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
@@ -49,7 +50,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class DocumentedClassImpl extends NsdObjectImpl implements DocumentedClass {
+public abstract class DocumentedClassImpl extends NsdObjectImpl implements DocumentedClass {
     /**
      * The default value of the '{@link #isDeprecated() <em>Deprecated</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -594,15 +595,18 @@ public class DocumentedClassImpl extends NsdObjectImpl implements DocumentedClas
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
-        
+
         if( isSetDescID() ) {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
-                Doc doc = (( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getDescID() );
+                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getNsIdentification(),
+                        getDescID() );
                 if( doc != null ) setRefersToDoc( doc );
             }
         }
 
         return false;
     }
+
+    protected abstract NsIdentification getNsIdentification();
 
 } //DocumentedClassImpl

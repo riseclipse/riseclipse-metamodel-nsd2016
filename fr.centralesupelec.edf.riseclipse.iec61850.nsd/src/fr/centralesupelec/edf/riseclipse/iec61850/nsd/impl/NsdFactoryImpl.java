@@ -90,8 +90,6 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
             return createAbbreviation();
         case NsdPackage.ABBREVIATIONS:
             return createAbbreviations();
-        case NsdPackage.ABSTRACT_LN_CLASS:
-            return createAbstractLNClass();
         case NsdPackage.APPLICABLE_SERVICE_NS:
             return createApplicableServiceNS();
         case NsdPackage.APPLICABLE_SERVICES:
@@ -122,8 +120,6 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
             return createDataSetMemberOf();
         case NsdPackage.DOC:
             return createDoc();
-        case NsdPackage.DOCUMENTED_CLASS:
-            return createDocumentedClass();
         case NsdPackage.ENUMERATION:
             return createEnumeration();
         case NsdPackage.ENUMERATIONS:
@@ -172,8 +168,6 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
             return createSubDataAttribute();
         case NsdPackage.SUB_DATA_OBJECT:
             return createSubDataObject();
-        case NsdPackage.TITLED_CLASS:
-            return createTitledClass();
         default:
             throw new IllegalArgumentException( "The class '" + eClass.getName() + "' is not a valid classifier" );
         }
@@ -323,17 +317,6 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
     public Abbreviations createAbbreviations() {
         AbbreviationsImpl abbreviations = new AbbreviationsImpl();
         return abbreviations;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public AbstractLNClass createAbstractLNClass() {
-        AbstractLNClassImpl abstractLNClass = new AbstractLNClassImpl();
-        return abstractLNClass;
     }
 
     /**
@@ -499,17 +482,6 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
     public Doc createDoc() {
         DocImpl doc = new DocImpl();
         return doc;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public DocumentedClass createDocumentedClass() {
-        DocumentedClassImpl documentedClass = new DocumentedClassImpl();
-        return documentedClass;
     }
 
     /**
@@ -774,17 +746,6 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
     public SubDataObject createSubDataObject() {
         SubDataObjectImpl subDataObject = new SubDataObjectImpl();
         return subDataObject;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public TitledClass createTitledClass() {
-        TitledClassImpl titledClass = new TitledClassImpl();
-        return titledClass;
     }
 
     /**
