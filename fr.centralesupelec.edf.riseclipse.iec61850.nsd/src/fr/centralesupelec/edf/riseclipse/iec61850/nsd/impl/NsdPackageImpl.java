@@ -2610,66 +2610,6 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EOperation getNS__FindCDC__String_IRiseClipseConsole() {
-        return nsEClass.getEOperations().get( 0 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EOperation getNS__FindPresenceCondition__String_IRiseClipseConsole() {
-        return nsEClass.getEOperations().get( 1 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EOperation getNS__FindFunctionalConstraint__String_IRiseClipseConsole() {
-        return nsEClass.getEOperations().get( 2 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EOperation getNS__FindEnumeration__String_IRiseClipseConsole() {
-        return nsEClass.getEOperations().get( 3 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EOperation getNS__FindBasicType__String_IRiseClipseConsole() {
-        return nsEClass.getEOperations().get( 4 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EOperation getNS__FindConstructedAttribute__String_IRiseClipseConsole() {
-        return nsEClass.getEOperations().get( 5 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public EClass getNSDoc() {
         return nsDocEClass;
     }
@@ -4226,12 +4166,6 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEReference( nsEClass, NS__CD_CS );
         createEReference( nsEClass, NS__LN_CLASSES );
         createEReference( nsEClass, NS__REFERRED_BY_DEPENDS_ON );
-        createEOperation( nsEClass, NS___FIND_CDC__STRING_IRISECLIPSECONSOLE );
-        createEOperation( nsEClass, NS___FIND_PRESENCE_CONDITION__STRING_IRISECLIPSECONSOLE );
-        createEOperation( nsEClass, NS___FIND_FUNCTIONAL_CONSTRAINT__STRING_IRISECLIPSECONSOLE );
-        createEOperation( nsEClass, NS___FIND_ENUMERATION__STRING_IRISECLIPSECONSOLE );
-        createEOperation( nsEClass, NS___FIND_BASIC_TYPE__STRING_IRISECLIPSECONSOLE );
-        createEOperation( nsEClass, NS___FIND_CONSTRUCTED_ATTRIBUTE__STRING_IRISECLIPSECONSOLE );
 
         nsDocEClass = createEClass( NS_DOC );
         createEReference( nsDocEClass, NS_DOC__DOC );
@@ -5103,36 +5037,6 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
                 !IS_DERIVED, !IS_ORDERED );
 
-        EOperation op = initEOperation( getNS__FindCDC__String_IRiseClipseConsole(), this.getCDC(), "findCDC", 0, 1,
-                IS_UNIQUE, IS_ORDERED );
-        addEParameter( op, ecorePackage.getEString(), "cDCName", 0, 1, IS_UNIQUE, IS_ORDERED );
-        addEParameter( op, this.getIRiseClipseConsole(), "console", 0, 1, IS_UNIQUE, IS_ORDERED );
-
-        op = initEOperation( getNS__FindPresenceCondition__String_IRiseClipseConsole(), this.getPresenceCondition(),
-                "findPresenceCondition", 0, 1, IS_UNIQUE, IS_ORDERED );
-        addEParameter( op, ecorePackage.getEString(), "presenceConditionName", 0, 1, IS_UNIQUE, IS_ORDERED );
-        addEParameter( op, this.getIRiseClipseConsole(), "console", 0, 1, IS_UNIQUE, IS_ORDERED );
-
-        op = initEOperation( getNS__FindFunctionalConstraint__String_IRiseClipseConsole(),
-                this.getFunctionalConstraint(), "findFunctionalConstraint", 0, 1, IS_UNIQUE, IS_ORDERED );
-        addEParameter( op, ecorePackage.getEString(), "functionalConstraintAbbreviation", 0, 1, IS_UNIQUE, IS_ORDERED );
-        addEParameter( op, this.getIRiseClipseConsole(), "console", 0, 1, IS_UNIQUE, IS_ORDERED );
-
-        op = initEOperation( getNS__FindEnumeration__String_IRiseClipseConsole(), this.getEnumeration(),
-                "findEnumeration", 0, 1, IS_UNIQUE, IS_ORDERED );
-        addEParameter( op, ecorePackage.getEString(), "enumerationName", 0, 1, IS_UNIQUE, IS_ORDERED );
-        addEParameter( op, this.getIRiseClipseConsole(), "console", 0, 1, IS_UNIQUE, IS_ORDERED );
-
-        op = initEOperation( getNS__FindBasicType__String_IRiseClipseConsole(), this.getBasicType(), "findBasicType", 0,
-                1, IS_UNIQUE, IS_ORDERED );
-        addEParameter( op, ecorePackage.getEString(), "basicTypeName", 0, 1, IS_UNIQUE, IS_ORDERED );
-        addEParameter( op, this.getIRiseClipseConsole(), "console", 0, 1, IS_UNIQUE, IS_ORDERED );
-
-        op = initEOperation( getNS__FindConstructedAttribute__String_IRiseClipseConsole(),
-                this.getConstructedAttribute(), "findConstructedAttribute", 0, 1, IS_UNIQUE, IS_ORDERED );
-        addEParameter( op, ecorePackage.getEString(), "constructedAttributeName", 0, 1, IS_UNIQUE, IS_ORDERED );
-        addEParameter( op, this.getIRiseClipseConsole(), "console", 0, 1, IS_UNIQUE, IS_ORDERED );
-
         initEClass( nsDocEClass, NSDoc.class, "NSDoc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEReference( getNSDoc_Doc(), this.getDoc(), this.getDoc_ParentNSDoc(), "doc", null, 0, -1, NSDoc.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
@@ -5371,8 +5275,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 1, NsdObject.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
 
-        op = initEOperation( getNsdObject__BuildExplicitLinks__IRiseClipseConsole_boolean(), ecorePackage.getEBoolean(),
-                "buildExplicitLinks", 0, 1, IS_UNIQUE, IS_ORDERED );
+        EOperation op = initEOperation( getNsdObject__BuildExplicitLinks__IRiseClipseConsole_boolean(),
+                ecorePackage.getEBoolean(), "buildExplicitLinks", 0, 1, IS_UNIQUE, IS_ORDERED );
         addEParameter( op, this.getIRiseClipseConsole(), "console", 0, 1, IS_UNIQUE, IS_ORDERED );
         addEParameter( op, ecorePackage.getEBoolean(), "forceUpdate", 0, 1, IS_UNIQUE, IS_ORDERED );
 

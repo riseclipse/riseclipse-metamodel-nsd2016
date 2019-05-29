@@ -4696,67 +4696,13 @@ public interface NsdPackage extends EPackage {
     int NS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = COPYRIGHTED___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
-     * The operation id for the '<em>Find CDC</em>' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int NS___FIND_CDC__STRING_IRISECLIPSECONSOLE = COPYRIGHTED_OPERATION_COUNT + 0;
-
-    /**
-     * The operation id for the '<em>Find Presence Condition</em>' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int NS___FIND_PRESENCE_CONDITION__STRING_IRISECLIPSECONSOLE = COPYRIGHTED_OPERATION_COUNT + 1;
-
-    /**
-     * The operation id for the '<em>Find Functional Constraint</em>' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int NS___FIND_FUNCTIONAL_CONSTRAINT__STRING_IRISECLIPSECONSOLE = COPYRIGHTED_OPERATION_COUNT + 2;
-
-    /**
-     * The operation id for the '<em>Find Enumeration</em>' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int NS___FIND_ENUMERATION__STRING_IRISECLIPSECONSOLE = COPYRIGHTED_OPERATION_COUNT + 3;
-
-    /**
-     * The operation id for the '<em>Find Basic Type</em>' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int NS___FIND_BASIC_TYPE__STRING_IRISECLIPSECONSOLE = COPYRIGHTED_OPERATION_COUNT + 4;
-
-    /**
-     * The operation id for the '<em>Find Constructed Attribute</em>' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int NS___FIND_CONSTRUCTED_ATTRIBUTE__STRING_IRISECLIPSECONSOLE = COPYRIGHTED_OPERATION_COUNT + 5;
-
-    /**
      * The number of operations of the '<em>NS</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int NS_OPERATION_COUNT = COPYRIGHTED_OPERATION_COUNT + 6;
+    int NS_OPERATION_COUNT = COPYRIGHTED_OPERATION_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -9455,66 +9401,6 @@ public interface NsdPackage extends EPackage {
     EReference getNS_ReferredByDependsOn();
 
     /**
-     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findCDC(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole) <em>Find CDC</em>}' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the '<em>Find CDC</em>' operation.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findCDC(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole)
-     * @generated
-     */
-    EOperation getNS__FindCDC__String_IRiseClipseConsole();
-
-    /**
-     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findPresenceCondition(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole) <em>Find Presence Condition</em>}' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the '<em>Find Presence Condition</em>' operation.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findPresenceCondition(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole)
-     * @generated
-     */
-    EOperation getNS__FindPresenceCondition__String_IRiseClipseConsole();
-
-    /**
-     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findFunctionalConstraint(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole) <em>Find Functional Constraint</em>}' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the '<em>Find Functional Constraint</em>' operation.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findFunctionalConstraint(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole)
-     * @generated
-     */
-    EOperation getNS__FindFunctionalConstraint__String_IRiseClipseConsole();
-
-    /**
-     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findEnumeration(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole) <em>Find Enumeration</em>}' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the '<em>Find Enumeration</em>' operation.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findEnumeration(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole)
-     * @generated
-     */
-    EOperation getNS__FindEnumeration__String_IRiseClipseConsole();
-
-    /**
-     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findBasicType(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole) <em>Find Basic Type</em>}' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the '<em>Find Basic Type</em>' operation.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findBasicType(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole)
-     * @generated
-     */
-    EOperation getNS__FindBasicType__String_IRiseClipseConsole();
-
-    /**
-     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findConstructedAttribute(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole) <em>Find Constructed Attribute</em>}' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the '<em>Find Constructed Attribute</em>' operation.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findConstructedAttribute(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole)
-     * @generated
-     */
-    EOperation getNS__FindConstructedAttribute__String_IRiseClipseConsole();
-
-    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc <em>NS Doc</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -12558,59 +12444,6 @@ public interface NsdPackage extends EPackage {
          * @generated
          */
         EReference NS__REFERRED_BY_DEPENDS_ON = eINSTANCE.getNS_ReferredByDependsOn();
-
-        /**
-         * The meta object literal for the '<em><b>Find CDC</b></em>' operation.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EOperation NS___FIND_CDC__STRING_IRISECLIPSECONSOLE = eINSTANCE.getNS__FindCDC__String_IRiseClipseConsole();
-
-        /**
-         * The meta object literal for the '<em><b>Find Presence Condition</b></em>' operation.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EOperation NS___FIND_PRESENCE_CONDITION__STRING_IRISECLIPSECONSOLE = eINSTANCE
-                .getNS__FindPresenceCondition__String_IRiseClipseConsole();
-
-        /**
-         * The meta object literal for the '<em><b>Find Functional Constraint</b></em>' operation.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EOperation NS___FIND_FUNCTIONAL_CONSTRAINT__STRING_IRISECLIPSECONSOLE = eINSTANCE
-                .getNS__FindFunctionalConstraint__String_IRiseClipseConsole();
-
-        /**
-         * The meta object literal for the '<em><b>Find Enumeration</b></em>' operation.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EOperation NS___FIND_ENUMERATION__STRING_IRISECLIPSECONSOLE = eINSTANCE
-                .getNS__FindEnumeration__String_IRiseClipseConsole();
-
-        /**
-         * The meta object literal for the '<em><b>Find Basic Type</b></em>' operation.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EOperation NS___FIND_BASIC_TYPE__STRING_IRISECLIPSECONSOLE = eINSTANCE
-                .getNS__FindBasicType__String_IRiseClipseConsole();
-
-        /**
-         * The meta object literal for the '<em><b>Find Constructed Attribute</b></em>' operation.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EOperation NS___FIND_CONSTRUCTED_ATTRIBUTE__STRING_IRISECLIPSECONSOLE = eINSTANCE
-                .getNS__FindConstructedAttribute__String_IRiseClipseConsole();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl <em>NS Doc</em>}' class.

@@ -2184,12 +2184,14 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
         NS ns = getParentCDC().getParentCDCs().getParentNS();
+        NsdResourceSetImpl rs = getResourceSet();
+        if( rs == null ) return false;
 
         String messagePrefix = "[NSD links] while resolving link from SubDataObject (name: " + getName()
                 + ", NS id: " + ns.getId() + ", line: " + getLineNumber() + "): ";
 
         if( isSetType() ) {
-            CDC foundCDC = ns.findCDC( getType(), console );
+            CDC foundCDC = rs.findCDC( getType(), getNsIdentification(), console );
 
             if( foundCDC == null ) {
                 console.warning( messagePrefix + "CDC (name: " + getType() + ") not found" );
@@ -2203,7 +2205,7 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
         }
 
         if( isSetPresCond() ) {
-            PresenceCondition foundPC = ns.findPresenceCondition( getPresCond(), console );
+            PresenceCondition foundPC = rs.findPresenceCondition( getPresCond(), getNsIdentification(), console );
 
             if( foundPC == null ) {
                 console.warning( messagePrefix + "PresenceCondition (name: " + getPresCond() + ") not found" );

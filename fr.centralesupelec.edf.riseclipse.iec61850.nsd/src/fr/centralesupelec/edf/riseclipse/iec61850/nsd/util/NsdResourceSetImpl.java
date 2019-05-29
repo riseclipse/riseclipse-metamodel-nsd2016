@@ -312,6 +312,13 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         return lnClassStream;
     }
 
+    public LNClass findLNClass( String lnClass, NsIdentification nsIdentification, IRiseClipseConsole console ) {
+        return getLNClassStream( nsIdentification )
+                .filter( c -> c.getName().equals( lnClass ) )
+                .findAny()
+                .orElse( null );
+    }
+    
     public Stream< Abbreviation > getAllAbbreviationStream() {
         Stream< Abbreviation > abbreviationStream = Stream.empty();
         Iterator< NS > it = nsdResources.values().iterator();
@@ -342,6 +349,13 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         return abbreviationStream;
     }
 
+    public Abbreviation findAbbreviation( String abb, NsIdentification nsIdentification, IRiseClipseConsole console ) {
+        return getAbbreviationStream( nsIdentification )
+                .filter( a -> a.getName().equals( abb ) )
+                .findAny()
+                .orElse( null );
+    }
+    
     public Stream< Enumeration > getAllEnumerationStream() {
         Stream< Enumeration > enumerationStream = Stream.empty();
         Iterator< NS > it = nsdResources.values().iterator();
@@ -372,6 +386,13 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         return enumerationStream;
     }
 
+    public Enumeration findEnumeration( String en, NsIdentification nsIdentification, IRiseClipseConsole console ) {
+        return getEnumerationStream( nsIdentification )
+                .filter( e -> e.getName().equals( en ) )
+                .findAny()
+                .orElse( null );
+    }
+    
     public Stream< CDC > getAllCDCStream() {
         Stream< CDC > cdcStream = Stream.empty();
         Iterator< NS > it = nsdResources.values().iterator();
@@ -402,6 +423,13 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         return cdcStream;
     }
 
+    public CDC findCDC( String cdc, NsIdentification nsIdentification, IRiseClipseConsole console ) {
+        return getCDCStream( nsIdentification )
+                .filter( c -> c.getName().equals( cdc ) )
+                .findAny()
+                .orElse( null );
+    }
+    
     public Stream< ConstructedAttribute > getAllConstructedAttributeStream() {
         Stream< ConstructedAttribute > constructedAttributeStream = Stream.empty();
         Iterator< NS > it = nsdResources.values().iterator();
@@ -432,6 +460,13 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         return constructedAttributeStream;
     }
 
+    public ConstructedAttribute findConstructedAttribute( String att, NsIdentification nsIdentification, IRiseClipseConsole console ) {
+        return getConstructedAttributeStream( nsIdentification )
+                .filter( c -> c.getName().equals( att ) )
+                .findAny()
+                .orElse( null );
+    }
+    
     public Stream< BasicType > getAllBasicTypeStream() {
         Stream< BasicType > basicTypeStream = Stream.empty();
         Iterator< NS > it = nsdResources.values().iterator();
@@ -462,6 +497,13 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         return basicTypeStream;
     }
 
+    public BasicType findBasicType( String basic, NsIdentification nsIdentification, IRiseClipseConsole console ) {
+        return getBasicTypeStream( nsIdentification )
+                .filter( b -> b.getName().equals( basic ) )
+                .findAny()
+                .orElse( null );
+    }
+    
     public Stream< FunctionalConstraint > getAllFunctionalConstraintStream() {
         Stream< FunctionalConstraint > functionalConstraintStream = Stream.empty();
         Iterator< NS > it = nsdResources.values().iterator();
@@ -492,6 +534,13 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         return functionalConstraintStream;
     }
 
+    public FunctionalConstraint findFunctionalConstraint( String fc, NsIdentification nsIdentification, IRiseClipseConsole console ) {
+        return getFunctionalConstraintStream( nsIdentification )
+                .filter( f -> f.getAbbreviation().equals( fc ) )
+                .findAny()
+                .orElse( null );
+    }
+    
     public Stream< PresenceCondition > getAllPresenceConditionStream() {
         Stream< PresenceCondition > presenceConditionStream = Stream.empty();
         Iterator< NS > it = nsdResources.values().iterator();
@@ -522,6 +571,13 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         return presenceConditionStream;
     }
 
+    public PresenceCondition findPresenceCondition( String presence, NsIdentification nsIdentification, IRiseClipseConsole console ) {
+        return getPresenceConditionStream( nsIdentification )
+                .filter( p -> p.getName().equals( presence ) )
+                .findAny()
+                .orElse( null );
+    }
+    
     public Doc findDoc( NsIdentification identification, String id ) {
         for( NSDoc nsdoc : nsdocResources.values() ) {
             Optional< Doc > doc = nsdoc

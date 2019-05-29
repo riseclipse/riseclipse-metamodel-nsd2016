@@ -21,7 +21,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdObject;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
-
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetImpl;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
@@ -31,6 +31,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 
 /**
  * <!-- begin-user-doc -->
@@ -271,6 +272,12 @@ public abstract class NsdObjectImpl extends MinimalEObjectImpl.Container impleme
         result.append( explicitLinksBuilt );
         result.append( ')' );
         return result.toString();
+    }
+
+    public NsdResourceSetImpl getResourceSet() {
+        ResourceSet rs = eResource().getResourceSet();
+        if( rs instanceof NsdResourceSetImpl ) return ( NsdResourceSetImpl ) rs;
+        return null;
     }
 
 } //NsdObjectImpl

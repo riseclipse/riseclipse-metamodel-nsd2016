@@ -1271,30 +1271,6 @@
       <details key="name" value="tNS"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
-    <eOperations name="findCDC" eType="#//CDC">
-      <eParameters name="cDCName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eParameters name="console" eType="#//IRiseClipseConsole"/>
-    </eOperations>
-    <eOperations name="findPresenceCondition" eType="#//PresenceCondition">
-      <eParameters name="presenceConditionName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eParameters name="console" eType="#//IRiseClipseConsole"/>
-    </eOperations>
-    <eOperations name="findFunctionalConstraint" eType="#//FunctionalConstraint">
-      <eParameters name="functionalConstraintAbbreviation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eParameters name="console" eType="#//IRiseClipseConsole"/>
-    </eOperations>
-    <eOperations name="findEnumeration" eType="#//Enumeration">
-      <eParameters name="enumerationName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eParameters name="console" eType="#//IRiseClipseConsole"/>
-    </eOperations>
-    <eOperations name="findBasicType" eType="#//BasicType">
-      <eParameters name="basicTypeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eParameters name="console" eType="#//IRiseClipseConsole"/>
-    </eOperations>
-    <eOperations name="findConstructedAttribute" eType="#//ConstructedAttribute">
-      <eParameters name="constructedAttributeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eParameters name="console" eType="#//IRiseClipseConsole"/>
-    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="changes" ordered="false"
         eType="#//Changes" unsettable="true" containment="true" resolveProxies="false"
         eOpposite="#//Changes/parentNS">

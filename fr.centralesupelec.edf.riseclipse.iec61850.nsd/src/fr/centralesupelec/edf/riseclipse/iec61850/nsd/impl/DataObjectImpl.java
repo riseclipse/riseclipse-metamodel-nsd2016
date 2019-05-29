@@ -2188,12 +2188,14 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
         NS ns = getParentAnyLNClass().getParentLNClasses().getParentNS();
+        NsdResourceSetImpl rs = getResourceSet();
+        if( rs == null ) return false;
 
         String messagePrefix = "[NSD links] while resolving link from DataObject (name: " + getName()
                 + ", NS id: " + ns.getId() + ", line: " + getLineNumber() + "): ";
 
         if( isSetType() ) {
-            CDC foundCDC = ns.findCDC( getType(), console );
+            CDC foundCDC = rs.findCDC( getType(), getNsIdentification(), console );
 
             if( foundCDC == null ) {
                 console.warning( messagePrefix + "CDC (name: " + getType() + ") not found" );
@@ -2207,7 +2209,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         }
 
         if( isSetPresCond() ) {
-            PresenceCondition foundPC = ns.findPresenceCondition( getPresCond(), console );
+            PresenceCondition foundPC = rs.findPresenceCondition( getPresCond(), getNsIdentification(), console );
 
             if( foundPC == null ) {
                 console.warning( messagePrefix + "PresenceCondition (name: " + getPresCond() + ") not found" );
@@ -2221,7 +2223,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         }
 
         if( isSetDsPresCond() ) {
-            PresenceCondition foundPC = ns.findPresenceCondition( getDsPresCond(), console );
+            PresenceCondition foundPC = rs.findPresenceCondition( getDsPresCond(), getNsIdentification(), console );
             if( foundPC == null ) {
                 console.warning( messagePrefix + "PresenceCondition (name: " + getDsPresCond() + ") not found" );
             }
