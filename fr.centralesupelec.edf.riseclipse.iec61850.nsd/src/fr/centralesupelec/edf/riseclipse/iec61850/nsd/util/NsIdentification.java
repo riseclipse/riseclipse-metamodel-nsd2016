@@ -30,7 +30,6 @@ public class NsIdentification {
     private Integer release;
 
     public NsIdentification( String id, Integer version, String revision, Integer release ) {
-        super();
         this.id = id;
         this.version = version;
         this.revision = revision;
@@ -38,17 +37,31 @@ public class NsIdentification {
     }
     
     public NsIdentification( AgNSIdentification identification ) {
-        super();
         this.id = identification.getId();
         this.version = identification.getVersion();
         this.revision = identification.getRevision();
         this.release = identification.getRelease();
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public Integer getVersion() {
+        return version;
+    }
+
+    public String getRevision() {
+        return revision;
+    }
+
+    public Integer getRelease() {
+        return release;
+    }
+
     @Override
     public int hashCode() {
-        // Only id and version are required, revision and release are optional
-        return Objects.hash( id, version );
+        return Objects.hash( id, release, revision, version );
     }
 
     @Override
@@ -57,15 +70,13 @@ public class NsIdentification {
         if( obj == null ) return false;
         if( getClass() != obj.getClass() ) return false;
         NsIdentification other = ( NsIdentification ) obj;
-        return Objects.equals( id, other.id ) && Objects.equals( version, other.version );
+        return Objects.equals( id, other.id ) && Objects.equals( release, other.release )
+                && Objects.equals( revision, other.revision ) && Objects.equals( version, other.version );
     }
 
     @Override
     public String toString() {
-        return "NsIdentification [" + ( id != null ? "id=" + id + ", " : "" )
-                + ( version != null ? "version=" + version + ", " : "" )
-                + ( revision != null ? "revision=" + revision + ", " : "" )
-                + ( release != null ? "release=" + release : "" ) + "]";
+        return "NsIdentification [id=" + id + ", version=" + version + ", revision=" + revision + ", release=" + release + "]";
     }
 
 }
