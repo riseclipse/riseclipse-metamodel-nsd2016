@@ -581,10 +581,11 @@ public class AbbreviationImpl extends NsdObjectImpl implements Abbreviation {
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
-        
+
         if( isSetDescID() ) {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
-                Doc doc = (( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( new NsIdentification( getParentAbbreviations().getParentNS() ), getDescID() );
+                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() )
+                        .findDoc( new NsIdentification( getParentAbbreviations().getParentNS() ), getDescID() );
                 if( doc != null ) setRefersToDoc( doc );
             }
         }

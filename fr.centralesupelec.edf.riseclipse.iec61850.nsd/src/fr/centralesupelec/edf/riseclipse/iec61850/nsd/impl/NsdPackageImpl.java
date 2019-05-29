@@ -1990,6 +1990,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EReference getDoc_ReferredByTitledClass() {
+        return ( EReference ) docEClass.getEStructuralFeatures().get( 13 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getDocumentedClass() {
         return documentedClassEClass;
     }
@@ -2030,7 +2040,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getDocumentedClass_RefersToDoc() {
+    public EReference getDocumentedClass_RefersToDescDoc() {
         return ( EReference ) documentedClassEClass.getEStructuralFeatures().get( 3 );
     }
 
@@ -3340,6 +3350,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EReference getTitledClass_RefersToTitleDoc() {
+        return ( EReference ) titledClassEClass.getEStructuralFeatures().get( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getNsdObject() {
         return nsdObjectEClass;
     }
@@ -4133,12 +4153,13 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEReference( docEClass, DOC__REFERRED_BY_DOCUMENTED_CLASS );
         createEReference( docEClass, DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT );
         createEReference( docEClass, DOC__REFERRED_BY_AG_PRESENCE_CONDITION_DERIVED_STATISTICS );
+        createEReference( docEClass, DOC__REFERRED_BY_TITLED_CLASS );
 
         documentedClassEClass = createEClass( DOCUMENTED_CLASS );
         createEAttribute( documentedClassEClass, DOCUMENTED_CLASS__DEPRECATED );
         createEAttribute( documentedClassEClass, DOCUMENTED_CLASS__DESC_ID );
         createEAttribute( documentedClassEClass, DOCUMENTED_CLASS__INFORMATIVE );
-        createEReference( documentedClassEClass, DOCUMENTED_CLASS__REFERS_TO_DOC );
+        createEReference( documentedClassEClass, DOCUMENTED_CLASS__REFERS_TO_DESC_DOC );
 
         enumerationEClass = createEClass( ENUMERATION );
         createEReference( enumerationEClass, ENUMERATION__LITERAL );
@@ -4296,6 +4317,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
 
         titledClassEClass = createEClass( TITLED_CLASS );
         createEAttribute( titledClassEClass, TITLED_CLASS__TITLE_ID );
+        createEReference( titledClassEClass, TITLED_CLASS__REFERS_TO_TITLE_DOC );
 
         nsdObjectEClass = createEClass( NSD_OBJECT );
         createEAttribute( nsdObjectEClass, NSD_OBJECT__LINE_NUMBER );
@@ -4876,7 +4898,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 "referredByBasicType", null, 0, -1, Doc.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
         initEReference( getDoc_ReferredByDocumentedClass(), this.getDocumentedClass(),
-                this.getDocumentedClass_RefersToDoc(), "referredByDocumentedClass", null, 0, -1, Doc.class,
+                this.getDocumentedClass_RefersToDescDoc(), "referredByDocumentedClass", null, 0, -1, Doc.class,
                 IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
                 !IS_DERIVED, !IS_ORDERED );
         initEReference( getDoc_ReferredByFunctionalConstraint(), this.getFunctionalConstraint(),
@@ -4888,6 +4910,9 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 this.getAgPresenceConditionDerivedStatistics_RefersToDsPresCondArgsDoc(),
                 "referredByAgPresenceConditionDerivedStatistics", null, 0, -1, Doc.class, IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getDoc_ReferredByTitledClass(), this.getTitledClass(), this.getTitledClass_RefersToTitleDoc(),
+                "referredByTitledClass", null, 0, -1, Doc.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( documentedClassEClass, DocumentedClass.class, "DocumentedClass", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
@@ -4900,8 +4925,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getDocumentedClass_Informative(), theXMLTypePackage.getBoolean(), "informative", "false", 0, 1,
                 DocumentedClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEReference( getDocumentedClass_RefersToDoc(), this.getDoc(), this.getDoc_ReferredByDocumentedClass(),
-                "refersToDoc", null, 0, 1, DocumentedClass.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+        initEReference( getDocumentedClass_RefersToDescDoc(), this.getDoc(), this.getDoc_ReferredByDocumentedClass(),
+                "refersToDescDoc", null, 0, 1, DocumentedClass.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( enumerationEClass, Enumeration.class, "Enumeration", !IS_ABSTRACT, !IS_INTERFACE,
@@ -5334,6 +5359,9 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 IS_GENERATED_INSTANCE_CLASS );
         initEAttribute( getTitledClass_TitleID(), ecorePackage.getEString(), "titleID", null, 0, 1, TitledClass.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getTitledClass_RefersToTitleDoc(), this.getDoc(), this.getDoc_ReferredByTitledClass(),
+                "refersToTitleDoc", null, 0, 1, TitledClass.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( nsdObjectEClass, NsdObject.class, "NsdObject", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );

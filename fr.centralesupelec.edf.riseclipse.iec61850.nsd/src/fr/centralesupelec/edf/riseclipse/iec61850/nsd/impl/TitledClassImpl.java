@@ -19,13 +19,18 @@
  */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TitledClass;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetImpl;
+import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -37,6 +42,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.TitledClassImpl#getTitleID <em>Title ID</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.TitledClassImpl#getRefersToTitleDoc <em>Refers To Title Doc</em>}</li>
  * </ul>
  *
  * @generated
@@ -70,6 +76,25 @@ public abstract class TitledClassImpl extends DocumentedClassImpl implements Tit
      * @ordered
      */
     protected boolean titleIDESet;
+
+    /**
+     * The cached value of the '{@link #getRefersToTitleDoc() <em>Refers To Title Doc</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRefersToTitleDoc()
+     * @generated
+     * @ordered
+     */
+    protected Doc refersToTitleDoc;
+
+    /**
+     * This is true if the Refers To Title Doc reference has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean refersToTitleDocESet;
 
     /**
      * <!-- begin-user-doc -->
@@ -148,10 +173,156 @@ public abstract class TitledClassImpl extends DocumentedClassImpl implements Tit
      * @generated
      */
     @Override
+    public Doc getRefersToTitleDoc() {
+        return refersToTitleDoc;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetRefersToTitleDoc( Doc newRefersToTitleDoc, NotificationChain msgs ) {
+        Doc oldRefersToTitleDoc = refersToTitleDoc;
+        refersToTitleDoc = newRefersToTitleDoc;
+        boolean oldRefersToTitleDocESet = refersToTitleDocESet;
+        refersToTitleDocESet = true;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.TITLED_CLASS__REFERS_TO_TITLE_DOC, oldRefersToTitleDoc, newRefersToTitleDoc,
+                    !oldRefersToTitleDocESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setRefersToTitleDoc( Doc newRefersToTitleDoc ) {
+        if( newRefersToTitleDoc != refersToTitleDoc ) {
+            NotificationChain msgs = null;
+            if( refersToTitleDoc != null )
+                msgs = ( ( InternalEObject ) refersToTitleDoc ).eInverseRemove( this,
+                        NsdPackage.DOC__REFERRED_BY_TITLED_CLASS, Doc.class, msgs );
+            if( newRefersToTitleDoc != null )
+                msgs = ( ( InternalEObject ) newRefersToTitleDoc ).eInverseAdd( this,
+                        NsdPackage.DOC__REFERRED_BY_TITLED_CLASS, Doc.class, msgs );
+            msgs = basicSetRefersToTitleDoc( newRefersToTitleDoc, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToTitleDocESet = refersToTitleDocESet;
+            refersToTitleDocESet = true;
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.TITLED_CLASS__REFERS_TO_TITLE_DOC,
+                        newRefersToTitleDoc, newRefersToTitleDoc, !oldRefersToTitleDocESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicUnsetRefersToTitleDoc( NotificationChain msgs ) {
+        Doc oldRefersToTitleDoc = refersToTitleDoc;
+        refersToTitleDoc = null;
+        boolean oldRefersToTitleDocESet = refersToTitleDocESet;
+        refersToTitleDocESet = false;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.TITLED_CLASS__REFERS_TO_TITLE_DOC, oldRefersToTitleDoc, null, oldRefersToTitleDocESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetRefersToTitleDoc() {
+        if( refersToTitleDoc != null ) {
+            NotificationChain msgs = null;
+            msgs = ( ( InternalEObject ) refersToTitleDoc ).eInverseRemove( this,
+                    NsdPackage.DOC__REFERRED_BY_TITLED_CLASS, Doc.class, msgs );
+            msgs = basicUnsetRefersToTitleDoc( msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToTitleDocESet = refersToTitleDocESet;
+            refersToTitleDocESet = false;
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.TITLED_CLASS__REFERS_TO_TITLE_DOC,
+                        null, null, oldRefersToTitleDocESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetRefersToTitleDoc() {
+        return refersToTitleDocESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.TITLED_CLASS__REFERS_TO_TITLE_DOC:
+            if( refersToTitleDoc != null )
+                msgs = ( ( InternalEObject ) refersToTitleDoc ).eInverseRemove( this,
+                        NsdPackage.DOC__REFERRED_BY_TITLED_CLASS, Doc.class, msgs );
+            return basicSetRefersToTitleDoc( ( Doc ) otherEnd, msgs );
+        }
+        return super.eInverseAdd( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
+        switch( featureID ) {
+        case NsdPackage.TITLED_CLASS__REFERS_TO_TITLE_DOC:
+            return basicUnsetRefersToTitleDoc( msgs );
+        }
+        return super.eInverseRemove( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
         case NsdPackage.TITLED_CLASS__TITLE_ID:
             return getTitleID();
+        case NsdPackage.TITLED_CLASS__REFERS_TO_TITLE_DOC:
+            return getRefersToTitleDoc();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -166,6 +337,9 @@ public abstract class TitledClassImpl extends DocumentedClassImpl implements Tit
         switch( featureID ) {
         case NsdPackage.TITLED_CLASS__TITLE_ID:
             setTitleID( ( String ) newValue );
+            return;
+        case NsdPackage.TITLED_CLASS__REFERS_TO_TITLE_DOC:
+            setRefersToTitleDoc( ( Doc ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -182,6 +356,9 @@ public abstract class TitledClassImpl extends DocumentedClassImpl implements Tit
         case NsdPackage.TITLED_CLASS__TITLE_ID:
             unsetTitleID();
             return;
+        case NsdPackage.TITLED_CLASS__REFERS_TO_TITLE_DOC:
+            unsetRefersToTitleDoc();
+            return;
         }
         super.eUnset( featureID );
     }
@@ -196,6 +373,8 @@ public abstract class TitledClassImpl extends DocumentedClassImpl implements Tit
         switch( featureID ) {
         case NsdPackage.TITLED_CLASS__TITLE_ID:
             return isSetTitleID();
+        case NsdPackage.TITLED_CLASS__REFERS_TO_TITLE_DOC:
+            return isSetRefersToTitleDoc();
         }
         return super.eIsSet( featureID );
     }
@@ -217,6 +396,21 @@ public abstract class TitledClassImpl extends DocumentedClassImpl implements Tit
             result.append( "<unset>" );
         result.append( ')' );
         return result.toString();
+    }
+
+    @Override
+    public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
+        if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
+
+        if( isSetTitleID() ) {
+            if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
+                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getNsIdentification(),
+                        getTitleID() );
+                if( doc != null ) setRefersToTitleDoc( doc );
+            }
+        }
+
+        return false;
     }
 
 } //TitledClassImpl

@@ -545,7 +545,7 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
         if( getParentConstructedAttributes() != null ) {
             ns = getParentConstructedAttributes().getParentNS();
         }
-        if(( ns == null ) && ( getParentServiceTypeRealizations() != null ) ) {
+        if( ( ns == null ) && ( getParentServiceTypeRealizations() != null ) ) {
             ns = getParentServiceTypeRealizations().getParentServiceNS();
         }
         return new NsIdentification( ns );
