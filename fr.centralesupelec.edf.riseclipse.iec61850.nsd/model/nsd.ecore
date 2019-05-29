@@ -171,7 +171,7 @@
         eType="#//ServiceNS" transient="true" unsettable="true" resolveProxies="false"
         eOpposite="#//ServiceNS/abbreviations"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AbstractLNClass" abstract="true" eSuperTypes="#//AnyLNClass">
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractLNClass" eSuperTypes="#//AnyLNClass">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tAbstractLNClass"/>
       <details key="kind" value="elementOnly"/>

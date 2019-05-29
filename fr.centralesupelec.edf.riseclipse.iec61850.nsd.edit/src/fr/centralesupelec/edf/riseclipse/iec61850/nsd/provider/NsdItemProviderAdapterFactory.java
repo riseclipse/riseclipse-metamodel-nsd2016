@@ -228,6 +228,29 @@ public class NsdItemProviderAdapterFactory extends NsdAdapterFactory
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected AbstractLNClassItemProvider abstractLNClassItemProvider;
+
+    /**
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createAbstractLNClassAdapter() {
+        if( abstractLNClassItemProvider == null ) {
+            abstractLNClassItemProvider = new AbstractLNClassItemProvider( this );
+        }
+
+        return abstractLNClassItemProvider;
+    }
+
+    /**
      * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServiceNS} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1235,6 +1258,7 @@ public class NsdItemProviderAdapterFactory extends NsdAdapterFactory
         if( serviceTypeItemProvider != null ) serviceTypeItemProvider.dispose();
         if( abbreviationItemProvider != null ) abbreviationItemProvider.dispose();
         if( abbreviationsItemProvider != null ) abbreviationsItemProvider.dispose();
+        if( abstractLNClassItemProvider != null ) abstractLNClassItemProvider.dispose();
         if( applicableServiceNSItemProvider != null ) applicableServiceNSItemProvider.dispose();
         if( applicableServicesItemProvider != null ) applicableServicesItemProvider.dispose();
         if( basicTypeItemProvider != null ) basicTypeItemProvider.dispose();

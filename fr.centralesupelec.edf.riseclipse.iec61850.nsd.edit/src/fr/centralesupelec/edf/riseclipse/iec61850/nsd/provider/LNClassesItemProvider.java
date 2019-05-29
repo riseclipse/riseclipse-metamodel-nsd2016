@@ -149,6 +149,9 @@ public class LNClassesItemProvider extends NsdObjectItemProvider {
     protected void collectNewChildDescriptors( Collection< Object > newChildDescriptors, Object object ) {
         super.collectNewChildDescriptors( newChildDescriptors, object );
 
+        newChildDescriptors.add( createChildParameter( NsdPackage.Literals.LN_CLASSES__ABSTRACT_LN_CLASS,
+                NsdFactory.eINSTANCE.createAbstractLNClass() ) );
+
         newChildDescriptors.add( createChildParameter( NsdPackage.Literals.LN_CLASSES__LN_CLASS,
                 NsdFactory.eINSTANCE.createLNClass() ) );
     }

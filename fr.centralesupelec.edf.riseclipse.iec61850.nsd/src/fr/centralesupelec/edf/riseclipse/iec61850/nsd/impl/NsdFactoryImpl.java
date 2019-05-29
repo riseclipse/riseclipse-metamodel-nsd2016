@@ -90,6 +90,8 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
             return createAbbreviation();
         case NsdPackage.ABBREVIATIONS:
             return createAbbreviations();
+        case NsdPackage.ABSTRACT_LN_CLASS:
+            return createAbstractLNClass();
         case NsdPackage.APPLICABLE_SERVICE_NS:
             return createApplicableServiceNS();
         case NsdPackage.APPLICABLE_SERVICES:
@@ -317,6 +319,17 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
     public Abbreviations createAbbreviations() {
         AbbreviationsImpl abbreviations = new AbbreviationsImpl();
         return abbreviations;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public AbstractLNClass createAbstractLNClass() {
+        AbstractLNClassImpl abstractLNClass = new AbstractLNClassImpl();
+        return abstractLNClass;
     }
 
     /**

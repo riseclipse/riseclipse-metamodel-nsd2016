@@ -93,6 +93,15 @@ public interface NsdFactory extends EFactory {
     Abbreviations createAbbreviations();
 
     /**
+     * Returns a new object of class '<em>Abstract LN Class</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Abstract LN Class</em>'.
+     * @generated
+     */
+    AbstractLNClass createAbstractLNClass();
+
+    /**
      * Returns a new object of class '<em>Applicable Service NS</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
