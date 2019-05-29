@@ -31,7 +31,6 @@ import org.eclipse.emf.ecore.resource.Resource;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
@@ -281,7 +280,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
      *     Within an ServiceNS, there shall not be two ServiceCDC sub-elements with same name and (if defined) variant.
      */
     
-    public Stream< LNClass > getLNClassStream() {
+    public Stream< LNClass > getAllLNClassStream() {
         Stream< LNClass > lnClassStream = Stream.empty();
         Iterator< NS > it = nsdResources.values().iterator();
         while( it.hasNext() ) {
@@ -296,7 +295,24 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         return lnClassStream;
     }
 
-    public Stream< Abbreviation > getAbbreviationStream() {
+    public Stream< LNClass > getLNClassStream( NsIdentification identification ) {
+        Stream< LNClass > lnClassStream = Stream.empty();
+        NS ns = getNS( identification );
+        if( ns != null ) {
+            LNClasses lnClasses = ns.getLNClasses();
+            if( lnClasses != null ) {
+                Stream< LNClass > tmp = Stream.concat( lnClassStream, lnClasses.getLNClass().stream() );
+                lnClassStream = tmp;
+            }
+            if( ns.getDependsOn() != null ) {
+                Stream< LNClass > tmp = Stream.concat( lnClassStream, getLNClassStream( new NsIdentification( ns.getDependsOn() )));
+                lnClassStream = tmp;
+            }
+        }
+        return lnClassStream;
+    }
+
+    public Stream< Abbreviation > getAllAbbreviationStream() {
         Stream< Abbreviation > abbreviationStream = Stream.empty();
         Iterator< NS > it = nsdResources.values().iterator();
         while( it.hasNext() ) {
@@ -309,7 +325,24 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         return abbreviationStream;
     }
 
-    public Stream< Enumeration > getEnumerationStream() {
+    public Stream< Abbreviation > getAbbreviationStream( NsIdentification identification ) {
+        Stream< Abbreviation > abbreviationStream = Stream.empty();
+        NS ns = getNS( identification );
+        if( ns != null ) {
+            Abbreviations abbreviations = ns.getAbbreviations();
+            if( abbreviations != null ) {
+                Stream< Abbreviation > tmp = Stream.concat( abbreviationStream, abbreviations.getAbbreviation().stream() );
+                abbreviationStream = tmp;
+            }
+            if( ns.getDependsOn() != null ) {
+                Stream< Abbreviation > tmp = Stream.concat( abbreviationStream, getAbbreviationStream( new NsIdentification( ns.getDependsOn() )));
+                abbreviationStream = tmp;
+            }
+        }
+        return abbreviationStream;
+    }
+
+    public Stream< Enumeration > getAllEnumerationStream() {
         Stream< Enumeration > enumerationStream = Stream.empty();
         Iterator< NS > it = nsdResources.values().iterator();
         while( it.hasNext() ) {
@@ -322,7 +355,24 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         return enumerationStream;
     }
 
-    public Stream< CDC > getCDCStream() {
+    public Stream< Enumeration > getEnumerationStream( NsIdentification identification ) {
+        Stream< Enumeration > enumerationStream = Stream.empty();
+        NS ns = getNS( identification );
+        if( ns != null ) {
+            Enumerations enumerations = ns.getEnumerations();
+            if( enumerations != null ) {
+                Stream< Enumeration > tmp = Stream.concat( enumerationStream, enumerations.getEnumeration().stream() );
+                enumerationStream = tmp;
+            }
+            if( ns.getDependsOn() != null ) {
+                Stream< Enumeration > tmp = Stream.concat( enumerationStream, getEnumerationStream( new NsIdentification( ns.getDependsOn() )));
+                enumerationStream = tmp;
+            }
+        }
+        return enumerationStream;
+    }
+
+    public Stream< CDC > getAllCDCStream() {
         Stream< CDC > cdcStream = Stream.empty();
         Iterator< NS > it = nsdResources.values().iterator();
         while( it.hasNext() ) {
@@ -335,7 +385,24 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         return cdcStream;
     }
 
-    public Stream< ConstructedAttribute > getConstructedAttributeStream() {
+    public Stream< CDC > getCDCStream( NsIdentification identification ) {
+        Stream< CDC > cdcStream = Stream.empty();
+        NS ns = getNS( identification );
+        if( ns != null ) {
+            CDCs cdcs = ns.getCDCs();
+            if( cdcs != null ) {
+                Stream< CDC > tmp = Stream.concat( cdcStream, cdcs.getCDC().stream() );
+                cdcStream = tmp;
+            }
+            if( ns.getDependsOn() != null ) {
+                Stream< CDC > tmp = Stream.concat( cdcStream, getCDCStream( new NsIdentification( ns.getDependsOn() )));
+                cdcStream = tmp;
+            }
+        }
+        return cdcStream;
+    }
+
+    public Stream< ConstructedAttribute > getAllConstructedAttributeStream() {
         Stream< ConstructedAttribute > constructedAttributeStream = Stream.empty();
         Iterator< NS > it = nsdResources.values().iterator();
         while( it.hasNext() ) {
@@ -348,7 +415,24 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         return constructedAttributeStream;
     }
 
-    public Stream< BasicType > getBasicTypeStream() {
+    public Stream< ConstructedAttribute > getConstructedAttributeStream( NsIdentification identification ) {
+        Stream< ConstructedAttribute > constructedAttributeStream = Stream.empty();
+        NS ns = getNS( identification );
+        if( ns != null ) {
+            ConstructedAttributes constructedAttributes = ns.getConstructedAttributes();
+            if( constructedAttributes != null ) {
+                Stream< ConstructedAttribute > tmp = Stream.concat( constructedAttributeStream, constructedAttributes.getConstructedAttribute().stream() );
+                constructedAttributeStream = tmp;
+            }
+            if( ns.getDependsOn() != null ) {
+                Stream< ConstructedAttribute > tmp = Stream.concat( constructedAttributeStream, getConstructedAttributeStream( new NsIdentification( ns.getDependsOn() )));
+                constructedAttributeStream = tmp;
+            }
+        }
+        return constructedAttributeStream;
+    }
+
+    public Stream< BasicType > getAllBasicTypeStream() {
         Stream< BasicType > basicTypeStream = Stream.empty();
         Iterator< NS > it = nsdResources.values().iterator();
         while( it.hasNext() ) {
@@ -361,7 +445,24 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         return basicTypeStream;
     }
 
-    public Stream< FunctionalConstraint > getFunctionalConstraintStream() {
+    public Stream< BasicType > getBasicTypeStream( NsIdentification identification ) {
+        Stream< BasicType > basicTypeStream = Stream.empty();
+        NS ns = getNS( identification );
+        if( ns != null ) {
+            BasicTypes basicTypes = ns.getBasicTypes();
+            if( basicTypes != null ) {
+                Stream< BasicType > tmp = Stream.concat( basicTypeStream, basicTypes.getBasicType().stream() );
+                basicTypeStream = tmp;
+            }
+            if( ns.getDependsOn() != null ) {
+                Stream< BasicType > tmp = Stream.concat( basicTypeStream, getBasicTypeStream( new NsIdentification( ns.getDependsOn() )));
+                basicTypeStream = tmp;
+            }
+        }
+        return basicTypeStream;
+    }
+
+    public Stream< FunctionalConstraint > getAllFunctionalConstraintStream() {
         Stream< FunctionalConstraint > functionalConstraintStream = Stream.empty();
         Iterator< NS > it = nsdResources.values().iterator();
         while( it.hasNext() ) {
@@ -374,13 +475,47 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         return functionalConstraintStream;
     }
 
-    public Stream< PresenceCondition > getPresenceConditionStream() {
+    public Stream< FunctionalConstraint > getFunctionalConstraintStream( NsIdentification identification ) {
+        Stream< FunctionalConstraint > functionalConstraintStream = Stream.empty();
+        NS ns = getNS( identification );
+        if( ns != null ) {
+            FunctionalConstraints functionalConstraints = ns.getFunctionalConstraints();
+            if( functionalConstraints != null ) {
+                Stream< FunctionalConstraint > tmp = Stream.concat( functionalConstraintStream, functionalConstraints.getFunctionalConstraint().stream() );
+                functionalConstraintStream = tmp;
+            }
+            if( ns.getDependsOn() != null ) {
+                Stream< FunctionalConstraint > tmp = Stream.concat( functionalConstraintStream, getFunctionalConstraintStream( new NsIdentification( ns.getDependsOn() )));
+                functionalConstraintStream = tmp;
+            }
+        }
+        return functionalConstraintStream;
+    }
+
+    public Stream< PresenceCondition > getAllPresenceConditionStream() {
         Stream< PresenceCondition > presenceConditionStream = Stream.empty();
         Iterator< NS > it = nsdResources.values().iterator();
         while( it.hasNext() ) {
             PresenceConditions presenceConditions = it.next().getPresenceConditions();
             if( presenceConditions != null ) {
                 Stream< PresenceCondition > tmp = Stream.concat( presenceConditionStream, presenceConditions.getPresenceCondition().stream() );
+                presenceConditionStream = tmp;
+            }
+        }
+        return presenceConditionStream;
+    }
+
+    public Stream< PresenceCondition > getPresenceConditionStream( NsIdentification identification ) {
+        Stream< PresenceCondition > presenceConditionStream = Stream.empty();
+        NS ns = getNS( identification );
+        if( ns != null ) {
+            PresenceConditions presenceConditions = ns.getPresenceConditions();
+            if( presenceConditions != null ) {
+                Stream< PresenceCondition > tmp = Stream.concat( presenceConditionStream, presenceConditions.getPresenceCondition().stream() );
+                presenceConditionStream = tmp;
+            }
+            if( ns.getDependsOn() != null ) {
+                Stream< PresenceCondition > tmp = Stream.concat( presenceConditionStream, getPresenceConditionStream( new NsIdentification( ns.getDependsOn() )));
                 presenceConditionStream = tmp;
             }
         }
