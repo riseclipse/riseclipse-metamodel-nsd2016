@@ -24,6 +24,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceCondition;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration;
@@ -1859,6 +1860,20 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
     @Override
     protected NsIdentification getNsIdentification() {
         return new NsIdentification( getParentServiceCDC().getParentServiceCDCs().getParentServiceNS() );
+    }
+
+    @Override
+    public DataAttribute toDataAttribute() {
+        DataAttribute dataAttribute = new DataAttributeImpl();
+        dataAttribute.setPresCond( getPresCond() );
+        dataAttribute.setPresCondArgs( getPresCondArgs() );
+        dataAttribute.setPresCondArgsID( getPresCondArgsID() );
+        dataAttribute.setType( getType() );
+        dataAttribute.setTypeKind( getTypeKind() );
+        dataAttribute.setFc( getFc() );
+        dataAttribute.setName( getName() );
+
+        return dataAttribute;
     }
 
 } //ServiceDataAttributeImpl
