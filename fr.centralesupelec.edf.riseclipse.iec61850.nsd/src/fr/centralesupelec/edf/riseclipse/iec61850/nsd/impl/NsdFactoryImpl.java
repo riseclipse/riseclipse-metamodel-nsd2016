@@ -122,8 +122,6 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
             return createDataSetMemberOf();
         case NsdPackage.DOC:
             return createDoc();
-        case NsdPackage.DOCUMENTED_CLASS:
-            return createDocumentedClass();
         case NsdPackage.ENUMERATION:
             return createEnumeration();
         case NsdPackage.ENUMERATIONS:
@@ -172,8 +170,6 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
             return createSubDataAttribute();
         case NsdPackage.SUB_DATA_OBJECT:
             return createSubDataObject();
-        case NsdPackage.TITLED_CLASS:
-            return createTitledClass();
         default:
             throw new IllegalArgumentException( "The class '" + eClass.getName() + "' is not a valid classifier" );
         }
@@ -507,17 +503,6 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     @Override
-    public DocumentedClass createDocumentedClass() {
-        DocumentedClassImpl documentedClass = new DocumentedClassImpl();
-        return documentedClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public Enumeration createEnumeration() {
         EnumerationImpl enumeration = new EnumerationImpl();
         return enumeration;
@@ -774,17 +759,6 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
     public SubDataObject createSubDataObject() {
         SubDataObjectImpl subDataObject = new SubDataObjectImpl();
         return subDataObject;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public TitledClass createTitledClass() {
-        TitledClassImpl titledClass = new TitledClassImpl();
-        return titledClass;
     }
 
     /**

@@ -596,29 +596,6 @@ public class NsdItemProviderAdapterFactory extends NsdAdapterFactory
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentedClass} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected DocumentedClassItemProvider documentedClassItemProvider;
-
-    /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentedClass}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createDocumentedClassAdapter() {
-        if( documentedClassItemProvider == null ) {
-            documentedClassItemProvider = new DocumentedClassItemProvider( this );
-        }
-
-        return documentedClassItemProvider;
-    }
-
-    /**
      * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1171,29 +1148,6 @@ public class NsdItemProviderAdapterFactory extends NsdAdapterFactory
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TitledClass} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected TitledClassItemProvider titledClassItemProvider;
-
-    /**
-     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TitledClass}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createTitledClassAdapter() {
-        if( titledClassItemProvider == null ) {
-            titledClassItemProvider = new TitledClassItemProvider( this );
-        }
-
-        return titledClassItemProvider;
-    }
-
-    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1320,7 +1274,6 @@ public class NsdItemProviderAdapterFactory extends NsdAdapterFactory
         if( dataObjectItemProvider != null ) dataObjectItemProvider.dispose();
         if( dataSetMemberOfItemProvider != null ) dataSetMemberOfItemProvider.dispose();
         if( docItemProvider != null ) docItemProvider.dispose();
-        if( documentedClassItemProvider != null ) documentedClassItemProvider.dispose();
         if( enumerationItemProvider != null ) enumerationItemProvider.dispose();
         if( enumerationsItemProvider != null ) enumerationsItemProvider.dispose();
         if( functionalConstraintItemProvider != null ) functionalConstraintItemProvider.dispose();
@@ -1345,7 +1298,6 @@ public class NsdItemProviderAdapterFactory extends NsdAdapterFactory
         if( serviceTypeRealizationsItemProvider != null ) serviceTypeRealizationsItemProvider.dispose();
         if( subDataAttributeItemProvider != null ) subDataAttributeItemProvider.dispose();
         if( subDataObjectItemProvider != null ) subDataObjectItemProvider.dispose();
-        if( titledClassItemProvider != null ) titledClassItemProvider.dispose();
     }
 
 }

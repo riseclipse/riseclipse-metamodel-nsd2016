@@ -105,6 +105,7 @@ public interface AbstractLNClass extends AnyLNClass {
      * @model opposite="abstractLNClass" resolveProxies="false" unsettable="true" ordered="false"
      * @generated
      */
+    @Override
     LNClasses getParentLNClasses();
 
     /**

@@ -24,6 +24,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceCondition;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration;
@@ -31,6 +32,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetImpl;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
@@ -1845,12 +1847,33 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
 
         if( isSetPresCondArgsID() ) {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
-                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getPresCondArgsID() );
+                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc(
+                        new NsIdentification( getParentServiceCDC().getParentServiceCDCs().getParentServiceNS() ),
+                        getPresCondArgsID() );
                 if( doc != null ) setRefersToPresCondArgsDoc( doc );
             }
         }
 
         return false;
+    }
+
+    @Override
+    protected NsIdentification getNsIdentification() {
+        return new NsIdentification( getParentServiceCDC().getParentServiceCDCs().getParentServiceNS() );
+    }
+
+    @Override
+    public DataAttribute toDataAttribute() {
+        DataAttribute dataAttribute = new DataAttributeImpl();
+        dataAttribute.setPresCond( getPresCond() );
+        dataAttribute.setPresCondArgs( getPresCondArgs() );
+        dataAttribute.setPresCondArgsID( getPresCondArgsID() );
+        dataAttribute.setType( getType() );
+        dataAttribute.setTypeKind( getTypeKind() );
+        dataAttribute.setFc( getFc() );
+        dataAttribute.setName( getName() );
+
+        return dataAttribute;
     }
 
 } //ServiceDataAttributeImpl

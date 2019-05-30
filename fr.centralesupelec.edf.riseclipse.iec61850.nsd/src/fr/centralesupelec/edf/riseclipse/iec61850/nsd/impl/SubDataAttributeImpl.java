@@ -22,6 +22,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgArray;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeTypeAndValues;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceCondition;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute;
@@ -33,6 +34,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetImpl;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
@@ -2423,12 +2425,14 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
         NS ns = getParentConstructedAttribute().getParentConstructedAttributes().getParentNS();
+        NsdResourceSetImpl rs = getResourceSet();
+        if( rs == null ) return false;
 
         String messagePrefix = "[NSD links] while resolving link from SubDataAttribute (name: " + getName()
                 + ", NS id: " + ns.getId() + ", line: " + getLineNumber() + "): ";
 
         if( isSetPresCond() ) {
-            PresenceCondition foundPC = ns.findPresenceCondition( getPresCond(), console );
+            PresenceCondition foundPC = rs.findPresenceCondition( getPresCond(), getNsIdentification(), console );
             if( foundPC == null ) {
                 console.warning( messagePrefix + "PresenceCondition (name: " + getPresCond() + ") not found" );
             }
@@ -2445,7 +2449,7 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
             if( isSetType() ) {
                 switch( getTypeKind().getValue() ) {
                 case DefinedAttributeTypeKind.BASIC_VALUE:
-                    BasicType foundBT = ns.findBasicType( getType(), console );
+                    BasicType foundBT = rs.findBasicType( getType(), getNsIdentification(), console );
 
                     if( foundBT == null ) {
                         console.warning( messagePrefix + "BasicType (name: " + getType() + ") not found" );
@@ -2459,7 +2463,7 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
                     }
                     break;
                 case DefinedAttributeTypeKind.CONSTRUCTED_VALUE:
-                    ConstructedAttribute foundCA = ns.findConstructedAttribute( getType(), console );
+                    ConstructedAttribute foundCA = rs.findConstructedAttribute( getType(), getNsIdentification(), console );
 
                     if( foundCA == null ) {
                         console.warning( messagePrefix + "ConstructedAttribute (name: " + getType() + ") not found" );
@@ -2475,7 +2479,7 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
-                    Enumeration foundEn = ns.findEnumeration( getType(), console );
+                    Enumeration foundEn = rs.findEnumeration( getType(), getNsIdentification(), console );
 
                     if( foundEn == null ) {
                         console.warning( messagePrefix + "Enumeration (name: " + getType() + ") not found" );
@@ -2497,12 +2501,22 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
 
         if( isSetPresCondArgsID() ) {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
-                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getPresCondArgsID() );
+                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getNsIdentification(),
+                        getPresCondArgsID() );
                 if( doc != null ) setRefersToPresCondArgsDoc( doc );
             }
         }
 
         return false;
+    }
+
+    @Override
+    protected NsIdentification getNsIdentification() {
+        AgNSIdentification parent = getParentConstructedAttribute().getParentConstructedAttributes().getParentNS();
+        if( parent == null ) {
+            parent = getParentConstructedAttribute().getParentServiceTypeRealizations().getParentServiceNS();
+        }
+        return new NsIdentification( parent );
     }
 
 } //SubDataAttributeImpl

@@ -23,28 +23,22 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSdesc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUML;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetImpl;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
-import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import javax.xml.datatype.XMLGregorianCalendar;
 
@@ -1726,146 +1720,6 @@ public class NSImpl extends CopyrightedImpl implements NS {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated NOT
-     */
-    @Override
-    public CDC findCDC( String cDCName, IRiseClipseConsole console ) {
-        if( isSetCDCs() ) {
-            CDC found = getCDCs().getCDC().stream().filter( cdc -> cdc.getName().equals( cDCName ) ).findAny()
-                    .orElse( null );
-            if( found != null ) return found;
-        }
-
-        // Look for in NS referred by DependsOn
-        // Warning: NS referred by DependsOn may not be loaded
-        if( isSetDependsOn() && ( getDependsOn().isSetRefersToNS() ) ) {
-            getDependsOn().buildExplicitLinks( console, false );
-            return getDependsOn().getRefersToNS().findCDC( cDCName, console );
-        }
-
-        return null;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated NOT
-     */
-    @Override
-    public PresenceCondition findPresenceCondition( String presenceConditionName, IRiseClipseConsole console ) {
-        if( isSetPresenceConditions() ) {
-            PresenceCondition found = getPresenceConditions().getPresenceCondition().stream()
-                    .filter( cond -> cond.getName().equals( presenceConditionName ) ).findAny().orElse( null );
-            if( found != null ) return found;
-        }
-
-        // Look for in NS referred by DependsOn
-        // Warning: NS referred by DependsOn may not be loaded
-        if( isSetDependsOn() && ( getDependsOn().isSetRefersToNS() ) ) {
-            getDependsOn().buildExplicitLinks( console, false );
-            return getDependsOn().getRefersToNS().findPresenceCondition( presenceConditionName, console );
-        }
-
-        return null;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated NOT
-     */
-    @Override
-    public FunctionalConstraint findFunctionalConstraint( String functionalConstraintAbbreviation,
-            IRiseClipseConsole console ) {
-        if( isSetFunctionalConstraints() ) {
-            FunctionalConstraint found = getFunctionalConstraints().getFunctionalConstraint().stream()
-                    .filter( fc -> fc.getAbbreviation().equals( functionalConstraintAbbreviation ) ).findAny()
-                    .orElse( null );
-            if( found != null ) return found;
-        }
-
-        // Look for in NS referred by DependsOn
-        // Warning: NS referred by DependsOn may not be loaded
-        if( isSetDependsOn() && ( getDependsOn().isSetRefersToNS() ) ) {
-            getDependsOn().buildExplicitLinks( console, false );
-            return getDependsOn().getRefersToNS().findFunctionalConstraint( functionalConstraintAbbreviation, console );
-        }
-
-        return null;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated NOT
-     */
-    @Override
-    public Enumeration findEnumeration( String enumerationName, IRiseClipseConsole console ) {
-        if( isSetEnumerations() ) {
-            Enumeration found = getEnumerations().getEnumeration().stream()
-                    .filter( en -> en.getName().equals( enumerationName ) ).findAny().orElse( null );
-            if( found != null ) return found;
-        }
-
-        // Look for in NS referred by DependsOn
-        // Warning: NS referred by DependsOn may not be loaded
-        if( isSetDependsOn() && ( getDependsOn().isSetRefersToNS() ) ) {
-            getDependsOn().buildExplicitLinks( console, false );
-            return getDependsOn().getRefersToNS().findEnumeration( enumerationName, console );
-        }
-
-        return null;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated NOT
-     */
-    @Override
-    public BasicType findBasicType( String basicTypeName, IRiseClipseConsole console ) {
-        if( isSetBasicTypes() ) {
-            BasicType found = getBasicTypes().getBasicType().stream()
-                    .filter( bt -> bt.getName().equals( basicTypeName ) ).findAny().orElse( null );
-            if( found != null ) return found;
-        }
-
-        // Look for in NS referred by DependsOn
-        // Warning: NS referred by DependsOn may not be loaded
-        if( isSetDependsOn() && ( getDependsOn().isSetRefersToNS() ) ) {
-            getDependsOn().buildExplicitLinks( console, false );
-            return getDependsOn().getRefersToNS().findBasicType( basicTypeName, console );
-        }
-
-        return null;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated NOT
-     */
-    @Override
-    public ConstructedAttribute findConstructedAttribute( String constructedAttributeName, IRiseClipseConsole console ) {
-        if( isSetConstructedAttributes() ) {
-            ConstructedAttribute found = getConstructedAttributes().getConstructedAttribute().stream()
-                    .filter( ca -> ca.getName().equals( constructedAttributeName ) ).findAny().orElse( null );
-            if( found != null ) return found;
-        }
-
-        // Look for in NS referred by DependsOn
-        // Warning: NS referred by DependsOn may not be loaded
-        if( isSetDependsOn() && ( getDependsOn().isSetRefersToNS() ) ) {
-            getDependsOn().buildExplicitLinks( console, false );
-            return getDependsOn().getRefersToNS().findConstructedAttribute( constructedAttributeName, console );
-        }
-
-        return null;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
      * @generated
      */
     @Override
@@ -2845,30 +2699,6 @@ public class NSImpl extends CopyrightedImpl implements NS {
      * @generated
      */
     @Override
-    public Object eInvoke( int operationID, EList< ? > arguments ) throws InvocationTargetException {
-        switch( operationID ) {
-        case NsdPackage.NS___FIND_CDC__STRING_IRISECLIPSECONSOLE:
-            return findCDC( ( String ) arguments.get( 0 ), ( IRiseClipseConsole ) arguments.get( 1 ) );
-        case NsdPackage.NS___FIND_PRESENCE_CONDITION__STRING_IRISECLIPSECONSOLE:
-            return findPresenceCondition( ( String ) arguments.get( 0 ), ( IRiseClipseConsole ) arguments.get( 1 ) );
-        case NsdPackage.NS___FIND_FUNCTIONAL_CONSTRAINT__STRING_IRISECLIPSECONSOLE:
-            return findFunctionalConstraint( ( String ) arguments.get( 0 ), ( IRiseClipseConsole ) arguments.get( 1 ) );
-        case NsdPackage.NS___FIND_ENUMERATION__STRING_IRISECLIPSECONSOLE:
-            return findEnumeration( ( String ) arguments.get( 0 ), ( IRiseClipseConsole ) arguments.get( 1 ) );
-        case NsdPackage.NS___FIND_BASIC_TYPE__STRING_IRISECLIPSECONSOLE:
-            return findBasicType( ( String ) arguments.get( 0 ), ( IRiseClipseConsole ) arguments.get( 1 ) );
-        case NsdPackage.NS___FIND_CONSTRUCTED_ATTRIBUTE__STRING_IRISECLIPSECONSOLE:
-            return findConstructedAttribute( ( String ) arguments.get( 0 ), ( IRiseClipseConsole ) arguments.get( 1 ) );
-        }
-        return super.eInvoke( operationID, arguments );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public String toString() {
         if( eIsProxy() ) return super.toString();
 
@@ -2923,7 +2753,8 @@ public class NSImpl extends CopyrightedImpl implements NS {
 
         if( isSetDescID() ) {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
-                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getDescID() );
+                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() )
+                        .findDoc( new NsIdentification( this ), getDescID() );
                 if( doc != null ) setRefersToDoc( doc );
             }
         }

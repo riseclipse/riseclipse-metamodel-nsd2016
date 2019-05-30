@@ -257,12 +257,13 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//Doc/referredByDocumentedClass"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//Doc/referredByFunctionalConstraint"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//Doc/referredByAgPresenceConditionDerivedStatistics"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//Doc/referredByTitledClass"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//DocumentedClass">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//DocumentedClass/deprecated"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//DocumentedClass/descID"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//DocumentedClass/informative"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//DocumentedClass/refersToDoc"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//DocumentedClass/refersToDescDoc"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//Enumeration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//Enumeration/literal"/>
@@ -329,30 +330,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//NS/cDCs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//NS/lNClasses"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//NS/referredByDependsOn"/>
-      <genOperations ecoreOperation="nsd.ecore#//NS/findCDC">
-        <genParameters ecoreParameter="nsd.ecore#//NS/findCDC/cDCName"/>
-        <genParameters ecoreParameter="nsd.ecore#//NS/findCDC/console"/>
-      </genOperations>
-      <genOperations ecoreOperation="nsd.ecore#//NS/findPresenceCondition">
-        <genParameters ecoreParameter="nsd.ecore#//NS/findPresenceCondition/presenceConditionName"/>
-        <genParameters ecoreParameter="nsd.ecore#//NS/findPresenceCondition/console"/>
-      </genOperations>
-      <genOperations ecoreOperation="nsd.ecore#//NS/findFunctionalConstraint">
-        <genParameters ecoreParameter="nsd.ecore#//NS/findFunctionalConstraint/functionalConstraintAbbreviation"/>
-        <genParameters ecoreParameter="nsd.ecore#//NS/findFunctionalConstraint/console"/>
-      </genOperations>
-      <genOperations ecoreOperation="nsd.ecore#//NS/findEnumeration">
-        <genParameters ecoreParameter="nsd.ecore#//NS/findEnumeration/enumerationName"/>
-        <genParameters ecoreParameter="nsd.ecore#//NS/findEnumeration/console"/>
-      </genOperations>
-      <genOperations ecoreOperation="nsd.ecore#//NS/findBasicType">
-        <genParameters ecoreParameter="nsd.ecore#//NS/findBasicType/basicTypeName"/>
-        <genParameters ecoreParameter="nsd.ecore#//NS/findBasicType/console"/>
-      </genOperations>
-      <genOperations ecoreOperation="nsd.ecore#//NS/findConstructedAttribute">
-        <genParameters ecoreParameter="nsd.ecore#//NS/findConstructedAttribute/constructedAttributeName"/>
-        <genParameters ecoreParameter="nsd.ecore#//NS/findConstructedAttribute/console"/>
-      </genOperations>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//NSDoc">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//NSDoc/doc"/>
@@ -436,6 +413,7 @@
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//TitledClass">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//TitledClass/titleID"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//TitledClass/refersToTitleDoc"/>
     </genClasses>
     <genClasses image="false" ecoreClass="nsd.ecore#//NsdObject">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//NsdObject/lineNumber"/>

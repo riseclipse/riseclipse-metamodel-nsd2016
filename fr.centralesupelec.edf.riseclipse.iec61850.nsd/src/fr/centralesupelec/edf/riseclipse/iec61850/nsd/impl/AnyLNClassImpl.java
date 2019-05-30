@@ -24,6 +24,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 import fr.centralesupelec.edf.riseclipse.util.RiseClipseFatalException;
 
@@ -520,7 +521,7 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
         if( isSetBase() ) {
 
             String messagePrefix = "[NSD links] while resolving link from AnyLNClass (name: " + getName()
-                + ", NS id: " + getParentLNClasses().getParentNS().getId() + ", line: " + getLineNumber() + "): ";
+                    + ", NS id: " + getParentLNClasses().getParentNS().getId() + ", line: " + getLineNumber() + "): ";
 
             // This code assumes that the referred AbstractLNClass is in the same NS
             // TODO: check that it is right
@@ -532,9 +533,10 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
                     .ifPresent( abstractLNClass -> setRefersToAbstractLNClass( abstractLNClass ) );
 
             if( isSetRefersToAbstractLNClass() ) {
-                console.info( "[NSD links] AbstractLNClass (name: " + getBase() + ") refers by AnyLNClass (name: " + getName()
-                        + ") in NS (id:" + getParentLNClasses().getParentNS().getId() + ") found in NS (id:"
-                        + getRefersToAbstractLNClass().getParentLNClasses().getParentNS().getId() + ")" );
+                console.info(
+                        "[NSD links] AbstractLNClass (name: " + getBase() + ") refers by AnyLNClass (name: " + getName()
+                                + ") in NS (id:" + getParentLNClasses().getParentNS().getId() + ") found in NS (id:"
+                                + getRefersToAbstractLNClass().getParentLNClasses().getParentNS().getId() + ")" );
             }
             else {
                 console.warning( messagePrefix + "AbstractLNClass (name: " + getBase() + ") not found" );
@@ -542,6 +544,11 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
         }
 
         return false;
+    }
+
+    @Override
+    protected NsIdentification getNsIdentification() {
+        return new NsIdentification( getParentLNClasses().getParentNS() );
     }
 
 } //AnyLNClassImpl

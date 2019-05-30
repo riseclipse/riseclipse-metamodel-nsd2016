@@ -919,15 +919,18 @@
         eOpposite="#//BasicType/refersToDoc"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="referredByDocumentedClass"
         ordered="false" upperBound="-1" eType="#//DocumentedClass" transient="true"
-        unsettable="true" resolveProxies="false" eOpposite="#//DocumentedClass/refersToDoc"/>
+        unsettable="true" resolveProxies="false" eOpposite="#//DocumentedClass/refersToDescDoc"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="referredByFunctionalConstraint"
         ordered="false" upperBound="-1" eType="#//FunctionalConstraint" transient="true"
         unsettable="true" resolveProxies="false" eOpposite="#//FunctionalConstraint/refersToDoc"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="referredByAgPresenceConditionDerivedStatistics"
         ordered="false" upperBound="-1" eType="#//AgPresenceConditionDerivedStatistics"
         transient="true" unsettable="true" resolveProxies="false" eOpposite="#//AgPresenceConditionDerivedStatistics/refersToDsPresCondArgsDoc"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referredByTitledClass"
+        ordered="false" upperBound="-1" eType="#//TitledClass" transient="true" unsettable="true"
+        resolveProxies="false" eOpposite="#//TitledClass/refersToTitleDoc"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DocumentedClass" eSuperTypes="#//NsdObject">
+  <eClassifiers xsi:type="ecore:EClass" name="DocumentedClass" abstract="true" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tDocumentedClass"/>
       <details key="kind" value="empty"/>
@@ -953,7 +956,7 @@
         <details key="name" value="informative"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="refersToDoc" ordered="false"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refersToDescDoc" ordered="false"
         eType="#//Doc" transient="true" unsettable="true" resolveProxies="false" eOpposite="#//Doc/referredByDocumentedClass"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Enumeration" eSuperTypes="#//TitledClass">
@@ -1268,30 +1271,6 @@
       <details key="name" value="tNS"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
-    <eOperations name="findCDC" eType="#//CDC">
-      <eParameters name="cDCName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eParameters name="console" eType="#//IRiseClipseConsole"/>
-    </eOperations>
-    <eOperations name="findPresenceCondition" eType="#//PresenceCondition">
-      <eParameters name="presenceConditionName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eParameters name="console" eType="#//IRiseClipseConsole"/>
-    </eOperations>
-    <eOperations name="findFunctionalConstraint" eType="#//FunctionalConstraint">
-      <eParameters name="functionalConstraintAbbreviation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eParameters name="console" eType="#//IRiseClipseConsole"/>
-    </eOperations>
-    <eOperations name="findEnumeration" eType="#//Enumeration">
-      <eParameters name="enumerationName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eParameters name="console" eType="#//IRiseClipseConsole"/>
-    </eOperations>
-    <eOperations name="findBasicType" eType="#//BasicType">
-      <eParameters name="basicTypeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eParameters name="console" eType="#//IRiseClipseConsole"/>
-    </eOperations>
-    <eOperations name="findConstructedAttribute" eType="#//ConstructedAttribute">
-      <eParameters name="constructedAttributeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eParameters name="console" eType="#//IRiseClipseConsole"/>
-    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="changes" ordered="false"
         eType="#//Changes" unsettable="true" containment="true" resolveProxies="false"
         eOpposite="#//Changes/parentNS">
@@ -1867,7 +1846,7 @@
         ordered="false" eType="#//DataAttribute" transient="true" unsettable="true"
         resolveProxies="false" eOpposite="#//DataAttribute/referredBySubDataObjectAsMaxIndexAttribute"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TitledClass" eSuperTypes="#//DocumentedClass">
+  <eClassifiers xsi:type="ecore:EClass" name="TitledClass" abstract="true" eSuperTypes="#//DocumentedClass">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tTitledClass"/>
       <details key="kind" value="empty"/>
@@ -1885,6 +1864,8 @@
         <details key="name" value="titleID"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refersToTitleDoc" ordered="false"
+        eType="#//Doc" transient="true" unsettable="true" resolveProxies="false" eOpposite="#//Doc/referredByTitledClass"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="UndefinedAttributeTypeKind">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">

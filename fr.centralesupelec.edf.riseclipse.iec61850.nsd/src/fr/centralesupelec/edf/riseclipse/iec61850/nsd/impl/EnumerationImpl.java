@@ -25,6 +25,8 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetImpl;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
 import java.util.Collection;
@@ -786,12 +788,14 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
         NS ns = getParentEnumerations().getParentNS();
+        NsdResourceSetImpl rs = getResourceSet();
+        if( rs == null ) return false;
 
         String messagePrefix = "[NSD links] while resolving link from Enumeration (name: " + getName()
                 + ", NS id: " + ns.getId() + ", line: " + getLineNumber() + "): ";
 
         if( isSetInheritedFrom() ) {
-            Enumeration foundBase = ns.findEnumeration( getInheritedFrom(), console );
+            Enumeration foundBase = rs.findEnumeration( getInheritedFrom(), getNsIdentification(), console );
             if( foundBase == null ) {
                 console.warning( messagePrefix + "Enumeration (name: " + getInheritedFrom() + ") not found" );
             }
@@ -804,6 +808,11 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
         }
 
         return false;
+    }
+
+    @Override
+    protected NsIdentification getNsIdentification() {
+        return new NsIdentification( getParentEnumerations().getParentNS() );
     }
 
 } //EnumerationImpl

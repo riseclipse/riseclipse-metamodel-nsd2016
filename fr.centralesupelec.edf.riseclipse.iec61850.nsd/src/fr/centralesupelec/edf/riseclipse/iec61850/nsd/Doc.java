@@ -44,6 +44,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByDocumentedClass <em>Referred By Documented Class</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByFunctionalConstraint <em>Referred By Functional Constraint</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByAgPresenceConditionDerivedStatistics <em>Referred By Ag Presence Condition Derived Statistics</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByTitledClass <em>Referred By Titled Class</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDoc()
@@ -366,15 +367,15 @@ public interface Doc extends NsdObject {
     /**
      * Returns the value of the '<em><b>Referred By Documented Class</b></em>' reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentedClass}.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentedClass#getRefersToDoc <em>Refers To Doc</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentedClass#getRefersToDescDoc <em>Refers To Desc Doc</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>Referred By Documented Class</em>' reference list.
      * @see #isSetReferredByDocumentedClass()
      * @see #unsetReferredByDocumentedClass()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDoc_ReferredByDocumentedClass()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentedClass#getRefersToDoc
-     * @model opposite="refersToDoc" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentedClass#getRefersToDescDoc
+     * @model opposite="refersToDescDoc" resolveProxies="false" unsettable="true" transient="true" ordered="false"
      * @generated
      */
     EList< DocumentedClass > getReferredByDocumentedClass();
@@ -473,5 +474,42 @@ public interface Doc extends NsdObject {
      * @generated
      */
     boolean isSetReferredByAgPresenceConditionDerivedStatistics();
+
+    /**
+     * Returns the value of the '<em><b>Referred By Titled Class</b></em>' reference list.
+     * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TitledClass}.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TitledClass#getRefersToTitleDoc <em>Refers To Title Doc</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Referred By Titled Class</em>' reference list.
+     * @see #isSetReferredByTitledClass()
+     * @see #unsetReferredByTitledClass()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDoc_ReferredByTitledClass()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TitledClass#getRefersToTitleDoc
+     * @model opposite="refersToTitleDoc" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @generated
+     */
+    EList< TitledClass > getReferredByTitledClass();
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByTitledClass <em>Referred By Titled Class</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetReferredByTitledClass()
+     * @see #getReferredByTitledClass()
+     * @generated
+     */
+    void unsetReferredByTitledClass();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByTitledClass <em>Referred By Titled Class</em>}' reference list is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Referred By Titled Class</em>' reference list is set.
+     * @see #unsetReferredByTitledClass()
+     * @see #getReferredByTitledClass()
+     * @generated
+     */
+    boolean isSetReferredByTitledClass();
 
 } // Doc

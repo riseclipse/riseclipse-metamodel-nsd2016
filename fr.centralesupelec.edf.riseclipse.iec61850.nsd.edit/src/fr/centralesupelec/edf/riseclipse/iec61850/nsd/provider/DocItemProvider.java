@@ -78,6 +78,7 @@ public class DocItemProvider extends NsdObjectItemProvider {
             addReferredByDocumentedClassPropertyDescriptor( object );
             addReferredByFunctionalConstraintPropertyDescriptor( object );
             addReferredByAgPresenceConditionDerivedStatisticsPropertyDescriptor( object );
+            addReferredByTitledClassPropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -271,6 +272,28 @@ public class DocItemProvider extends NsdObjectItemProvider {
                         getString( "_UI_PropertyDescriptor_description",
                                 "_UI_Doc_referredByAgPresenceConditionDerivedStatistics_feature", "_UI_Doc_type" ),
                         NsdPackage.Literals.DOC__REFERRED_BY_AG_PRESENCE_CONDITION_DERIVED_STATISTICS,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Referred By Titled Class feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReferredByTitledClassPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_Doc_referredByTitledClass_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_Doc_referredByTitledClass_feature",
+                                "_UI_Doc_type" ),
+                        NsdPackage.Literals.DOC__REFERRED_BY_TITLED_CLASS,
                         true,
                         false,
                         true,

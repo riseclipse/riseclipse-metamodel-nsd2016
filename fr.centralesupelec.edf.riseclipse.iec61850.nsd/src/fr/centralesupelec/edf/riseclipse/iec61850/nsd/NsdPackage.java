@@ -1276,13 +1276,13 @@ public interface NsdPackage extends EPackage {
     int DOCUMENTED_CLASS__INFORMATIVE = NSD_OBJECT_FEATURE_COUNT + 2;
 
     /**
-     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * The feature id for the '<em><b>Refers To Desc Doc</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DOCUMENTED_CLASS__REFERS_TO_DOC = NSD_OBJECT_FEATURE_COUNT + 3;
+    int DOCUMENTED_CLASS__REFERS_TO_DESC_DOC = NSD_OBJECT_FEATURE_COUNT + 3;
 
     /**
      * The number of structural features of the '<em>Documented Class</em>' class.
@@ -1357,13 +1357,13 @@ public interface NsdPackage extends EPackage {
     int TITLED_CLASS__INFORMATIVE = DOCUMENTED_CLASS__INFORMATIVE;
 
     /**
-     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * The feature id for the '<em><b>Refers To Desc Doc</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int TITLED_CLASS__REFERS_TO_DOC = DOCUMENTED_CLASS__REFERS_TO_DOC;
+    int TITLED_CLASS__REFERS_TO_DESC_DOC = DOCUMENTED_CLASS__REFERS_TO_DESC_DOC;
 
     /**
      * The feature id for the '<em><b>Title ID</b></em>' attribute.
@@ -1375,13 +1375,22 @@ public interface NsdPackage extends EPackage {
     int TITLED_CLASS__TITLE_ID = DOCUMENTED_CLASS_FEATURE_COUNT + 0;
 
     /**
+     * The feature id for the '<em><b>Refers To Title Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TITLED_CLASS__REFERS_TO_TITLE_DOC = DOCUMENTED_CLASS_FEATURE_COUNT + 1;
+
+    /**
      * The number of structural features of the '<em>Titled Class</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int TITLED_CLASS_FEATURE_COUNT = DOCUMENTED_CLASS_FEATURE_COUNT + 1;
+    int TITLED_CLASS_FEATURE_COUNT = DOCUMENTED_CLASS_FEATURE_COUNT + 2;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -1447,13 +1456,13 @@ public interface NsdPackage extends EPackage {
     int ANY_LN_CLASS__INFORMATIVE = TITLED_CLASS__INFORMATIVE;
 
     /**
-     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * The feature id for the '<em><b>Refers To Desc Doc</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ANY_LN_CLASS__REFERS_TO_DOC = TITLED_CLASS__REFERS_TO_DOC;
+    int ANY_LN_CLASS__REFERS_TO_DESC_DOC = TITLED_CLASS__REFERS_TO_DESC_DOC;
 
     /**
      * The feature id for the '<em><b>Title ID</b></em>' attribute.
@@ -1463,6 +1472,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int ANY_LN_CLASS__TITLE_ID = TITLED_CLASS__TITLE_ID;
+
+    /**
+     * The feature id for the '<em><b>Refers To Title Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ANY_LN_CLASS__REFERS_TO_TITLE_DOC = TITLED_CLASS__REFERS_TO_TITLE_DOC;
 
     /**
      * The feature id for the '<em><b>Data Object</b></em>' containment reference list.
@@ -1582,13 +1600,13 @@ public interface NsdPackage extends EPackage {
     int ABSTRACT_LN_CLASS__INFORMATIVE = ANY_LN_CLASS__INFORMATIVE;
 
     /**
-     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * The feature id for the '<em><b>Refers To Desc Doc</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ABSTRACT_LN_CLASS__REFERS_TO_DOC = ANY_LN_CLASS__REFERS_TO_DOC;
+    int ABSTRACT_LN_CLASS__REFERS_TO_DESC_DOC = ANY_LN_CLASS__REFERS_TO_DESC_DOC;
 
     /**
      * The feature id for the '<em><b>Title ID</b></em>' attribute.
@@ -1598,6 +1616,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int ABSTRACT_LN_CLASS__TITLE_ID = ANY_LN_CLASS__TITLE_ID;
+
+    /**
+     * The feature id for the '<em><b>Refers To Title Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_LN_CLASS__REFERS_TO_TITLE_DOC = ANY_LN_CLASS__REFERS_TO_TITLE_DOC;
 
     /**
      * The feature id for the '<em><b>Data Object</b></em>' containment reference list.
@@ -2104,13 +2131,13 @@ public interface NsdPackage extends EPackage {
     int CDC__INFORMATIVE = TITLED_CLASS__INFORMATIVE;
 
     /**
-     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * The feature id for the '<em><b>Refers To Desc Doc</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CDC__REFERS_TO_DOC = TITLED_CLASS__REFERS_TO_DOC;
+    int CDC__REFERS_TO_DESC_DOC = TITLED_CLASS__REFERS_TO_DESC_DOC;
 
     /**
      * The feature id for the '<em><b>Title ID</b></em>' attribute.
@@ -2120,6 +2147,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int CDC__TITLE_ID = TITLED_CLASS__TITLE_ID;
+
+    /**
+     * The feature id for the '<em><b>Refers To Title Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CDC__REFERS_TO_TITLE_DOC = TITLED_CLASS__REFERS_TO_TITLE_DOC;
 
     /**
      * The feature id for the '<em><b>Sub Data Object</b></em>' containment reference list.
@@ -2473,13 +2509,13 @@ public interface NsdPackage extends EPackage {
     int CONSTRUCTED_ATTRIBUTE__INFORMATIVE = TITLED_CLASS__INFORMATIVE;
 
     /**
-     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * The feature id for the '<em><b>Refers To Desc Doc</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CONSTRUCTED_ATTRIBUTE__REFERS_TO_DOC = TITLED_CLASS__REFERS_TO_DOC;
+    int CONSTRUCTED_ATTRIBUTE__REFERS_TO_DESC_DOC = TITLED_CLASS__REFERS_TO_DESC_DOC;
 
     /**
      * The feature id for the '<em><b>Title ID</b></em>' attribute.
@@ -2489,6 +2525,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int CONSTRUCTED_ATTRIBUTE__TITLE_ID = TITLED_CLASS__TITLE_ID;
+
+    /**
+     * The feature id for the '<em><b>Refers To Title Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONSTRUCTED_ATTRIBUTE__REFERS_TO_TITLE_DOC = TITLED_CLASS__REFERS_TO_TITLE_DOC;
 
     /**
      * The feature id for the '<em><b>Sub Data Attribute</b></em>' containment reference list.
@@ -2743,13 +2788,13 @@ public interface NsdPackage extends EPackage {
     int DATA_ATTRIBUTE__INFORMATIVE = DOCUMENTED_CLASS__INFORMATIVE;
 
     /**
-     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * The feature id for the '<em><b>Refers To Desc Doc</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE__REFERS_TO_DOC = DOCUMENTED_CLASS__REFERS_TO_DOC;
+    int DATA_ATTRIBUTE__REFERS_TO_DESC_DOC = DOCUMENTED_CLASS__REFERS_TO_DESC_DOC;
 
     /**
      * The feature id for the '<em><b>Pres Cond</b></em>' attribute.
@@ -3094,13 +3139,13 @@ public interface NsdPackage extends EPackage {
     int DATA_OBJECT__INFORMATIVE = DOCUMENTED_CLASS__INFORMATIVE;
 
     /**
-     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * The feature id for the '<em><b>Refers To Desc Doc</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DATA_OBJECT__REFERS_TO_DOC = DOCUMENTED_CLASS__REFERS_TO_DOC;
+    int DATA_OBJECT__REFERS_TO_DESC_DOC = DOCUMENTED_CLASS__REFERS_TO_DESC_DOC;
 
     /**
      * The feature id for the '<em><b>Pres Cond</b></em>' attribute.
@@ -3481,13 +3526,22 @@ public interface NsdPackage extends EPackage {
     int DOC__REFERRED_BY_AG_PRESENCE_CONDITION_DERIVED_STATISTICS = NSD_OBJECT_FEATURE_COUNT + 12;
 
     /**
+     * The feature id for the '<em><b>Referred By Titled Class</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DOC__REFERRED_BY_TITLED_CLASS = NSD_OBJECT_FEATURE_COUNT + 13;
+
+    /**
      * The number of structural features of the '<em>Doc</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DOC_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 13;
+    int DOC_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 14;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -3553,13 +3607,13 @@ public interface NsdPackage extends EPackage {
     int ENUMERATION__INFORMATIVE = TITLED_CLASS__INFORMATIVE;
 
     /**
-     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * The feature id for the '<em><b>Refers To Desc Doc</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ENUMERATION__REFERS_TO_DOC = TITLED_CLASS__REFERS_TO_DOC;
+    int ENUMERATION__REFERS_TO_DESC_DOC = TITLED_CLASS__REFERS_TO_DESC_DOC;
 
     /**
      * The feature id for the '<em><b>Title ID</b></em>' attribute.
@@ -3569,6 +3623,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int ENUMERATION__TITLE_ID = TITLED_CLASS__TITLE_ID;
+
+    /**
+     * The feature id for the '<em><b>Refers To Title Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ENUMERATION__REFERS_TO_TITLE_DOC = TITLED_CLASS__REFERS_TO_TITLE_DOC;
 
     /**
      * The feature id for the '<em><b>Literal</b></em>' containment reference list.
@@ -4030,13 +4093,13 @@ public interface NsdPackage extends EPackage {
     int LITERAL__INFORMATIVE = DOCUMENTED_CLASS__INFORMATIVE;
 
     /**
-     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * The feature id for the '<em><b>Refers To Desc Doc</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int LITERAL__REFERS_TO_DOC = DOCUMENTED_CLASS__REFERS_TO_DOC;
+    int LITERAL__REFERS_TO_DESC_DOC = DOCUMENTED_CLASS__REFERS_TO_DESC_DOC;
 
     /**
      * The feature id for the '<em><b>Literal Val</b></em>' attribute.
@@ -4138,13 +4201,13 @@ public interface NsdPackage extends EPackage {
     int LN_CLASS__INFORMATIVE = ANY_LN_CLASS__INFORMATIVE;
 
     /**
-     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * The feature id for the '<em><b>Refers To Desc Doc</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int LN_CLASS__REFERS_TO_DOC = ANY_LN_CLASS__REFERS_TO_DOC;
+    int LN_CLASS__REFERS_TO_DESC_DOC = ANY_LN_CLASS__REFERS_TO_DESC_DOC;
 
     /**
      * The feature id for the '<em><b>Title ID</b></em>' attribute.
@@ -4154,6 +4217,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int LN_CLASS__TITLE_ID = ANY_LN_CLASS__TITLE_ID;
+
+    /**
+     * The feature id for the '<em><b>Refers To Title Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LN_CLASS__REFERS_TO_TITLE_DOC = ANY_LN_CLASS__REFERS_TO_TITLE_DOC;
 
     /**
      * The feature id for the '<em><b>Data Object</b></em>' containment reference list.
@@ -4624,67 +4696,13 @@ public interface NsdPackage extends EPackage {
     int NS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = COPYRIGHTED___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
-     * The operation id for the '<em>Find CDC</em>' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int NS___FIND_CDC__STRING_IRISECLIPSECONSOLE = COPYRIGHTED_OPERATION_COUNT + 0;
-
-    /**
-     * The operation id for the '<em>Find Presence Condition</em>' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int NS___FIND_PRESENCE_CONDITION__STRING_IRISECLIPSECONSOLE = COPYRIGHTED_OPERATION_COUNT + 1;
-
-    /**
-     * The operation id for the '<em>Find Functional Constraint</em>' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int NS___FIND_FUNCTIONAL_CONSTRAINT__STRING_IRISECLIPSECONSOLE = COPYRIGHTED_OPERATION_COUNT + 2;
-
-    /**
-     * The operation id for the '<em>Find Enumeration</em>' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int NS___FIND_ENUMERATION__STRING_IRISECLIPSECONSOLE = COPYRIGHTED_OPERATION_COUNT + 3;
-
-    /**
-     * The operation id for the '<em>Find Basic Type</em>' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int NS___FIND_BASIC_TYPE__STRING_IRISECLIPSECONSOLE = COPYRIGHTED_OPERATION_COUNT + 4;
-
-    /**
-     * The operation id for the '<em>Find Constructed Attribute</em>' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int NS___FIND_CONSTRUCTED_ATTRIBUTE__STRING_IRISECLIPSECONSOLE = COPYRIGHTED_OPERATION_COUNT + 5;
-
-    /**
      * The number of operations of the '<em>NS</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int NS_OPERATION_COUNT = COPYRIGHTED_OPERATION_COUNT + 6;
+    int NS_OPERATION_COUNT = COPYRIGHTED_OPERATION_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -5227,13 +5245,13 @@ public interface NsdPackage extends EPackage {
     int SERVICE_CONSTRUCTED_ATTRIBUTE__INFORMATIVE = CONSTRUCTED_ATTRIBUTE__INFORMATIVE;
 
     /**
-     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * The feature id for the '<em><b>Refers To Desc Doc</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SERVICE_CONSTRUCTED_ATTRIBUTE__REFERS_TO_DOC = CONSTRUCTED_ATTRIBUTE__REFERS_TO_DOC;
+    int SERVICE_CONSTRUCTED_ATTRIBUTE__REFERS_TO_DESC_DOC = CONSTRUCTED_ATTRIBUTE__REFERS_TO_DESC_DOC;
 
     /**
      * The feature id for the '<em><b>Title ID</b></em>' attribute.
@@ -5243,6 +5261,15 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int SERVICE_CONSTRUCTED_ATTRIBUTE__TITLE_ID = CONSTRUCTED_ATTRIBUTE__TITLE_ID;
+
+    /**
+     * The feature id for the '<em><b>Refers To Title Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_CONSTRUCTED_ATTRIBUTE__REFERS_TO_TITLE_DOC = CONSTRUCTED_ATTRIBUTE__REFERS_TO_TITLE_DOC;
 
     /**
      * The feature id for the '<em><b>Sub Data Attribute</b></em>' containment reference list.
@@ -5443,13 +5470,13 @@ public interface NsdPackage extends EPackage {
     int SERVICE_DATA_ATTRIBUTE__INFORMATIVE = DOCUMENTED_CLASS__INFORMATIVE;
 
     /**
-     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * The feature id for the '<em><b>Refers To Desc Doc</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SERVICE_DATA_ATTRIBUTE__REFERS_TO_DOC = DOCUMENTED_CLASS__REFERS_TO_DOC;
+    int SERVICE_DATA_ATTRIBUTE__REFERS_TO_DESC_DOC = DOCUMENTED_CLASS__REFERS_TO_DESC_DOC;
 
     /**
      * The feature id for the '<em><b>Pres Cond</b></em>' attribute.
@@ -5956,13 +5983,13 @@ public interface NsdPackage extends EPackage {
     int SERVICE_PARAMETER__INFORMATIVE = DOCUMENTED_CLASS__INFORMATIVE;
 
     /**
-     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * The feature id for the '<em><b>Refers To Desc Doc</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SERVICE_PARAMETER__REFERS_TO_DOC = DOCUMENTED_CLASS__REFERS_TO_DOC;
+    int SERVICE_PARAMETER__REFERS_TO_DESC_DOC = DOCUMENTED_CLASS__REFERS_TO_DESC_DOC;
 
     /**
      * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -6190,13 +6217,13 @@ public interface NsdPackage extends EPackage {
     int SUB_DATA_ATTRIBUTE__INFORMATIVE = DOCUMENTED_CLASS__INFORMATIVE;
 
     /**
-     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * The feature id for the '<em><b>Refers To Desc Doc</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SUB_DATA_ATTRIBUTE__REFERS_TO_DOC = DOCUMENTED_CLASS__REFERS_TO_DOC;
+    int SUB_DATA_ATTRIBUTE__REFERS_TO_DESC_DOC = DOCUMENTED_CLASS__REFERS_TO_DESC_DOC;
 
     /**
      * The feature id for the '<em><b>Pres Cond</b></em>' attribute.
@@ -6442,13 +6469,13 @@ public interface NsdPackage extends EPackage {
     int SUB_DATA_OBJECT__INFORMATIVE = DOCUMENTED_CLASS__INFORMATIVE;
 
     /**
-     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * The feature id for the '<em><b>Refers To Desc Doc</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SUB_DATA_OBJECT__REFERS_TO_DOC = DOCUMENTED_CLASS__REFERS_TO_DOC;
+    int SUB_DATA_OBJECT__REFERS_TO_DESC_DOC = DOCUMENTED_CLASS__REFERS_TO_DESC_DOC;
 
     /**
      * The feature id for the '<em><b>Pres Cond</b></em>' attribute.
@@ -8703,6 +8730,17 @@ public interface NsdPackage extends EPackage {
     EReference getDoc_ReferredByAgPresenceConditionDerivedStatistics();
 
     /**
+     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByTitledClass <em>Referred By Titled Class</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Referred By Titled Class</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByTitledClass()
+     * @see #getDoc()
+     * @generated
+     */
+    EReference getDoc_ReferredByTitledClass();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentedClass <em>Documented Class</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8746,15 +8784,15 @@ public interface NsdPackage extends EPackage {
     EAttribute getDocumentedClass_Informative();
 
     /**
-     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentedClass#getRefersToDoc <em>Refers To Doc</em>}'.
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentedClass#getRefersToDescDoc <em>Refers To Desc Doc</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Refers To Doc</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentedClass#getRefersToDoc()
+     * @return the meta object for the reference '<em>Refers To Desc Doc</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentedClass#getRefersToDescDoc()
      * @see #getDocumentedClass()
      * @generated
      */
-    EReference getDocumentedClass_RefersToDoc();
+    EReference getDocumentedClass_RefersToDescDoc();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration <em>Enumeration</em>}'.
@@ -9361,66 +9399,6 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EReference getNS_ReferredByDependsOn();
-
-    /**
-     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findCDC(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole) <em>Find CDC</em>}' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the '<em>Find CDC</em>' operation.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findCDC(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole)
-     * @generated
-     */
-    EOperation getNS__FindCDC__String_IRiseClipseConsole();
-
-    /**
-     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findPresenceCondition(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole) <em>Find Presence Condition</em>}' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the '<em>Find Presence Condition</em>' operation.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findPresenceCondition(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole)
-     * @generated
-     */
-    EOperation getNS__FindPresenceCondition__String_IRiseClipseConsole();
-
-    /**
-     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findFunctionalConstraint(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole) <em>Find Functional Constraint</em>}' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the '<em>Find Functional Constraint</em>' operation.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findFunctionalConstraint(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole)
-     * @generated
-     */
-    EOperation getNS__FindFunctionalConstraint__String_IRiseClipseConsole();
-
-    /**
-     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findEnumeration(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole) <em>Find Enumeration</em>}' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the '<em>Find Enumeration</em>' operation.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findEnumeration(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole)
-     * @generated
-     */
-    EOperation getNS__FindEnumeration__String_IRiseClipseConsole();
-
-    /**
-     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findBasicType(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole) <em>Find Basic Type</em>}' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the '<em>Find Basic Type</em>' operation.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findBasicType(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole)
-     * @generated
-     */
-    EOperation getNS__FindBasicType__String_IRiseClipseConsole();
-
-    /**
-     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findConstructedAttribute(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole) <em>Find Constructed Attribute</em>}' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the '<em>Find Constructed Attribute</em>' operation.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#findConstructedAttribute(java.lang.String, fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole)
-     * @generated
-     */
-    EOperation getNS__FindConstructedAttribute__String_IRiseClipseConsole();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc <em>NS Doc</em>}'.
@@ -10154,6 +10132,17 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EAttribute getTitledClass_TitleID();
+
+    /**
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TitledClass#getRefersToTitleDoc <em>Refers To Title Doc</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Refers To Title Doc</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TitledClass#getRefersToTitleDoc()
+     * @see #getTitledClass()
+     * @generated
+     */
+    EReference getTitledClass_RefersToTitleDoc();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdObject <em>Object</em>}'.
@@ -11935,6 +11924,14 @@ public interface NsdPackage extends EPackage {
                 .getDoc_ReferredByAgPresenceConditionDerivedStatistics();
 
         /**
+         * The meta object literal for the '<em><b>Referred By Titled Class</b></em>' reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DOC__REFERRED_BY_TITLED_CLASS = eINSTANCE.getDoc_ReferredByTitledClass();
+
+        /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DocumentedClassImpl <em>Documented Class</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -11969,12 +11966,12 @@ public interface NsdPackage extends EPackage {
         EAttribute DOCUMENTED_CLASS__INFORMATIVE = eINSTANCE.getDocumentedClass_Informative();
 
         /**
-         * The meta object literal for the '<em><b>Refers To Doc</b></em>' reference feature.
+         * The meta object literal for the '<em><b>Refers To Desc Doc</b></em>' reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENTED_CLASS__REFERS_TO_DOC = eINSTANCE.getDocumentedClass_RefersToDoc();
+        EReference DOCUMENTED_CLASS__REFERS_TO_DESC_DOC = eINSTANCE.getDocumentedClass_RefersToDescDoc();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationImpl <em>Enumeration</em>}' class.
@@ -12447,59 +12444,6 @@ public interface NsdPackage extends EPackage {
          * @generated
          */
         EReference NS__REFERRED_BY_DEPENDS_ON = eINSTANCE.getNS_ReferredByDependsOn();
-
-        /**
-         * The meta object literal for the '<em><b>Find CDC</b></em>' operation.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EOperation NS___FIND_CDC__STRING_IRISECLIPSECONSOLE = eINSTANCE.getNS__FindCDC__String_IRiseClipseConsole();
-
-        /**
-         * The meta object literal for the '<em><b>Find Presence Condition</b></em>' operation.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EOperation NS___FIND_PRESENCE_CONDITION__STRING_IRISECLIPSECONSOLE = eINSTANCE
-                .getNS__FindPresenceCondition__String_IRiseClipseConsole();
-
-        /**
-         * The meta object literal for the '<em><b>Find Functional Constraint</b></em>' operation.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EOperation NS___FIND_FUNCTIONAL_CONSTRAINT__STRING_IRISECLIPSECONSOLE = eINSTANCE
-                .getNS__FindFunctionalConstraint__String_IRiseClipseConsole();
-
-        /**
-         * The meta object literal for the '<em><b>Find Enumeration</b></em>' operation.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EOperation NS___FIND_ENUMERATION__STRING_IRISECLIPSECONSOLE = eINSTANCE
-                .getNS__FindEnumeration__String_IRiseClipseConsole();
-
-        /**
-         * The meta object literal for the '<em><b>Find Basic Type</b></em>' operation.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EOperation NS___FIND_BASIC_TYPE__STRING_IRISECLIPSECONSOLE = eINSTANCE
-                .getNS__FindBasicType__String_IRiseClipseConsole();
-
-        /**
-         * The meta object literal for the '<em><b>Find Constructed Attribute</b></em>' operation.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EOperation NS___FIND_CONSTRUCTED_ATTRIBUTE__STRING_IRISECLIPSECONSOLE = eINSTANCE
-                .getNS__FindConstructedAttribute__String_IRiseClipseConsole();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl <em>NS Doc</em>}' class.
@@ -13090,6 +13034,14 @@ public interface NsdPackage extends EPackage {
          * @generated
          */
         EAttribute TITLED_CLASS__TITLE_ID = eINSTANCE.getTitledClass_TitleID();
+
+        /**
+         * The meta object literal for the '<em><b>Refers To Title Doc</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference TITLED_CLASS__REFERS_TO_TITLE_DOC = eINSTANCE.getTitledClass_RefersToTitleDoc();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdObjectImpl <em>Object</em>}' class.

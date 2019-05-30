@@ -20,11 +20,13 @@
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
 
 import java.util.Collection;
 
@@ -535,6 +537,18 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
             result.append( "<unset>" );
         result.append( ')' );
         return result.toString();
+    }
+
+    @Override
+    protected NsIdentification getNsIdentification() {
+        AgNSIdentification ns = null;
+        if( getParentConstructedAttributes() != null ) {
+            ns = getParentConstructedAttributes().getParentNS();
+        }
+        if( ( ns == null ) && ( getParentServiceTypeRealizations() != null ) ) {
+            ns = getParentServiceTypeRealizations().getParentServiceNS();
+        }
+        return new NsIdentification( ns );
     }
 
 } //ConstructedAttributeImpl

@@ -164,4 +164,6 @@ public interface ServiceDataAttribute extends DocumentedClass, AgPresenceConditi
      */
     void setParentServiceCDC( ServiceCDC value );
 
+    DataAttribute toDataAttribute();
+
 } // ServiceDataAttribute

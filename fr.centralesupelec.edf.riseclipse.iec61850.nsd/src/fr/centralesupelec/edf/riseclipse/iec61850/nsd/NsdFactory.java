@@ -237,15 +237,6 @@ public interface NsdFactory extends EFactory {
     Doc createDoc();
 
     /**
-     * Returns a new object of class '<em>Documented Class</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Documented Class</em>'.
-     * @generated
-     */
-    DocumentedClass createDocumentedClass();
-
-    /**
      * Returns a new object of class '<em>Enumeration</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -460,15 +451,6 @@ public interface NsdFactory extends EFactory {
      * @generated
      */
     SubDataObject createSubDataObject();
-
-    /**
-     * Returns a new object of class '<em>Titled Class</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Titled Class</em>'.
-     * @generated
-     */
-    TitledClass createTitledClass();
 
     /**
      * Returns the package supported by this factory.

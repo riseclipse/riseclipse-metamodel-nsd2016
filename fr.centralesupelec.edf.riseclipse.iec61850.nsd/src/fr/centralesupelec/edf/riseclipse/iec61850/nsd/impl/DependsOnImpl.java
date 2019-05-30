@@ -24,6 +24,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetImpl;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
@@ -909,15 +910,18 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
     public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
-        String messagePrefix = "[NSD links] while resolving link from DependsOn (NS id: " + getParentNS().getId() + ", line: " + getLineNumber() + "): ";
+        String messagePrefix = "[NSD links] while resolving link from DependsOn (NS id: "
+                + new NsIdentification( getParentNS() ) + ", line: " + getLineNumber() + "): ";
 
-        NS ns = ( ( NsdResourceSetImpl ) eResource().getResourceSet() ).getNS( getId() );
+        NsIdentification identification = new NsIdentification( getId(), getVersion(), getRevision(), getRelease() );
+        NS ns = ( ( NsdResourceSetImpl ) eResource().getResourceSet() ).getNS( identification );
         if( ns == null ) {
-            console.warning( messagePrefix + "NS (id: " + getId() + ") not found" );
+            console.warning( messagePrefix + "NS (id: " + identification + ") not found" );
         }
         else {
             setRefersToNS( ns );
-            console.info( "[NSD links] NS (id: " + getId() + ") refers by DependsOn in NS (id:" + getParentNS().getId() + ") found" );
+            console.info( "[NSD links] NS (id: " + identification + ") refers by DependsOn in NS (id:"
+                    + new NsIdentification( getParentNS() ) + ") found" );
         }
         return false;
     }
