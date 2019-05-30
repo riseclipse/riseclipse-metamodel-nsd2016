@@ -1920,7 +1920,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getDoc_ReferredByPresenceCondition() {
+    public EReference getDoc_ReferredByPresenceConditionAsDesc() {
         return ( EReference ) docEClass.getEStructuralFeatures().get( 6 );
     }
 
@@ -1970,7 +1970,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getDoc_ReferredByFunctionalConstraint() {
+    public EReference getDoc_ReferredByFunctionalConstraintAsDesc() {
         return ( EReference ) docEClass.getEStructuralFeatures().get( 11 );
     }
 
@@ -1992,6 +1992,26 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EReference getDoc_ReferredByTitledClass() {
         return ( EReference ) docEClass.getEStructuralFeatures().get( 13 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getDoc_ReferredByFunctionalConstraintAsTitle() {
+        return ( EReference ) docEClass.getEStructuralFeatures().get( 14 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getDoc_ReferredByPresenceConditionAsTitle() {
+        return ( EReference ) docEClass.getEStructuralFeatures().get( 15 );
     }
 
     /**
@@ -2230,8 +2250,18 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getFunctionalConstraint_RefersToDoc() {
+    public EReference getFunctionalConstraint_RefersToDescDoc() {
         return ( EReference ) functionalConstraintEClass.getEStructuralFeatures().get( 6 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getFunctionalConstraint_RefersToTitleDoc() {
+        return ( EReference ) functionalConstraintEClass.getEStructuralFeatures().get( 7 );
     }
 
     /**
@@ -2750,8 +2780,18 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getPresenceCondition_RefersToDoc() {
+    public EReference getPresenceCondition_RefersToDescDoc() {
         return ( EReference ) presenceConditionEClass.getEStructuralFeatures().get( 10 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getPresenceCondition_RefersToTitleDoc() {
+        return ( EReference ) presenceConditionEClass.getEStructuralFeatures().get( 11 );
     }
 
     /**
@@ -4086,14 +4126,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEAttribute( docEClass, DOC__ID );
         createEReference( docEClass, DOC__PARENT_NS_DOC );
         createEReference( docEClass, DOC__REFERRED_BY_AG_NS_DESC );
-        createEReference( docEClass, DOC__REFERRED_BY_PRESENCE_CONDITION );
+        createEReference( docEClass, DOC__REFERRED_BY_PRESENCE_CONDITION_AS_DESC );
         createEReference( docEClass, DOC__REFERRED_BY_AG_PRESENCE_CONDITION );
         createEReference( docEClass, DOC__REFERRED_BY_ABBREVIATION );
         createEReference( docEClass, DOC__REFERRED_BY_BASIC_TYPE );
         createEReference( docEClass, DOC__REFERRED_BY_DOCUMENTED_CLASS );
-        createEReference( docEClass, DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT );
+        createEReference( docEClass, DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT_AS_DESC );
         createEReference( docEClass, DOC__REFERRED_BY_AG_PRESENCE_CONDITION_DERIVED_STATISTICS );
         createEReference( docEClass, DOC__REFERRED_BY_TITLED_CLASS );
+        createEReference( docEClass, DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT_AS_TITLE );
+        createEReference( docEClass, DOC__REFERRED_BY_PRESENCE_CONDITION_AS_TITLE );
 
         documentedClassEClass = createEClass( DOCUMENTED_CLASS );
         createEAttribute( documentedClassEClass, DOCUMENTED_CLASS__DEPRECATED );
@@ -4121,7 +4163,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEAttribute( functionalConstraintEClass, FUNCTIONAL_CONSTRAINT__TITLE_ID );
         createEReference( functionalConstraintEClass, FUNCTIONAL_CONSTRAINT__PARENT_FUNCTIONAL_CONSTRAINTS );
         createEReference( functionalConstraintEClass, FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE );
-        createEReference( functionalConstraintEClass, FUNCTIONAL_CONSTRAINT__REFERS_TO_DOC );
+        createEReference( functionalConstraintEClass, FUNCTIONAL_CONSTRAINT__REFERS_TO_DESC_DOC );
+        createEReference( functionalConstraintEClass, FUNCTIONAL_CONSTRAINT__REFERS_TO_TITLE_DOC );
 
         functionalConstraintsEClass = createEClass( FUNCTIONAL_CONSTRAINTS );
         createEReference( functionalConstraintsEClass, FUNCTIONAL_CONSTRAINTS__FUNCTIONAL_CONSTRAINT );
@@ -4182,7 +4225,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEReference( presenceConditionEClass, PRESENCE_CONDITION__REFERRED_BY_SUB_DATA_OBJECT );
         createEReference( presenceConditionEClass, PRESENCE_CONDITION__REFERRED_BY_DATA_ATTRIBUTE );
         createEReference( presenceConditionEClass, PRESENCE_CONDITION__REFERRED_BY_SUB_DATA_ATTRIBUTE );
-        createEReference( presenceConditionEClass, PRESENCE_CONDITION__REFERS_TO_DOC );
+        createEReference( presenceConditionEClass, PRESENCE_CONDITION__REFERS_TO_DESC_DOC );
+        createEReference( presenceConditionEClass, PRESENCE_CONDITION__REFERS_TO_TITLE_DOC );
 
         presenceConditionsEClass = createEClass( PRESENCE_CONDITIONS );
         createEReference( presenceConditionsEClass, PRESENCE_CONDITIONS__PRESENCE_CONDITION );
@@ -4817,10 +4861,10 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEReference( getDoc_ReferredByAgNSDesc(), this.getAgNSdesc(), this.getAgNSdesc_RefersToDoc(),
                 "ReferredByAgNSDesc", null, 0, -1, Doc.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
-        initEReference( getDoc_ReferredByPresenceCondition(), this.getPresenceCondition(),
-                this.getPresenceCondition_RefersToDoc(), "referredByPresenceCondition", null, 0, -1, Doc.class,
-                IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
-                !IS_DERIVED, !IS_ORDERED );
+        initEReference( getDoc_ReferredByPresenceConditionAsDesc(), this.getPresenceCondition(),
+                this.getPresenceCondition_RefersToDescDoc(), "referredByPresenceConditionAsDesc", null, 0, -1,
+                Doc.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE,
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
         initEReference( getDoc_ReferredByAgPresenceCondition(), this.getAgPresenceCondition(),
                 this.getAgPresenceCondition_RefersToPresCondArgsDoc(), "referredByAgPresenceCondition", null, 0, -1,
                 Doc.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE,
@@ -4835,10 +4879,10 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 this.getDocumentedClass_RefersToDescDoc(), "referredByDocumentedClass", null, 0, -1, Doc.class,
                 IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
                 !IS_DERIVED, !IS_ORDERED );
-        initEReference( getDoc_ReferredByFunctionalConstraint(), this.getFunctionalConstraint(),
-                this.getFunctionalConstraint_RefersToDoc(), "referredByFunctionalConstraint", null, 0, -1, Doc.class,
-                IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
-                !IS_DERIVED, !IS_ORDERED );
+        initEReference( getDoc_ReferredByFunctionalConstraintAsDesc(), this.getFunctionalConstraint(),
+                this.getFunctionalConstraint_RefersToDescDoc(), "referredByFunctionalConstraintAsDesc", null, 0, -1,
+                Doc.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE,
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
         initEReference( getDoc_ReferredByAgPresenceConditionDerivedStatistics(),
                 this.getAgPresenceConditionDerivedStatistics(),
                 this.getAgPresenceConditionDerivedStatistics_RefersToDsPresCondArgsDoc(),
@@ -4847,6 +4891,14 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEReference( getDoc_ReferredByTitledClass(), this.getTitledClass(), this.getTitledClass_RefersToTitleDoc(),
                 "referredByTitledClass", null, 0, -1, Doc.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getDoc_ReferredByFunctionalConstraintAsTitle(), this.getFunctionalConstraint(),
+                this.getFunctionalConstraint_RefersToTitleDoc(), "referredByFunctionalConstraintAsTitle", null, 0, -1,
+                Doc.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE,
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getDoc_ReferredByPresenceConditionAsTitle(), this.getPresenceCondition(),
+                this.getPresenceCondition_RefersToTitleDoc(), "referredByPresenceConditionAsTitle", null, 0, -1,
+                Doc.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE,
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( documentedClassEClass, DocumentedClass.class, "DocumentedClass", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
@@ -4921,10 +4973,14 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 this.getDataAttribute_RefersToFunctionalConstraint(), "referredByDataAttribute", null, 0, -1,
                 FunctionalConstraint.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
-        initEReference( getFunctionalConstraint_RefersToDoc(), this.getDoc(),
-                this.getDoc_ReferredByFunctionalConstraint(), "refersToDoc", null, 0, 1, FunctionalConstraint.class,
-                IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
-                !IS_DERIVED, !IS_ORDERED );
+        initEReference( getFunctionalConstraint_RefersToDescDoc(), this.getDoc(),
+                this.getDoc_ReferredByFunctionalConstraintAsDesc(), "refersToDescDoc", null, 0, 1,
+                FunctionalConstraint.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getFunctionalConstraint_RefersToTitleDoc(), this.getDoc(),
+                this.getDoc_ReferredByFunctionalConstraintAsTitle(), "refersToTitleDoc", null, 0, 1,
+                FunctionalConstraint.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( functionalConstraintsEClass, FunctionalConstraints.class, "FunctionalConstraints", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
@@ -5083,9 +5139,14 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 this.getSubDataAttribute_RefersToPresenceCondition(), "referredBySubDataAttribute", null, 0, -1,
                 PresenceCondition.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
-        initEReference( getPresenceCondition_RefersToDoc(), this.getDoc(), this.getDoc_ReferredByPresenceCondition(),
-                "refersToDoc", null, 0, 1, PresenceCondition.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getPresenceCondition_RefersToDescDoc(), this.getDoc(),
+                this.getDoc_ReferredByPresenceConditionAsDesc(), "refersToDescDoc", null, 0, 1, PresenceCondition.class,
+                IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
+                !IS_DERIVED, !IS_ORDERED );
+        initEReference( getPresenceCondition_RefersToTitleDoc(), this.getDoc(),
+                this.getDoc_ReferredByPresenceConditionAsTitle(), "refersToTitleDoc", null, 0, 1,
+                PresenceCondition.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( presenceConditionsEClass, PresenceConditions.class, "PresenceConditions", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );

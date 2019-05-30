@@ -71,14 +71,16 @@ public class DocItemProvider extends NsdObjectItemProvider {
 
             addIdPropertyDescriptor( object );
             addReferredByAgNSDescPropertyDescriptor( object );
-            addReferredByPresenceConditionPropertyDescriptor( object );
+            addReferredByPresenceConditionAsDescPropertyDescriptor( object );
             addReferredByAgPresenceConditionPropertyDescriptor( object );
             addReferredByAbbreviationPropertyDescriptor( object );
             addReferredByBasicTypePropertyDescriptor( object );
             addReferredByDocumentedClassPropertyDescriptor( object );
-            addReferredByFunctionalConstraintPropertyDescriptor( object );
+            addReferredByFunctionalConstraintAsDescPropertyDescriptor( object );
             addReferredByAgPresenceConditionDerivedStatisticsPropertyDescriptor( object );
             addReferredByTitledClassPropertyDescriptor( object );
+            addReferredByFunctionalConstraintAsTitlePropertyDescriptor( object );
+            addReferredByPresenceConditionAsTitlePropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -127,19 +129,19 @@ public class DocItemProvider extends NsdObjectItemProvider {
     }
 
     /**
-     * This adds a property descriptor for the Referred By Presence Condition feature.
+     * This adds a property descriptor for the Referred By Presence Condition As Desc feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addReferredByPresenceConditionPropertyDescriptor( Object object ) {
+    protected void addReferredByPresenceConditionAsDescPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
                         getResourceLocator(),
-                        getString( "_UI_Doc_referredByPresenceCondition_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_Doc_referredByPresenceCondition_feature",
-                                "_UI_Doc_type" ),
-                        NsdPackage.Literals.DOC__REFERRED_BY_PRESENCE_CONDITION,
+                        getString( "_UI_Doc_referredByPresenceConditionAsDesc_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_Doc_referredByPresenceConditionAsDesc_feature", "_UI_Doc_type" ),
+                        NsdPackage.Literals.DOC__REFERRED_BY_PRESENCE_CONDITION_AS_DESC,
                         true,
                         false,
                         true,
@@ -237,19 +239,19 @@ public class DocItemProvider extends NsdObjectItemProvider {
     }
 
     /**
-     * This adds a property descriptor for the Referred By Functional Constraint feature.
+     * This adds a property descriptor for the Referred By Functional Constraint As Desc feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addReferredByFunctionalConstraintPropertyDescriptor( Object object ) {
+    protected void addReferredByFunctionalConstraintAsDescPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
                         getResourceLocator(),
-                        getString( "_UI_Doc_referredByFunctionalConstraint_feature" ),
+                        getString( "_UI_Doc_referredByFunctionalConstraintAsDesc_feature" ),
                         getString( "_UI_PropertyDescriptor_description",
-                                "_UI_Doc_referredByFunctionalConstraint_feature", "_UI_Doc_type" ),
-                        NsdPackage.Literals.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT,
+                                "_UI_Doc_referredByFunctionalConstraintAsDesc_feature", "_UI_Doc_type" ),
+                        NsdPackage.Literals.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT_AS_DESC,
                         true,
                         false,
                         true,
@@ -294,6 +296,50 @@ public class DocItemProvider extends NsdObjectItemProvider {
                         getString( "_UI_PropertyDescriptor_description", "_UI_Doc_referredByTitledClass_feature",
                                 "_UI_Doc_type" ),
                         NsdPackage.Literals.DOC__REFERRED_BY_TITLED_CLASS,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Referred By Functional Constraint As Title feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReferredByFunctionalConstraintAsTitlePropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_Doc_referredByFunctionalConstraintAsTitle_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_Doc_referredByFunctionalConstraintAsTitle_feature", "_UI_Doc_type" ),
+                        NsdPackage.Literals.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT_AS_TITLE,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Referred By Presence Condition As Title feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReferredByPresenceConditionAsTitlePropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_Doc_referredByPresenceConditionAsTitle_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_Doc_referredByPresenceConditionAsTitle_feature", "_UI_Doc_type" ),
+                        NsdPackage.Literals.DOC__REFERRED_BY_PRESENCE_CONDITION_AS_TITLE,
                         true,
                         false,
                         true,

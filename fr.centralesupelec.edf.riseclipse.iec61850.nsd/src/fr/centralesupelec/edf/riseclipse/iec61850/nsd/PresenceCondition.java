@@ -40,7 +40,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getReferredBySubDataObject <em>Referred By Sub Data Object</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getReferredByDataAttribute <em>Referred By Data Attribute</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getReferredBySubDataAttribute <em>Referred By Sub Data Attribute</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getRefersToDoc <em>Refers To Doc</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getRefersToDescDoc <em>Refers To Desc Doc</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getRefersToTitleDoc <em>Refers To Title Doc</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getPresenceCondition()
@@ -480,54 +481,105 @@ public interface PresenceCondition extends NsdObject {
     boolean isSetReferredBySubDataAttribute();
 
     /**
-     * Returns the value of the '<em><b>Refers To Doc</b></em>' reference.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByPresenceCondition <em>Referred By Presence Condition</em>}'.
+     * Returns the value of the '<em><b>Refers To Desc Doc</b></em>' reference.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByPresenceConditionAsDesc <em>Referred By Presence Condition As Desc</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Refers To Doc</em>' reference.
-     * @see #isSetRefersToDoc()
-     * @see #unsetRefersToDoc()
-     * @see #setRefersToDoc(Doc)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getPresenceCondition_RefersToDoc()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByPresenceCondition
-     * @model opposite="referredByPresenceCondition" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @return the value of the '<em>Refers To Desc Doc</em>' reference.
+     * @see #isSetRefersToDescDoc()
+     * @see #unsetRefersToDescDoc()
+     * @see #setRefersToDescDoc(Doc)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getPresenceCondition_RefersToDescDoc()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByPresenceConditionAsDesc
+     * @model opposite="referredByPresenceConditionAsDesc" resolveProxies="false" unsettable="true" transient="true" ordered="false"
      * @generated
      */
-    Doc getRefersToDoc();
+    Doc getRefersToDescDoc();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getRefersToDoc <em>Refers To Doc</em>}' reference.
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getRefersToDescDoc <em>Refers To Desc Doc</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Refers To Doc</em>' reference.
-     * @see #isSetRefersToDoc()
-     * @see #unsetRefersToDoc()
-     * @see #getRefersToDoc()
+     * @param value the new value of the '<em>Refers To Desc Doc</em>' reference.
+     * @see #isSetRefersToDescDoc()
+     * @see #unsetRefersToDescDoc()
+     * @see #getRefersToDescDoc()
      * @generated
      */
-    void setRefersToDoc( Doc value );
+    void setRefersToDescDoc( Doc value );
 
     /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getRefersToDoc <em>Refers To Doc</em>}' reference.
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getRefersToDescDoc <em>Refers To Desc Doc</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #isSetRefersToDoc()
-     * @see #getRefersToDoc()
-     * @see #setRefersToDoc(Doc)
+     * @see #isSetRefersToDescDoc()
+     * @see #getRefersToDescDoc()
+     * @see #setRefersToDescDoc(Doc)
      * @generated
      */
-    void unsetRefersToDoc();
+    void unsetRefersToDescDoc();
 
     /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getRefersToDoc <em>Refers To Doc</em>}' reference is set.
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getRefersToDescDoc <em>Refers To Desc Doc</em>}' reference is set.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Refers To Doc</em>' reference is set.
-     * @see #unsetRefersToDoc()
-     * @see #getRefersToDoc()
-     * @see #setRefersToDoc(Doc)
+     * @return whether the value of the '<em>Refers To Desc Doc</em>' reference is set.
+     * @see #unsetRefersToDescDoc()
+     * @see #getRefersToDescDoc()
+     * @see #setRefersToDescDoc(Doc)
      * @generated
      */
-    boolean isSetRefersToDoc();
+    boolean isSetRefersToDescDoc();
+
+    /**
+     * Returns the value of the '<em><b>Refers To Title Doc</b></em>' reference.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByPresenceConditionAsTitle <em>Referred By Presence Condition As Title</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Refers To Title Doc</em>' reference.
+     * @see #isSetRefersToTitleDoc()
+     * @see #unsetRefersToTitleDoc()
+     * @see #setRefersToTitleDoc(Doc)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getPresenceCondition_RefersToTitleDoc()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByPresenceConditionAsTitle
+     * @model opposite="referredByPresenceConditionAsTitle" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @generated
+     */
+    Doc getRefersToTitleDoc();
+
+    /**
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getRefersToTitleDoc <em>Refers To Title Doc</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Refers To Title Doc</em>' reference.
+     * @see #isSetRefersToTitleDoc()
+     * @see #unsetRefersToTitleDoc()
+     * @see #getRefersToTitleDoc()
+     * @generated
+     */
+    void setRefersToTitleDoc( Doc value );
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getRefersToTitleDoc <em>Refers To Title Doc</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetRefersToTitleDoc()
+     * @see #getRefersToTitleDoc()
+     * @see #setRefersToTitleDoc(Doc)
+     * @generated
+     */
+    void unsetRefersToTitleDoc();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getRefersToTitleDoc <em>Refers To Title Doc</em>}' reference is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Refers To Title Doc</em>' reference is set.
+     * @see #unsetRefersToTitleDoc()
+     * @see #getRefersToTitleDoc()
+     * @see #setRefersToTitleDoc(Doc)
+     * @generated
+     */
+    boolean isSetRefersToTitleDoc();
 
 } // PresenceCondition

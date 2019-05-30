@@ -37,14 +37,16 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getId <em>Id</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getParentNSDoc <em>Parent NS Doc</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByAgNSDesc <em>Referred By Ag NS Desc</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByPresenceCondition <em>Referred By Presence Condition</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByPresenceConditionAsDesc <em>Referred By Presence Condition As Desc</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByAgPresenceCondition <em>Referred By Ag Presence Condition</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByAbbreviation <em>Referred By Abbreviation</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByBasicType <em>Referred By Basic Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByDocumentedClass <em>Referred By Documented Class</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByFunctionalConstraint <em>Referred By Functional Constraint</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByFunctionalConstraintAsDesc <em>Referred By Functional Constraint As Desc</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByAgPresenceConditionDerivedStatistics <em>Referred By Ag Presence Condition Derived Statistics</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByTitledClass <em>Referred By Titled Class</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByFunctionalConstraintAsTitle <em>Referred By Functional Constraint As Title</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByPresenceConditionAsTitle <em>Referred By Presence Condition As Title</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDoc()
@@ -217,41 +219,41 @@ public interface Doc extends NsdObject {
     boolean isSetReferredByAgNSDesc();
 
     /**
-     * Returns the value of the '<em><b>Referred By Presence Condition</b></em>' reference list.
+     * Returns the value of the '<em><b>Referred By Presence Condition As Desc</b></em>' reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition}.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getRefersToDoc <em>Refers To Doc</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getRefersToDescDoc <em>Refers To Desc Doc</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Referred By Presence Condition</em>' reference list.
-     * @see #isSetReferredByPresenceCondition()
-     * @see #unsetReferredByPresenceCondition()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDoc_ReferredByPresenceCondition()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getRefersToDoc
-     * @model opposite="refersToDoc" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @return the value of the '<em>Referred By Presence Condition As Desc</em>' reference list.
+     * @see #isSetReferredByPresenceConditionAsDesc()
+     * @see #unsetReferredByPresenceConditionAsDesc()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDoc_ReferredByPresenceConditionAsDesc()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getRefersToDescDoc
+     * @model opposite="refersToDescDoc" resolveProxies="false" unsettable="true" transient="true" ordered="false"
      * @generated
      */
-    EList< PresenceCondition > getReferredByPresenceCondition();
+    EList< PresenceCondition > getReferredByPresenceConditionAsDesc();
 
     /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByPresenceCondition <em>Referred By Presence Condition</em>}' reference list.
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByPresenceConditionAsDesc <em>Referred By Presence Condition As Desc</em>}' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #isSetReferredByPresenceCondition()
-     * @see #getReferredByPresenceCondition()
+     * @see #isSetReferredByPresenceConditionAsDesc()
+     * @see #getReferredByPresenceConditionAsDesc()
      * @generated
      */
-    void unsetReferredByPresenceCondition();
+    void unsetReferredByPresenceConditionAsDesc();
 
     /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByPresenceCondition <em>Referred By Presence Condition</em>}' reference list is set.
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByPresenceConditionAsDesc <em>Referred By Presence Condition As Desc</em>}' reference list is set.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Referred By Presence Condition</em>' reference list is set.
-     * @see #unsetReferredByPresenceCondition()
-     * @see #getReferredByPresenceCondition()
+     * @return whether the value of the '<em>Referred By Presence Condition As Desc</em>' reference list is set.
+     * @see #unsetReferredByPresenceConditionAsDesc()
+     * @see #getReferredByPresenceConditionAsDesc()
      * @generated
      */
-    boolean isSetReferredByPresenceCondition();
+    boolean isSetReferredByPresenceConditionAsDesc();
 
     /**
      * Returns the value of the '<em><b>Referred By Ag Presence Condition</b></em>' reference list.
@@ -402,41 +404,41 @@ public interface Doc extends NsdObject {
     boolean isSetReferredByDocumentedClass();
 
     /**
-     * Returns the value of the '<em><b>Referred By Functional Constraint</b></em>' reference list.
+     * Returns the value of the '<em><b>Referred By Functional Constraint As Desc</b></em>' reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint}.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getRefersToDoc <em>Refers To Doc</em>}'.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getRefersToDescDoc <em>Refers To Desc Doc</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Referred By Functional Constraint</em>' reference list.
-     * @see #isSetReferredByFunctionalConstraint()
-     * @see #unsetReferredByFunctionalConstraint()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDoc_ReferredByFunctionalConstraint()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getRefersToDoc
-     * @model opposite="refersToDoc" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @return the value of the '<em>Referred By Functional Constraint As Desc</em>' reference list.
+     * @see #isSetReferredByFunctionalConstraintAsDesc()
+     * @see #unsetReferredByFunctionalConstraintAsDesc()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDoc_ReferredByFunctionalConstraintAsDesc()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getRefersToDescDoc
+     * @model opposite="refersToDescDoc" resolveProxies="false" unsettable="true" transient="true" ordered="false"
      * @generated
      */
-    EList< FunctionalConstraint > getReferredByFunctionalConstraint();
+    EList< FunctionalConstraint > getReferredByFunctionalConstraintAsDesc();
 
     /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByFunctionalConstraint <em>Referred By Functional Constraint</em>}' reference list.
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByFunctionalConstraintAsDesc <em>Referred By Functional Constraint As Desc</em>}' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #isSetReferredByFunctionalConstraint()
-     * @see #getReferredByFunctionalConstraint()
+     * @see #isSetReferredByFunctionalConstraintAsDesc()
+     * @see #getReferredByFunctionalConstraintAsDesc()
      * @generated
      */
-    void unsetReferredByFunctionalConstraint();
+    void unsetReferredByFunctionalConstraintAsDesc();
 
     /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByFunctionalConstraint <em>Referred By Functional Constraint</em>}' reference list is set.
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByFunctionalConstraintAsDesc <em>Referred By Functional Constraint As Desc</em>}' reference list is set.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Referred By Functional Constraint</em>' reference list is set.
-     * @see #unsetReferredByFunctionalConstraint()
-     * @see #getReferredByFunctionalConstraint()
+     * @return whether the value of the '<em>Referred By Functional Constraint As Desc</em>' reference list is set.
+     * @see #unsetReferredByFunctionalConstraintAsDesc()
+     * @see #getReferredByFunctionalConstraintAsDesc()
      * @generated
      */
-    boolean isSetReferredByFunctionalConstraint();
+    boolean isSetReferredByFunctionalConstraintAsDesc();
 
     /**
      * Returns the value of the '<em><b>Referred By Ag Presence Condition Derived Statistics</b></em>' reference list.
@@ -511,5 +513,79 @@ public interface Doc extends NsdObject {
      * @generated
      */
     boolean isSetReferredByTitledClass();
+
+    /**
+     * Returns the value of the '<em><b>Referred By Functional Constraint As Title</b></em>' reference list.
+     * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint}.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getRefersToTitleDoc <em>Refers To Title Doc</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Referred By Functional Constraint As Title</em>' reference list.
+     * @see #isSetReferredByFunctionalConstraintAsTitle()
+     * @see #unsetReferredByFunctionalConstraintAsTitle()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDoc_ReferredByFunctionalConstraintAsTitle()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getRefersToTitleDoc
+     * @model opposite="refersToTitleDoc" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @generated
+     */
+    EList< FunctionalConstraint > getReferredByFunctionalConstraintAsTitle();
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByFunctionalConstraintAsTitle <em>Referred By Functional Constraint As Title</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetReferredByFunctionalConstraintAsTitle()
+     * @see #getReferredByFunctionalConstraintAsTitle()
+     * @generated
+     */
+    void unsetReferredByFunctionalConstraintAsTitle();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByFunctionalConstraintAsTitle <em>Referred By Functional Constraint As Title</em>}' reference list is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Referred By Functional Constraint As Title</em>' reference list is set.
+     * @see #unsetReferredByFunctionalConstraintAsTitle()
+     * @see #getReferredByFunctionalConstraintAsTitle()
+     * @generated
+     */
+    boolean isSetReferredByFunctionalConstraintAsTitle();
+
+    /**
+     * Returns the value of the '<em><b>Referred By Presence Condition As Title</b></em>' reference list.
+     * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition}.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getRefersToTitleDoc <em>Refers To Title Doc</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Referred By Presence Condition As Title</em>' reference list.
+     * @see #isSetReferredByPresenceConditionAsTitle()
+     * @see #unsetReferredByPresenceConditionAsTitle()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDoc_ReferredByPresenceConditionAsTitle()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getRefersToTitleDoc
+     * @model opposite="refersToTitleDoc" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @generated
+     */
+    EList< PresenceCondition > getReferredByPresenceConditionAsTitle();
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByPresenceConditionAsTitle <em>Referred By Presence Condition As Title</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetReferredByPresenceConditionAsTitle()
+     * @see #getReferredByPresenceConditionAsTitle()
+     * @generated
+     */
+    void unsetReferredByPresenceConditionAsTitle();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByPresenceConditionAsTitle <em>Referred By Presence Condition As Title</em>}' reference list is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Referred By Presence Condition As Title</em>' reference list is set.
+     * @see #unsetReferredByPresenceConditionAsTitle()
+     * @see #getReferredByPresenceConditionAsTitle()
+     * @generated
+     */
+    boolean isSetReferredByPresenceConditionAsTitle();
 
 } // Doc

@@ -3463,13 +3463,13 @@ public interface NsdPackage extends EPackage {
     int DOC__REFERRED_BY_AG_NS_DESC = NSD_OBJECT_FEATURE_COUNT + 5;
 
     /**
-     * The feature id for the '<em><b>Referred By Presence Condition</b></em>' reference list.
+     * The feature id for the '<em><b>Referred By Presence Condition As Desc</b></em>' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DOC__REFERRED_BY_PRESENCE_CONDITION = NSD_OBJECT_FEATURE_COUNT + 6;
+    int DOC__REFERRED_BY_PRESENCE_CONDITION_AS_DESC = NSD_OBJECT_FEATURE_COUNT + 6;
 
     /**
      * The feature id for the '<em><b>Referred By Ag Presence Condition</b></em>' reference list.
@@ -3508,13 +3508,13 @@ public interface NsdPackage extends EPackage {
     int DOC__REFERRED_BY_DOCUMENTED_CLASS = NSD_OBJECT_FEATURE_COUNT + 10;
 
     /**
-     * The feature id for the '<em><b>Referred By Functional Constraint</b></em>' reference list.
+     * The feature id for the '<em><b>Referred By Functional Constraint As Desc</b></em>' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT = NSD_OBJECT_FEATURE_COUNT + 11;
+    int DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT_AS_DESC = NSD_OBJECT_FEATURE_COUNT + 11;
 
     /**
      * The feature id for the '<em><b>Referred By Ag Presence Condition Derived Statistics</b></em>' reference list.
@@ -3535,13 +3535,31 @@ public interface NsdPackage extends EPackage {
     int DOC__REFERRED_BY_TITLED_CLASS = NSD_OBJECT_FEATURE_COUNT + 13;
 
     /**
+     * The feature id for the '<em><b>Referred By Functional Constraint As Title</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT_AS_TITLE = NSD_OBJECT_FEATURE_COUNT + 14;
+
+    /**
+     * The feature id for the '<em><b>Referred By Presence Condition As Title</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DOC__REFERRED_BY_PRESENCE_CONDITION_AS_TITLE = NSD_OBJECT_FEATURE_COUNT + 15;
+
+    /**
      * The number of structural features of the '<em>Doc</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DOC_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 14;
+    int DOC_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 16;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -3859,13 +3877,22 @@ public interface NsdPackage extends EPackage {
     int FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE = NSD_OBJECT_FEATURE_COUNT + 5;
 
     /**
-     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * The feature id for the '<em><b>Refers To Desc Doc</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int FUNCTIONAL_CONSTRAINT__REFERS_TO_DOC = NSD_OBJECT_FEATURE_COUNT + 6;
+    int FUNCTIONAL_CONSTRAINT__REFERS_TO_DESC_DOC = NSD_OBJECT_FEATURE_COUNT + 6;
+
+    /**
+     * The feature id for the '<em><b>Refers To Title Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FUNCTIONAL_CONSTRAINT__REFERS_TO_TITLE_DOC = NSD_OBJECT_FEATURE_COUNT + 7;
 
     /**
      * The number of structural features of the '<em>Functional Constraint</em>' class.
@@ -3874,7 +3901,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int FUNCTIONAL_CONSTRAINT_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 7;
+    int FUNCTIONAL_CONSTRAINT_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 8;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -4948,13 +4975,22 @@ public interface NsdPackage extends EPackage {
     int PRESENCE_CONDITION__REFERRED_BY_SUB_DATA_ATTRIBUTE = NSD_OBJECT_FEATURE_COUNT + 9;
 
     /**
-     * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
+     * The feature id for the '<em><b>Refers To Desc Doc</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PRESENCE_CONDITION__REFERS_TO_DOC = NSD_OBJECT_FEATURE_COUNT + 10;
+    int PRESENCE_CONDITION__REFERS_TO_DESC_DOC = NSD_OBJECT_FEATURE_COUNT + 10;
+
+    /**
+     * The feature id for the '<em><b>Refers To Title Doc</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PRESENCE_CONDITION__REFERS_TO_TITLE_DOC = NSD_OBJECT_FEATURE_COUNT + 11;
 
     /**
      * The number of structural features of the '<em>Presence Condition</em>' class.
@@ -4963,7 +4999,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PRESENCE_CONDITION_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 11;
+    int PRESENCE_CONDITION_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 12;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -8653,15 +8689,15 @@ public interface NsdPackage extends EPackage {
     EReference getDoc_ReferredByAgNSDesc();
 
     /**
-     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByPresenceCondition <em>Referred By Presence Condition</em>}'.
+     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByPresenceConditionAsDesc <em>Referred By Presence Condition As Desc</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the reference list '<em>Referred By Presence Condition</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByPresenceCondition()
+     * @return the meta object for the reference list '<em>Referred By Presence Condition As Desc</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByPresenceConditionAsDesc()
      * @see #getDoc()
      * @generated
      */
-    EReference getDoc_ReferredByPresenceCondition();
+    EReference getDoc_ReferredByPresenceConditionAsDesc();
 
     /**
      * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByAgPresenceCondition <em>Referred By Ag Presence Condition</em>}'.
@@ -8708,15 +8744,15 @@ public interface NsdPackage extends EPackage {
     EReference getDoc_ReferredByDocumentedClass();
 
     /**
-     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByFunctionalConstraint <em>Referred By Functional Constraint</em>}'.
+     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByFunctionalConstraintAsDesc <em>Referred By Functional Constraint As Desc</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the reference list '<em>Referred By Functional Constraint</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByFunctionalConstraint()
+     * @return the meta object for the reference list '<em>Referred By Functional Constraint As Desc</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByFunctionalConstraintAsDesc()
      * @see #getDoc()
      * @generated
      */
-    EReference getDoc_ReferredByFunctionalConstraint();
+    EReference getDoc_ReferredByFunctionalConstraintAsDesc();
 
     /**
      * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByAgPresenceConditionDerivedStatistics <em>Referred By Ag Presence Condition Derived Statistics</em>}'.
@@ -8739,6 +8775,28 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EReference getDoc_ReferredByTitledClass();
+
+    /**
+     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByFunctionalConstraintAsTitle <em>Referred By Functional Constraint As Title</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Referred By Functional Constraint As Title</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByFunctionalConstraintAsTitle()
+     * @see #getDoc()
+     * @generated
+     */
+    EReference getDoc_ReferredByFunctionalConstraintAsTitle();
+
+    /**
+     * Returns the meta object for the reference list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByPresenceConditionAsTitle <em>Referred By Presence Condition As Title</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Referred By Presence Condition As Title</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByPresenceConditionAsTitle()
+     * @see #getDoc()
+     * @generated
+     */
+    EReference getDoc_ReferredByPresenceConditionAsTitle();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentedClass <em>Documented Class</em>}'.
@@ -8990,15 +9048,26 @@ public interface NsdPackage extends EPackage {
     EReference getFunctionalConstraint_ReferredByDataAttribute();
 
     /**
-     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getRefersToDoc <em>Refers To Doc</em>}'.
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getRefersToDescDoc <em>Refers To Desc Doc</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Refers To Doc</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getRefersToDoc()
+     * @return the meta object for the reference '<em>Refers To Desc Doc</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getRefersToDescDoc()
      * @see #getFunctionalConstraint()
      * @generated
      */
-    EReference getFunctionalConstraint_RefersToDoc();
+    EReference getFunctionalConstraint_RefersToDescDoc();
+
+    /**
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getRefersToTitleDoc <em>Refers To Title Doc</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Refers To Title Doc</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getRefersToTitleDoc()
+     * @see #getFunctionalConstraint()
+     * @generated
+     */
+    EReference getFunctionalConstraint_RefersToTitleDoc();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints <em>Functional Constraints</em>}'.
@@ -9553,15 +9622,26 @@ public interface NsdPackage extends EPackage {
     EReference getPresenceCondition_ReferredBySubDataAttribute();
 
     /**
-     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getRefersToDoc <em>Refers To Doc</em>}'.
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getRefersToDescDoc <em>Refers To Desc Doc</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Refers To Doc</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getRefersToDoc()
+     * @return the meta object for the reference '<em>Refers To Desc Doc</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getRefersToDescDoc()
      * @see #getPresenceCondition()
      * @generated
      */
-    EReference getPresenceCondition_RefersToDoc();
+    EReference getPresenceCondition_RefersToDescDoc();
+
+    /**
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getRefersToTitleDoc <em>Refers To Title Doc</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Refers To Title Doc</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getRefersToTitleDoc()
+     * @see #getPresenceCondition()
+     * @generated
+     */
+    EReference getPresenceCondition_RefersToTitleDoc();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions <em>Presence Conditions</em>}'.
@@ -11867,12 +11947,12 @@ public interface NsdPackage extends EPackage {
         EReference DOC__REFERRED_BY_AG_NS_DESC = eINSTANCE.getDoc_ReferredByAgNSDesc();
 
         /**
-         * The meta object literal for the '<em><b>Referred By Presence Condition</b></em>' reference list feature.
+         * The meta object literal for the '<em><b>Referred By Presence Condition As Desc</b></em>' reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOC__REFERRED_BY_PRESENCE_CONDITION = eINSTANCE.getDoc_ReferredByPresenceCondition();
+        EReference DOC__REFERRED_BY_PRESENCE_CONDITION_AS_DESC = eINSTANCE.getDoc_ReferredByPresenceConditionAsDesc();
 
         /**
          * The meta object literal for the '<em><b>Referred By Ag Presence Condition</b></em>' reference list feature.
@@ -11907,12 +11987,13 @@ public interface NsdPackage extends EPackage {
         EReference DOC__REFERRED_BY_DOCUMENTED_CLASS = eINSTANCE.getDoc_ReferredByDocumentedClass();
 
         /**
-         * The meta object literal for the '<em><b>Referred By Functional Constraint</b></em>' reference list feature.
+         * The meta object literal for the '<em><b>Referred By Functional Constraint As Desc</b></em>' reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT = eINSTANCE.getDoc_ReferredByFunctionalConstraint();
+        EReference DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT_AS_DESC = eINSTANCE
+                .getDoc_ReferredByFunctionalConstraintAsDesc();
 
         /**
          * The meta object literal for the '<em><b>Referred By Ag Presence Condition Derived Statistics</b></em>' reference list feature.
@@ -11930,6 +12011,23 @@ public interface NsdPackage extends EPackage {
          * @generated
          */
         EReference DOC__REFERRED_BY_TITLED_CLASS = eINSTANCE.getDoc_ReferredByTitledClass();
+
+        /**
+         * The meta object literal for the '<em><b>Referred By Functional Constraint As Title</b></em>' reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT_AS_TITLE = eINSTANCE
+                .getDoc_ReferredByFunctionalConstraintAsTitle();
+
+        /**
+         * The meta object literal for the '<em><b>Referred By Presence Condition As Title</b></em>' reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DOC__REFERRED_BY_PRESENCE_CONDITION_AS_TITLE = eINSTANCE.getDoc_ReferredByPresenceConditionAsTitle();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DocumentedClassImpl <em>Documented Class</em>}' class.
@@ -12127,12 +12225,20 @@ public interface NsdPackage extends EPackage {
                 .getFunctionalConstraint_ReferredByDataAttribute();
 
         /**
-         * The meta object literal for the '<em><b>Refers To Doc</b></em>' reference feature.
+         * The meta object literal for the '<em><b>Refers To Desc Doc</b></em>' reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference FUNCTIONAL_CONSTRAINT__REFERS_TO_DOC = eINSTANCE.getFunctionalConstraint_RefersToDoc();
+        EReference FUNCTIONAL_CONSTRAINT__REFERS_TO_DESC_DOC = eINSTANCE.getFunctionalConstraint_RefersToDescDoc();
+
+        /**
+         * The meta object literal for the '<em><b>Refers To Title Doc</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference FUNCTIONAL_CONSTRAINT__REFERS_TO_TITLE_DOC = eINSTANCE.getFunctionalConstraint_RefersToTitleDoc();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.FunctionalConstraintsImpl <em>Functional Constraints</em>}' class.
@@ -12567,12 +12673,20 @@ public interface NsdPackage extends EPackage {
                 .getPresenceCondition_ReferredBySubDataAttribute();
 
         /**
-         * The meta object literal for the '<em><b>Refers To Doc</b></em>' reference feature.
+         * The meta object literal for the '<em><b>Refers To Desc Doc</b></em>' reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PRESENCE_CONDITION__REFERS_TO_DOC = eINSTANCE.getPresenceCondition_RefersToDoc();
+        EReference PRESENCE_CONDITION__REFERS_TO_DESC_DOC = eINSTANCE.getPresenceCondition_RefersToDescDoc();
+
+        /**
+         * The meta object literal for the '<em><b>Refers To Title Doc</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference PRESENCE_CONDITION__REFERS_TO_TITLE_DOC = eINSTANCE.getPresenceCondition_RefersToTitleDoc();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.PresenceConditionsImpl <em>Presence Conditions</em>}' class.
