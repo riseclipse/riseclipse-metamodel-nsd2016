@@ -3589,11 +3589,17 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
             }
             else {
                 setRefersToFunctionalConstraint( foundFC );
+                String foundWhere = "(???";
+                if( getRefersToFunctionalConstraint().getParentFunctionalConstraints().getParentNS() !=  null ) {
+                    foundWhere = "NS (id:" + getRefersToFunctionalConstraint().getParentFunctionalConstraints().getParentNS().getId();
+                }
+                else if( getRefersToFunctionalConstraint().getParentFunctionalConstraints().getParentServiceNS() != null ) {
+                    foundWhere = "ServiceNS (id:" + getRefersToFunctionalConstraint().getParentFunctionalConstraints().getParentServiceNS().getId();
+                }
                 console.info( "[NSD links] FunctionalConstraint (abbreviation: " + getFc()
                         + ") refers by DataAttribute (name: "
-                        + getName() + ") in NS (id:" + ns.getId() + ") found in NS (id:"
-                        + getRefersToFunctionalConstraint().getParentFunctionalConstraints().getParentNS().getId()
-                        + ")" );
+                        + getName() + ") in NS (id:" + ns.getId() + ") found in "
+                        + foundWhere + ")" );
             }
         }
 
@@ -3605,10 +3611,17 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
             }
             else {
                 setRefersToPresenceCondition( foundPC );
+                String foundWhere = "(???";
+                if( getRefersToPresenceCondition().getParentPresenceConditions().getParentNS() !=  null ) {
+                    foundWhere = "NS (id:" + getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId();
+                }
+                else if( getRefersToPresenceCondition().getParentPresenceConditions().getParentServiceNS() != null ) {
+                    foundWhere = "ServiceNS (id:" + getRefersToPresenceCondition().getParentPresenceConditions().getParentServiceNS().getId();
+                }
                 console.info( "[NSD links] PresenceCondition (name: " + getPresCond()
                         + ") refers by DataAttribute (name: "
                         + getName() + ") in NS (id:" + ns.getId() + ") found in NS (id:"
-                        + getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId() + ")" );
+                        + foundWhere + ")" );
             }
         }
 
@@ -3673,12 +3686,17 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                     }
                     else {
                         setRefersToConstructedAttribute( foundCA );
+                        String foundWhere = "(???";
+                        if( getRefersToConstructedAttribute().getParentConstructedAttributes() !=  null ) {
+                            foundWhere = "NS (id:" + getRefersToConstructedAttribute().getParentConstructedAttributes().getParentNS().getId();
+                        }
+                        else if( getRefersToConstructedAttribute().getParentServiceTypeRealizations() != null ) {
+                            foundWhere = "ServiceNS (id:" + getRefersToConstructedAttribute().getParentServiceTypeRealizations().getParentServiceNS().getId();
+                        }
                         console.info( "[NSD links] ConstructedAttribute (name: " + getType()
                                 + ") refers as type by DataAttribute (name: "
                                 + getName() + ") in NS (id:" + ns.getId() + ") found in NS (id:"
-                                + getRefersToConstructedAttribute().getParentConstructedAttributes().getParentNS()
-                                        .getId()
-                                + ")" );
+                                + foundWhere + ")" );
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
