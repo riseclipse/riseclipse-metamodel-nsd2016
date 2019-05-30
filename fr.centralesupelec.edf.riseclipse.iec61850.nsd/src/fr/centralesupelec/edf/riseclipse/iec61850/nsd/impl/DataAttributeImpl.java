@@ -3620,7 +3620,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                 }
                 console.info( "[NSD links] PresenceCondition (name: " + getPresCond()
                         + ") refers by DataAttribute (name: "
-                        + getName() + ") in NS (id:" + ns.getId() + ") found in NS (id:"
+                        + getName() + ") in NS (id:" + ns.getId() + ") found in "
                         + foundWhere + ")" );
             }
         }
@@ -3695,7 +3695,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                         }
                         console.info( "[NSD links] ConstructedAttribute (name: " + getType()
                                 + ") refers as type by DataAttribute (name: "
-                                + getName() + ") in NS (id:" + ns.getId() + ") found in NS (id:"
+                                + getName() + ") in NS (id:" + ns.getId() + ") found in "
                                 + foundWhere + ")" );
                     }
                     break;
