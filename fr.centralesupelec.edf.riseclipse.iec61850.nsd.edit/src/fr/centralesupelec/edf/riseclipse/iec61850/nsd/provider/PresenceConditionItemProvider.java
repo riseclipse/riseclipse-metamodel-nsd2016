@@ -69,7 +69,8 @@ public class PresenceConditionItemProvider extends NsdObjectItemProvider {
             addReferredBySubDataObjectPropertyDescriptor( object );
             addReferredByDataAttributePropertyDescriptor( object );
             addReferredBySubDataAttributePropertyDescriptor( object );
-            addRefersToDocPropertyDescriptor( object );
+            addRefersToDescDocPropertyDescriptor( object );
+            addRefersToTitleDocPropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -274,19 +275,41 @@ public class PresenceConditionItemProvider extends NsdObjectItemProvider {
     }
 
     /**
-     * This adds a property descriptor for the Refers To Doc feature.
+     * This adds a property descriptor for the Refers To Desc Doc feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addRefersToDocPropertyDescriptor( Object object ) {
+    protected void addRefersToDescDocPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
                         getResourceLocator(),
-                        getString( "_UI_PresenceCondition_refersToDoc_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_PresenceCondition_refersToDoc_feature",
-                                "_UI_PresenceCondition_type" ),
-                        NsdPackage.Literals.PRESENCE_CONDITION__REFERS_TO_DOC,
+                        getString( "_UI_PresenceCondition_refersToDescDoc_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_PresenceCondition_refersToDescDoc_feature", "_UI_PresenceCondition_type" ),
+                        NsdPackage.Literals.PRESENCE_CONDITION__REFERS_TO_DESC_DOC,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Refers To Title Doc feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addRefersToTitleDocPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_PresenceCondition_refersToTitleDoc_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_PresenceCondition_refersToTitleDoc_feature", "_UI_PresenceCondition_type" ),
+                        NsdPackage.Literals.PRESENCE_CONDITION__REFERS_TO_TITLE_DOC,
                         true,
                         false,
                         true,

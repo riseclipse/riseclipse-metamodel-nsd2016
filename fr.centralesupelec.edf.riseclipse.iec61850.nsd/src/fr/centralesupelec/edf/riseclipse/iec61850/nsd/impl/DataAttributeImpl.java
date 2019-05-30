@@ -3590,11 +3590,14 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
             else {
                 setRefersToFunctionalConstraint( foundFC );
                 String foundWhere = "(???";
-                if( getRefersToFunctionalConstraint().getParentFunctionalConstraints().getParentNS() !=  null ) {
-                    foundWhere = "NS (id:" + getRefersToFunctionalConstraint().getParentFunctionalConstraints().getParentNS().getId();
+                if( getRefersToFunctionalConstraint().getParentFunctionalConstraints().getParentNS() != null ) {
+                    foundWhere = "NS (id:"
+                            + getRefersToFunctionalConstraint().getParentFunctionalConstraints().getParentNS().getId();
                 }
-                else if( getRefersToFunctionalConstraint().getParentFunctionalConstraints().getParentServiceNS() != null ) {
-                    foundWhere = "ServiceNS (id:" + getRefersToFunctionalConstraint().getParentFunctionalConstraints().getParentServiceNS().getId();
+                else if( getRefersToFunctionalConstraint().getParentFunctionalConstraints()
+                        .getParentServiceNS() != null ) {
+                    foundWhere = "ServiceNS (id:" + getRefersToFunctionalConstraint().getParentFunctionalConstraints()
+                            .getParentServiceNS().getId();
                 }
                 console.info( "[NSD links] FunctionalConstraint (abbreviation: " + getFc()
                         + ") refers by DataAttribute (name: "
@@ -3612,11 +3615,13 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
             else {
                 setRefersToPresenceCondition( foundPC );
                 String foundWhere = "(???";
-                if( getRefersToPresenceCondition().getParentPresenceConditions().getParentNS() !=  null ) {
-                    foundWhere = "NS (id:" + getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId();
+                if( getRefersToPresenceCondition().getParentPresenceConditions().getParentNS() != null ) {
+                    foundWhere = "NS (id:"
+                            + getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId();
                 }
                 else if( getRefersToPresenceCondition().getParentPresenceConditions().getParentServiceNS() != null ) {
-                    foundWhere = "ServiceNS (id:" + getRefersToPresenceCondition().getParentPresenceConditions().getParentServiceNS().getId();
+                    foundWhere = "ServiceNS (id:"
+                            + getRefersToPresenceCondition().getParentPresenceConditions().getParentServiceNS().getId();
                 }
                 console.info( "[NSD links] PresenceCondition (name: " + getPresCond()
                         + ") refers by DataAttribute (name: "
@@ -3679,7 +3684,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                     }
                     break;
                 case DefinedAttributeTypeKind.CONSTRUCTED_VALUE:
-                    ConstructedAttribute foundCA = rs.findConstructedAttribute( getType(), getNsIdentification(), console );
+                    ConstructedAttribute foundCA = rs.findConstructedAttribute( getType(), getNsIdentification(),
+                            console );
 
                     if( foundCA == null ) {
                         console.warning( messagePrefix + "ConstructedAttribute (name: " + getType() + ") not found" );
@@ -3687,11 +3693,13 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                     else {
                         setRefersToConstructedAttribute( foundCA );
                         String foundWhere = "(???";
-                        if( getRefersToConstructedAttribute().getParentConstructedAttributes() !=  null ) {
-                            foundWhere = "NS (id:" + getRefersToConstructedAttribute().getParentConstructedAttributes().getParentNS().getId();
+                        if( getRefersToConstructedAttribute().getParentConstructedAttributes() != null ) {
+                            foundWhere = "NS (id:" + getRefersToConstructedAttribute().getParentConstructedAttributes()
+                                    .getParentNS().getId();
                         }
                         else if( getRefersToConstructedAttribute().getParentServiceTypeRealizations() != null ) {
-                            foundWhere = "ServiceNS (id:" + getRefersToConstructedAttribute().getParentServiceTypeRealizations().getParentServiceNS().getId();
+                            foundWhere = "ServiceNS (id:" + getRefersToConstructedAttribute()
+                                    .getParentServiceTypeRealizations().getParentServiceNS().getId();
                         }
                         console.info( "[NSD links] ConstructedAttribute (name: " + getType()
                                 + ") refers as type by DataAttribute (name: "

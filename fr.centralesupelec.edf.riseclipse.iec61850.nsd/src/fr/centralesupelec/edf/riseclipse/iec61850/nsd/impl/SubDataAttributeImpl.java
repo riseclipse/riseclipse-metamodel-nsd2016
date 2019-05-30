@@ -2463,7 +2463,8 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
                     }
                     break;
                 case DefinedAttributeTypeKind.CONSTRUCTED_VALUE:
-                    ConstructedAttribute foundCA = rs.findConstructedAttribute( getType(), getNsIdentification(), console );
+                    ConstructedAttribute foundCA = rs.findConstructedAttribute( getType(), getNsIdentification(),
+                            console );
 
                     if( foundCA == null ) {
                         console.warning( messagePrefix + "ConstructedAttribute (name: " + getType() + ") not found" );

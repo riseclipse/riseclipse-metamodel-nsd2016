@@ -56,7 +56,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.FunctionalConstraintImpl#getTitleID <em>Title ID</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.FunctionalConstraintImpl#getParentFunctionalConstraints <em>Parent Functional Constraints</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.FunctionalConstraintImpl#getReferredByDataAttribute <em>Referred By Data Attribute</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.FunctionalConstraintImpl#getRefersToDoc <em>Refers To Doc</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.FunctionalConstraintImpl#getRefersToDescDoc <em>Refers To Desc Doc</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.FunctionalConstraintImpl#getRefersToTitleDoc <em>Refers To Title Doc</em>}</li>
  * </ul>
  *
  * @generated
@@ -179,23 +180,42 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
     protected EList< DataAttribute > referredByDataAttribute;
 
     /**
-     * The cached value of the '{@link #getRefersToDoc() <em>Refers To Doc</em>}' reference.
+     * The cached value of the '{@link #getRefersToDescDoc() <em>Refers To Desc Doc</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getRefersToDoc()
+     * @see #getRefersToDescDoc()
      * @generated
      * @ordered
      */
-    protected Doc refersToDoc;
+    protected Doc refersToDescDoc;
 
     /**
-     * This is true if the Refers To Doc reference has been set.
+     * This is true if the Refers To Desc Doc reference has been set.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    protected boolean refersToDocESet;
+    protected boolean refersToDescDocESet;
+
+    /**
+     * The cached value of the '{@link #getRefersToTitleDoc() <em>Refers To Title Doc</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRefersToTitleDoc()
+     * @generated
+     * @ordered
+     */
+    protected Doc refersToTitleDoc;
+
+    /**
+     * This is true if the Refers To Title Doc reference has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean refersToTitleDocESet;
 
     /**
      * <!-- begin-user-doc -->
@@ -580,8 +600,8 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
      * @generated
      */
     @Override
-    public Doc getRefersToDoc() {
-        return refersToDoc;
+    public Doc getRefersToDescDoc() {
+        return refersToDescDoc;
     }
 
     /**
@@ -589,15 +609,15 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetRefersToDoc( Doc newRefersToDoc, NotificationChain msgs ) {
-        Doc oldRefersToDoc = refersToDoc;
-        refersToDoc = newRefersToDoc;
-        boolean oldRefersToDocESet = refersToDocESet;
-        refersToDocESet = true;
+    public NotificationChain basicSetRefersToDescDoc( Doc newRefersToDescDoc, NotificationChain msgs ) {
+        Doc oldRefersToDescDoc = refersToDescDoc;
+        refersToDescDoc = newRefersToDescDoc;
+        boolean oldRefersToDescDocESet = refersToDescDocESet;
+        refersToDescDocESet = true;
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
-                    NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DOC, oldRefersToDoc, newRefersToDoc,
-                    !oldRefersToDocESet );
+                    NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DESC_DOC, oldRefersToDescDoc, newRefersToDescDoc,
+                    !oldRefersToDescDocESet );
             if( msgs == null )
                 msgs = notification;
             else
@@ -612,24 +632,25 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
      * @generated
      */
     @Override
-    public void setRefersToDoc( Doc newRefersToDoc ) {
-        if( newRefersToDoc != refersToDoc ) {
+    public void setRefersToDescDoc( Doc newRefersToDescDoc ) {
+        if( newRefersToDescDoc != refersToDescDoc ) {
             NotificationChain msgs = null;
-            if( refersToDoc != null )
-                msgs = ( ( InternalEObject ) refersToDoc ).eInverseRemove( this,
-                        NsdPackage.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT, Doc.class, msgs );
-            if( newRefersToDoc != null )
-                msgs = ( ( InternalEObject ) newRefersToDoc ).eInverseAdd( this,
-                        NsdPackage.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT, Doc.class, msgs );
-            msgs = basicSetRefersToDoc( newRefersToDoc, msgs );
+            if( refersToDescDoc != null )
+                msgs = ( ( InternalEObject ) refersToDescDoc ).eInverseRemove( this,
+                        NsdPackage.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT_AS_DESC, Doc.class, msgs );
+            if( newRefersToDescDoc != null )
+                msgs = ( ( InternalEObject ) newRefersToDescDoc ).eInverseAdd( this,
+                        NsdPackage.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT_AS_DESC, Doc.class, msgs );
+            msgs = basicSetRefersToDescDoc( newRefersToDescDoc, msgs );
             if( msgs != null ) msgs.dispatch();
         }
         else {
-            boolean oldRefersToDocESet = refersToDocESet;
-            refersToDocESet = true;
+            boolean oldRefersToDescDocESet = refersToDescDocESet;
+            refersToDescDocESet = true;
             if( eNotificationRequired() )
-                eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DOC,
-                        newRefersToDoc, newRefersToDoc, !oldRefersToDocESet ) );
+                eNotify( new ENotificationImpl( this, Notification.SET,
+                        NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DESC_DOC, newRefersToDescDoc, newRefersToDescDoc,
+                        !oldRefersToDescDocESet ) );
         }
     }
 
@@ -638,14 +659,15 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicUnsetRefersToDoc( NotificationChain msgs ) {
-        Doc oldRefersToDoc = refersToDoc;
-        refersToDoc = null;
-        boolean oldRefersToDocESet = refersToDocESet;
-        refersToDocESet = false;
+    public NotificationChain basicUnsetRefersToDescDoc( NotificationChain msgs ) {
+        Doc oldRefersToDescDoc = refersToDescDoc;
+        refersToDescDoc = null;
+        boolean oldRefersToDescDocESet = refersToDescDocESet;
+        refersToDescDocESet = false;
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
-                    NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DOC, oldRefersToDoc, null, oldRefersToDocESet );
+                    NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DESC_DOC, oldRefersToDescDoc, null,
+                    oldRefersToDescDocESet );
             if( msgs == null )
                 msgs = notification;
             else
@@ -660,20 +682,20 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
      * @generated
      */
     @Override
-    public void unsetRefersToDoc() {
-        if( refersToDoc != null ) {
+    public void unsetRefersToDescDoc() {
+        if( refersToDescDoc != null ) {
             NotificationChain msgs = null;
-            msgs = ( ( InternalEObject ) refersToDoc ).eInverseRemove( this,
-                    NsdPackage.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT, Doc.class, msgs );
-            msgs = basicUnsetRefersToDoc( msgs );
+            msgs = ( ( InternalEObject ) refersToDescDoc ).eInverseRemove( this,
+                    NsdPackage.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT_AS_DESC, Doc.class, msgs );
+            msgs = basicUnsetRefersToDescDoc( msgs );
             if( msgs != null ) msgs.dispatch();
         }
         else {
-            boolean oldRefersToDocESet = refersToDocESet;
-            refersToDocESet = false;
+            boolean oldRefersToDescDocESet = refersToDescDocESet;
+            refersToDescDocESet = false;
             if( eNotificationRequired() )
                 eNotify( new ENotificationImpl( this, Notification.UNSET,
-                        NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DOC, null, null, oldRefersToDocESet ) );
+                        NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DESC_DOC, null, null, oldRefersToDescDocESet ) );
         }
     }
 
@@ -683,8 +705,123 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
      * @generated
      */
     @Override
-    public boolean isSetRefersToDoc() {
-        return refersToDocESet;
+    public boolean isSetRefersToDescDoc() {
+        return refersToDescDocESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Doc getRefersToTitleDoc() {
+        return refersToTitleDoc;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetRefersToTitleDoc( Doc newRefersToTitleDoc, NotificationChain msgs ) {
+        Doc oldRefersToTitleDoc = refersToTitleDoc;
+        refersToTitleDoc = newRefersToTitleDoc;
+        boolean oldRefersToTitleDocESet = refersToTitleDocESet;
+        refersToTitleDocESet = true;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_TITLE_DOC, oldRefersToTitleDoc, newRefersToTitleDoc,
+                    !oldRefersToTitleDocESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setRefersToTitleDoc( Doc newRefersToTitleDoc ) {
+        if( newRefersToTitleDoc != refersToTitleDoc ) {
+            NotificationChain msgs = null;
+            if( refersToTitleDoc != null )
+                msgs = ( ( InternalEObject ) refersToTitleDoc ).eInverseRemove( this,
+                        NsdPackage.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT_AS_TITLE, Doc.class, msgs );
+            if( newRefersToTitleDoc != null )
+                msgs = ( ( InternalEObject ) newRefersToTitleDoc ).eInverseAdd( this,
+                        NsdPackage.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT_AS_TITLE, Doc.class, msgs );
+            msgs = basicSetRefersToTitleDoc( newRefersToTitleDoc, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToTitleDocESet = refersToTitleDocESet;
+            refersToTitleDocESet = true;
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.SET,
+                        NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_TITLE_DOC, newRefersToTitleDoc, newRefersToTitleDoc,
+                        !oldRefersToTitleDocESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicUnsetRefersToTitleDoc( NotificationChain msgs ) {
+        Doc oldRefersToTitleDoc = refersToTitleDoc;
+        refersToTitleDoc = null;
+        boolean oldRefersToTitleDocESet = refersToTitleDocESet;
+        refersToTitleDocESet = false;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_TITLE_DOC, oldRefersToTitleDoc, null,
+                    oldRefersToTitleDocESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetRefersToTitleDoc() {
+        if( refersToTitleDoc != null ) {
+            NotificationChain msgs = null;
+            msgs = ( ( InternalEObject ) refersToTitleDoc ).eInverseRemove( this,
+                    NsdPackage.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT_AS_TITLE, Doc.class, msgs );
+            msgs = basicUnsetRefersToTitleDoc( msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToTitleDocESet = refersToTitleDocESet;
+            refersToTitleDocESet = false;
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.UNSET,
+                        NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_TITLE_DOC, null, null, oldRefersToTitleDocESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetRefersToTitleDoc() {
+        return refersToTitleDocESet;
     }
 
     /**
@@ -708,11 +845,16 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
         case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByDataAttribute() )
                     .basicAdd( otherEnd, msgs );
-        case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DOC:
-            if( refersToDoc != null )
-                msgs = ( ( InternalEObject ) refersToDoc ).eInverseRemove( this,
-                        NsdPackage.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT, Doc.class, msgs );
-            return basicSetRefersToDoc( ( Doc ) otherEnd, msgs );
+        case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DESC_DOC:
+            if( refersToDescDoc != null )
+                msgs = ( ( InternalEObject ) refersToDescDoc ).eInverseRemove( this,
+                        NsdPackage.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT_AS_DESC, Doc.class, msgs );
+            return basicSetRefersToDescDoc( ( Doc ) otherEnd, msgs );
+        case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_TITLE_DOC:
+            if( refersToTitleDoc != null )
+                msgs = ( ( InternalEObject ) refersToTitleDoc ).eInverseRemove( this,
+                        NsdPackage.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT_AS_TITLE, Doc.class, msgs );
+            return basicSetRefersToTitleDoc( ( Doc ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
     }
@@ -731,8 +873,10 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
             return basicSetParentFunctionalConstraints( null, msgs );
         case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE:
             return ( ( InternalEList< ? > ) getReferredByDataAttribute() ).basicRemove( otherEnd, msgs );
-        case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DOC:
-            return basicUnsetRefersToDoc( msgs );
+        case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DESC_DOC:
+            return basicUnsetRefersToDescDoc( msgs );
+        case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_TITLE_DOC:
+            return basicUnsetRefersToTitleDoc( msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -772,8 +916,10 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
             return getParentFunctionalConstraints();
         case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE:
             return getReferredByDataAttribute();
-        case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DOC:
-            return getRefersToDoc();
+        case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DESC_DOC:
+            return getRefersToDescDoc();
+        case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_TITLE_DOC:
+            return getRefersToTitleDoc();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -806,8 +952,11 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
             getReferredByDataAttribute().clear();
             getReferredByDataAttribute().addAll( ( Collection< ? extends DataAttribute > ) newValue );
             return;
-        case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DOC:
-            setRefersToDoc( ( Doc ) newValue );
+        case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DESC_DOC:
+            setRefersToDescDoc( ( Doc ) newValue );
+            return;
+        case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_TITLE_DOC:
+            setRefersToTitleDoc( ( Doc ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -839,8 +988,11 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
         case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE:
             unsetReferredByDataAttribute();
             return;
-        case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DOC:
-            unsetRefersToDoc();
+        case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DESC_DOC:
+            unsetRefersToDescDoc();
+            return;
+        case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_TITLE_DOC:
+            unsetRefersToTitleDoc();
             return;
         }
         super.eUnset( featureID );
@@ -866,8 +1018,10 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
             return getParentFunctionalConstraints() != null;
         case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE:
             return isSetReferredByDataAttribute();
-        case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DOC:
-            return isSetRefersToDoc();
+        case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DESC_DOC:
+            return isSetRefersToDescDoc();
+        case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_TITLE_DOC:
+            return isSetRefersToTitleDoc();
         }
         return super.eIsSet( featureID );
     }
@@ -908,8 +1062,18 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
         if( isSetDescID() ) {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
                 Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() )
-                        .findDoc( new NsIdentification( getParentFunctionalConstraints().getParentNS() ), getDescID() );
-                if( doc != null ) setRefersToDoc( doc );
+                        .findDoc( new NsIdentification( getParentFunctionalConstraints().getParentNS() ),
+                                getDescID() );
+                if( doc != null ) setRefersToDescDoc( doc );
+            }
+        }
+
+        if( isSetTitleID() ) {
+            if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
+                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() )
+                        .findDoc( new NsIdentification( getParentFunctionalConstraints().getParentNS() ),
+                                getTitleID() );
+                if( doc != null ) setRefersToTitleDoc( doc );
             }
         }
 
