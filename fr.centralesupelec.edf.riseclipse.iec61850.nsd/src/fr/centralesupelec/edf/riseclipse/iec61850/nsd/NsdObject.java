@@ -102,4 +102,9 @@ public interface NsdObject extends EObject {
      * @generated
      */
     boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate );
+
+    /*
+     * @generated NOT
+     */
+    String getFilename();
 } // NsdObject

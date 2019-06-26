@@ -31,6 +31,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
 /**
@@ -278,6 +279,11 @@ public abstract class NsdObjectImpl extends MinimalEObjectImpl.Container impleme
         ResourceSet rs = eResource().getResourceSet();
         if( rs instanceof NsdResourceSetImpl ) return ( NsdResourceSetImpl ) rs;
         return null;
+    }
+    
+    public String getFilename() {
+        Resource r = eResource();
+        return ( r == null ) ? "" : r.getURI().lastSegment();
     }
 
 } //NsdObjectImpl
