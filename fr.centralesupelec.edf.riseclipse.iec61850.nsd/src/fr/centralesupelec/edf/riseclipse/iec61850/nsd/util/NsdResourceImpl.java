@@ -20,6 +20,7 @@
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.util;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.xmi.XMLLoad;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
@@ -42,6 +43,11 @@ public class NsdResourceImpl extends XMLResourceImpl implements IRiseClipseResou
      */
     public NsdResourceImpl( URI uri ) {
         super( uri );
+    }
+
+    @Override
+    protected XMLLoad createXMLLoad() {
+        return new NsdLoadImpl( createXMLHelper() );
     }
 
     @Override
