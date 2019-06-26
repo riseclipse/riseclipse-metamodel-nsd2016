@@ -264,7 +264,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
      */
     private void buildExplicitLinks( IRiseClipseConsole console ) {
         for( Resource resource : getResources() ) {
-            if( resource instanceof NsdResourceImpl ) {
+            if(( resource instanceof NsdResourceImpl ) && ( ! resource.getContents().isEmpty() )) {
                 DocumentRoot root = (DocumentRoot) resource.getContents().get( 0 );
                 if( root.getNS() != null ) {
                     root.getNS().buildExplicitLinks( console, true );
