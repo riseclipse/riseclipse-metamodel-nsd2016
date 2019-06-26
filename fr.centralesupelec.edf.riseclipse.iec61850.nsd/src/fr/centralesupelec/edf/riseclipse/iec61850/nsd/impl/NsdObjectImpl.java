@@ -281,9 +281,18 @@ public abstract class NsdObjectImpl extends MinimalEObjectImpl.Container impleme
         return null;
     }
     
+    private String filename;
+    
+    public void setFilename( String filename ) {
+        this.filename = filename;
+    }
+
     public String getFilename() {
-        Resource r = eResource();
-        return ( r == null ) ? "" : r.getURI().lastSegment();
+        if( filename == null ) {
+            Resource r = eResource();
+            filename = ( r == null ) ? "" : r.getURI().lastSegment();
+        }
+        return filename;
     }
 
 } //NsdObjectImpl
