@@ -29,8 +29,8 @@ public class NsdResourceSetFactory implements IRiseClipseResourceSetFactory {
      * @see fr.centralesupelec.edf.riseclipse.util.IRiseClipseResourceSetFactory#createResourceSet()
      */
     @Override
-    public IRiseClipseResourceSet createResourceSet( boolean strictContent, IRiseClipseConsole console ) {
-        return new NsdResourceSetImpl( strictContent, console );
+    public IRiseClipseResourceSet createResourceSet( boolean strictContent ) {
+        return new NsdResourceSetImpl( strictContent );
     }
 
 }

@@ -23,20 +23,18 @@ import org.eclipse.emf.ecore.resource.Resource;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceFactoryImpl;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetImpl;
-import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
+import fr.centralesupelec.edf.riseclipse.util.AbstractRiseClipseConsole;
 import fr.centralesupelec.edf.riseclipse.util.AbstractRiseClipseModelLoader;
 
 public class NsdModelLoader extends AbstractRiseClipseModelLoader {
 
-    public NsdModelLoader( IRiseClipseConsole console ) {
-        super( console );
-        
+    public NsdModelLoader() {
         reset();
     }
 
 //    @Override
     public void reset() {
-        super.reset( new NsdResourceSetImpl( false, console ) );
+        super.reset( new NsdResourceSetImpl( false ));
 
         // Register the appropriate resource factory to handle all file
         // extensions.
@@ -55,7 +53,7 @@ public class NsdModelLoader extends AbstractRiseClipseModelLoader {
     public Resource loadWithoutValidation( String name ) {
         Object eValidator = EValidator.Registry.INSTANCE.remove( NsdPackage.eINSTANCE );
 
-        Resource resource = load( name );
+        Resource resource = load( name, AbstractRiseClipseConsole.getConsole() );
 
         if( eValidator != null ) {
             EValidator.Registry.INSTANCE.put( NsdPackage.eINSTANCE, eValidator );

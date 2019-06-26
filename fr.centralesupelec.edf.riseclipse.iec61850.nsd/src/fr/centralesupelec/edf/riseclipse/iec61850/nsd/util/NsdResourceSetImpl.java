@@ -76,8 +76,8 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
     private Map< NsIdentification, List< ServiceNS > > nsdAdditions = new HashMap<>();
     private Map< NsIdentification, NsIdentification > equivalentNamespaces = new HashMap<>();
 
-    public NsdResourceSetImpl( boolean strictContent, IRiseClipseConsole console ) {
-        super( strictContent, console );
+    public NsdResourceSetImpl( boolean strictContent ) {
+        super( strictContent );
         
         setEquivalentNamespace(
                 new NsIdentification( "IEC 61850-7-2", 2007, "B", 1 ), 
@@ -180,7 +180,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                                 nsdAdditions.put( nsId, new ArrayList<>() );
                             }
                             nsdAdditions.get( nsId ).add( serviceNSResources.get( serviceNsId ));
-                            applyServiceNs( serviceNSResources.get( serviceNsId ), nsdResources.get( nsId ), nsId );
+                            applyServiceNs( serviceNSResources.get( serviceNsId ), nsdResources.get( nsId ), nsId, console );
                         }
                     }
                 }
@@ -191,7 +191,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         
     }
 
-    private void applyServiceNs( ServiceNS serviceNS, NS ns, NsIdentification nsIdentification ) {
+    private void applyServiceNs( ServiceNS serviceNS, NS ns, NsIdentification nsIdentification, IRiseClipseConsole console ) {
         // A ServiceTypeRealization gives a new definition to an existing (only basic ? never constructed ?) type
         for( ConstructedAttribute typeRealization : serviceNS.getServiceTypeRealizations().getServiceTypeRealization() ) {
             BasicType basic = findBasicType( typeRealization.getName(), nsIdentification, console );
@@ -264,7 +264,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
      */
     private void buildExplicitLinks( IRiseClipseConsole console ) {
         for( Resource resource : getResources() ) {
-            if( resource instanceof NsdResourceImpl ) {
+            if(( resource instanceof NsdResourceImpl ) && ( ! resource.getContents().isEmpty() )) {
                 DocumentRoot root = (DocumentRoot) resource.getContents().get( 0 );
                 if( root.getNS() != null ) {
                     root.getNS().buildExplicitLinks( console, true );
