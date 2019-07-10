@@ -1873,7 +1873,7 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         dataAttribute.setTypeKind( getTypeKind() );
         dataAttribute.setFc( getFc() );
         dataAttribute.setName( getName() );
-        
+
         dataAttribute.setLineNumber( getLineNumber() );
         dataAttribute.setFilename( getFilename() );
 

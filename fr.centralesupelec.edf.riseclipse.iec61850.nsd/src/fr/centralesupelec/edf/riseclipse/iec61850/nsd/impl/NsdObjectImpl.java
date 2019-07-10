@@ -281,13 +281,15 @@ public abstract class NsdObjectImpl extends MinimalEObjectImpl.Container impleme
         if( rs instanceof NsdResourceSetImpl ) return ( NsdResourceSetImpl ) rs;
         return null;
     }
-    
+
     private String filename;
-    
+
+    @Override
     public void setFilename( String filename ) {
         this.filename = filename;
     }
 
+    @Override
     public String getFilename() {
         if( filename == null ) {
             Resource r = eResource();

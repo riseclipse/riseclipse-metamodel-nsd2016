@@ -108,5 +108,6 @@ public interface NsdObject extends EObject {
      * @generated NOT
      */
     void setFilename( String filename );
+
     String getFilename();
 } // NsdObject
