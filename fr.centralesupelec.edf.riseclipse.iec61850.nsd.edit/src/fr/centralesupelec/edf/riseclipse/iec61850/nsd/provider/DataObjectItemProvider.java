@@ -72,6 +72,9 @@ public class DataObjectItemProvider extends DocumentedClassItemProvider {
             addRefersToDsPresCondArgsDocPropertyDescriptor( object );
             addUnderlyingTypePropertyDescriptor( object );
             addUnderlyingTypeKindPropertyDescriptor( object );
+            addRefersToUnderlyingBasicTypePropertyDescriptor( object );
+            addRefersToUnderlyingConstructedAttributePropertyDescriptor( object );
+            addRefersToUnderlyingEnumerationPropertyDescriptor( object );
             addNamePropertyDescriptor( object );
             addTransientPropertyDescriptor( object );
             addTypePropertyDescriptor( object );
@@ -436,6 +439,73 @@ public class DataObjectItemProvider extends DocumentedClassItemProvider {
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
                         null,
                         null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Refers To Underlying Basic Type feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addRefersToUnderlyingBasicTypePropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add( createItemPropertyDescriptor(
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                getResourceLocator(),
+                getString( "_UI_AgUnderlyingType_refersToUnderlyingBasicType_feature" ),
+                getString( "_UI_PropertyDescriptor_description",
+                        "_UI_AgUnderlyingType_refersToUnderlyingBasicType_feature", "_UI_AgUnderlyingType_type" ),
+                NsdPackage.Literals.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_BASIC_TYPE,
+                true,
+                false,
+                true,
+                null,
+                null,
+                null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Refers To Underlying Constructed Attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addRefersToUnderlyingConstructedAttributePropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_AgUnderlyingType_refersToUnderlyingConstructedAttribute_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_AgUnderlyingType_refersToUnderlyingConstructedAttribute_feature",
+                                "_UI_AgUnderlyingType_type" ),
+                        NsdPackage.Literals.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Refers To Underlying Enumeration feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addRefersToUnderlyingEnumerationPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add( createItemPropertyDescriptor(
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                getResourceLocator(),
+                getString( "_UI_AgUnderlyingType_refersToUnderlyingEnumeration_feature" ),
+                getString( "_UI_PropertyDescriptor_description",
+                        "_UI_AgUnderlyingType_refersToUnderlyingEnumeration_feature", "_UI_AgUnderlyingType_type" ),
+                NsdPackage.Literals.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_ENUMERATION,
+                true,
+                false,
+                true,
+                null,
+                null,
+                null ) );
     }
 
     /**

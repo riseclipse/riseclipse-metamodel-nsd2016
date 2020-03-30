@@ -23,10 +23,13 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgArray;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceCondition;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
@@ -62,6 +65,9 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getSizeAttribute <em>Size Attribute</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getUnderlyingType <em>Underlying Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getUnderlyingTypeKind <em>Underlying Type Kind</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getRefersToUnderlyingBasicType <em>Refers To Underlying Basic Type</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getRefersToUnderlyingConstructedAttribute <em>Refers To Underlying Constructed Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getRefersToUnderlyingEnumeration <em>Refers To Underlying Enumeration</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getType <em>Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getParentCDC <em>Parent CDC</em>}</li>
@@ -353,6 +359,63 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
      * @ordered
      */
     protected boolean underlyingTypeKindESet;
+
+    /**
+     * The cached value of the '{@link #getRefersToUnderlyingBasicType() <em>Refers To Underlying Basic Type</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRefersToUnderlyingBasicType()
+     * @generated
+     * @ordered
+     */
+    protected BasicType refersToUnderlyingBasicType;
+
+    /**
+     * This is true if the Refers To Underlying Basic Type reference has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean refersToUnderlyingBasicTypeESet;
+
+    /**
+     * The cached value of the '{@link #getRefersToUnderlyingConstructedAttribute() <em>Refers To Underlying Constructed Attribute</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRefersToUnderlyingConstructedAttribute()
+     * @generated
+     * @ordered
+     */
+    protected ConstructedAttribute refersToUnderlyingConstructedAttribute;
+
+    /**
+     * This is true if the Refers To Underlying Constructed Attribute reference has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean refersToUnderlyingConstructedAttributeESet;
+
+    /**
+     * The cached value of the '{@link #getRefersToUnderlyingEnumeration() <em>Refers To Underlying Enumeration</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRefersToUnderlyingEnumeration()
+     * @generated
+     * @ordered
+     */
+    protected Enumeration refersToUnderlyingEnumeration;
+
+    /**
+     * This is true if the Refers To Underlying Enumeration reference has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean refersToUnderlyingEnumerationESet;
 
     /**
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -1247,6 +1310,362 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
      * @generated
      */
     @Override
+    public BasicType getRefersToUnderlyingBasicType() {
+        return refersToUnderlyingBasicType;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetRefersToUnderlyingBasicType( BasicType newRefersToUnderlyingBasicType,
+            NotificationChain msgs ) {
+        BasicType oldRefersToUnderlyingBasicType = refersToUnderlyingBasicType;
+        refersToUnderlyingBasicType = newRefersToUnderlyingBasicType;
+        boolean oldRefersToUnderlyingBasicTypeESet = refersToUnderlyingBasicTypeESet;
+        refersToUnderlyingBasicTypeESet = true;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_BASIC_TYPE, oldRefersToUnderlyingBasicType,
+                    newRefersToUnderlyingBasicType, !oldRefersToUnderlyingBasicTypeESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setRefersToUnderlyingBasicType( BasicType newRefersToUnderlyingBasicType ) {
+        if( newRefersToUnderlyingBasicType != refersToUnderlyingBasicType ) {
+            NotificationChain msgs = null;
+            if( refersToUnderlyingBasicType != null )
+                msgs = ( ( InternalEObject ) refersToUnderlyingBasicType ).eInverseRemove( this,
+                        NsdPackage.BASIC_TYPE__REFERRED_BY_UNDERLYING_TYPE, BasicType.class, msgs );
+            if( newRefersToUnderlyingBasicType != null )
+                msgs = ( ( InternalEObject ) newRefersToUnderlyingBasicType ).eInverseAdd( this,
+                        NsdPackage.BASIC_TYPE__REFERRED_BY_UNDERLYING_TYPE, BasicType.class, msgs );
+            msgs = basicSetRefersToUnderlyingBasicType( newRefersToUnderlyingBasicType, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToUnderlyingBasicTypeESet = refersToUnderlyingBasicTypeESet;
+            refersToUnderlyingBasicTypeESet = true;
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.SET,
+                        NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_BASIC_TYPE, newRefersToUnderlyingBasicType,
+                        newRefersToUnderlyingBasicType, !oldRefersToUnderlyingBasicTypeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicUnsetRefersToUnderlyingBasicType( NotificationChain msgs ) {
+        BasicType oldRefersToUnderlyingBasicType = refersToUnderlyingBasicType;
+        refersToUnderlyingBasicType = null;
+        boolean oldRefersToUnderlyingBasicTypeESet = refersToUnderlyingBasicTypeESet;
+        refersToUnderlyingBasicTypeESet = false;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_BASIC_TYPE, oldRefersToUnderlyingBasicType, null,
+                    oldRefersToUnderlyingBasicTypeESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetRefersToUnderlyingBasicType() {
+        if( refersToUnderlyingBasicType != null ) {
+            NotificationChain msgs = null;
+            msgs = ( ( InternalEObject ) refersToUnderlyingBasicType ).eInverseRemove( this,
+                    NsdPackage.BASIC_TYPE__REFERRED_BY_UNDERLYING_TYPE, BasicType.class, msgs );
+            msgs = basicUnsetRefersToUnderlyingBasicType( msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToUnderlyingBasicTypeESet = refersToUnderlyingBasicTypeESet;
+            refersToUnderlyingBasicTypeESet = false;
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.UNSET,
+                        NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_BASIC_TYPE, null, null,
+                        oldRefersToUnderlyingBasicTypeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetRefersToUnderlyingBasicType() {
+        return refersToUnderlyingBasicTypeESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public ConstructedAttribute getRefersToUnderlyingConstructedAttribute() {
+        return refersToUnderlyingConstructedAttribute;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetRefersToUnderlyingConstructedAttribute(
+            ConstructedAttribute newRefersToUnderlyingConstructedAttribute, NotificationChain msgs ) {
+        ConstructedAttribute oldRefersToUnderlyingConstructedAttribute = refersToUnderlyingConstructedAttribute;
+        refersToUnderlyingConstructedAttribute = newRefersToUnderlyingConstructedAttribute;
+        boolean oldRefersToUnderlyingConstructedAttributeESet = refersToUnderlyingConstructedAttributeESet;
+        refersToUnderlyingConstructedAttributeESet = true;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE,
+                    oldRefersToUnderlyingConstructedAttribute, newRefersToUnderlyingConstructedAttribute,
+                    !oldRefersToUnderlyingConstructedAttributeESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setRefersToUnderlyingConstructedAttribute(
+            ConstructedAttribute newRefersToUnderlyingConstructedAttribute ) {
+        if( newRefersToUnderlyingConstructedAttribute != refersToUnderlyingConstructedAttribute ) {
+            NotificationChain msgs = null;
+            if( refersToUnderlyingConstructedAttribute != null )
+                msgs = ( ( InternalEObject ) refersToUnderlyingConstructedAttribute ).eInverseRemove( this,
+                        NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_UNDERLYING_TYPE, ConstructedAttribute.class,
+                        msgs );
+            if( newRefersToUnderlyingConstructedAttribute != null )
+                msgs = ( ( InternalEObject ) newRefersToUnderlyingConstructedAttribute ).eInverseAdd( this,
+                        NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_UNDERLYING_TYPE, ConstructedAttribute.class,
+                        msgs );
+            msgs = basicSetRefersToUnderlyingConstructedAttribute( newRefersToUnderlyingConstructedAttribute, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToUnderlyingConstructedAttributeESet = refersToUnderlyingConstructedAttributeESet;
+            refersToUnderlyingConstructedAttributeESet = true;
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.SET,
+                        NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE,
+                        newRefersToUnderlyingConstructedAttribute, newRefersToUnderlyingConstructedAttribute,
+                        !oldRefersToUnderlyingConstructedAttributeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicUnsetRefersToUnderlyingConstructedAttribute( NotificationChain msgs ) {
+        ConstructedAttribute oldRefersToUnderlyingConstructedAttribute = refersToUnderlyingConstructedAttribute;
+        refersToUnderlyingConstructedAttribute = null;
+        boolean oldRefersToUnderlyingConstructedAttributeESet = refersToUnderlyingConstructedAttributeESet;
+        refersToUnderlyingConstructedAttributeESet = false;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE,
+                    oldRefersToUnderlyingConstructedAttribute, null, oldRefersToUnderlyingConstructedAttributeESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetRefersToUnderlyingConstructedAttribute() {
+        if( refersToUnderlyingConstructedAttribute != null ) {
+            NotificationChain msgs = null;
+            msgs = ( ( InternalEObject ) refersToUnderlyingConstructedAttribute ).eInverseRemove( this,
+                    NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_UNDERLYING_TYPE, ConstructedAttribute.class, msgs );
+            msgs = basicUnsetRefersToUnderlyingConstructedAttribute( msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToUnderlyingConstructedAttributeESet = refersToUnderlyingConstructedAttributeESet;
+            refersToUnderlyingConstructedAttributeESet = false;
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.UNSET,
+                        NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE, null, null,
+                        oldRefersToUnderlyingConstructedAttributeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetRefersToUnderlyingConstructedAttribute() {
+        return refersToUnderlyingConstructedAttributeESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Enumeration getRefersToUnderlyingEnumeration() {
+        return refersToUnderlyingEnumeration;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetRefersToUnderlyingEnumeration( Enumeration newRefersToUnderlyingEnumeration,
+            NotificationChain msgs ) {
+        Enumeration oldRefersToUnderlyingEnumeration = refersToUnderlyingEnumeration;
+        refersToUnderlyingEnumeration = newRefersToUnderlyingEnumeration;
+        boolean oldRefersToUnderlyingEnumerationESet = refersToUnderlyingEnumerationESet;
+        refersToUnderlyingEnumerationESet = true;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_ENUMERATION, oldRefersToUnderlyingEnumeration,
+                    newRefersToUnderlyingEnumeration, !oldRefersToUnderlyingEnumerationESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setRefersToUnderlyingEnumeration( Enumeration newRefersToUnderlyingEnumeration ) {
+        if( newRefersToUnderlyingEnumeration != refersToUnderlyingEnumeration ) {
+            NotificationChain msgs = null;
+            if( refersToUnderlyingEnumeration != null )
+                msgs = ( ( InternalEObject ) refersToUnderlyingEnumeration ).eInverseRemove( this,
+                        NsdPackage.ENUMERATION__REFERRED_BY_UNDERLYING_TYPE, Enumeration.class, msgs );
+            if( newRefersToUnderlyingEnumeration != null )
+                msgs = ( ( InternalEObject ) newRefersToUnderlyingEnumeration ).eInverseAdd( this,
+                        NsdPackage.ENUMERATION__REFERRED_BY_UNDERLYING_TYPE, Enumeration.class, msgs );
+            msgs = basicSetRefersToUnderlyingEnumeration( newRefersToUnderlyingEnumeration, msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToUnderlyingEnumerationESet = refersToUnderlyingEnumerationESet;
+            refersToUnderlyingEnumerationESet = true;
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.SET,
+                        NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_ENUMERATION, newRefersToUnderlyingEnumeration,
+                        newRefersToUnderlyingEnumeration, !oldRefersToUnderlyingEnumerationESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicUnsetRefersToUnderlyingEnumeration( NotificationChain msgs ) {
+        Enumeration oldRefersToUnderlyingEnumeration = refersToUnderlyingEnumeration;
+        refersToUnderlyingEnumeration = null;
+        boolean oldRefersToUnderlyingEnumerationESet = refersToUnderlyingEnumerationESet;
+        refersToUnderlyingEnumerationESet = false;
+        if( eNotificationRequired() ) {
+            ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_ENUMERATION, oldRefersToUnderlyingEnumeration,
+                    null, oldRefersToUnderlyingEnumerationESet );
+            if( msgs == null )
+                msgs = notification;
+            else
+                msgs.add( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetRefersToUnderlyingEnumeration() {
+        if( refersToUnderlyingEnumeration != null ) {
+            NotificationChain msgs = null;
+            msgs = ( ( InternalEObject ) refersToUnderlyingEnumeration ).eInverseRemove( this,
+                    NsdPackage.ENUMERATION__REFERRED_BY_UNDERLYING_TYPE, Enumeration.class, msgs );
+            msgs = basicUnsetRefersToUnderlyingEnumeration( msgs );
+            if( msgs != null ) msgs.dispatch();
+        }
+        else {
+            boolean oldRefersToUnderlyingEnumerationESet = refersToUnderlyingEnumerationESet;
+            refersToUnderlyingEnumerationESet = false;
+            if( eNotificationRequired() )
+                eNotify( new ENotificationImpl( this, Notification.UNSET,
+                        NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_ENUMERATION, null, null,
+                        oldRefersToUnderlyingEnumerationESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetRefersToUnderlyingEnumeration() {
+        return refersToUnderlyingEnumerationESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public CDC getRefersToCDC() {
         return refersToCDC;
     }
@@ -1723,6 +2142,22 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                 msgs = ( ( InternalEObject ) refersToPresCondArgsDoc ).eInverseRemove( this,
                         NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION, Doc.class, msgs );
             return basicSetRefersToPresCondArgsDoc( ( Doc ) otherEnd, msgs );
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_BASIC_TYPE:
+            if( refersToUnderlyingBasicType != null )
+                msgs = ( ( InternalEObject ) refersToUnderlyingBasicType ).eInverseRemove( this,
+                        NsdPackage.BASIC_TYPE__REFERRED_BY_UNDERLYING_TYPE, BasicType.class, msgs );
+            return basicSetRefersToUnderlyingBasicType( ( BasicType ) otherEnd, msgs );
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE:
+            if( refersToUnderlyingConstructedAttribute != null )
+                msgs = ( ( InternalEObject ) refersToUnderlyingConstructedAttribute ).eInverseRemove( this,
+                        NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_UNDERLYING_TYPE, ConstructedAttribute.class,
+                        msgs );
+            return basicSetRefersToUnderlyingConstructedAttribute( ( ConstructedAttribute ) otherEnd, msgs );
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_ENUMERATION:
+            if( refersToUnderlyingEnumeration != null )
+                msgs = ( ( InternalEObject ) refersToUnderlyingEnumeration ).eInverseRemove( this,
+                        NsdPackage.ENUMERATION__REFERRED_BY_UNDERLYING_TYPE, Enumeration.class, msgs );
+            return basicSetRefersToUnderlyingEnumeration( ( Enumeration ) otherEnd, msgs );
         case NsdPackage.SUB_DATA_OBJECT__PARENT_CDC:
             if( eInternalContainer() != null )
                 msgs = eBasicRemoveFromContainer( msgs );
@@ -1763,6 +2198,12 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
         switch( featureID ) {
         case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_PRES_COND_ARGS_DOC:
             return basicUnsetRefersToPresCondArgsDoc( msgs );
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_BASIC_TYPE:
+            return basicUnsetRefersToUnderlyingBasicType( msgs );
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE:
+            return basicUnsetRefersToUnderlyingConstructedAttribute( msgs );
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_ENUMERATION:
+            return basicUnsetRefersToUnderlyingEnumeration( msgs );
         case NsdPackage.SUB_DATA_OBJECT__PARENT_CDC:
             return basicSetParentCDC( null, msgs );
         case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_CDC:
@@ -1819,6 +2260,12 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
             return getUnderlyingType();
         case NsdPackage.SUB_DATA_OBJECT__UNDERLYING_TYPE_KIND:
             return getUnderlyingTypeKind();
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_BASIC_TYPE:
+            return getRefersToUnderlyingBasicType();
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE:
+            return getRefersToUnderlyingConstructedAttribute();
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_ENUMERATION:
+            return getRefersToUnderlyingEnumeration();
         case NsdPackage.SUB_DATA_OBJECT__NAME:
             return getName();
         case NsdPackage.SUB_DATA_OBJECT__TYPE:
@@ -1874,6 +2321,15 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
             return;
         case NsdPackage.SUB_DATA_OBJECT__UNDERLYING_TYPE_KIND:
             setUnderlyingTypeKind( ( DefinedAttributeTypeKind ) newValue );
+            return;
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_BASIC_TYPE:
+            setRefersToUnderlyingBasicType( ( BasicType ) newValue );
+            return;
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE:
+            setRefersToUnderlyingConstructedAttribute( ( ConstructedAttribute ) newValue );
+            return;
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_ENUMERATION:
+            setRefersToUnderlyingEnumeration( ( Enumeration ) newValue );
             return;
         case NsdPackage.SUB_DATA_OBJECT__NAME:
             setName( ( String ) newValue );
@@ -1938,6 +2394,15 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
         case NsdPackage.SUB_DATA_OBJECT__UNDERLYING_TYPE_KIND:
             unsetUnderlyingTypeKind();
             return;
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_BASIC_TYPE:
+            unsetRefersToUnderlyingBasicType();
+            return;
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE:
+            unsetRefersToUnderlyingConstructedAttribute();
+            return;
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_ENUMERATION:
+            unsetRefersToUnderlyingEnumeration();
+            return;
         case NsdPackage.SUB_DATA_OBJECT__NAME:
             unsetName();
             return;
@@ -1991,6 +2456,12 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
             return isSetUnderlyingType();
         case NsdPackage.SUB_DATA_OBJECT__UNDERLYING_TYPE_KIND:
             return isSetUnderlyingTypeKind();
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_BASIC_TYPE:
+            return isSetRefersToUnderlyingBasicType();
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE:
+            return isSetRefersToUnderlyingConstructedAttribute();
+        case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_ENUMERATION:
+            return isSetRefersToUnderlyingEnumeration();
         case NsdPackage.SUB_DATA_OBJECT__NAME:
             return isSetName();
         case NsdPackage.SUB_DATA_OBJECT__TYPE:
@@ -2050,6 +2521,12 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                 return NsdPackage.AG_UNDERLYING_TYPE__UNDERLYING_TYPE;
             case NsdPackage.SUB_DATA_OBJECT__UNDERLYING_TYPE_KIND:
                 return NsdPackage.AG_UNDERLYING_TYPE__UNDERLYING_TYPE_KIND;
+            case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_BASIC_TYPE:
+                return NsdPackage.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_BASIC_TYPE;
+            case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE:
+                return NsdPackage.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE;
+            case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_ENUMERATION:
+                return NsdPackage.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_ENUMERATION;
             default:
                 return -1;
             }
@@ -2098,6 +2575,12 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                 return NsdPackage.SUB_DATA_OBJECT__UNDERLYING_TYPE;
             case NsdPackage.AG_UNDERLYING_TYPE__UNDERLYING_TYPE_KIND:
                 return NsdPackage.SUB_DATA_OBJECT__UNDERLYING_TYPE_KIND;
+            case NsdPackage.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_BASIC_TYPE:
+                return NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_BASIC_TYPE;
+            case NsdPackage.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE:
+                return NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE;
+            case NsdPackage.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_ENUMERATION:
+                return NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_ENUMERATION;
             default:
                 return -1;
             }

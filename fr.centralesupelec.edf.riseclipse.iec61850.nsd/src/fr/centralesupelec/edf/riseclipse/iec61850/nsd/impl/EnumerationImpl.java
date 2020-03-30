@@ -21,6 +21,7 @@
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal;
@@ -61,6 +62,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationImpl#getRefersToBaseEnumeration <em>Refers To Base Enumeration</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationImpl#getReferredByEnumerationAsBase <em>Referred By Enumeration As Base</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationImpl#getReferredByAttributeType <em>Referred By Attribute Type</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationImpl#getReferredByUnderlyingType <em>Referred By Underlying Type</em>}</li>
  * </ul>
  *
  * @generated
@@ -172,6 +174,16 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
      * @ordered
      */
     protected EList< AgAttributeType > referredByAttributeType;
+
+    /**
+     * The cached value of the '{@link #getReferredByUnderlyingType() <em>Referred By Underlying Type</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getReferredByUnderlyingType()
+     * @generated
+     * @ordered
+     */
+    protected EList< AgUnderlyingType > referredByUnderlyingType;
 
     /**
      * <!-- begin-user-doc -->
@@ -572,6 +584,42 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
+    public EList< AgUnderlyingType > getReferredByUnderlyingType() {
+        if( referredByUnderlyingType == null ) {
+            referredByUnderlyingType = new EObjectWithInverseEList.Unsettable< AgUnderlyingType >(
+                    AgUnderlyingType.class, this, NsdPackage.ENUMERATION__REFERRED_BY_UNDERLYING_TYPE,
+                    NsdPackage.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_ENUMERATION );
+        }
+        return referredByUnderlyingType;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetReferredByUnderlyingType() {
+        if( referredByUnderlyingType != null ) ( ( InternalEList.Unsettable< ? > ) referredByUnderlyingType ).unset();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetReferredByUnderlyingType() {
+        return referredByUnderlyingType != null
+                && ( ( InternalEList.Unsettable< ? > ) referredByUnderlyingType ).isSet();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @SuppressWarnings( "unchecked" )
     @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
@@ -593,6 +641,9 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
                     .basicAdd( otherEnd, msgs );
         case NsdPackage.ENUMERATION__REFERRED_BY_ATTRIBUTE_TYPE:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByAttributeType() )
+                    .basicAdd( otherEnd, msgs );
+        case NsdPackage.ENUMERATION__REFERRED_BY_UNDERLYING_TYPE:
+            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByUnderlyingType() )
                     .basicAdd( otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
@@ -616,6 +667,8 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
             return ( ( InternalEList< ? > ) getReferredByEnumerationAsBase() ).basicRemove( otherEnd, msgs );
         case NsdPackage.ENUMERATION__REFERRED_BY_ATTRIBUTE_TYPE:
             return ( ( InternalEList< ? > ) getReferredByAttributeType() ).basicRemove( otherEnd, msgs );
+        case NsdPackage.ENUMERATION__REFERRED_BY_UNDERLYING_TYPE:
+            return ( ( InternalEList< ? > ) getReferredByUnderlyingType() ).basicRemove( otherEnd, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -657,6 +710,8 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
             return getReferredByEnumerationAsBase();
         case NsdPackage.ENUMERATION__REFERRED_BY_ATTRIBUTE_TYPE:
             return getReferredByAttributeType();
+        case NsdPackage.ENUMERATION__REFERRED_BY_UNDERLYING_TYPE:
+            return getReferredByUnderlyingType();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -694,6 +749,10 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
             getReferredByAttributeType().clear();
             getReferredByAttributeType().addAll( ( Collection< ? extends AgAttributeType > ) newValue );
             return;
+        case NsdPackage.ENUMERATION__REFERRED_BY_UNDERLYING_TYPE:
+            getReferredByUnderlyingType().clear();
+            getReferredByUnderlyingType().addAll( ( Collection< ? extends AgUnderlyingType > ) newValue );
+            return;
         }
         super.eSet( featureID, newValue );
     }
@@ -727,6 +786,9 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
         case NsdPackage.ENUMERATION__REFERRED_BY_ATTRIBUTE_TYPE:
             unsetReferredByAttributeType();
             return;
+        case NsdPackage.ENUMERATION__REFERRED_BY_UNDERLYING_TYPE:
+            unsetReferredByUnderlyingType();
+            return;
         }
         super.eUnset( featureID );
     }
@@ -753,6 +815,8 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
             return isSetReferredByEnumerationAsBase();
         case NsdPackage.ENUMERATION__REFERRED_BY_ATTRIBUTE_TYPE:
             return isSetReferredByAttributeType();
+        case NsdPackage.ENUMERATION__REFERRED_BY_UNDERLYING_TYPE:
+            return isSetReferredByUnderlyingType();
         }
         return super.eIsSet( featureID );
     }

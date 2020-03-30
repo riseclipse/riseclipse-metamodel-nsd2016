@@ -36,6 +36,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getParentBasicTypes <em>Parent Basic Types</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getReferredByAttributeType <em>Referred By Attribute Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getRefersToDoc <em>Refers To Doc</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getReferredByUnderlyingType <em>Referred By Underlying Type</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getBasicType()
@@ -256,5 +257,42 @@ public interface BasicType extends NsdObject {
      * @generated
      */
     boolean isSetRefersToDoc();
+
+    /**
+     * Returns the value of the '<em><b>Referred By Underlying Type</b></em>' reference list.
+     * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType}.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType#getRefersToUnderlyingBasicType <em>Refers To Underlying Basic Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Referred By Underlying Type</em>' reference list.
+     * @see #isSetReferredByUnderlyingType()
+     * @see #unsetReferredByUnderlyingType()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getBasicType_ReferredByUnderlyingType()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType#getRefersToUnderlyingBasicType
+     * @model opposite="refersToUnderlyingBasicType" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @generated
+     */
+    EList< AgUnderlyingType > getReferredByUnderlyingType();
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getReferredByUnderlyingType <em>Referred By Underlying Type</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetReferredByUnderlyingType()
+     * @see #getReferredByUnderlyingType()
+     * @generated
+     */
+    void unsetReferredByUnderlyingType();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getReferredByUnderlyingType <em>Referred By Underlying Type</em>}' reference list is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Referred By Underlying Type</em>' reference list is set.
+     * @see #unsetReferredByUnderlyingType()
+     * @see #getReferredByUnderlyingType()
+     * @generated
+     */
+    boolean isSetReferredByUnderlyingType();
 
 } // BasicType

@@ -1201,6 +1201,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EReference getBasicType_ReferredByUnderlyingType() {
+        return ( EReference ) basicTypeEClass.getEStructuralFeatures().get( 5 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getBasicTypes() {
         return basicTypesEClass;
     }
@@ -1523,6 +1533,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EReference getConstructedAttribute_ReferredByAttributeType() {
         return ( EReference ) constructedAttributeEClass.getEStructuralFeatures().get( 4 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getConstructedAttribute_ReferredByUnderlyingType() {
+        return ( EReference ) constructedAttributeEClass.getEStructuralFeatures().get( 5 );
     }
 
     /**
@@ -2143,6 +2163,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EReference getEnumeration_ReferredByAttributeType() {
         return ( EReference ) enumerationEClass.getEStructuralFeatures().get( 6 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getEnumeration_ReferredByUnderlyingType() {
+        return ( EReference ) enumerationEClass.getEStructuralFeatures().get( 7 );
     }
 
     /**
@@ -3761,6 +3791,36 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EReference getAgUnderlyingType_RefersToUnderlyingBasicType() {
+        return ( EReference ) agUnderlyingTypeEClass.getEStructuralFeatures().get( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getAgUnderlyingType_RefersToUnderlyingConstructedAttribute() {
+        return ( EReference ) agUnderlyingTypeEClass.getEStructuralFeatures().get( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getAgUnderlyingType_RefersToUnderlyingEnumeration() {
+        return ( EReference ) agUnderlyingTypeEClass.getEStructuralFeatures().get( 4 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getAgUML() {
         return agUMLEClass;
     }
@@ -4043,6 +4103,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEReference( basicTypeEClass, BASIC_TYPE__PARENT_BASIC_TYPES );
         createEReference( basicTypeEClass, BASIC_TYPE__REFERRED_BY_ATTRIBUTE_TYPE );
         createEReference( basicTypeEClass, BASIC_TYPE__REFERS_TO_DOC );
+        createEReference( basicTypeEClass, BASIC_TYPE__REFERRED_BY_UNDERLYING_TYPE );
 
         basicTypesEClass = createEClass( BASIC_TYPES );
         createEReference( basicTypesEClass, BASIC_TYPES__BASIC_TYPE );
@@ -4081,6 +4142,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEReference( constructedAttributeEClass, CONSTRUCTED_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTES );
         createEReference( constructedAttributeEClass, CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_TYPE_REALIZATIONS );
         createEReference( constructedAttributeEClass, CONSTRUCTED_ATTRIBUTE__REFERRED_BY_ATTRIBUTE_TYPE );
+        createEReference( constructedAttributeEClass, CONSTRUCTED_ATTRIBUTE__REFERRED_BY_UNDERLYING_TYPE );
 
         constructedAttributesEClass = createEClass( CONSTRUCTED_ATTRIBUTES );
         createEReference( constructedAttributesEClass, CONSTRUCTED_ATTRIBUTES__CONSTRUCTED_ATTRIBUTE );
@@ -4152,6 +4214,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEReference( enumerationEClass, ENUMERATION__REFERS_TO_BASE_ENUMERATION );
         createEReference( enumerationEClass, ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE );
         createEReference( enumerationEClass, ENUMERATION__REFERRED_BY_ATTRIBUTE_TYPE );
+        createEReference( enumerationEClass, ENUMERATION__REFERRED_BY_UNDERLYING_TYPE );
 
         enumerationsEClass = createEClass( ENUMERATIONS );
         createEReference( enumerationsEClass, ENUMERATIONS__ENUMERATION );
@@ -4352,6 +4415,9 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         agUnderlyingTypeEClass = createEClass( AG_UNDERLYING_TYPE );
         createEAttribute( agUnderlyingTypeEClass, AG_UNDERLYING_TYPE__UNDERLYING_TYPE );
         createEAttribute( agUnderlyingTypeEClass, AG_UNDERLYING_TYPE__UNDERLYING_TYPE_KIND );
+        createEReference( agUnderlyingTypeEClass, AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_BASIC_TYPE );
+        createEReference( agUnderlyingTypeEClass, AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE );
+        createEReference( agUnderlyingTypeEClass, AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_ENUMERATION );
 
         agUMLEClass = createEClass( AG_UML );
         createEAttribute( agUMLEClass, AG_UML__UML_DATE );
@@ -4641,6 +4707,10 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEReference( getBasicType_RefersToDoc(), this.getDoc(), this.getDoc_ReferredByBasicType(), "refersToDoc",
                 null, 0, 1, BasicType.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getBasicType_ReferredByUnderlyingType(), this.getAgUnderlyingType(),
+                this.getAgUnderlyingType_RefersToUnderlyingBasicType(), "referredByUnderlyingType", null, 0, -1,
+                BasicType.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( basicTypesEClass, BasicTypes.class, "BasicTypes", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
@@ -4740,6 +4810,10 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEReference( getConstructedAttribute_ReferredByAttributeType(), this.getAgAttributeType(),
                 this.getAgAttributeType_RefersToConstructedAttribute(), "referredByAttributeType", null, 0, -1,
                 ConstructedAttribute.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getConstructedAttribute_ReferredByUnderlyingType(), this.getAgUnderlyingType(),
+                this.getAgUnderlyingType_RefersToUnderlyingConstructedAttribute(), "referredByUnderlyingType", null, 0,
+                -1, ConstructedAttribute.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( constructedAttributesEClass, ConstructedAttributes.class, "ConstructedAttributes", !IS_ABSTRACT,
@@ -4939,6 +5013,10 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
         initEReference( getEnumeration_ReferredByAttributeType(), this.getAgAttributeType(),
                 this.getAgAttributeType_RefersToEnumeration(), "referredByAttributeType", null, 0, -1,
+                Enumeration.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getEnumeration_ReferredByUnderlyingType(), this.getAgUnderlyingType(),
+                this.getAgUnderlyingType_RefersToUnderlyingEnumeration(), "referredByUnderlyingType", null, 0, -1,
                 Enumeration.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
@@ -5452,6 +5530,18 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getAgUnderlyingType_UnderlyingTypeKind(), this.getDefinedAttributeTypeKind(),
                 "underlyingTypeKind", null, 0, 1, AgUnderlyingType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getAgUnderlyingType_RefersToUnderlyingBasicType(), this.getBasicType(),
+                this.getBasicType_ReferredByUnderlyingType(), "refersToUnderlyingBasicType", null, 0, 1,
+                AgUnderlyingType.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getAgUnderlyingType_RefersToUnderlyingConstructedAttribute(), this.getConstructedAttribute(),
+                this.getConstructedAttribute_ReferredByUnderlyingType(), "refersToUnderlyingConstructedAttribute", null,
+                0, 1, AgUnderlyingType.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+        initEReference( getAgUnderlyingType_RefersToUnderlyingEnumeration(), this.getEnumeration(),
+                this.getEnumeration_ReferredByUnderlyingType(), "refersToUnderlyingEnumeration", null, 0, 1,
+                AgUnderlyingType.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( agUMLEClass, AgUML.class, "AgUML", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute( getAgUML_UmlDate(), theXMLTypePackage.getDateTime(), "umlDate", null, 0, 1, AgUML.class,

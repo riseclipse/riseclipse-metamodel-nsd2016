@@ -3726,12 +3726,14 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
             }
             else {
                 // type for ENUMERATED may be missing if CDC has enumParameterized="true"
-                if(( getTypeKind().getValue() == DefinedAttributeTypeKind.ENUMERATED_VALUE )) {
+                if( ( getTypeKind().getValue() == DefinedAttributeTypeKind.ENUMERATED_VALUE ) ) {
                     if( getParentCDC().isEnumParameterized() ) {
-                        console.info( messagePrefix + "type is missing for " + getTypeKind() + " but enumParameterized in parent CDC is true" );
+                        console.info( messagePrefix + "type is missing for " + getTypeKind()
+                                + " but enumParameterized in parent CDC is true" );
                     }
                     else {
-                        console.warning( messagePrefix + "type is missing for " + getTypeKind() + " and enumParameterized in parent CDC is false" );
+                        console.warning( messagePrefix + "type is missing for " + getTypeKind()
+                                + " and enumParameterized in parent CDC is false" );
                     }
                 }
                 else {

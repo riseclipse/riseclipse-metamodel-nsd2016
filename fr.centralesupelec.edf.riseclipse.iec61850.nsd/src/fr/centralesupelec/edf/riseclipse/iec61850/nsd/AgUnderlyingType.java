@@ -33,6 +33,9 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType#getUnderlyingType <em>Underlying Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType#getUnderlyingTypeKind <em>Underlying Type Kind</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType#getRefersToUnderlyingBasicType <em>Refers To Underlying Basic Type</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType#getRefersToUnderlyingConstructedAttribute <em>Refers To Underlying Constructed Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType#getRefersToUnderlyingEnumeration <em>Refers To Underlying Enumeration</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgUnderlyingType()
@@ -150,5 +153,158 @@ public interface AgUnderlyingType extends EObject {
      * @generated
      */
     boolean isSetUnderlyingTypeKind();
+
+    /**
+     * Returns the value of the '<em><b>Refers To Underlying Basic Type</b></em>' reference.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getReferredByUnderlyingType <em>Referred By Underlying Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Refers To Underlying Basic Type</em>' reference.
+     * @see #isSetRefersToUnderlyingBasicType()
+     * @see #unsetRefersToUnderlyingBasicType()
+     * @see #setRefersToUnderlyingBasicType(BasicType)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgUnderlyingType_RefersToUnderlyingBasicType()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getReferredByUnderlyingType
+     * @model opposite="referredByUnderlyingType" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @generated
+     */
+    BasicType getRefersToUnderlyingBasicType();
+
+    /**
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType#getRefersToUnderlyingBasicType <em>Refers To Underlying Basic Type</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Refers To Underlying Basic Type</em>' reference.
+     * @see #isSetRefersToUnderlyingBasicType()
+     * @see #unsetRefersToUnderlyingBasicType()
+     * @see #getRefersToUnderlyingBasicType()
+     * @generated
+     */
+    void setRefersToUnderlyingBasicType( BasicType value );
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType#getRefersToUnderlyingBasicType <em>Refers To Underlying Basic Type</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetRefersToUnderlyingBasicType()
+     * @see #getRefersToUnderlyingBasicType()
+     * @see #setRefersToUnderlyingBasicType(BasicType)
+     * @generated
+     */
+    void unsetRefersToUnderlyingBasicType();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType#getRefersToUnderlyingBasicType <em>Refers To Underlying Basic Type</em>}' reference is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Refers To Underlying Basic Type</em>' reference is set.
+     * @see #unsetRefersToUnderlyingBasicType()
+     * @see #getRefersToUnderlyingBasicType()
+     * @see #setRefersToUnderlyingBasicType(BasicType)
+     * @generated
+     */
+    boolean isSetRefersToUnderlyingBasicType();
+
+    /**
+     * Returns the value of the '<em><b>Refers To Underlying Constructed Attribute</b></em>' reference.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getReferredByUnderlyingType <em>Referred By Underlying Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Refers To Underlying Constructed Attribute</em>' reference.
+     * @see #isSetRefersToUnderlyingConstructedAttribute()
+     * @see #unsetRefersToUnderlyingConstructedAttribute()
+     * @see #setRefersToUnderlyingConstructedAttribute(ConstructedAttribute)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgUnderlyingType_RefersToUnderlyingConstructedAttribute()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getReferredByUnderlyingType
+     * @model opposite="referredByUnderlyingType" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @generated
+     */
+    ConstructedAttribute getRefersToUnderlyingConstructedAttribute();
+
+    /**
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType#getRefersToUnderlyingConstructedAttribute <em>Refers To Underlying Constructed Attribute</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Refers To Underlying Constructed Attribute</em>' reference.
+     * @see #isSetRefersToUnderlyingConstructedAttribute()
+     * @see #unsetRefersToUnderlyingConstructedAttribute()
+     * @see #getRefersToUnderlyingConstructedAttribute()
+     * @generated
+     */
+    void setRefersToUnderlyingConstructedAttribute( ConstructedAttribute value );
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType#getRefersToUnderlyingConstructedAttribute <em>Refers To Underlying Constructed Attribute</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetRefersToUnderlyingConstructedAttribute()
+     * @see #getRefersToUnderlyingConstructedAttribute()
+     * @see #setRefersToUnderlyingConstructedAttribute(ConstructedAttribute)
+     * @generated
+     */
+    void unsetRefersToUnderlyingConstructedAttribute();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType#getRefersToUnderlyingConstructedAttribute <em>Refers To Underlying Constructed Attribute</em>}' reference is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Refers To Underlying Constructed Attribute</em>' reference is set.
+     * @see #unsetRefersToUnderlyingConstructedAttribute()
+     * @see #getRefersToUnderlyingConstructedAttribute()
+     * @see #setRefersToUnderlyingConstructedAttribute(ConstructedAttribute)
+     * @generated
+     */
+    boolean isSetRefersToUnderlyingConstructedAttribute();
+
+    /**
+     * Returns the value of the '<em><b>Refers To Underlying Enumeration</b></em>' reference.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getReferredByUnderlyingType <em>Referred By Underlying Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Refers To Underlying Enumeration</em>' reference.
+     * @see #isSetRefersToUnderlyingEnumeration()
+     * @see #unsetRefersToUnderlyingEnumeration()
+     * @see #setRefersToUnderlyingEnumeration(Enumeration)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgUnderlyingType_RefersToUnderlyingEnumeration()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getReferredByUnderlyingType
+     * @model opposite="referredByUnderlyingType" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @generated
+     */
+    Enumeration getRefersToUnderlyingEnumeration();
+
+    /**
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType#getRefersToUnderlyingEnumeration <em>Refers To Underlying Enumeration</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Refers To Underlying Enumeration</em>' reference.
+     * @see #isSetRefersToUnderlyingEnumeration()
+     * @see #unsetRefersToUnderlyingEnumeration()
+     * @see #getRefersToUnderlyingEnumeration()
+     * @generated
+     */
+    void setRefersToUnderlyingEnumeration( Enumeration value );
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType#getRefersToUnderlyingEnumeration <em>Refers To Underlying Enumeration</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetRefersToUnderlyingEnumeration()
+     * @see #getRefersToUnderlyingEnumeration()
+     * @see #setRefersToUnderlyingEnumeration(Enumeration)
+     * @generated
+     */
+    void unsetRefersToUnderlyingEnumeration();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType#getRefersToUnderlyingEnumeration <em>Refers To Underlying Enumeration</em>}' reference is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Refers To Underlying Enumeration</em>' reference is set.
+     * @see #unsetRefersToUnderlyingEnumeration()
+     * @see #getRefersToUnderlyingEnumeration()
+     * @see #setRefersToUnderlyingEnumeration(Enumeration)
+     * @generated
+     */
+    boolean isSetRefersToUnderlyingEnumeration();
 
 } // AgUnderlyingType

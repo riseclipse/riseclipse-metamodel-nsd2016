@@ -407,6 +407,9 @@
         unsettable="true" resolveProxies="false" eOpposite="#//AgAttributeType/refersToBasicType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="refersToDoc" ordered="false"
         eType="#//Doc" transient="true" unsettable="true" resolveProxies="false" eOpposite="#//Doc/referredByBasicType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referredByUnderlyingType"
+        ordered="false" upperBound="-1" eType="#//AgUnderlyingType" transient="true"
+        unsettable="true" resolveProxies="false" eOpposite="#//AgUnderlyingType/refersToUnderlyingBasicType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BasicTypes" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -644,6 +647,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="referredByAttributeType"
         ordered="false" upperBound="-1" eType="#//AgAttributeType" transient="true"
         unsettable="true" resolveProxies="false" eOpposite="#//AgAttributeType/refersToConstructedAttribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referredByUnderlyingType"
+        ordered="false" upperBound="-1" eType="#//AgUnderlyingType" transient="true"
+        unsettable="true" resolveProxies="false" eOpposite="#//AgUnderlyingType/refersToUnderlyingConstructedAttribute"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConstructedAttributes" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -1013,6 +1019,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="referredByAttributeType"
         ordered="false" upperBound="-1" eType="#//AgAttributeType" transient="true"
         unsettable="true" resolveProxies="false" eOpposite="#//AgAttributeType/refersToEnumeration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referredByUnderlyingType"
+        ordered="false" upperBound="-1" eType="#//AgUnderlyingType" transient="true"
+        unsettable="true" resolveProxies="false" eOpposite="#//AgUnderlyingType/refersToUnderlyingEnumeration"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Enumerations" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -2120,6 +2129,15 @@
         <details key="name" value="underlyingTypeKind"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refersToUnderlyingBasicType"
+        ordered="false" eType="#//BasicType" transient="true" unsettable="true" resolveProxies="false"
+        eOpposite="#//BasicType/referredByUnderlyingType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refersToUnderlyingConstructedAttribute"
+        ordered="false" eType="#//ConstructedAttribute" transient="true" unsettable="true"
+        resolveProxies="false" eOpposite="#//ConstructedAttribute/referredByUnderlyingType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refersToUnderlyingEnumeration"
+        ordered="false" eType="#//Enumeration" transient="true" unsettable="true"
+        resolveProxies="false" eOpposite="#//Enumeration/referredByUnderlyingType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AgUML" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="umlDate" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//DateTime"
