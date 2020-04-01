@@ -270,6 +270,9 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                 if( root.getNS() != null ) {
                     root.getNS().buildExplicitLinks( console, true );
                 }
+                if( root.getServiceNS() != null ) {
+                    root.getServiceNS().buildExplicitLinks( console, true );
+                }
             }
         }
         

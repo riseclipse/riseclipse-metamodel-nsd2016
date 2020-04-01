@@ -20,10 +20,13 @@
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttributes;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -334,6 +337,14 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
             result.append( "<unset>" );
         result.append( ')' );
         return result.toString();
+    }
+
+    @Override
+    public NsIdentification getNsIdentification() {
+        if( getParentServiceConstructedAttributes() != null ) {
+            return new NsIdentification( getParentServiceConstructedAttributes().getParentServiceNS() );
+        }
+        return super.getNsIdentification();
     }
 
 } //ServiceConstructedAttributeImpl
