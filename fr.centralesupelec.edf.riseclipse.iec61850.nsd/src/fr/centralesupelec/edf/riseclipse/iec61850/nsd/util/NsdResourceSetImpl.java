@@ -169,6 +169,9 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
      */
     @Override
     public void finalizeLoad( IRiseClipseConsole console ) {
+        // Explicit links must be built first, there are needed for ServiceNsUsage
+        buildExplicitLinks( console );
+
         if( appNS != null ) {
             for( ServiceNsUsage serviceNsUsage : appNS.getServiceNsUsage() ) {
                 NsIdentification serviceNsId = new NsIdentification( serviceNsUsage );
@@ -184,12 +187,16 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                             nsdAdditions.get( nsId ).add( serviceNSResources.get( serviceNsId ));
                             applyServiceNs( serviceNSResources.get( serviceNsId ), nsdResources.get( nsId ), nsId, console );
                         }
+                        else {
+                            console.warning( "While applying ServiceNsUsage: NS with id " + nsId + " not found" );
+                        }
                     }
+                }
+                else {
+                    console.warning( "While applying ServiceNsUsage: ServiceNS with id " + serviceNsId + " not found" );
                 }
             }
         }
-        
-        buildExplicitLinks( console );
     }
 
     private void applyServiceNs( ServiceNS serviceNS, NS ns, NsIdentification nsIdentification, IRiseClipseConsole console ) {
@@ -204,12 +211,14 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                         .collect( Collectors.toList() );
                for( AgAttributeType att : atts ) {
                     att.unsetRefersToBasicType();
-                    console.info( "Service NS: using TypeRealization " + basic.getName() + " to attribute " + att.getType() );
+                    console.info( "While applying ServiceNsUsage: Service NS: using TypeRealization " + basic.getName() + " to attribute " + att.getType() );
                     att.setRefersToConstructedAttribute( typeRealization );
                 }
                 continue;
             }
-            // TODO: warning
+            else {
+                console.warning( "While applying ServiceNsUsage: BasicType " + typeRealization.getName() + " not found" );
+            }
         }
         
         // A ServiceConstructedAttribute defines new ConstructedAttribute:
@@ -224,11 +233,13 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                 .stream()
                 .forEach( att -> {
                     DataAttribute da = att.toDataAttribute();
-                    console.info( "Service NS: Adding DataAttribute " + da.getName() + " to CDC " + cdc.getName() );
+                    console.info( "While applying ServiceNsUsage: Service NS: Adding DataAttribute " + da.getName() + " to CDC " + cdc.getName() );
                     da.setParentCDC( cdc );
                 });
             }
-                    
+            else {
+                console.warning( "While applying ServiceNsUsage: CDC " + serviceCDC.getCdc() + " not found" );
+            }
         }
         
     }
