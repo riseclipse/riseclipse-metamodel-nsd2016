@@ -2671,12 +2671,12 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
-        NS ns = getParentAnyLNClass().getParentLNClasses().getParentNS();
+        String id = getNsIdentification().getId();
         NsdResourceSetImpl rs = getResourceSet();
         if( rs == null ) return false;
 
         String messagePrefix = "[NSD links] while resolving link from DataObject (name: " + getName()
-                + ", NS id: " + ns.getId() + ", line: " + getLineNumber() + "): ";
+                + ", NS id: " + id + ", line: " + getLineNumber() + "): ";
 
         if( isSetType() ) {
             CDC foundCDC = rs.findCDC( getType(), getNsIdentification(), console );
@@ -2687,7 +2687,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             else {
                 setRefersToCDC( foundCDC );
                 console.info( "[NSD links] CDC (name: " + getType() + ") refers by DataObject (name: " + getName()
-                        + ") in NS (id:" + ns.getId() + ") found in NS (id:"
+                        + ") in NS (id:" + id + ") found in NS (id:"
                         + getRefersToCDC().getParentCDCs().getParentNS().getId() + ")" );
             }
         }
@@ -2701,7 +2701,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             else {
                 setRefersToPresenceCondition( foundPC );
                 console.info( "[NSD links] PresenceCondition (name: " + getPresCond() + ") refers by DataObject (name: "
-                        + getName() + ") in NS (id:" + ns.getId() + ") found in NS (id:"
+                        + getName() + ") in NS (id:" + id + ") found in NS (id:"
                         + getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId() + ")" );
             }
         }
@@ -2715,8 +2715,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                 setRefersToPresenceConditionDerivedStatistics( foundPC );
                 console.info( "[NSD links] PresenceCondition (name: " + getDsPresCond()
                         + ") refers by DataObject (name: "
-                        + getName() + ") in NS (id:" + getParentAnyLNClass().getParentLNClasses().getParentNS().getId()
-                        + ") found in NS (id:"
+                        + getName() + ") in NS (id:" + id + ") found in NS (id:"
                         + getRefersToPresenceConditionDerivedStatistics().getParentPresenceConditions().getParentNS()
                                 .getId()
                         + ")" );

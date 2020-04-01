@@ -2667,12 +2667,12 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
     public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
-        NS ns = getParentCDC().getParentCDCs().getParentNS();
+        String id = getNsIdentification().getId();
         NsdResourceSetImpl rs = getResourceSet();
         if( rs == null ) return false;
 
         String messagePrefix = "[NSD links] while resolving link from SubDataObject (name: " + getName()
-                + ", NS id: " + ns.getId() + ", line: " + getLineNumber() + "): ";
+                + ", NS id: " + id + ", line: " + getLineNumber() + "): ";
 
         if( isSetType() ) {
             CDC foundCDC = rs.findCDC( getType(), getNsIdentification(), console );
@@ -2683,7 +2683,7 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
             else {
                 setRefersToCDC( foundCDC );
                 console.info( "[NSD links] CDC (name: " + getType() + ") refers by SubDataObject (name: " + getName()
-                        + ") in NS (id:" + ns.getId() + ") found in NS (id:"
+                        + ") in NS (id:" + id + ") found in NS (id:"
                         + getRefersToCDC().getParentCDCs().getParentNS().getId() + ")" );
             }
         }
@@ -2698,7 +2698,7 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                 setRefersToPresenceCondition( foundPC );
                 console.info( "[NSD links] PresenceCondition (name: " + getPresCond()
                         + ") refers by SubDataObject (name: "
-                        + getName() + ") in NS (id:" + ns.getId() + ") found in NS (id:"
+                        + getName() + ") in NS (id:" + id + ") found in NS (id:"
                         + getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId() + ")" );
             }
         }
@@ -2714,7 +2714,7 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
             if( isSetRefersToSizeAttribute() ) {
                 console.info( "[NSD links] DataAttribute (name: " + getSizeAttribute()
                         + ") refers as sizeAttribute by SubDataObject (name: " + getName() + ") in NS (id:"
-                        + ns.getId() + ") found" );
+                        + id + ") found" );
             }
             else {
                 console.warning( messagePrefix + "DataAttribute (name: " + getSizeAttribute() + ") not found" );
@@ -2732,7 +2732,7 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
             if( isSetRefersToMaxIndexAttribute() ) {
                 console.info( "[NSD links] DataAttribute (name: " + getMaxIndexAttribute()
                         + ") refers as maxIndexAttribute by DataAttribute (name: " + getName() + ") in NS (id:"
-                        + ns.getId() + ") found" );
+                        + id + ") found" );
             }
             else {
                 console.warning( messagePrefix + "DataAttribute (name: " + getMaxIndexAttribute() + ") not found" );
