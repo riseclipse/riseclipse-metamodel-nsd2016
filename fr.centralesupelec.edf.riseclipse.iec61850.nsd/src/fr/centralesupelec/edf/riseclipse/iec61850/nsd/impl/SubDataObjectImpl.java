@@ -30,7 +30,6 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject;
@@ -2744,6 +2743,68 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                 Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getNsIdentification(),
                         getPresCondArgsID() );
                 if( doc != null ) setRefersToPresCondArgsDoc( doc );
+            }
+        }
+
+        if( isSetUnderlyingTypeKind() ) {
+            if( isSetUnderlyingType() ) {
+                switch( getUnderlyingTypeKind().getValue() ) {
+                case DefinedAttributeTypeKind.BASIC_VALUE:
+                    BasicType foundBT = rs.findBasicType( getUnderlyingType(), getNsIdentification(), console );
+
+                    if( foundBT == null ) {
+                        console.warning( messagePrefix + "BasicType (name: " + getUnderlyingType() + ") not found" );
+                    }
+                    else {
+                        setRefersToUnderlyingBasicType( foundBT );
+                        console.info( "[NSD links] BasicType (name: " + getUnderlyingType()
+                                + ") refers as type by SubDataObject (name: "
+                                + getName() + ") in NS (id:" + id + ") found in NS (id:"
+                                + getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS().getId() + ")" );
+                    }
+                    break;
+                case DefinedAttributeTypeKind.CONSTRUCTED_VALUE:
+                    ConstructedAttribute foundCA = rs.findConstructedAttribute( getUnderlyingType(), getNsIdentification(),
+                            console );
+
+                    if( foundCA == null ) {
+                        console.warning( messagePrefix + "ConstructedAttribute (name: " + getUnderlyingType() + ") not found" );
+                    }
+                    else {
+                        setRefersToUnderlyingConstructedAttribute( foundCA );
+                        String foundWhere = "(???";
+                        if( getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes() != null ) {
+                            foundWhere = "NS (id:" + getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes()
+                                    .getParentNS().getId();
+                        }
+                        else if( getRefersToUnderlyingConstructedAttribute().getParentServiceTypeRealizations() != null ) {
+                            foundWhere = "ServiceNS (id:" + getRefersToUnderlyingConstructedAttribute()
+                                    .getParentServiceTypeRealizations().getParentServiceNS().getId();
+                        }
+                        console.info( "[NSD links] ConstructedAttribute (name: " + getUnderlyingType()
+                                + ") refers as type by SubDataObject (name: "
+                                + getName() + ") in NS (id:" + id + ") found in "
+                                + foundWhere + ")" );
+                    }
+                    break;
+                case DefinedAttributeTypeKind.ENUMERATED_VALUE:
+                    Enumeration foundEn = rs.findEnumeration( getUnderlyingType(), getNsIdentification(), console );
+
+                    if( foundEn == null ) {
+                        console.warning( messagePrefix + "Enumeration (name: " + getUnderlyingType() + ") not found" );
+                    }
+                    else {
+                        setRefersToUnderlyingEnumeration( foundEn );
+                        console.info( "[NSD links] Enumeration (name: " + getUnderlyingType()
+                                + ") refers as type by SubDataObject (name: "
+                                + getName() + ") in NS (id:" + id + ") found in NS (id:"
+                                + getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS().getId() + ")" );
+                    }
+                    break;
+                }
+            }
+            else {
+                console.warning( messagePrefix + "UnderlyingTypeKind is set but underlying type is missing" );
             }
         }
 

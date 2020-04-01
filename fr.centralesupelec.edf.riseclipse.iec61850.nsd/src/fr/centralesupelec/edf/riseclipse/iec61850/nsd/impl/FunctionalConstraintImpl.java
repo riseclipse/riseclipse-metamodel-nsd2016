@@ -1067,18 +1067,13 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
         else if( getParentFunctionalConstraints().getParentServiceNS() != null ) {
             identification = new NsIdentification( getParentFunctionalConstraints().getParentServiceNS() );
         }
-        if( isSetDescID() ) {
-            if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
-                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() )
-                        .findDoc( identification, getDescID() );
+        if( identification != null ) {
+            if( isSetDescID() ) {
+                Doc doc = (( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( identification, getDescID() );
                 if( doc != null ) setRefersToDescDoc( doc );
             }
-        }
-
-        if( isSetTitleID() ) {
-            if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
-                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() )
-                        .findDoc( identification, getTitleID() );
+            if( isSetTitleID() ) {
+                Doc doc = (( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( identification, getTitleID() );
                 if( doc != null ) setRefersToTitleDoc( doc );
             }
         }

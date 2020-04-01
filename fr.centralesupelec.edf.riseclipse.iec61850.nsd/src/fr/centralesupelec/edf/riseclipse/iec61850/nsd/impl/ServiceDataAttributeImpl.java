@@ -33,6 +33,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetImpl;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
@@ -2335,6 +2336,75 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                         new NsIdentification( getParentServiceCDC().getParentServiceCDCs().getParentServiceNS() ),
                         getPresCondArgsID() );
                 if( doc != null ) setRefersToPresCondArgsDoc( doc );
+            }
+        }
+        
+        ServiceNS sns = getParentServiceCDC().getParentServiceCDCs().getParentServiceNS();
+        NsdResourceSetImpl rs = getResourceSet();
+        if( rs == null ) return false;
+
+        String messagePrefix = "[NSD links] while resolving link from ServiceDataAttribute (name: " + getName()
+                             + ", ServiceNS id: " + sns.getId() + ", line: " + getLineNumber() + "): ";
+
+        if( isSetUnderlyingTypeKind() ) {
+            if( isSetUnderlyingType() ) {
+                switch( getUnderlyingTypeKind().getValue() ) {
+                case DefinedAttributeTypeKind.BASIC_VALUE:
+                    BasicType foundBT = rs.findBasicType( getUnderlyingType(), getNsIdentification(), console );
+
+                    if( foundBT == null ) {
+                        console.warning( messagePrefix + "BasicType (name: " + getUnderlyingType() + ") not found" );
+                    }
+                    else {
+                        setRefersToUnderlyingBasicType( foundBT );
+                        console.info( "[NSD links] BasicType (name: " + getUnderlyingType()
+                                + ") refers as type by ServiceDataAttribute (name: "
+                                + getName() + ") in ServiceNS (id:" + sns.getId() + ") found in NS (id:"
+                                + getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS().getId() + ")" );
+                    }
+                    break;
+                case DefinedAttributeTypeKind.CONSTRUCTED_VALUE:
+                    ConstructedAttribute foundCA = rs.findConstructedAttribute( getUnderlyingType(), getNsIdentification(),
+                            console );
+
+                    if( foundCA == null ) {
+                        console.warning( messagePrefix + "ConstructedAttribute (name: " + getUnderlyingType() + ") not found" );
+                    }
+                    else {
+                        setRefersToUnderlyingConstructedAttribute( foundCA );
+                        String foundWhere = "(???";
+                        if( getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes() != null ) {
+                            foundWhere = "NS (id:" + getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes()
+                                    .getParentNS().getId();
+                        }
+                        else if( getRefersToUnderlyingConstructedAttribute().getParentServiceTypeRealizations() != null ) {
+                            foundWhere = "ServiceNS (id:" + getRefersToUnderlyingConstructedAttribute()
+                                    .getParentServiceTypeRealizations().getParentServiceNS().getId();
+                        }
+                        console.info( "[NSD links] ConstructedAttribute (name: " + getUnderlyingType()
+                                + ") refers as type by ServiceDataAttribute (name: "
+                                + getName() + ") in ServiceNS (id:" + sns.getId() + ") found in "
+                                + foundWhere + ")" );
+                    }
+                    break;
+                case DefinedAttributeTypeKind.ENUMERATED_VALUE:
+                    Enumeration foundEn = rs.findEnumeration( getUnderlyingType(), getNsIdentification(), console );
+
+                    if( foundEn == null ) {
+                        console.warning( messagePrefix + "Enumeration (name: " + getUnderlyingType() + ") not found" );
+                    }
+                    else {
+                        setRefersToUnderlyingEnumeration( foundEn );
+                        console.info( "[NSD links] Enumeration (name: " + getUnderlyingType()
+                                + ") refers as type by ServiceDataAttribute (name: "
+                                + getName() + ") in ServiceNS (id:" + sns.getId() + ") found in NS (id:"
+                                + getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS().getId() + ")" );
+                    }
+                    break;
+                }
+            }
+            else {
+                console.warning( messagePrefix + "UnderlyingTypeKind is set but underlying type is missing" );
             }
         }
 
