@@ -915,12 +915,14 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
                 + new NsIdentification( getParentNS() ) + ", line: " + getLineNumber() + "): ";
 
         NsIdentification identification = new NsIdentification( getId(), getVersion(), getRevision(), getRelease() );
-        NS ns = ( ( NsdResourceSetImpl ) eResource().getResourceSet() ).getNS( identification );
+        NsdResourceSetImpl rs = getResourceSet();
+        NS ns = rs.getNS( identification );
         if( ns == null ) {
             console.warning( messagePrefix + "NS (id: " + identification + ") not found" );
         }
         else {
             setRefersToNS( ns );
+            rs.setEquivalentNamespace( new NsIdentification( getParentNS() ), identification, console );
             console.info( "[NSD links] NS (id: " + identification + ") refers by DependsOn in NS (id:"
                     + new NsIdentification( getParentNS() ) + ") found" );
         }

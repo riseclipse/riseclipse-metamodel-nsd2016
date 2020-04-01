@@ -2260,4 +2260,8 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         return false;
     }
 
+    public NsIdentification getNsIdentification() {
+        return new NsIdentification( getId(), getVersion(), getRevision(), getRelease() );
+    }
+
 } //ServiceNSImpl

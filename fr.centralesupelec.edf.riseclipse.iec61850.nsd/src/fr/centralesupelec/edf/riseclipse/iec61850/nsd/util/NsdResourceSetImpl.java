@@ -79,15 +79,15 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
 
     public NsdResourceSetImpl( boolean strictContent ) {
         super( strictContent );
-        
-        setEquivalentNamespace(
-                new NsIdentification( "IEC 61850-7-2", 2007, "B", 1 ), 
-                new NsIdentification( "IEC 61850-7-3", 2007, "B", 1 )
-        );
-        setEquivalentNamespace(
-                new NsIdentification( "IEC 61850-7-3", 2007, "B", 1 ), 
-                new NsIdentification( "IEC 61850-7-4", 2007, "B", 1 )
-        );
+// This is now done by DependsOn
+//        setEquivalentNamespace(
+//                new NsIdentification( "IEC 61850-7-2", 2007, "B", 1 ), 
+//                new NsIdentification( "IEC 61850-7-3", 2007, "B", 1 )
+//        );
+//        setEquivalentNamespace(
+//                new NsIdentification( "IEC 61850-7-3", 2007, "B", 1 ), 
+//                new NsIdentification( "IEC 61850-7-4", 2007, "B", 1 )
+//        );
     }
 
     @Override
@@ -183,13 +183,13 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                             nsdAdditions.get( nsId ).add( serviceNSResources.get( serviceNsId ));
                             applyServiceNs( serviceNSResources.get( serviceNsId ), nsdResources.get( nsId ), nsId, console );
                         }
+                        setEquivalentNamespace( serviceNsId, nsId, console );
                     }
                 }
             }
         }
         
         buildExplicitLinks( console );
-        
     }
 
     private void applyServiceNs( ServiceNS serviceNS, NS ns, NsIdentification nsIdentification, IRiseClipseConsole console ) {
@@ -278,7 +278,8 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         
     }
     
-    public void setEquivalentNamespace( NsIdentification source, NsIdentification destination ) {
+    public void setEquivalentNamespace( NsIdentification source, NsIdentification destination, IRiseClipseConsole console ) {
+        console.info( source + " is equivalent to " + destination );
         equivalentNamespaces.put( source, destination );
     }
     
