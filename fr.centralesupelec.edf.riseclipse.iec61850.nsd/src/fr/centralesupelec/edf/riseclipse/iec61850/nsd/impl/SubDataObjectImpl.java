@@ -2751,8 +2751,8 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
     }
 
     @Override
-    protected NsIdentification getNsIdentification() {
-        return new NsIdentification( getParentCDC().getParentCDCs().getParentNS() );
+    public NsIdentification getNsIdentification() {
+        return (( CDCImpl ) getParentCDC() ).getNsIdentification();
     }
 
 } //SubDataObjectImpl

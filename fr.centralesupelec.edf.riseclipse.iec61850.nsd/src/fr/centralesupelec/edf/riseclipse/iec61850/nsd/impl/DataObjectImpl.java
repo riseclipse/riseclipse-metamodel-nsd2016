@@ -2743,8 +2743,8 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     }
 
     @Override
-    protected NsIdentification getNsIdentification() {
-        return new NsIdentification( getParentAnyLNClass().getParentLNClasses().getParentNS() );
+    public NsIdentification getNsIdentification() {
+        return (( AnyLNClassImpl ) getParentAnyLNClass() ).getNsIdentification();
     }
 
 } //DataObjectImpl

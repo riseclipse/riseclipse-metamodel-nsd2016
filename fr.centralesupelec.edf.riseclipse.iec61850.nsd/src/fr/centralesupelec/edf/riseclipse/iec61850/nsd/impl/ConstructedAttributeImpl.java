@@ -605,12 +605,12 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
     }
 
     @Override
-    protected NsIdentification getNsIdentification() {
+    public NsIdentification getNsIdentification() {
         AgNSIdentification ns = null;
         if( getParentConstructedAttributes() != null ) {
             ns = getParentConstructedAttributes().getParentNS();
         }
-        if( ( ns == null ) && ( getParentServiceTypeRealizations() != null ) ) {
+        else if( getParentServiceTypeRealizations() != null ) {
             ns = getParentServiceTypeRealizations().getParentServiceNS();
         }
         return new NsIdentification( ns );

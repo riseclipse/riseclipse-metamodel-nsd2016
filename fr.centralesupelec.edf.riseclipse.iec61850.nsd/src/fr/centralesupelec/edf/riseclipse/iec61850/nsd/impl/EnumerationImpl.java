@@ -876,7 +876,7 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
     }
 
     @Override
-    protected NsIdentification getNsIdentification() {
+    public NsIdentification getNsIdentification() {
         return new NsIdentification( getParentEnumerations().getParentNS() );
     }
 

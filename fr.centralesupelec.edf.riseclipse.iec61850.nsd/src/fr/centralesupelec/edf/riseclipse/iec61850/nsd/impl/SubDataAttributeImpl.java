@@ -2513,12 +2513,8 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
     }
 
     @Override
-    protected NsIdentification getNsIdentification() {
-        AgNSIdentification parent = getParentConstructedAttribute().getParentConstructedAttributes().getParentNS();
-        if( parent == null ) {
-            parent = getParentConstructedAttribute().getParentServiceTypeRealizations().getParentServiceNS();
-        }
-        return new NsIdentification( parent );
+    public NsIdentification getNsIdentification() {
+        return (( ConstructedAttributeImpl ) getParentConstructedAttribute() ).getNsIdentification();
     }
 
 } //SubDataAttributeImpl

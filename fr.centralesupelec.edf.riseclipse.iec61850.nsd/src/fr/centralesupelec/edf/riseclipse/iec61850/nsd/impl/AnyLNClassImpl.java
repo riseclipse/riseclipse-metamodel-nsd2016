@@ -548,7 +548,7 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
     }
 
     @Override
-    protected NsIdentification getNsIdentification() {
+    public NsIdentification getNsIdentification() {
         return new NsIdentification( getParentLNClasses().getParentNS() );
     }
 

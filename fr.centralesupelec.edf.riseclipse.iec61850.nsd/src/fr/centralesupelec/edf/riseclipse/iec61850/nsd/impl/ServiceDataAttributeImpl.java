@@ -2342,7 +2342,7 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
     }
 
     @Override
-    protected NsIdentification getNsIdentification() {
+    public NsIdentification getNsIdentification() {
         return new NsIdentification( getParentServiceCDC().getParentServiceCDCs().getParentServiceNS() );
     }
 

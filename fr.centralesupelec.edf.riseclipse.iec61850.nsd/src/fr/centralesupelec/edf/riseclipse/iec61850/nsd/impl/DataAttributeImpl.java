@@ -3754,8 +3754,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     }
 
     @Override
-    protected NsIdentification getNsIdentification() {
-        return new NsIdentification( getParentCDC().getParentCDCs().getParentNS() );
+    public NsIdentification getNsIdentification() {
+        return (( CDCImpl ) getParentCDC() ).getNsIdentification();
     }
 
 } //DataAttributeImpl
