@@ -922,7 +922,6 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         }
         else {
             setRefersToNS( ns );
-            rs.setEquivalentNamespace( new NsIdentification( getParentNS() ), identification, console );
             console.info( "[NSD links] NS (id: " + identification + ") refers by DependsOn in NS (id:"
                     + new NsIdentification( getParentNS() ) + ") found" );
         }
