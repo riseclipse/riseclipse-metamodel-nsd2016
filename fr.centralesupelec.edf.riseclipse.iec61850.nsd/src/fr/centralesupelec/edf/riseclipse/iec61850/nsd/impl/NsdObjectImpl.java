@@ -164,9 +164,7 @@ public abstract class NsdObjectImpl extends MinimalEObjectImpl.Container impleme
     public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
         if( ( !forceUpdate ) && isExplicitLinksBuilt() ) return true;
 
-        TreeIterator< EObject > it = eAllContents();
-        while( it.hasNext() ) {
-            EObject o = it.next();
+        for( EObject o : eContents() ) {
             if( o instanceof NsdObject ) {
                 ( ( NsdObject ) o ).buildExplicitLinks( console, forceUpdate );
             }

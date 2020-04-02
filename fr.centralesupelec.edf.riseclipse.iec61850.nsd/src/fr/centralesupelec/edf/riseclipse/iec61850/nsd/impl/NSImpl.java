@@ -2762,5 +2762,9 @@ public class NSImpl extends CopyrightedImpl implements NS {
 
         return false;
     }
+    
+    public NsIdentification getNsIdentification() {
+        return new NsIdentification( getId(), getVersion(), getRevision(), getRelease() );
+    }
 
 } //NSImpl

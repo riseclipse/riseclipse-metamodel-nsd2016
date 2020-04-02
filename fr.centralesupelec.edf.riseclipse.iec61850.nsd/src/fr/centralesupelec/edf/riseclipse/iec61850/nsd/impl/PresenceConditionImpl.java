@@ -1260,20 +1260,20 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
     public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
-        if( isSetDescID() ) {
-            if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
-                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() )
-                        .findDoc( new NsIdentification( getParentPresenceConditions().getParentNS() ),
-                                getDescID() );
+        NsIdentification identification = null;
+        if( getParentPresenceConditions().getParentNS() != null ) {
+            identification = new NsIdentification( getParentPresenceConditions().getParentNS() );
+        }
+        else if( getParentPresenceConditions().getParentServiceNS() != null ) {
+            identification = new NsIdentification( getParentPresenceConditions().getParentServiceNS() );
+        }
+        if( identification != null ) {
+            if( isSetDescID() ) {
+                Doc doc = (( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( identification, getDescID() );
                 if( doc != null ) setRefersToDescDoc( doc );
             }
-        }
-
-        if( isSetTitleID() ) {
-            if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
-                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() )
-                        .findDoc( new NsIdentification( getParentPresenceConditions().getParentNS() ),
-                                getTitleID() );
+            if( isSetTitleID() ) {
+                Doc doc = (( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( identification, getTitleID() );
                 if( doc != null ) setRefersToTitleDoc( doc );
             }
         }

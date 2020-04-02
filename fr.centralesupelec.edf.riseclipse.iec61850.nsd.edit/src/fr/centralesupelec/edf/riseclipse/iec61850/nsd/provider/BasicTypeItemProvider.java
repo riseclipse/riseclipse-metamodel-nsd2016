@@ -65,6 +65,7 @@ public class BasicTypeItemProvider extends NsdObjectItemProvider {
             addNamePropertyDescriptor( object );
             addReferredByAttributeTypePropertyDescriptor( object );
             addRefersToDocPropertyDescriptor( object );
+            addReferredByUnderlyingTypePropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -149,6 +150,28 @@ public class BasicTypeItemProvider extends NsdObjectItemProvider {
                         getString( "_UI_PropertyDescriptor_description", "_UI_BasicType_refersToDoc_feature",
                                 "_UI_BasicType_type" ),
                         NsdPackage.Literals.BASIC_TYPE__REFERS_TO_DOC,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Referred By Underlying Type feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReferredByUnderlyingTypePropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_BasicType_referredByUnderlyingType_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_BasicType_referredByUnderlyingType_feature", "_UI_BasicType_type" ),
+                        NsdPackage.Literals.BASIC_TYPE__REFERRED_BY_UNDERLYING_TYPE,
                         true,
                         false,
                         true,

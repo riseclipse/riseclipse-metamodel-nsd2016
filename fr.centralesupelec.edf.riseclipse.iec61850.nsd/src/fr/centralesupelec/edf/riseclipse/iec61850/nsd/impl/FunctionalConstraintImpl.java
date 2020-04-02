@@ -1060,20 +1060,20 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
     public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
-        if( isSetDescID() ) {
-            if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
-                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() )
-                        .findDoc( new NsIdentification( getParentFunctionalConstraints().getParentNS() ),
-                                getDescID() );
+        NsIdentification identification = null;
+        if( getParentFunctionalConstraints().getParentNS() != null ) {
+            identification = new NsIdentification( getParentFunctionalConstraints().getParentNS() );
+        }
+        else if( getParentFunctionalConstraints().getParentServiceNS() != null ) {
+            identification = new NsIdentification( getParentFunctionalConstraints().getParentServiceNS() );
+        }
+        if( identification != null ) {
+            if( isSetDescID() ) {
+                Doc doc = (( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( identification, getDescID() );
                 if( doc != null ) setRefersToDescDoc( doc );
             }
-        }
-
-        if( isSetTitleID() ) {
-            if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
-                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() )
-                        .findDoc( new NsIdentification( getParentFunctionalConstraints().getParentNS() ),
-                                getTitleID() );
+            if( isSetTitleID() ) {
+                Doc doc = (( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( identification, getTitleID() );
                 if( doc != null ) setRefersToTitleDoc( doc );
             }
         }

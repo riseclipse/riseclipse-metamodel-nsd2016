@@ -22,6 +22,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
@@ -58,6 +59,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ConstructedAttributeImpl#getParentConstructedAttributes <em>Parent Constructed Attributes</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ConstructedAttributeImpl#getParentServiceTypeRealizations <em>Parent Service Type Realizations</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ConstructedAttributeImpl#getReferredByAttributeType <em>Referred By Attribute Type</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ConstructedAttributeImpl#getReferredByUnderlyingType <em>Referred By Underlying Type</em>}</li>
  * </ul>
  *
  * @generated
@@ -111,6 +113,16 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
      * @ordered
      */
     protected EList< AgAttributeType > referredByAttributeType;
+
+    /**
+     * The cached value of the '{@link #getReferredByUnderlyingType() <em>Referred By Underlying Type</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getReferredByUnderlyingType()
+     * @generated
+     * @ordered
+     */
+    protected EList< AgUnderlyingType > referredByUnderlyingType;
 
     /**
      * <!-- begin-user-doc -->
@@ -359,6 +371,42 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
+    public EList< AgUnderlyingType > getReferredByUnderlyingType() {
+        if( referredByUnderlyingType == null ) {
+            referredByUnderlyingType = new EObjectWithInverseEList.Unsettable< AgUnderlyingType >(
+                    AgUnderlyingType.class, this, NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_UNDERLYING_TYPE,
+                    NsdPackage.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE );
+        }
+        return referredByUnderlyingType;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetReferredByUnderlyingType() {
+        if( referredByUnderlyingType != null ) ( ( InternalEList.Unsettable< ? > ) referredByUnderlyingType ).unset();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetReferredByUnderlyingType() {
+        return referredByUnderlyingType != null
+                && ( ( InternalEList.Unsettable< ? > ) referredByUnderlyingType ).isSet();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @SuppressWarnings( "unchecked" )
     @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
@@ -376,6 +424,9 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
             return basicSetParentServiceTypeRealizations( ( ServiceTypeRealizations ) otherEnd, msgs );
         case NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_ATTRIBUTE_TYPE:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByAttributeType() )
+                    .basicAdd( otherEnd, msgs );
+        case NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_UNDERLYING_TYPE:
+            return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByUnderlyingType() )
                     .basicAdd( otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
@@ -397,6 +448,8 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
             return basicSetParentServiceTypeRealizations( null, msgs );
         case NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_ATTRIBUTE_TYPE:
             return ( ( InternalEList< ? > ) getReferredByAttributeType() ).basicRemove( otherEnd, msgs );
+        case NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_UNDERLYING_TYPE:
+            return ( ( InternalEList< ? > ) getReferredByUnderlyingType() ).basicRemove( otherEnd, msgs );
         }
         return super.eInverseRemove( otherEnd, featureID, msgs );
     }
@@ -438,6 +491,8 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
             return getParentServiceTypeRealizations();
         case NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_ATTRIBUTE_TYPE:
             return getReferredByAttributeType();
+        case NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_UNDERLYING_TYPE:
+            return getReferredByUnderlyingType();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -468,6 +523,10 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
             getReferredByAttributeType().clear();
             getReferredByAttributeType().addAll( ( Collection< ? extends AgAttributeType > ) newValue );
             return;
+        case NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_UNDERLYING_TYPE:
+            getReferredByUnderlyingType().clear();
+            getReferredByUnderlyingType().addAll( ( Collection< ? extends AgUnderlyingType > ) newValue );
+            return;
         }
         super.eSet( featureID, newValue );
     }
@@ -495,6 +554,9 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
         case NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_ATTRIBUTE_TYPE:
             unsetReferredByAttributeType();
             return;
+        case NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_UNDERLYING_TYPE:
+            unsetReferredByUnderlyingType();
+            return;
         }
         super.eUnset( featureID );
     }
@@ -517,6 +579,8 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
             return getParentServiceTypeRealizations() != null;
         case NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_ATTRIBUTE_TYPE:
             return isSetReferredByAttributeType();
+        case NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_UNDERLYING_TYPE:
+            return isSetReferredByUnderlyingType();
         }
         return super.eIsSet( featureID );
     }
@@ -541,12 +605,12 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
     }
 
     @Override
-    protected NsIdentification getNsIdentification() {
+    public NsIdentification getNsIdentification() {
         AgNSIdentification ns = null;
         if( getParentConstructedAttributes() != null ) {
             ns = getParentConstructedAttributes().getParentNS();
         }
-        if( ( ns == null ) && ( getParentServiceTypeRealizations() != null ) ) {
+        else if( getParentServiceTypeRealizations() != null ) {
             ns = getParentServiceTypeRealizations().getParentServiceNS();
         }
         return new NsIdentification( ns );

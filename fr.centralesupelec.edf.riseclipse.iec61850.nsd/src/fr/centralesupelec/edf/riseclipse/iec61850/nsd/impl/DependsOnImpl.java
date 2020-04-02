@@ -915,7 +915,8 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
                 + new NsIdentification( getParentNS() ) + ", line: " + getLineNumber() + "): ";
 
         NsIdentification identification = new NsIdentification( getId(), getVersion(), getRevision(), getRelease() );
-        NS ns = ( ( NsdResourceSetImpl ) eResource().getResourceSet() ).getNS( identification );
+        NsdResourceSetImpl rs = getResourceSet();
+        NS ns = rs.getNS( identification );
         if( ns == null ) {
             console.warning( messagePrefix + "NS (id: " + identification + ") not found" );
         }

@@ -609,6 +609,6 @@ public abstract class DocumentedClassImpl extends NsdObjectImpl implements Docum
         return false;
     }
 
-    protected abstract NsIdentification getNsIdentification();
+    public abstract NsIdentification getNsIdentification();
 
 } //DocumentedClassImpl

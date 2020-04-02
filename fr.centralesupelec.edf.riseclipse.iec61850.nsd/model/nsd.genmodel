@@ -166,6 +166,7 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//BasicType/parentBasicTypes"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//BasicType/referredByAttributeType"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//BasicType/refersToDoc"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//BasicType/referredByUnderlyingType"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//BasicTypes">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//BasicTypes/basicType"/>
@@ -204,6 +205,7 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//ConstructedAttribute/parentConstructedAttributes"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//ConstructedAttribute/parentServiceTypeRealizations"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//ConstructedAttribute/referredByAttributeType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//ConstructedAttribute/referredByUnderlyingType"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//ConstructedAttributes">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//ConstructedAttributes/constructedAttribute"/>
@@ -275,6 +277,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//Enumeration/refersToBaseEnumeration"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//Enumeration/referredByEnumerationAsBase"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//Enumeration/referredByAttributeType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//Enumeration/referredByUnderlyingType"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//Enumerations">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//Enumerations/enumeration"/>
@@ -472,6 +475,9 @@
     <genClasses image="false" ecoreClass="nsd.ecore#//AgUnderlyingType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgUnderlyingType/underlyingType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgUnderlyingType/underlyingTypeKind"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//AgUnderlyingType/refersToUnderlyingBasicType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//AgUnderlyingType/refersToUnderlyingConstructedAttribute"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//AgUnderlyingType/refersToUnderlyingEnumeration"/>
     </genClasses>
     <genClasses image="false" ecoreClass="nsd.ecore#//AgUML">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgUML/umlDate"/>

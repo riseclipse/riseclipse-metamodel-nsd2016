@@ -1122,7 +1122,7 @@ public class CDCImpl extends TitledClassImpl implements CDC {
     }
 
     @Override
-    protected NsIdentification getNsIdentification() {
+    public NsIdentification getNsIdentification() {
         return new NsIdentification( getParentCDCs().getParentNS() );
     }
 

@@ -67,6 +67,7 @@ public class ConstructedAttributeItemProvider extends TitledClassItemProvider {
 
             addNamePropertyDescriptor( object );
             addReferredByAttributeTypePropertyDescriptor( object );
+            addReferredByUnderlyingTypePropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -107,6 +108,28 @@ public class ConstructedAttributeItemProvider extends TitledClassItemProvider {
                 getString( "_UI_PropertyDescriptor_description",
                         "_UI_ConstructedAttribute_referredByAttributeType_feature", "_UI_ConstructedAttribute_type" ),
                 NsdPackage.Literals.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_ATTRIBUTE_TYPE,
+                true,
+                false,
+                true,
+                null,
+                null,
+                null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Referred By Underlying Type feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReferredByUnderlyingTypePropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add( createItemPropertyDescriptor(
+                ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                getResourceLocator(),
+                getString( "_UI_ConstructedAttribute_referredByUnderlyingType_feature" ),
+                getString( "_UI_PropertyDescriptor_description",
+                        "_UI_ConstructedAttribute_referredByUnderlyingType_feature", "_UI_ConstructedAttribute_type" ),
+                NsdPackage.Literals.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_UNDERLYING_TYPE,
                 true,
                 false,
                 true,

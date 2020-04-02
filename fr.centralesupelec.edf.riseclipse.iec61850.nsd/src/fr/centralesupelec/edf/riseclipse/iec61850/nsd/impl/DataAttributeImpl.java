@@ -3575,12 +3575,12 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
-        NS ns = getParentCDC().getParentCDCs().getParentNS();
+        String id = getNsIdentification().getId();
         NsdResourceSetImpl rs = getResourceSet();
         if( rs == null ) return false;
 
         String messagePrefix = "[NSD links] while resolving link from DataAttribute (name: " + getName()
-                + ", NS id: " + ns.getId() + ", line: " + getLineNumber() + "): ";
+                + ", NS id: " + id + ", line: " + getLineNumber() + "): ";
 
         if( isSetFc() ) {
             FunctionalConstraint foundFC = rs.findFunctionalConstraint( getFc(), getNsIdentification(), console );
@@ -3602,7 +3602,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                 }
                 console.info( "[NSD links] FunctionalConstraint (abbreviation: " + getFc()
                         + ") refers by DataAttribute (name: "
-                        + getName() + ") in NS (id:" + ns.getId() + ") found in "
+                        + getName() + ") in NS (id:" + id + ") found in "
                         + foundWhere + ")" );
             }
         }
@@ -3626,7 +3626,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                 }
                 console.info( "[NSD links] PresenceCondition (name: " + getPresCond()
                         + ") refers by DataAttribute (name: "
-                        + getName() + ") in NS (id:" + ns.getId() + ") found in "
+                        + getName() + ") in NS (id:" + id + ") found in "
                         + foundWhere + ")" );
             }
         }
@@ -3642,7 +3642,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
             if( isSetRefersToSizeAttribute() ) {
                 console.info( "[NSD links] DataAttribute (name: " + getSizeAttribute()
                         + ") refers as sizeAttribute by DataAttribute (name: " + getName() + ") in NS (id:"
-                        + ns.getId() + ") found" );
+                        + id + ") found" );
             }
             else {
                 console.warning( messagePrefix + "DataAttribute (name: " + getSizeAttribute() + ") not found" );
@@ -3660,7 +3660,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
             if( isSetRefersToMaxIndexAttribute() ) {
                 console.info( "[NSD links] DataAttribute (name: " + getMaxIndexAttribute()
                         + ") refers as maxIndexAttribute by DataAttribute (name: " + getName() + ") in NS (id:"
-                        + ns.getId() + ") found" );
+                        + id + ") found" );
             }
             else {
                 console.warning( messagePrefix + "DataAttribute (name: " + getMaxIndexAttribute() + ") not found" );
@@ -3680,7 +3680,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                         setRefersToBasicType( foundBT );
                         console.info( "[NSD links] BasicType (name: " + getType()
                                 + ") refers as type by DataAttribute (name: "
-                                + getName() + ") in NS (id:" + ns.getId() + ") found in NS (id:"
+                                + getName() + ") in NS (id:" + id + ") found in NS (id:"
                                 + getRefersToBasicType().getParentBasicTypes().getParentNS().getId() + ")" );
                     }
                     break;
@@ -3704,7 +3704,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                         }
                         console.info( "[NSD links] ConstructedAttribute (name: " + getType()
                                 + ") refers as type by DataAttribute (name: "
-                                + getName() + ") in NS (id:" + ns.getId() + ") found in "
+                                + getName() + ") in NS (id:" + id + ") found in "
                                 + foundWhere + ")" );
                     }
                     break;
@@ -3718,7 +3718,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                         setRefersToEnumeration( foundEn );
                         console.info( "[NSD links] Enumeration (name: " + getType()
                                 + ") refers as type by DataAttribute (name: "
-                                + getName() + ") in NS (id:" + ns.getId() + ") found in NS (id:"
+                                + getName() + ") in NS (id:" + id + ") found in NS (id:"
                                 + getRefersToEnumeration().getParentEnumerations().getParentNS().getId() + ")" );
                     }
                     break;
@@ -3726,12 +3726,14 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
             }
             else {
                 // type for ENUMERATED may be missing if CDC has enumParameterized="true"
-                if(( getTypeKind().getValue() == DefinedAttributeTypeKind.ENUMERATED_VALUE )) {
+                if( ( getTypeKind().getValue() == DefinedAttributeTypeKind.ENUMERATED_VALUE ) ) {
                     if( getParentCDC().isEnumParameterized() ) {
-                        console.info( messagePrefix + "type is missing for " + getTypeKind() + " but enumParameterized in parent CDC is true" );
+                        console.info( messagePrefix + "type is missing for " + getTypeKind()
+                                + " but enumParameterized in parent CDC is true" );
                     }
                     else {
-                        console.warning( messagePrefix + "type is missing for " + getTypeKind() + " and enumParameterized in parent CDC is false" );
+                        console.warning( messagePrefix + "type is missing for " + getTypeKind()
+                                + " and enumParameterized in parent CDC is false" );
                     }
                 }
                 else {
@@ -3752,8 +3754,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     }
 
     @Override
-    protected NsIdentification getNsIdentification() {
-        return new NsIdentification( getParentCDC().getParentCDCs().getParentNS() );
+    public NsIdentification getNsIdentification() {
+        return (( CDCImpl ) getParentCDC() ).getNsIdentification();
     }
 
 } //DataAttributeImpl
