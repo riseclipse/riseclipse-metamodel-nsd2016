@@ -25,10 +25,10 @@ import java.util.Objects;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 
 public class NsIdentification {
-    private String id;
-    private Integer version;
-    private String revision;
-    private Integer release;
+    final private String id;
+    final private Integer version;
+    final private String revision;
+    final private Integer release;
 
     public NsIdentification( String id, Integer version, String revision, Integer release ) {
         this.id = id;
