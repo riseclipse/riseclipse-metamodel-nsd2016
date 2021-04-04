@@ -39,6 +39,16 @@ public class NsIdentificationName extends NsIdentification {
         this.name = name;
     }
 
+    public NsIdentificationName( String name, NsIdentification identification ) {
+        super( identification );
+        this.name = name;
+    }
+
+    public NsIdentificationName( String name, String namespace ) {
+        super( namespace );
+        this.name = name;
+    }
+
     @Override
     public int hashCode() {
         final int prime = 31;
