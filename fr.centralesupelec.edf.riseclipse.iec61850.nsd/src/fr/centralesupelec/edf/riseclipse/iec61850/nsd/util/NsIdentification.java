@@ -37,11 +37,33 @@ public class NsIdentification {
         this.release = release;
     }
     
+    public NsIdentification( String namespace ) {
+        int posColon = namespace.indexOf( ":" );
+        if( posColon != -1 ) {
+            this.id = namespace.substring( 0, posColon );
+            this.version = Integer.valueOf( namespace.substring( posColon + 1, posColon + 5 ));
+            this.revision = ( namespace.length() > ( posColon + 5 )) ? namespace.substring( posColon + 5 ) : "A";
+        }
+        else {
+            this.id = namespace;
+            this.version = null;
+            this.revision = null;
+        }
+        this.release = 1;
+    }
+    
     public NsIdentification( AgNSIdentification identification ) {
         this.id = identification.getId();
         this.version = identification.getVersion();
         this.revision = identification.getRevision();
         this.release = identification.getRelease();
+    }
+
+    public NsIdentification( NsIdentification identification ) {
+        this.id = identification.id;
+        this.version = identification.version;
+        this.revision = identification.revision;
+        this.release = identification.release;
     }
 
     public String getId() {
