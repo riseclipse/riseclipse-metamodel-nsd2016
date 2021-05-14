@@ -29,22 +29,22 @@ public class NsIdentificationName extends NsIdentification {
     
     final private String name;
 
-    public NsIdentificationName( String name, String id, Integer version, String revision, Integer release ) {
+    public NsIdentificationName( String id, Integer version, String revision, Integer release, String name ) {
         super( id, version, revision, release );
         this.name = name;
     }
     
-    public NsIdentificationName( String name, AgNSIdentification identification ) {
+    public NsIdentificationName( AgNSIdentification identification, String name ) {
         super( identification );
         this.name = name;
     }
 
-    public NsIdentificationName( String name, NsIdentification identification ) {
+    public NsIdentificationName( NsIdentification identification, String name ) {
         super( identification );
         this.name = name;
     }
 
-    public NsIdentificationName( String name, String namespace ) {
+    public NsIdentificationName( String namespace, String name ) {
         super( namespace );
         this.name = name;
     }
