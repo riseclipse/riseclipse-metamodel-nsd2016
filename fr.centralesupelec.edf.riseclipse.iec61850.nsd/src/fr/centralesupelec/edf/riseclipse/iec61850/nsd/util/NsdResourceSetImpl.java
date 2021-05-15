@@ -22,7 +22,6 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd.util;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -75,9 +74,10 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
     private Map< NsIdentification, ServiceNS > serviceNSResources = new HashMap<>();
     private Map< NsIdentification, NSDoc > nsdocResources = new HashMap<>();
     private NsdResourceFactoryImpl resourceFactory = new NsdResourceFactoryImpl();
+    // TODO: there may be several appNS
     private ApplicableServiceNS appNS =  null;
     private Map< NsIdentification, List< ServiceNS > > nsdAdditions = new HashMap<>();
-    private Map< NsIdentification, ArrayList< NsIdentification >> equivalentNamespaces = new HashMap<>();
+//    private Map< NsIdentification, ArrayList< NsIdentification >> equivalentNamespaces = new HashMap<>();
 
     public NsdResourceSetImpl( boolean strictContent ) {
         super( strictContent );
@@ -186,7 +186,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                 if( serviceNSResource != null ) {
                     for( AppliesToType applyTo : serviceNsUsage.getAppliesTo() ) {
                         NsIdentification nsId = new NsIdentification( applyTo );
-                        setEquivalentNamespace( serviceNsId, nsId, console );
+//                        setEquivalentNamespace( serviceNsId, nsId, console );
                         //nsId = getRootNsIdentification( nsId );
                         if( nsdResources.get( nsId ) != null ) {
                             if( nsdAdditions.get( nsId ) == null ) {
@@ -304,26 +304,26 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         
     }
     
-    public void setEquivalentNamespace( NsIdentification source, NsIdentification destination, IRiseClipseConsole console ) {
-        console.info( NSD_SETUP_CATEGORY, 0,
-                      source, " is equivalent to ", destination );
-        if( ! equivalentNamespaces.containsKey( source )) {
-            equivalentNamespaces.put( source, new ArrayList<>() );
-        }
-        equivalentNamespaces.get( source ).add( destination );
-    }
+//    public void setEquivalentNamespace( NsIdentification source, NsIdentification destination, IRiseClipseConsole console ) {
+//        console.info( NSD_SETUP_CATEGORY, 0,
+//                      source, " is equivalent to ", destination );
+//        if( ! equivalentNamespaces.containsKey( source )) {
+//            equivalentNamespaces.put( source, new ArrayList<>() );
+//        }
+//        equivalentNamespaces.get( source ).add( destination );
+//    }
     
-    public List< NS > getEquivalentNamespaces( NsIdentification source ) {
-        if( ! equivalentNamespaces.containsKey( source )) {
-            return Collections.emptyList();
-        }
-        ArrayList< NS > res = new ArrayList<>();
-        for( NsIdentification id : equivalentNamespaces.get( source )) {
-            NS ns = getNS( id );
-            if( ns != null ) res.add( ns );
-        }
-        return res;
-    }
+//    public List< NS > getEquivalentNamespaces( NsIdentification source ) {
+//        if( ! equivalentNamespaces.containsKey( source )) {
+//            return Collections.emptyList();
+//        }
+//        ArrayList< NS > res = new ArrayList<>();
+//        for( NsIdentification id : equivalentNamespaces.get( source )) {
+//            NS ns = getNS( id );
+//            if( ns != null ) res.add( ns );
+//        }
+//        return res;
+//    }
     
 //    public NsIdentification getRootNsIdentification( NsIdentification id ) {
 //        // TODO: check conformance with DependsOn
@@ -335,6 +335,10 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
 
     public NS getNS( NsIdentification id ) {
         return nsdResources.get( id );
+    }
+    
+    public Stream< NsIdentification > getNsIdentificationStream() {
+        return nsdResources.keySet().stream();
     }
 
     /*
@@ -478,10 +482,10 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
             Stream< LNClass > tmp = Stream.concat( lnClassStream, getLNClassStream( ns ));
             lnClassStream = tmp;
         }
-        for( NS dep : getEquivalentNamespaces( identification )) {
-            Stream< LNClass > tmp = Stream.concat( lnClassStream, getLNClassStream( dep ));
-            lnClassStream = tmp;
-        }
+//        for( NS dep : getEquivalentNamespaces( identification )) {
+//            Stream< LNClass > tmp = Stream.concat( lnClassStream, getLNClassStream( dep ));
+//            lnClassStream = tmp;
+//        }
         return lnClassStream;
     }
 
@@ -526,10 +530,10 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
             Stream< Abbreviation > tmp = Stream.concat( abbreviationStream, getAbbreviationStream( ns ));
             abbreviationStream = tmp;
         }
-        for( NS dep : getEquivalentNamespaces( identification )) {
-            Stream< Abbreviation > tmp = Stream.concat( abbreviationStream, getAbbreviationStream( dep ));
-            abbreviationStream = tmp;
-        }
+//        for( NS dep : getEquivalentNamespaces( identification )) {
+//            Stream< Abbreviation > tmp = Stream.concat( abbreviationStream, getAbbreviationStream( dep ));
+//            abbreviationStream = tmp;
+//        }
         return abbreviationStream;
     }
 
@@ -574,10 +578,10 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
             Stream< Enumeration > tmp = Stream.concat( enumerationStream, getEnumerationStream( ns ));
             enumerationStream = tmp;
         }
-        for( NS dep : getEquivalentNamespaces( identification )) {
-            Stream< Enumeration > tmp = Stream.concat( enumerationStream, getEnumerationStream( dep ));
-            enumerationStream = tmp;
-        }
+//        for( NS dep : getEquivalentNamespaces( identification )) {
+//            Stream< Enumeration > tmp = Stream.concat( enumerationStream, getEnumerationStream( dep ));
+//            enumerationStream = tmp;
+//        }
         return enumerationStream;
     }
 
@@ -622,10 +626,10 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
             Stream< CDC > tmp = Stream.concat( cdcStream, getCDCStream( ns ));
             cdcStream = tmp;
         }
-        for( NS dep : getEquivalentNamespaces( identification )) {
-            Stream< CDC > tmp = Stream.concat( cdcStream, getCDCStream( dep ));
-            cdcStream = tmp;
-        }
+//        for( NS dep : getEquivalentNamespaces( identification )) {
+//            Stream< CDC > tmp = Stream.concat( cdcStream, getCDCStream( dep ));
+//            cdcStream = tmp;
+//        }
         return cdcStream;
     }
 
@@ -670,10 +674,10 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
             Stream< ConstructedAttribute > tmp = Stream.concat( constructedAttributeStream, getConstructedAttributeStream( ns ));
             constructedAttributeStream = tmp;
         }
-        for( NS dep : getEquivalentNamespaces( identification )) {
-            Stream< ConstructedAttribute > tmp = Stream.concat( constructedAttributeStream, getConstructedAttributeStream( dep ));
-            constructedAttributeStream = tmp;
-        }
+//        for( NS dep : getEquivalentNamespaces( identification )) {
+//            Stream< ConstructedAttribute > tmp = Stream.concat( constructedAttributeStream, getConstructedAttributeStream( dep ));
+//            constructedAttributeStream = tmp;
+//        }
         if( nsdAdditions.get( identification ) != null ) {
             // We add ServiceTypeRealizations instead of replacing existing (basic ?) type, but
             // the latter will be replaced in the map because of the identical name
@@ -731,10 +735,10 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
             Stream< BasicType > tmp = Stream.concat( basicTypeStream, getBasicTypeStream( ns ));
             basicTypeStream = tmp;
         }
-        for( NS dep : getEquivalentNamespaces( identification )) {
-            Stream< BasicType > tmp = Stream.concat( basicTypeStream, getBasicTypeStream( dep ));
-            basicTypeStream = tmp;
-        }
+//        for( NS dep : getEquivalentNamespaces( identification )) {
+//            Stream< BasicType > tmp = Stream.concat( basicTypeStream, getBasicTypeStream( dep ));
+//            basicTypeStream = tmp;
+//        }
         return basicTypeStream;
     }
 
@@ -779,10 +783,10 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
             Stream< FunctionalConstraint > tmp = Stream.concat( functionalConstraintStream, getFunctionalConstraintStream( ns ));
             functionalConstraintStream = tmp;
         }
-        for( NS dep : getEquivalentNamespaces( identification )) {
-            Stream< FunctionalConstraint > tmp = Stream.concat( functionalConstraintStream, getFunctionalConstraintStream( dep ));
-            functionalConstraintStream = tmp;
-        }
+//        for( NS dep : getEquivalentNamespaces( identification )) {
+//            Stream< FunctionalConstraint > tmp = Stream.concat( functionalConstraintStream, getFunctionalConstraintStream( dep ));
+//            functionalConstraintStream = tmp;
+//        }
         if( nsdAdditions.get( identification ) != null ) {
             for( ServiceNS add : nsdAdditions.get( identification )) {
                 Stream< FunctionalConstraint > tmp = Stream.concat( functionalConstraintStream, add.getFunctionalConstraints().getFunctionalConstraint().stream() );
@@ -834,10 +838,10 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
             Stream< PresenceCondition > tmp = Stream.concat( presenceConditionStream, getPresenceConditionStream( ns ));
             presenceConditionStream = tmp;
         }
-        for( NS dep : getEquivalentNamespaces( identification )) {
-            Stream< PresenceCondition > tmp = Stream.concat( presenceConditionStream, getPresenceConditionStream( dep ));
-            presenceConditionStream = tmp;
-        }
+//        for( NS dep : getEquivalentNamespaces( identification )) {
+//            Stream< PresenceCondition > tmp = Stream.concat( presenceConditionStream, getPresenceConditionStream( dep ));
+//            presenceConditionStream = tmp;
+//        }
         if( nsdAdditions.get( identification ) != null ) {
             for( ServiceNS add : nsdAdditions.get( identification )) {
                 Stream< PresenceCondition > tmp = Stream.concat( presenceConditionStream, add.getPresenceConditions().getPresenceCondition().stream() );
