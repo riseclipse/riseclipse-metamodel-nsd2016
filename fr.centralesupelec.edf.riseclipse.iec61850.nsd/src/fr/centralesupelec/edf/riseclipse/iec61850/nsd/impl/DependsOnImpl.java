@@ -1109,6 +1109,7 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
             console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
                           "NS (id: ", identification, ") refers by DependsOn in NS (id:",
                           new NsIdentification( getParentNS() ), ") found" );
+            ns.buildExplicitLinks( console, forceUpdate );
         }
         return false;
     }
