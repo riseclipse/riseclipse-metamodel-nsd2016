@@ -911,19 +911,19 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
     public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
-        String messagePrefix = "[NSD links] while resolving link from DependsOn (NS id: "
-                + new NsIdentification( getParentNS() ) + ", line: " + getLineNumber() + "): ";
+        String messagePrefix = "[NSD links] while resolving link from DependsOn (NS \""
+                + new NsIdentification( getParentNS() ) + "\", line: " + getLineNumber() + "): ";
 
         NsIdentification identification = new NsIdentification( getId(), getVersion(), getRevision(), getRelease() );
         NsdResourceSetImpl rs = getResourceSet();
         NS ns = rs.getNS( identification );
         if( ns == null ) {
-            console.warning( messagePrefix + "NS (id: " + identification + ") not found" );
+            console.warning( messagePrefix + "NS \"" + identification + "\" not found" );
         }
         else {
             setRefersToNS( ns );
-            console.info( "[NSD links] NS (id: " + identification + ") refers by DependsOn in NS (id:"
-                    + new NsIdentification( getParentNS() ) + ") found" );
+            console.info( "[NSD links] NS \"" + identification + "\" refers by DependsOn to NS \""
+                    + new NsIdentification( getParentNS() ) + "\", found" );
             ns.buildExplicitLinks( console, forceUpdate );
         }
         return false;

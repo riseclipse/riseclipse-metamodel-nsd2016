@@ -99,7 +99,7 @@ public class NsIdentification {
 
     @Override
     public String toString() {
-        return "NsIdentification [id=" + id + ", version=" + version + ", revision=" + revision + ", release=" + release + "]";
+        return id + ":" + version + revision + release;
     }
 
 }

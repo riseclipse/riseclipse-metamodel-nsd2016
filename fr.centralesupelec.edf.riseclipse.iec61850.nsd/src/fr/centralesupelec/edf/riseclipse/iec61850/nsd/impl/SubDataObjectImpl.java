@@ -2666,12 +2666,12 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
     public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
-        String id = getNsIdentification().getId();
+        String id = getNsIdentification().toString();
         NsdResourceSetImpl rs = getResourceSet();
         if( rs == null ) return false;
 
         String messagePrefix = "[NSD links] while resolving link from SubDataObject (name: " + getName()
-                + ", NS id: " + id + ", line: " + getLineNumber() + "): ";
+                + ", NS \"" + id + "\", line: " + getLineNumber() + "): ";
 
         if( isSetType() ) {
             CDC foundCDC = rs.findCDC( getType(), getNsIdentification(), console );
@@ -2682,8 +2682,8 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
             else {
                 setRefersToCDC( foundCDC );
                 console.info( "[NSD links] CDC (name: " + getType() + ") refers by SubDataObject (name: " + getName()
-                        + ") in NS (id:" + id + ") found in NS (id:"
-                        + getRefersToCDC().getParentCDCs().getParentNS().getId() + ")" );
+                        + ") in NS \"" + id + "\" found in NS \""
+                        + new NsIdentification( getRefersToCDC().getParentCDCs().getParentNS() ) + "\"" );
             }
         }
 
@@ -2697,8 +2697,8 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                 setRefersToPresenceCondition( foundPC );
                 console.info( "[NSD links] PresenceCondition (name: " + getPresCond()
                         + ") refers by SubDataObject (name: "
-                        + getName() + ") in NS (id:" + id + ") found in NS (id:"
-                        + getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId() + ")" );
+                        + getName() + ") in NS \"" + id + "\" found in NS \""
+                        + new NsIdentification( getRefersToPresenceCondition().getParentPresenceConditions().getParentNS() ) + "\"" );
             }
         }
 
@@ -2712,8 +2712,8 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
 
             if( isSetRefersToSizeAttribute() ) {
                 console.info( "[NSD links] DataAttribute (name: " + getSizeAttribute()
-                        + ") refers as sizeAttribute by SubDataObject (name: " + getName() + ") in NS (id:"
-                        + id + ") found" );
+                        + ") refers as sizeAttribute by SubDataObject (name: " + getName() + ") in NS \""
+                        + id + "\" found" );
             }
             else {
                 console.warning( messagePrefix + "DataAttribute (name: " + getSizeAttribute() + ") not found" );
@@ -2730,8 +2730,8 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
 
             if( isSetRefersToMaxIndexAttribute() ) {
                 console.info( "[NSD links] DataAttribute (name: " + getMaxIndexAttribute()
-                        + ") refers as maxIndexAttribute by DataAttribute (name: " + getName() + ") in NS (id:"
-                        + id + ") found" );
+                        + ") refers as maxIndexAttribute by DataAttribute (name: " + getName() + ") in NS \""
+                        + id + "\" found" );
             }
             else {
                 console.warning( messagePrefix + "DataAttribute (name: " + getMaxIndexAttribute() + ") not found" );
@@ -2759,8 +2759,8 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                         setRefersToUnderlyingBasicType( foundBT );
                         console.info( "[NSD links] BasicType (name: " + getUnderlyingType()
                                 + ") refers as type by SubDataObject (name: "
-                                + getName() + ") in NS (id:" + id + ") found in NS (id:"
-                                + getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS().getId() + ")" );
+                                + getName() + ") in NS \"" + id + "\" found in NS \""
+                                + new NsIdentification( getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS() ) + "\"" );
                     }
                     break;
                 case DefinedAttributeTypeKind.CONSTRUCTED_VALUE:
@@ -2774,17 +2774,16 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                         setRefersToUnderlyingConstructedAttribute( foundCA );
                         String foundWhere = "(???";
                         if( getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes() != null ) {
-                            foundWhere = "NS (id:" + getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes()
-                                    .getParentNS().getId();
+                            foundWhere = "NS \""
+                                    + new NsIdentification( getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes().getParentNS() ) + "\"";
                         }
                         else if( getRefersToUnderlyingConstructedAttribute().getParentServiceTypeRealizations() != null ) {
-                            foundWhere = "ServiceNS (id:" + getRefersToUnderlyingConstructedAttribute()
-                                    .getParentServiceTypeRealizations().getParentServiceNS().getId();
+                            foundWhere = "ServiceNS \""
+                                    + new NsIdentification( getRefersToUnderlyingConstructedAttribute().getParentServiceTypeRealizations().getParentServiceNS() ) + "\"";
                         }
                         console.info( "[NSD links] ConstructedAttribute (name: " + getUnderlyingType()
                                 + ") refers as type by SubDataObject (name: "
-                                + getName() + ") in NS (id:" + id + ") found in "
-                                + foundWhere + ")" );
+                                + getName() + ") in NS \"" + id + "\" found in " + foundWhere );
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
@@ -2797,8 +2796,8 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                         setRefersToUnderlyingEnumeration( foundEn );
                         console.info( "[NSD links] Enumeration (name: " + getUnderlyingType()
                                 + ") refers as type by SubDataObject (name: "
-                                + getName() + ") in NS (id:" + id + ") found in NS (id:"
-                                + getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS().getId() + ")" );
+                                + getName() + ") in NS \"" + id + "\" found in NS \""
+                                + new NsIdentification( getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS() ) + "\"" );
                     }
                     break;
                 }

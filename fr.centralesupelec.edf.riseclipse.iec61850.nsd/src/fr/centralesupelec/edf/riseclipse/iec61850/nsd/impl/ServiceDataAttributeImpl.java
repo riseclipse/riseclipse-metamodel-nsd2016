@@ -2344,7 +2344,7 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         if( rs == null ) return false;
 
         String messagePrefix = "[NSD links] while resolving link from ServiceDataAttribute (name: " + getName()
-                             + ", ServiceNS id: " + sns.getId() + ", line: " + getLineNumber() + "): ";
+                             + ", ServiceNS \"" + new NsIdentification( sns ) + "\", line: " + getLineNumber() + "): ";
 
         if( isSetUnderlyingTypeKind() ) {
             if( isSetUnderlyingType() ) {
@@ -2359,8 +2359,8 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                         setRefersToUnderlyingBasicType( foundBT );
                         console.info( "[NSD links] BasicType (name: " + getUnderlyingType()
                                 + ") refers as type by ServiceDataAttribute (name: "
-                                + getName() + ") in ServiceNS (id:" + sns.getId() + ") found in NS (id:"
-                                + getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS().getId() + ")" );
+                                + getName() + ") in ServiceNS (id:" + sns.getId() + ") found in NS \""
+                                + new NsIdentification( getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS() ) + "\"" );
                     }
                     break;
                 case DefinedAttributeTypeKind.CONSTRUCTED_VALUE:
@@ -2372,19 +2372,18 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                     }
                     else {
                         setRefersToUnderlyingConstructedAttribute( foundCA );
-                        String foundWhere = "(???";
+                        String foundWhere = "???";
                         if( getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes() != null ) {
-                            foundWhere = "NS (id:" + getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes()
-                                    .getParentNS().getId();
+                            foundWhere = "NS "
+                                    + new NsIdentification( getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes().getParentNS() ) + "\"";
                         }
                         else if( getRefersToUnderlyingConstructedAttribute().getParentServiceTypeRealizations() != null ) {
-                            foundWhere = "ServiceNS (id:" + getRefersToUnderlyingConstructedAttribute()
-                                    .getParentServiceTypeRealizations().getParentServiceNS().getId();
+                            foundWhere = "ServiceNS "
+                                    + new NsIdentification( getRefersToUnderlyingConstructedAttribute().getParentServiceTypeRealizations().getParentServiceNS() ) + "\"";
                         }
                         console.info( "[NSD links] ConstructedAttribute (name: " + getUnderlyingType()
                                 + ") refers as type by ServiceDataAttribute (name: "
-                                + getName() + ") in ServiceNS (id:" + sns.getId() + ") found in "
-                                + foundWhere + ")" );
+                                + getName() + ") in ServiceNS \"" + new NsIdentification( sns ) + "\" found in " + foundWhere );
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
@@ -2397,8 +2396,8 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                         setRefersToUnderlyingEnumeration( foundEn );
                         console.info( "[NSD links] Enumeration (name: " + getUnderlyingType()
                                 + ") refers as type by ServiceDataAttribute (name: "
-                                + getName() + ") in ServiceNS (id:" + sns.getId() + ") found in NS (id:"
-                                + getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS().getId() + ")" );
+                                + getName() + ") in ServiceNS \"" + new NsIdentification( sns ) + "\" found in NS \""
+                                + new NsIdentification( getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS() ) + "\"" );
                     }
                     break;
                 }

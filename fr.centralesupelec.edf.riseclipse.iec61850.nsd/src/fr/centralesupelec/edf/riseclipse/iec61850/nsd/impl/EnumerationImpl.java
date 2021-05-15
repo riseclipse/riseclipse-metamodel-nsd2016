@@ -851,12 +851,12 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
     public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
-        String id = getNsIdentification().getId();
+        String id = getNsIdentification().toString();
         NsdResourceSetImpl rs = getResourceSet();
         if( rs == null ) return false;
 
         String messagePrefix = "[NSD links] while resolving link from Enumeration (name: " + getName()
-                + ", NS id: " + id + ", line: " + getLineNumber() + "): ";
+                + ", NS \"" + id + "\", line: " + getLineNumber() + "): ";
 
         if( isSetInheritedFrom() ) {
             Enumeration foundBase = rs.findEnumeration( getInheritedFrom(), getNsIdentification(), console );
@@ -866,8 +866,8 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
             else {
                 setRefersToBaseEnumeration( foundBase );
                 console.info( "[NSD links] Enumeration (name: " + getInheritedFrom() + ") refers by Enumeration (name: "
-                        + getName() + ") in NS (id:" + id + ") found in NS (id:"
-                        + getRefersToBaseEnumeration().getParentEnumerations().getParentNS().getId() + ")" );
+                        + getName() + ") in NS \"" + id + "\" found in NS "
+                        + new NsIdentification( getRefersToBaseEnumeration().getParentEnumerations().getParentNS() ) + "\"" );
             }
         }
 

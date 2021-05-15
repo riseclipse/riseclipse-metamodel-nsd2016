@@ -519,12 +519,12 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
     public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
         
-        String id = getNsIdentification().getId();
+        String id = getNsIdentification().toString();
 
         if( isSetBase() ) {
 
             String messagePrefix = "[NSD links] while resolving link from AnyLNClass (name: " + getName()
-                    + ", NS id: " + id + ", line: " + getLineNumber() + "): ";
+                    + ", NS \"" + id + "\", line: " + getLineNumber() + "): ";
 
             // This code assumes that the referred AbstractLNClass is in the same NS
             // TODO: check that it is right
@@ -538,8 +538,8 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
             if( isSetRefersToAbstractLNClass() ) {
                 console.info(
                         "[NSD links] AbstractLNClass (name: " + getBase() + ") refers by AnyLNClass (name: " + getName()
-                                + ") in NS (id:" + id + ") found in NS (id:"
-                                + getRefersToAbstractLNClass().getParentLNClasses().getParentNS().getId() + ")" );
+                                + ") in NS \"" + id + "\" found in NS \""
+                                + new NsIdentification( getRefersToAbstractLNClass().getParentLNClasses().getParentNS() ) + "\"" );
             }
             else {
                 console.warning( messagePrefix + "AbstractLNClass (name: " + getBase() + ") not found" );

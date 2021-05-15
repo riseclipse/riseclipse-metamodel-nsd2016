@@ -2423,12 +2423,12 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
     public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
-        String id = getNsIdentification().getId();
+        String id = getNsIdentification().toString();
         NsdResourceSetImpl rs = getResourceSet();
         if( rs == null ) return false;
 
         String messagePrefix = "[NSD links] while resolving link from SubDataAttribute (name: " + getName()
-                + ", NS id: " + id + ", line: " + getLineNumber() + "): ";
+                + ", NS \"" + id + "\", line: " + getLineNumber() + "): ";
 
         if( isSetPresCond() ) {
             PresenceCondition foundPC = rs.findPresenceCondition( getPresCond(), getNsIdentification(), console );
@@ -2439,8 +2439,8 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
                 setRefersToPresenceCondition( foundPC );
                 console.info( "[NSD links] PresenceCondition (name: " + getPresCond()
                         + ") refers by SubDataAttribute (name: "
-                        + getName() + ") in NS (id:" + id + ") found in NS (id:"
-                        + getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId() + ")" );
+                        + getName() + ") in NS \"" + id + "\" found in NS \""
+                        + new NsIdentification( getRefersToPresenceCondition().getParentPresenceConditions().getParentNS() ) + "\"" );
             }
         }
 
@@ -2457,8 +2457,8 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
                         setRefersToBasicType( foundBT );
                         console.info( "[NSD links] BasicType (name: " + getType()
                                 + ") refers as type by SubDataAttribute (name: "
-                                + getName() + ") in NS (id:" + id + ") found in NS (id:"
-                                + getRefersToBasicType().getParentBasicTypes().getParentNS().getId() + ")" );
+                                + getName() + ") in NS (\"" + id + "\" found in NS \""
+                                + new NsIdentification( getRefersToBasicType().getParentBasicTypes().getParentNS() ) + "\"" );
                     }
                     break;
                 case DefinedAttributeTypeKind.CONSTRUCTED_VALUE:
@@ -2472,10 +2472,8 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
                         setRefersToConstructedAttribute( foundCA );
                         console.info( "[NSD links] ConstructedAttribute (name: " + getType()
                                 + ") refers as type by SubDataAttribute (name: "
-                                + getName() + ") in NS (id:" + id + ") found in NS (id:"
-                                + getRefersToConstructedAttribute().getParentConstructedAttributes().getParentNS()
-                                        .getId()
-                                + ")" );
+                                + getName() + ") in NS \"" + id + "\" found in NS \""
+                                + new NsIdentification( getRefersToConstructedAttribute().getParentConstructedAttributes().getParentNS() ) + "\"" );
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
@@ -2488,8 +2486,8 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
                         setRefersToEnumeration( foundEn );
                         console.info( "[NSD links] Enumeration (name: " + getType()
                                 + ") refers as type by SubDataAttribute (name: "
-                                + getName() + ") in NS (id:" + id + ") found in NS (id:"
-                                + getRefersToEnumeration().getParentEnumerations().getParentNS().getId() + ")" );
+                                + getName() + ") in NS \"" + id + "\" found in NS \""
+                                + new NsIdentification( getRefersToEnumeration().getParentEnumerations().getParentNS() ) + "\"" );
                     }
                     break;
                 }
