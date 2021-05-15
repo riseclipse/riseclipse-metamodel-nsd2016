@@ -2536,7 +2536,7 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                     }
                     else {
                         setRefersToUnderlyingConstructedAttribute( foundCA );
-                        String foundWhere = "(???";
+                        String foundWhere = "???";
                         if( getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes() != null ) {
                             foundWhere = "NS (id:"
                                     + getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes()
@@ -2548,7 +2548,7 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                                     .getParentServiceTypeRealizations().getParentServiceNS().getId();
                         }
                         console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                                      "[NSD links] ConstructedAttribute (name: " , getUnderlyingType(),
+                                      "ConstructedAttribute (name: " , getUnderlyingType(),
                                       ") refers as type by ServiceDataAttribute (name: ",
                                       getName(), ") in ServiceNS (id:", sns.getId(), ") found in ",
                                       foundWhere, ")" );

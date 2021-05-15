@@ -3731,7 +3731,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     public boolean buildExplicitLinks( @NonNull IRiseClipseConsole console, boolean forceUpdate ) {
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
-        String id = getNsIdentification().getId();
+        String id = getNsIdentification().toString();
         NsdResourceSetImpl rs = getResourceSet();
         if( rs == null ) return false;
 
@@ -3749,13 +3749,13 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                 setRefersToFunctionalConstraint( foundFC );
                 String foundWhere = "(???";
                 if( getRefersToFunctionalConstraint().getParentFunctionalConstraints().getParentNS() != null ) {
-                    foundWhere = "NS (id:"
-                            + getRefersToFunctionalConstraint().getParentFunctionalConstraints().getParentNS().getId();
+                    foundWhere = "NS \""
+                            + new NsIdentification( getRefersToFunctionalConstraint().getParentFunctionalConstraints().getParentNS() ) + "\"";
                 }
                 else if( getRefersToFunctionalConstraint().getParentFunctionalConstraints()
                         .getParentServiceNS() != null ) {
-                    foundWhere = "ServiceNS (id:" + getRefersToFunctionalConstraint().getParentFunctionalConstraints()
-                            .getParentServiceNS().getId();
+                    foundWhere = "ServiceNS \""
+                            + new NsIdentification( getRefersToFunctionalConstraint().getParentFunctionalConstraints().getParentServiceNS() ) + "\"";
                 }
                 console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
                               "FunctionalConstraint (abbreviation: ", getFc(),
@@ -3776,12 +3776,12 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                 setRefersToPresenceCondition( foundPC );
                 String foundWhere = "(???";
                 if( getRefersToPresenceCondition().getParentPresenceConditions().getParentNS() != null ) {
-                    foundWhere = "NS (id:"
-                            + getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId();
+                    foundWhere = "NS \""
+                            + new NsIdentification( getRefersToPresenceCondition().getParentPresenceConditions().getParentNS() ) + "\"";
                 }
                 else if( getRefersToPresenceCondition().getParentPresenceConditions().getParentServiceNS() != null ) {
-                    foundWhere = "ServiceNS (id:"
-                            + getRefersToPresenceCondition().getParentPresenceConditions().getParentServiceNS().getId();
+                    foundWhere = "ServiceNS \""
+                            + new NsIdentification( getRefersToPresenceCondition().getParentPresenceConditions().getParentServiceNS() ) + "\"";
                 }
                 console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
                               "PresenceCondition (name: ", getPresCond(),
@@ -3821,7 +3821,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
 
             if( isSetRefersToMaxIndexAttribute() ) {
                 console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                              "[NSD links] DataAttribute (name: ", getMaxIndexAttribute(),
+                              "DataAttribute (name: ", getMaxIndexAttribute(),
                               ") refers as maxIndexAttribute by DataAttribute (name: ",
                               getName(), ") in NS (id:", id, ") found" );
             }
@@ -3863,12 +3863,12 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                         setRefersToConstructedAttribute( foundCA );
                         String foundWhere = "(???";
                         if( getRefersToConstructedAttribute().getParentConstructedAttributes() != null ) {
-                            foundWhere = "NS (id:" + getRefersToConstructedAttribute().getParentConstructedAttributes()
-                                    .getParentNS().getId();
+                            foundWhere = "NS \""
+                                    + new NsIdentification( getRefersToConstructedAttribute().getParentConstructedAttributes().getParentNS() ) + "\"";
                         }
                         else if( getRefersToConstructedAttribute().getParentServiceTypeRealizations() != null ) {
-                            foundWhere = "ServiceNS (id:" + getRefersToConstructedAttribute()
-                                    .getParentServiceTypeRealizations().getParentServiceNS().getId();
+                            foundWhere = "ServiceNS \""
+                                    + new NsIdentification( getRefersToConstructedAttribute().getParentServiceTypeRealizations().getParentServiceNS() ) + "\"";
                         }
                         console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
                                       "ConstructedAttribute (name: ", getType(),
@@ -3887,7 +3887,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                     else {
                         setRefersToEnumeration( foundEn );
                         console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                                      "[NSD links] Enumeration (name: ", getType(),
+                                      "Enumeration (name: ", getType(),
                                       ") refers as type by DataAttribute (name: ",
                                       getName(), ") in NS (id:", id, ") found in NS (id:",
                                       getRefersToEnumeration().getParentEnumerations().getParentNS().getId(), ")" );

@@ -2827,7 +2827,7 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
     public boolean buildExplicitLinks( @NonNull IRiseClipseConsole console, boolean forceUpdate ) {
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
-        String id = getNsIdentification().getId();
+        String id = getNsIdentification().toString();
         NsdResourceSetImpl rs = getResourceSet();
         if( rs == null ) return false;
 
@@ -2928,7 +2928,7 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                     else {
                         setRefersToUnderlyingBasicType( foundBT );
                         console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                                      "[NSD links] BasicType (name: ", getUnderlyingType(),
+                                      "BasicType (name: ", getUnderlyingType(),
                                       ") refers as type by SubDataObject (name: ",
                                       getName(), ") in NS (id:", id, ") found in NS (id:",
                                       getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS().getId(), ")" );
