@@ -2681,8 +2681,7 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
             }
             else {
                 setRefersToCDC( foundCDC );
-                console.info( "[NSD links] CDC (name: " + getType() + ") refers by SubDataObject (name: " + getName()
-                        + ") in NS \"" + id + "\" found in NS \""
+                console.info( messagePrefix + "CDC (name: " + getType() + ") found in NS \""
                         + new NsIdentification( getRefersToCDC().getParentCDCs().getParentNS() ) + "\"" );
             }
         }
@@ -2695,9 +2694,7 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
             }
             else {
                 setRefersToPresenceCondition( foundPC );
-                console.info( "[NSD links] PresenceCondition (name: " + getPresCond()
-                        + ") refers by SubDataObject (name: "
-                        + getName() + ") in NS \"" + id + "\" found in NS \""
+                console.info( messagePrefix + "PresenceCondition (name: " + getPresCond() + ") found in NS \""
                         + new NsIdentification( getRefersToPresenceCondition().getParentPresenceConditions().getParentNS() ) + "\"" );
             }
         }
@@ -2711,9 +2708,7 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                     .ifPresent( att -> setRefersToSizeAttribute( att ) );
 
             if( isSetRefersToSizeAttribute() ) {
-                console.info( "[NSD links] DataAttribute (name: " + getSizeAttribute()
-                        + ") refers as sizeAttribute by SubDataObject (name: " + getName() + ") in NS \""
-                        + id + "\" found" );
+                console.info( messagePrefix + "DataAttribute (name: " + getSizeAttribute() + ") found" );
             }
             else {
                 console.warning( messagePrefix + "DataAttribute (name: " + getSizeAttribute() + ") not found" );
@@ -2729,9 +2724,7 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                     .ifPresent( att -> setRefersToMaxIndexAttribute( att ) );
 
             if( isSetRefersToMaxIndexAttribute() ) {
-                console.info( "[NSD links] DataAttribute (name: " + getMaxIndexAttribute()
-                        + ") refers as maxIndexAttribute by DataAttribute (name: " + getName() + ") in NS \""
-                        + id + "\" found" );
+                console.info( messagePrefix + "DataAttribute (name: " + getMaxIndexAttribute() + ") found" );
             }
             else {
                 console.warning( messagePrefix + "DataAttribute (name: " + getMaxIndexAttribute() + ") not found" );
@@ -2757,9 +2750,7 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                     }
                     else {
                         setRefersToUnderlyingBasicType( foundBT );
-                        console.info( "[NSD links] BasicType (name: " + getUnderlyingType()
-                                + ") refers as type by SubDataObject (name: "
-                                + getName() + ") in NS \"" + id + "\" found in NS \""
+                        console.info( messagePrefix + "BasicType (name: " + getUnderlyingType() + ") found in NS \""
                                 + new NsIdentification( getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS() ) + "\"" );
                     }
                     break;
@@ -2781,9 +2772,7 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                             foundWhere = "ServiceNS \""
                                     + new NsIdentification( getRefersToUnderlyingConstructedAttribute().getParentServiceTypeRealizations().getParentServiceNS() ) + "\"";
                         }
-                        console.info( "[NSD links] ConstructedAttribute (name: " + getUnderlyingType()
-                                + ") refers as type by SubDataObject (name: "
-                                + getName() + ") in NS \"" + id + "\" found in " + foundWhere );
+                        console.info( messagePrefix + "ConstructedAttribute (name: " + getUnderlyingType() + ") found in " + foundWhere );
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
@@ -2794,9 +2783,7 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                     }
                     else {
                         setRefersToUnderlyingEnumeration( foundEn );
-                        console.info( "[NSD links] Enumeration (name: " + getUnderlyingType()
-                                + ") refers as type by SubDataObject (name: "
-                                + getName() + ") in NS \"" + id + "\" found in NS \""
+                        console.info( messagePrefix + "Enumeration (name: " + getUnderlyingType() + ") found in NS \""
                                 + new NsIdentification( getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS() ) + "\"" );
                     }
                     break;

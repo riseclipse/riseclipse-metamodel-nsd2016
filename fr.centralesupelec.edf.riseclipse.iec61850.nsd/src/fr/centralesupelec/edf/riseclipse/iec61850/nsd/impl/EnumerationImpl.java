@@ -865,8 +865,7 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
             }
             else {
                 setRefersToBaseEnumeration( foundBase );
-                console.info( "[NSD links] Enumeration (name: " + getInheritedFrom() + ") refers by Enumeration (name: "
-                        + getName() + ") in NS \"" + id + "\" found in NS "
+                console.info( messagePrefix + "[NSD links] Enumeration (name: " + getInheritedFrom() + ") found in NS "
                         + new NsIdentification( getRefersToBaseEnumeration().getParentEnumerations().getParentNS() ) + "\"" );
             }
         }

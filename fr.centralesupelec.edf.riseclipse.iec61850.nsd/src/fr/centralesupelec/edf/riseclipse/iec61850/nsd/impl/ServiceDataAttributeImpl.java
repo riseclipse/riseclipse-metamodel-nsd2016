@@ -2357,9 +2357,7 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                     }
                     else {
                         setRefersToUnderlyingBasicType( foundBT );
-                        console.info( "[NSD links] BasicType (name: " + getUnderlyingType()
-                                + ") refers as type by ServiceDataAttribute (name: "
-                                + getName() + ") in ServiceNS (id:" + sns.getId() + ") found in NS \""
+                        console.info( messagePrefix + "BasicType (name: " + getUnderlyingType() + ") found in NS \""
                                 + new NsIdentification( getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS() ) + "\"" );
                     }
                     break;
@@ -2381,9 +2379,7 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                             foundWhere = "ServiceNS "
                                     + new NsIdentification( getRefersToUnderlyingConstructedAttribute().getParentServiceTypeRealizations().getParentServiceNS() ) + "\"";
                         }
-                        console.info( "[NSD links] ConstructedAttribute (name: " + getUnderlyingType()
-                                + ") refers as type by ServiceDataAttribute (name: "
-                                + getName() + ") in ServiceNS \"" + new NsIdentification( sns ) + "\" found in " + foundWhere );
+                        console.info( messagePrefix + "ConstructedAttribute (name: " + getUnderlyingType() + ") found in " + foundWhere );
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
@@ -2394,9 +2390,7 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                     }
                     else {
                         setRefersToUnderlyingEnumeration( foundEn );
-                        console.info( "[NSD links] Enumeration (name: " + getUnderlyingType()
-                                + ") refers as type by ServiceDataAttribute (name: "
-                                + getName() + ") in ServiceNS \"" + new NsIdentification( sns ) + "\" found in NS \""
+                        console.info( messagePrefix + "[NSD links] Enumeration (name: " + getUnderlyingType() + ") found in NS \""
                                 + new NsIdentification( getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS() ) + "\"" );
                     }
                     break;

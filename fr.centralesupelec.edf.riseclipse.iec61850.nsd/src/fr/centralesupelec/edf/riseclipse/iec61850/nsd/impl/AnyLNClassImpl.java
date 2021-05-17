@@ -540,10 +540,8 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
 
             if( abstractLNClass != null ) {
                 setRefersToAbstractLNClass( abstractLNClass );
-                console.info(
-                        "[NSD links] AbstractLNClass (name: " + getBase() + ") refers by AnyLNClass (name: " + getName()
-                                + ") in NS \"" + id + "\" found in NS \""
-                                + new NsIdentification( getRefersToAbstractLNClass().getParentLNClasses().getParentNS() ) + "\"" );
+                console.info( messagePrefix + "AbstractLNClass (name: " + getBase() + ") found in NS \""
+                        + new NsIdentification( getRefersToAbstractLNClass().getParentLNClasses().getParentNS() ) + "\"" );
             }
             else {
                 // TODO: Some NSD file (e.g. eTr_IEC61850-90-6_2018A5.nsd) use a non-abstract LNClass as base.

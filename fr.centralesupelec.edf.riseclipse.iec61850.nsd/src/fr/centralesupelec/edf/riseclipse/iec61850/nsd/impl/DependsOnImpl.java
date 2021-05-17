@@ -922,8 +922,7 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         }
         else {
             setRefersToNS( ns );
-            console.info( "[NSD links] NS \"" + identification + "\", referred by DependsOn in NS \""
-                    + new NsIdentification( getParentNS() ) + "\", found" );
+            console.info( messagePrefix + "NS \"" + identification + "\" found" );
             ns.buildExplicitLinks( console, forceUpdate );
         }
         return false;

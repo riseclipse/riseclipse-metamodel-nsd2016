@@ -2685,8 +2685,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             }
             else {
                 setRefersToCDC( foundCDC );
-                console.info( "[NSD links] CDC (name: " + getType() + ") refers by DataObject (name: " + getName()
-                        + ") in NS \"" + id + "\" found in NS \""
+                console.info( messagePrefix + "CDC (name: " + getType() + ") found in NS \""
                         + new NsIdentification( getRefersToCDC().getParentCDCs().getParentNS() ) + "\"" );
             }
         }
@@ -2699,8 +2698,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             }
             else {
                 setRefersToPresenceCondition( foundPC );
-                console.info( "[NSD links] PresenceCondition (name: " + getPresCond() + ") refers by DataObject (name: "
-                        + getName() + ") in NS \"" + id + "\" found in NS \""
+                console.info( messagePrefix + "PresenceCondition (name: " + getPresCond() + ") found in NS \""
                         + new NsIdentification( getRefersToPresenceCondition().getParentPresenceConditions().getParentNS() ) + "\"" );
             }
         }
@@ -2712,9 +2710,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             }
             else {
                 setRefersToPresenceConditionDerivedStatistics( foundPC );
-                console.info( "[NSD links] PresenceCondition (name: " + getDsPresCond()
-                        + ") refers by DataObject (name: "
-                        + getName() + ") in NS \"" + id + "\" found in NS \""
+                console.info( messagePrefix + "PresenceCondition (name: " + getDsPresCond() + ") found in NS \""
                         + new NsIdentification( getRefersToPresenceConditionDerivedStatistics().getParentPresenceConditions().getParentNS() )
                         + "\"" );
             }
@@ -2747,9 +2743,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                     }
                     else {
                         setRefersToUnderlyingBasicType( foundBT );
-                        console.info( "[NSD links] BasicType (name: " + getUnderlyingType()
-                                + ") refers as type by DataObject (name: "
-                                + getName() + ") in NS \"" + id + "\" found in NS \""
+                        console.info( messagePrefix + "BasicType (name: " + getUnderlyingType() + ") found in NS \""
                                 + new NsIdentification( getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS() ) + "\"" );
                     }
                     break;
@@ -2771,9 +2765,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                             foundWhere = "ServiceNS \""
                                     + new NsIdentification( getRefersToUnderlyingConstructedAttribute().getParentServiceTypeRealizations().getParentServiceNS() ) + "\"";
                         }
-                        console.info( "[NSD links] ConstructedAttribute (name: " + getUnderlyingType()
-                                + ") refers as type by DataObject (name: "
-                                + getName() + ") in NS \"" + id + "\" found in " + foundWhere );
+                        console.info( messagePrefix + "ConstructedAttribute (name: " + getUnderlyingType() + ") found in " + foundWhere );
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
@@ -2784,9 +2776,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                     }
                     else {
                         setRefersToUnderlyingEnumeration( foundEn );
-                        console.info( "[NSD links] Enumeration (name: " + getUnderlyingType()
-                                + ") refers as type by DataObject (name: "
-                                + getName() + ") in NS \"" + id + "\" found in NS \""
+                        console.info( messagePrefix + "Enumeration (name: " + getUnderlyingType() + ") found in NS \""
                                 + new NsIdentification( getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS() ) + "\"" );
                     }
                     break;
