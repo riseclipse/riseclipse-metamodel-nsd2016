@@ -52,6 +52,7 @@ import org.eclipse.ocl.pivot.values.TupleValue;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
@@ -643,20 +644,25 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
 
             // This code assumes that the referred AbstractLNClass is in the same NS
             // TODO: check that it is right
-            getParentLNClasses()
-                    .getAbstractLNClass()
-                    .stream()
-                    .filter( abstractLNClass -> abstractLNClass.getName().equals( getBase() ) )
-                    .findAny()
-                    .ifPresent( abstractLNClass -> setRefersToAbstractLNClass( abstractLNClass ) );
+            // DONE: this is not right
+//            getParentLNClasses()
+//                    .getAbstractLNClass()
+//                    .stream()
+//                    .filter( abstractLNClass -> abstractLNClass.getName().equals( getBase() ) )
+//                    .findAny()
+//                    .ifPresent( abstractLNClass -> setRefersToAbstractLNClass( abstractLNClass ) );
+            AbstractLNClass abstractLNClass = getResourceSet().findAbstractLNClass( getBase(), getNsIdentification(), console );
 
-            if( isSetRefersToAbstractLNClass() ) {
+            if( abstractLNClass != null ) {
+                setRefersToAbstractLNClass( abstractLNClass );
                 console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
                               "AbstractLNClass (name: ", getBase(), ") refers by AnyLNClass (name: ", getName(),
                               ") in NS (id:", id, ") found in NS (id:",
                               getRefersToAbstractLNClass().getParentLNClasses().getParentNS().getId(), ")" );
             }
             else {
+                // TODO: Some NSD file (e.g. eTr_IEC61850-90-6_2018A5.nsd) use a non-abstract LNClass as base.
+                // Is it allowed ?
                 console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
                                  "while resolving link from AnyLNClass (name: ", getName(),
                                  ", NS id: ", id, "): AbstractLNClass (name: ", getBase(), ") not found" );

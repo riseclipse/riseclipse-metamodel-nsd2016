@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServiceNS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType;
@@ -491,6 +492,41 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
 
     public LNClass findLNClass( String lnClass, NsIdentification nsIdentification, IRiseClipseConsole console ) {
         return getLNClassStream( nsIdentification )
+                .filter( c -> c.getName().equals( lnClass ) )
+                .findAny()
+                .orElse( null );
+    }
+    
+    private Stream< AbstractLNClass > getAbstractLNClassStream( NS ns ) {
+        Stream< AbstractLNClass > lnClassStream = Stream.empty();
+        LNClasses lnClasses = ns.getLNClasses();
+        if( lnClasses != null ) {
+            Stream< AbstractLNClass > tmp = Stream.concat( lnClassStream, lnClasses.getAbstractLNClass().stream() );
+            lnClassStream = tmp;
+        }
+        if(( ns.getDependsOn() != null ) && ( ns.getDependsOn().getRefersToNS() != null )) {
+            Stream< AbstractLNClass > tmp = Stream.concat( lnClassStream, getAbstractLNClassStream( ns.getDependsOn().getRefersToNS() ));
+            lnClassStream = tmp;
+        }
+        return lnClassStream;
+    }
+    
+    public Stream< AbstractLNClass > getAbstractLNClassStream( NsIdentification identification ) {
+        Stream< AbstractLNClass > lnClassStream = Stream.empty();
+        NS ns = getNS( identification );
+        if( ns != null ) {
+            Stream< AbstractLNClass > tmp = Stream.concat( lnClassStream, getAbstractLNClassStream( ns ));
+            lnClassStream = tmp;
+        }
+//        for( NS dep : getEquivalentNamespaces( identification )) {
+//            Stream< LNClass > tmp = Stream.concat( lnClassStream, getLNClassStream( dep ));
+//            lnClassStream = tmp;
+//        }
+        return lnClassStream;
+    }
+
+    public AbstractLNClass findAbstractLNClass( String lnClass, NsIdentification nsIdentification, IRiseClipseConsole console ) {
+        return getAbstractLNClassStream( nsIdentification )
                 .filter( c -> c.getName().equals( lnClass ) )
                 .findAny()
                 .orElse( null );
