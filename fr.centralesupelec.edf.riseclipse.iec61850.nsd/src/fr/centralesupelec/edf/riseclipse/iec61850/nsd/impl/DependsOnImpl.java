@@ -31,7 +31,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.ocl.pivot.evaluation.Executor;
 import org.eclipse.ocl.pivot.ids.TypeId;
 import org.eclipse.ocl.pivot.library.oclany.OclComparableLessThanEqualOperation;
@@ -1091,8 +1090,8 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
      *   DependsOn.id                       -> NS.id
      */
     @Override
-    public boolean buildExplicitLinks( @NonNull IRiseClipseConsole console, boolean forceUpdate ) {
-        if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
+    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
+        if( super.buildExplicitLinks( console )) return true;
 
         String messagePrefix = "while resolving link from DependsOn (NS id: "
                 + new NsIdentification( getParentNS() ) + "): ";
@@ -1108,7 +1107,11 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
             setRefersToNS( ns );
             console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
                           messagePrefix, "NS (id: ", identification, ") found" );
-            ns.buildExplicitLinks( console, forceUpdate );
+            if( ! ns.isExplicitLinksBuilt() ) {
+                console.verbose( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                                 messagePrefix, "Resolving links for file ", ns.getFilename() );
+                ns.buildExplicitLinks( console );
+            }
         }
         return false;
     }

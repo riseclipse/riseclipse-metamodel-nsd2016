@@ -1348,8 +1348,8 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
     }
 
     @Override
-    public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
-        if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
+    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
+        if( super.buildExplicitLinks( console )) return true;
 
         NsIdentification identification = null;
         if( getParentPresenceConditions().getParentNS() != null ) {

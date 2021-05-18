@@ -715,7 +715,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = 0;
+    int NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = 0;
 
     /**
      * The number of operations of the '<em>Object</em>' class.
@@ -814,7 +814,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int APPLIES_TO_TYPE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int APPLIES_TO_TYPE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Id Attribute Required</em>' operation.
@@ -940,7 +940,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DEPENDS_ON___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int DEPENDS_ON___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Id Attribute Required</em>' operation.
@@ -1102,7 +1102,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_TYPE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int SERVICE_TYPE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Name Attribute Required</em>' operation.
@@ -1192,7 +1192,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ABBREVIATION___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int ABBREVIATION___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Name Attribute Required</em>' operation.
@@ -1273,7 +1273,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ABBREVIATIONS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int ABBREVIATIONS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Unique Abbreviation</em>' operation.
@@ -1363,7 +1363,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DOCUMENTED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int DOCUMENTED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The number of operations of the '<em>Documented Class</em>' class.
@@ -1462,7 +1462,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int TITLED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = DOCUMENTED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int TITLED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = DOCUMENTED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Title ID Attribute Required</em>' operation.
@@ -1597,7 +1597,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ANY_LN_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = TITLED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int ANY_LN_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = TITLED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Title ID Attribute Required</em>' operation.
@@ -1786,7 +1786,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ABSTRACT_LN_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = ANY_LN_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int ABSTRACT_LN_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = ANY_LN_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Title ID Attribute Required</em>' operation.
@@ -1885,7 +1885,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COPYRIGHTED___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int COPYRIGHTED___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The number of operations of the '<em>Copyrighted</em>' class.
@@ -1966,7 +1966,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int APPLICABLE_SERVICE_NS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = COPYRIGHTED___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int APPLICABLE_SERVICE_NS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = COPYRIGHTED___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Version Attribute Required</em>' operation.
@@ -2056,7 +2056,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int APPLICABLE_SERVICES___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int APPLICABLE_SERVICES___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Unique Data Set Member Of</em>' operation.
@@ -2173,7 +2173,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int BASIC_TYPE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int BASIC_TYPE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Name Attribute Required</em>' operation.
@@ -2245,7 +2245,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int BASIC_TYPES___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int BASIC_TYPES___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The number of operations of the '<em>Basic Types</em>' class.
@@ -2443,7 +2443,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int CDC___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = TITLED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int CDC___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = TITLED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Title ID Attribute Required</em>' operation.
@@ -2533,7 +2533,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int CD_CS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int CD_CS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Unique CDC</em>' operation.
@@ -2659,7 +2659,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int CHANGES___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int CHANGES___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Version Attribute Required</em>' operation.
@@ -2821,7 +2821,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int CONSTRUCTED_ATTRIBUTE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = TITLED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int CONSTRUCTED_ATTRIBUTE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = TITLED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Title ID Attribute Required</em>' operation.
@@ -2911,7 +2911,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int CONSTRUCTED_ATTRIBUTES___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int CONSTRUCTED_ATTRIBUTES___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Unique Constructed Attribute</em>' operation.
@@ -2992,7 +2992,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COPYRIGHT_NOTICE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int COPYRIGHT_NOTICE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The number of operations of the '<em>Copyright Notice</em>' class.
@@ -3343,7 +3343,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = DOCUMENTED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int DATA_ATTRIBUTE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = DOCUMENTED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Name Attribute Required</em>' operation.
@@ -3622,7 +3622,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = DOCUMENTED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int DATA_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = DOCUMENTED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Name Attribute Required</em>' operation.
@@ -3703,7 +3703,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_SET_MEMBER_OF___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int DATA_SET_MEMBER_OF___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Cb Attribute Required</em>' operation.
@@ -3901,7 +3901,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DOC___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int DOC___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Id Attribute Required</em>' operation.
@@ -4081,7 +4081,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ENUMERATION___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = TITLED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int ENUMERATION___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = TITLED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Title ID Attribute Required</em>' operation.
@@ -4180,7 +4180,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ENUMERATIONS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int ENUMERATIONS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Unique Enumeration</em>' operation.
@@ -4306,7 +4306,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int FUNCTIONAL_CONSTRAINT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int FUNCTIONAL_CONSTRAINT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Abbreviation Attribute Required</em>' operation.
@@ -4387,7 +4387,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int FUNCTIONAL_CONSTRAINTS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int FUNCTIONAL_CONSTRAINTS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Unique Functional Constraint</em>' operation.
@@ -4477,7 +4477,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int LICENSE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int LICENSE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The number of operations of the '<em>License</em>' class.
@@ -4585,7 +4585,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int LITERAL___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = DOCUMENTED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int LITERAL___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = DOCUMENTED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Name Attribute Required</em>' operation.
@@ -4765,7 +4765,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int LN_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = ANY_LN_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int LN_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = ANY_LN_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Title ID Attribute Required</em>' operation.
@@ -4882,7 +4882,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int LN_CLASSES___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int LN_CLASSES___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Unique LN Class</em>' operation.
@@ -4963,7 +4963,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NOTICE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int NOTICE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The number of operations of the '<em>Notice</em>' class.
@@ -5197,7 +5197,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = COPYRIGHTED___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int NS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = COPYRIGHTED___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Id Attribute Required</em>' operation.
@@ -5350,7 +5350,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS_DOC___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = COPYRIGHTED___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int NS_DOC___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = COPYRIGHTED___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Id Attribute Required</em>' operation.
@@ -5530,7 +5530,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PRESENCE_CONDITION___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int PRESENCE_CONDITION___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Name Attribute Required</em>' operation.
@@ -5611,7 +5611,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PRESENCE_CONDITIONS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int PRESENCE_CONDITIONS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Unique Presence Condition</em>' operation.
@@ -5701,7 +5701,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_CDC___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int SERVICE_CDC___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Cdc Attribute Required</em>' operation.
@@ -5773,7 +5773,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_CD_CS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int SERVICE_CD_CS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The number of operations of the '<em>Service CD Cs</em>' class.
@@ -5944,7 +5944,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_CONSTRUCTED_ATTRIBUTE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = CONSTRUCTED_ATTRIBUTE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int SERVICE_CONSTRUCTED_ATTRIBUTE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = CONSTRUCTED_ATTRIBUTE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Title ID Attribute Required</em>' operation.
@@ -6034,7 +6034,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_CONSTRUCTED_ATTRIBUTES___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int SERVICE_CONSTRUCTED_ATTRIBUTES___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The number of operations of the '<em>Service Constructed Attributes</em>' class.
@@ -6268,7 +6268,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_DATA_ATTRIBUTE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = DOCUMENTED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int SERVICE_DATA_ATTRIBUTE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = DOCUMENTED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Name Attribute Required</em>' operation.
@@ -6484,7 +6484,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_NS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = COPYRIGHTED___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int SERVICE_NS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = COPYRIGHTED___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Id Attribute Required</em>' operation.
@@ -6610,7 +6610,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_NS_USAGE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int SERVICE_NS_USAGE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Id Attribute Required</em>' operation.
@@ -6799,7 +6799,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_PARAMETER___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = DOCUMENTED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int SERVICE_PARAMETER___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = DOCUMENTED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Name Attribute Required</em>' operation.
@@ -6871,7 +6871,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_TYPE_REALIZATIONS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int SERVICE_TYPE_REALIZATIONS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The number of operations of the '<em>Service Type Realizations</em>' class.
@@ -7123,7 +7123,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_DATA_ATTRIBUTE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = DOCUMENTED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int SUB_DATA_ATTRIBUTE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = DOCUMENTED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Name Attribute Required</em>' operation.
@@ -7393,7 +7393,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_DATA_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = DOCUMENTED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+    int SUB_DATA_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = DOCUMENTED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE;
 
     /**
      * The operation id for the '<em>Name Attribute Required</em>' operation.
@@ -11514,14 +11514,14 @@ public interface NsdPackage extends EPackage {
     EAttribute getNsdObject_ExplicitLinksBuilt();
 
     /**
-     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdObject#buildExplicitLinks(fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole, boolean) <em>Build Explicit Links</em>}' operation.
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdObject#buildExplicitLinks(fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole) <em>Build Explicit Links</em>}' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the meta object for the '<em>Build Explicit Links</em>' operation.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdObject#buildExplicitLinks(fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole, boolean)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdObject#buildExplicitLinks(fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole)
      * @generated
      */
-    EOperation getNsdObject__BuildExplicitLinks__IRiseClipseConsole_boolean();
+    EOperation getNsdObject__BuildExplicitLinks__IRiseClipseConsole();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification <em>Ag NS Identification</em>}'.
@@ -14928,8 +14928,8 @@ public interface NsdPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EOperation NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = eINSTANCE
-                .getNsdObject__BuildExplicitLinks__IRiseClipseConsole_boolean();
+        EOperation NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE = eINSTANCE
+                .getNsdObject__BuildExplicitLinks__IRiseClipseConsole();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AgNSIdentificationImpl <em>Ag NS Identification</em>}' class.

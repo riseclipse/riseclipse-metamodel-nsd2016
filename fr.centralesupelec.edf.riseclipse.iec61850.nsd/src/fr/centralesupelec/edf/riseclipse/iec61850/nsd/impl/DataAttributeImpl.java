@@ -36,7 +36,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.ocl.pivot.evaluation.Executor;
 import org.eclipse.ocl.pivot.ids.TypeId;
 import org.eclipse.ocl.pivot.library.oclany.OclComparableLessThanEqualOperation;
@@ -3728,8 +3727,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
      *   DataAttribute.maxIndexAttribute    -> DataAttribute.name
      */
     @Override
-    public boolean buildExplicitLinks( @NonNull IRiseClipseConsole console, boolean forceUpdate ) {
-        if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
+    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
+        if( super.buildExplicitLinks( console )) return true;
 
         String id = getNsIdentification().toString();
         NsdResourceSetImpl rs = getResourceSet();
@@ -3750,12 +3749,16 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                 String foundWhere = "(???";
                 if( getRefersToFunctionalConstraint().getParentFunctionalConstraints().getParentNS() != null ) {
                     foundWhere = "NS \""
-                            + new NsIdentification( getRefersToFunctionalConstraint().getParentFunctionalConstraints().getParentNS() ) + "\"";
+                            + new NsIdentification(
+                                    getRefersToFunctionalConstraint().getParentFunctionalConstraints().getParentNS() )
+                            + "\"";
                 }
                 else if( getRefersToFunctionalConstraint().getParentFunctionalConstraints()
                         .getParentServiceNS() != null ) {
                     foundWhere = "ServiceNS \""
-                            + new NsIdentification( getRefersToFunctionalConstraint().getParentFunctionalConstraints().getParentServiceNS() ) + "\"";
+                            + new NsIdentification( getRefersToFunctionalConstraint().getParentFunctionalConstraints()
+                                    .getParentServiceNS() )
+                            + "\"";
                 }
                 console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
                               messagePrefix, "FunctionalConstraint (abbreviation: ", getFc(), ") not found in ",
@@ -3775,11 +3778,15 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                 String foundWhere = "(???";
                 if( getRefersToPresenceCondition().getParentPresenceConditions().getParentNS() != null ) {
                     foundWhere = "NS \""
-                            + new NsIdentification( getRefersToPresenceCondition().getParentPresenceConditions().getParentNS() ) + "\"";
+                            + new NsIdentification(
+                                    getRefersToPresenceCondition().getParentPresenceConditions().getParentNS() )
+                            + "\"";
                 }
                 else if( getRefersToPresenceCondition().getParentPresenceConditions().getParentServiceNS() != null ) {
                     foundWhere = "ServiceNS \""
-                            + new NsIdentification( getRefersToPresenceCondition().getParentPresenceConditions().getParentServiceNS() ) + "\"";
+                            + new NsIdentification(
+                                    getRefersToPresenceCondition().getParentPresenceConditions().getParentServiceNS() )
+                            + "\"";
                 }
                 console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
                               messagePrefix, "PresenceCondition (name: ", getPresCond(), ") found in ",
@@ -3855,11 +3862,15 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                         String foundWhere = "(???";
                         if( getRefersToConstructedAttribute().getParentConstructedAttributes() != null ) {
                             foundWhere = "NS \""
-                                    + new NsIdentification( getRefersToConstructedAttribute().getParentConstructedAttributes().getParentNS() ) + "\"";
+                                    + new NsIdentification( getRefersToConstructedAttribute()
+                                            .getParentConstructedAttributes().getParentNS() )
+                                    + "\"";
                         }
                         else if( getRefersToConstructedAttribute().getParentServiceTypeRealizations() != null ) {
                             foundWhere = "ServiceNS \""
-                                    + new NsIdentification( getRefersToConstructedAttribute().getParentServiceTypeRealizations().getParentServiceNS() ) + "\"";
+                                    + new NsIdentification( getRefersToConstructedAttribute()
+                                            .getParentServiceTypeRealizations().getParentServiceNS() )
+                                    + "\"";
                         }
                         console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
                                       messagePrefix, "ConstructedAttribute (name: ", getType(), ") found in ",
@@ -3916,7 +3927,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
 
     @Override
     public NsIdentification getNsIdentification() {
-        return (( CDCImpl ) getParentCDC() ).getNsIdentification();
+        return ( ( CDCImpl ) getParentCDC() ).getNsIdentification();
     }
 
 } //DataAttributeImpl

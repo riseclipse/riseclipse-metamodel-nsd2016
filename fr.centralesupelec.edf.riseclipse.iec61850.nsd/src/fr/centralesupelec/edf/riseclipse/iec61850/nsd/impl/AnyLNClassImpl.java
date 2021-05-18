@@ -35,7 +35,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.ocl.pivot.evaluation.Executor;
 import org.eclipse.ocl.pivot.ids.IdResolver;
 import org.eclipse.ocl.pivot.ids.TypeId;
@@ -52,7 +51,6 @@ import org.eclipse.ocl.pivot.values.TupleValue;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
@@ -635,23 +633,24 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
      *   AnyLNClass.base                    -> AbstractLNClass
      */
     @Override
-    public boolean buildExplicitLinks( @NonNull IRiseClipseConsole console, boolean forceUpdate ) {
-        if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
+    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
+        if( super.buildExplicitLinks( console )) return true;
 
-        String id = getNsIdentification().getId();
+        String id = getNsIdentification().toString();
 
         if( isSetBase() ) {
 
             // This code assumes that the referred AbstractLNClass is in the same NS
             // TODO: check that it is right
             // DONE: this is not right
-//            getParentLNClasses()
-//                    .getAbstractLNClass()
-//                    .stream()
-//                    .filter( abstractLNClass -> abstractLNClass.getName().equals( getBase() ) )
-//                    .findAny()
-//                    .ifPresent( abstractLNClass -> setRefersToAbstractLNClass( abstractLNClass ) );
-            AbstractLNClass abstractLNClass = getResourceSet().findAbstractLNClass( getBase(), getNsIdentification(), console );
+            //            getParentLNClasses()
+            //                    .getAbstractLNClass()
+            //                    .stream()
+            //                    .filter( abstractLNClass -> abstractLNClass.getName().equals( getBase() ) )
+            //                    .findAny()
+            //                    .ifPresent( abstractLNClass -> setRefersToAbstractLNClass( abstractLNClass ) );
+            AbstractLNClass abstractLNClass = getResourceSet().findAbstractLNClass( getBase(), getNsIdentification(),
+                    console );
 
             if( abstractLNClass != null ) {
                 setRefersToAbstractLNClass( abstractLNClass );

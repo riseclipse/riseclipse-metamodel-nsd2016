@@ -194,7 +194,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                                 nsdAdditions.put( nsId, new ArrayList<>() );
                             }
                             nsdAdditions.get( nsId ).add( serviceNSResource );
-                            serviceNSResource.buildExplicitLinks( console, true );
+                            serviceNSResource.buildExplicitLinks( console );
                             applyServiceNs( serviceNSResources.get( serviceNsId ), nsdResources.get( nsId ), nsId, console );
                         }
                         else {
@@ -294,12 +294,16 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         for( Resource resource : getResources() ) {
             if(( resource instanceof NsdResourceImpl ) && ( ! resource.getContents().isEmpty() )) {
                 DocumentRoot root = (DocumentRoot) resource.getContents().get( 0 );
-                if( root.getNS() != null ) {
-                    root.getNS().buildExplicitLinks( console, true );
+                if(( root.getNS() != null ) && ( ! root.getNS().isExplicitLinksBuilt() )) {
+                    // TODO: there is such a constant for category in NsdObjectImpl
+                    console.verbose( "NSD/ExplicitLinks", 0,
+                                     "Resolving links for file " + resource.getURI().lastSegment() );
+                    root.getNS().buildExplicitLinks( console );
                 }
-//                if( root.getServiceNS() != null ) {
-//                    root.getServiceNS().buildExplicitLinks( console, true );
-//                }
+                // Explicit links from ServiceNS cannot be set until it is applied by an AppNS file
+                if( root.getServiceNS() != null ) {
+                    root.getServiceNS().buildExplicitLinks( console );
+                }
             }
         }
         
