@@ -2663,8 +2663,8 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
      *   SubDataObject.maxIndexAttribute    -> DataAttribute.name
      */
     @Override
-    public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
-        if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
+    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
+        if( super.buildExplicitLinks( console )) return true;
 
         String id = getNsIdentification().toString();
         NsdResourceSetImpl rs = getResourceSet();
@@ -2695,7 +2695,9 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
             else {
                 setRefersToPresenceCondition( foundPC );
                 console.info( messagePrefix + "PresenceCondition (name: " + getPresCond() + ") found in NS \""
-                        + new NsIdentification( getRefersToPresenceCondition().getParentPresenceConditions().getParentNS() ) + "\"" );
+                        + new NsIdentification(
+                                getRefersToPresenceCondition().getParentPresenceConditions().getParentNS() )
+                        + "\"" );
             }
         }
 
@@ -2751,28 +2753,38 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                     else {
                         setRefersToUnderlyingBasicType( foundBT );
                         console.info( messagePrefix + "BasicType (name: " + getUnderlyingType() + ") found in NS \""
-                                + new NsIdentification( getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS() ) + "\"" );
+                                + new NsIdentification(
+                                        getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS() )
+                                + "\"" );
                     }
                     break;
                 case DefinedAttributeTypeKind.CONSTRUCTED_VALUE:
-                    ConstructedAttribute foundCA = rs.findConstructedAttribute( getUnderlyingType(), getNsIdentification(),
+                    ConstructedAttribute foundCA = rs.findConstructedAttribute( getUnderlyingType(),
+                            getNsIdentification(),
                             console );
 
                     if( foundCA == null ) {
-                        console.warning( messagePrefix + "ConstructedAttribute (name: " + getUnderlyingType() + ") not found" );
+                        console.warning(
+                                messagePrefix + "ConstructedAttribute (name: " + getUnderlyingType() + ") not found" );
                     }
                     else {
                         setRefersToUnderlyingConstructedAttribute( foundCA );
                         String foundWhere = "(???";
                         if( getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes() != null ) {
                             foundWhere = "NS \""
-                                    + new NsIdentification( getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes().getParentNS() ) + "\"";
+                                    + new NsIdentification( getRefersToUnderlyingConstructedAttribute()
+                                            .getParentConstructedAttributes().getParentNS() )
+                                    + "\"";
                         }
-                        else if( getRefersToUnderlyingConstructedAttribute().getParentServiceTypeRealizations() != null ) {
+                        else if( getRefersToUnderlyingConstructedAttribute()
+                                .getParentServiceTypeRealizations() != null ) {
                             foundWhere = "ServiceNS \""
-                                    + new NsIdentification( getRefersToUnderlyingConstructedAttribute().getParentServiceTypeRealizations().getParentServiceNS() ) + "\"";
+                                    + new NsIdentification( getRefersToUnderlyingConstructedAttribute()
+                                            .getParentServiceTypeRealizations().getParentServiceNS() )
+                                    + "\"";
                         }
-                        console.info( messagePrefix + "ConstructedAttribute (name: " + getUnderlyingType() + ") found in " + foundWhere );
+                        console.info( messagePrefix + "ConstructedAttribute (name: " + getUnderlyingType()
+                                + ") found in " + foundWhere );
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
@@ -2784,7 +2796,9 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                     else {
                         setRefersToUnderlyingEnumeration( foundEn );
                         console.info( messagePrefix + "Enumeration (name: " + getUnderlyingType() + ") found in NS \""
-                                + new NsIdentification( getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS() ) + "\"" );
+                                + new NsIdentification(
+                                        getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS() )
+                                + "\"" );
                     }
                     break;
                 }
@@ -2799,7 +2813,7 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
 
     @Override
     public NsIdentification getNsIdentification() {
-        return (( CDCImpl ) getParentCDC() ).getNsIdentification();
+        return ( ( CDCImpl ) getParentCDC() ).getNsIdentification();
     }
 
 } //SubDataObjectImpl

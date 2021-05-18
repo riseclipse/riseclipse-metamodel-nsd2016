@@ -2420,8 +2420,8 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
      *   SubDataAttribute.maxIndexAttribute -> DataAttribute.name                   ? Which DataAttribute ?
      */
     @Override
-    public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
-        if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
+    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
+        if( super.buildExplicitLinks( console )) return true;
 
         String id = getNsIdentification().toString();
         NsdResourceSetImpl rs = getResourceSet();
@@ -2437,8 +2437,11 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
             }
             else {
                 setRefersToPresenceCondition( foundPC );
-                console.info( messagePrefix + "[NSD links] PresenceCondition (name: " + getPresCond() + ") found in NS \""
-                        + new NsIdentification( getRefersToPresenceCondition().getParentPresenceConditions().getParentNS() ) + "\"" );
+                console.info(
+                        messagePrefix + "PresenceCondition (name: " + getPresCond() + ") found in NS \""
+                                + new NsIdentification(
+                                        getRefersToPresenceCondition().getParentPresenceConditions().getParentNS() )
+                                + "\"" );
             }
         }
 
@@ -2454,7 +2457,8 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
                     else {
                         setRefersToBasicType( foundBT );
                         console.info( messagePrefix + "BasicType (name: " + getType() + ") found in NS \""
-                                + new NsIdentification( getRefersToBasicType().getParentBasicTypes().getParentNS() ) + "\"" );
+                                + new NsIdentification( getRefersToBasicType().getParentBasicTypes().getParentNS() )
+                                + "\"" );
                     }
                     break;
                 case DefinedAttributeTypeKind.CONSTRUCTED_VALUE:
@@ -2467,7 +2471,9 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
                     else {
                         setRefersToConstructedAttribute( foundCA );
                         console.info( messagePrefix + "ConstructedAttribute (name: " + getType() + ") found in NS \""
-                                + new NsIdentification( getRefersToConstructedAttribute().getParentConstructedAttributes().getParentNS() ) + "\"" );
+                                + new NsIdentification( getRefersToConstructedAttribute()
+                                        .getParentConstructedAttributes().getParentNS() )
+                                + "\"" );
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
@@ -2478,8 +2484,9 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
                     }
                     else {
                         setRefersToEnumeration( foundEn );
-                        console.info( messagePrefix + "[NSD links] Enumeration (name: " + getType() + ") found in NS \""
-                                + new NsIdentification( getRefersToEnumeration().getParentEnumerations().getParentNS() ) + "\"" );
+                        console.info( messagePrefix + "Enumeration (name: " + getType() + ") found in NS \""
+                                + new NsIdentification( getRefersToEnumeration().getParentEnumerations().getParentNS() )
+                                + "\"" );
                     }
                     break;
                 }
@@ -2502,7 +2509,7 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
 
     @Override
     public NsIdentification getNsIdentification() {
-        return (( ConstructedAttributeImpl ) getParentConstructedAttribute() ).getNsIdentification();
+        return ( ( ConstructedAttributeImpl ) getParentConstructedAttribute() ).getNsIdentification();
     }
 
 } //SubDataAttributeImpl

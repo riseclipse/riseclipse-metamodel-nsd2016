@@ -848,8 +848,8 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
      *   Enumeration.inheritedFrom          -> Enumeration.name
      */
     @Override
-    public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
-        if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
+    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
+        if( super.buildExplicitLinks( console )) return true;
 
         String id = getNsIdentification().toString();
         NsdResourceSetImpl rs = getResourceSet();
@@ -866,7 +866,8 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
             else {
                 setRefersToBaseEnumeration( foundBase );
                 console.info( messagePrefix + "[NSD links] Enumeration (name: " + getInheritedFrom() + ") found in NS "
-                        + new NsIdentification( getRefersToBaseEnumeration().getParentEnumerations().getParentNS() ) + "\"" );
+                        + new NsIdentification( getRefersToBaseEnumeration().getParentEnumerations().getParentNS() )
+                        + "\"" );
             }
         }
 

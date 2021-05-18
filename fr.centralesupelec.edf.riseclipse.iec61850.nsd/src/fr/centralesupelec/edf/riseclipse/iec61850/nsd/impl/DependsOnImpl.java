@@ -908,8 +908,8 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
      *   DependsOn.id                       -> NS.id
      */
     @Override
-    public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
-        if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
+    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
+        if( super.buildExplicitLinks( console )) return true;
 
         String messagePrefix = "[NSD links] while resolving link from DependsOn (NS \""
                 + new NsIdentification( getParentNS() ) + "\", line: " + getLineNumber() + "): ";
@@ -922,8 +922,11 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         }
         else {
             setRefersToNS( ns );
+            if( ! ns.isExplicitLinksBuilt() ) {
+                console.verbose( "[NSD Links] Resolving links for file " + ns.getFilename() );
+                ns.buildExplicitLinks( console );
+            }
             console.info( messagePrefix + "NS \"" + identification + "\" found" );
-            ns.buildExplicitLinks( console, forceUpdate );
         }
         return false;
     }

@@ -1057,8 +1057,8 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
     }
 
     @Override
-    public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
-        if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
+    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
+        if( super.buildExplicitLinks( console )) return true;
 
         NsIdentification identification = null;
         if( getParentFunctionalConstraints().getParentNS() != null ) {
@@ -1069,11 +1069,13 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
         }
         if( identification != null ) {
             if( isSetDescID() ) {
-                Doc doc = (( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( identification, getDescID() );
+                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( identification,
+                        getDescID() );
                 if( doc != null ) setRefersToDescDoc( doc );
             }
             if( isSetTitleID() ) {
-                Doc doc = (( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( identification, getTitleID() );
+                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( identification,
+                        getTitleID() );
                 if( doc != null ) setRefersToTitleDoc( doc );
             }
         }

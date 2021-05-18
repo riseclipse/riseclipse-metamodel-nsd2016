@@ -2667,8 +2667,8 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
      *   DataObject.dsPresCond              -> PresenceCondition.name
      */
     @Override
-    public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
-        if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
+    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
+        if( super.buildExplicitLinks( console )) return true;
 
         String id = getNsIdentification().toString();
         NsdResourceSetImpl rs = getResourceSet();
@@ -2699,7 +2699,9 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             else {
                 setRefersToPresenceCondition( foundPC );
                 console.info( messagePrefix + "PresenceCondition (name: " + getPresCond() + ") found in NS \""
-                        + new NsIdentification( getRefersToPresenceCondition().getParentPresenceConditions().getParentNS() ) + "\"" );
+                        + new NsIdentification(
+                                getRefersToPresenceCondition().getParentPresenceConditions().getParentNS() )
+                        + "\"" );
             }
         }
 
@@ -2711,7 +2713,8 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             else {
                 setRefersToPresenceConditionDerivedStatistics( foundPC );
                 console.info( messagePrefix + "PresenceCondition (name: " + getDsPresCond() + ") found in NS \""
-                        + new NsIdentification( getRefersToPresenceConditionDerivedStatistics().getParentPresenceConditions().getParentNS() )
+                        + new NsIdentification( getRefersToPresenceConditionDerivedStatistics()
+                                .getParentPresenceConditions().getParentNS() )
                         + "\"" );
             }
         }
@@ -2731,7 +2734,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                 if( doc != null ) setRefersToDsPresCondArgsDoc( doc );
             }
         }
-        
+
         if( isSetUnderlyingTypeKind() ) {
             if( isSetUnderlyingType() ) {
                 switch( getUnderlyingTypeKind().getValue() ) {
@@ -2744,28 +2747,38 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                     else {
                         setRefersToUnderlyingBasicType( foundBT );
                         console.info( messagePrefix + "BasicType (name: " + getUnderlyingType() + ") found in NS \""
-                                + new NsIdentification( getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS() ) + "\"" );
+                                + new NsIdentification(
+                                        getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS() )
+                                + "\"" );
                     }
                     break;
                 case DefinedAttributeTypeKind.CONSTRUCTED_VALUE:
-                    ConstructedAttribute foundCA = rs.findConstructedAttribute( getUnderlyingType(), getNsIdentification(),
+                    ConstructedAttribute foundCA = rs.findConstructedAttribute( getUnderlyingType(),
+                            getNsIdentification(),
                             console );
 
                     if( foundCA == null ) {
-                        console.warning( messagePrefix + "ConstructedAttribute (name: " + getUnderlyingType() + ") not found" );
+                        console.warning(
+                                messagePrefix + "ConstructedAttribute (name: " + getUnderlyingType() + ") not found" );
                     }
                     else {
                         setRefersToUnderlyingConstructedAttribute( foundCA );
                         String foundWhere = "???";
                         if( getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes() != null ) {
                             foundWhere = "NS \""
-                                    + new NsIdentification( getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes().getParentNS() ) + "\"";
+                                    + new NsIdentification( getRefersToUnderlyingConstructedAttribute()
+                                            .getParentConstructedAttributes().getParentNS() )
+                                    + "\"";
                         }
-                        else if( getRefersToUnderlyingConstructedAttribute().getParentServiceTypeRealizations() != null ) {
+                        else if( getRefersToUnderlyingConstructedAttribute()
+                                .getParentServiceTypeRealizations() != null ) {
                             foundWhere = "ServiceNS \""
-                                    + new NsIdentification( getRefersToUnderlyingConstructedAttribute().getParentServiceTypeRealizations().getParentServiceNS() ) + "\"";
+                                    + new NsIdentification( getRefersToUnderlyingConstructedAttribute()
+                                            .getParentServiceTypeRealizations().getParentServiceNS() )
+                                    + "\"";
                         }
-                        console.info( messagePrefix + "ConstructedAttribute (name: " + getUnderlyingType() + ") found in " + foundWhere );
+                        console.info( messagePrefix + "ConstructedAttribute (name: " + getUnderlyingType()
+                                + ") found in " + foundWhere );
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
@@ -2777,7 +2790,9 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                     else {
                         setRefersToUnderlyingEnumeration( foundEn );
                         console.info( messagePrefix + "Enumeration (name: " + getUnderlyingType() + ") found in NS \""
-                                + new NsIdentification( getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS() ) + "\"" );
+                                + new NsIdentification(
+                                        getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS() )
+                                + "\"" );
                     }
                     break;
                 }
@@ -2792,7 +2807,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
 
     @Override
     public NsIdentification getNsIdentification() {
-        return (( AnyLNClassImpl ) getParentAnyLNClass() ).getNsIdentification();
+        return ( ( AnyLNClassImpl ) getParentAnyLNClass() ).getNsIdentification();
     }
 
 } //DataObjectImpl

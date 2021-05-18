@@ -3571,8 +3571,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
      *   DataAttribute.maxIndexAttribute    -> DataAttribute.name
      */
     @Override
-    public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
-        if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
+    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
+        if( super.buildExplicitLinks( console )) return true;
 
         String id = getNsIdentification().toString();
         NsdResourceSetImpl rs = getResourceSet();
@@ -3592,14 +3592,19 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                 String foundWhere = "(???";
                 if( getRefersToFunctionalConstraint().getParentFunctionalConstraints().getParentNS() != null ) {
                     foundWhere = "NS \""
-                            + new NsIdentification( getRefersToFunctionalConstraint().getParentFunctionalConstraints().getParentNS() ) + "\"";
+                            + new NsIdentification(
+                                    getRefersToFunctionalConstraint().getParentFunctionalConstraints().getParentNS() )
+                            + "\"";
                 }
                 else if( getRefersToFunctionalConstraint().getParentFunctionalConstraints()
                         .getParentServiceNS() != null ) {
                     foundWhere = "ServiceNS \""
-                            + new NsIdentification( getRefersToFunctionalConstraint().getParentFunctionalConstraints().getParentServiceNS() ) + "\"";
+                            + new NsIdentification( getRefersToFunctionalConstraint().getParentFunctionalConstraints()
+                                    .getParentServiceNS() )
+                            + "\"";
                 }
-                console.info( messagePrefix + "FunctionalConstraint (abbreviation: " + getFc() + ")  found in " + foundWhere );
+                console.info( messagePrefix + "FunctionalConstraint (abbreviation: " + getFc() + ")  found in "
+                        + foundWhere );
             }
         }
 
@@ -3614,13 +3619,18 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                 String foundWhere = "(???";
                 if( getRefersToPresenceCondition().getParentPresenceConditions().getParentNS() != null ) {
                     foundWhere = "NS \""
-                            + new NsIdentification( getRefersToPresenceCondition().getParentPresenceConditions().getParentNS() ) + "\"";
+                            + new NsIdentification(
+                                    getRefersToPresenceCondition().getParentPresenceConditions().getParentNS() )
+                            + "\"";
                 }
                 else if( getRefersToPresenceCondition().getParentPresenceConditions().getParentServiceNS() != null ) {
                     foundWhere = "ServiceNS \""
-                            + new NsIdentification( getRefersToPresenceCondition().getParentPresenceConditions().getParentServiceNS() ) + "\"";
+                            + new NsIdentification(
+                                    getRefersToPresenceCondition().getParentPresenceConditions().getParentServiceNS() )
+                            + "\"";
                 }
-                console.info( messagePrefix + "PresenceCondition (name: " + getPresCond() + ") found in " + foundWhere );
+                console.info(
+                        messagePrefix + "PresenceCondition (name: " + getPresCond() + ") found in " + foundWhere );
             }
         }
 
@@ -3668,7 +3678,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                     else {
                         setRefersToBasicType( foundBT );
                         console.info( messagePrefix + "BasicType (name: " + getType() + ") found in NS \""
-                                + new NsIdentification( getRefersToBasicType().getParentBasicTypes().getParentNS() ) + "\"" );
+                                + new NsIdentification( getRefersToBasicType().getParentBasicTypes().getParentNS() )
+                                + "\"" );
                     }
                     break;
                 case DefinedAttributeTypeKind.CONSTRUCTED_VALUE:
@@ -3683,13 +3694,18 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                         String foundWhere = "(???";
                         if( getRefersToConstructedAttribute().getParentConstructedAttributes() != null ) {
                             foundWhere = "NS \""
-                                    + new NsIdentification( getRefersToConstructedAttribute().getParentConstructedAttributes().getParentNS() ) + "\"";
+                                    + new NsIdentification( getRefersToConstructedAttribute()
+                                            .getParentConstructedAttributes().getParentNS() )
+                                    + "\"";
                         }
                         else if( getRefersToConstructedAttribute().getParentServiceTypeRealizations() != null ) {
                             foundWhere = "ServiceNS \""
-                                    + new NsIdentification( getRefersToConstructedAttribute().getParentServiceTypeRealizations().getParentServiceNS() ) + "\"";
+                                    + new NsIdentification( getRefersToConstructedAttribute()
+                                            .getParentServiceTypeRealizations().getParentServiceNS() )
+                                    + "\"";
                         }
-                        console.info( messagePrefix + "ConstructedAttribute (name: " + getType() + ") found in " + foundWhere );
+                        console.info( messagePrefix + "ConstructedAttribute (name: " + getType() + ") found in "
+                                + foundWhere );
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
@@ -3701,7 +3717,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                     else {
                         setRefersToEnumeration( foundEn );
                         console.info( messagePrefix + "[NSD links] Enumeration (name: " + getType() + ") found in NS \""
-                                + new NsIdentification( getRefersToEnumeration().getParentEnumerations().getParentNS() ) + "\"" );
+                                + new NsIdentification( getRefersToEnumeration().getParentEnumerations().getParentNS() )
+                                + "\"" );
                     }
                     break;
                 }
@@ -3737,7 +3754,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
 
     @Override
     public NsIdentification getNsIdentification() {
-        return (( CDCImpl ) getParentCDC() ).getNsIdentification();
+        return ( ( CDCImpl ) getParentCDC() ).getNsIdentification();
     }
 
 } //DataAttributeImpl
