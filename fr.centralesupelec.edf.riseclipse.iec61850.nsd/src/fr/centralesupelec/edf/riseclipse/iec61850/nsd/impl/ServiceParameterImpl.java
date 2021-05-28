@@ -1361,7 +1361,7 @@ public class ServiceParameterImpl extends DocumentedClassImpl implements Service
 
     @Override
     public NsIdentification getNsIdentification() {
-        return (( CDCImpl ) getParentCDC() ).getNsIdentification();
+        return ( ( CDCImpl ) getParentCDC() ).getNsIdentification();
     }
 
 } //ServiceParameterImpl

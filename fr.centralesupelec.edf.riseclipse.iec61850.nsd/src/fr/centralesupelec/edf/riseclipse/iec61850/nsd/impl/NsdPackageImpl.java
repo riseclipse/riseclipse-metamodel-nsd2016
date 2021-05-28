@@ -3401,7 +3401,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EOperation getNsdObject__BuildExplicitLinks__IRiseClipseConsole_boolean() {
+    public EOperation getNsdObject__BuildExplicitLinks__IRiseClipseConsole() {
         return nsdObjectEClass.getEOperations().get( 0 );
     }
 
@@ -4364,7 +4364,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         nsdObjectEClass = createEClass( NSD_OBJECT );
         createEAttribute( nsdObjectEClass, NSD_OBJECT__LINE_NUMBER );
         createEAttribute( nsdObjectEClass, NSD_OBJECT__EXPLICIT_LINKS_BUILT );
-        createEOperation( nsdObjectEClass, NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN );
+        createEOperation( nsdObjectEClass, NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE );
 
         agNSIdentificationEClass = createEClass( AG_NS_IDENTIFICATION );
         createEAttribute( agNSIdentificationEClass, AG_NS_IDENTIFICATION__RELEASE );
@@ -5415,10 +5415,9 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 1, NsdObject.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
 
-        EOperation op = initEOperation( getNsdObject__BuildExplicitLinks__IRiseClipseConsole_boolean(),
+        EOperation op = initEOperation( getNsdObject__BuildExplicitLinks__IRiseClipseConsole(),
                 ecorePackage.getEBoolean(), "buildExplicitLinks", 0, 1, IS_UNIQUE, IS_ORDERED );
         addEParameter( op, this.getIRiseClipseConsole(), "console", 0, 1, IS_UNIQUE, IS_ORDERED );
-        addEParameter( op, ecorePackage.getEBoolean(), "forceUpdate", 0, 1, IS_UNIQUE, IS_ORDERED );
 
         initEClass( agNSIdentificationEClass, AgNSIdentification.class, "AgNSIdentification", IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );

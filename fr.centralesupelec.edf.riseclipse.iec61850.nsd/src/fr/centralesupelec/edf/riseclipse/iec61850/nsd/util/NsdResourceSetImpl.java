@@ -22,9 +22,10 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd.util;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -32,9 +33,11 @@ import java.util.stream.Stream;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServiceNS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType;
@@ -55,10 +58,12 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage;
 import fr.centralesupelec.edf.riseclipse.util.AbstractRiseClipseConsole;
@@ -69,24 +74,19 @@ import fr.centralesupelec.edf.riseclipse.util.AbstractRiseClipseResourceSet;
 
 public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
     
+    // Multiple versions of the same namespace is not supported 
+    private Map< String, NsIdentification > namespaces = new HashMap<>();
+    // But resources are identified with the full version
     private Map< NsIdentification, NS > nsdResources = new HashMap<>();
     private Map< NsIdentification, ServiceNS > serviceNSResources = new HashMap<>();
     private Map< NsIdentification, NSDoc > nsdocResources = new HashMap<>();
     private NsdResourceFactoryImpl resourceFactory = new NsdResourceFactoryImpl();
+    // TODO: there may be several appNS
+    // DONE: no: unique file according to 61850-7-7
     private ApplicableServiceNS appNS =  null;
-    private Map< NsIdentification, List< ServiceNS > > nsdAdditions = new HashMap<>();
-    private Map< NsIdentification, ArrayList< NsIdentification >> equivalentNamespaces = new HashMap<>();
 
     public NsdResourceSetImpl( boolean strictContent ) {
         super( strictContent );
-//        setEquivalentNamespace(
-//                new NsIdentification( "IEC 61850-7-2", 2007, "B", 1 ), 
-//                new NsIdentification( "IEC 61850-7-3", 2007, "B", 1 )
-//        );
-//        setEquivalentNamespace(
-//                new NsIdentification( "IEC 61850-7-3", 2007, "B", 1 ), 
-//                new NsIdentification( "IEC 61850-7-4", 2007, "B", 1 )
-//        );
     }
 
     @Override
@@ -115,24 +115,26 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         DocumentRoot root = (DocumentRoot) resource.getContents().get( 0 );
         
         if( root.getNS() != null ) {
-            NsIdentification id = new NsIdentification( root.getNS() );
-            if( nsdResources.get( id ) != null ) {
-                AbstractRiseClipseConsole.getConsole().error( "There is already an NSD file with NsIdentification " + id + ", " + resource.getURI() + " is ignored" );
+            NsIdentification nsId = new NsIdentification( root.getNS() );
+            if( namespaces.get( nsId.getId() ) != null ) {
+                AbstractRiseClipseConsole.getConsole().error( "There is already an NSD file with id " + nsId.getId() + ", " + resource.getURI() + " is ignored" );                
                 this.getResources().remove( resource );
                 return;
             }
-            nsdResources.put( id, root.getNS() );
+            namespaces.put( nsId.getId(), nsId );
+            nsdResources.put( nsId, root.getNS() );
             return;
         }
         
         if( root.getServiceNS() != null ) {
-            NsIdentification id = new NsIdentification( root.getServiceNS() );
-            if( serviceNSResources.get( id ) != null ) {
-                AbstractRiseClipseConsole.getConsole().error( "There is already an NSD file with NsIdentification " + id + ", " + resource.getURI() + " is ignored" );
+            NsIdentification nsId = new NsIdentification( root.getServiceNS() );
+            if( namespaces.get( nsId.getId() ) != null ) {
+                AbstractRiseClipseConsole.getConsole().error( "There is already an SNSD file with id " + nsId.getId() + ", " + resource.getURI() + " is ignored" );
                 this.getResources().remove( resource );
                 return;
             }
-            serviceNSResources.put( id, root.getServiceNS() );
+            namespaces.put( nsId.getId(), nsId );
+            serviceNSResources.put( nsId, root.getServiceNS() );
             return;
         }
         
@@ -163,84 +165,182 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         return;
     }
     
+    public NS getNS( String namespace ) {
+        if( namespaces.get( namespace ) == null ) return null;
+        return nsdResources.get( namespaces.get( namespace ));
+    }
+    
     /* (non-Javadoc)
      * @see fr.centralesupelec.edf.riseclipse.util.AbstractRiseClipseResourceSet#finalizeLoad(fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole)
      */
     @Override
     public void finalizeLoad( IRiseClipseConsole console ) {
-        // Explicit links must be built first, there are needed for ServiceNsUsage
+        // Explicit links must be built first, they are needed for ServiceNsUsage
         buildExplicitLinks( console );
 
         if( appNS != null ) {
             for( ServiceNsUsage serviceNsUsage : appNS.getServiceNsUsage() ) {
                 NsIdentification serviceNsId = new NsIdentification( serviceNsUsage );
                 if( serviceNSResources.get( serviceNsId ) != null ) {
+                    // We only support one application because if there are several AppliesTo, it is expected to be
+                    // for different versions of the same namespace
+                    // But, only one version of a namespace is accepted
+                    boolean applied = false;
                     for( AppliesToType applyTo : serviceNsUsage.getAppliesTo() ) {
-                        NsIdentification nsId = new NsIdentification( applyTo );
-                        setEquivalentNamespace( serviceNsId, nsId, console );
-                        //nsId = getRootNsIdentification( nsId );
-                        if( nsdResources.get( nsId ) != null ) {
-                            if( nsdAdditions.get( nsId ) == null ) {
-                                nsdAdditions.put( nsId, new ArrayList<>() );
-                            }
-                            nsdAdditions.get( nsId ).add( serviceNSResources.get( serviceNsId ));
-                            applyServiceNs( serviceNSResources.get( serviceNsId ), nsdResources.get( nsId ), nsId, console );
+                        NsIdentification applyToNsId = new NsIdentification( applyTo );
+                        // If it is applied to a core namespace, we put it at the root to be sure that additions will be found later
+                        if( applyToNsId.isCoreNamespace() ) {
+                            
                         }
-                        else {
-                            console.warning( "While applying ServiceNsUsage: NS with id " + nsId + " not found" );
+                        if( applied ) {
+                            console.info( "[NSD apply ServiceNs]: ServiceNS \"" + serviceNsId
+                                    + "\" has already been applied, it will not be applied to NS \"" + applyToNsId + "\"" );
+                            continue;
                         }
+
+                        if( nsdResources.get( applyToNsId ) != null ) {
+                            applyServiceNs( serviceNSResources.get( serviceNsId ), applyToNsId, console );
+                            applied = true; 
+                        }
+                    }
+                    if( ! applied ) {
+                        console.warning( "[NSD apply ServiceNs]: ServiceNS with id " + serviceNsId + " has not been applied to any NS" );
                     }
                 }
                 else {
-                    console.warning( "While applying ServiceNsUsage: ServiceNS with id " + serviceNsId + " not found" );
+                    console.warning( "[NSD apply ServiceNs]: ServiceNS with id " + serviceNsId + " not found" );
                 }
             }
         }
     }
 
-    private void applyServiceNs( ServiceNS serviceNS, NS ns, NsIdentification nsIdentification, IRiseClipseConsole console ) {
-        // A ServiceTypeRealization gives a new definition to an existing (only basic ? never constructed ?) type
-        for( ConstructedAttribute typeRealization : serviceNS.getServiceTypeRealizations().getServiceTypeRealization() ) {
-            BasicType basic = findBasicType( typeRealization.getName(), nsIdentification, console );
-            if( basic != null ) {
-                // Avoid ConcurrentModificationException
-                List< AgAttributeType > atts = basic
-                        .getReferredByAttributeType()
-                        .stream()
-                        .collect( Collectors.toList() );
-               for( AgAttributeType att : atts ) {
-                    att.unsetRefersToBasicType();
-                    console.info( "While applying ServiceNsUsage: Service NS: using TypeRealization " + basic.getName() + " to attribute " + att.getType() );
-                    att.setRefersToConstructedAttribute( typeRealization );
+    private void applyServiceNs( ServiceNS serviceNS, NsIdentification applyToNsId, IRiseClipseConsole console ) {
+        console.verbose( "[NSD apply ServiceNs]: apply " + serviceNS.getFilename() + " to namespace " + applyToNsId );
+        // If it is applied to a core namespace, we put it at the root to be sure that additions will be found later
+        NS applyToNs = null;
+        if( applyToNsId.isCoreNamespace() ) {
+            applyToNs = getNS( NsIdentification.IEC_61950_7_2_CORE_NAMESPACE_ID );
+        }
+        else {
+            applyToNs = nsdResources.get( applyToNsId );            
+        }
+        if( applyToNs == null ) {
+            console.error( "[NSD apply ServiceNs]: applyTo namespace not found" );
+            return;
+        }
+        
+        if( serviceNS.getAbbreviations() != null ) {
+            for( Abbreviation abbreviation : serviceNS.getAbbreviations().getAbbreviation() ) {
+                console.info( "[NSD apply ServiceNs]: adding new abbreviation " + abbreviation.getName() );
+                if( applyToNs.getAbbreviations() == null ) {
+                    applyToNs.setAbbreviations( NsdFactory.eINSTANCE.createAbbreviations() );
                 }
-                continue;
-            }
-            else {
-                console.warning( "While applying ServiceNsUsage: BasicType " + typeRealization.getName() + " not found" );
-            }
-        }
-        
-        // A ServiceConstructedAttribute defines new ConstructedAttribute:
-        // they are taken into account in getConstructedAttributeStream()
-        
-        // A ServiceCDC add new attribute to an existing CDC
-        for( ServiceCDC serviceCDC : serviceNS.getServiceCDCs().getServiceCDC() ) {
-            CDC cdc = findCDC( serviceCDC.getCdc(), nsIdentification, console );
-            if( cdc != null ) {
-                serviceCDC
-                .getServiceDataAttribute()
-                .stream()
-                .forEach( att -> {
-                    DataAttribute da = att.toDataAttribute();
-                    console.info( "While applying ServiceNsUsage: Service NS: Adding DataAttribute " + da.getName() + " to CDC " + cdc.getName() );
-                    da.setParentCDC( cdc );
-                });
-            }
-            else {
-                console.warning( "While applying ServiceNsUsage: CDC " + serviceCDC.getCdc() + " not found" );
+                Abbreviation copy = EcoreUtil.copy( abbreviation );
+                // filename not copied ?
+                copy.setFilename( abbreviation.getFilename() );
+                applyToNs.getAbbreviations().getAbbreviation().add( copy );
+                copy.buildExplicitLinks( console );
             }
         }
         
+        if( serviceNS.getFunctionalConstraints() != null ) {
+            for( FunctionalConstraint functionalConstraint : serviceNS.getFunctionalConstraints().getFunctionalConstraint() ) {
+                console.info( "[NSD apply ServiceNs]: adding new functional constraint " + functionalConstraint.getAbbreviation() );
+                if( applyToNs.getFunctionalConstraints() == null ) {
+                    applyToNs.setFunctionalConstraints( NsdFactory.eINSTANCE.createFunctionalConstraints() );
+                }
+                FunctionalConstraint copy = EcoreUtil.copy( functionalConstraint );
+                // filename not copied ?
+                copy.setFilename( functionalConstraint.getFilename() );
+                applyToNs.getFunctionalConstraints().getFunctionalConstraint().add( copy );
+                copy.buildExplicitLinks( console );
+            }
+        }
+        
+        if( serviceNS.getPresenceConditions() != null ) {
+            for( PresenceCondition presenceCondition : serviceNS.getPresenceConditions().getPresenceCondition() ) {
+                console.info( "[NSD apply ServiceNs]: adding new presence condition " + presenceCondition.getName() );
+                if( applyToNs.getPresenceConditions() == null ) {
+                    applyToNs.setPresenceConditions( NsdFactory.eINSTANCE.createPresenceConditions() );
+                }
+                PresenceCondition copy = EcoreUtil.copy( presenceCondition );
+                // filename not copied ?
+                copy.setFilename( presenceCondition.getFilename() );
+                applyToNs.getPresenceConditions().getPresenceCondition().add( copy );
+                copy.buildExplicitLinks( console );
+            }
+        }
+        
+        if( serviceNS.getServiceTypeRealizations() != null ) {
+            // A ServiceTypeRealization gives a new definition to an existing (only basic ? never constructed ?) type
+            for( ConstructedAttribute typeRealization : serviceNS.getServiceTypeRealizations().getServiceTypeRealization() ) {
+                console.info( "[NSD apply ServiceNs]: apply new definition for type " + typeRealization.getName() );
+                // move a copy in the applyTo resource so that it appears as belonging to the namespace of this resource
+                if( applyToNs.getConstructedAttributes() == null ) {
+                    applyToNs.setConstructedAttributes( NsdFactory.eINSTANCE.createConstructedAttributes() );
+                }
+                ConstructedAttribute copy = EcoreUtil.copy( typeRealization );
+                // filename not copied ?
+                copy.setFilename( typeRealization.getFilename() );
+                applyToNs.getConstructedAttributes().getConstructedAttribute().add( copy );
+                copy.buildExplicitLinks( console );
+                BasicType basic = findBasicType( typeRealization.getName(), applyToNsId, true );
+                if( basic != null ) {
+                    // Avoid ConcurrentModificationException
+                    List< AgAttributeType > atts = basic
+                            .getReferredByAttributeType()
+                            .stream()
+                            .collect( Collectors.toList() );
+                   for( AgAttributeType att : atts ) {
+                        att.unsetRefersToBasicType();
+                        console.info( "[NSD apply ServiceNs]: Service NS: using TypeRealization " + basic.getName() + " to attribute " + att.getType() );
+                        att.setRefersToConstructedAttribute( typeRealization );
+                    }
+                }
+                else {
+                    console.warning( "[NSD apply ServiceNs]: BasicType " + typeRealization.getName() + " not found" );
+                }
+            }
+        }
+        
+        if( serviceNS.getServiceConstructedAttributes() != null ) {
+            // A ServiceConstructedAttribute defines new ConstructedAttribute:
+            // they are taken into account in getConstructedAttributeStream()
+            for( ServiceConstructedAttribute serviceConstructedAttribute : serviceNS.getServiceConstructedAttributes().getServiceConstructedAttribute() ) {
+                console.info( "[NSD apply ServiceNs]: Service NS: Adding ConstructedAttribute " + serviceConstructedAttribute.getName() + " to NS " + applyToNsId );
+                if( applyToNs.getConstructedAttributes() == null ) {
+                    applyToNs.setConstructedAttributes( NsdFactory.eINSTANCE.createConstructedAttributes() );
+                }
+                ServiceConstructedAttribute copy = EcoreUtil.copy( serviceConstructedAttribute );
+                // filename not copied ?
+                copy.setFilename( serviceConstructedAttribute.getFilename() );
+                copy.getSubDataAttribute().stream().forEach( sda -> sda.setFilename( serviceConstructedAttribute.getFilename() ));
+                applyToNs.getConstructedAttributes().getConstructedAttribute().add( copy );
+                copy.buildExplicitLinks( console );
+            }
+        }
+        
+        if( serviceNS.getServiceCDCs() != null ) {
+            // A ServiceCDC add new attribute to an existing CDC
+            for( ServiceCDC serviceCDC : serviceNS.getServiceCDCs().getServiceCDC() ) {
+                CDC cdc = findCDC( serviceCDC.getCdc(), applyToNsId, true );
+                if( cdc != null ) {
+                    serviceCDC
+                    .getServiceDataAttribute()
+                    .stream()
+                    .forEach( att -> {
+                        DataAttribute da = att.toDataAttribute();
+                        console.info( "[NSD apply ServiceNs]: Service NS: Adding DataAttribute " + da.getName() + " to CDC " + cdc.getName() );
+                        // setParentCDC() should be enough to attach the new attribute to the applyTo resource, giving it the right namespace
+                        da.setParentCDC( cdc );
+                        da.buildExplicitLinks( console );
+                    });
+                }
+                else {
+                    console.warning( "[NSD apply ServiceNs]: CDC " + serviceCDC.getCdc() + " not found" );
+                }
+            }
+        }
     }
 
     /*
@@ -277,47 +377,63 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         for( Resource resource : getResources() ) {
             if(( resource instanceof NsdResourceImpl ) && ( ! resource.getContents().isEmpty() )) {
                 DocumentRoot root = (DocumentRoot) resource.getContents().get( 0 );
-                if( root.getNS() != null ) {
-                    root.getNS().buildExplicitLinks( console, true );
-                }
-                if( root.getServiceNS() != null ) {
-                    root.getServiceNS().buildExplicitLinks( console, true );
+                if(( root.getNS() != null ) && ( ! root.getNS().isExplicitLinksBuilt() )) {
+                    console.verbose( "[NSD Links] Resolving links for file " + resource.getURI().lastSegment() );
+                    root.getNS().buildExplicitLinks( console );
                 }
             }
         }
         
     }
     
-    public void setEquivalentNamespace( NsIdentification source, NsIdentification destination, IRiseClipseConsole console ) {
-        console.info( source + " is equivalent to " + destination );
-        if( ! equivalentNamespaces.containsKey( source )) {
-            equivalentNamespaces.put( source, new ArrayList<>() );
-        }
-        equivalentNamespaces.get( source ).add( destination );
-    }
-    
-    public List< NS > getEquivalentNamespaces( NsIdentification source ) {
-        if( ! equivalentNamespaces.containsKey( source )) {
-            return Collections.emptyList();
-        }
-        ArrayList< NS > res = new ArrayList<>();
-        for( NsIdentification id : equivalentNamespaces.get( source )) {
-            NS ns = getNS( id );
-            if( ns != null ) res.add( ns );
-        }
-        return res;
-    }
-    
-//    public NsIdentification getRootNsIdentification( NsIdentification id ) {
-//        // TODO: check conformance with DependsOn
-//        while( equivalentNamespaces.containsKey( id )) {
-//            id = equivalentNamespaces.get( id );
-//        }
-//        return id;
-//    }
-
     public NS getNS( NsIdentification id ) {
         return nsdResources.get( id );
+    }
+    
+    public List< NsIdentification > getNsIdentificationOrderedList() {
+        LinkedList< NsIdentification > list = new LinkedList< NsIdentification >( nsdResources.keySet() );
+        ArrayList< NsIdentification > sortedList = new ArrayList< NsIdentification >();
+        // First, add root NS 
+        ListIterator< NsIdentification > it = list.listIterator();
+        while( it.hasNext() ) {
+            NsIdentification nsId = it.next();
+            NS ns = nsdResources.get( nsId );
+            if( ns.getDependsOn() == null ) {
+                sortedList.add( nsId );
+                it.remove();
+            }
+        }
+        // The add NS which depend on another already in sortedList
+        while( ! list.isEmpty() ) {
+            boolean progress = false;
+            it = list.listIterator();
+            while( it.hasNext() ) {
+                NsIdentification nsId = it.next();
+                NS ns = nsdResources.get( nsId );
+                if( sortedList.contains( new NsIdentification( ns.getDependsOn() ))) {
+                    sortedList.add( nsId );
+                    it.remove();
+                    progress = true;
+                }
+            }
+            if( ! progress ) {
+                AbstractRiseClipseConsole.getConsole().fatal( "getNsIdentificationOrderedList() failed" );
+                return null;
+            }
+        }
+        return sortedList;
+    }
+
+    public Stream< NsIdentification > getNsIdentificationStream() {
+        return nsdResources.keySet().stream();
+    }
+
+    public NsIdentification getDependsOn( NsIdentification nsIdentification ) {
+        NS ns = getNS( nsIdentification );
+        if(( ns != null ) && ( ns.getDependsOn() != null )) {
+            return new NsIdentification( ns.getDependsOn() );
+        }
+        return null;
     }
 
     /*
@@ -440,398 +556,281 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
 //        return lnClassStream;
 //    }
 
-    private Stream< LNClass > getLNClassStream( NS ns ) {
+    private Stream< LNClass > getLNClassStream( NS ns, boolean useDependsOn ) {
         Stream< LNClass > lnClassStream = Stream.empty();
         LNClasses lnClasses = ns.getLNClasses();
         if( lnClasses != null ) {
             Stream< LNClass > tmp = Stream.concat( lnClassStream, lnClasses.getLNClass().stream() );
             lnClassStream = tmp;
         }
-        if(( ns.getDependsOn() != null ) && ( ns.getDependsOn().getRefersToNS() != null )) {
-            Stream< LNClass > tmp = Stream.concat( lnClassStream, getLNClassStream( ns.getDependsOn().getRefersToNS() ));
+        if( useDependsOn && ( ns.getDependsOn() != null ) && ( ns.getDependsOn().getRefersToNS() != null )) {
+            Stream< LNClass > tmp = Stream.concat( lnClassStream, getLNClassStream( ns.getDependsOn().getRefersToNS(), useDependsOn ));
             lnClassStream = tmp;
         }
         return lnClassStream;
     }
     
-    public Stream< LNClass > getLNClassStream( NsIdentification identification ) {
+    public Stream< LNClass > getLNClassStream( NsIdentification identification, boolean useDependsOn ) {
         Stream< LNClass > lnClassStream = Stream.empty();
         NS ns = getNS( identification );
         if( ns != null ) {
-            Stream< LNClass > tmp = Stream.concat( lnClassStream, getLNClassStream( ns ));
-            lnClassStream = tmp;
-        }
-        for( NS dep : getEquivalentNamespaces( identification )) {
-            Stream< LNClass > tmp = Stream.concat( lnClassStream, getLNClassStream( dep ));
+            Stream< LNClass > tmp = Stream.concat( lnClassStream, getLNClassStream( ns, useDependsOn ));
             lnClassStream = tmp;
         }
         return lnClassStream;
     }
 
-    public LNClass findLNClass( String lnClass, NsIdentification nsIdentification, IRiseClipseConsole console ) {
-        return getLNClassStream( nsIdentification )
+    public LNClass findLNClass( String lnClass, NsIdentification nsIdentification, boolean useDependsOn ) {
+        return getLNClassStream( nsIdentification, useDependsOn )
                 .filter( c -> c.getName().equals( lnClass ) )
                 .findAny()
                 .orElse( null );
     }
     
-//    public Stream< Abbreviation > getAllAbbreviationStream() {
-//        Stream< Abbreviation > abbreviationStream = Stream.empty();
-//        Iterator< NS > it = nsdResources.values().iterator();
-//        while( it.hasNext() ) {
-//            Abbreviations abbreviations = it.next().getAbbreviations();
-//            if( abbreviations != null ) {
-//                Stream< Abbreviation > tmp = Stream.concat( abbreviationStream, abbreviations.getAbbreviation().stream() );
-//                abbreviationStream = tmp;
-//            }
-//        }
-//        return abbreviationStream;
-//    }
+    private Stream< AbstractLNClass > getAbstractLNClassStream( NS ns, boolean useDependsOn ) {
+        Stream< AbstractLNClass > lnClassStream = Stream.empty();
+        LNClasses lnClasses = ns.getLNClasses();
+        if( lnClasses != null ) {
+            Stream< AbstractLNClass > tmp = Stream.concat( lnClassStream, lnClasses.getAbstractLNClass().stream() );
+            lnClassStream = tmp;
+        }
+        if( useDependsOn && ( ns.getDependsOn() != null ) && ( ns.getDependsOn().getRefersToNS() != null )) {
+            Stream< AbstractLNClass > tmp = Stream.concat( lnClassStream, getAbstractLNClassStream( ns.getDependsOn().getRefersToNS(), useDependsOn ));
+            lnClassStream = tmp;
+        }
+        return lnClassStream;
+    }
+    
+    public Stream< AbstractLNClass > getAbstractLNClassStream( NsIdentification identification, boolean useDependsOn ) {
+        Stream< AbstractLNClass > lnClassStream = Stream.empty();
+        NS ns = getNS( identification );
+        if( ns != null ) {
+            Stream< AbstractLNClass > tmp = Stream.concat( lnClassStream, getAbstractLNClassStream( ns, useDependsOn ));
+            lnClassStream = tmp;
+        }
+        return lnClassStream;
+    }
 
-    private Stream< Abbreviation > getAbbreviationStream( NS ns ) {
+    public AbstractLNClass findAbstractLNClass( String lnClass, NsIdentification nsIdentification, boolean useDependsOn ) {
+        return getAbstractLNClassStream( nsIdentification, useDependsOn )
+                .filter( c -> c.getName().equals( lnClass ) )
+                .findAny()
+                .orElse( null );
+    }
+    
+    private Stream< Abbreviation > getAbbreviationStream( NS ns, boolean useDependsOn ) {
         Stream< Abbreviation > abbreviationStream = Stream.empty();
         Abbreviations abbreviations = ns.getAbbreviations();
         if( abbreviations != null ) {
             Stream< Abbreviation > tmp = Stream.concat( abbreviationStream, abbreviations.getAbbreviation().stream() );
             abbreviationStream = tmp;
         }
-        if(( ns.getDependsOn() != null ) && ( ns.getDependsOn().getRefersToNS() != null )) {
-            Stream< Abbreviation > tmp = Stream.concat( abbreviationStream, getAbbreviationStream( ns.getDependsOn().getRefersToNS() ));
+        if( useDependsOn && ( ns.getDependsOn() != null ) && ( ns.getDependsOn().getRefersToNS() != null )) {
+            Stream< Abbreviation > tmp = Stream.concat( abbreviationStream, getAbbreviationStream( ns.getDependsOn().getRefersToNS(), useDependsOn ));
             abbreviationStream = tmp;
         }
         return abbreviationStream;
     }
     
-    public Stream< Abbreviation > getAbbreviationStream( NsIdentification identification ) {
+    public Stream< Abbreviation > getAbbreviationStream( NsIdentification identification, boolean useDependsOn ) {
         Stream< Abbreviation > abbreviationStream = Stream.empty();
         NS ns = getNS( identification );
         if( ns != null ) {
-            Stream< Abbreviation > tmp = Stream.concat( abbreviationStream, getAbbreviationStream( ns ));
-            abbreviationStream = tmp;
-        }
-        for( NS dep : getEquivalentNamespaces( identification )) {
-            Stream< Abbreviation > tmp = Stream.concat( abbreviationStream, getAbbreviationStream( dep ));
+            Stream< Abbreviation > tmp = Stream.concat( abbreviationStream, getAbbreviationStream( ns, useDependsOn ));
             abbreviationStream = tmp;
         }
         return abbreviationStream;
     }
 
-    public Abbreviation findAbbreviation( String abb, NsIdentification nsIdentification, IRiseClipseConsole console ) {
-        return getAbbreviationStream( nsIdentification )
+    public Abbreviation findAbbreviation( String abb, NsIdentification nsIdentification, boolean useDependsOn ) {
+        return getAbbreviationStream( nsIdentification, useDependsOn )
                 .filter( a -> a.getName().equals( abb ) )
                 .findAny()
                 .orElse( null );
     }
     
-//    public Stream< Enumeration > getAllEnumerationStream() {
-//        Stream< Enumeration > enumerationStream = Stream.empty();
-//        Iterator< NS > it = nsdResources.values().iterator();
-//        while( it.hasNext() ) {
-//            Enumerations enumerations = it.next().getEnumerations();
-//            if( enumerations != null ) {
-//                Stream< Enumeration > tmp = Stream.concat( enumerationStream, enumerations.getEnumeration().stream() );
-//                enumerationStream = tmp;
-//            }
-//        }
-//        return enumerationStream;
-//    }
-
-    private Stream< Enumeration > getEnumerationStream( NS ns ) {
+    private Stream< Enumeration > getEnumerationStream( NS ns, boolean useDependsOn ) {
         Stream< Enumeration > enumerationStream = Stream.empty();
         Enumerations enumerations = ns.getEnumerations();
         if( enumerations != null ) {
             Stream< Enumeration > tmp = Stream.concat( enumerationStream, enumerations.getEnumeration().stream() );
             enumerationStream = tmp;
         }
-        if(( ns.getDependsOn() != null ) && ( ns.getDependsOn().getRefersToNS() != null )) {
-            Stream< Enumeration > tmp = Stream.concat( enumerationStream, getEnumerationStream( ns.getDependsOn().getRefersToNS() ));
+        if( useDependsOn && ( ns.getDependsOn() != null ) && ( ns.getDependsOn().getRefersToNS() != null )) {
+            Stream< Enumeration > tmp = Stream.concat( enumerationStream, getEnumerationStream( ns.getDependsOn().getRefersToNS(), useDependsOn ));
             enumerationStream = tmp;
         }
         return enumerationStream;
     }
     
-    public Stream< Enumeration > getEnumerationStream( NsIdentification identification ) {
+    public Stream< Enumeration > getEnumerationStream( NsIdentification identification, boolean useDependsOn ) {
         Stream< Enumeration > enumerationStream = Stream.empty();
         NS ns = getNS( identification );
         if( ns != null ) {
-            Stream< Enumeration > tmp = Stream.concat( enumerationStream, getEnumerationStream( ns ));
-            enumerationStream = tmp;
-        }
-        for( NS dep : getEquivalentNamespaces( identification )) {
-            Stream< Enumeration > tmp = Stream.concat( enumerationStream, getEnumerationStream( dep ));
+            Stream< Enumeration > tmp = Stream.concat( enumerationStream, getEnumerationStream( ns, useDependsOn ));
             enumerationStream = tmp;
         }
         return enumerationStream;
     }
 
-    public Enumeration findEnumeration( String en, NsIdentification nsIdentification, IRiseClipseConsole console ) {
-        return getEnumerationStream( nsIdentification )
+    public Enumeration findEnumeration( String en, NsIdentification nsIdentification, boolean useDependsOn ) {
+        return getEnumerationStream( nsIdentification, useDependsOn )
                 .filter( e -> e.getName().equals( en ) )
                 .findAny()
                 .orElse( null );
     }
     
-//    public Stream< CDC > getAllCDCStream() {
-//        Stream< CDC > cdcStream = Stream.empty();
-//        Iterator< NS > it = nsdResources.values().iterator();
-//        while( it.hasNext() ) {
-//            CDCs cdcs = it.next().getCDCs();
-//            if( cdcs != null ) {
-//                Stream< CDC > tmp = Stream.concat( cdcStream, cdcs.getCDC().stream() );
-//                cdcStream = tmp;
-//            }
-//        }
-//        return cdcStream;
-//    }
-
-    private Stream< CDC > getCDCStream( NS ns ) {
+    private Stream< CDC > getCDCStream( NS ns, boolean useDependsOn ) {
         Stream< CDC > cdcStream = Stream.empty();
         CDCs cdcs = ns.getCDCs();
         if( cdcs != null ) {
             Stream< CDC > tmp = Stream.concat( cdcStream, cdcs.getCDC().stream() );
             cdcStream = tmp;
         }
-        if(( ns.getDependsOn() != null ) && ( ns.getDependsOn().getRefersToNS() != null )) {
-            Stream< CDC > tmp = Stream.concat( cdcStream, getCDCStream( ns.getDependsOn().getRefersToNS() ));
+        if( useDependsOn && ( ns.getDependsOn() != null ) && ( ns.getDependsOn().getRefersToNS() != null )) {
+            Stream< CDC > tmp = Stream.concat( cdcStream, getCDCStream( ns.getDependsOn().getRefersToNS(), useDependsOn ));
             cdcStream = tmp;
         }
         return cdcStream;
     }
     
-    public Stream< CDC > getCDCStream( NsIdentification identification ) {
+    public Stream< CDC > getCDCStream( NsIdentification identification, boolean useDependsOn ) {
         Stream< CDC > cdcStream = Stream.empty();
         NS ns = getNS( identification );
         if( ns != null ) {
-            Stream< CDC > tmp = Stream.concat( cdcStream, getCDCStream( ns ));
-            cdcStream = tmp;
-        }
-        for( NS dep : getEquivalentNamespaces( identification )) {
-            Stream< CDC > tmp = Stream.concat( cdcStream, getCDCStream( dep ));
+            Stream< CDC > tmp = Stream.concat( cdcStream, getCDCStream( ns, useDependsOn ));
             cdcStream = tmp;
         }
         return cdcStream;
     }
 
-    public CDC findCDC( String cdc, NsIdentification nsIdentification, IRiseClipseConsole console ) {
-        return getCDCStream( nsIdentification )
+    public CDC findCDC( String cdc, NsIdentification nsIdentification, boolean useDependsOn ) {
+        return getCDCStream( nsIdentification, useDependsOn )
                 .filter( c -> c.getName().equals( cdc ) )
                 .findAny()
                 .orElse( null );
     }
     
-//    public Stream< ConstructedAttribute > getAllConstructedAttributeStream() {
-//        Stream< ConstructedAttribute > constructedAttributeStream = Stream.empty();
-//        Iterator< NS > it = nsdResources.values().iterator();
-//        while( it.hasNext() ) {
-//            ConstructedAttributes constructedAttributes = it.next().getConstructedAttributes();
-//            if( constructedAttributes != null ) {
-//                Stream< ConstructedAttribute > tmp = Stream.concat( constructedAttributeStream, constructedAttributes.getConstructedAttribute().stream() );
-//                constructedAttributeStream = tmp;
-//            }
-//        }
-//        return constructedAttributeStream;
-//    }
-
-    private Stream< ConstructedAttribute > getConstructedAttributeStream( NS ns ) {
+    private Stream< ConstructedAttribute > getConstructedAttributeStream( NS ns, boolean useDependsOn ) {
         Stream< ConstructedAttribute > constructedAttributeStream = Stream.empty();
         ConstructedAttributes constructedAttributes = ns.getConstructedAttributes();
         if( constructedAttributes != null ) {
             Stream< ConstructedAttribute > tmp = Stream.concat( constructedAttributeStream, constructedAttributes.getConstructedAttribute().stream() );
             constructedAttributeStream = tmp;
         }
-        if(( ns.getDependsOn() != null ) && ( ns.getDependsOn().getRefersToNS() != null )) {
-            Stream< ConstructedAttribute > tmp = Stream.concat( constructedAttributeStream, getConstructedAttributeStream( ns.getDependsOn().getRefersToNS() ));
+        if( useDependsOn && ( ns.getDependsOn() != null ) && ( ns.getDependsOn().getRefersToNS() != null )) {
+            Stream< ConstructedAttribute > tmp = Stream.concat( constructedAttributeStream, getConstructedAttributeStream( ns.getDependsOn().getRefersToNS(), useDependsOn ));
             constructedAttributeStream = tmp;
         }
         return constructedAttributeStream;
     }
     
-    public Stream< ConstructedAttribute > getConstructedAttributeStream( NsIdentification identification ) {
+    public Stream< ConstructedAttribute > getConstructedAttributeStream( NsIdentification identification, boolean useDependsOn ) {
         Stream< ConstructedAttribute > constructedAttributeStream = Stream.empty();
         NS ns = getNS( identification );
         if( ns != null ) {
-            Stream< ConstructedAttribute > tmp = Stream.concat( constructedAttributeStream, getConstructedAttributeStream( ns ));
+            Stream< ConstructedAttribute > tmp = Stream.concat( constructedAttributeStream, getConstructedAttributeStream( ns, useDependsOn ));
             constructedAttributeStream = tmp;
-        }
-        for( NS dep : getEquivalentNamespaces( identification )) {
-            Stream< ConstructedAttribute > tmp = Stream.concat( constructedAttributeStream, getConstructedAttributeStream( dep ));
-            constructedAttributeStream = tmp;
-        }
-        if( nsdAdditions.get( identification ) != null ) {
-            // We add ServiceTypeRealizations instead of replacing existing (basic ?) type, but
-            // the latter will be replaced in the map because of the identical name
-            // This is OK in TypeValidator but may not work in other usages
-            for( ServiceNS add : nsdAdditions.get( identification )) {
-                Stream< ConstructedAttribute > tmp = Stream.concat( constructedAttributeStream, add.getServiceTypeRealizations().getServiceTypeRealization().stream() );
-                constructedAttributeStream = tmp;
-            }
-            for( ServiceNS add : nsdAdditions.get( identification )) {
-                Stream< ConstructedAttribute > tmp = Stream.concat( constructedAttributeStream, add.getServiceConstructedAttributes().getServiceConstructedAttribute().stream() );
-                constructedAttributeStream = tmp;
-            }
         }
         return constructedAttributeStream;
     }
 
-    public ConstructedAttribute findConstructedAttribute( String att, NsIdentification nsIdentification, IRiseClipseConsole console ) {
-        return getConstructedAttributeStream( nsIdentification )
+    public ConstructedAttribute findConstructedAttribute( String att, NsIdentification nsIdentification, boolean useDependsOn ) {
+        return getConstructedAttributeStream( nsIdentification, useDependsOn )
                 .filter( c -> c.getName().equals( att ) )
                 .findAny()
                 .orElse( null );
     }
     
-//    public Stream< BasicType > getAllBasicTypeStream() {
-//        Stream< BasicType > basicTypeStream = Stream.empty();
-//        Iterator< NS > it = nsdResources.values().iterator();
-//        while( it.hasNext() ) {
-//            BasicTypes basicTypes = it.next().getBasicTypes();
-//            if( basicTypes != null ) {
-//                Stream< BasicType > tmp = Stream.concat( basicTypeStream, basicTypes.getBasicType().stream() );
-//                basicTypeStream = tmp;
-//            }
-//        }
-//        return basicTypeStream;
-//    }
-
-    private Stream< BasicType > getBasicTypeStream( NS ns ) {
+    private Stream< BasicType > getBasicTypeStream( NS ns, boolean useDependsOn ) {
         Stream< BasicType > basicTypeStream = Stream.empty();
         BasicTypes basicTypes = ns.getBasicTypes();
         if( basicTypes != null ) {
             Stream< BasicType > tmp = Stream.concat( basicTypeStream, basicTypes.getBasicType().stream() );
             basicTypeStream = tmp;
         }
-        if(( ns.getDependsOn() != null ) && ( ns.getDependsOn().getRefersToNS() != null )) {
-            Stream< BasicType > tmp = Stream.concat( basicTypeStream, getBasicTypeStream( ns.getDependsOn().getRefersToNS() ));
+        if( useDependsOn && ( ns.getDependsOn() != null ) && ( ns.getDependsOn().getRefersToNS() != null )) {
+            Stream< BasicType > tmp = Stream.concat( basicTypeStream, getBasicTypeStream( ns.getDependsOn().getRefersToNS(), useDependsOn ));
             basicTypeStream = tmp;
         }
         return basicTypeStream;
     }
     
-    public Stream< BasicType > getBasicTypeStream( NsIdentification identification ) {
+    public Stream< BasicType > getBasicTypeStream( NsIdentification identification, boolean useDependsOn ) {
         Stream< BasicType > basicTypeStream = Stream.empty();
         NS ns = getNS( identification );
         if( ns != null ) {
-            Stream< BasicType > tmp = Stream.concat( basicTypeStream, getBasicTypeStream( ns ));
-            basicTypeStream = tmp;
-        }
-        for( NS dep : getEquivalentNamespaces( identification )) {
-            Stream< BasicType > tmp = Stream.concat( basicTypeStream, getBasicTypeStream( dep ));
+            Stream< BasicType > tmp = Stream.concat( basicTypeStream, getBasicTypeStream( ns, useDependsOn ));
             basicTypeStream = tmp;
         }
         return basicTypeStream;
     }
 
-    public BasicType findBasicType( String basic, NsIdentification nsIdentification, IRiseClipseConsole console ) {
-        return getBasicTypeStream( nsIdentification )
+    public BasicType findBasicType( String basic, NsIdentification nsIdentification, boolean useDependsOn ) {
+        return getBasicTypeStream( nsIdentification, useDependsOn )
                 .filter( b -> b.getName().equals( basic ) )
                 .findAny()
                 .orElse( null );
     }
     
-//    public Stream< FunctionalConstraint > getAllFunctionalConstraintStream() {
-//        Stream< FunctionalConstraint > functionalConstraintStream = Stream.empty();
-//        Iterator< NS > it = nsdResources.values().iterator();
-//        while( it.hasNext() ) {
-//            FunctionalConstraints functionalConstraints = it.next().getFunctionalConstraints();
-//            if( functionalConstraints != null ) {
-//                Stream< FunctionalConstraint > tmp = Stream.concat( functionalConstraintStream, functionalConstraints.getFunctionalConstraint().stream() );
-//                functionalConstraintStream = tmp;
-//            }
-//        }
-//        return functionalConstraintStream;
-//    }
-
-    private Stream< FunctionalConstraint > getFunctionalConstraintStream( NS ns ) {
+    private Stream< FunctionalConstraint > getFunctionalConstraintStream( NS ns, boolean useDependsOn ) {
         Stream< FunctionalConstraint > functionalConstraintStream = Stream.empty();
         FunctionalConstraints functionalConstraints = ns.getFunctionalConstraints();
         if( functionalConstraints != null ) {
             Stream< FunctionalConstraint > tmp = Stream.concat( functionalConstraintStream, functionalConstraints.getFunctionalConstraint().stream() );
             functionalConstraintStream = tmp;
         }
-        if(( ns.getDependsOn() != null ) && ( ns.getDependsOn().getRefersToNS() != null )) {
-            Stream< FunctionalConstraint > tmp = Stream.concat( functionalConstraintStream, getFunctionalConstraintStream( ns.getDependsOn().getRefersToNS() ));
+        if( useDependsOn && ( ns.getDependsOn() != null ) && ( ns.getDependsOn().getRefersToNS() != null )) {
+            Stream< FunctionalConstraint > tmp = Stream.concat( functionalConstraintStream, getFunctionalConstraintStream( ns.getDependsOn().getRefersToNS(), useDependsOn ));
             functionalConstraintStream = tmp;
         }
         return functionalConstraintStream;
     }
     
-    public Stream< FunctionalConstraint > getFunctionalConstraintStream( NsIdentification identification ) {
+    public Stream< FunctionalConstraint > getFunctionalConstraintStream( NsIdentification identification, boolean useDependsOn ) {
         Stream< FunctionalConstraint > functionalConstraintStream = Stream.empty();
         NS ns = getNS( identification );
         if( ns != null ) {
-            Stream< FunctionalConstraint > tmp = Stream.concat( functionalConstraintStream, getFunctionalConstraintStream( ns ));
+            Stream< FunctionalConstraint > tmp = Stream.concat( functionalConstraintStream, getFunctionalConstraintStream( ns, useDependsOn ));
             functionalConstraintStream = tmp;
-        }
-        for( NS dep : getEquivalentNamespaces( identification )) {
-            Stream< FunctionalConstraint > tmp = Stream.concat( functionalConstraintStream, getFunctionalConstraintStream( dep ));
-            functionalConstraintStream = tmp;
-        }
-        if( nsdAdditions.get( identification ) != null ) {
-            for( ServiceNS add : nsdAdditions.get( identification )) {
-                Stream< FunctionalConstraint > tmp = Stream.concat( functionalConstraintStream, add.getFunctionalConstraints().getFunctionalConstraint().stream() );
-                functionalConstraintStream = tmp;
-            }
         }
         return functionalConstraintStream;
     }
 
-    public FunctionalConstraint findFunctionalConstraint( String fc, NsIdentification nsIdentification, IRiseClipseConsole console ) {
-        FunctionalConstraint res = getFunctionalConstraintStream( nsIdentification )
+    public FunctionalConstraint findFunctionalConstraint( String fc, NsIdentification nsIdentification, boolean useDependsOn ) {
+        FunctionalConstraint res = getFunctionalConstraintStream( nsIdentification, useDependsOn )
                 .filter( f -> f.getAbbreviation().equals( fc ))
                 .findAny()
                 .orElse( null );
         return res;
     }
     
-//    public Stream< PresenceCondition > getAllPresenceConditionStream() {
-//        Stream< PresenceCondition > presenceConditionStream = Stream.empty();
-//        Iterator< NS > it = nsdResources.values().iterator();
-//        while( it.hasNext() ) {
-//            PresenceConditions presenceConditions = it.next().getPresenceConditions();
-//            if( presenceConditions != null ) {
-//                Stream< PresenceCondition > tmp = Stream.concat( presenceConditionStream, presenceConditions.getPresenceCondition().stream() );
-//                presenceConditionStream = tmp;
-//            }
-//        }
-//        return presenceConditionStream;
-//    }
-
-    private Stream< PresenceCondition > getPresenceConditionStream( NS ns ) {
+    private Stream< PresenceCondition > getPresenceConditionStream( NS ns, boolean useDependsOn ) {
         Stream< PresenceCondition > presenceConditionStream = Stream.empty();
         PresenceConditions presenceConditions = ns.getPresenceConditions();
         if( presenceConditions != null ) {
             Stream< PresenceCondition > tmp = Stream.concat( presenceConditionStream, presenceConditions.getPresenceCondition().stream() );
             presenceConditionStream = tmp;
         }
-        if(( ns.getDependsOn() != null ) && ( ns.getDependsOn().getRefersToNS() != null )) {
-            Stream< PresenceCondition > tmp = Stream.concat( presenceConditionStream, getPresenceConditionStream( ns.getDependsOn().getRefersToNS() ));
+        if( useDependsOn && ( ns.getDependsOn() != null ) && ( ns.getDependsOn().getRefersToNS() != null )) {
+            Stream< PresenceCondition > tmp = Stream.concat( presenceConditionStream, getPresenceConditionStream( ns.getDependsOn().getRefersToNS(), useDependsOn ));
             presenceConditionStream = tmp;
         }
         return presenceConditionStream;
     }
     
-    public Stream< PresenceCondition > getPresenceConditionStream( NsIdentification identification ) {
+    public Stream< PresenceCondition > getPresenceConditionStream( NsIdentification identification, boolean useDependsOn ) {
         Stream< PresenceCondition > presenceConditionStream = Stream.empty();
         NS ns = getNS( identification );
         if( ns != null ) {
-            Stream< PresenceCondition > tmp = Stream.concat( presenceConditionStream, getPresenceConditionStream( ns ));
+            Stream< PresenceCondition > tmp = Stream.concat( presenceConditionStream, getPresenceConditionStream( ns, useDependsOn ));
             presenceConditionStream = tmp;
-        }
-        for( NS dep : getEquivalentNamespaces( identification )) {
-            Stream< PresenceCondition > tmp = Stream.concat( presenceConditionStream, getPresenceConditionStream( dep ));
-            presenceConditionStream = tmp;
-        }
-        if( nsdAdditions.get( identification ) != null ) {
-            for( ServiceNS add : nsdAdditions.get( identification )) {
-                Stream< PresenceCondition > tmp = Stream.concat( presenceConditionStream, add.getPresenceConditions().getPresenceCondition().stream() );
-                presenceConditionStream = tmp;
-            }
         }
         return presenceConditionStream;
     }
 
-    public PresenceCondition findPresenceCondition( String presence, NsIdentification nsIdentification, IRiseClipseConsole console ) {
-        return getPresenceConditionStream( nsIdentification )
+    public PresenceCondition findPresenceCondition( String presence, NsIdentification nsIdentification, boolean useDependsOn ) {
+        return getPresenceConditionStream( nsIdentification, useDependsOn )
                 .filter( p -> p.getName().equals( presence ) )
                 .findAny()
                 .orElse( null );
