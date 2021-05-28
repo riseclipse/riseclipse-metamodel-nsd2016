@@ -25,6 +25,11 @@ import java.util.Objects;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 
 public class NsIdentification {
+    
+    public final static String IEC_61950_7_2_CORE_NAMESPACE_ID = "IEC 61850-7-2";
+    public final static String IEC_61950_7_3_CORE_NAMESPACE_ID = "IEC 61850-7-3";
+    public final static String IEC_61950_7_4_CORE_NAMESPACE_ID = "IEC 61850-7-4";
+    
     final private String id;
     final private Integer version;
     final private String revision;
@@ -92,6 +97,12 @@ public class NsIdentification {
 
     public Integer getRelease() {
         return release;
+    }
+    
+    public boolean isCoreNamespace() {
+        return IEC_61950_7_2_CORE_NAMESPACE_ID.equals( id )
+            || IEC_61950_7_3_CORE_NAMESPACE_ID.equals( id )
+            || IEC_61950_7_4_CORE_NAMESPACE_ID.equals( id );
     }
 
     @Override
