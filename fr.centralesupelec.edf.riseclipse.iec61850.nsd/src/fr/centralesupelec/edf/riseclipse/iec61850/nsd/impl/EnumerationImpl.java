@@ -1142,22 +1142,20 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         if( super.buildExplicitLinks( console )) return true;
 
-        String id = getNsIdentification().toString();
         NsdResourceSetImpl rs = getResourceSet();
         if( rs == null ) return false;
 
-        String messagePrefix = "while resolving link from Enumeration (name: " + getName()
-                + ", NS id: " + id + "): ";
+        String messagePrefix = "while resolving link from Enumeration (name: " + getName() + "): ";
 
         if( isSetInheritedFrom() ) {
-            Enumeration foundBase = rs.findEnumeration( getInheritedFrom(), getNsIdentification(), console );
+            Enumeration foundBase = rs.findEnumeration( getInheritedFrom(), getNsIdentification(), true );
             if( foundBase == null ) {
-                console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
                                  messagePrefix, "Enumeration (name: ", getInheritedFrom(), ") not found" );
             }
             else {
                 setRefersToBaseEnumeration( foundBase );
-                console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
                               messagePrefix, "Enumeration (name: ", getInheritedFrom(), ") found in NS (id:",
                               getRefersToBaseEnumeration().getParentEnumerations().getParentNS().getId(), ")" );
             }

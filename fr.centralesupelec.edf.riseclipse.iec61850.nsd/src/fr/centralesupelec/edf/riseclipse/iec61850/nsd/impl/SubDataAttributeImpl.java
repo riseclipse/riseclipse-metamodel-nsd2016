@@ -2514,22 +2514,20 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         if( super.buildExplicitLinks( console )) return true;
 
-        String id = getNsIdentification().toString();
         NsdResourceSetImpl rs = getResourceSet();
         if( rs == null ) return false;
 
-        String messagePrefix = "while resolving link from SubDataAttribute (name: " + getName()
-                + ", NS id: " + id + "): ";
+        String messagePrefix = "while resolving link from SubDataAttribute (name: " + getName() + "): ";
 
         if( isSetPresCond() ) {
-            PresenceCondition foundPC = rs.findPresenceCondition( getPresCond(), getNsIdentification(), console );
+            PresenceCondition foundPC = rs.findPresenceCondition( getPresCond(), getNsIdentification(), true );
             if( foundPC == null ) {
-                console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
                                  messagePrefix, "PresenceCondition (name: ", getPresCond(), ") not found" );
             }
             else {
                 setRefersToPresenceCondition( foundPC );
-                console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
                               messagePrefix, "PresenceCondition (name: ", getPresCond(), ") found in NS (id:",
                               getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId(), ")" );
             }
@@ -2539,45 +2537,45 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
             if( isSetType() ) {
                 switch( getTypeKind().getValue() ) {
                 case DefinedAttributeTypeKind.BASIC_VALUE:
-                    BasicType foundBT = rs.findBasicType( getType(), getNsIdentification(), console );
+                    BasicType foundBT = rs.findBasicType( getType(), getNsIdentification(), true );
 
                     if( foundBT == null ) {
-                        console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
                                          messagePrefix, "BasicType (name: ", getType(), ") not found" );
                     }
                     else {
                         setRefersToBasicType( foundBT );
-                        console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                        console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
                                       messagePrefix, "BasicType (name: ", getType(), ") found in NS (id:",
                                       getRefersToBasicType().getParentBasicTypes().getParentNS().getId(), ")" );
                     }
                     break;
                 case DefinedAttributeTypeKind.CONSTRUCTED_VALUE:
                     ConstructedAttribute foundCA = rs.findConstructedAttribute( getType(), getNsIdentification(),
-                            console );
+                            true );
 
                     if( foundCA == null ) {
-                        console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
                                          messagePrefix, "ConstructedAttribute (name: ", getType(), ") not found" );
                     }
                     else {
                         setRefersToConstructedAttribute( foundCA );
-                        console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                        console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
                                       messagePrefix, "ConstructedAttribute (name: ", getType(), ") found in NS (id:",
                                       getRefersToConstructedAttribute().getParentConstructedAttributes().getParentNS().getId(),
                                       ")" );
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
-                    Enumeration foundEn = rs.findEnumeration( getType(), getNsIdentification(), console );
+                    Enumeration foundEn = rs.findEnumeration( getType(), getNsIdentification(), true );
 
                     if( foundEn == null ) {
-                        console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
                                          messagePrefix, "Enumeration (name: ", getType(), ") not found" );
                     }
                     else {
                         setRefersToEnumeration( foundEn );
-                        console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                        console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
                                       messagePrefix, "Enumeration (name: ", getType(), ") found in NS (id:",
                                       getRefersToEnumeration().getParentEnumerations().getParentNS().getId(), ")" );
                     }
@@ -2585,7 +2583,7 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
                 }
             }
             else {
-                console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
                                  messagePrefix, "type is missing for ", getTypeKind() );
             }
         }

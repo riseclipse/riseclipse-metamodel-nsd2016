@@ -636,8 +636,6 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         if( super.buildExplicitLinks( console )) return true;
 
-        String id = getNsIdentification().toString();
-
         if( isSetBase() ) {
 
             // This code assumes that the referred AbstractLNClass is in the same NS
@@ -650,21 +648,24 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
             //                    .findAny()
             //                    .ifPresent( abstractLNClass -> setRefersToAbstractLNClass( abstractLNClass ) );
             AbstractLNClass abstractLNClass = getResourceSet().findAbstractLNClass( getBase(), getNsIdentification(),
-                    console );
+                    true );
 
             if( abstractLNClass != null ) {
                 setRefersToAbstractLNClass( abstractLNClass );
-                console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
                               "while resolving link from AnyLNClass (name: ", getName(),
-                              ", NS id: ", id, "): AbstractLNClass (name: ", getBase(), ") found in NS (id:",
+                              "): AbstractLNClass (name: ", getBase(), ") found in NS (id:",
                               getRefersToAbstractLNClass().getParentLNClasses().getParentNS().getId(), ")" );
             }
             else {
                 // TODO: Some NSD file (e.g. eTr_IEC61850-90-6_2018A5.nsd) use a non-abstract LNClass as base.
                 // Is it allowed ?
-                console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                                 "while resolving link from AnyLNClass (name: ", getName(),
-                                 ", NS id: ", id, "): AbstractLNClass (name: ", getBase(), ") not found" );
+                // DONE: no, in 61850-7-7:
+                // An AbstractLNClass shall not be used by a real data model, and an LNClass shall not be
+                // inherited by another LNClass.
+                console.error( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                               "while resolving link from AnyLNClass (name: ", getName(),
+                               "): AbstractLNClass (name: ", getBase(), ") not found" );
             }
         }
 
