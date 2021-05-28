@@ -55,6 +55,7 @@ public class NsdXmlHandler extends SAXXMLHandler {
             int lineNumber = lineNumbers.peek();
             if( object instanceof NsdObject ) {
                 (( NsdObject ) object ).setLineNumber( lineNumber );
+                (( NsdObject ) object ).setFilename( getLocation().substring( getLocation().lastIndexOf( '/' ) + 1 ));
             }
         }
         // TODO: error message
