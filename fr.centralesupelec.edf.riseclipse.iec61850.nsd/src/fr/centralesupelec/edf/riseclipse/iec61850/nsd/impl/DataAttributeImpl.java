@@ -3574,15 +3574,14 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         if( super.buildExplicitLinks( console )) return true;
 
-        String id = getNsIdentification().toString();
         NsdResourceSetImpl rs = getResourceSet();
         if( rs == null ) return false;
 
         String messagePrefix = "[NSD links] while resolving link from DataAttribute (name: " + getName()
-                + ", NS \"" + id + "\", line: " + getLineNumber() + "): ";
+            + ", location: " + getFilename() + ":" + getLineNumber() + "): ";
 
         if( isSetFc() ) {
-            FunctionalConstraint foundFC = rs.findFunctionalConstraint( getFc(), getNsIdentification(), console );
+            FunctionalConstraint foundFC = rs.findFunctionalConstraint( getFc(), getNsIdentification(), true );
 
             if( foundFC == null ) {
                 console.warning( messagePrefix + "FunctionalConstraint (abbreviation: " + getFc() + ") not found" );
@@ -3609,7 +3608,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         }
 
         if( isSetPresCond() ) {
-            PresenceCondition foundPC = rs.findPresenceCondition( getPresCond(), getNsIdentification(), console );
+            PresenceCondition foundPC = rs.findPresenceCondition( getPresCond(), getNsIdentification(), true );
 
             if( foundPC == null ) {
                 console.warning( messagePrefix + "PresenceCondition (name: " + getPresCond() + ") not found" );
@@ -3670,7 +3669,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
             if( isSetType() ) {
                 switch( getTypeKind().getValue() ) {
                 case DefinedAttributeTypeKind.BASIC_VALUE:
-                    BasicType foundBT = rs.findBasicType( getType(), getNsIdentification(), console );
+                    BasicType foundBT = rs.findBasicType( getType(), getNsIdentification(), true );
 
                     if( foundBT == null ) {
                         console.warning( messagePrefix + "BasicType (name: " + getType() + ") not found" );
@@ -3684,7 +3683,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                     break;
                 case DefinedAttributeTypeKind.CONSTRUCTED_VALUE:
                     ConstructedAttribute foundCA = rs.findConstructedAttribute( getType(), getNsIdentification(),
-                            console );
+                            true );
 
                     if( foundCA == null ) {
                         console.warning( messagePrefix + "ConstructedAttribute (name: " + getType() + ") not found" );
@@ -3709,7 +3708,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
-                    Enumeration foundEn = rs.findEnumeration( getType(), getNsIdentification(), console );
+                    Enumeration foundEn = rs.findEnumeration( getType(), getNsIdentification(), true );
 
                     if( foundEn == null ) {
                         console.warning( messagePrefix + "Enumeration (name: " + getType() + ") not found" );

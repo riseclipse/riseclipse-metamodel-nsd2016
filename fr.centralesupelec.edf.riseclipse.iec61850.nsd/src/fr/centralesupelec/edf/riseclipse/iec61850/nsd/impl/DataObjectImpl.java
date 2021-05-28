@@ -2670,15 +2670,14 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         if( super.buildExplicitLinks( console )) return true;
 
-        String id = getNsIdentification().toString();
         NsdResourceSetImpl rs = getResourceSet();
         if( rs == null ) return false;
 
         String messagePrefix = "[NSD links] while resolving link from DataObject (name: " + getName()
-                + ", NS \"" + id + "\", line: " + getLineNumber() + "): ";
+            + ", location: " + getFilename() + ":" + getLineNumber() + "): ";
 
         if( isSetType() ) {
-            CDC foundCDC = rs.findCDC( getType(), getNsIdentification(), console );
+            CDC foundCDC = rs.findCDC( getType(), getNsIdentification(), true );
 
             if( foundCDC == null ) {
                 console.warning( messagePrefix + "CDC (name: " + getType() + ") not found" );
@@ -2691,7 +2690,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         }
 
         if( isSetPresCond() ) {
-            PresenceCondition foundPC = rs.findPresenceCondition( getPresCond(), getNsIdentification(), console );
+            PresenceCondition foundPC = rs.findPresenceCondition( getPresCond(), getNsIdentification(), true );
 
             if( foundPC == null ) {
                 console.warning( messagePrefix + "PresenceCondition (name: " + getPresCond() + ") not found" );
@@ -2706,7 +2705,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         }
 
         if( isSetDsPresCond() ) {
-            PresenceCondition foundPC = rs.findPresenceCondition( getDsPresCond(), getNsIdentification(), console );
+            PresenceCondition foundPC = rs.findPresenceCondition( getDsPresCond(), getNsIdentification(), true );
             if( foundPC == null ) {
                 console.warning( messagePrefix + "PresenceCondition (name: " + getDsPresCond() + ") not found" );
             }
@@ -2739,7 +2738,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             if( isSetUnderlyingType() ) {
                 switch( getUnderlyingTypeKind().getValue() ) {
                 case DefinedAttributeTypeKind.BASIC_VALUE:
-                    BasicType foundBT = rs.findBasicType( getUnderlyingType(), getNsIdentification(), console );
+                    BasicType foundBT = rs.findBasicType( getUnderlyingType(), getNsIdentification(), true );
 
                     if( foundBT == null ) {
                         console.warning( messagePrefix + "BasicType (name: " + getUnderlyingType() + ") not found" );
@@ -2754,8 +2753,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                     break;
                 case DefinedAttributeTypeKind.CONSTRUCTED_VALUE:
                     ConstructedAttribute foundCA = rs.findConstructedAttribute( getUnderlyingType(),
-                            getNsIdentification(),
-                            console );
+                            getNsIdentification(), true );
 
                     if( foundCA == null ) {
                         console.warning(
@@ -2782,7 +2780,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
-                    Enumeration foundEn = rs.findEnumeration( getUnderlyingType(), getNsIdentification(), console );
+                    Enumeration foundEn = rs.findEnumeration( getUnderlyingType(), getNsIdentification(), true );
 
                     if( foundEn == null ) {
                         console.warning( messagePrefix + "Enumeration (name: " + getUnderlyingType() + ") not found" );

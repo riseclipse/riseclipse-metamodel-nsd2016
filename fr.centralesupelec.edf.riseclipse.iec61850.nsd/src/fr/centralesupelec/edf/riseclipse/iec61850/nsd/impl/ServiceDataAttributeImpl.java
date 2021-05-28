@@ -2339,18 +2339,17 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
             }
         }
 
-        ServiceNS sns = getParentServiceCDC().getParentServiceCDCs().getParentServiceNS();
         NsdResourceSetImpl rs = getResourceSet();
         if( rs == null ) return false;
 
         String messagePrefix = "[NSD links] while resolving link from ServiceDataAttribute (name: " + getName()
-                + ", ServiceNS \"" + new NsIdentification( sns ) + "\", line: " + getLineNumber() + "): ";
+            + ", location: " + getFilename() + ":" + getLineNumber() + "): ";
 
         if( isSetUnderlyingTypeKind() ) {
             if( isSetUnderlyingType() ) {
                 switch( getUnderlyingTypeKind().getValue() ) {
                 case DefinedAttributeTypeKind.BASIC_VALUE:
-                    BasicType foundBT = rs.findBasicType( getUnderlyingType(), getNsIdentification(), console );
+                    BasicType foundBT = rs.findBasicType( getUnderlyingType(), getNsIdentification(), true );
 
                     if( foundBT == null ) {
                         console.warning( messagePrefix + "BasicType (name: " + getUnderlyingType() + ") not found" );
@@ -2365,8 +2364,7 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                     break;
                 case DefinedAttributeTypeKind.CONSTRUCTED_VALUE:
                     ConstructedAttribute foundCA = rs.findConstructedAttribute( getUnderlyingType(),
-                            getNsIdentification(),
-                            console );
+                            getNsIdentification(), true );
 
                     if( foundCA == null ) {
                         console.warning(
@@ -2393,7 +2391,7 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
-                    Enumeration foundEn = rs.findEnumeration( getUnderlyingType(), getNsIdentification(), console );
+                    Enumeration foundEn = rs.findEnumeration( getUnderlyingType(), getNsIdentification(), true );
 
                     if( foundEn == null ) {
                         console.warning( messagePrefix + "Enumeration (name: " + getUnderlyingType() + ") not found" );
@@ -2424,7 +2422,7 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
 
     @Override
     public DataAttribute toDataAttribute() {
-        DataAttribute dataAttribute = new DataAttributeImpl();
+        DataAttribute dataAttribute = NsdFactory.eINSTANCE.createDataAttribute();
         dataAttribute.setPresCond( getPresCond() );
         dataAttribute.setPresCondArgs( getPresCondArgs() );
         dataAttribute.setPresCondArgsID( getPresCondArgsID() );

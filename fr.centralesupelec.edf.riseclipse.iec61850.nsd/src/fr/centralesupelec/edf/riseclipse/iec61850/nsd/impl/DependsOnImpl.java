@@ -911,8 +911,8 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         if( super.buildExplicitLinks( console )) return true;
 
-        String messagePrefix = "[NSD links] while resolving link from DependsOn (NS \""
-                + new NsIdentification( getParentNS() ) + "\", line: " + getLineNumber() + "): ";
+        String messagePrefix = "[NSD links] while resolving link from DependsOn (location: "
+                + getFilename() + ":" + getLineNumber() + "): ";
 
         NsIdentification identification = new NsIdentification( getId(), getVersion(), getRevision(), getRelease() );
         NsdResourceSetImpl rs = getResourceSet();

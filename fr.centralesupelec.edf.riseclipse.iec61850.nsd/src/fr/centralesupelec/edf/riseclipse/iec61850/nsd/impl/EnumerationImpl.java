@@ -851,15 +851,14 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         if( super.buildExplicitLinks( console )) return true;
 
-        String id = getNsIdentification().toString();
         NsdResourceSetImpl rs = getResourceSet();
         if( rs == null ) return false;
 
         String messagePrefix = "[NSD links] while resolving link from Enumeration (name: " + getName()
-                + ", NS \"" + id + "\", line: " + getLineNumber() + "): ";
+            + ", location: " + getFilename() + ":" + getLineNumber() + "): ";
 
         if( isSetInheritedFrom() ) {
-            Enumeration foundBase = rs.findEnumeration( getInheritedFrom(), getNsIdentification(), console );
+            Enumeration foundBase = rs.findEnumeration( getInheritedFrom(), getNsIdentification(), true );
             if( foundBase == null ) {
                 console.warning( messagePrefix + "Enumeration (name: " + getInheritedFrom() + ") not found" );
             }
