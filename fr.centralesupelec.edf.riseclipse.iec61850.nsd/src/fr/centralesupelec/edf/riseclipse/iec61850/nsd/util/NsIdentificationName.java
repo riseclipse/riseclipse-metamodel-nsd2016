@@ -53,14 +53,14 @@ public class NsIdentificationName extends NsIdentification {
     public int hashCode() {
         final int prime = 31;
         int result = super.hashCode();
-        result = prime * result + ( ( name == null ) ? 0 : name.hashCode() );
+        result = prime * result + (( name == null ) ? 0 : name.hashCode() );
         return result;
     }
 
     @Override
     public boolean equals( Object obj ) {
         if( this == obj ) return true;
-        if( !super.equals( obj ) ) return false;
+        if( ! super.equals( obj ) ) return false;
         if( getClass() != obj.getClass() ) return false;
         NsIdentificationName other = ( NsIdentificationName ) obj;
         if( name == null ) {
@@ -70,5 +70,9 @@ public class NsIdentificationName extends NsIdentification {
         return true;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + " - " + name;
+    }
     
 }
