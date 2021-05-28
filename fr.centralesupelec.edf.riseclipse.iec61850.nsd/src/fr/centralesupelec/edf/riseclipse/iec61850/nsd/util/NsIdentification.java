@@ -38,18 +38,30 @@ public class NsIdentification {
     }
     
     public NsIdentification( String namespace ) {
-        int posColon = namespace.indexOf( ":" );
+        int posColon = namespace.lastIndexOf( ":" );
         if( posColon != -1 ) {
             this.id = namespace.substring( 0, posColon );
-            this.version = Integer.valueOf( namespace.substring( posColon + 1, posColon + 5 ));
-            this.revision = ( namespace.length() > ( posColon + 5 )) ? namespace.substring( posColon + 5 ) : "A";
+            Integer tmpVersion = null;
+            try {
+                tmpVersion = Integer.valueOf( namespace.substring( posColon + 1, posColon + 5 ));
+            }
+            catch( NumberFormatException ex ) {}
+            this.version = tmpVersion;
+            this.revision = ( namespace.length() > ( posColon + 5 )) ? namespace.substring( posColon + 5, posColon + 6 ) : "A";
+            Integer tmpRelease = 1;
+            try {
+                tmpRelease = ( namespace.length() > ( posColon + 6 )) ? Integer.valueOf( namespace.substring( posColon + 6 )) : 1;
+            }
+            catch( NumberFormatException ex ) {}
+            this.release = tmpRelease;
         }
         else {
+            // TODO: is it an error that must be displayed ?
             this.id = namespace;
-            this.version = null;
-            this.revision = null;
+            this.version = 0;
+            this.revision = "A";
+            this.release = 1;
         }
-        this.release = 1;
     }
     
     public NsIdentification( AgNSIdentification identification ) {
@@ -99,7 +111,7 @@ public class NsIdentification {
 
     @Override
     public String toString() {
-        return id + ":" + version + revision + release;
+        return id + ":" + version + revision + ( release == 1 ? "" : release );
     }
 
 }
