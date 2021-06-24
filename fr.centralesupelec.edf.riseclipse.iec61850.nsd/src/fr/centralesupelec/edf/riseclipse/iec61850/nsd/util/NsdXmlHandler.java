@@ -47,6 +47,12 @@ public class NsdXmlHandler extends SAXXMLHandler {
     }
 
     @Override
+    protected void reportUnknownFeature( String prefix, String name, boolean isElement, EObject peekObject,
+            String value ) {
+        AbstractRiseClipseConsole.getConsole().warning( "The " + ( isElement ? "element " : "attribute " ) + name + "(line: " + getLineNumber() + ") is unknown and ignored" );
+    }
+
+    @Override
     protected void processObject( EObject object ) {
         if( lineNumbers.empty() ) {
             AbstractRiseClipseConsole.getConsole().warning( "NsdXmlHandler: linenumber stack empty !" );
