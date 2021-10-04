@@ -1257,8 +1257,8 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
     }
 
     @Override
-    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
-        if( super.buildExplicitLinks( console )) return true;
+    public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
+        if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
         NsIdentification identification = null;
         if( getParentPresenceConditions().getParentNS() != null ) {
@@ -1269,13 +1269,11 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
         }
         if( identification != null ) {
             if( isSetDescID() ) {
-                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( identification,
-                        getDescID() );
+                Doc doc = (( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( identification, getDescID() );
                 if( doc != null ) setRefersToDescDoc( doc );
             }
             if( isSetTitleID() ) {
-                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( identification,
-                        getTitleID() );
+                Doc doc = (( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( identification, getTitleID() );
                 if( doc != null ) setRefersToTitleDoc( doc );
             }
         }

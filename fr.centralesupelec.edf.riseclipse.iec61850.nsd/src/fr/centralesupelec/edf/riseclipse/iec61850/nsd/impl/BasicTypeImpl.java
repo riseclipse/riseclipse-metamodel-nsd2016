@@ -712,8 +712,8 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
     }
 
     @Override
-    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
-        if( super.buildExplicitLinks( console )) return true;
+    public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
+        if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
         if( isSetDescID() ) {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {

@@ -427,6 +427,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//NsdObject/explicitLinksBuilt"/>
       <genOperations ecoreOperation="nsd.ecore#//NsdObject/buildExplicitLinks">
         <genParameters ecoreParameter="nsd.ecore#//NsdObject/buildExplicitLinks/console"/>
+        <genParameters ecoreParameter="nsd.ecore#//NsdObject/buildExplicitLinks/forceUpdate"/>
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="nsd.ecore#//AgNSIdentification">

@@ -848,25 +848,26 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
      *   Enumeration.inheritedFrom          -> Enumeration.name
      */
     @Override
-    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
-        if( super.buildExplicitLinks( console )) return true;
+    public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
+        if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
+        String id = getNsIdentification().getId();
         NsdResourceSetImpl rs = getResourceSet();
         if( rs == null ) return false;
 
         String messagePrefix = "[NSD links] while resolving link from Enumeration (name: " + getName()
-            + ", location: " + getFilename() + ":" + getLineNumber() + "): ";
+                + ", NS id: " + id + ", line: " + getLineNumber() + "): ";
 
         if( isSetInheritedFrom() ) {
-            Enumeration foundBase = rs.findEnumeration( getInheritedFrom(), getNsIdentification(), true );
+            Enumeration foundBase = rs.findEnumeration( getInheritedFrom(), getNsIdentification(), console );
             if( foundBase == null ) {
                 console.warning( messagePrefix + "Enumeration (name: " + getInheritedFrom() + ") not found" );
             }
             else {
                 setRefersToBaseEnumeration( foundBase );
-                console.info( messagePrefix + "[NSD links] Enumeration (name: " + getInheritedFrom() + ") found in NS "
-                        + new NsIdentification( getRefersToBaseEnumeration().getParentEnumerations().getParentNS() )
-                        + "\"" );
+                console.info( "[NSD links] Enumeration (name: " + getInheritedFrom() + ") refers by Enumeration (name: "
+                        + getName() + ") in NS (id:" + id + ") found in NS (id:"
+                        + getRefersToBaseEnumeration().getParentEnumerations().getParentNS().getId() + ")" );
             }
         }
 

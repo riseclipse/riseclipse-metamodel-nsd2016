@@ -428,7 +428,7 @@ public class LiteralImpl extends DocumentedClassImpl implements Literal {
 
     @Override
     public NsIdentification getNsIdentification() {
-        return ( ( EnumerationImpl ) getParentEnumeration() ).getNsIdentification();
+        return (( EnumerationImpl ) getParentEnumeration() ).getNsIdentification();
     }
 
 } //LiteralImpl
