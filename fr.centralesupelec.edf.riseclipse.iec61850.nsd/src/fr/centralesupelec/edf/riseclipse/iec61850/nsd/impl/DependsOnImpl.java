@@ -908,22 +908,25 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
      *   DependsOn.id                       -> NS.id
      */
     @Override
-    public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
-        if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
+    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
+        if( super.buildExplicitLinks( console )) return true;
 
-        String messagePrefix = "[NSD links] while resolving link from DependsOn (NS id: "
-                + new NsIdentification( getParentNS() ) + ", line: " + getLineNumber() + "): ";
+        String messagePrefix = "[NSD links] while resolving link from DependsOn (location: "
+                + getFilename() + ":" + getLineNumber() + "): ";
 
         NsIdentification identification = new NsIdentification( getId(), getVersion(), getRevision(), getRelease() );
         NsdResourceSetImpl rs = getResourceSet();
         NS ns = rs.getNS( identification );
         if( ns == null ) {
-            console.warning( messagePrefix + "NS (id: " + identification + ") not found" );
+            console.warning( messagePrefix + "NS \"" + identification + "\" not found" );
         }
         else {
             setRefersToNS( ns );
-            console.info( "[NSD links] NS (id: " + identification + ") refers by DependsOn in NS (id:"
-                    + new NsIdentification( getParentNS() ) + ") found" );
+            if( ! ns.isExplicitLinksBuilt() ) {
+                console.verbose( "[NSD Links] Resolving links for file " + ns.getFilename() );
+                ns.buildExplicitLinks( console );
+            }
+            console.info( messagePrefix + "NS \"" + identification + "\" found" );
         }
         return false;
     }

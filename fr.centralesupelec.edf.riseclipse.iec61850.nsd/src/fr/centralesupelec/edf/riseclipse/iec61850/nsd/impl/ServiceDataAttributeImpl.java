@@ -2327,8 +2327,8 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
     }
 
     @Override
-    public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
-        if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
+    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
+        if( super.buildExplicitLinks( console )) return true;
 
         if( isSetPresCondArgsID() ) {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
@@ -2338,67 +2338,71 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                 if( doc != null ) setRefersToPresCondArgsDoc( doc );
             }
         }
-        
-        ServiceNS sns = getParentServiceCDC().getParentServiceCDCs().getParentServiceNS();
+
         NsdResourceSetImpl rs = getResourceSet();
         if( rs == null ) return false;
 
         String messagePrefix = "[NSD links] while resolving link from ServiceDataAttribute (name: " + getName()
-                             + ", ServiceNS id: " + sns.getId() + ", line: " + getLineNumber() + "): ";
+            + ", location: " + getFilename() + ":" + getLineNumber() + "): ";
 
         if( isSetUnderlyingTypeKind() ) {
             if( isSetUnderlyingType() ) {
                 switch( getUnderlyingTypeKind().getValue() ) {
                 case DefinedAttributeTypeKind.BASIC_VALUE:
-                    BasicType foundBT = rs.findBasicType( getUnderlyingType(), getNsIdentification(), console );
+                    BasicType foundBT = rs.findBasicType( getUnderlyingType(), getNsIdentification(), true );
 
                     if( foundBT == null ) {
                         console.warning( messagePrefix + "BasicType (name: " + getUnderlyingType() + ") not found" );
                     }
                     else {
                         setRefersToUnderlyingBasicType( foundBT );
-                        console.info( "[NSD links] BasicType (name: " + getUnderlyingType()
-                                + ") refers as type by ServiceDataAttribute (name: "
-                                + getName() + ") in ServiceNS (id:" + sns.getId() + ") found in NS (id:"
-                                + getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS().getId() + ")" );
+                        console.info( messagePrefix + "BasicType (name: " + getUnderlyingType() + ") found in NS \""
+                                + new NsIdentification(
+                                        getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS() )
+                                + "\"" );
                     }
                     break;
                 case DefinedAttributeTypeKind.CONSTRUCTED_VALUE:
-                    ConstructedAttribute foundCA = rs.findConstructedAttribute( getUnderlyingType(), getNsIdentification(),
-                            console );
+                    ConstructedAttribute foundCA = rs.findConstructedAttribute( getUnderlyingType(),
+                            getNsIdentification(), true );
 
                     if( foundCA == null ) {
-                        console.warning( messagePrefix + "ConstructedAttribute (name: " + getUnderlyingType() + ") not found" );
+                        console.warning(
+                                messagePrefix + "ConstructedAttribute (name: " + getUnderlyingType() + ") not found" );
                     }
                     else {
                         setRefersToUnderlyingConstructedAttribute( foundCA );
-                        String foundWhere = "(???";
+                        String foundWhere = "???";
                         if( getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes() != null ) {
-                            foundWhere = "NS (id:" + getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes()
-                                    .getParentNS().getId();
+                            foundWhere = "NS "
+                                    + new NsIdentification( getRefersToUnderlyingConstructedAttribute()
+                                            .getParentConstructedAttributes().getParentNS() )
+                                    + "\"";
                         }
-                        else if( getRefersToUnderlyingConstructedAttribute().getParentServiceTypeRealizations() != null ) {
-                            foundWhere = "ServiceNS (id:" + getRefersToUnderlyingConstructedAttribute()
-                                    .getParentServiceTypeRealizations().getParentServiceNS().getId();
+                        else if( getRefersToUnderlyingConstructedAttribute()
+                                .getParentServiceTypeRealizations() != null ) {
+                            foundWhere = "ServiceNS "
+                                    + new NsIdentification( getRefersToUnderlyingConstructedAttribute()
+                                            .getParentServiceTypeRealizations().getParentServiceNS() )
+                                    + "\"";
                         }
-                        console.info( "[NSD links] ConstructedAttribute (name: " + getUnderlyingType()
-                                + ") refers as type by ServiceDataAttribute (name: "
-                                + getName() + ") in ServiceNS (id:" + sns.getId() + ") found in "
-                                + foundWhere + ")" );
+                        console.info( messagePrefix + "ConstructedAttribute (name: " + getUnderlyingType()
+                                + ") found in " + foundWhere );
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
-                    Enumeration foundEn = rs.findEnumeration( getUnderlyingType(), getNsIdentification(), console );
+                    Enumeration foundEn = rs.findEnumeration( getUnderlyingType(), getNsIdentification(), true );
 
                     if( foundEn == null ) {
                         console.warning( messagePrefix + "Enumeration (name: " + getUnderlyingType() + ") not found" );
                     }
                     else {
                         setRefersToUnderlyingEnumeration( foundEn );
-                        console.info( "[NSD links] Enumeration (name: " + getUnderlyingType()
-                                + ") refers as type by ServiceDataAttribute (name: "
-                                + getName() + ") in ServiceNS (id:" + sns.getId() + ") found in NS (id:"
-                                + getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS().getId() + ")" );
+                        console.info( messagePrefix + "[NSD links] Enumeration (name: " + getUnderlyingType()
+                                + ") found in NS \""
+                                + new NsIdentification(
+                                        getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS() )
+                                + "\"" );
                     }
                     break;
                 }
@@ -2418,7 +2422,7 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
 
     @Override
     public DataAttribute toDataAttribute() {
-        DataAttribute dataAttribute = new DataAttributeImpl();
+        DataAttribute dataAttribute = NsdFactory.eINSTANCE.createDataAttribute();
         dataAttribute.setPresCond( getPresCond() );
         dataAttribute.setPresCondArgs( getPresCondArgs() );
         dataAttribute.setPresCondArgsID( getPresCondArgsID() );
