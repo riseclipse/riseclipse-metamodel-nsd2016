@@ -2667,54 +2667,57 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
      *   DataObject.dsPresCond              -> PresenceCondition.name
      */
     @Override
-    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
-        if( super.buildExplicitLinks( console )) return true;
+    public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
+        if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
+        String id = getNsIdentification().getId();
         NsdResourceSetImpl rs = getResourceSet();
         if( rs == null ) return false;
 
         String messagePrefix = "[NSD links] while resolving link from DataObject (name: " + getName()
-            + ", location: " + getFilename() + ":" + getLineNumber() + "): ";
+                + ", NS id: " + id + ", line: " + getLineNumber() + "): ";
 
         if( isSetType() ) {
-            CDC foundCDC = rs.findCDC( getType(), getNsIdentification(), true );
+            CDC foundCDC = rs.findCDC( getType(), getNsIdentification(), console );
 
             if( foundCDC == null ) {
                 console.warning( messagePrefix + "CDC (name: " + getType() + ") not found" );
             }
             else {
                 setRefersToCDC( foundCDC );
-                console.info( messagePrefix + "CDC (name: " + getType() + ") found in NS \""
-                        + new NsIdentification( getRefersToCDC().getParentCDCs().getParentNS() ) + "\"" );
+                console.info( "[NSD links] CDC (name: " + getType() + ") refers by DataObject (name: " + getName()
+                        + ") in NS (id:" + id + ") found in NS (id:"
+                        + getRefersToCDC().getParentCDCs().getParentNS().getId() + ")" );
             }
         }
 
         if( isSetPresCond() ) {
-            PresenceCondition foundPC = rs.findPresenceCondition( getPresCond(), getNsIdentification(), true );
+            PresenceCondition foundPC = rs.findPresenceCondition( getPresCond(), getNsIdentification(), console );
 
             if( foundPC == null ) {
                 console.warning( messagePrefix + "PresenceCondition (name: " + getPresCond() + ") not found" );
             }
             else {
                 setRefersToPresenceCondition( foundPC );
-                console.info( messagePrefix + "PresenceCondition (name: " + getPresCond() + ") found in NS \""
-                        + new NsIdentification(
-                                getRefersToPresenceCondition().getParentPresenceConditions().getParentNS() )
-                        + "\"" );
+                console.info( "[NSD links] PresenceCondition (name: " + getPresCond() + ") refers by DataObject (name: "
+                        + getName() + ") in NS (id:" + id + ") found in NS (id:"
+                        + getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId() + ")" );
             }
         }
 
         if( isSetDsPresCond() ) {
-            PresenceCondition foundPC = rs.findPresenceCondition( getDsPresCond(), getNsIdentification(), true );
+            PresenceCondition foundPC = rs.findPresenceCondition( getDsPresCond(), getNsIdentification(), console );
             if( foundPC == null ) {
                 console.warning( messagePrefix + "PresenceCondition (name: " + getDsPresCond() + ") not found" );
             }
             else {
                 setRefersToPresenceConditionDerivedStatistics( foundPC );
-                console.info( messagePrefix + "PresenceCondition (name: " + getDsPresCond() + ") found in NS \""
-                        + new NsIdentification( getRefersToPresenceConditionDerivedStatistics()
-                                .getParentPresenceConditions().getParentNS() )
-                        + "\"" );
+                console.info( "[NSD links] PresenceCondition (name: " + getDsPresCond()
+                        + ") refers by DataObject (name: "
+                        + getName() + ") in NS (id:" + id + ") found in NS (id:"
+                        + getRefersToPresenceConditionDerivedStatistics().getParentPresenceConditions().getParentNS()
+                                .getId()
+                        + ")" );
             }
         }
 
@@ -2733,64 +2736,60 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                 if( doc != null ) setRefersToDsPresCondArgsDoc( doc );
             }
         }
-
+        
         if( isSetUnderlyingTypeKind() ) {
             if( isSetUnderlyingType() ) {
                 switch( getUnderlyingTypeKind().getValue() ) {
                 case DefinedAttributeTypeKind.BASIC_VALUE:
-                    BasicType foundBT = rs.findBasicType( getUnderlyingType(), getNsIdentification(), true );
+                    BasicType foundBT = rs.findBasicType( getUnderlyingType(), getNsIdentification(), console );
 
                     if( foundBT == null ) {
                         console.warning( messagePrefix + "BasicType (name: " + getUnderlyingType() + ") not found" );
                     }
                     else {
                         setRefersToUnderlyingBasicType( foundBT );
-                        console.info( messagePrefix + "BasicType (name: " + getUnderlyingType() + ") found in NS \""
-                                + new NsIdentification(
-                                        getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS() )
-                                + "\"" );
+                        console.info( "[NSD links] BasicType (name: " + getUnderlyingType()
+                                + ") refers as type by DataObject (name: "
+                                + getName() + ") in NS (id:" + id + ") found in NS (id:"
+                                + getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS().getId() + ")" );
                     }
                     break;
                 case DefinedAttributeTypeKind.CONSTRUCTED_VALUE:
-                    ConstructedAttribute foundCA = rs.findConstructedAttribute( getUnderlyingType(),
-                            getNsIdentification(), true );
+                    ConstructedAttribute foundCA = rs.findConstructedAttribute( getUnderlyingType(), getNsIdentification(),
+                            console );
 
                     if( foundCA == null ) {
-                        console.warning(
-                                messagePrefix + "ConstructedAttribute (name: " + getUnderlyingType() + ") not found" );
+                        console.warning( messagePrefix + "ConstructedAttribute (name: " + getUnderlyingType() + ") not found" );
                     }
                     else {
                         setRefersToUnderlyingConstructedAttribute( foundCA );
-                        String foundWhere = "???";
+                        String foundWhere = "(???";
                         if( getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes() != null ) {
-                            foundWhere = "NS \""
-                                    + new NsIdentification( getRefersToUnderlyingConstructedAttribute()
-                                            .getParentConstructedAttributes().getParentNS() )
-                                    + "\"";
+                            foundWhere = "NS (id:" + getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes()
+                                    .getParentNS().getId();
                         }
-                        else if( getRefersToUnderlyingConstructedAttribute()
-                                .getParentServiceTypeRealizations() != null ) {
-                            foundWhere = "ServiceNS \""
-                                    + new NsIdentification( getRefersToUnderlyingConstructedAttribute()
-                                            .getParentServiceTypeRealizations().getParentServiceNS() )
-                                    + "\"";
+                        else if( getRefersToUnderlyingConstructedAttribute().getParentServiceTypeRealizations() != null ) {
+                            foundWhere = "ServiceNS (id:" + getRefersToUnderlyingConstructedAttribute()
+                                    .getParentServiceTypeRealizations().getParentServiceNS().getId();
                         }
-                        console.info( messagePrefix + "ConstructedAttribute (name: " + getUnderlyingType()
-                                + ") found in " + foundWhere );
+                        console.info( "[NSD links] ConstructedAttribute (name: " + getUnderlyingType()
+                                + ") refers as type by DataObject (name: "
+                                + getName() + ") in NS (id:" + id + ") found in "
+                                + foundWhere + ")" );
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
-                    Enumeration foundEn = rs.findEnumeration( getUnderlyingType(), getNsIdentification(), true );
+                    Enumeration foundEn = rs.findEnumeration( getUnderlyingType(), getNsIdentification(), console );
 
                     if( foundEn == null ) {
                         console.warning( messagePrefix + "Enumeration (name: " + getUnderlyingType() + ") not found" );
                     }
                     else {
                         setRefersToUnderlyingEnumeration( foundEn );
-                        console.info( messagePrefix + "Enumeration (name: " + getUnderlyingType() + ") found in NS \""
-                                + new NsIdentification(
-                                        getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS() )
-                                + "\"" );
+                        console.info( "[NSD links] Enumeration (name: " + getUnderlyingType()
+                                + ") refers as type by DataObject (name: "
+                                + getName() + ") in NS (id:" + id + ") found in NS (id:"
+                                + getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS().getId() + ")" );
                     }
                     break;
                 }
@@ -2805,7 +2804,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
 
     @Override
     public NsIdentification getNsIdentification() {
-        return ( ( AnyLNClassImpl ) getParentAnyLNClass() ).getNsIdentification();
+        return (( AnyLNClassImpl ) getParentAnyLNClass() ).getNsIdentification();
     }
 
 } //DataObjectImpl

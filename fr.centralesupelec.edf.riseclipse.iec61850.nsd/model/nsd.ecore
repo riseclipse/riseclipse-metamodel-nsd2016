@@ -1906,6 +1906,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="NsdObject" abstract="true">
     <eOperations name="buildExplicitLinks" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="console" eType="#//IRiseClipseConsole"/>
+      <eParameters name="forceUpdate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="lineNumber" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" transient="true"

@@ -102,7 +102,7 @@ public interface NsdObject extends EObject {
      * @model consoleType="fr.centralesupelec.edf.riseclipse.iec61850.nsd.IRiseClipseConsole"
      * @generated
      */
-    boolean buildExplicitLinks( IRiseClipseConsole console );
+    boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate );
 
     /*
      * @generated NOT
