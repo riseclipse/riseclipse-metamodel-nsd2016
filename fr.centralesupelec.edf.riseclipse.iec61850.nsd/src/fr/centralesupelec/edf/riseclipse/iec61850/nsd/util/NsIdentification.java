@@ -62,7 +62,8 @@ public class NsIdentification {
 
     @Override
     public int hashCode() {
-        return Objects.hash( id, release, revision, version );
+//        return Objects.hash( id, release, revision, version );
+        return Objects.hash( id, revision, version );
     }
 
     @Override
@@ -71,8 +72,11 @@ public class NsIdentification {
         if( obj == null ) return false;
         if( getClass() != obj.getClass() ) return false;
         NsIdentification other = ( NsIdentification ) obj;
-        return Objects.equals( id, other.id ) && Objects.equals( release, other.release )
-                && Objects.equals( revision, other.revision ) && Objects.equals( version, other.version );
+//        return Objects.equals( id, other.id ) && Objects.equals( release, other.release )
+//                && Objects.equals( revision, other.revision ) && Objects.equals( version, other.version );
+        return Objects.equals( id, other.id )
+            && Objects.equals( revision, other.revision )
+            && Objects.equals( version, other.version );
     }
 
     @Override
