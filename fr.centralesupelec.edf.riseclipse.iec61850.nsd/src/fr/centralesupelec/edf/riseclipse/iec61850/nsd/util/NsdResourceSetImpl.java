@@ -174,7 +174,8 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         if( appNS != null ) {
             for( ServiceNsUsage serviceNsUsage : appNS.getServiceNsUsage() ) {
                 NsIdentification serviceNsId = new NsIdentification( serviceNsUsage );
-                if( serviceNSResources.get( serviceNsId ) != null ) {
+                ServiceNS serviceNSResource = serviceNSResources.get( serviceNsId );
+                if( serviceNSResource != null ) {
                     for( AppliesToType applyTo : serviceNsUsage.getAppliesTo() ) {
                         NsIdentification nsId = new NsIdentification( applyTo );
                         setEquivalentNamespace( serviceNsId, nsId, console );
@@ -183,7 +184,8 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                             if( nsdAdditions.get( nsId ) == null ) {
                                 nsdAdditions.put( nsId, new ArrayList<>() );
                             }
-                            nsdAdditions.get( nsId ).add( serviceNSResources.get( serviceNsId ));
+                            nsdAdditions.get( nsId ).add( serviceNSResource );
+                            serviceNSResource.buildExplicitLinks( console, true );
                             applyServiceNs( serviceNSResources.get( serviceNsId ), nsdResources.get( nsId ), nsId, console );
                         }
                         else {
@@ -280,9 +282,9 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                 if( root.getNS() != null ) {
                     root.getNS().buildExplicitLinks( console, true );
                 }
-                if( root.getServiceNS() != null ) {
-                    root.getServiceNS().buildExplicitLinks( console, true );
-                }
+//                if( root.getServiceNS() != null ) {
+//                    root.getServiceNS().buildExplicitLinks( console, true );
+//                }
             }
         }
         
