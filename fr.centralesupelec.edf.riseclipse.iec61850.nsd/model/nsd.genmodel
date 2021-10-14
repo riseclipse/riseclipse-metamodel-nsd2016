@@ -5,7 +5,6 @@
     modelName="NSD" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     codeFormatting="true" importerID="org.eclipse.xsd.ecore.importer" complianceLevel="11.0"
     copyrightFields="false" operationReflection="true" importOrganizing="true" cleanup="true">
-  <foreignModel>file:/Users/marcadet/Documents/Contrats/EDF%20CIM/2018-19/NSD/IEC_61850-7-7/NSD.xsd</foreignModel>
   <genPackages prefix="Nsd" basePackage="fr.centralesupelec.edf.riseclipse.iec61850"
       resource="XML" disposableProviderFactory="true" fileExtensions="nsd,snsd,nsdoc"
       ecorePackage="nsd.ecore#/" documentation="">
