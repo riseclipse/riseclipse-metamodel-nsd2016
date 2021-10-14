@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -20,6 +20,9 @@
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
+import java.util.Map;
+
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -38,8 +41,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getLNClasses()
  * @model extendedMetaData="name='tLNClasses' kind='elementOnly'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='uniqueAbstractLNClass uniqueLNClass'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot uniqueAbstractLNClass='Tuple {\n\tmessage : String = \'Within an NS, there shall not be two AbstractLNClass sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.abstractLNClass-&gt;isUnique( c : AbstractLNClass | c.name )\n}.status' uniqueLNClass='Tuple {\n\tmessage : String = \'Within an NS, there shall not be two LNClass sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.lNClass-&gt;isUnique( c : LNClass | c.name )\n}.status'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='uniqueAbstractLNClass'"
  * @generated
  */
 public interface LNClasses extends NsdObject {
@@ -142,5 +144,21 @@ public interface LNClasses extends NsdObject {
      * @generated
      */
     void setParentNS( NS value );
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='Tuple {\n\tmessage : String = \'Within an NS, there shall not be two LNClass sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.lNClass-&gt;isUnique( c : LNClass | c.name )\n}.status'"
+     * @generated
+     */
+    boolean uniqueLNClass( DiagnosticChain diagnostics, Map< Object, Object > context );
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='Tuple {\n\tmessage : String = \'Within an NS, there shall not be two AbstractLNClass sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.abstractLNClass-&gt;isUnique( c : AbstractLNClass | c.name )\n}.status'"
+     * @generated
+     */
+    boolean uniqueAbstractLNClass( DiagnosticChain diagnostics, Map< Object, Object > context );
 
 } // LNClasses

@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -20,25 +20,40 @@
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
-
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.ocl.pivot.evaluation.Executor;
+import org.eclipse.ocl.pivot.ids.IdResolver;
+import org.eclipse.ocl.pivot.ids.TypeId;
+import org.eclipse.ocl.pivot.library.oclany.OclComparableLessThanEqualOperation;
+import org.eclipse.ocl.pivot.library.string.CGStringGetSeverityOperation;
+import org.eclipse.ocl.pivot.library.string.CGStringLogDiagnosticOperation;
+import org.eclipse.ocl.pivot.utilities.PivotUtil;
+import org.eclipse.ocl.pivot.utilities.ValueUtil;
+import org.eclipse.ocl.pivot.values.IntegerValue;
+import org.eclipse.ocl.pivot.values.OrderedSetValue;
+import org.eclipse.ocl.pivot.values.SetValue.Accumulator;
+import org.eclipse.ocl.pivot.values.TupleValue;
+
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
 
 /**
  * <!-- begin-user-doc -->
@@ -92,7 +107,7 @@ public class EnumerationsImpl extends NsdObjectImpl implements Enumerations {
     @Override
     public EList< Enumeration > getEnumeration() {
         if( enumeration == null ) {
-            enumeration = new EObjectContainmentWithInverseEList.Unsettable< Enumeration >( Enumeration.class, this,
+            enumeration = new EObjectContainmentWithInverseEList.Unsettable< >( Enumeration.class, this,
                     NsdPackage.ENUMERATIONS__ENUMERATION, NsdPackage.ENUMERATION__PARENT_ENUMERATIONS );
         }
         return enumeration;
@@ -162,6 +177,104 @@ public class EnumerationsImpl extends NsdObjectImpl implements Enumerations {
         else if( eNotificationRequired() )
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.ENUMERATIONS__PARENT_NS, newParentNS,
                     newParentNS ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean uniqueEnumeration( final DiagnosticChain diagnostics, final Map< Object, Object > context ) {
+        final String constraintName = "Enumerations::uniqueEnumeration";
+        try {
+            /**
+             *
+             * inv uniqueEnumeration:
+             *   let severity : Integer[1] = constraintName.getSeverity()
+             *   in
+             *     if severity <= 0
+             *     then true
+             *     else
+             *       let
+             *         result : OclAny[1] = let
+             *           status : Boolean[1] = self.enumeration->isUnique(e | e.name)
+             *         in
+             *           if status = true
+             *           then true
+             *           else
+             *             Tuple{message = 'Within an NS, there shall not be two Enumeration sub-elements with same name.', status = status
+             *             }
+             *           endif
+             *       in
+             *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
+             *     endif
+             */
+            final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this, context );
+            final /*@NonInvalid*/ IdResolver idResolver = executor.getIdResolver();
+            final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate( executor,
+                    NsdPackage.Literals.ENUMERATIONS___UNIQUE_ENUMERATION__DIAGNOSTICCHAIN_MAP );
+            final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
+                    .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
+            /*@NonInvalid*/ boolean symbol_2;
+            if( le ) {
+                symbol_2 = true;
+            }
+            else {
+                /*@Caught*/ Object CAUGHT_symbol_1;
+                try {
+                    final /*@NonInvalid*/ List< Enumeration > enumeration = this.getEnumeration();
+                    final /*@NonInvalid*/ OrderedSetValue BOXED_enumeration = idResolver
+                            .createOrderedSetOfAll( NsdTables.ORD_CLSSid_Enumeration, enumeration );
+                    /*@Thrown*/ Accumulator accumulator = ValueUtil
+                            .createSetAccumulatorValue( NsdTables.ORD_CLSSid_Enumeration );
+                    Iterator< Object > ITERATOR_e_0 = BOXED_enumeration.iterator();
+                    /*@Thrown*/ boolean status;
+                    while( true ) {
+                        if( !ITERATOR_e_0.hasNext() ) {
+                            status = true;
+                            break;
+                        }
+                        /*@NonInvalid*/ Enumeration e_0 = ( Enumeration ) ITERATOR_e_0.next();
+                        /**
+                         * e.name
+                         */
+                        final /*@NonInvalid*/ String name = e_0.getName();
+                        //
+                        if( accumulator.includes( name ) == ValueUtil.TRUE_VALUE ) {
+                            status = false;
+                            break; // Abort after second find
+                        }
+                        else {
+                            accumulator.add( name );
+                        }
+                    }
+                    /*@Thrown*/ Object symbol_1;
+                    if( status ) {
+                        symbol_1 = ValueUtil.TRUE_VALUE;
+                    }
+                    else {
+                        final /*@Thrown*/ TupleValue symbol_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                                NsdTables.STR_Within_32_an_32_NS_44_32_there_32_shall_32_not_32_be_32_two_32_Enumeration_32_sub_m_elements_32_wi,
+                                status );
+                        symbol_1 = symbol_0;
+                    }
+                    CAUGHT_symbol_1 = symbol_1;
+                }
+                catch( Exception e ) {
+                    CAUGHT_symbol_1 = ValueUtil.createInvalidValue( e );
+                }
+                final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
+                        .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
+                                context, ( Object ) null, severity_0, CAUGHT_symbol_1, NsdTables.INT_0 )
+                        .booleanValue();
+                symbol_2 = logDiagnostic;
+            }
+            return symbol_2;
+        }
+        catch( Throwable e ) {
+            return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
+        }
     }
 
     /**
@@ -282,6 +395,22 @@ public class EnumerationsImpl extends NsdObjectImpl implements Enumerations {
             return getParentNS() != null;
         }
         return super.eIsSet( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    @SuppressWarnings( "unchecked" )
+    public Object eInvoke( int operationID, EList< ? > arguments ) throws InvocationTargetException {
+        switch( operationID ) {
+        case NsdPackage.ENUMERATIONS___UNIQUE_ENUMERATION__DIAGNOSTICCHAIN_MAP:
+            return uniqueEnumeration( ( DiagnosticChain ) arguments.get( 0 ),
+                    ( Map< Object, Object > ) arguments.get( 1 ) );
+        }
+        return super.eInvoke( operationID, arguments );
     }
 
 } //EnumerationsImpl

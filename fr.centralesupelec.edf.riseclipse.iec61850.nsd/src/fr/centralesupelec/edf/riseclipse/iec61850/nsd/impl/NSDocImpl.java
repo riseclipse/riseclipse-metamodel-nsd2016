@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -20,28 +20,38 @@
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUML;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage;
-
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.Map;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.ocl.pivot.evaluation.Executor;
+import org.eclipse.ocl.pivot.ids.TypeId;
+import org.eclipse.ocl.pivot.library.oclany.OclComparableLessThanEqualOperation;
+import org.eclipse.ocl.pivot.library.string.CGStringGetSeverityOperation;
+import org.eclipse.ocl.pivot.library.string.CGStringLogDiagnosticOperation;
+import org.eclipse.ocl.pivot.utilities.PivotUtil;
+import org.eclipse.ocl.pivot.utilities.ValueUtil;
+import org.eclipse.ocl.pivot.values.IntegerValue;
+import org.eclipse.ocl.pivot.values.TupleValue;
+
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUML;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage;
 
 /**
  * <!-- begin-user-doc -->
@@ -73,7 +83,7 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
      * @generated
      * @ordered
      */
-    protected static final Integer RELEASE_EDEFAULT = new Integer( 1 );
+    protected static final Integer RELEASE_EDEFAULT = Integer.valueOf( 1 );
 
     /**
      * The cached value of the '{@link #getRelease() <em>Release</em>}' attribute.
@@ -334,7 +344,7 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
     @Override
     public EList< Doc > getDoc() {
         if( doc == null ) {
-            doc = new EObjectContainmentWithInverseEList.Unsettable< Doc >( Doc.class, this, NsdPackage.NS_DOC__DOC,
+            doc = new EObjectContainmentWithInverseEList.Unsettable< >( Doc.class, this, NsdPackage.NS_DOC__DOC,
                     NsdPackage.DOC__PARENT_NS_DOC );
         }
         return doc;
@@ -461,6 +471,200 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
     @Override
     public boolean isSetLang() {
         return langESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean langAttributeRequired( final DiagnosticChain diagnostics, final Map< Object, Object > context ) {
+        final String constraintName = "NSDoc::langAttributeRequired";
+        try {
+            /**
+             *
+             * inv langAttributeRequired:
+             *   let severity : Integer[1] = constraintName.getSeverity()
+             *   in
+             *     if severity <= 0
+             *     then true
+             *     else
+             *       let
+             *         result : OclAny[1] = let status : Boolean[1] = self.lang <> null
+             *         in
+             *           if status = true
+             *           then true
+             *           else
+             *             Tuple{message = 'The lang attribute is required', status = status
+             *             }
+             *           endif
+             *       in
+             *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
+             *     endif
+             */
+            final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this, context );
+            final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate( executor,
+                    NsdPackage.Literals.NS_DOC___LANG_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
+            final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
+                    .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
+            /*@NonInvalid*/ boolean symbol_2;
+            if( le ) {
+                symbol_2 = true;
+            }
+            else {
+                final /*@NonInvalid*/ String lang = this.getLang();
+                final /*@NonInvalid*/ boolean status = lang != null;
+                /*@NonInvalid*/ Object symbol_1;
+                if( status ) {
+                    symbol_1 = ValueUtil.TRUE_VALUE;
+                }
+                else {
+                    final /*@NonInvalid*/ TupleValue symbol_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                            NsdTables.STR_The_32_lang_32_attribute_32_is_32_required, status );
+                    symbol_1 = symbol_0;
+                }
+                final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
+                        .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
+                                context, ( Object ) null, severity_0, symbol_1, NsdTables.INT_0 )
+                        .booleanValue();
+                symbol_2 = logDiagnostic;
+            }
+            return symbol_2;
+        }
+        catch( Throwable e ) {
+            return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean idAttributeRequired( final DiagnosticChain diagnostics, final Map< Object, Object > context ) {
+        final String constraintName = "AgNSIdentification::idAttributeRequired";
+        try {
+            /**
+             *
+             * inv idAttributeRequired:
+             *   let severity : Integer[1] = constraintName.getSeverity()
+             *   in
+             *     if severity <= 0
+             *     then true
+             *     else
+             *       let
+             *         result : OclAny[1] = let status : Boolean[1] = self.id <> null
+             *         in
+             *           if status = true
+             *           then true
+             *           else
+             *             Tuple{message = 'The id attribute is required', status = status
+             *             }
+             *           endif
+             *       in
+             *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
+             *     endif
+             */
+            final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this, context );
+            final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate( executor,
+                    NsdPackage.Literals.AG_NS_IDENTIFICATION___ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
+            final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
+                    .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
+            /*@NonInvalid*/ boolean symbol_2;
+            if( le ) {
+                symbol_2 = true;
+            }
+            else {
+                final /*@NonInvalid*/ String id = this.getId();
+                final /*@NonInvalid*/ boolean status = id != null;
+                /*@NonInvalid*/ Object symbol_1;
+                if( status ) {
+                    symbol_1 = ValueUtil.TRUE_VALUE;
+                }
+                else {
+                    final /*@NonInvalid*/ TupleValue symbol_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                            NsdTables.STR_The_32_id_32_attribute_32_is_32_required, status );
+                    symbol_1 = symbol_0;
+                }
+                final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
+                        .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
+                                context, ( Object ) null, severity_0, symbol_1, NsdTables.INT_0 )
+                        .booleanValue();
+                symbol_2 = logDiagnostic;
+            }
+            return symbol_2;
+        }
+        catch( Throwable e ) {
+            return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean versionAttributeRequired( final DiagnosticChain diagnostics, final Map< Object, Object > context ) {
+        final String constraintName = "AgNSIdentification::versionAttributeRequired";
+        try {
+            /**
+             *
+             * inv versionAttributeRequired:
+             *   let severity : Integer[1] = constraintName.getSeverity()
+             *   in
+             *     if severity <= 0
+             *     then true
+             *     else
+             *       let
+             *         result : OclAny[1] = let status : Boolean[1] = self.version <> null
+             *         in
+             *           if status = true
+             *           then true
+             *           else
+             *             Tuple{message = 'The version attribute is required', status = status
+             *             }
+             *           endif
+             *       in
+             *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
+             *     endif
+             */
+            final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this, context );
+            final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate( executor,
+                    NsdPackage.Literals.AG_NS_IDENTIFICATION___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
+            final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
+                    .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
+            /*@NonInvalid*/ boolean symbol_2;
+            if( le ) {
+                symbol_2 = true;
+            }
+            else {
+                final /*@NonInvalid*/ Integer version = this.getVersion();
+                final /*@NonInvalid*/ IntegerValue BOXED_version = version == null ? null
+                        : ValueUtil.integerValueOf( version );
+                final /*@NonInvalid*/ boolean status = BOXED_version != null;
+                /*@NonInvalid*/ Object symbol_1;
+                if( status ) {
+                    symbol_1 = ValueUtil.TRUE_VALUE;
+                }
+                else {
+                    final /*@NonInvalid*/ TupleValue symbol_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                            NsdTables.STR_The_32_version_32_attribute_32_is_32_required, status );
+                    symbol_1 = symbol_0;
+                }
+                final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
+                        .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
+                                context, ( Object ) null, severity_0, symbol_1, NsdTables.INT_0 )
+                        .booleanValue();
+                symbol_2 = logDiagnostic;
+            }
+            return symbol_2;
+        }
+        catch( Throwable e ) {
+            return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
+        }
     }
 
     /**
@@ -1014,6 +1218,54 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
             }
         }
         return super.eDerivedStructuralFeatureID( baseFeatureID, baseClass );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public int eDerivedOperationID( int baseOperationID, Class< ? > baseClass ) {
+        if( baseClass == AgNSIdentification.class ) {
+            switch( baseOperationID ) {
+            case NsdPackage.AG_NS_IDENTIFICATION___ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP:
+                return NsdPackage.NS_DOC___ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP;
+            case NsdPackage.AG_NS_IDENTIFICATION___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP:
+                return NsdPackage.NS_DOC___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgUML.class ) {
+            switch( baseOperationID ) {
+            default:
+                return -1;
+            }
+        }
+        return super.eDerivedOperationID( baseOperationID, baseClass );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    @SuppressWarnings( "unchecked" )
+    public Object eInvoke( int operationID, EList< ? > arguments ) throws InvocationTargetException {
+        switch( operationID ) {
+        case NsdPackage.NS_DOC___LANG_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP:
+            return langAttributeRequired( ( DiagnosticChain ) arguments.get( 0 ),
+                    ( Map< Object, Object > ) arguments.get( 1 ) );
+        case NsdPackage.NS_DOC___ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP:
+            return idAttributeRequired( ( DiagnosticChain ) arguments.get( 0 ),
+                    ( Map< Object, Object > ) arguments.get( 1 ) );
+        case NsdPackage.NS_DOC___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP:
+            return versionAttributeRequired( ( DiagnosticChain ) arguments.get( 0 ),
+                    ( Map< Object, Object > ) arguments.get( 1 ) );
+        }
+        return super.eInvoke( operationID, arguments );
     }
 
     /**

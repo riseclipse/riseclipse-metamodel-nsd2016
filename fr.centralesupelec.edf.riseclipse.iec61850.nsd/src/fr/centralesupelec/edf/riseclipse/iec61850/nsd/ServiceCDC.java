@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -20,6 +20,9 @@
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
+import java.util.Map;
+
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -40,7 +43,6 @@ import org.eclipse.emf.common.util.EList;
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceCDC()
  * @model extendedMetaData="name='tServiceCDC' kind='elementOnly'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='cdcAttributeRequired'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot cdcAttributeRequired='Tuple {\n\tmessage : String = \'The cdc attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.cdc &lt;&gt; null\n}.status'"
  * @generated
  */
 public interface ServiceCDC extends NsdObject {
@@ -205,5 +207,13 @@ public interface ServiceCDC extends NsdObject {
      * @generated
      */
     void setParentServiceCDCs( ServiceCDCs value );
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='Tuple {\n\tmessage : String = \'The cdc attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.cdc &lt;&gt; null\n}.status'"
+     * @generated
+     */
+    boolean cdcAttributeRequired( DiagnosticChain diagnostics, Map< Object, Object > context );
 
 } // ServiceCDC

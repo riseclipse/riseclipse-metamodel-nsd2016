@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -20,25 +20,46 @@
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
-
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.ocl.pivot.StandardLibrary;
+import org.eclipse.ocl.pivot.evaluation.Executor;
+import org.eclipse.ocl.pivot.ids.IdResolver;
+import org.eclipse.ocl.pivot.ids.TypeId;
+import org.eclipse.ocl.pivot.internal.library.executor.ExecutorMultipleIterationManager;
+import org.eclipse.ocl.pivot.library.AbstractSimpleOperation;
+import org.eclipse.ocl.pivot.library.LibraryIteration.LibraryIterationExtension;
+import org.eclipse.ocl.pivot.library.oclany.OclComparableLessThanEqualOperation;
+import org.eclipse.ocl.pivot.library.string.CGStringGetSeverityOperation;
+import org.eclipse.ocl.pivot.library.string.CGStringLogDiagnosticOperation;
+import org.eclipse.ocl.pivot.oclstdlib.OCLstdlibTables;
+import org.eclipse.ocl.pivot.utilities.PivotUtil;
+import org.eclipse.ocl.pivot.utilities.ValueUtil;
+import org.eclipse.ocl.pivot.values.IntegerValue;
+import org.eclipse.ocl.pivot.values.InvalidValueException;
+import org.eclipse.ocl.pivot.values.SetValue;
+import org.eclipse.ocl.pivot.values.SetValue.Accumulator;
+import org.eclipse.ocl.pivot.values.TupleValue;
+
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
 
 /**
  * <!-- begin-user-doc -->
@@ -92,7 +113,7 @@ public class CDCsImpl extends NsdObjectImpl implements CDCs {
     @Override
     public EList< CDC > getCDC() {
         if( cDC == null ) {
-            cDC = new EObjectContainmentWithInverseEList.Unsettable< CDC >( CDC.class, this, NsdPackage.CD_CS__CDC,
+            cDC = new EObjectContainmentWithInverseEList.Unsettable< >( CDC.class, this, NsdPackage.CD_CS__CDC,
                     NsdPackage.CDC__PARENT_CD_CS );
         }
         return cDC;
@@ -161,6 +182,315 @@ public class CDCsImpl extends NsdObjectImpl implements CDCs {
         else if( eNotificationRequired() )
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CD_CS__PARENT_NS, newParentNS,
                     newParentNS ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean uniqueCDC( final DiagnosticChain diagnostics, final Map< Object, Object > context ) {
+        final String constraintName = "CDCs::uniqueCDC";
+        try {
+            /**
+             *
+             * inv uniqueCDC:
+             *   let severity : Integer[1] = constraintName.getSeverity()
+             *   in
+             *     if severity <= 0
+             *     then true
+             *     else
+             *       let
+             *         result : OclAny[1] = let
+             *           status : Boolean[?] = self.cDC->select(c | c.variant = null)
+             *           ->isUnique(c | c.name) or
+             *           self.cDC->select(c | c.variant <> null)
+             *           ->forAll(c1, c2 |
+             *             (c1 <> c2 implies c1.name <> c2.name or c1.variant <> c2.variant
+             *             ))
+             *         in
+             *           if status = true
+             *           then true
+             *           else
+             *             Tuple{message = 'Within an NS, there shall not be two CDC sub-elements with same name and (if defined) variant.', status = status
+             *             }
+             *           endif
+             *       in
+             *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
+             *     endif
+             */
+            final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this, context );
+            final /*@NonInvalid*/ IdResolver idResolver = executor.getIdResolver();
+            final /*@NonInvalid*/ StandardLibrary standardLibrary = idResolver.getStandardLibrary();
+            final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate( executor,
+                    NsdPackage.Literals.CD_CS___UNIQUE_CDC__DIAGNOSTICCHAIN_MAP );
+            final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
+                    .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
+            /*@NonInvalid*/ boolean symbol_8;
+            if( le ) {
+                symbol_8 = true;
+            }
+            else {
+                /*@Caught*/ Object CAUGHT_symbol_7;
+                try {
+                    /*@Caught*/ Object CAUGHT_isUnique;
+                    try {
+                        final /*@NonInvalid*/ List< CDC > cDC = this.getCDC();
+                        final /*@NonInvalid*/ SetValue BOXED_cDC = idResolver.createSetOfAll( NsdTables.SET_CLSSid_CDC,
+                                cDC );
+                        /*@Thrown*/ Accumulator accumulator = ValueUtil
+                                .createSetAccumulatorValue( NsdTables.SET_CLSSid_CDC );
+                        Iterator< Object > ITERATOR_c = BOXED_cDC.iterator();
+                        /*@NonInvalid*/ SetValue select;
+                        while( true ) {
+                            if( !ITERATOR_c.hasNext() ) {
+                                select = accumulator;
+                                break;
+                            }
+                            /*@NonInvalid*/ CDC c = ( CDC ) ITERATOR_c.next();
+                            /**
+                             * c.variant = null
+                             */
+                            final /*@NonInvalid*/ String variant = c.getVariant();
+                            final /*@NonInvalid*/ boolean eq = variant == null;
+                            //
+                            if( eq ) {
+                                accumulator.add( c );
+                            }
+                        }
+                        /*@Thrown*/ Accumulator accumulator_0 = ValueUtil
+                                .createSetAccumulatorValue( NsdTables.SET_CLSSid_CDC );
+                        Iterator< Object > ITERATOR_c_0 = select.iterator();
+                        /*@Thrown*/ boolean isUnique;
+                        while( true ) {
+                            if( !ITERATOR_c_0.hasNext() ) {
+                                isUnique = true;
+                                break;
+                            }
+                            /*@NonInvalid*/ CDC c_0 = ( CDC ) ITERATOR_c_0.next();
+                            /**
+                             * c.name
+                             */
+                            final /*@NonInvalid*/ String name = c_0.getName();
+                            //
+                            if( accumulator_0.includes( name ) == ValueUtil.TRUE_VALUE ) {
+                                isUnique = false;
+                                break; // Abort after second find
+                            }
+                            else {
+                                accumulator_0.add( name );
+                            }
+                        }
+                        CAUGHT_isUnique = isUnique;
+                    }
+                    catch( Exception e ) {
+                        CAUGHT_isUnique = ValueUtil.createInvalidValue( e );
+                    }
+                    final /*@Thrown*/ Boolean status;
+                    if( CAUGHT_isUnique == ValueUtil.TRUE_VALUE ) {
+                        status = ValueUtil.TRUE_VALUE;
+                    }
+                    else {
+                        /*@Caught*/ Object CAUGHT_forAll;
+                        try {
+                            final /*@NonInvalid*/ List< CDC > cDC_0 = this.getCDC();
+                            final /*@NonInvalid*/ SetValue BOXED_cDC_0 = idResolver
+                                    .createSetOfAll( NsdTables.SET_CLSSid_CDC, cDC_0 );
+                            /*@Thrown*/ Accumulator accumulator_1 = ValueUtil
+                                    .createSetAccumulatorValue( NsdTables.SET_CLSSid_CDC );
+                            Iterator< Object > ITERATOR_c_1 = BOXED_cDC_0.iterator();
+                            /*@NonInvalid*/ SetValue select_0;
+                            while( true ) {
+                                if( !ITERATOR_c_1.hasNext() ) {
+                                    select_0 = accumulator_1;
+                                    break;
+                                }
+                                /*@NonInvalid*/ CDC c_1 = ( CDC ) ITERATOR_c_1.next();
+                                /**
+                                 * c.variant <> null
+                                 */
+                                final /*@NonInvalid*/ String variant_0 = c_1.getVariant();
+                                final /*@NonInvalid*/ boolean ne = variant_0 != null;
+                                //
+                                if( ne ) {
+                                    accumulator_1.add( c_1 );
+                                }
+                            }
+                            final org.eclipse.ocl.pivot.Class TYPE_forAll_0 = executor.getStaticTypeOfValue( null,
+                                    select_0 );
+                            final LibraryIterationExtension IMPL_forAll_0 = ( LibraryIterationExtension ) TYPE_forAll_0
+                                    .lookupImplementation( standardLibrary,
+                                            OCLstdlibTables.Operations._Collection__0_forAll );
+                            final /*@NonNull*/ Object ACC_forAll_0 = IMPL_forAll_0.createAccumulatorValue( executor,
+                                    TypeId.BOOLEAN, TypeId.BOOLEAN );
+                            /**
+                             * Implementation of the iterator body.
+                             */
+                            final AbstractSimpleOperation BODY_forAll_0 = new AbstractSimpleOperation() {
+                                /**
+                                 * c1 <> c2 implies c1.name <> c2.name or c1.variant <> c2.variant
+                                 */
+                                @Override
+                                public /*@Nullable*/ Object evaluate( final Executor executor, final TypeId typeId,
+                                        final /*@Nullable*/ Object /*@NonNull*/ [] sourceAndArgumentValues ) {
+                                    final /*@NonInvalid*/ SetValue select_0 = ( SetValue ) sourceAndArgumentValues[0];
+                                    final /*@NonInvalid*/ Object c1 = sourceAndArgumentValues[1];
+                                    final /*@NonInvalid*/ Object c2 = sourceAndArgumentValues[2];
+                                    /*@Caught*/ Object CAUGHT_implies;
+                                    try {
+                                        final /*@NonInvalid*/ CDC symbol_0 = ( CDC ) c1;
+                                        final /*@NonInvalid*/ CDC symbol_1 = ( CDC ) c2;
+                                        final /*@NonInvalid*/ boolean ne_0 = ( symbol_0 != null )
+                                                ? !symbol_0.equals( symbol_1 )
+                                                : ( symbol_1 != null );
+                                        final /*@Thrown*/ Boolean implies;
+                                        if( !ne_0 ) {
+                                            implies = ValueUtil.TRUE_VALUE;
+                                        }
+                                        else {
+                                            /*@Caught*/ Object CAUGHT_or;
+                                            try {
+                                                /*@Caught*/ Object CAUGHT_ne_1;
+                                                try {
+                                                    if( symbol_0 == null ) {
+                                                        throw new InvalidValueException(
+                                                                "Null source for \'\'http://www.iec.ch/61850/2016/NSD\'::CDC::name\'" );
+                                                    }
+                                                    final /*@Thrown*/ String name_0 = symbol_0.getName();
+                                                    if( symbol_1 == null ) {
+                                                        throw new InvalidValueException(
+                                                                "Null source for \'\'http://www.iec.ch/61850/2016/NSD\'::CDC::name\'" );
+                                                    }
+                                                    final /*@Thrown*/ String name_1 = symbol_1.getName();
+                                                    final /*@Thrown*/ boolean ne_1 = ( name_0 != null )
+                                                            ? !name_0.equals( name_1 )
+                                                            : ( name_1 != null );
+                                                    CAUGHT_ne_1 = ne_1;
+                                                }
+                                                catch( Exception e ) {
+                                                    CAUGHT_ne_1 = ValueUtil.createInvalidValue( e );
+                                                }
+                                                final /*@Thrown*/ Boolean or;
+                                                if( CAUGHT_ne_1 == ValueUtil.TRUE_VALUE ) {
+                                                    or = ValueUtil.TRUE_VALUE;
+                                                }
+                                                else {
+                                                    /*@Caught*/ Object CAUGHT_ne_2;
+                                                    try {
+                                                        if( symbol_0 == null ) {
+                                                            throw new InvalidValueException(
+                                                                    "Null source for \'\'http://www.iec.ch/61850/2016/NSD\'::CDC::variant\'" );
+                                                        }
+                                                        final /*@Thrown*/ String variant_1 = symbol_0.getVariant();
+                                                        if( symbol_1 == null ) {
+                                                            throw new InvalidValueException(
+                                                                    "Null source for \'\'http://www.iec.ch/61850/2016/NSD\'::CDC::variant\'" );
+                                                        }
+                                                        final /*@Thrown*/ String variant_2 = symbol_1.getVariant();
+                                                        final /*@Thrown*/ boolean ne_2 = ( variant_1 != null )
+                                                                ? !variant_1.equals( variant_2 )
+                                                                : ( variant_2 != null );
+                                                        CAUGHT_ne_2 = ne_2;
+                                                    }
+                                                    catch( Exception e ) {
+                                                        CAUGHT_ne_2 = ValueUtil.createInvalidValue( e );
+                                                    }
+                                                    if( CAUGHT_ne_2 == ValueUtil.TRUE_VALUE ) {
+                                                        or = ValueUtil.TRUE_VALUE;
+                                                    }
+                                                    else {
+                                                        if( CAUGHT_ne_1 instanceof InvalidValueException ) {
+                                                            throw( InvalidValueException ) CAUGHT_ne_1;
+                                                        }
+                                                        if( CAUGHT_ne_2 instanceof InvalidValueException ) {
+                                                            throw( InvalidValueException ) CAUGHT_ne_2;
+                                                        }
+                                                        or = ValueUtil.FALSE_VALUE;
+                                                    }
+                                                }
+                                                CAUGHT_or = or;
+                                            }
+                                            catch( Exception e ) {
+                                                CAUGHT_or = ValueUtil.createInvalidValue( e );
+                                            }
+                                            if( CAUGHT_or == ValueUtil.TRUE_VALUE ) {
+                                                implies = ValueUtil.TRUE_VALUE;
+                                            }
+                                            else {
+                                                if( CAUGHT_or instanceof InvalidValueException ) {
+                                                    throw( InvalidValueException ) CAUGHT_or;
+                                                }
+                                                if( CAUGHT_or == null ) {
+                                                    implies = null;
+                                                }
+                                                else {
+                                                    implies = ValueUtil.FALSE_VALUE;
+                                                }
+                                            }
+                                        }
+                                        CAUGHT_implies = implies;
+                                    }
+                                    catch( Exception e ) {
+                                        CAUGHT_implies = ValueUtil.createInvalidValue( e );
+                                    }
+                                    return CAUGHT_implies;
+                                }
+                            };
+                            final ExecutorMultipleIterationManager MGR_forAll_0 = new ExecutorMultipleIterationManager(
+                                    executor, 2, TypeId.BOOLEAN, BODY_forAll_0, select_0, ACC_forAll_0 );
+                            final /*@Thrown*/ Boolean forAll = ( Boolean ) IMPL_forAll_0
+                                    .evaluateIteration( MGR_forAll_0 );
+                            CAUGHT_forAll = forAll;
+                        }
+                        catch( Exception e ) {
+                            CAUGHT_forAll = ValueUtil.createInvalidValue( e );
+                        }
+                        if( CAUGHT_forAll == ValueUtil.TRUE_VALUE ) {
+                            status = ValueUtil.TRUE_VALUE;
+                        }
+                        else {
+                            if( CAUGHT_isUnique instanceof InvalidValueException ) {
+                                throw( InvalidValueException ) CAUGHT_isUnique;
+                            }
+                            if( CAUGHT_forAll instanceof InvalidValueException ) {
+                                throw( InvalidValueException ) CAUGHT_forAll;
+                            }
+                            if( CAUGHT_forAll == null ) {
+                                status = null;
+                            }
+                            else {
+                                status = ValueUtil.FALSE_VALUE;
+                            }
+                        }
+                    }
+                    final /*@Thrown*/ boolean eq_0 = status == Boolean.TRUE;
+                    /*@Thrown*/ Object symbol_7;
+                    if( eq_0 ) {
+                        symbol_7 = ValueUtil.TRUE_VALUE;
+                    }
+                    else {
+                        final /*@Thrown*/ TupleValue symbol_6 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                                NsdTables.STR_Within_32_an_32_NS_44_32_there_32_shall_32_not_32_be_32_two_32_CDC_32_sub_m_elements_32_with_32_same_32,
+                                status );
+                        symbol_7 = symbol_6;
+                    }
+                    CAUGHT_symbol_7 = symbol_7;
+                }
+                catch( Exception e ) {
+                    CAUGHT_symbol_7 = ValueUtil.createInvalidValue( e );
+                }
+                final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
+                        .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
+                                context, ( Object ) null, severity_0, CAUGHT_symbol_7, NsdTables.INT_0 )
+                        .booleanValue();
+                symbol_8 = logDiagnostic;
+            }
+            return symbol_8;
+        }
+        catch( Throwable e ) {
+            return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
+        }
     }
 
     /**
@@ -280,6 +610,21 @@ public class CDCsImpl extends NsdObjectImpl implements CDCs {
             return getParentNS() != null;
         }
         return super.eIsSet( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    @SuppressWarnings( "unchecked" )
+    public Object eInvoke( int operationID, EList< ? > arguments ) throws InvocationTargetException {
+        switch( operationID ) {
+        case NsdPackage.CD_CS___UNIQUE_CDC__DIAGNOSTICCHAIN_MAP:
+            return uniqueCDC( ( DiagnosticChain ) arguments.get( 0 ), ( Map< Object, Object > ) arguments.get( 1 ) );
+        }
+        return super.eInvoke( operationID, arguments );
     }
 
 } //CDCsImpl

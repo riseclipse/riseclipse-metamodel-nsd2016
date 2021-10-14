@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -41,12 +41,11 @@ import org.eclipse.emf.ecore.EReference;
  * </ul>
  * <!-- end-user-doc -->
  * <!-- begin-model-doc -->
- * 
+ *
  * <!-- end-model-doc -->
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory
  * @model kind="package"
- *        annotation="http://www.eclipse.org/OCL/Import ecore='http://www.eclipse.org/emf/2002/Ecore' ecore.xml.type='http://www.eclipse.org/emf/2003/XMLType'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore"
  * @generated
  */
 public interface NsdPackage extends EPackage {
@@ -818,13 +817,31 @@ public interface NsdPackage extends EPackage {
     int APPLIES_TO_TYPE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Id Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int APPLIES_TO_TYPE___ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = NSD_OBJECT_OPERATION_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Version Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int APPLIES_TO_TYPE___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = NSD_OBJECT_OPERATION_COUNT + 1;
+
+    /**
      * The number of operations of the '<em>Applies To Type</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int APPLIES_TO_TYPE_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 0;
+    int APPLIES_TO_TYPE_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -926,13 +943,31 @@ public interface NsdPackage extends EPackage {
     int DEPENDS_ON___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Id Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DEPENDS_ON___ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = NSD_OBJECT_OPERATION_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Version Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DEPENDS_ON___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = NSD_OBJECT_OPERATION_COUNT + 1;
+
+    /**
      * The number of operations of the '<em>Depends On</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DEPENDS_ON_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 0;
+    int DEPENDS_ON_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Mixed</b></em>' attribute list.
@@ -1070,13 +1105,22 @@ public interface NsdPackage extends EPackage {
     int SERVICE_TYPE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Name Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_TYPE___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = NSD_OBJECT_OPERATION_COUNT + 0;
+
+    /**
      * The number of operations of the '<em>Service Type</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SERVICE_TYPE_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 0;
+    int SERVICE_TYPE_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -1151,13 +1195,22 @@ public interface NsdPackage extends EPackage {
     int ABBREVIATION___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Name Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABBREVIATION___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = NSD_OBJECT_OPERATION_COUNT + 0;
+
+    /**
      * The number of operations of the '<em>Abbreviation</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ABBREVIATION_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 0;
+    int ABBREVIATION_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -1223,13 +1276,22 @@ public interface NsdPackage extends EPackage {
     int ABBREVIATIONS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Unique Abbreviation</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABBREVIATIONS___UNIQUE_ABBREVIATION__DIAGNOSTICCHAIN_MAP = NSD_OBJECT_OPERATION_COUNT + 0;
+
+    /**
      * The number of operations of the '<em>Abbreviations</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ABBREVIATIONS_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 0;
+    int ABBREVIATIONS_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -1403,13 +1465,22 @@ public interface NsdPackage extends EPackage {
     int TITLED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = DOCUMENTED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Title ID Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TITLED_CLASS___TITLE_ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = DOCUMENTED_CLASS_OPERATION_COUNT + 0;
+
+    /**
      * The number of operations of the '<em>Titled Class</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int TITLED_CLASS_OPERATION_COUNT = DOCUMENTED_CLASS_OPERATION_COUNT + 0;
+    int TITLED_CLASS_OPERATION_COUNT = DOCUMENTED_CLASS_OPERATION_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -1529,6 +1600,15 @@ public interface NsdPackage extends EPackage {
     int ANY_LN_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = TITLED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Title ID Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ANY_LN_CLASS___TITLE_ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = TITLED_CLASS___TITLE_ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP;
+
+    /**
      * The operation id for the '<em>Get Name</em>' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1547,13 +1627,22 @@ public interface NsdPackage extends EPackage {
     int ANY_LN_CLASS___GET_PARENT_LN_CLASSES = TITLED_CLASS_OPERATION_COUNT + 1;
 
     /**
+     * The operation id for the '<em>Unique Data Object</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ANY_LN_CLASS___UNIQUE_DATA_OBJECT__DIAGNOSTICCHAIN_MAP = TITLED_CLASS_OPERATION_COUNT + 2;
+
+    /**
      * The number of operations of the '<em>Any LN Class</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ANY_LN_CLASS_OPERATION_COUNT = TITLED_CLASS_OPERATION_COUNT + 2;
+    int ANY_LN_CLASS_OPERATION_COUNT = TITLED_CLASS_OPERATION_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -1700,6 +1789,15 @@ public interface NsdPackage extends EPackage {
     int ABSTRACT_LN_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = ANY_LN_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Title ID Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_LN_CLASS___TITLE_ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = ANY_LN_CLASS___TITLE_ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP;
+
+    /**
      * The operation id for the '<em>Get Name</em>' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1718,13 +1816,31 @@ public interface NsdPackage extends EPackage {
     int ABSTRACT_LN_CLASS___GET_PARENT_LN_CLASSES = ANY_LN_CLASS___GET_PARENT_LN_CLASSES;
 
     /**
+     * The operation id for the '<em>Unique Data Object</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_LN_CLASS___UNIQUE_DATA_OBJECT__DIAGNOSTICCHAIN_MAP = ANY_LN_CLASS___UNIQUE_DATA_OBJECT__DIAGNOSTICCHAIN_MAP;
+
+    /**
+     * The operation id for the '<em>Name Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_LN_CLASS___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = ANY_LN_CLASS_OPERATION_COUNT + 0;
+
+    /**
      * The number of operations of the '<em>Abstract LN Class</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ABSTRACT_LN_CLASS_OPERATION_COUNT = ANY_LN_CLASS_OPERATION_COUNT + 0;
+    int ABSTRACT_LN_CLASS_OPERATION_COUNT = ANY_LN_CLASS_OPERATION_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -1853,13 +1969,31 @@ public interface NsdPackage extends EPackage {
     int APPLICABLE_SERVICE_NS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = COPYRIGHTED___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Version Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int APPLICABLE_SERVICE_NS___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = COPYRIGHTED_OPERATION_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Date Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int APPLICABLE_SERVICE_NS___DATE_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = COPYRIGHTED_OPERATION_COUNT + 1;
+
+    /**
      * The number of operations of the '<em>Applicable Service NS</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int APPLICABLE_SERVICE_NS_OPERATION_COUNT = COPYRIGHTED_OPERATION_COUNT + 0;
+    int APPLICABLE_SERVICE_NS_OPERATION_COUNT = COPYRIGHTED_OPERATION_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -1925,13 +2059,31 @@ public interface NsdPackage extends EPackage {
     int APPLICABLE_SERVICES___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Unique Data Set Member Of</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int APPLICABLE_SERVICES___UNIQUE_DATA_SET_MEMBER_OF__DIAGNOSTICCHAIN_MAP = NSD_OBJECT_OPERATION_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Unique Service</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int APPLICABLE_SERVICES___UNIQUE_SERVICE__DIAGNOSTICCHAIN_MAP = NSD_OBJECT_OPERATION_COUNT + 1;
+
+    /**
      * The number of operations of the '<em>Applicable Services</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int APPLICABLE_SERVICES_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 0;
+    int APPLICABLE_SERVICES_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -2024,13 +2176,22 @@ public interface NsdPackage extends EPackage {
     int BASIC_TYPE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Name Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BASIC_TYPE___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = NSD_OBJECT_OPERATION_COUNT + 0;
+
+    /**
      * The number of operations of the '<em>Basic Type</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int BASIC_TYPE_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 0;
+    int BASIC_TYPE_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -2285,13 +2446,40 @@ public interface NsdPackage extends EPackage {
     int CDC___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = TITLED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Title ID Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CDC___TITLE_ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = TITLED_CLASS___TITLE_ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP;
+
+    /**
+     * The operation id for the '<em>Unique CDC Child</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CDC___UNIQUE_CDC_CHILD__DIAGNOSTICCHAIN_MAP = TITLED_CLASS_OPERATION_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Name Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CDC___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = TITLED_CLASS_OPERATION_COUNT + 1;
+
+    /**
      * The number of operations of the '<em>CDC</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CDC_OPERATION_COUNT = TITLED_CLASS_OPERATION_COUNT + 0;
+    int CDC_OPERATION_COUNT = TITLED_CLASS_OPERATION_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -2348,13 +2536,22 @@ public interface NsdPackage extends EPackage {
     int CD_CS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Unique CDC</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CD_CS___UNIQUE_CDC__DIAGNOSTICCHAIN_MAP = NSD_OBJECT_OPERATION_COUNT + 0;
+
+    /**
      * The number of operations of the '<em>CD Cs</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CD_CS_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 0;
+    int CD_CS_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -2465,13 +2662,22 @@ public interface NsdPackage extends EPackage {
     int CHANGES___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Version Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGES___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = NSD_OBJECT_OPERATION_COUNT + 0;
+
+    /**
      * The number of operations of the '<em>Changes</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CHANGES_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 0;
+    int CHANGES_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -2618,13 +2824,40 @@ public interface NsdPackage extends EPackage {
     int CONSTRUCTED_ATTRIBUTE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = TITLED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Title ID Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONSTRUCTED_ATTRIBUTE___TITLE_ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = TITLED_CLASS___TITLE_ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP;
+
+    /**
+     * The operation id for the '<em>Unique Sub Data Attribute</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONSTRUCTED_ATTRIBUTE___UNIQUE_SUB_DATA_ATTRIBUTE__DIAGNOSTICCHAIN_MAP = TITLED_CLASS_OPERATION_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Name Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONSTRUCTED_ATTRIBUTE___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = TITLED_CLASS_OPERATION_COUNT + 1;
+
+    /**
      * The number of operations of the '<em>Constructed Attribute</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CONSTRUCTED_ATTRIBUTE_OPERATION_COUNT = TITLED_CLASS_OPERATION_COUNT + 0;
+    int CONSTRUCTED_ATTRIBUTE_OPERATION_COUNT = TITLED_CLASS_OPERATION_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -2681,13 +2914,22 @@ public interface NsdPackage extends EPackage {
     int CONSTRUCTED_ATTRIBUTES___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Unique Constructed Attribute</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONSTRUCTED_ATTRIBUTES___UNIQUE_CONSTRUCTED_ATTRIBUTE__DIAGNOSTICCHAIN_MAP = NSD_OBJECT_OPERATION_COUNT + 0;
+
+    /**
      * The number of operations of the '<em>Constructed Attributes</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CONSTRUCTED_ATTRIBUTES_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 0;
+    int CONSTRUCTED_ATTRIBUTES_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -3104,13 +3346,31 @@ public interface NsdPackage extends EPackage {
     int DATA_ATTRIBUTE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = DOCUMENTED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Name Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_ATTRIBUTE___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = DOCUMENTED_CLASS_OPERATION_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Fc Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_ATTRIBUTE___FC_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = DOCUMENTED_CLASS_OPERATION_COUNT + 1;
+
+    /**
      * The number of operations of the '<em>Data Attribute</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DATA_ATTRIBUTE_OPERATION_COUNT = DOCUMENTED_CLASS_OPERATION_COUNT + 0;
+    int DATA_ATTRIBUTE_OPERATION_COUNT = DOCUMENTED_CLASS_OPERATION_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -3365,13 +3625,31 @@ public interface NsdPackage extends EPackage {
     int DATA_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = DOCUMENTED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Name Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_OBJECT___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = DOCUMENTED_CLASS_OPERATION_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Type Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_OBJECT___TYPE_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = DOCUMENTED_CLASS_OPERATION_COUNT + 1;
+
+    /**
      * The number of operations of the '<em>Data Object</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DATA_OBJECT_OPERATION_COUNT = DOCUMENTED_CLASS_OPERATION_COUNT + 0;
+    int DATA_OBJECT_OPERATION_COUNT = DOCUMENTED_CLASS_OPERATION_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -3428,13 +3706,22 @@ public interface NsdPackage extends EPackage {
     int DATA_SET_MEMBER_OF___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Cb Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_SET_MEMBER_OF___CB_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = NSD_OBJECT_OPERATION_COUNT + 0;
+
+    /**
      * The number of operations of the '<em>Data Set Member Of</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DATA_SET_MEMBER_OF_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 0;
+    int DATA_SET_MEMBER_OF_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -3617,13 +3904,22 @@ public interface NsdPackage extends EPackage {
     int DOC___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Id Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DOC___ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = NSD_OBJECT_OPERATION_COUNT + 0;
+
+    /**
      * The number of operations of the '<em>Doc</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DOC_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 0;
+    int DOC_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -3788,13 +4084,49 @@ public interface NsdPackage extends EPackage {
     int ENUMERATION___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = TITLED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Title ID Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ENUMERATION___TITLE_ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = TITLED_CLASS___TITLE_ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP;
+
+    /**
+     * The operation id for the '<em>Unique Literal Name</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ENUMERATION___UNIQUE_LITERAL_NAME__DIAGNOSTICCHAIN_MAP = TITLED_CLASS_OPERATION_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Unique Literal Val</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ENUMERATION___UNIQUE_LITERAL_VAL__DIAGNOSTICCHAIN_MAP = TITLED_CLASS_OPERATION_COUNT + 1;
+
+    /**
+     * The operation id for the '<em>Name Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ENUMERATION___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = TITLED_CLASS_OPERATION_COUNT + 2;
+
+    /**
      * The number of operations of the '<em>Enumeration</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ENUMERATION_OPERATION_COUNT = TITLED_CLASS_OPERATION_COUNT + 0;
+    int ENUMERATION_OPERATION_COUNT = TITLED_CLASS_OPERATION_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -3851,13 +4183,22 @@ public interface NsdPackage extends EPackage {
     int ENUMERATIONS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Unique Enumeration</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ENUMERATIONS___UNIQUE_ENUMERATION__DIAGNOSTICCHAIN_MAP = NSD_OBJECT_OPERATION_COUNT + 0;
+
+    /**
      * The number of operations of the '<em>Enumerations</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ENUMERATIONS_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 0;
+    int ENUMERATIONS_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -3968,13 +4309,22 @@ public interface NsdPackage extends EPackage {
     int FUNCTIONAL_CONSTRAINT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Abbreviation Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FUNCTIONAL_CONSTRAINT___ABBREVIATION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = NSD_OBJECT_OPERATION_COUNT + 0;
+
+    /**
      * The number of operations of the '<em>Functional Constraint</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int FUNCTIONAL_CONSTRAINT_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 0;
+    int FUNCTIONAL_CONSTRAINT_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -4040,13 +4390,22 @@ public interface NsdPackage extends EPackage {
     int FUNCTIONAL_CONSTRAINTS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Unique Functional Constraint</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FUNCTIONAL_CONSTRAINTS___UNIQUE_FUNCTIONAL_CONSTRAINT__DIAGNOSTICCHAIN_MAP = NSD_OBJECT_OPERATION_COUNT + 0;
+
+    /**
      * The number of operations of the '<em>Functional Constraints</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int FUNCTIONAL_CONSTRAINTS_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 0;
+    int FUNCTIONAL_CONSTRAINTS_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -4229,13 +4588,31 @@ public interface NsdPackage extends EPackage {
     int LITERAL___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = DOCUMENTED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Name Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LITERAL___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = DOCUMENTED_CLASS_OPERATION_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Literal Val Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LITERAL___LITERAL_VAL_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = DOCUMENTED_CLASS_OPERATION_COUNT + 1;
+
+    /**
      * The number of operations of the '<em>Literal</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int LITERAL_OPERATION_COUNT = DOCUMENTED_CLASS_OPERATION_COUNT + 0;
+    int LITERAL_OPERATION_COUNT = DOCUMENTED_CLASS_OPERATION_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -4391,6 +4768,15 @@ public interface NsdPackage extends EPackage {
     int LN_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = ANY_LN_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Title ID Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LN_CLASS___TITLE_ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = ANY_LN_CLASS___TITLE_ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP;
+
+    /**
      * The operation id for the '<em>Get Name</em>' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4409,13 +4795,31 @@ public interface NsdPackage extends EPackage {
     int LN_CLASS___GET_PARENT_LN_CLASSES = ANY_LN_CLASS___GET_PARENT_LN_CLASSES;
 
     /**
+     * The operation id for the '<em>Unique Data Object</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LN_CLASS___UNIQUE_DATA_OBJECT__DIAGNOSTICCHAIN_MAP = ANY_LN_CLASS___UNIQUE_DATA_OBJECT__DIAGNOSTICCHAIN_MAP;
+
+    /**
+     * The operation id for the '<em>Name Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LN_CLASS___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = ANY_LN_CLASS_OPERATION_COUNT + 0;
+
+    /**
      * The number of operations of the '<em>LN Class</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int LN_CLASS_OPERATION_COUNT = ANY_LN_CLASS_OPERATION_COUNT + 0;
+    int LN_CLASS_OPERATION_COUNT = ANY_LN_CLASS_OPERATION_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -4481,13 +4885,31 @@ public interface NsdPackage extends EPackage {
     int LN_CLASSES___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Unique LN Class</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LN_CLASSES___UNIQUE_LN_CLASS__DIAGNOSTICCHAIN_MAP = NSD_OBJECT_OPERATION_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Unique Abstract LN Class</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LN_CLASSES___UNIQUE_ABSTRACT_LN_CLASS__DIAGNOSTICCHAIN_MAP = NSD_OBJECT_OPERATION_COUNT + 1;
+
+    /**
      * The number of operations of the '<em>LN Classes</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int LN_CLASSES_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 0;
+    int LN_CLASSES_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -4778,13 +5200,31 @@ public interface NsdPackage extends EPackage {
     int NS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = COPYRIGHTED___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Id Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NS___ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = COPYRIGHTED_OPERATION_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Version Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NS___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = COPYRIGHTED_OPERATION_COUNT + 1;
+
+    /**
      * The number of operations of the '<em>NS</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int NS_OPERATION_COUNT = COPYRIGHTED_OPERATION_COUNT + 0;
+    int NS_OPERATION_COUNT = COPYRIGHTED_OPERATION_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -4913,13 +5353,40 @@ public interface NsdPackage extends EPackage {
     int NS_DOC___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = COPYRIGHTED___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Id Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NS_DOC___ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = COPYRIGHTED_OPERATION_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Version Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NS_DOC___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = COPYRIGHTED_OPERATION_COUNT + 1;
+
+    /**
+     * The operation id for the '<em>Lang Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NS_DOC___LANG_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = COPYRIGHTED_OPERATION_COUNT + 2;
+
+    /**
      * The number of operations of the '<em>NS Doc</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int NS_DOC_OPERATION_COUNT = COPYRIGHTED_OPERATION_COUNT + 0;
+    int NS_DOC_OPERATION_COUNT = COPYRIGHTED_OPERATION_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -5066,13 +5533,22 @@ public interface NsdPackage extends EPackage {
     int PRESENCE_CONDITION___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Name Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PRESENCE_CONDITION___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = NSD_OBJECT_OPERATION_COUNT + 0;
+
+    /**
      * The number of operations of the '<em>Presence Condition</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PRESENCE_CONDITION_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 0;
+    int PRESENCE_CONDITION_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -5138,13 +5614,22 @@ public interface NsdPackage extends EPackage {
     int PRESENCE_CONDITIONS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Unique Presence Condition</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PRESENCE_CONDITIONS___UNIQUE_PRESENCE_CONDITION__DIAGNOSTICCHAIN_MAP = NSD_OBJECT_OPERATION_COUNT + 0;
+
+    /**
      * The number of operations of the '<em>Presence Conditions</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PRESENCE_CONDITIONS_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 0;
+    int PRESENCE_CONDITIONS_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -5219,13 +5704,22 @@ public interface NsdPackage extends EPackage {
     int SERVICE_CDC___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Cdc Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_CDC___CDC_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = NSD_OBJECT_OPERATION_COUNT + 0;
+
+    /**
      * The number of operations of the '<em>Service CDC</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SERVICE_CDC_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 0;
+    int SERVICE_CDC_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -5451,6 +5945,33 @@ public interface NsdPackage extends EPackage {
      * @ordered
      */
     int SERVICE_CONSTRUCTED_ATTRIBUTE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = CONSTRUCTED_ATTRIBUTE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
+
+    /**
+     * The operation id for the '<em>Title ID Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_CONSTRUCTED_ATTRIBUTE___TITLE_ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = CONSTRUCTED_ATTRIBUTE___TITLE_ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP;
+
+    /**
+     * The operation id for the '<em>Unique Sub Data Attribute</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_CONSTRUCTED_ATTRIBUTE___UNIQUE_SUB_DATA_ATTRIBUTE__DIAGNOSTICCHAIN_MAP = CONSTRUCTED_ATTRIBUTE___UNIQUE_SUB_DATA_ATTRIBUTE__DIAGNOSTICCHAIN_MAP;
+
+    /**
+     * The operation id for the '<em>Name Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_CONSTRUCTED_ATTRIBUTE___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = CONSTRUCTED_ATTRIBUTE___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP;
 
     /**
      * The number of operations of the '<em>Service Constructed Attribute</em>' class.
@@ -5750,13 +6271,31 @@ public interface NsdPackage extends EPackage {
     int SERVICE_DATA_ATTRIBUTE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = DOCUMENTED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Name Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_DATA_ATTRIBUTE___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = DOCUMENTED_CLASS_OPERATION_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Fc Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_DATA_ATTRIBUTE___FC_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = DOCUMENTED_CLASS_OPERATION_COUNT + 1;
+
+    /**
      * The number of operations of the '<em>Service Data Attribute</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SERVICE_DATA_ATTRIBUTE_OPERATION_COUNT = DOCUMENTED_CLASS_OPERATION_COUNT + 0;
+    int SERVICE_DATA_ATTRIBUTE_OPERATION_COUNT = DOCUMENTED_CLASS_OPERATION_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -5948,13 +6487,31 @@ public interface NsdPackage extends EPackage {
     int SERVICE_NS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = COPYRIGHTED___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Id Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_NS___ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = COPYRIGHTED_OPERATION_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Version Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_NS___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = COPYRIGHTED_OPERATION_COUNT + 1;
+
+    /**
      * The number of operations of the '<em>Service NS</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SERVICE_NS_OPERATION_COUNT = COPYRIGHTED_OPERATION_COUNT + 0;
+    int SERVICE_NS_OPERATION_COUNT = COPYRIGHTED_OPERATION_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -6056,13 +6613,31 @@ public interface NsdPackage extends EPackage {
     int SERVICE_NS_USAGE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Id Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_NS_USAGE___ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = NSD_OBJECT_OPERATION_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Version Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_NS_USAGE___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = NSD_OBJECT_OPERATION_COUNT + 1;
+
+    /**
      * The number of operations of the '<em>Service Ns Usage</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SERVICE_NS_USAGE_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 0;
+    int SERVICE_NS_USAGE_OPERATION_COUNT = NSD_OBJECT_OPERATION_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -6227,13 +6802,22 @@ public interface NsdPackage extends EPackage {
     int SERVICE_PARAMETER___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = DOCUMENTED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Name Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_PARAMETER___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = DOCUMENTED_CLASS_OPERATION_COUNT + 0;
+
+    /**
      * The number of operations of the '<em>Service Parameter</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SERVICE_PARAMETER_OPERATION_COUNT = DOCUMENTED_CLASS_OPERATION_COUNT + 0;
+    int SERVICE_PARAMETER_OPERATION_COUNT = DOCUMENTED_CLASS_OPERATION_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -6542,13 +7126,22 @@ public interface NsdPackage extends EPackage {
     int SUB_DATA_ATTRIBUTE___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = DOCUMENTED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Name Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SUB_DATA_ATTRIBUTE___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = DOCUMENTED_CLASS_OPERATION_COUNT + 0;
+
+    /**
      * The number of operations of the '<em>Sub Data Attribute</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SUB_DATA_ATTRIBUTE_OPERATION_COUNT = DOCUMENTED_CLASS_OPERATION_COUNT + 0;
+    int SUB_DATA_ATTRIBUTE_OPERATION_COUNT = DOCUMENTED_CLASS_OPERATION_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -6803,13 +7396,31 @@ public interface NsdPackage extends EPackage {
     int SUB_DATA_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN = DOCUMENTED_CLASS___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN;
 
     /**
+     * The operation id for the '<em>Name Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SUB_DATA_OBJECT___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = DOCUMENTED_CLASS_OPERATION_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Type Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SUB_DATA_OBJECT___TYPE_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = DOCUMENTED_CLASS_OPERATION_COUNT + 1;
+
+    /**
      * The number of operations of the '<em>Sub Data Object</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SUB_DATA_OBJECT_OPERATION_COUNT = DOCUMENTED_CLASS_OPERATION_COUNT + 0;
+    int SUB_DATA_OBJECT_OPERATION_COUNT = DOCUMENTED_CLASS_OPERATION_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Release</b></em>' attribute.
@@ -6866,13 +7477,31 @@ public interface NsdPackage extends EPackage {
     int AG_NS_IDENTIFICATION_FEATURE_COUNT = 5;
 
     /**
+     * The operation id for the '<em>Id Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AG_NS_IDENTIFICATION___ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = 0;
+
+    /**
+     * The operation id for the '<em>Version Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AG_NS_IDENTIFICATION___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = 1;
+
+    /**
      * The number of operations of the '<em>Ag NS Identification</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int AG_NS_IDENTIFICATION_OPERATION_COUNT = 0;
+    int AG_NS_IDENTIFICATION_OPERATION_COUNT = 2;
 
     /**
      * The feature id for the '<em><b>Pres Cond</b></em>' attribute.
@@ -7700,6 +8329,16 @@ public interface NsdPackage extends EPackage {
     EReference getServiceType_ParentApplicableServices();
 
     /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType#nameAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Name Attribute Required</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Name Attribute Required</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType#nameAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getServiceType__NameAttributeRequired__DiagnosticChain_Map();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation <em>Abbreviation</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7754,6 +8393,16 @@ public interface NsdPackage extends EPackage {
     EReference getAbbreviation_RefersToDoc();
 
     /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation#nameAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Name Attribute Required</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Name Attribute Required</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation#nameAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getAbbreviation__NameAttributeRequired__DiagnosticChain_Map();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations <em>Abbreviations</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7797,6 +8446,16 @@ public interface NsdPackage extends EPackage {
     EReference getAbbreviations_ParentServiceNS();
 
     /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations#uniqueAbbreviation(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Unique Abbreviation</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Unique Abbreviation</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations#uniqueAbbreviation(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getAbbreviations__UniqueAbbreviation__DiagnosticChain_Map();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass <em>Abstract LN Class</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7838,6 +8497,16 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EReference getAbstractLNClass_ReferredByAnyLNClass();
+
+    /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass#nameAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Name Attribute Required</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Name Attribute Required</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass#nameAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getAbstractLNClass__NameAttributeRequired__DiagnosticChain_Map();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass <em>Any LN Class</em>}'.
@@ -7903,6 +8572,16 @@ public interface NsdPackage extends EPackage {
     EOperation getAnyLNClass__GetParentLNClasses();
 
     /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass#uniqueDataObject(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Unique Data Object</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Unique Data Object</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass#uniqueDataObject(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getAnyLNClass__UniqueDataObject__DiagnosticChain_Map();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServiceNS <em>Applicable Service NS</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7946,6 +8625,26 @@ public interface NsdPackage extends EPackage {
     EAttribute getApplicableServiceNS_Version();
 
     /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServiceNS#versionAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Version Attribute Required</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Version Attribute Required</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServiceNS#versionAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getApplicableServiceNS__VersionAttributeRequired__DiagnosticChain_Map();
+
+    /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServiceNS#dateAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Date Attribute Required</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Date Attribute Required</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServiceNS#dateAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getApplicableServiceNS__DateAttributeRequired__DiagnosticChain_Map();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices <em>Applicable Services</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7987,6 +8686,26 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EReference getApplicableServices_ParentFunctionalConstraint();
+
+    /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices#uniqueDataSetMemberOf(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Unique Data Set Member Of</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Unique Data Set Member Of</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices#uniqueDataSetMemberOf(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getApplicableServices__UniqueDataSetMemberOf__DiagnosticChain_Map();
+
+    /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices#uniqueService(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Unique Service</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Unique Service</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices#uniqueService(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getApplicableServices__UniqueService__DiagnosticChain_Map();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType <em>Basic Type</em>}'.
@@ -8063,6 +8782,16 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EReference getBasicType_ReferredByUnderlyingType();
+
+    /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#nameAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Name Attribute Required</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Name Attribute Required</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#nameAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getBasicType__NameAttributeRequired__DiagnosticChain_Map();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes <em>Basic Types</em>}'.
@@ -8228,6 +8957,26 @@ public interface NsdPackage extends EPackage {
     EReference getCDC_ReferredBySubDataObject();
 
     /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#uniqueCDCChild(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Unique CDC Child</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Unique CDC Child</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#uniqueCDCChild(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getCDC__UniqueCDCChild__DiagnosticChain_Map();
+
+    /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#nameAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Name Attribute Required</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Name Attribute Required</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#nameAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getCDC__NameAttributeRequired__DiagnosticChain_Map();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs <em>CD Cs</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8258,6 +9007,16 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EReference getCDCs_ParentNS();
+
+    /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs#uniqueCDC(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Unique CDC</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Unique CDC</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs#uniqueCDC(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getCDCs__UniqueCDC__DiagnosticChain_Map();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes <em>Changes</em>}'.
@@ -8358,6 +9117,16 @@ public interface NsdPackage extends EPackage {
     EAttribute getChanges_Version();
 
     /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#versionAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Version Attribute Required</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Version Attribute Required</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#versionAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getChanges__VersionAttributeRequired__DiagnosticChain_Map();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute <em>Constructed Attribute</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8434,6 +9203,26 @@ public interface NsdPackage extends EPackage {
     EReference getConstructedAttribute_ReferredByUnderlyingType();
 
     /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#uniqueSubDataAttribute(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Unique Sub Data Attribute</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Unique Sub Data Attribute</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#uniqueSubDataAttribute(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getConstructedAttribute__UniqueSubDataAttribute__DiagnosticChain_Map();
+
+    /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#nameAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Name Attribute Required</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Name Attribute Required</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#nameAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getConstructedAttribute__NameAttributeRequired__DiagnosticChain_Map();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes <em>Constructed Attributes</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8464,6 +9253,16 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EReference getConstructedAttributes_ParentNS();
+
+    /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes#uniqueConstructedAttribute(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Unique Constructed Attribute</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Unique Constructed Attribute</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes#uniqueConstructedAttribute(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getConstructedAttributes__UniqueConstructedAttribute__DiagnosticChain_Map();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Copyrighted <em>Copyrighted</em>}'.
@@ -8661,6 +9460,26 @@ public interface NsdPackage extends EPackage {
     EReference getDataAttribute_ReferredByDataAttributeAsMaxIndexAttribute();
 
     /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#nameAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Name Attribute Required</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Name Attribute Required</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#nameAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getDataAttribute__NameAttributeRequired__DiagnosticChain_Map();
+
+    /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#fcAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Fc Attribute Required</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Fc Attribute Required</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#fcAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getDataAttribute__FcAttributeRequired__DiagnosticChain_Map();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject <em>Data Object</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8748,6 +9567,26 @@ public interface NsdPackage extends EPackage {
     EReference getDataObject_RefersToPresenceConditionDerivedStatistics();
 
     /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#nameAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Name Attribute Required</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Name Attribute Required</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#nameAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getDataObject__NameAttributeRequired__DiagnosticChain_Map();
+
+    /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#typeAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Type Attribute Required</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Type Attribute Required</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject#typeAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getDataObject__TypeAttributeRequired__DiagnosticChain_Map();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataSetMemberOf <em>Data Set Member Of</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8778,6 +9617,16 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EReference getDataSetMemberOf_ParentApplicableServices();
+
+    /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataSetMemberOf#cbAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Cb Attribute Required</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Cb Attribute Required</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataSetMemberOf#cbAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getDataSetMemberOf__CbAttributeRequired__DiagnosticChain_Map();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc <em>Doc</em>}'.
@@ -8966,6 +9815,16 @@ public interface NsdPackage extends EPackage {
     EReference getDoc_ReferredByPresenceConditionAsTitle();
 
     /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#idAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Id Attribute Required</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Id Attribute Required</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#idAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getDoc__IdAttributeRequired__DiagnosticChain_Map();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentedClass <em>Documented Class</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -9118,6 +9977,36 @@ public interface NsdPackage extends EPackage {
     EReference getEnumeration_ReferredByUnderlyingType();
 
     /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#uniqueLiteralName(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Unique Literal Name</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Unique Literal Name</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#uniqueLiteralName(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getEnumeration__UniqueLiteralName__DiagnosticChain_Map();
+
+    /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#uniqueLiteralVal(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Unique Literal Val</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Unique Literal Val</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#uniqueLiteralVal(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getEnumeration__UniqueLiteralVal__DiagnosticChain_Map();
+
+    /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#nameAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Name Attribute Required</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Name Attribute Required</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#nameAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getEnumeration__NameAttributeRequired__DiagnosticChain_Map();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations <em>Enumerations</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -9148,6 +10037,16 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EReference getEnumerations_ParentNS();
+
+    /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations#uniqueEnumeration(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Unique Enumeration</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Unique Enumeration</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations#uniqueEnumeration(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getEnumerations__UniqueEnumeration__DiagnosticChain_Map();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint <em>Functional Constraint</em>}'.
@@ -9248,6 +10147,16 @@ public interface NsdPackage extends EPackage {
     EReference getFunctionalConstraint_RefersToTitleDoc();
 
     /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#abbreviationAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Abbreviation Attribute Required</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Abbreviation Attribute Required</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#abbreviationAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getFunctionalConstraint__AbbreviationAttributeRequired__DiagnosticChain_Map();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints <em>Functional Constraints</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -9289,6 +10198,16 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EReference getFunctionalConstraints_ParentServiceNS();
+
+    /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints#uniqueFunctionalConstraint(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Unique Functional Constraint</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Unique Functional Constraint</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints#uniqueFunctionalConstraint(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getFunctionalConstraints__UniqueFunctionalConstraint__DiagnosticChain_Map();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.License <em>License</em>}'.
@@ -9388,6 +10307,26 @@ public interface NsdPackage extends EPackage {
     EReference getLiteral_ParentEnumeration();
 
     /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal#nameAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Name Attribute Required</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Name Attribute Required</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal#nameAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getLiteral__NameAttributeRequired__DiagnosticChain_Map();
+
+    /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal#literalValAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Literal Val Attribute Required</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Literal Val Attribute Required</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal#literalValAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getLiteral__LiteralValAttributeRequired__DiagnosticChain_Map();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass <em>LN Class</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -9442,6 +10381,16 @@ public interface NsdPackage extends EPackage {
     EReference getLNClass_ParentLNClasses();
 
     /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass#nameAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Name Attribute Required</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Name Attribute Required</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass#nameAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getLNClass__NameAttributeRequired__DiagnosticChain_Map();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses <em>LN Classes</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -9483,6 +10432,26 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EReference getLNClasses_ParentNS();
+
+    /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses#uniqueLNClass(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Unique LN Class</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Unique LN Class</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses#uniqueLNClass(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getLNClasses__UniqueLNClass__DiagnosticChain_Map();
+
+    /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses#uniqueAbstractLNClass(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Unique Abstract LN Class</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Unique Abstract LN Class</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses#uniqueAbstractLNClass(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getLNClasses__UniqueAbstractLNClass__DiagnosticChain_Map();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Notice <em>Notice</em>}'.
@@ -9680,6 +10649,16 @@ public interface NsdPackage extends EPackage {
     EAttribute getNSDoc_Lang();
 
     /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc#langAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Lang Attribute Required</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Lang Attribute Required</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc#langAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getNSDoc__LangAttributeRequired__DiagnosticChain_Map();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition <em>Presence Condition</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -9822,6 +10801,16 @@ public interface NsdPackage extends EPackage {
     EReference getPresenceCondition_RefersToTitleDoc();
 
     /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#nameAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Name Attribute Required</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Name Attribute Required</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#nameAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getPresenceCondition__NameAttributeRequired__DiagnosticChain_Map();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions <em>Presence Conditions</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -9863,6 +10852,16 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EReference getPresenceConditions_ParentServiceNS();
+
+    /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions#uniquePresenceCondition(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Unique Presence Condition</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Unique Presence Condition</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions#uniquePresenceCondition(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getPresenceConditions__UniquePresenceCondition__DiagnosticChain_Map();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC <em>Service CDC</em>}'.
@@ -9917,6 +10916,16 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EReference getServiceCDC_ParentServiceCDCs();
+
+    /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC#cdcAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Cdc Attribute Required</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Cdc Attribute Required</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC#cdcAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getServiceCDC__CdcAttributeRequired__DiagnosticChain_Map();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDCs <em>Service CD Cs</em>}'.
@@ -10056,6 +11065,26 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EReference getServiceDataAttribute_ParentServiceCDC();
+
+    /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute#nameAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Name Attribute Required</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Name Attribute Required</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute#nameAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getServiceDataAttribute__NameAttributeRequired__DiagnosticChain_Map();
+
+    /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute#fcAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Fc Attribute Required</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Fc Attribute Required</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute#fcAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getServiceDataAttribute__FcAttributeRequired__DiagnosticChain_Map();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS <em>Service NS</em>}'.
@@ -10209,6 +11238,16 @@ public interface NsdPackage extends EPackage {
     EReference getServiceParameter_ParentCDC();
 
     /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceParameter#nameAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Name Attribute Required</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Name Attribute Required</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceParameter#nameAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getServiceParameter__NameAttributeRequired__DiagnosticChain_Map();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations <em>Service Type Realizations</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -10282,6 +11321,16 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EReference getSubDataAttribute_RefersToPresenceCondition();
+
+    /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute#nameAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Name Attribute Required</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Name Attribute Required</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute#nameAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getSubDataAttribute__NameAttributeRequired__DiagnosticChain_Map();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject <em>Sub Data Object</em>}'.
@@ -10371,6 +11420,26 @@ public interface NsdPackage extends EPackage {
     EReference getSubDataObject_RefersToMaxIndexAttribute();
 
     /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#nameAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Name Attribute Required</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Name Attribute Required</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#nameAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getSubDataObject__NameAttributeRequired__DiagnosticChain_Map();
+
+    /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#typeAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Type Attribute Required</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Type Attribute Required</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject#typeAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getSubDataObject__TypeAttributeRequired__DiagnosticChain_Map();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TitledClass <em>Titled Class</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -10401,6 +11470,16 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EReference getTitledClass_RefersToTitleDoc();
+
+    /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.TitledClass#titleIDAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Title ID Attribute Required</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Title ID Attribute Required</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.TitledClass#titleIDAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getTitledClass__TitleIDAttributeRequired__DiagnosticChain_Map();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdObject <em>Object</em>}'.
@@ -10508,6 +11587,26 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EAttribute getAgNSIdentification_PublicationStage();
+
+    /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification#idAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Id Attribute Required</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Id Attribute Required</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification#idAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getAgNSIdentification__IdAttributeRequired__DiagnosticChain_Map();
+
+    /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification#versionAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Version Attribute Required</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Version Attribute Required</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification#versionAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getAgNSIdentification__VersionAttributeRequired__DiagnosticChain_Map();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceCondition <em>Ag Presence Condition</em>}'.
@@ -11266,6 +12365,15 @@ public interface NsdPackage extends EPackage {
         EReference SERVICE_TYPE__PARENT_APPLICABLE_SERVICES = eINSTANCE.getServiceType_ParentApplicableServices();
 
         /**
+         * The meta object literal for the '<em><b>Name Attribute Required</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation SERVICE_TYPE___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getServiceType__NameAttributeRequired__DiagnosticChain_Map();
+
+        /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AbbreviationImpl <em>Abbreviation</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -11308,6 +12416,15 @@ public interface NsdPackage extends EPackage {
         EReference ABBREVIATION__REFERS_TO_DOC = eINSTANCE.getAbbreviation_RefersToDoc();
 
         /**
+         * The meta object literal for the '<em><b>Name Attribute Required</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation ABBREVIATION___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getAbbreviation__NameAttributeRequired__DiagnosticChain_Map();
+
+        /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AbbreviationsImpl <em>Abbreviations</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -11342,6 +12459,15 @@ public interface NsdPackage extends EPackage {
         EReference ABBREVIATIONS__PARENT_SERVICE_NS = eINSTANCE.getAbbreviations_ParentServiceNS();
 
         /**
+         * The meta object literal for the '<em><b>Unique Abbreviation</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation ABBREVIATIONS___UNIQUE_ABBREVIATION__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getAbbreviations__UniqueAbbreviation__DiagnosticChain_Map();
+
+        /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AbstractLNClassImpl <em>Abstract LN Class</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -11374,6 +12500,15 @@ public interface NsdPackage extends EPackage {
          * @generated
          */
         EReference ABSTRACT_LN_CLASS__REFERRED_BY_ANY_LN_CLASS = eINSTANCE.getAbstractLNClass_ReferredByAnyLNClass();
+
+        /**
+         * The meta object literal for the '<em><b>Name Attribute Required</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation ABSTRACT_LN_CLASS___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getAbstractLNClass__NameAttributeRequired__DiagnosticChain_Map();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AnyLNClassImpl <em>Any LN Class</em>}' class.
@@ -11426,6 +12561,15 @@ public interface NsdPackage extends EPackage {
         EOperation ANY_LN_CLASS___GET_PARENT_LN_CLASSES = eINSTANCE.getAnyLNClass__GetParentLNClasses();
 
         /**
+         * The meta object literal for the '<em><b>Unique Data Object</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation ANY_LN_CLASS___UNIQUE_DATA_OBJECT__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getAnyLNClass__UniqueDataObject__DiagnosticChain_Map();
+
+        /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ApplicableServiceNSImpl <em>Applicable Service NS</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -11458,6 +12602,24 @@ public interface NsdPackage extends EPackage {
          * @generated
          */
         EAttribute APPLICABLE_SERVICE_NS__VERSION = eINSTANCE.getApplicableServiceNS_Version();
+
+        /**
+         * The meta object literal for the '<em><b>Version Attribute Required</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation APPLICABLE_SERVICE_NS___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getApplicableServiceNS__VersionAttributeRequired__DiagnosticChain_Map();
+
+        /**
+         * The meta object literal for the '<em><b>Date Attribute Required</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation APPLICABLE_SERVICE_NS___DATE_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getApplicableServiceNS__DateAttributeRequired__DiagnosticChain_Map();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ApplicableServicesImpl <em>Applicable Services</em>}' class.
@@ -11493,6 +12655,24 @@ public interface NsdPackage extends EPackage {
          */
         EReference APPLICABLE_SERVICES__PARENT_FUNCTIONAL_CONSTRAINT = eINSTANCE
                 .getApplicableServices_ParentFunctionalConstraint();
+
+        /**
+         * The meta object literal for the '<em><b>Unique Data Set Member Of</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation APPLICABLE_SERVICES___UNIQUE_DATA_SET_MEMBER_OF__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getApplicableServices__UniqueDataSetMemberOf__DiagnosticChain_Map();
+
+        /**
+         * The meta object literal for the '<em><b>Unique Service</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation APPLICABLE_SERVICES___UNIQUE_SERVICE__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getApplicableServices__UniqueService__DiagnosticChain_Map();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.BasicTypeImpl <em>Basic Type</em>}' class.
@@ -11551,6 +12731,15 @@ public interface NsdPackage extends EPackage {
          * @generated
          */
         EReference BASIC_TYPE__REFERRED_BY_UNDERLYING_TYPE = eINSTANCE.getBasicType_ReferredByUnderlyingType();
+
+        /**
+         * The meta object literal for the '<em><b>Name Attribute Required</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation BASIC_TYPE___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getBasicType__NameAttributeRequired__DiagnosticChain_Map();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.BasicTypesImpl <em>Basic Types</em>}' class.
@@ -11677,6 +12866,24 @@ public interface NsdPackage extends EPackage {
         EReference CDC__REFERRED_BY_SUB_DATA_OBJECT = eINSTANCE.getCDC_ReferredBySubDataObject();
 
         /**
+         * The meta object literal for the '<em><b>Unique CDC Child</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation CDC___UNIQUE_CDC_CHILD__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getCDC__UniqueCDCChild__DiagnosticChain_Map();
+
+        /**
+         * The meta object literal for the '<em><b>Name Attribute Required</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation CDC___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getCDC__NameAttributeRequired__DiagnosticChain_Map();
+
+        /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CDCsImpl <em>CD Cs</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -11701,6 +12908,14 @@ public interface NsdPackage extends EPackage {
          * @generated
          */
         EReference CD_CS__PARENT_NS = eINSTANCE.getCDCs_ParentNS();
+
+        /**
+         * The meta object literal for the '<em><b>Unique CDC</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation CD_CS___UNIQUE_CDC__DIAGNOSTICCHAIN_MAP = eINSTANCE.getCDCs__UniqueCDC__DiagnosticChain_Map();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ChangesImpl <em>Changes</em>}' class.
@@ -11777,6 +12992,15 @@ public interface NsdPackage extends EPackage {
         EAttribute CHANGES__VERSION = eINSTANCE.getChanges_Version();
 
         /**
+         * The meta object literal for the '<em><b>Version Attribute Required</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation CHANGES___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getChanges__VersionAttributeRequired__DiagnosticChain_Map();
+
+        /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ConstructedAttributeImpl <em>Constructed Attribute</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -11839,6 +13063,24 @@ public interface NsdPackage extends EPackage {
                 .getConstructedAttribute_ReferredByUnderlyingType();
 
         /**
+         * The meta object literal for the '<em><b>Unique Sub Data Attribute</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation CONSTRUCTED_ATTRIBUTE___UNIQUE_SUB_DATA_ATTRIBUTE__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getConstructedAttribute__UniqueSubDataAttribute__DiagnosticChain_Map();
+
+        /**
+         * The meta object literal for the '<em><b>Name Attribute Required</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation CONSTRUCTED_ATTRIBUTE___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getConstructedAttribute__NameAttributeRequired__DiagnosticChain_Map();
+
+        /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ConstructedAttributesImpl <em>Constructed Attributes</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -11864,6 +13106,15 @@ public interface NsdPackage extends EPackage {
          * @generated
          */
         EReference CONSTRUCTED_ATTRIBUTES__PARENT_NS = eINSTANCE.getConstructedAttributes_ParentNS();
+
+        /**
+         * The meta object literal for the '<em><b>Unique Constructed Attribute</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation CONSTRUCTED_ATTRIBUTES___UNIQUE_CONSTRUCTED_ATTRIBUTE__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getConstructedAttributes__UniqueConstructedAttribute__DiagnosticChain_Map();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CopyrightedImpl <em>Copyrighted</em>}' class.
@@ -12023,6 +13274,24 @@ public interface NsdPackage extends EPackage {
                 .getDataAttribute_ReferredByDataAttributeAsMaxIndexAttribute();
 
         /**
+         * The meta object literal for the '<em><b>Name Attribute Required</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation DATA_ATTRIBUTE___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getDataAttribute__NameAttributeRequired__DiagnosticChain_Map();
+
+        /**
+         * The meta object literal for the '<em><b>Fc Attribute Required</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation DATA_ATTRIBUTE___FC_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getDataAttribute__FcAttributeRequired__DiagnosticChain_Map();
+
+        /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl <em>Data Object</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -12090,6 +13359,24 @@ public interface NsdPackage extends EPackage {
                 .getDataObject_RefersToPresenceConditionDerivedStatistics();
 
         /**
+         * The meta object literal for the '<em><b>Name Attribute Required</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation DATA_OBJECT___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getDataObject__NameAttributeRequired__DiagnosticChain_Map();
+
+        /**
+         * The meta object literal for the '<em><b>Type Attribute Required</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation DATA_OBJECT___TYPE_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getDataObject__TypeAttributeRequired__DiagnosticChain_Map();
+
+        /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataSetMemberOfImpl <em>Data Set Member Of</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -12115,6 +13402,15 @@ public interface NsdPackage extends EPackage {
          */
         EReference DATA_SET_MEMBER_OF__PARENT_APPLICABLE_SERVICES = eINSTANCE
                 .getDataSetMemberOf_ParentApplicableServices();
+
+        /**
+         * The meta object literal for the '<em><b>Cb Attribute Required</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation DATA_SET_MEMBER_OF___CB_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getDataSetMemberOf__CbAttributeRequired__DiagnosticChain_Map();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DocImpl <em>Doc</em>}' class.
@@ -12258,6 +13554,15 @@ public interface NsdPackage extends EPackage {
         EReference DOC__REFERRED_BY_PRESENCE_CONDITION_AS_TITLE = eINSTANCE.getDoc_ReferredByPresenceConditionAsTitle();
 
         /**
+         * The meta object literal for the '<em><b>Id Attribute Required</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation DOC___ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getDoc__IdAttributeRequired__DiagnosticChain_Map();
+
+        /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DocumentedClassImpl <em>Documented Class</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -12375,6 +13680,33 @@ public interface NsdPackage extends EPackage {
         EReference ENUMERATION__REFERRED_BY_UNDERLYING_TYPE = eINSTANCE.getEnumeration_ReferredByUnderlyingType();
 
         /**
+         * The meta object literal for the '<em><b>Unique Literal Name</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation ENUMERATION___UNIQUE_LITERAL_NAME__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getEnumeration__UniqueLiteralName__DiagnosticChain_Map();
+
+        /**
+         * The meta object literal for the '<em><b>Unique Literal Val</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation ENUMERATION___UNIQUE_LITERAL_VAL__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getEnumeration__UniqueLiteralVal__DiagnosticChain_Map();
+
+        /**
+         * The meta object literal for the '<em><b>Name Attribute Required</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation ENUMERATION___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getEnumeration__NameAttributeRequired__DiagnosticChain_Map();
+
+        /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.EnumerationsImpl <em>Enumerations</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -12399,6 +13731,15 @@ public interface NsdPackage extends EPackage {
          * @generated
          */
         EReference ENUMERATIONS__PARENT_NS = eINSTANCE.getEnumerations_ParentNS();
+
+        /**
+         * The meta object literal for the '<em><b>Unique Enumeration</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation ENUMERATIONS___UNIQUE_ENUMERATION__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getEnumerations__UniqueEnumeration__DiagnosticChain_Map();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.FunctionalConstraintImpl <em>Functional Constraint</em>}' class.
@@ -12477,6 +13818,15 @@ public interface NsdPackage extends EPackage {
         EReference FUNCTIONAL_CONSTRAINT__REFERS_TO_TITLE_DOC = eINSTANCE.getFunctionalConstraint_RefersToTitleDoc();
 
         /**
+         * The meta object literal for the '<em><b>Abbreviation Attribute Required</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation FUNCTIONAL_CONSTRAINT___ABBREVIATION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getFunctionalConstraint__AbbreviationAttributeRequired__DiagnosticChain_Map();
+
+        /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.FunctionalConstraintsImpl <em>Functional Constraints</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -12510,6 +13860,15 @@ public interface NsdPackage extends EPackage {
          * @generated
          */
         EReference FUNCTIONAL_CONSTRAINTS__PARENT_SERVICE_NS = eINSTANCE.getFunctionalConstraints_ParentServiceNS();
+
+        /**
+         * The meta object literal for the '<em><b>Unique Functional Constraint</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation FUNCTIONAL_CONSTRAINTS___UNIQUE_FUNCTIONAL_CONSTRAINT__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getFunctionalConstraints__UniqueFunctionalConstraint__DiagnosticChain_Map();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.LicenseImpl <em>License</em>}' class.
@@ -12588,6 +13947,24 @@ public interface NsdPackage extends EPackage {
         EReference LITERAL__PARENT_ENUMERATION = eINSTANCE.getLiteral_ParentEnumeration();
 
         /**
+         * The meta object literal for the '<em><b>Name Attribute Required</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation LITERAL___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getLiteral__NameAttributeRequired__DiagnosticChain_Map();
+
+        /**
+         * The meta object literal for the '<em><b>Literal Val Attribute Required</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation LITERAL___LITERAL_VAL_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getLiteral__LiteralValAttributeRequired__DiagnosticChain_Map();
+
+        /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.LNClassImpl <em>LN Class</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -12630,6 +14007,15 @@ public interface NsdPackage extends EPackage {
         EReference LN_CLASS__PARENT_LN_CLASSES = eINSTANCE.getLNClass_ParentLNClasses();
 
         /**
+         * The meta object literal for the '<em><b>Name Attribute Required</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation LN_CLASS___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getLNClass__NameAttributeRequired__DiagnosticChain_Map();
+
+        /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.LNClassesImpl <em>LN Classes</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -12662,6 +14048,24 @@ public interface NsdPackage extends EPackage {
          * @generated
          */
         EReference LN_CLASSES__PARENT_NS = eINSTANCE.getLNClasses_ParentNS();
+
+        /**
+         * The meta object literal for the '<em><b>Unique LN Class</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation LN_CLASSES___UNIQUE_LN_CLASS__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getLNClasses__UniqueLNClass__DiagnosticChain_Map();
+
+        /**
+         * The meta object literal for the '<em><b>Unique Abstract LN Class</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation LN_CLASSES___UNIQUE_ABSTRACT_LN_CLASS__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getLNClasses__UniqueAbstractLNClass__DiagnosticChain_Map();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NoticeImpl <em>Notice</em>}' class.
@@ -12814,6 +14218,15 @@ public interface NsdPackage extends EPackage {
         EAttribute NS_DOC__LANG = eINSTANCE.getNSDoc_Lang();
 
         /**
+         * The meta object literal for the '<em><b>Lang Attribute Required</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation NS_DOC___LANG_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getNSDoc__LangAttributeRequired__DiagnosticChain_Map();
+
+        /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.PresenceConditionImpl <em>Presence Condition</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -12925,6 +14338,15 @@ public interface NsdPackage extends EPackage {
         EReference PRESENCE_CONDITION__REFERS_TO_TITLE_DOC = eINSTANCE.getPresenceCondition_RefersToTitleDoc();
 
         /**
+         * The meta object literal for the '<em><b>Name Attribute Required</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation PRESENCE_CONDITION___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getPresenceCondition__NameAttributeRequired__DiagnosticChain_Map();
+
+        /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.PresenceConditionsImpl <em>Presence Conditions</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -12957,6 +14379,15 @@ public interface NsdPackage extends EPackage {
          * @generated
          */
         EReference PRESENCE_CONDITIONS__PARENT_SERVICE_NS = eINSTANCE.getPresenceConditions_ParentServiceNS();
+
+        /**
+         * The meta object literal for the '<em><b>Unique Presence Condition</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation PRESENCE_CONDITIONS___UNIQUE_PRESENCE_CONDITION__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getPresenceConditions__UniquePresenceCondition__DiagnosticChain_Map();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceCDCImpl <em>Service CDC</em>}' class.
@@ -12999,6 +14430,15 @@ public interface NsdPackage extends EPackage {
          * @generated
          */
         EReference SERVICE_CDC__PARENT_SERVICE_CD_CS = eINSTANCE.getServiceCDC_ParentServiceCDCs();
+
+        /**
+         * The meta object literal for the '<em><b>Cdc Attribute Required</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation SERVICE_CDC___CDC_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getServiceCDC__CdcAttributeRequired__DiagnosticChain_Map();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceCDCsImpl <em>Service CD Cs</em>}' class.
@@ -13115,6 +14555,24 @@ public interface NsdPackage extends EPackage {
          * @generated
          */
         EReference SERVICE_DATA_ATTRIBUTE__PARENT_SERVICE_CDC = eINSTANCE.getServiceDataAttribute_ParentServiceCDC();
+
+        /**
+         * The meta object literal for the '<em><b>Name Attribute Required</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation SERVICE_DATA_ATTRIBUTE___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getServiceDataAttribute__NameAttributeRequired__DiagnosticChain_Map();
+
+        /**
+         * The meta object literal for the '<em><b>Fc Attribute Required</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation SERVICE_DATA_ATTRIBUTE___FC_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getServiceDataAttribute__FcAttributeRequired__DiagnosticChain_Map();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl <em>Service NS</em>}' class.
@@ -13236,6 +14694,15 @@ public interface NsdPackage extends EPackage {
         EReference SERVICE_PARAMETER__PARENT_CDC = eINSTANCE.getServiceParameter_ParentCDC();
 
         /**
+         * The meta object literal for the '<em><b>Name Attribute Required</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation SERVICE_PARAMETER___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getServiceParameter__NameAttributeRequired__DiagnosticChain_Map();
+
+        /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceTypeRealizationsImpl <em>Service Type Realizations</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -13298,6 +14765,15 @@ public interface NsdPackage extends EPackage {
          */
         EReference SUB_DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION = eINSTANCE
                 .getSubDataAttribute_RefersToPresenceCondition();
+
+        /**
+         * The meta object literal for the '<em><b>Name Attribute Required</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation SUB_DATA_ATTRIBUTE___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getSubDataAttribute__NameAttributeRequired__DiagnosticChain_Map();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl <em>Sub Data Object</em>}' class.
@@ -13368,6 +14844,24 @@ public interface NsdPackage extends EPackage {
                 .getSubDataObject_RefersToMaxIndexAttribute();
 
         /**
+         * The meta object literal for the '<em><b>Name Attribute Required</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation SUB_DATA_OBJECT___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getSubDataObject__NameAttributeRequired__DiagnosticChain_Map();
+
+        /**
+         * The meta object literal for the '<em><b>Type Attribute Required</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation SUB_DATA_OBJECT___TYPE_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getSubDataObject__TypeAttributeRequired__DiagnosticChain_Map();
+
+        /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.TitledClassImpl <em>Titled Class</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -13392,6 +14886,15 @@ public interface NsdPackage extends EPackage {
          * @generated
          */
         EReference TITLED_CLASS__REFERS_TO_TITLE_DOC = eINSTANCE.getTitledClass_RefersToTitleDoc();
+
+        /**
+         * The meta object literal for the '<em><b>Title ID Attribute Required</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation TITLED_CLASS___TITLE_ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getTitledClass__TitleIDAttributeRequired__DiagnosticChain_Map();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdObjectImpl <em>Object</em>}' class.
@@ -13477,6 +14980,24 @@ public interface NsdPackage extends EPackage {
          * @generated
          */
         EAttribute AG_NS_IDENTIFICATION__PUBLICATION_STAGE = eINSTANCE.getAgNSIdentification_PublicationStage();
+
+        /**
+         * The meta object literal for the '<em><b>Id Attribute Required</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation AG_NS_IDENTIFICATION___ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getAgNSIdentification__IdAttributeRequired__DiagnosticChain_Map();
+
+        /**
+         * The meta object literal for the '<em><b>Version Attribute Required</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation AG_NS_IDENTIFICATION___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getAgNSIdentification__VersionAttributeRequired__DiagnosticChain_Map();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AgPresenceConditionImpl <em>Ag Presence Condition</em>}' class.

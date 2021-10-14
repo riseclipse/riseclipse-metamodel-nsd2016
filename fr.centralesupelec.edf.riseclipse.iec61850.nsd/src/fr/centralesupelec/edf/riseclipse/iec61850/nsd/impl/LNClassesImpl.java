@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -20,26 +20,41 @@
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
+import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.ocl.pivot.evaluation.Executor;
+import org.eclipse.ocl.pivot.ids.IdResolver;
+import org.eclipse.ocl.pivot.ids.TypeId;
+import org.eclipse.ocl.pivot.library.oclany.OclComparableLessThanEqualOperation;
+import org.eclipse.ocl.pivot.library.string.CGStringGetSeverityOperation;
+import org.eclipse.ocl.pivot.library.string.CGStringLogDiagnosticOperation;
+import org.eclipse.ocl.pivot.utilities.PivotUtil;
+import org.eclipse.ocl.pivot.utilities.ValueUtil;
+import org.eclipse.ocl.pivot.values.IntegerValue;
+import org.eclipse.ocl.pivot.values.SetValue;
+import org.eclipse.ocl.pivot.values.SetValue.Accumulator;
+import org.eclipse.ocl.pivot.values.TupleValue;
+
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
-
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.InternalEList;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
 
 /**
  * <!-- begin-user-doc -->
@@ -104,7 +119,7 @@ public class LNClassesImpl extends NsdObjectImpl implements LNClasses {
     @Override
     public EList< AbstractLNClass > getAbstractLNClass() {
         if( abstractLNClass == null ) {
-            abstractLNClass = new EObjectContainmentWithInverseEList.Unsettable< AbstractLNClass >(
+            abstractLNClass = new EObjectContainmentWithInverseEList.Unsettable< >(
                     AbstractLNClass.class, this, NsdPackage.LN_CLASSES__ABSTRACT_LN_CLASS,
                     NsdPackage.ABSTRACT_LN_CLASS__PARENT_LN_CLASSES );
         }
@@ -139,7 +154,7 @@ public class LNClassesImpl extends NsdObjectImpl implements LNClasses {
     @Override
     public EList< LNClass > getLNClass() {
         if( lNClass == null ) {
-            lNClass = new EObjectContainmentWithInverseEList.Unsettable< LNClass >( LNClass.class, this,
+            lNClass = new EObjectContainmentWithInverseEList.Unsettable< >( LNClass.class, this,
                     NsdPackage.LN_CLASSES__LN_CLASS, NsdPackage.LN_CLASS__PARENT_LN_CLASSES );
         }
         return lNClass;
@@ -209,6 +224,202 @@ public class LNClassesImpl extends NsdObjectImpl implements LNClasses {
         else if( eNotificationRequired() )
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.LN_CLASSES__PARENT_NS, newParentNS,
                     newParentNS ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean uniqueLNClass( final DiagnosticChain diagnostics, final Map< Object, Object > context ) {
+        final String constraintName = "LNClasses::uniqueLNClass";
+        try {
+            /**
+             *
+             * inv uniqueLNClass:
+             *   let severity : Integer[1] = constraintName.getSeverity()
+             *   in
+             *     if severity <= 0
+             *     then true
+             *     else
+             *       let
+             *         result : OclAny[1] = let
+             *           status : Boolean[1] = self.lNClass->isUnique(c | c.name)
+             *         in
+             *           if status = true
+             *           then true
+             *           else
+             *             Tuple{message = 'Within an NS, there shall not be two LNClass sub-elements with same name.', status = status
+             *             }
+             *           endif
+             *       in
+             *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
+             *     endif
+             */
+            final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this, context );
+            final /*@NonInvalid*/ IdResolver idResolver = executor.getIdResolver();
+            final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate( executor,
+                    NsdPackage.Literals.LN_CLASSES___UNIQUE_LN_CLASS__DIAGNOSTICCHAIN_MAP );
+            final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
+                    .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
+            /*@NonInvalid*/ boolean symbol_2;
+            if( le ) {
+                symbol_2 = true;
+            }
+            else {
+                /*@Caught*/ Object CAUGHT_symbol_1;
+                try {
+                    final /*@NonInvalid*/ List< LNClass > lNClass = this.getLNClass();
+                    final /*@NonInvalid*/ SetValue BOXED_lNClass = idResolver
+                            .createSetOfAll( NsdTables.SET_CLSSid_LNClass, lNClass );
+                    /*@Thrown*/ Accumulator accumulator = ValueUtil
+                            .createSetAccumulatorValue( NsdTables.SET_CLSSid_LNClass );
+                    Iterator< Object > ITERATOR_c = BOXED_lNClass.iterator();
+                    /*@Thrown*/ boolean status;
+                    while( true ) {
+                        if( !ITERATOR_c.hasNext() ) {
+                            status = true;
+                            break;
+                        }
+                        /*@NonInvalid*/ LNClass c = ( LNClass ) ITERATOR_c.next();
+                        /**
+                         * c.name
+                         */
+                        final /*@NonInvalid*/ String name = c.getName();
+                        //
+                        if( accumulator.includes( name ) == ValueUtil.TRUE_VALUE ) {
+                            status = false;
+                            break; // Abort after second find
+                        }
+                        else {
+                            accumulator.add( name );
+                        }
+                    }
+                    /*@Thrown*/ Object symbol_1;
+                    if( status ) {
+                        symbol_1 = ValueUtil.TRUE_VALUE;
+                    }
+                    else {
+                        final /*@Thrown*/ TupleValue symbol_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                                NsdTables.STR_Within_32_an_32_NS_44_32_there_32_shall_32_not_32_be_32_two_32_LNClass_32_sub_m_elements_32_with_32_s,
+                                status );
+                        symbol_1 = symbol_0;
+                    }
+                    CAUGHT_symbol_1 = symbol_1;
+                }
+                catch( Exception e ) {
+                    CAUGHT_symbol_1 = ValueUtil.createInvalidValue( e );
+                }
+                final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
+                        .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
+                                context, ( Object ) null, severity_0, CAUGHT_symbol_1, NsdTables.INT_0 )
+                        .booleanValue();
+                symbol_2 = logDiagnostic;
+            }
+            return symbol_2;
+        }
+        catch( Throwable e ) {
+            return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean uniqueAbstractLNClass( final DiagnosticChain diagnostics, final Map< Object, Object > context ) {
+        final String constraintName = "LNClasses::uniqueAbstractLNClass";
+        try {
+            /**
+             *
+             * inv uniqueAbstractLNClass:
+             *   let severity : Integer[1] = constraintName.getSeverity()
+             *   in
+             *     if severity <= 0
+             *     then true
+             *     else
+             *       let
+             *         result : OclAny[1] = let
+             *           status : Boolean[1] = self.abstractLNClass->isUnique(c | c.name)
+             *         in
+             *           if status = true
+             *           then true
+             *           else
+             *             Tuple{message = 'Within an NS, there shall not be two AbstractLNClass sub-elements with same name.', status = status
+             *             }
+             *           endif
+             *       in
+             *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
+             *     endif
+             */
+            final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this, context );
+            final /*@NonInvalid*/ IdResolver idResolver = executor.getIdResolver();
+            final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate( executor,
+                    NsdPackage.Literals.LN_CLASSES___UNIQUE_ABSTRACT_LN_CLASS__DIAGNOSTICCHAIN_MAP );
+            final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
+                    .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
+            /*@NonInvalid*/ boolean symbol_2;
+            if( le ) {
+                symbol_2 = true;
+            }
+            else {
+                /*@Caught*/ Object CAUGHT_symbol_1;
+                try {
+                    final /*@NonInvalid*/ List< AbstractLNClass > abstractLNClass = this.getAbstractLNClass();
+                    final /*@NonInvalid*/ SetValue BOXED_abstractLNClass = idResolver
+                            .createSetOfAll( NsdTables.SET_CLSSid_AbstractLNClass, abstractLNClass );
+                    /*@Thrown*/ Accumulator accumulator = ValueUtil
+                            .createSetAccumulatorValue( NsdTables.SET_CLSSid_AbstractLNClass );
+                    Iterator< Object > ITERATOR_c = BOXED_abstractLNClass.iterator();
+                    /*@Thrown*/ boolean status;
+                    while( true ) {
+                        if( !ITERATOR_c.hasNext() ) {
+                            status = true;
+                            break;
+                        }
+                        /*@NonInvalid*/ AbstractLNClass c = ( AbstractLNClass ) ITERATOR_c.next();
+                        /**
+                         * c.name
+                         */
+                        final /*@NonInvalid*/ String name = c.getName();
+                        //
+                        if( accumulator.includes( name ) == ValueUtil.TRUE_VALUE ) {
+                            status = false;
+                            break; // Abort after second find
+                        }
+                        else {
+                            accumulator.add( name );
+                        }
+                    }
+                    /*@Thrown*/ Object symbol_1;
+                    if( status ) {
+                        symbol_1 = ValueUtil.TRUE_VALUE;
+                    }
+                    else {
+                        final /*@Thrown*/ TupleValue symbol_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                                NsdTables.STR_Within_32_an_32_NS_44_32_there_32_shall_32_not_32_be_32_two_32_AbstractLNClass_32_sub_m_element,
+                                status );
+                        symbol_1 = symbol_0;
+                    }
+                    CAUGHT_symbol_1 = symbol_1;
+                }
+                catch( Exception e ) {
+                    CAUGHT_symbol_1 = ValueUtil.createInvalidValue( e );
+                }
+                final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
+                        .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
+                                context, ( Object ) null, severity_0, CAUGHT_symbol_1, NsdTables.INT_0 )
+                        .booleanValue();
+                symbol_2 = logDiagnostic;
+            }
+            return symbol_2;
+        }
+        catch( Throwable e ) {
+            return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
+        }
     }
 
     /**
@@ -345,6 +556,25 @@ public class LNClassesImpl extends NsdObjectImpl implements LNClasses {
             return getParentNS() != null;
         }
         return super.eIsSet( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    @SuppressWarnings( "unchecked" )
+    public Object eInvoke( int operationID, EList< ? > arguments ) throws InvocationTargetException {
+        switch( operationID ) {
+        case NsdPackage.LN_CLASSES___UNIQUE_LN_CLASS__DIAGNOSTICCHAIN_MAP:
+            return uniqueLNClass( ( DiagnosticChain ) arguments.get( 0 ),
+                    ( Map< Object, Object > ) arguments.get( 1 ) );
+        case NsdPackage.LN_CLASSES___UNIQUE_ABSTRACT_LN_CLASS__DIAGNOSTICCHAIN_MAP:
+            return uniqueAbstractLNClass( ( DiagnosticChain ) arguments.get( 0 ),
+                    ( Map< Object, Object > ) arguments.get( 1 ) );
+        }
+        return super.eInvoke( operationID, arguments );
     }
 
 } //LNClassesImpl

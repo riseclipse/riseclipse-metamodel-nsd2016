@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -20,9 +20,6 @@
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.util;
 
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.*;
-
-import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.BasicDiagnostic;
@@ -30,11 +27,78 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.Enumerator;
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.EObjectValidator;
+
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ACSIServicesKind;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgArray;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeTypeAndValues;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSdesc;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceCondition;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceConditionDerivedStatistics;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgTrgOp;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUML;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServiceNS;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CBKind;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CopyrightNotice;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Copyrighted;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataSetMemberOf;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentedClass;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.License;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LicenseKind;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Notice;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdObject;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDCs;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttributes;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceParameter;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TitledClass;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.UndefinedAttributeTypeKind;
+import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
 /**
  * <!-- begin-user-doc -->
@@ -63,12 +127,388 @@ public class NsdValidator extends EObjectValidator {
     public static final String DIAGNOSTIC_SOURCE = "fr.centralesupelec.edf.riseclipse.iec61850.nsd";
 
     /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Name Attribute Required' of 'Service Type'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int SERVICE_TYPE__NAME_ATTRIBUTE_REQUIRED = 1;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Name Attribute Required' of 'Abbreviation'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int ABBREVIATION__NAME_ATTRIBUTE_REQUIRED = 2;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Unique Abbreviation' of 'Abbreviations'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int ABBREVIATIONS__UNIQUE_ABBREVIATION = 3;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Name Attribute Required' of 'Abstract LN Class'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int ABSTRACT_LN_CLASS__NAME_ATTRIBUTE_REQUIRED = 4;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Unique Data Object' of 'Any LN Class'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int ANY_LN_CLASS__UNIQUE_DATA_OBJECT = 5;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Version Attribute Required' of 'Applicable Service NS'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int APPLICABLE_SERVICE_NS__VERSION_ATTRIBUTE_REQUIRED = 6;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Date Attribute Required' of 'Applicable Service NS'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int APPLICABLE_SERVICE_NS__DATE_ATTRIBUTE_REQUIRED = 7;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Unique Data Set Member Of' of 'Applicable Services'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int APPLICABLE_SERVICES__UNIQUE_DATA_SET_MEMBER_OF = 8;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Unique Service' of 'Applicable Services'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int APPLICABLE_SERVICES__UNIQUE_SERVICE = 9;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Name Attribute Required' of 'Basic Type'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int BASIC_TYPE__NAME_ATTRIBUTE_REQUIRED = 10;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Unique CDC Child' of 'CDC'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int CDC__UNIQUE_CDC_CHILD = 11;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Name Attribute Required' of 'CDC'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int CDC__NAME_ATTRIBUTE_REQUIRED = 12;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Unique CDC' of 'CD Cs'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int CD_CS__UNIQUE_CDC = 13;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Version Attribute Required' of 'Changes'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int CHANGES__VERSION_ATTRIBUTE_REQUIRED = 14;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Unique Sub Data Attribute' of 'Constructed Attribute'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int CONSTRUCTED_ATTRIBUTE__UNIQUE_SUB_DATA_ATTRIBUTE = 15;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Name Attribute Required' of 'Constructed Attribute'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int CONSTRUCTED_ATTRIBUTE__NAME_ATTRIBUTE_REQUIRED = 16;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Unique Constructed Attribute' of 'Constructed Attributes'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int CONSTRUCTED_ATTRIBUTES__UNIQUE_CONSTRUCTED_ATTRIBUTE = 17;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Name Attribute Required' of 'Data Attribute'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int DATA_ATTRIBUTE__NAME_ATTRIBUTE_REQUIRED = 18;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Fc Attribute Required' of 'Data Attribute'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int DATA_ATTRIBUTE__FC_ATTRIBUTE_REQUIRED = 19;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Name Attribute Required' of 'Data Object'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int DATA_OBJECT__NAME_ATTRIBUTE_REQUIRED = 20;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Type Attribute Required' of 'Data Object'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int DATA_OBJECT__TYPE_ATTRIBUTE_REQUIRED = 21;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Cb Attribute Required' of 'Data Set Member Of'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int DATA_SET_MEMBER_OF__CB_ATTRIBUTE_REQUIRED = 22;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Id Attribute Required' of 'Doc'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int DOC__ID_ATTRIBUTE_REQUIRED = 23;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Unique Literal Name' of 'Enumeration'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int ENUMERATION__UNIQUE_LITERAL_NAME = 24;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Unique Literal Val' of 'Enumeration'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int ENUMERATION__UNIQUE_LITERAL_VAL = 25;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Name Attribute Required' of 'Enumeration'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int ENUMERATION__NAME_ATTRIBUTE_REQUIRED = 26;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Unique Enumeration' of 'Enumerations'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int ENUMERATIONS__UNIQUE_ENUMERATION = 27;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Abbreviation Attribute Required' of 'Functional Constraint'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int FUNCTIONAL_CONSTRAINT__ABBREVIATION_ATTRIBUTE_REQUIRED = 28;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Unique Functional Constraint' of 'Functional Constraints'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int FUNCTIONAL_CONSTRAINTS__UNIQUE_FUNCTIONAL_CONSTRAINT = 29;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Name Attribute Required' of 'Literal'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int LITERAL__NAME_ATTRIBUTE_REQUIRED = 30;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Literal Val Attribute Required' of 'Literal'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int LITERAL__LITERAL_VAL_ATTRIBUTE_REQUIRED = 31;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Name Attribute Required' of 'LN Class'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int LN_CLASS__NAME_ATTRIBUTE_REQUIRED = 32;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Unique LN Class' of 'LN Classes'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int LN_CLASSES__UNIQUE_LN_CLASS = 33;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Unique Abstract LN Class' of 'LN Classes'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int LN_CLASSES__UNIQUE_ABSTRACT_LN_CLASS = 34;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Lang Attribute Required' of 'NS Doc'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int NS_DOC__LANG_ATTRIBUTE_REQUIRED = 35;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Name Attribute Required' of 'Presence Condition'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int PRESENCE_CONDITION__NAME_ATTRIBUTE_REQUIRED = 36;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Unique Presence Condition' of 'Presence Conditions'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int PRESENCE_CONDITIONS__UNIQUE_PRESENCE_CONDITION = 37;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Cdc Attribute Required' of 'Service CDC'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int SERVICE_CDC__CDC_ATTRIBUTE_REQUIRED = 38;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Name Attribute Required' of 'Service Data Attribute'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int SERVICE_DATA_ATTRIBUTE__NAME_ATTRIBUTE_REQUIRED = 39;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Fc Attribute Required' of 'Service Data Attribute'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int SERVICE_DATA_ATTRIBUTE__FC_ATTRIBUTE_REQUIRED = 40;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Name Attribute Required' of 'Service Parameter'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int SERVICE_PARAMETER__NAME_ATTRIBUTE_REQUIRED = 41;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Name Attribute Required' of 'Sub Data Attribute'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int SUB_DATA_ATTRIBUTE__NAME_ATTRIBUTE_REQUIRED = 42;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Name Attribute Required' of 'Sub Data Object'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int SUB_DATA_OBJECT__NAME_ATTRIBUTE_REQUIRED = 43;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Type Attribute Required' of 'Sub Data Object'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int SUB_DATA_OBJECT__TYPE_ATTRIBUTE_REQUIRED = 44;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Title ID Attribute Required' of 'Titled Class'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int TITLED_CLASS__TITLE_ID_ATTRIBUTE_REQUIRED = 45;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Id Attribute Required' of 'Ag NS Identification'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int AG_NS_IDENTIFICATION__ID_ATTRIBUTE_REQUIRED = 46;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Version Attribute Required' of 'Ag NS Identification'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int AG_NS_IDENTIFICATION__VERSION_ATTRIBUTE_REQUIRED = 47;
+
+    /**
      * A constant with a fixed name that can be used as the base value for additional hand written constants.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 0;
+    private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 47;
 
     /**
      * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
@@ -286,9 +726,9 @@ public class NsdValidator extends EObjectValidator {
         if( result || diagnostics != null )
             result &= validate_EveryMapEntryUnique( appliesToType, diagnostics, context );
         if( result || diagnostics != null )
-            result &= validateAgNSIdentification_idAttributeRequired( appliesToType, diagnostics, context );
-        if( result || diagnostics != null )
             result &= validateAgNSIdentification_versionAttributeRequired( appliesToType, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validateAgNSIdentification_idAttributeRequired( appliesToType, diagnostics, context );
         return result;
     }
 
@@ -312,9 +752,9 @@ public class NsdValidator extends EObjectValidator {
         if( result || diagnostics != null ) result &= validate_EveryKeyUnique( dependsOn, diagnostics, context );
         if( result || diagnostics != null ) result &= validate_EveryMapEntryUnique( dependsOn, diagnostics, context );
         if( result || diagnostics != null )
-            result &= validateAgNSIdentification_idAttributeRequired( dependsOn, diagnostics, context );
-        if( result || diagnostics != null )
             result &= validateAgNSIdentification_versionAttributeRequired( dependsOn, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validateAgNSIdentification_idAttributeRequired( dependsOn, diagnostics, context );
         return result;
     }
 
@@ -353,18 +793,6 @@ public class NsdValidator extends EObjectValidator {
     }
 
     /**
-     * The cached validation expression for the nameAttributeRequired constraint of '<em>Service Type</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String SERVICE_TYPE__NAME_ATTRIBUTE_REQUIRED__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'The name attribute is required',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.name <> null\n" +
-            "}.status";
-
-    /**
      * Validates the nameAttributeRequired constraint of '<em>Service Type</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -372,16 +800,7 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateServiceType_nameAttributeRequired( ServiceType serviceType, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.SERVICE_TYPE,
-                serviceType,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "nameAttributeRequired",
-                SERVICE_TYPE__NAME_ATTRIBUTE_REQUIRED__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return serviceType.nameAttributeRequired( diagnostics, context );
     }
 
     /**
@@ -410,18 +829,6 @@ public class NsdValidator extends EObjectValidator {
     }
 
     /**
-     * The cached validation expression for the nameAttributeRequired constraint of '<em>Abbreviation</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String ABBREVIATION__NAME_ATTRIBUTE_REQUIRED__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'The name attribute is required',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.name <> null\n" +
-            "}.status";
-
-    /**
      * Validates the nameAttributeRequired constraint of '<em>Abbreviation</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -429,16 +836,7 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateAbbreviation_nameAttributeRequired( Abbreviation abbreviation, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.ABBREVIATION,
-                abbreviation,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "nameAttributeRequired",
-                ABBREVIATION__NAME_ATTRIBUTE_REQUIRED__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return abbreviation.nameAttributeRequired( diagnostics, context );
     }
 
     /**
@@ -468,18 +866,6 @@ public class NsdValidator extends EObjectValidator {
     }
 
     /**
-     * The cached validation expression for the uniqueAbbreviation constraint of '<em>Abbreviations</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String ABBREVIATIONS__UNIQUE_ABBREVIATION__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'There shall not be two Abbreviations elements with same name.',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.abbreviation->isUnique( a : Abbreviation | a.name )\n" +
-            "}.status";
-
-    /**
      * Validates the uniqueAbbreviation constraint of '<em>Abbreviations</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -487,16 +873,7 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateAbbreviations_uniqueAbbreviation( Abbreviations abbreviations, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.ABBREVIATIONS,
-                abbreviations,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "uniqueAbbreviation",
-                ABBREVIATIONS__UNIQUE_ABBREVIATION__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return abbreviations.uniqueAbbreviation( diagnostics, context );
     }
 
     /**
@@ -530,18 +907,6 @@ public class NsdValidator extends EObjectValidator {
     }
 
     /**
-     * The cached validation expression for the nameAttributeRequired constraint of '<em>Abstract LN Class</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String ABSTRACT_LN_CLASS__NAME_ATTRIBUTE_REQUIRED__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'The name attribute is required',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.name <> null\n" +
-            "}.status";
-
-    /**
      * Validates the nameAttributeRequired constraint of '<em>Abstract LN Class</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -549,16 +914,7 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateAbstractLNClass_nameAttributeRequired( AbstractLNClass abstractLNClass,
             DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.ABSTRACT_LN_CLASS,
-                abstractLNClass,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "nameAttributeRequired",
-                ABSTRACT_LN_CLASS__NAME_ATTRIBUTE_REQUIRED__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return abstractLNClass.nameAttributeRequired( diagnostics, context );
     }
 
     /**
@@ -588,21 +944,6 @@ public class NsdValidator extends EObjectValidator {
     }
 
     /**
-     * The cached validation expression for the uniqueDataObject constraint of '<em>Any LN Class</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String ANY_LN_CLASS__UNIQUE_DATA_OBJECT__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'For an AnyLNClass, there shall not be two DataObject sub-elements with same name.',\n"
-            +
-            "\tstatus : Boolean = \n" +
-            "\t\t\t-- TODO: base AbstractLNClass should be taken into account\n" +
-            "\t\t\t-- For this, explicit links have to be created first\n" +
-            "\t\t\tself.dataObject->isUnique( d : DataObject | d.name )\n" +
-            "}.status";
-
-    /**
      * Validates the uniqueDataObject constraint of '<em>Any LN Class</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -610,16 +951,7 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateAnyLNClass_uniqueDataObject( AnyLNClass anyLNClass, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.ANY_LN_CLASS,
-                anyLNClass,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "uniqueDataObject",
-                ANY_LN_CLASS__UNIQUE_DATA_OBJECT__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return anyLNClass.uniqueDataObject( diagnostics, context );
     }
 
     /**
@@ -645,23 +977,11 @@ public class NsdValidator extends EObjectValidator {
         if( result || diagnostics != null )
             result &= validate_EveryMapEntryUnique( applicableServiceNS, diagnostics, context );
         if( result || diagnostics != null )
-            result &= validateApplicableServiceNS_versionAttributeRequired( applicableServiceNS, diagnostics, context );
-        if( result || diagnostics != null )
             result &= validateApplicableServiceNS_dateAttributeRequired( applicableServiceNS, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validateApplicableServiceNS_versionAttributeRequired( applicableServiceNS, diagnostics, context );
         return result;
     }
-
-    /**
-     * The cached validation expression for the versionAttributeRequired constraint of '<em>Applicable Service NS</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String APPLICABLE_SERVICE_NS__VERSION_ATTRIBUTE_REQUIRED__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'The version attribute is required',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.version <> null\n" +
-            "}.status";
 
     /**
      * Validates the versionAttributeRequired constraint of '<em>Applicable Service NS</em>'.
@@ -671,29 +991,8 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateApplicableServiceNS_versionAttributeRequired( ApplicableServiceNS applicableServiceNS,
             DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.APPLICABLE_SERVICE_NS,
-                applicableServiceNS,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "versionAttributeRequired",
-                APPLICABLE_SERVICE_NS__VERSION_ATTRIBUTE_REQUIRED__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return applicableServiceNS.versionAttributeRequired( diagnostics, context );
     }
-
-    /**
-     * The cached validation expression for the dateAttributeRequired constraint of '<em>Applicable Service NS</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String APPLICABLE_SERVICE_NS__DATE_ATTRIBUTE_REQUIRED__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'The date attribute is required',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.date <> null\n" +
-            "}.status";
 
     /**
      * Validates the dateAttributeRequired constraint of '<em>Applicable Service NS</em>'.
@@ -703,16 +1002,7 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateApplicableServiceNS_dateAttributeRequired( ApplicableServiceNS applicableServiceNS,
             DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.APPLICABLE_SERVICE_NS,
-                applicableServiceNS,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "dateAttributeRequired",
-                APPLICABLE_SERVICE_NS__DATE_ATTRIBUTE_REQUIRED__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return applicableServiceNS.dateAttributeRequired( diagnostics, context );
     }
 
     /**
@@ -738,24 +1028,11 @@ public class NsdValidator extends EObjectValidator {
         if( result || diagnostics != null )
             result &= validate_EveryMapEntryUnique( applicableServices, diagnostics, context );
         if( result || diagnostics != null )
-            result &= validateApplicableServices_uniqueDataSetMemberOf( applicableServices, diagnostics, context );
-        if( result || diagnostics != null )
             result &= validateApplicableServices_uniqueService( applicableServices, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validateApplicableServices_uniqueDataSetMemberOf( applicableServices, diagnostics, context );
         return result;
     }
-
-    /**
-     * The cached validation expression for the uniqueDataSetMemberOf constraint of '<em>Applicable Services</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String APPLICABLE_SERVICES__UNIQUE_DATA_SET_MEMBER_OF__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'For an ApplicableServices, there shall not be two DataSetMemberOf sub-elements with same cb.',\n"
-            +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.dataSetMemberOf->isUnique( d : DataSetMemberOf | d.cb )\n" +
-            "}.status";
 
     /**
      * Validates the uniqueDataSetMemberOf constraint of '<em>Applicable Services</em>'.
@@ -765,30 +1042,8 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateApplicableServices_uniqueDataSetMemberOf( ApplicableServices applicableServices,
             DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.APPLICABLE_SERVICES,
-                applicableServices,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "uniqueDataSetMemberOf",
-                APPLICABLE_SERVICES__UNIQUE_DATA_SET_MEMBER_OF__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return applicableServices.uniqueDataSetMemberOf( diagnostics, context );
     }
-
-    /**
-     * The cached validation expression for the uniqueService constraint of '<em>Applicable Services</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String APPLICABLE_SERVICES__UNIQUE_SERVICE__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'For an ApplicableServices, there shall not be two ServiceType sub-elements with same name.',\n"
-            +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.service->isUnique( s : ServiceType | s.name )\n" +
-            "}.status";
 
     /**
      * Validates the uniqueService constraint of '<em>Applicable Services</em>'.
@@ -798,16 +1053,7 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateApplicableServices_uniqueService( ApplicableServices applicableServices,
             DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.APPLICABLE_SERVICES,
-                applicableServices,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "uniqueService",
-                APPLICABLE_SERVICES__UNIQUE_SERVICE__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return applicableServices.uniqueService( diagnostics, context );
     }
 
     /**
@@ -835,18 +1081,6 @@ public class NsdValidator extends EObjectValidator {
     }
 
     /**
-     * The cached validation expression for the nameAttributeRequired constraint of '<em>Basic Type</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String BASIC_TYPE__NAME_ATTRIBUTE_REQUIRED__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'The name attribute is required',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.name <> null\n" +
-            "}.status";
-
-    /**
      * Validates the nameAttributeRequired constraint of '<em>Basic Type</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -854,16 +1088,7 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateBasicType_nameAttributeRequired( BasicType basicType, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.BASIC_TYPE,
-                basicType,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "nameAttributeRequired",
-                BASIC_TYPE__NAME_ATTRIBUTE_REQUIRED__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return basicType.nameAttributeRequired( diagnostics, context );
     }
 
     /**
@@ -894,24 +1119,10 @@ public class NsdValidator extends EObjectValidator {
         if( result || diagnostics != null ) result &= validate_EveryMapEntryUnique( cdc, diagnostics, context );
         if( result || diagnostics != null )
             result &= validateTitledClass_titleIDAttributeRequired( cdc, diagnostics, context );
-        if( result || diagnostics != null ) result &= validateCDC_uniqueCDCChild( cdc, diagnostics, context );
         if( result || diagnostics != null ) result &= validateCDC_nameAttributeRequired( cdc, diagnostics, context );
+        if( result || diagnostics != null ) result &= validateCDC_uniqueCDCChild( cdc, diagnostics, context );
         return result;
     }
-
-    /**
-     * The cached validation expression for the uniqueCDCChild constraint of '<em>CDC</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String CDC__UNIQUE_CDC_CHILD__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'For a CDC, there shall not be two sub-elements (SubDataObject or DataAttribute) with same name.',\n"
-            +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tlet names : Bag(String) = self.subDataObject.name->union(self.dataAttribute.name) in names->size() = names->asSet()->size()\n"
-            +
-            "}.status";
 
     /**
      * Validates the uniqueCDCChild constraint of '<em>CDC</em>'.
@@ -920,29 +1131,8 @@ public class NsdValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateCDC_uniqueCDCChild( CDC cdc, DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.CDC,
-                cdc,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "uniqueCDCChild",
-                CDC__UNIQUE_CDC_CHILD__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return cdc.uniqueCDCChild( diagnostics, context );
     }
-
-    /**
-     * The cached validation expression for the nameAttributeRequired constraint of '<em>CDC</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String CDC__NAME_ATTRIBUTE_REQUIRED__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'The name attribute is required',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.name <> null\n" +
-            "}.status";
 
     /**
      * Validates the nameAttributeRequired constraint of '<em>CDC</em>'.
@@ -952,16 +1142,7 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateCDC_nameAttributeRequired( CDC cdc, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.CDC,
-                cdc,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "nameAttributeRequired",
-                CDC__NAME_ATTRIBUTE_REQUIRED__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return cdc.nameAttributeRequired( diagnostics, context );
     }
 
     /**
@@ -985,40 +1166,13 @@ public class NsdValidator extends EObjectValidator {
     }
 
     /**
-     * The cached validation expression for the uniqueCDC constraint of '<em>CD Cs</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String CD_CS__UNIQUE_CDC__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'Within an NS, there shall not be two CDC sub-elements with same name and (if defined) variant.',\n"
-            +
-            "\tstatus : Boolean = \n" +
-            "\t\t\t-- TODO: DependsOn NS should be taken into account ?\n" +
-            "\t\t\t-- For this, explicit links have to be created first\n" +
-            "\t\t\t-- Then, may be this constraint should be in NS and not in Enumerations ?\n" +
-            "\t\t\tself.cDC->select( c : CDC | c.variant = null )->isUnique( c : CDC | c.name )\n" +
-            "\t     or self.cDC->select( c : CDC | c.variant <> null )->forAll( c1, c2 : CDC | c1 <> c2 implies c1.name <> c2.name or c1.variant <> c2.variant )\n"
-            +
-            "}.status";
-
-    /**
      * Validates the uniqueCDC constraint of '<em>CD Cs</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     public boolean validateCDCs_uniqueCDC( CDCs cdCs, DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.CD_CS,
-                cdCs,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "uniqueCDC",
-                CD_CS__UNIQUE_CDC__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return cdCs.uniqueCDC( diagnostics, context );
     }
 
     /**
@@ -1044,18 +1198,6 @@ public class NsdValidator extends EObjectValidator {
     }
 
     /**
-     * The cached validation expression for the versionAttributeRequired constraint of '<em>Changes</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String CHANGES__VERSION_ATTRIBUTE_REQUIRED__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'The version attribute is required',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.version <> null\n" +
-            "}.status";
-
-    /**
      * Validates the versionAttributeRequired constraint of '<em>Changes</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1063,16 +1205,7 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateChanges_versionAttributeRequired( Changes changes, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.CHANGES,
-                changes,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "versionAttributeRequired",
-                CHANGES__VERSION_ATTRIBUTE_REQUIRED__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return changes.versionAttributeRequired( diagnostics, context );
     }
 
     /**
@@ -1100,24 +1233,11 @@ public class NsdValidator extends EObjectValidator {
         if( result || diagnostics != null )
             result &= validateTitledClass_titleIDAttributeRequired( constructedAttribute, diagnostics, context );
         if( result || diagnostics != null )
-            result &= validateConstructedAttribute_uniqueSubDataAttribute( constructedAttribute, diagnostics, context );
-        if( result || diagnostics != null )
             result &= validateConstructedAttribute_nameAttributeRequired( constructedAttribute, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validateConstructedAttribute_uniqueSubDataAttribute( constructedAttribute, diagnostics, context );
         return result;
     }
-
-    /**
-     * The cached validation expression for the uniqueSubDataAttribute constraint of '<em>Constructed Attribute</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String CONSTRUCTED_ATTRIBUTE__UNIQUE_SUB_DATA_ATTRIBUTE__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'For a ConstructedAttribute, there shall not be two SubDataAttribute sub-elements with same name.',\n"
-            +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.subDataAttribute->isUnique( s : SubDataAttribute | s.name )\n" +
-            "}.status";
 
     /**
      * Validates the uniqueSubDataAttribute constraint of '<em>Constructed Attribute</em>'.
@@ -1127,29 +1247,8 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateConstructedAttribute_uniqueSubDataAttribute( ConstructedAttribute constructedAttribute,
             DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.CONSTRUCTED_ATTRIBUTE,
-                constructedAttribute,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "uniqueSubDataAttribute",
-                CONSTRUCTED_ATTRIBUTE__UNIQUE_SUB_DATA_ATTRIBUTE__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return constructedAttribute.uniqueSubDataAttribute( diagnostics, context );
     }
-
-    /**
-     * The cached validation expression for the nameAttributeRequired constraint of '<em>Constructed Attribute</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String CONSTRUCTED_ATTRIBUTE__NAME_ATTRIBUTE_REQUIRED__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'The name attribute is required',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.name <> null\n" +
-            "}.status";
 
     /**
      * Validates the nameAttributeRequired constraint of '<em>Constructed Attribute</em>'.
@@ -1159,16 +1258,7 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateConstructedAttribute_nameAttributeRequired( ConstructedAttribute constructedAttribute,
             DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.CONSTRUCTED_ATTRIBUTE,
-                constructedAttribute,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "nameAttributeRequired",
-                CONSTRUCTED_ATTRIBUTE__NAME_ATTRIBUTE_REQUIRED__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return constructedAttribute.nameAttributeRequired( diagnostics, context );
     }
 
     /**
@@ -1200,22 +1290,6 @@ public class NsdValidator extends EObjectValidator {
     }
 
     /**
-     * The cached validation expression for the uniqueConstructedAttribute constraint of '<em>Constructed Attributes</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String CONSTRUCTED_ATTRIBUTES__UNIQUE_CONSTRUCTED_ATTRIBUTE__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'Within an NS, there shall not be two ConstructedAttribute sub-elements with same name.',\n"
-            +
-            "\tstatus : Boolean = \n" +
-            "\t\t\t-- TODO: DependsOn NS should be taken into account ?\n" +
-            "\t\t\t-- For this, explicit links have to be created first\n" +
-            "\t\t\t-- Then, may be this constraint should be in NS and not in Enumerations ?\n" +
-            "\t\t\tself.constructedAttribute->isUnique( c : ConstructedAttribute | c.name )\n" +
-            "}.status";
-
-    /**
      * Validates the uniqueConstructedAttribute constraint of '<em>Constructed Attributes</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1223,16 +1297,7 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateConstructedAttributes_uniqueConstructedAttribute(
             ConstructedAttributes constructedAttributes, DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.CONSTRUCTED_ATTRIBUTES,
-                constructedAttributes,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "uniqueConstructedAttribute",
-                CONSTRUCTED_ATTRIBUTES__UNIQUE_CONSTRUCTED_ATTRIBUTE__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return constructedAttributes.uniqueConstructedAttribute( diagnostics, context );
     }
 
     /**
@@ -1277,23 +1342,11 @@ public class NsdValidator extends EObjectValidator {
         if( result || diagnostics != null )
             result &= validate_EveryMapEntryUnique( dataAttribute, diagnostics, context );
         if( result || diagnostics != null )
-            result &= validateDataAttribute_nameAttributeRequired( dataAttribute, diagnostics, context );
-        if( result || diagnostics != null )
             result &= validateDataAttribute_fcAttributeRequired( dataAttribute, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validateDataAttribute_nameAttributeRequired( dataAttribute, diagnostics, context );
         return result;
     }
-
-    /**
-     * The cached validation expression for the nameAttributeRequired constraint of '<em>Data Attribute</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String DATA_ATTRIBUTE__NAME_ATTRIBUTE_REQUIRED__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'The name attribute is required',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.name <> null\n" +
-            "}.status";
 
     /**
      * Validates the nameAttributeRequired constraint of '<em>Data Attribute</em>'.
@@ -1303,29 +1356,8 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateDataAttribute_nameAttributeRequired( DataAttribute dataAttribute,
             DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.DATA_ATTRIBUTE,
-                dataAttribute,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "nameAttributeRequired",
-                DATA_ATTRIBUTE__NAME_ATTRIBUTE_REQUIRED__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return dataAttribute.nameAttributeRequired( diagnostics, context );
     }
-
-    /**
-     * The cached validation expression for the fcAttributeRequired constraint of '<em>Data Attribute</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String DATA_ATTRIBUTE__FC_ATTRIBUTE_REQUIRED__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'The fc attribute is required',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.fc <> null\n" +
-            "}.status";
 
     /**
      * Validates the fcAttributeRequired constraint of '<em>Data Attribute</em>'.
@@ -1335,16 +1367,7 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateDataAttribute_fcAttributeRequired( DataAttribute dataAttribute, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.DATA_ATTRIBUTE,
-                dataAttribute,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "fcAttributeRequired",
-                DATA_ATTRIBUTE__FC_ATTRIBUTE_REQUIRED__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return dataAttribute.fcAttributeRequired( diagnostics, context );
     }
 
     /**
@@ -1367,23 +1390,11 @@ public class NsdValidator extends EObjectValidator {
         if( result || diagnostics != null ) result &= validate_EveryKeyUnique( dataObject, diagnostics, context );
         if( result || diagnostics != null ) result &= validate_EveryMapEntryUnique( dataObject, diagnostics, context );
         if( result || diagnostics != null )
-            result &= validateDataObject_nameAttributeRequired( dataObject, diagnostics, context );
-        if( result || diagnostics != null )
             result &= validateDataObject_typeAttributeRequired( dataObject, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validateDataObject_nameAttributeRequired( dataObject, diagnostics, context );
         return result;
     }
-
-    /**
-     * The cached validation expression for the nameAttributeRequired constraint of '<em>Data Object</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String DATA_OBJECT__NAME_ATTRIBUTE_REQUIRED__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'The name attribute is required',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.name <> null\n" +
-            "}.status";
 
     /**
      * Validates the nameAttributeRequired constraint of '<em>Data Object</em>'.
@@ -1393,29 +1404,8 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateDataObject_nameAttributeRequired( DataObject dataObject, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.DATA_OBJECT,
-                dataObject,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "nameAttributeRequired",
-                DATA_OBJECT__NAME_ATTRIBUTE_REQUIRED__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return dataObject.nameAttributeRequired( diagnostics, context );
     }
-
-    /**
-     * The cached validation expression for the typeAttributeRequired constraint of '<em>Data Object</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String DATA_OBJECT__TYPE_ATTRIBUTE_REQUIRED__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'The type attribute is required',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.type <> null\n" +
-            "}.status";
 
     /**
      * Validates the typeAttributeRequired constraint of '<em>Data Object</em>'.
@@ -1425,16 +1415,7 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateDataObject_typeAttributeRequired( DataObject dataObject, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.DATA_OBJECT,
-                dataObject,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "typeAttributeRequired",
-                DATA_OBJECT__TYPE_ATTRIBUTE_REQUIRED__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return dataObject.typeAttributeRequired( diagnostics, context );
     }
 
     /**
@@ -1464,18 +1445,6 @@ public class NsdValidator extends EObjectValidator {
     }
 
     /**
-     * The cached validation expression for the cbAttributeRequired constraint of '<em>Data Set Member Of</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String DATA_SET_MEMBER_OF__CB_ATTRIBUTE_REQUIRED__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'The cb attribute is required',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.cb <> null\n" +
-            "}.status";
-
-    /**
      * Validates the cbAttributeRequired constraint of '<em>Data Set Member Of</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1483,16 +1452,7 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateDataSetMemberOf_cbAttributeRequired( DataSetMemberOf dataSetMemberOf,
             DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.DATA_SET_MEMBER_OF,
-                dataSetMemberOf,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "cbAttributeRequired",
-                DATA_SET_MEMBER_OF__CB_ATTRIBUTE_REQUIRED__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return dataSetMemberOf.cbAttributeRequired( diagnostics, context );
     }
 
     /**
@@ -1516,18 +1476,6 @@ public class NsdValidator extends EObjectValidator {
     }
 
     /**
-     * The cached validation expression for the idAttributeRequired constraint of '<em>Doc</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String DOC__ID_ATTRIBUTE_REQUIRED__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'The id attribute is required',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.id <> null\n" +
-            "}.status";
-
-    /**
      * Validates the idAttributeRequired constraint of '<em>Doc</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1535,16 +1483,7 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateDoc_idAttributeRequired( Doc doc, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.DOC,
-                doc,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "idAttributeRequired",
-                DOC__ID_ATTRIBUTE_REQUIRED__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return doc.idAttributeRequired( diagnostics, context );
     }
 
     /**
@@ -1579,28 +1518,13 @@ public class NsdValidator extends EObjectValidator {
         if( result || diagnostics != null )
             result &= validateTitledClass_titleIDAttributeRequired( enumeration, diagnostics, context );
         if( result || diagnostics != null )
+            result &= validateEnumeration_nameAttributeRequired( enumeration, diagnostics, context );
+        if( result || diagnostics != null )
             result &= validateEnumeration_uniqueLiteralName( enumeration, diagnostics, context );
         if( result || diagnostics != null )
             result &= validateEnumeration_uniqueLiteralVal( enumeration, diagnostics, context );
-        if( result || diagnostics != null )
-            result &= validateEnumeration_nameAttributeRequired( enumeration, diagnostics, context );
         return result;
     }
-
-    /**
-     * The cached validation expression for the uniqueLiteralName constraint of '<em>Enumeration</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String ENUMERATION__UNIQUE_LITERAL_NAME__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'For an Enumeration, there shall not be two Literal sub-elements with same name.',\n"
-            +
-            "\tstatus : Boolean = \n" +
-            "\t\t\t-- TODO: inherited literals should be taken into account\n" +
-            "\t\t\t-- For this, explicit links have to be created first\n" +
-            "\t\t\tself.literal->isUnique( l : Literal | l.name )\n" +
-            "}.status";
 
     /**
      * Validates the uniqueLiteralName constraint of '<em>Enumeration</em>'.
@@ -1610,30 +1534,8 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateEnumeration_uniqueLiteralName( Enumeration enumeration, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.ENUMERATION,
-                enumeration,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "uniqueLiteralName",
-                ENUMERATION__UNIQUE_LITERAL_NAME__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return enumeration.uniqueLiteralName( diagnostics, context );
     }
-
-    /**
-     * The cached validation expression for the uniqueLiteralVal constraint of '<em>Enumeration</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String ENUMERATION__UNIQUE_LITERAL_VAL__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'For an Enumeration, there shall not be two Literal sub-elements with same literalVal.',\n"
-            +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.literal->isUnique( l : Literal | l.literalVal )\n" +
-            "}.status";
 
     /**
      * Validates the uniqueLiteralVal constraint of '<em>Enumeration</em>'.
@@ -1643,29 +1545,8 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateEnumeration_uniqueLiteralVal( Enumeration enumeration, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.ENUMERATION,
-                enumeration,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "uniqueLiteralVal",
-                ENUMERATION__UNIQUE_LITERAL_VAL__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return enumeration.uniqueLiteralVal( diagnostics, context );
     }
-
-    /**
-     * The cached validation expression for the nameAttributeRequired constraint of '<em>Enumeration</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String ENUMERATION__NAME_ATTRIBUTE_REQUIRED__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'The name attribute is required',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.name <> null\n" +
-            "}.status";
 
     /**
      * Validates the nameAttributeRequired constraint of '<em>Enumeration</em>'.
@@ -1675,16 +1556,7 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateEnumeration_nameAttributeRequired( Enumeration enumeration, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.ENUMERATION,
-                enumeration,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "nameAttributeRequired",
-                ENUMERATION__NAME_ATTRIBUTE_REQUIRED__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return enumeration.nameAttributeRequired( diagnostics, context );
     }
 
     /**
@@ -1713,21 +1585,6 @@ public class NsdValidator extends EObjectValidator {
     }
 
     /**
-     * The cached validation expression for the uniqueEnumeration constraint of '<em>Enumerations</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String ENUMERATIONS__UNIQUE_ENUMERATION__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'Within an NS, there shall not be two Enumeration sub-elements with same name.',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\t-- TODO: DependsOn NS should be taken into account ?\n" +
-            "\t\t\t-- For this, explicit links have to be created first\n" +
-            "\t\t\t-- Then, may be this constraint should be in NS and not in Enumerations ?\n" +
-            "\t\t\tself.enumeration->isUnique( e : Enumeration | e.name )\n" +
-            "}.status";
-
-    /**
      * Validates the uniqueEnumeration constraint of '<em>Enumerations</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1735,16 +1592,7 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateEnumerations_uniqueEnumeration( Enumerations enumerations, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.ENUMERATIONS,
-                enumerations,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "uniqueEnumeration",
-                ENUMERATIONS__UNIQUE_ENUMERATION__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return enumerations.uniqueEnumeration( diagnostics, context );
     }
 
     /**
@@ -1776,18 +1624,6 @@ public class NsdValidator extends EObjectValidator {
     }
 
     /**
-     * The cached validation expression for the abbreviationAttributeRequired constraint of '<em>Functional Constraint</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String FUNCTIONAL_CONSTRAINT__ABBREVIATION_ATTRIBUTE_REQUIRED__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'The abbreviation attribute is required',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.abbreviation <> null\n" +
-            "}.status";
-
-    /**
      * Validates the abbreviationAttributeRequired constraint of '<em>Functional Constraint</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1795,16 +1631,7 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateFunctionalConstraint_abbreviationAttributeRequired(
             FunctionalConstraint functionalConstraint, DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.FUNCTIONAL_CONSTRAINT,
-                functionalConstraint,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "abbreviationAttributeRequired",
-                FUNCTIONAL_CONSTRAINT__ABBREVIATION_ATTRIBUTE_REQUIRED__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return functionalConstraint.abbreviationAttributeRequired( diagnostics, context );
     }
 
     /**
@@ -1836,18 +1663,6 @@ public class NsdValidator extends EObjectValidator {
     }
 
     /**
-     * The cached validation expression for the uniqueFunctionalConstraint constraint of '<em>Functional Constraints</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String FUNCTIONAL_CONSTRAINTS__UNIQUE_FUNCTIONAL_CONSTRAINT__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'There shall not be two FunctionalConstraint elements with same abbreviation.',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.functionalConstraint->isUnique( f : FunctionalConstraint | f.abbreviation )\n" +
-            "}.status";
-
-    /**
      * Validates the uniqueFunctionalConstraint constraint of '<em>Functional Constraints</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1855,16 +1670,7 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateFunctionalConstraints_uniqueFunctionalConstraint(
             FunctionalConstraints functionalConstraints, DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.FUNCTIONAL_CONSTRAINTS,
-                functionalConstraints,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "uniqueFunctionalConstraint",
-                FUNCTIONAL_CONSTRAINTS__UNIQUE_FUNCTIONAL_CONSTRAINT__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return functionalConstraints.uniqueFunctionalConstraint( diagnostics, context );
     }
 
     /**
@@ -1894,23 +1700,11 @@ public class NsdValidator extends EObjectValidator {
         if( result || diagnostics != null ) result &= validate_EveryKeyUnique( literal, diagnostics, context );
         if( result || diagnostics != null ) result &= validate_EveryMapEntryUnique( literal, diagnostics, context );
         if( result || diagnostics != null )
-            result &= validateLiteral_nameAttributeRequired( literal, diagnostics, context );
-        if( result || diagnostics != null )
             result &= validateLiteral_literalValAttributeRequired( literal, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validateLiteral_nameAttributeRequired( literal, diagnostics, context );
         return result;
     }
-
-    /**
-     * The cached validation expression for the nameAttributeRequired constraint of '<em>Literal</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String LITERAL__NAME_ATTRIBUTE_REQUIRED__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'The name attribute is required',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.name <> null\n" +
-            "}.status";
 
     /**
      * Validates the nameAttributeRequired constraint of '<em>Literal</em>'.
@@ -1920,29 +1714,8 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateLiteral_nameAttributeRequired( Literal literal, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.LITERAL,
-                literal,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "nameAttributeRequired",
-                LITERAL__NAME_ATTRIBUTE_REQUIRED__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return literal.nameAttributeRequired( diagnostics, context );
     }
-
-    /**
-     * The cached validation expression for the literalValAttributeRequired constraint of '<em>Literal</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String LITERAL__LITERAL_VAL_ATTRIBUTE_REQUIRED__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'The literalVal attribute is required',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.literalVal <> null\n" +
-            "}.status";
 
     /**
      * Validates the literalValAttributeRequired constraint of '<em>Literal</em>'.
@@ -1952,16 +1725,7 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateLiteral_literalValAttributeRequired( Literal literal, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.LITERAL,
-                literal,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "literalValAttributeRequired",
-                LITERAL__LITERAL_VAL_ATTRIBUTE_REQUIRED__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return literal.literalValAttributeRequired( diagnostics, context );
     }
 
     /**
@@ -1991,18 +1755,6 @@ public class NsdValidator extends EObjectValidator {
     }
 
     /**
-     * The cached validation expression for the nameAttributeRequired constraint of '<em>LN Class</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String LN_CLASS__NAME_ATTRIBUTE_REQUIRED__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'The name attribute is required',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.name <> null\n" +
-            "}.status";
-
-    /**
      * Validates the nameAttributeRequired constraint of '<em>LN Class</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2010,16 +1762,7 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateLNClass_nameAttributeRequired( LNClass lnClass, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.LN_CLASS,
-                lnClass,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "nameAttributeRequired",
-                LN_CLASS__NAME_ATTRIBUTE_REQUIRED__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return lnClass.nameAttributeRequired( diagnostics, context );
     }
 
     /**
@@ -2049,19 +1792,6 @@ public class NsdValidator extends EObjectValidator {
     }
 
     /**
-     * The cached validation expression for the uniqueAbstractLNClass constraint of '<em>LN Classes</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String LN_CLASSES__UNIQUE_ABSTRACT_LN_CLASS__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'Within an NS, there shall not be two AbstractLNClass sub-elements with same name.',\n"
-            +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.abstractLNClass->isUnique( c : AbstractLNClass | c.name )\n" +
-            "}.status";
-
-    /**
      * Validates the uniqueAbstractLNClass constraint of '<em>LN Classes</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2069,29 +1799,8 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateLNClasses_uniqueAbstractLNClass( LNClasses lnClasses, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.LN_CLASSES,
-                lnClasses,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "uniqueAbstractLNClass",
-                LN_CLASSES__UNIQUE_ABSTRACT_LN_CLASS__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return lnClasses.uniqueAbstractLNClass( diagnostics, context );
     }
-
-    /**
-     * The cached validation expression for the uniqueLNClass constraint of '<em>LN Classes</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String LN_CLASSES__UNIQUE_LN_CLASS__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'Within an NS, there shall not be two LNClass sub-elements with same name.',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.lNClass->isUnique( c : LNClass | c.name )\n" +
-            "}.status";
 
     /**
      * Validates the uniqueLNClass constraint of '<em>LN Classes</em>'.
@@ -2101,16 +1810,7 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateLNClasses_uniqueLNClass( LNClasses lnClasses, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.LN_CLASSES,
-                lnClasses,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "uniqueLNClass",
-                LN_CLASSES__UNIQUE_LN_CLASS__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return lnClasses.uniqueLNClass( diagnostics, context );
     }
 
     /**
@@ -2139,9 +1839,9 @@ public class NsdValidator extends EObjectValidator {
         if( result || diagnostics != null ) result &= validate_EveryKeyUnique( ns, diagnostics, context );
         if( result || diagnostics != null ) result &= validate_EveryMapEntryUnique( ns, diagnostics, context );
         if( result || diagnostics != null )
-            result &= validateAgNSIdentification_idAttributeRequired( ns, diagnostics, context );
-        if( result || diagnostics != null )
             result &= validateAgNSIdentification_versionAttributeRequired( ns, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validateAgNSIdentification_idAttributeRequired( ns, diagnostics, context );
         return result;
     }
 
@@ -2162,25 +1862,13 @@ public class NsdValidator extends EObjectValidator {
         if( result || diagnostics != null ) result &= validate_EveryKeyUnique( nsDoc, diagnostics, context );
         if( result || diagnostics != null ) result &= validate_EveryMapEntryUnique( nsDoc, diagnostics, context );
         if( result || diagnostics != null )
-            result &= validateAgNSIdentification_idAttributeRequired( nsDoc, diagnostics, context );
-        if( result || diagnostics != null )
             result &= validateAgNSIdentification_versionAttributeRequired( nsDoc, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validateAgNSIdentification_idAttributeRequired( nsDoc, diagnostics, context );
         if( result || diagnostics != null )
             result &= validateNSDoc_langAttributeRequired( nsDoc, diagnostics, context );
         return result;
     }
-
-    /**
-     * The cached validation expression for the langAttributeRequired constraint of '<em>NS Doc</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String NS_DOC__LANG_ATTRIBUTE_REQUIRED__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'The lang attribute is required',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.lang <> null\n" +
-            "}.status";
 
     /**
      * Validates the langAttributeRequired constraint of '<em>NS Doc</em>'.
@@ -2190,16 +1878,7 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateNSDoc_langAttributeRequired( NSDoc nsDoc, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.NS_DOC,
-                nsDoc,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "langAttributeRequired",
-                NS_DOC__LANG_ATTRIBUTE_REQUIRED__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return nsDoc.langAttributeRequired( diagnostics, context );
     }
 
     /**
@@ -2230,18 +1909,6 @@ public class NsdValidator extends EObjectValidator {
     }
 
     /**
-     * The cached validation expression for the nameAttributeRequired constraint of '<em>Presence Condition</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String PRESENCE_CONDITION__NAME_ATTRIBUTE_REQUIRED__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'The name attribute is required',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.name <> null\n" +
-            "}.status";
-
-    /**
      * Validates the nameAttributeRequired constraint of '<em>Presence Condition</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2249,16 +1916,7 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validatePresenceCondition_nameAttributeRequired( PresenceCondition presenceCondition,
             DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.PRESENCE_CONDITION,
-                presenceCondition,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "nameAttributeRequired",
-                PRESENCE_CONDITION__NAME_ATTRIBUTE_REQUIRED__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return presenceCondition.nameAttributeRequired( diagnostics, context );
     }
 
     /**
@@ -2289,18 +1947,6 @@ public class NsdValidator extends EObjectValidator {
     }
 
     /**
-     * The cached validation expression for the uniquePresenceCondition constraint of '<em>Presence Conditions</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String PRESENCE_CONDITIONS__UNIQUE_PRESENCE_CONDITION__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'There shall not be two PresenceCondition elements with same name.',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.presenceCondition->isUnique( p : PresenceCondition | p.name )\n" +
-            "}.status";
-
-    /**
      * Validates the uniquePresenceCondition constraint of '<em>Presence Conditions</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2308,16 +1954,7 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validatePresenceConditions_uniquePresenceCondition( PresenceConditions presenceConditions,
             DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.PRESENCE_CONDITIONS,
-                presenceConditions,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "uniquePresenceCondition",
-                PRESENCE_CONDITIONS__UNIQUE_PRESENCE_CONDITION__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return presenceConditions.uniquePresenceCondition( diagnostics, context );
     }
 
     /**
@@ -2345,18 +1982,6 @@ public class NsdValidator extends EObjectValidator {
     }
 
     /**
-     * The cached validation expression for the cdcAttributeRequired constraint of '<em>Service CDC</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String SERVICE_CDC__CDC_ATTRIBUTE_REQUIRED__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'The cdc attribute is required',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.cdc <> null\n" +
-            "}.status";
-
-    /**
      * Validates the cdcAttributeRequired constraint of '<em>Service CDC</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2364,16 +1989,7 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateServiceCDC_cdcAttributeRequired( ServiceCDC serviceCDC, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.SERVICE_CDC,
-                serviceCDC,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "cdcAttributeRequired",
-                SERVICE_CDC__CDC_ATTRIBUTE_REQUIRED__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return serviceCDC.cdcAttributeRequired( diagnostics, context );
     }
 
     /**
@@ -2412,10 +2028,10 @@ public class NsdValidator extends EObjectValidator {
         if( result || diagnostics != null )
             result &= validateTitledClass_titleIDAttributeRequired( serviceConstructedAttribute, diagnostics, context );
         if( result || diagnostics != null )
-            result &= validateConstructedAttribute_uniqueSubDataAttribute( serviceConstructedAttribute, diagnostics,
+            result &= validateConstructedAttribute_nameAttributeRequired( serviceConstructedAttribute, diagnostics,
                     context );
         if( result || diagnostics != null )
-            result &= validateConstructedAttribute_nameAttributeRequired( serviceConstructedAttribute, diagnostics,
+            result &= validateConstructedAttribute_uniqueSubDataAttribute( serviceConstructedAttribute, diagnostics,
                     context );
         return result;
     }
@@ -2453,23 +2069,11 @@ public class NsdValidator extends EObjectValidator {
         if( result || diagnostics != null )
             result &= validate_EveryMapEntryUnique( serviceDataAttribute, diagnostics, context );
         if( result || diagnostics != null )
-            result &= validateServiceDataAttribute_nameAttributeRequired( serviceDataAttribute, diagnostics, context );
-        if( result || diagnostics != null )
             result &= validateServiceDataAttribute_fcAttributeRequired( serviceDataAttribute, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validateServiceDataAttribute_nameAttributeRequired( serviceDataAttribute, diagnostics, context );
         return result;
     }
-
-    /**
-     * The cached validation expression for the nameAttributeRequired constraint of '<em>Service Data Attribute</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String SERVICE_DATA_ATTRIBUTE__NAME_ATTRIBUTE_REQUIRED__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'The name attribute is required',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.name <> null\n" +
-            "}.status";
 
     /**
      * Validates the nameAttributeRequired constraint of '<em>Service Data Attribute</em>'.
@@ -2479,29 +2083,8 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateServiceDataAttribute_nameAttributeRequired( ServiceDataAttribute serviceDataAttribute,
             DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.SERVICE_DATA_ATTRIBUTE,
-                serviceDataAttribute,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "nameAttributeRequired",
-                SERVICE_DATA_ATTRIBUTE__NAME_ATTRIBUTE_REQUIRED__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return serviceDataAttribute.nameAttributeRequired( diagnostics, context );
     }
-
-    /**
-     * The cached validation expression for the fcAttributeRequired constraint of '<em>Service Data Attribute</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String SERVICE_DATA_ATTRIBUTE__FC_ATTRIBUTE_REQUIRED__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'The fc attribute is required',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.fc <> null\n" +
-            "}.status";
 
     /**
      * Validates the fcAttributeRequired constraint of '<em>Service Data Attribute</em>'.
@@ -2511,16 +2094,7 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateServiceDataAttribute_fcAttributeRequired( ServiceDataAttribute serviceDataAttribute,
             DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.SERVICE_DATA_ATTRIBUTE,
-                serviceDataAttribute,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "fcAttributeRequired",
-                SERVICE_DATA_ATTRIBUTE__FC_ATTRIBUTE_REQUIRED__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return serviceDataAttribute.fcAttributeRequired( diagnostics, context );
     }
 
     /**
@@ -2543,9 +2117,9 @@ public class NsdValidator extends EObjectValidator {
         if( result || diagnostics != null ) result &= validate_EveryKeyUnique( serviceNS, diagnostics, context );
         if( result || diagnostics != null ) result &= validate_EveryMapEntryUnique( serviceNS, diagnostics, context );
         if( result || diagnostics != null )
-            result &= validateAgNSIdentification_idAttributeRequired( serviceNS, diagnostics, context );
-        if( result || diagnostics != null )
             result &= validateAgNSIdentification_versionAttributeRequired( serviceNS, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validateAgNSIdentification_idAttributeRequired( serviceNS, diagnostics, context );
         return result;
     }
 
@@ -2571,9 +2145,9 @@ public class NsdValidator extends EObjectValidator {
         if( result || diagnostics != null )
             result &= validate_EveryMapEntryUnique( serviceNsUsage, diagnostics, context );
         if( result || diagnostics != null )
-            result &= validateAgNSIdentification_idAttributeRequired( serviceNsUsage, diagnostics, context );
-        if( result || diagnostics != null )
             result &= validateAgNSIdentification_versionAttributeRequired( serviceNsUsage, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validateAgNSIdentification_idAttributeRequired( serviceNsUsage, diagnostics, context );
         return result;
     }
 
@@ -2604,18 +2178,6 @@ public class NsdValidator extends EObjectValidator {
     }
 
     /**
-     * The cached validation expression for the nameAttributeRequired constraint of '<em>Service Parameter</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String SERVICE_PARAMETER__NAME_ATTRIBUTE_REQUIRED__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'The name attribute is required',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.name <> null\n" +
-            "}.status";
-
-    /**
      * Validates the nameAttributeRequired constraint of '<em>Service Parameter</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2623,16 +2185,7 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateServiceParameter_nameAttributeRequired( ServiceParameter serviceParameter,
             DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.SERVICE_PARAMETER,
-                serviceParameter,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "nameAttributeRequired",
-                SERVICE_PARAMETER__NAME_ATTRIBUTE_REQUIRED__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return serviceParameter.nameAttributeRequired( diagnostics, context );
     }
 
     /**
@@ -2672,18 +2225,6 @@ public class NsdValidator extends EObjectValidator {
     }
 
     /**
-     * The cached validation expression for the nameAttributeRequired constraint of '<em>Sub Data Attribute</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String SUB_DATA_ATTRIBUTE__NAME_ATTRIBUTE_REQUIRED__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'The name attribute is required',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.name <> null\n" +
-            "}.status";
-
-    /**
      * Validates the nameAttributeRequired constraint of '<em>Sub Data Attribute</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2691,16 +2232,7 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateSubDataAttribute_nameAttributeRequired( SubDataAttribute subDataAttribute,
             DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.SUB_DATA_ATTRIBUTE,
-                subDataAttribute,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "nameAttributeRequired",
-                SUB_DATA_ATTRIBUTE__NAME_ATTRIBUTE_REQUIRED__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return subDataAttribute.nameAttributeRequired( diagnostics, context );
     }
 
     /**
@@ -2725,23 +2257,11 @@ public class NsdValidator extends EObjectValidator {
         if( result || diagnostics != null )
             result &= validate_EveryMapEntryUnique( subDataObject, diagnostics, context );
         if( result || diagnostics != null )
-            result &= validateSubDataObject_nameAttributeRequired( subDataObject, diagnostics, context );
-        if( result || diagnostics != null )
             result &= validateSubDataObject_typeAttributeRequired( subDataObject, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validateSubDataObject_nameAttributeRequired( subDataObject, diagnostics, context );
         return result;
     }
-
-    /**
-     * The cached validation expression for the nameAttributeRequired constraint of '<em>Sub Data Object</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String SUB_DATA_OBJECT__NAME_ATTRIBUTE_REQUIRED__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'The name attribute is required',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.name <> null\n" +
-            "}.status";
 
     /**
      * Validates the nameAttributeRequired constraint of '<em>Sub Data Object</em>'.
@@ -2751,29 +2271,8 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateSubDataObject_nameAttributeRequired( SubDataObject subDataObject,
             DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.SUB_DATA_OBJECT,
-                subDataObject,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "nameAttributeRequired",
-                SUB_DATA_OBJECT__NAME_ATTRIBUTE_REQUIRED__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return subDataObject.nameAttributeRequired( diagnostics, context );
     }
-
-    /**
-     * The cached validation expression for the typeAttributeRequired constraint of '<em>Sub Data Object</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String SUB_DATA_OBJECT__TYPE_ATTRIBUTE_REQUIRED__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'The type attribute is required',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.type <> null\n" +
-            "}.status";
 
     /**
      * Validates the typeAttributeRequired constraint of '<em>Sub Data Object</em>'.
@@ -2783,16 +2282,7 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateSubDataObject_typeAttributeRequired( SubDataObject subDataObject,
             DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.SUB_DATA_OBJECT,
-                subDataObject,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "typeAttributeRequired",
-                SUB_DATA_OBJECT__TYPE_ATTRIBUTE_REQUIRED__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return subDataObject.typeAttributeRequired( diagnostics, context );
     }
 
     /**
@@ -2820,18 +2310,6 @@ public class NsdValidator extends EObjectValidator {
     }
 
     /**
-     * The cached validation expression for the titleIDAttributeRequired constraint of '<em>Titled Class</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String TITLED_CLASS__TITLE_ID_ATTRIBUTE_REQUIRED__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'The titleID attribute is required',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.titleID <> null\n" +
-            "}.status";
-
-    /**
      * Validates the titleIDAttributeRequired constraint of '<em>Titled Class</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2839,16 +2317,7 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateTitledClass_titleIDAttributeRequired( TitledClass titledClass, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.TITLED_CLASS,
-                titledClass,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "titleIDAttributeRequired",
-                TITLED_CLASS__TITLE_ID_ATTRIBUTE_REQUIRED__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return titledClass.titleIDAttributeRequired( diagnostics, context );
     }
 
     /**
@@ -2884,23 +2353,11 @@ public class NsdValidator extends EObjectValidator {
         if( result || diagnostics != null )
             result &= validate_EveryMapEntryUnique( agNSIdentification, diagnostics, context );
         if( result || diagnostics != null )
-            result &= validateAgNSIdentification_idAttributeRequired( agNSIdentification, diagnostics, context );
-        if( result || diagnostics != null )
             result &= validateAgNSIdentification_versionAttributeRequired( agNSIdentification, diagnostics, context );
+        if( result || diagnostics != null )
+            result &= validateAgNSIdentification_idAttributeRequired( agNSIdentification, diagnostics, context );
         return result;
     }
-
-    /**
-     * The cached validation expression for the idAttributeRequired constraint of '<em>Ag NS Identification</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String AG_NS_IDENTIFICATION__ID_ATTRIBUTE_REQUIRED__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'The id attribute is required',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.id <> null\n" +
-            "}.status";
 
     /**
      * Validates the idAttributeRequired constraint of '<em>Ag NS Identification</em>'.
@@ -2910,29 +2367,8 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateAgNSIdentification_idAttributeRequired( AgNSIdentification agNSIdentification,
             DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.AG_NS_IDENTIFICATION,
-                agNSIdentification,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "idAttributeRequired",
-                AG_NS_IDENTIFICATION__ID_ATTRIBUTE_REQUIRED__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return agNSIdentification.idAttributeRequired( diagnostics, context );
     }
-
-    /**
-     * The cached validation expression for the versionAttributeRequired constraint of '<em>Ag NS Identification</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static final String AG_NS_IDENTIFICATION__VERSION_ATTRIBUTE_REQUIRED__EEXPRESSION = "Tuple {\n" +
-            "\tmessage : String = 'The version attribute is required',\n" +
-            "\tstatus : Boolean = \n" +
-            "\t\t\tself.version <> null\n" +
-            "}.status";
 
     /**
      * Validates the versionAttributeRequired constraint of '<em>Ag NS Identification</em>'.
@@ -2942,16 +2378,7 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateAgNSIdentification_versionAttributeRequired( AgNSIdentification agNSIdentification,
             DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        return validate( NsdPackage.Literals.AG_NS_IDENTIFICATION,
-                agNSIdentification,
-                diagnostics,
-                context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                "versionAttributeRequired",
-                AG_NS_IDENTIFICATION__VERSION_ATTRIBUTE_REQUIRED__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        return agNSIdentification.versionAttributeRequired( diagnostics, context );
     }
 
     /**

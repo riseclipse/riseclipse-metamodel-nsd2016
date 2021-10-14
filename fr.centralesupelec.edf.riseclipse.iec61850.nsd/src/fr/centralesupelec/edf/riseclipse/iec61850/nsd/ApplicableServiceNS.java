@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -20,8 +20,11 @@
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
+import java.util.Map;
+
 import javax.xml.datatype.XMLGregorianCalendar;
 
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -40,8 +43,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getApplicableServiceNS()
  * @model extendedMetaData="name='tApplicableServiceNS' kind='elementOnly'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='versionAttributeRequired dateAttributeRequired'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot versionAttributeRequired='Tuple {\n\tmessage : String = \'The version attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.version &lt;&gt; null\n}.status' dateAttributeRequired='Tuple {\n\tmessage : String = \'The date attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.date &lt;&gt; null\n}.status'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='dateAttributeRequired'"
  * @generated
  */
 public interface ApplicableServiceNS extends Copyrighted {
@@ -182,5 +184,21 @@ public interface ApplicableServiceNS extends Copyrighted {
      * @generated
      */
     boolean isSetVersion();
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='Tuple {\n\tmessage : String = \'The version attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.version &lt;&gt; null\n}.status'"
+     * @generated
+     */
+    boolean versionAttributeRequired( DiagnosticChain diagnostics, Map< Object, Object > context );
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='Tuple {\n\tmessage : String = \'The date attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.date &lt;&gt; null\n}.status'"
+     * @generated
+     */
+    boolean dateAttributeRequired( DiagnosticChain diagnostics, Map< Object, Object > context );
 
 } // ApplicableServiceNS

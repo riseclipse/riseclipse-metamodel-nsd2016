@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -19,6 +19,10 @@
 *************************************************************************
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
+
+import java.util.Map;
+
+import org.eclipse.emf.common.util.DiagnosticChain;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,7 +40,6 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceType()
  * @model extendedMetaData="name='Service_._type' kind='empty'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='nameAttributeRequired'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot nameAttributeRequired='Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name &lt;&gt; null\n}.status'"
  * @generated
  */
 public interface ServiceType extends NsdObject {
@@ -120,5 +123,13 @@ public interface ServiceType extends NsdObject {
      * @generated
      */
     void setParentApplicableServices( ApplicableServices value );
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name &lt;&gt; null\n}.status'"
+     * @generated
+     */
+    boolean nameAttributeRequired( DiagnosticChain diagnostics, Map< Object, Object > context );
 
 } // ServiceType

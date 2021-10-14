@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -20,6 +20,9 @@
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
+import java.util.Map;
+
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -41,8 +44,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getConstructedAttribute()
  * @model extendedMetaData="name='tConstructedAttribute' kind='elementOnly'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='uniqueSubDataAttribute nameAttributeRequired'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot uniqueSubDataAttribute='Tuple {\n\tmessage : String = \'For a ConstructedAttribute, there shall not be two SubDataAttribute sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.subDataAttribute-&gt;isUnique( s : SubDataAttribute | s.name )\n}.status' nameAttributeRequired='Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name &lt;&gt; null\n}.status'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='nameAttributeRequired'"
  * @generated
  */
 public interface ConstructedAttribute extends TitledClass {
@@ -259,5 +261,21 @@ public interface ConstructedAttribute extends TitledClass {
      * @generated
      */
     boolean isSetReferredByUnderlyingType();
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='Tuple {\n\tmessage : String = \'For a ConstructedAttribute, there shall not be two SubDataAttribute sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.subDataAttribute-&gt;isUnique( s : SubDataAttribute | s.name )\n}.status'"
+     * @generated
+     */
+    boolean uniqueSubDataAttribute( DiagnosticChain diagnostics, Map< Object, Object > context );
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name &lt;&gt; null\n}.status'"
+     * @generated
+     */
+    boolean nameAttributeRequired( DiagnosticChain diagnostics, Map< Object, Object > context );
 
 } // ConstructedAttribute
