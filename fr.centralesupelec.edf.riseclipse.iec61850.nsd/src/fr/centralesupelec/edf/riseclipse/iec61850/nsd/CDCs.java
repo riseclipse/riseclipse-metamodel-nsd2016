@@ -1,6 +1,6 @@
 /*
 *************************************************************************
-**  Copyright (c) 2019 CentraleSupélec & EDF.
+**  Copyright (c) 2016-2021 CentraleSupélec & EDF.
 **  All rights reserved. This program and the accompanying materials
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
@@ -15,11 +15,14 @@
 **      dominique.marcadet@centralesupelec.fr
 **      aurelie.dehouck-neveu@edf.fr
 **  Web site:
-**      http://wdi.supelec.fr/software/RiseClipse/
+**      https://riseclipse.github.io/
 *************************************************************************
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
+import java.util.Map;
+
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -38,7 +41,6 @@ import org.eclipse.emf.common.util.EList;
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCDCs()
  * @model extendedMetaData="name='tCDCs' kind='elementOnly'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='uniqueCDC'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot uniqueCDC='Tuple {\n\tmessage : String = \'Within an NS, there shall not be two CDC sub-elements with same name and (if defined) variant.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: DependsOn NS should be taken into account ?\n\t\t\t-- For this, explicit links have to be created first\n\t\t\t-- Then, may be this constraint should be in NS and not in Enumerations ?\n\t\t\tself.cDC-&gt;select( c : CDC | c.variant = null )-&gt;isUnique( c : CDC | c.name )\n\t     or self.cDC-&gt;select( c : CDC | c.variant &lt;&gt; null )-&gt;forAll( c1, c2 : CDC | c1 &lt;&gt; c2 implies c1.name &lt;&gt; c2.name or c1.variant &lt;&gt; c2.variant )\n}.status'"
  * @generated
  */
 public interface CDCs extends NsdObject {
@@ -103,5 +105,13 @@ public interface CDCs extends NsdObject {
      * @generated
      */
     void setParentNS( NS value );
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='Tuple {\n\tmessage : String = \'Within an NS, there shall not be two CDC sub-elements with same name and (if defined) variant.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: DependsOn NS should be taken into account ?\n\t\t\t-- For this, explicit links have to be created first\n\t\t\t-- Then, may be this constraint should be in NS and not in Enumerations ?\n\t\t\tself.cDC-&gt;select( c : CDC | c.variant = null )-&gt;isUnique( c : CDC | c.name )\n\t     or self.cDC-&gt;select( c : CDC | c.variant &lt;&gt; null )-&gt;forAll( c1, c2 : CDC | c1 &lt;&gt; c2 implies c1.name &lt;&gt; c2.name or c1.variant &lt;&gt; c2.variant )\n}.status'"
+     * @generated
+     */
+    boolean uniqueCDC( DiagnosticChain diagnostics, Map< Object, Object > context );
 
 } // CDCs

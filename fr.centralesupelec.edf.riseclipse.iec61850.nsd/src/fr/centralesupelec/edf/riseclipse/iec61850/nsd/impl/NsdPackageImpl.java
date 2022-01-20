@@ -1,6 +1,6 @@
 /*
 *************************************************************************
-**  Copyright (c) 2019 CentraleSupélec & EDF.
+**  Copyright (c) 2016-2021 CentraleSupélec & EDF.
 **  All rights reserved. This program and the accompanying materials
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
@@ -15,10 +15,23 @@
 **      dominique.marcadet@centralesupelec.fr
 **      aurelie.dehouck-neveu@edf.fr
 **  Web site:
-**      http://wdi.supelec.fr/software/RiseClipse/
+**      https://riseclipse.github.io/
 *************************************************************************
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
+
+import org.eclipse.emf.common.util.Enumerator;
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EGenericType;
+import org.eclipse.emf.ecore.EOperation;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EValidator;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ACSIServicesKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation;
@@ -86,24 +99,8 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TitledClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.UndefinedAttributeTypeKind;
-
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdValidator;
-
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
-import org.eclipse.emf.common.util.Enumerator;
-
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
-import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EOperation;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EValidator;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
-
-import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -871,6 +868,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EOperation getServiceType__NameAttributeRequired__DiagnosticChain_Map() {
+        return serviceTypeEClass.getEOperations().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getAbbreviation() {
         return abbreviationEClass;
     }
@@ -921,6 +928,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EOperation getAbbreviation__NameAttributeRequired__DiagnosticChain_Map() {
+        return abbreviationEClass.getEOperations().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getAbbreviations() {
         return abbreviationsEClass;
     }
@@ -961,6 +978,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EOperation getAbbreviations__UniqueAbbreviation__DiagnosticChain_Map() {
+        return abbreviationsEClass.getEOperations().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getAbstractLNClass() {
         return abstractLNClassEClass;
     }
@@ -993,6 +1020,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EReference getAbstractLNClass_ReferredByAnyLNClass() {
         return ( EReference ) abstractLNClassEClass.getEStructuralFeatures().get( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getAbstractLNClass__NameAttributeRequired__DiagnosticChain_Map() {
+        return abstractLNClassEClass.getEOperations().get( 0 );
     }
 
     /**
@@ -1061,6 +1098,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EOperation getAnyLNClass__UniqueDataObject__DiagnosticChain_Map() {
+        return anyLNClassEClass.getEOperations().get( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getApplicableServiceNS() {
         return applicableServiceNSEClass;
     }
@@ -1101,6 +1148,26 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EOperation getApplicableServiceNS__VersionAttributeRequired__DiagnosticChain_Map() {
+        return applicableServiceNSEClass.getEOperations().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getApplicableServiceNS__DateAttributeRequired__DiagnosticChain_Map() {
+        return applicableServiceNSEClass.getEOperations().get( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getApplicableServices() {
         return applicableServicesEClass;
     }
@@ -1133,6 +1200,26 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EReference getApplicableServices_ParentFunctionalConstraint() {
         return ( EReference ) applicableServicesEClass.getEStructuralFeatures().get( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getApplicableServices__UniqueDataSetMemberOf__DiagnosticChain_Map() {
+        return applicableServicesEClass.getEOperations().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getApplicableServices__UniqueService__DiagnosticChain_Map() {
+        return applicableServicesEClass.getEOperations().get( 1 );
     }
 
     /**
@@ -1203,6 +1290,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EReference getBasicType_ReferredByUnderlyingType() {
         return ( EReference ) basicTypeEClass.getEStructuralFeatures().get( 5 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getBasicType__NameAttributeRequired__DiagnosticChain_Map() {
+        return basicTypeEClass.getEOperations().get( 0 );
     }
 
     /**
@@ -1361,6 +1458,26 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EOperation getCDC__UniqueCDCChild__DiagnosticChain_Map() {
+        return cdcEClass.getEOperations().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getCDC__NameAttributeRequired__DiagnosticChain_Map() {
+        return cdcEClass.getEOperations().get( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getCDCs() {
         return cdCsEClass;
     }
@@ -1383,6 +1500,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EReference getCDCs_ParentNS() {
         return ( EReference ) cdCsEClass.getEStructuralFeatures().get( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getCDCs__UniqueCDC__DiagnosticChain_Map() {
+        return cdCsEClass.getEOperations().get( 0 );
     }
 
     /**
@@ -1481,6 +1608,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EOperation getChanges__VersionAttributeRequired__DiagnosticChain_Map() {
+        return changesEClass.getEOperations().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getConstructedAttribute() {
         return constructedAttributeEClass;
     }
@@ -1551,6 +1688,26 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EOperation getConstructedAttribute__UniqueSubDataAttribute__DiagnosticChain_Map() {
+        return constructedAttributeEClass.getEOperations().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getConstructedAttribute__NameAttributeRequired__DiagnosticChain_Map() {
+        return constructedAttributeEClass.getEOperations().get( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getConstructedAttributes() {
         return constructedAttributesEClass;
     }
@@ -1573,6 +1730,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EReference getConstructedAttributes_ParentNS() {
         return ( EReference ) constructedAttributesEClass.getEStructuralFeatures().get( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getConstructedAttributes__UniqueConstructedAttribute__DiagnosticChain_Map() {
+        return constructedAttributesEClass.getEOperations().get( 0 );
     }
 
     /**
@@ -1761,6 +1928,26 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EOperation getDataAttribute__NameAttributeRequired__DiagnosticChain_Map() {
+        return dataAttributeEClass.getEOperations().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getDataAttribute__FcAttributeRequired__DiagnosticChain_Map() {
+        return dataAttributeEClass.getEOperations().get( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getDataObject() {
         return dataObjectEClass;
     }
@@ -1841,6 +2028,26 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EOperation getDataObject__NameAttributeRequired__DiagnosticChain_Map() {
+        return dataObjectEClass.getEOperations().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getDataObject__TypeAttributeRequired__DiagnosticChain_Map() {
+        return dataObjectEClass.getEOperations().get( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getDataSetMemberOf() {
         return dataSetMemberOfEClass;
     }
@@ -1863,6 +2070,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EReference getDataSetMemberOf_ParentApplicableServices() {
         return ( EReference ) dataSetMemberOfEClass.getEStructuralFeatures().get( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getDataSetMemberOf__CbAttributeRequired__DiagnosticChain_Map() {
+        return dataSetMemberOfEClass.getEOperations().get( 0 );
     }
 
     /**
@@ -2041,6 +2258,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EOperation getDoc__IdAttributeRequired__DiagnosticChain_Map() {
+        return docEClass.getEOperations().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getDocumentedClass() {
         return documentedClassEClass;
     }
@@ -2181,6 +2408,36 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EOperation getEnumeration__UniqueLiteralName__DiagnosticChain_Map() {
+        return enumerationEClass.getEOperations().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getEnumeration__UniqueLiteralVal__DiagnosticChain_Map() {
+        return enumerationEClass.getEOperations().get( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getEnumeration__NameAttributeRequired__DiagnosticChain_Map() {
+        return enumerationEClass.getEOperations().get( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getEnumerations() {
         return enumerationsEClass;
     }
@@ -2203,6 +2460,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EReference getEnumerations_ParentNS() {
         return ( EReference ) enumerationsEClass.getEStructuralFeatures().get( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getEnumerations__UniqueEnumeration__DiagnosticChain_Map() {
+        return enumerationsEClass.getEOperations().get( 0 );
     }
 
     /**
@@ -2301,6 +2568,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EOperation getFunctionalConstraint__AbbreviationAttributeRequired__DiagnosticChain_Map() {
+        return functionalConstraintEClass.getEOperations().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getFunctionalConstraints() {
         return functionalConstraintsEClass;
     }
@@ -2333,6 +2610,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EReference getFunctionalConstraints_ParentServiceNS() {
         return ( EReference ) functionalConstraintsEClass.getEStructuralFeatures().get( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getFunctionalConstraints__UniqueFunctionalConstraint__DiagnosticChain_Map() {
+        return functionalConstraintsEClass.getEOperations().get( 0 );
     }
 
     /**
@@ -2431,6 +2718,26 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EOperation getLiteral__NameAttributeRequired__DiagnosticChain_Map() {
+        return literalEClass.getEOperations().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getLiteral__LiteralValAttributeRequired__DiagnosticChain_Map() {
+        return literalEClass.getEOperations().get( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getLNClass() {
         return lnClassEClass;
     }
@@ -2481,6 +2788,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EOperation getLNClass__NameAttributeRequired__DiagnosticChain_Map() {
+        return lnClassEClass.getEOperations().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getLNClasses() {
         return lnClassesEClass;
     }
@@ -2513,6 +2830,26 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EReference getLNClasses_ParentNS() {
         return ( EReference ) lnClassesEClass.getEStructuralFeatures().get( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getLNClasses__UniqueLNClass__DiagnosticChain_Map() {
+        return lnClassesEClass.getEOperations().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getLNClasses__UniqueAbstractLNClass__DiagnosticChain_Map() {
+        return lnClassesEClass.getEOperations().get( 1 );
     }
 
     /**
@@ -2701,6 +3038,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EOperation getNSDoc__LangAttributeRequired__DiagnosticChain_Map() {
+        return nsDocEClass.getEOperations().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getPresenceCondition() {
         return presenceConditionEClass;
     }
@@ -2831,6 +3178,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EOperation getPresenceCondition__NameAttributeRequired__DiagnosticChain_Map() {
+        return presenceConditionEClass.getEOperations().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getPresenceConditions() {
         return presenceConditionsEClass;
     }
@@ -2863,6 +3220,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EReference getPresenceConditions_ParentServiceNS() {
         return ( EReference ) presenceConditionsEClass.getEStructuralFeatures().get( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getPresenceConditions__UniquePresenceCondition__DiagnosticChain_Map() {
+        return presenceConditionsEClass.getEOperations().get( 0 );
     }
 
     /**
@@ -2913,6 +3280,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EReference getServiceCDC_ParentServiceCDCs() {
         return ( EReference ) serviceCDCEClass.getEStructuralFeatures().get( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getServiceCDC__CdcAttributeRequired__DiagnosticChain_Map() {
+        return serviceCDCEClass.getEOperations().get( 0 );
     }
 
     /**
@@ -3043,6 +3420,26 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EReference getServiceDataAttribute_ParentServiceCDC() {
         return ( EReference ) serviceDataAttributeEClass.getEStructuralFeatures().get( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getServiceDataAttribute__NameAttributeRequired__DiagnosticChain_Map() {
+        return serviceDataAttributeEClass.getEOperations().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getServiceDataAttribute__FcAttributeRequired__DiagnosticChain_Map() {
+        return serviceDataAttributeEClass.getEOperations().get( 1 );
     }
 
     /**
@@ -3191,6 +3588,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EOperation getServiceParameter__NameAttributeRequired__DiagnosticChain_Map() {
+        return serviceParameterEClass.getEOperations().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getServiceTypeRealizations() {
         return serviceTypeRealizationsEClass;
     }
@@ -3253,6 +3660,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EReference getSubDataAttribute_RefersToPresenceCondition() {
         return ( EReference ) subDataAttributeEClass.getEStructuralFeatures().get( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getSubDataAttribute__NameAttributeRequired__DiagnosticChain_Map() {
+        return subDataAttributeEClass.getEOperations().get( 0 );
     }
 
     /**
@@ -3341,6 +3758,26 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EOperation getSubDataObject__NameAttributeRequired__DiagnosticChain_Map() {
+        return subDataObjectEClass.getEOperations().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getSubDataObject__TypeAttributeRequired__DiagnosticChain_Map() {
+        return subDataObjectEClass.getEOperations().get( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getTitledClass() {
         return titledClassEClass;
     }
@@ -3363,6 +3800,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EReference getTitledClass_RefersToTitleDoc() {
         return ( EReference ) titledClassEClass.getEStructuralFeatures().get( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getTitledClass__TitleIDAttributeRequired__DiagnosticChain_Map() {
+        return titledClassEClass.getEOperations().get( 0 );
     }
 
     /**
@@ -3463,6 +3910,26 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EAttribute getAgNSIdentification_PublicationStage() {
         return ( EAttribute ) agNSIdentificationEClass.getEStructuralFeatures().get( 4 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getAgNSIdentification__IdAttributeRequired__DiagnosticChain_Map() {
+        return agNSIdentificationEClass.getEOperations().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getAgNSIdentification__VersionAttributeRequired__DiagnosticChain_Map() {
+        return agNSIdentificationEClass.getEOperations().get( 1 );
     }
 
     /**
@@ -4063,22 +4530,26 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         serviceTypeEClass = createEClass( SERVICE_TYPE );
         createEAttribute( serviceTypeEClass, SERVICE_TYPE__NAME );
         createEReference( serviceTypeEClass, SERVICE_TYPE__PARENT_APPLICABLE_SERVICES );
+        createEOperation( serviceTypeEClass, SERVICE_TYPE___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
 
         abbreviationEClass = createEClass( ABBREVIATION );
         createEAttribute( abbreviationEClass, ABBREVIATION__DESC_ID );
         createEAttribute( abbreviationEClass, ABBREVIATION__NAME );
         createEReference( abbreviationEClass, ABBREVIATION__PARENT_ABBREVIATIONS );
         createEReference( abbreviationEClass, ABBREVIATION__REFERS_TO_DOC );
+        createEOperation( abbreviationEClass, ABBREVIATION___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
 
         abbreviationsEClass = createEClass( ABBREVIATIONS );
         createEReference( abbreviationsEClass, ABBREVIATIONS__ABBREVIATION );
         createEReference( abbreviationsEClass, ABBREVIATIONS__PARENT_NS );
         createEReference( abbreviationsEClass, ABBREVIATIONS__PARENT_SERVICE_NS );
+        createEOperation( abbreviationsEClass, ABBREVIATIONS___UNIQUE_ABBREVIATION__DIAGNOSTICCHAIN_MAP );
 
         abstractLNClassEClass = createEClass( ABSTRACT_LN_CLASS );
         createEAttribute( abstractLNClassEClass, ABSTRACT_LN_CLASS__NAME );
         createEReference( abstractLNClassEClass, ABSTRACT_LN_CLASS__PARENT_LN_CLASSES );
         createEReference( abstractLNClassEClass, ABSTRACT_LN_CLASS__REFERRED_BY_ANY_LN_CLASS );
+        createEOperation( abstractLNClassEClass, ABSTRACT_LN_CLASS___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
 
         anyLNClassEClass = createEClass( ANY_LN_CLASS );
         createEReference( anyLNClassEClass, ANY_LN_CLASS__DATA_OBJECT );
@@ -4086,16 +4557,24 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEReference( anyLNClassEClass, ANY_LN_CLASS__REFERS_TO_ABSTRACT_LN_CLASS );
         createEOperation( anyLNClassEClass, ANY_LN_CLASS___GET_NAME );
         createEOperation( anyLNClassEClass, ANY_LN_CLASS___GET_PARENT_LN_CLASSES );
+        createEOperation( anyLNClassEClass, ANY_LN_CLASS___UNIQUE_DATA_OBJECT__DIAGNOSTICCHAIN_MAP );
 
         applicableServiceNSEClass = createEClass( APPLICABLE_SERVICE_NS );
         createEReference( applicableServiceNSEClass, APPLICABLE_SERVICE_NS__SERVICE_NS_USAGE );
         createEAttribute( applicableServiceNSEClass, APPLICABLE_SERVICE_NS__DATE );
         createEAttribute( applicableServiceNSEClass, APPLICABLE_SERVICE_NS__VERSION );
+        createEOperation( applicableServiceNSEClass,
+                APPLICABLE_SERVICE_NS___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
+        createEOperation( applicableServiceNSEClass,
+                APPLICABLE_SERVICE_NS___DATE_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
 
         applicableServicesEClass = createEClass( APPLICABLE_SERVICES );
         createEReference( applicableServicesEClass, APPLICABLE_SERVICES__SERVICE );
         createEReference( applicableServicesEClass, APPLICABLE_SERVICES__DATA_SET_MEMBER_OF );
         createEReference( applicableServicesEClass, APPLICABLE_SERVICES__PARENT_FUNCTIONAL_CONSTRAINT );
+        createEOperation( applicableServicesEClass,
+                APPLICABLE_SERVICES___UNIQUE_DATA_SET_MEMBER_OF__DIAGNOSTICCHAIN_MAP );
+        createEOperation( applicableServicesEClass, APPLICABLE_SERVICES___UNIQUE_SERVICE__DIAGNOSTICCHAIN_MAP );
 
         basicTypeEClass = createEClass( BASIC_TYPE );
         createEAttribute( basicTypeEClass, BASIC_TYPE__DESC_ID );
@@ -4104,6 +4583,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEReference( basicTypeEClass, BASIC_TYPE__REFERRED_BY_ATTRIBUTE_TYPE );
         createEReference( basicTypeEClass, BASIC_TYPE__REFERS_TO_DOC );
         createEReference( basicTypeEClass, BASIC_TYPE__REFERRED_BY_UNDERLYING_TYPE );
+        createEOperation( basicTypeEClass, BASIC_TYPE___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
 
         basicTypesEClass = createEClass( BASIC_TYPES );
         createEReference( basicTypesEClass, BASIC_TYPES__BASIC_TYPE );
@@ -4121,10 +4601,13 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEReference( cdcEClass, CDC__PARENT_CD_CS );
         createEReference( cdcEClass, CDC__REFERRED_BY_DATA_OBJECT );
         createEReference( cdcEClass, CDC__REFERRED_BY_SUB_DATA_OBJECT );
+        createEOperation( cdcEClass, CDC___UNIQUE_CDC_CHILD__DIAGNOSTICCHAIN_MAP );
+        createEOperation( cdcEClass, CDC___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
 
         cdCsEClass = createEClass( CD_CS );
         createEReference( cdCsEClass, CD_CS__CDC );
         createEReference( cdCsEClass, CD_CS__PARENT_NS );
+        createEOperation( cdCsEClass, CD_CS___UNIQUE_CDC__DIAGNOSTICCHAIN_MAP );
 
         changesEClass = createEClass( CHANGES );
         createEAttribute( changesEClass, CHANGES__CHANGES_ID );
@@ -4135,6 +4618,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEReference( changesEClass, CHANGES__PARENT_SERVICE_NS );
         createEAttribute( changesEClass, CHANGES__RELEASE );
         createEAttribute( changesEClass, CHANGES__VERSION );
+        createEOperation( changesEClass, CHANGES___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
 
         constructedAttributeEClass = createEClass( CONSTRUCTED_ATTRIBUTE );
         createEReference( constructedAttributeEClass, CONSTRUCTED_ATTRIBUTE__SUB_DATA_ATTRIBUTE );
@@ -4143,10 +4627,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEReference( constructedAttributeEClass, CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_TYPE_REALIZATIONS );
         createEReference( constructedAttributeEClass, CONSTRUCTED_ATTRIBUTE__REFERRED_BY_ATTRIBUTE_TYPE );
         createEReference( constructedAttributeEClass, CONSTRUCTED_ATTRIBUTE__REFERRED_BY_UNDERLYING_TYPE );
+        createEOperation( constructedAttributeEClass,
+                CONSTRUCTED_ATTRIBUTE___UNIQUE_SUB_DATA_ATTRIBUTE__DIAGNOSTICCHAIN_MAP );
+        createEOperation( constructedAttributeEClass,
+                CONSTRUCTED_ATTRIBUTE___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
 
         constructedAttributesEClass = createEClass( CONSTRUCTED_ATTRIBUTES );
         createEReference( constructedAttributesEClass, CONSTRUCTED_ATTRIBUTES__CONSTRUCTED_ATTRIBUTE );
         createEReference( constructedAttributesEClass, CONSTRUCTED_ATTRIBUTES__PARENT_NS );
+        createEOperation( constructedAttributesEClass,
+                CONSTRUCTED_ATTRIBUTES___UNIQUE_CONSTRUCTED_ATTRIBUTE__DIAGNOSTICCHAIN_MAP );
 
         copyrightedEClass = createEClass( COPYRIGHTED );
         createEReference( copyrightedEClass, COPYRIGHTED__COPYRIGHT );
@@ -4168,6 +4658,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEReference( dataAttributeEClass, DATA_ATTRIBUTE__REFERS_TO_MAX_INDEX_ATTRIBUTE );
         createEReference( dataAttributeEClass, DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_SIZE_ATTRIBUTE );
         createEReference( dataAttributeEClass, DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_MAX_INDEX_ATTRIBUTE );
+        createEOperation( dataAttributeEClass, DATA_ATTRIBUTE___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
+        createEOperation( dataAttributeEClass, DATA_ATTRIBUTE___FC_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
 
         dataObjectEClass = createEClass( DATA_OBJECT );
         createEAttribute( dataObjectEClass, DATA_OBJECT__NAME );
@@ -4177,10 +4669,13 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEReference( dataObjectEClass, DATA_OBJECT__REFERS_TO_CDC );
         createEReference( dataObjectEClass, DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION );
         createEReference( dataObjectEClass, DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION_DERIVED_STATISTICS );
+        createEOperation( dataObjectEClass, DATA_OBJECT___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
+        createEOperation( dataObjectEClass, DATA_OBJECT___TYPE_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
 
         dataSetMemberOfEClass = createEClass( DATA_SET_MEMBER_OF );
         createEAttribute( dataSetMemberOfEClass, DATA_SET_MEMBER_OF__CB );
         createEReference( dataSetMemberOfEClass, DATA_SET_MEMBER_OF__PARENT_APPLICABLE_SERVICES );
+        createEOperation( dataSetMemberOfEClass, DATA_SET_MEMBER_OF___CB_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
 
         docEClass = createEClass( DOC );
         createEAttribute( docEClass, DOC__MIXED );
@@ -4199,6 +4694,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEReference( docEClass, DOC__REFERRED_BY_TITLED_CLASS );
         createEReference( docEClass, DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT_AS_TITLE );
         createEReference( docEClass, DOC__REFERRED_BY_PRESENCE_CONDITION_AS_TITLE );
+        createEOperation( docEClass, DOC___ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
 
         documentedClassEClass = createEClass( DOCUMENTED_CLASS );
         createEAttribute( documentedClassEClass, DOCUMENTED_CLASS__DEPRECATED );
@@ -4215,10 +4711,14 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEReference( enumerationEClass, ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE );
         createEReference( enumerationEClass, ENUMERATION__REFERRED_BY_ATTRIBUTE_TYPE );
         createEReference( enumerationEClass, ENUMERATION__REFERRED_BY_UNDERLYING_TYPE );
+        createEOperation( enumerationEClass, ENUMERATION___UNIQUE_LITERAL_NAME__DIAGNOSTICCHAIN_MAP );
+        createEOperation( enumerationEClass, ENUMERATION___UNIQUE_LITERAL_VAL__DIAGNOSTICCHAIN_MAP );
+        createEOperation( enumerationEClass, ENUMERATION___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
 
         enumerationsEClass = createEClass( ENUMERATIONS );
         createEReference( enumerationsEClass, ENUMERATIONS__ENUMERATION );
         createEReference( enumerationsEClass, ENUMERATIONS__PARENT_NS );
+        createEOperation( enumerationsEClass, ENUMERATIONS___UNIQUE_ENUMERATION__DIAGNOSTICCHAIN_MAP );
 
         functionalConstraintEClass = createEClass( FUNCTIONAL_CONSTRAINT );
         createEReference( functionalConstraintEClass, FUNCTIONAL_CONSTRAINT__APPLICABLE_SERVICES );
@@ -4229,11 +4729,15 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEReference( functionalConstraintEClass, FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE );
         createEReference( functionalConstraintEClass, FUNCTIONAL_CONSTRAINT__REFERS_TO_DESC_DOC );
         createEReference( functionalConstraintEClass, FUNCTIONAL_CONSTRAINT__REFERS_TO_TITLE_DOC );
+        createEOperation( functionalConstraintEClass,
+                FUNCTIONAL_CONSTRAINT___ABBREVIATION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
 
         functionalConstraintsEClass = createEClass( FUNCTIONAL_CONSTRAINTS );
         createEReference( functionalConstraintsEClass, FUNCTIONAL_CONSTRAINTS__FUNCTIONAL_CONSTRAINT );
         createEReference( functionalConstraintsEClass, FUNCTIONAL_CONSTRAINTS__PARENT_NS );
         createEReference( functionalConstraintsEClass, FUNCTIONAL_CONSTRAINTS__PARENT_SERVICE_NS );
+        createEOperation( functionalConstraintsEClass,
+                FUNCTIONAL_CONSTRAINTS___UNIQUE_FUNCTIONAL_CONSTRAINT__DIAGNOSTICCHAIN_MAP );
 
         licenseEClass = createEClass( LICENSE );
         createEAttribute( licenseEClass, LICENSE__MIXED );
@@ -4245,17 +4749,22 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEAttribute( literalEClass, LITERAL__LITERAL_VAL );
         createEAttribute( literalEClass, LITERAL__NAME );
         createEReference( literalEClass, LITERAL__PARENT_ENUMERATION );
+        createEOperation( literalEClass, LITERAL___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
+        createEOperation( literalEClass, LITERAL___LITERAL_VAL_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
 
         lnClassEClass = createEClass( LN_CLASS );
         createEAttribute( lnClassEClass, LN_CLASS__CAN_HAVE_LOG );
         createEAttribute( lnClassEClass, LN_CLASS__IS_EXTENSION );
         createEAttribute( lnClassEClass, LN_CLASS__NAME );
         createEReference( lnClassEClass, LN_CLASS__PARENT_LN_CLASSES );
+        createEOperation( lnClassEClass, LN_CLASS___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
 
         lnClassesEClass = createEClass( LN_CLASSES );
         createEReference( lnClassesEClass, LN_CLASSES__ABSTRACT_LN_CLASS );
         createEReference( lnClassesEClass, LN_CLASSES__LN_CLASS );
         createEReference( lnClassesEClass, LN_CLASSES__PARENT_NS );
+        createEOperation( lnClassesEClass, LN_CLASSES___UNIQUE_LN_CLASS__DIAGNOSTICCHAIN_MAP );
+        createEOperation( lnClassesEClass, LN_CLASSES___UNIQUE_ABSTRACT_LN_CLASS__DIAGNOSTICCHAIN_MAP );
 
         noticeEClass = createEClass( NOTICE );
         createEAttribute( noticeEClass, NOTICE__MIXED );
@@ -4277,6 +4786,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         nsDocEClass = createEClass( NS_DOC );
         createEReference( nsDocEClass, NS_DOC__DOC );
         createEAttribute( nsDocEClass, NS_DOC__LANG );
+        createEOperation( nsDocEClass, NS_DOC___LANG_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
 
         presenceConditionEClass = createEClass( PRESENCE_CONDITION );
         createEAttribute( presenceConditionEClass, PRESENCE_CONDITION__ARGUMENT );
@@ -4291,17 +4801,21 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEReference( presenceConditionEClass, PRESENCE_CONDITION__REFERRED_BY_SUB_DATA_ATTRIBUTE );
         createEReference( presenceConditionEClass, PRESENCE_CONDITION__REFERS_TO_DESC_DOC );
         createEReference( presenceConditionEClass, PRESENCE_CONDITION__REFERS_TO_TITLE_DOC );
+        createEOperation( presenceConditionEClass, PRESENCE_CONDITION___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
 
         presenceConditionsEClass = createEClass( PRESENCE_CONDITIONS );
         createEReference( presenceConditionsEClass, PRESENCE_CONDITIONS__PRESENCE_CONDITION );
         createEReference( presenceConditionsEClass, PRESENCE_CONDITIONS__PARENT_NS );
         createEReference( presenceConditionsEClass, PRESENCE_CONDITIONS__PARENT_SERVICE_NS );
+        createEOperation( presenceConditionsEClass,
+                PRESENCE_CONDITIONS___UNIQUE_PRESENCE_CONDITION__DIAGNOSTICCHAIN_MAP );
 
         serviceCDCEClass = createEClass( SERVICE_CDC );
         createEReference( serviceCDCEClass, SERVICE_CDC__SERVICE_DATA_ATTRIBUTE );
         createEAttribute( serviceCDCEClass, SERVICE_CDC__CDC );
         createEAttribute( serviceCDCEClass, SERVICE_CDC__VARIANT );
         createEReference( serviceCDCEClass, SERVICE_CDC__PARENT_SERVICE_CD_CS );
+        createEOperation( serviceCDCEClass, SERVICE_CDC___CDC_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
 
         serviceCDCsEClass = createEClass( SERVICE_CD_CS );
         createEReference( serviceCDCsEClass, SERVICE_CD_CS__SERVICE_CDC );
@@ -4321,6 +4835,10 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEAttribute( serviceDataAttributeEClass, SERVICE_DATA_ATTRIBUTE__FC );
         createEAttribute( serviceDataAttributeEClass, SERVICE_DATA_ATTRIBUTE__NAME );
         createEReference( serviceDataAttributeEClass, SERVICE_DATA_ATTRIBUTE__PARENT_SERVICE_CDC );
+        createEOperation( serviceDataAttributeEClass,
+                SERVICE_DATA_ATTRIBUTE___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
+        createEOperation( serviceDataAttributeEClass,
+                SERVICE_DATA_ATTRIBUTE___FC_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
 
         serviceNSEClass = createEClass( SERVICE_NS );
         createEReference( serviceNSEClass, SERVICE_NS__CHANGES );
@@ -4338,6 +4856,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         serviceParameterEClass = createEClass( SERVICE_PARAMETER );
         createEAttribute( serviceParameterEClass, SERVICE_PARAMETER__NAME );
         createEReference( serviceParameterEClass, SERVICE_PARAMETER__PARENT_CDC );
+        createEOperation( serviceParameterEClass, SERVICE_PARAMETER___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
 
         serviceTypeRealizationsEClass = createEClass( SERVICE_TYPE_REALIZATIONS );
         createEReference( serviceTypeRealizationsEClass, SERVICE_TYPE_REALIZATIONS__SERVICE_TYPE_REALIZATION );
@@ -4347,6 +4866,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEAttribute( subDataAttributeEClass, SUB_DATA_ATTRIBUTE__NAME );
         createEReference( subDataAttributeEClass, SUB_DATA_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTE );
         createEReference( subDataAttributeEClass, SUB_DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION );
+        createEOperation( subDataAttributeEClass, SUB_DATA_ATTRIBUTE___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
 
         subDataObjectEClass = createEClass( SUB_DATA_OBJECT );
         createEAttribute( subDataObjectEClass, SUB_DATA_OBJECT__NAME );
@@ -4356,10 +4876,13 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEReference( subDataObjectEClass, SUB_DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION );
         createEReference( subDataObjectEClass, SUB_DATA_OBJECT__REFERS_TO_SIZE_ATTRIBUTE );
         createEReference( subDataObjectEClass, SUB_DATA_OBJECT__REFERS_TO_MAX_INDEX_ATTRIBUTE );
+        createEOperation( subDataObjectEClass, SUB_DATA_OBJECT___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
+        createEOperation( subDataObjectEClass, SUB_DATA_OBJECT___TYPE_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
 
         titledClassEClass = createEClass( TITLED_CLASS );
         createEAttribute( titledClassEClass, TITLED_CLASS__TITLE_ID );
         createEReference( titledClassEClass, TITLED_CLASS__REFERS_TO_TITLE_DOC );
+        createEOperation( titledClassEClass, TITLED_CLASS___TITLE_ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
 
         nsdObjectEClass = createEClass( NSD_OBJECT );
         createEAttribute( nsdObjectEClass, NSD_OBJECT__LINE_NUMBER );
@@ -4372,6 +4895,9 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEAttribute( agNSIdentificationEClass, AG_NS_IDENTIFICATION__ID );
         createEAttribute( agNSIdentificationEClass, AG_NS_IDENTIFICATION__REVISION );
         createEAttribute( agNSIdentificationEClass, AG_NS_IDENTIFICATION__PUBLICATION_STAGE );
+        createEOperation( agNSIdentificationEClass, AG_NS_IDENTIFICATION___ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
+        createEOperation( agNSIdentificationEClass,
+                AG_NS_IDENTIFICATION___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
 
         agPresenceConditionEClass = createEClass( AG_PRESENCE_CONDITION );
         createEAttribute( agPresenceConditionEClass, AG_PRESENCE_CONDITION__PRES_COND );
@@ -4606,6 +5132,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
+        EOperation op = initEOperation( getServiceType__NameAttributeRequired__DiagnosticChain_Map(),
+                ecorePackage.getEBoolean(), "nameAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        EGenericType g1 = createEGenericType( ecorePackage.getEMap() );
+        EGenericType g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
+
         initEClass( abbreviationEClass, Abbreviation.class, "Abbreviation", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
         initEAttribute( getAbbreviation_DescID(), ecorePackage.getEString(), "descID", null, 0, 1, Abbreviation.class,
@@ -4620,6 +5156,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 "refersToDoc", null, 0, 1, Abbreviation.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
+        op = initEOperation( getAbbreviation__NameAttributeRequired__DiagnosticChain_Map(), ecorePackage.getEBoolean(),
+                "nameAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
+
         initEClass( abbreviationsEClass, Abbreviations.class, "Abbreviations", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
         initEReference( getAbbreviations_Abbreviation(), this.getAbbreviation(),
@@ -4633,6 +5179,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 "parentServiceNS", null, 0, 1, Abbreviations.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
+        op = initEOperation( getAbbreviations__UniqueAbbreviation__DiagnosticChain_Map(), ecorePackage.getEBoolean(),
+                "uniqueAbbreviation", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
+
         initEClass( abstractLNClassEClass, AbstractLNClass.class, "AbstractLNClass", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
         initEAttribute( getAbstractLNClass_Name(), ecorePackage.getEString(), "name", null, 0, 1, AbstractLNClass.class,
@@ -4644,6 +5200,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 this.getAnyLNClass_RefersToAbstractLNClass(), "referredByAnyLNClass", null, 0, -1,
                 AbstractLNClass.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
                 IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+
+        op = initEOperation( getAbstractLNClass__NameAttributeRequired__DiagnosticChain_Map(),
+                ecorePackage.getEBoolean(), "nameAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
 
         initEClass( anyLNClassEClass, AnyLNClass.class, "AnyLNClass", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
@@ -4663,6 +5229,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEOperation( getAnyLNClass__GetParentLNClasses(), this.getLNClasses(), "getParentLNClasses", 0, 1, IS_UNIQUE,
                 IS_ORDERED );
 
+        op = initEOperation( getAnyLNClass__UniqueDataObject__DiagnosticChain_Map(), ecorePackage.getEBoolean(),
+                "uniqueDataObject", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
+
         initEClass( applicableServiceNSEClass, ApplicableServiceNS.class, "ApplicableServiceNS", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEReference( getApplicableServiceNS_ServiceNsUsage(), this.getServiceNsUsage(),
@@ -4675,6 +5251,26 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getApplicableServiceNS_Version(), theXMLTypePackage.getUnsignedInt(), "version", null, 0, 1,
                 ApplicableServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
+
+        op = initEOperation( getApplicableServiceNS__VersionAttributeRequired__DiagnosticChain_Map(),
+                ecorePackage.getEBoolean(), "versionAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
+
+        op = initEOperation( getApplicableServiceNS__DateAttributeRequired__DiagnosticChain_Map(),
+                ecorePackage.getEBoolean(), "dateAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
 
         initEClass( applicableServicesEClass, ApplicableServices.class, "ApplicableServices", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
@@ -4690,6 +5286,26 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 this.getFunctionalConstraint_ApplicableServices(), "parentFunctionalConstraint", null, 0, 1,
                 ApplicableServices.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+
+        op = initEOperation( getApplicableServices__UniqueDataSetMemberOf__DiagnosticChain_Map(),
+                ecorePackage.getEBoolean(), "uniqueDataSetMemberOf", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
+
+        op = initEOperation( getApplicableServices__UniqueService__DiagnosticChain_Map(), ecorePackage.getEBoolean(),
+                "uniqueService", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
 
         initEClass( basicTypeEClass, BasicType.class, "BasicType", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
@@ -4711,6 +5327,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 this.getAgUnderlyingType_RefersToUnderlyingBasicType(), "referredByUnderlyingType", null, 0, -1,
                 BasicType.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+
+        op = initEOperation( getBasicType__NameAttributeRequired__DiagnosticChain_Map(), ecorePackage.getEBoolean(),
+                "nameAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
 
         initEClass( basicTypesEClass, BasicTypes.class, "BasicTypes", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
@@ -4762,6 +5388,26 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
                 !IS_DERIVED, !IS_ORDERED );
 
+        op = initEOperation( getCDC__UniqueCDCChild__DiagnosticChain_Map(), ecorePackage.getEBoolean(),
+                "uniqueCDCChild", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
+
+        op = initEOperation( getCDC__NameAttributeRequired__DiagnosticChain_Map(), ecorePackage.getEBoolean(),
+                "nameAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
+
         initEClass( cdCsEClass, CDCs.class, "CDCs", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEReference( getCDCs_CDC(), this.getCDC(), this.getCDC_ParentCDCs(), "cDC", null, 0, -1, CDCs.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
@@ -4769,6 +5415,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEReference( getCDCs_ParentNS(), this.getNS(), this.getNS_CDCs(), "parentNS", null, 0, 1, CDCs.class,
                 IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+
+        op = initEOperation( getCDCs__UniqueCDC__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "uniqueCDC", 0, 1,
+                IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
 
         initEClass( changesEClass, Changes.class, "Changes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute( getChanges_ChangesID(), ecorePackage.getEString(), "changesID", null, 0, 1, Changes.class,
@@ -4789,6 +5445,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getChanges_Version(), ecorePackage.getEIntegerObject(), "version", null, 0, 1, Changes.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        op = initEOperation( getChanges__VersionAttributeRequired__DiagnosticChain_Map(), ecorePackage.getEBoolean(),
+                "versionAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
 
         initEClass( constructedAttributeEClass, ConstructedAttribute.class, "ConstructedAttribute", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
@@ -4816,6 +5482,26 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 -1, ConstructedAttribute.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
+        op = initEOperation( getConstructedAttribute__UniqueSubDataAttribute__DiagnosticChain_Map(),
+                ecorePackage.getEBoolean(), "uniqueSubDataAttribute", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
+
+        op = initEOperation( getConstructedAttribute__NameAttributeRequired__DiagnosticChain_Map(),
+                ecorePackage.getEBoolean(), "nameAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
+
         initEClass( constructedAttributesEClass, ConstructedAttributes.class, "ConstructedAttributes", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEReference( getConstructedAttributes_ConstructedAttribute(), this.getConstructedAttribute(),
@@ -4825,6 +5511,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEReference( getConstructedAttributes_ParentNS(), this.getNS(), this.getNS_ConstructedAttributes(),
                 "parentNS", null, 0, 1, ConstructedAttributes.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+
+        op = initEOperation( getConstructedAttributes__UniqueConstructedAttribute__DiagnosticChain_Map(),
+                ecorePackage.getEBoolean(), "uniqueConstructedAttribute", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
 
         initEClass( copyrightedEClass, Copyrighted.class, "Copyrighted", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
@@ -4887,6 +5583,26 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 0, -1, DataAttribute.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
+        op = initEOperation( getDataAttribute__NameAttributeRequired__DiagnosticChain_Map(), ecorePackage.getEBoolean(),
+                "nameAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
+
+        op = initEOperation( getDataAttribute__FcAttributeRequired__DiagnosticChain_Map(), ecorePackage.getEBoolean(),
+                "fcAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
+
         initEClass( dataObjectEClass, DataObject.class, "DataObject", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
         initEAttribute( getDataObject_Name(), ecorePackage.getEString(), "name", null, 0, 1, DataObject.class,
@@ -4911,6 +5627,26 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 "refersToPresenceConditionDerivedStatistics", null, 0, 1, DataObject.class, IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
+        op = initEOperation( getDataObject__NameAttributeRequired__DiagnosticChain_Map(), ecorePackage.getEBoolean(),
+                "nameAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
+
+        op = initEOperation( getDataObject__TypeAttributeRequired__DiagnosticChain_Map(), ecorePackage.getEBoolean(),
+                "typeAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
+
         initEClass( dataSetMemberOfEClass, DataSetMemberOf.class, "DataSetMemberOf", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
         initEAttribute( getDataSetMemberOf_Cb(), this.getCBKind(), "cb", null, 0, 1, DataSetMemberOf.class,
@@ -4919,6 +5655,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 this.getApplicableServices_DataSetMemberOf(), "parentApplicableServices", null, 0, 1,
                 DataSetMemberOf.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+
+        op = initEOperation( getDataSetMemberOf__CbAttributeRequired__DiagnosticChain_Map(), ecorePackage.getEBoolean(),
+                "cbAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
 
         initEClass( docEClass, Doc.class, "Doc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute( getDoc_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, Doc.class,
@@ -4975,6 +5721,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 Doc.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
+        op = initEOperation( getDoc__IdAttributeRequired__DiagnosticChain_Map(), ecorePackage.getEBoolean(),
+                "idAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
+
         initEClass( documentedClassEClass, DocumentedClass.class, "DocumentedClass", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
         initEAttribute( getDocumentedClass_Deprecated(), theXMLTypePackage.getBoolean(), "deprecated", "false", 0, 1,
@@ -5020,6 +5776,36 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 Enumeration.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
+        op = initEOperation( getEnumeration__UniqueLiteralName__DiagnosticChain_Map(), ecorePackage.getEBoolean(),
+                "uniqueLiteralName", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
+
+        op = initEOperation( getEnumeration__UniqueLiteralVal__DiagnosticChain_Map(), ecorePackage.getEBoolean(),
+                "uniqueLiteralVal", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
+
+        op = initEOperation( getEnumeration__NameAttributeRequired__DiagnosticChain_Map(), ecorePackage.getEBoolean(),
+                "nameAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
+
         initEClass( enumerationsEClass, Enumerations.class, "Enumerations", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
         initEReference( getEnumerations_Enumeration(), this.getEnumeration(), this.getEnumeration_ParentEnumerations(),
@@ -5028,6 +5814,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEReference( getEnumerations_ParentNS(), this.getNS(), this.getNS_Enumerations(), "parentNS", null, 0, 1,
                 Enumerations.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+
+        op = initEOperation( getEnumerations__UniqueEnumeration__DiagnosticChain_Map(), ecorePackage.getEBoolean(),
+                "uniqueEnumeration", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
 
         initEClass( functionalConstraintEClass, FunctionalConstraint.class, "FunctionalConstraint", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
@@ -5061,6 +5857,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 FunctionalConstraint.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
+        op = initEOperation( getFunctionalConstraint__AbbreviationAttributeRequired__DiagnosticChain_Map(),
+                ecorePackage.getEBoolean(), "abbreviationAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
+
         initEClass( functionalConstraintsEClass, FunctionalConstraints.class, "FunctionalConstraints", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEReference( getFunctionalConstraints_FunctionalConstraint(), this.getFunctionalConstraint(),
@@ -5074,6 +5880,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 this.getServiceNS_FunctionalConstraints(), "parentServiceNS", null, 0, 1, FunctionalConstraints.class,
                 IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+
+        op = initEOperation( getFunctionalConstraints__UniqueFunctionalConstraint__DiagnosticChain_Map(),
+                ecorePackage.getEBoolean(), "uniqueFunctionalConstraint", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
 
         initEClass( licenseEClass, License.class, "License", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute( getLicense_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, License.class,
@@ -5097,6 +5913,26 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 "parentEnumeration", null, 0, 1, Literal.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
+        op = initEOperation( getLiteral__NameAttributeRequired__DiagnosticChain_Map(), ecorePackage.getEBoolean(),
+                "nameAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
+
+        op = initEOperation( getLiteral__LiteralValAttributeRequired__DiagnosticChain_Map(), ecorePackage.getEBoolean(),
+                "literalValAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
+
         initEClass( lnClassEClass, LNClass.class, "LNClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute( getLNClass_CanHaveLOG(), theXMLTypePackage.getBoolean(), "canHaveLOG", "false", 0, 1,
                 LNClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
@@ -5110,6 +5946,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 "parentLNClasses", null, 0, 1, LNClass.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
+        op = initEOperation( getLNClass__NameAttributeRequired__DiagnosticChain_Map(), ecorePackage.getEBoolean(),
+                "nameAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
+
         initEClass( lnClassesEClass, LNClasses.class, "LNClasses", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
         initEReference( getLNClasses_AbstractLNClass(), this.getAbstractLNClass(),
@@ -5122,6 +5968,26 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEReference( getLNClasses_ParentNS(), this.getNS(), this.getNS_LNClasses(), "parentNS", null, 0, 1,
                 LNClasses.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+
+        op = initEOperation( getLNClasses__UniqueLNClass__DiagnosticChain_Map(), ecorePackage.getEBoolean(),
+                "uniqueLNClass", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
+
+        op = initEOperation( getLNClasses__UniqueAbstractLNClass__DiagnosticChain_Map(), ecorePackage.getEBoolean(),
+                "uniqueAbstractLNClass", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
 
         initEClass( noticeEClass, Notice.class, "Notice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute( getNotice_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, Notice.class,
@@ -5179,6 +6045,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getNSDoc_Lang(), theXMLTypePackage.getLanguage(), "lang", null, 0, 1, NSDoc.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
+        op = initEOperation( getNSDoc__LangAttributeRequired__DiagnosticChain_Map(), ecorePackage.getEBoolean(),
+                "langAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
+
         initEClass( presenceConditionEClass, PresenceCondition.class, "PresenceCondition", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
         initEAttribute( getPresenceCondition_Argument(), ecorePackage.getEString(), "argument", null, 0, 1,
@@ -5227,6 +6103,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 PresenceCondition.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
+        op = initEOperation( getPresenceCondition__NameAttributeRequired__DiagnosticChain_Map(),
+                ecorePackage.getEBoolean(), "nameAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
+
         initEClass( presenceConditionsEClass, PresenceConditions.class, "PresenceConditions", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEReference( getPresenceConditions_PresenceCondition(), this.getPresenceCondition(),
@@ -5241,6 +6127,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
+        op = initEOperation( getPresenceConditions__UniquePresenceCondition__DiagnosticChain_Map(),
+                ecorePackage.getEBoolean(), "uniquePresenceCondition", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
+
         initEClass( serviceCDCEClass, ServiceCDC.class, "ServiceCDC", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
         initEReference( getServiceCDC_ServiceDataAttribute(), this.getServiceDataAttribute(),
@@ -5254,6 +6150,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEReference( getServiceCDC_ParentServiceCDCs(), this.getServiceCDCs(), this.getServiceCDCs_ServiceCDC(),
                 "parentServiceCDCs", null, 0, 1, ServiceCDC.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+
+        op = initEOperation( getServiceCDC__CdcAttributeRequired__DiagnosticChain_Map(), ecorePackage.getEBoolean(),
+                "cdcAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
 
         initEClass( serviceCDCsEClass, ServiceCDCs.class, "ServiceCDCs", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
@@ -5300,6 +6206,26 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 this.getServiceCDC_ServiceDataAttribute(), "parentServiceCDC", null, 0, 1, ServiceDataAttribute.class,
                 IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+
+        op = initEOperation( getServiceDataAttribute__NameAttributeRequired__DiagnosticChain_Map(),
+                ecorePackage.getEBoolean(), "nameAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
+
+        op = initEOperation( getServiceDataAttribute__FcAttributeRequired__DiagnosticChain_Map(),
+                ecorePackage.getEBoolean(), "fcAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
 
         initEClass( serviceNSEClass, ServiceNS.class, "ServiceNS", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
@@ -5349,6 +6275,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 null, 0, 1, ServiceParameter.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
+        op = initEOperation( getServiceParameter__NameAttributeRequired__DiagnosticChain_Map(),
+                ecorePackage.getEBoolean(), "nameAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
+
         initEClass( serviceTypeRealizationsEClass, ServiceTypeRealizations.class, "ServiceTypeRealizations",
                 !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEReference( getServiceTypeRealizations_ServiceTypeRealization(), this.getConstructedAttribute(),
@@ -5373,6 +6309,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 this.getPresenceCondition_ReferredBySubDataAttribute(), "refersToPresenceCondition", null, 0, 1,
                 SubDataAttribute.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+
+        op = initEOperation( getSubDataAttribute__NameAttributeRequired__DiagnosticChain_Map(),
+                ecorePackage.getEBoolean(), "nameAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
 
         initEClass( subDataObjectEClass, SubDataObject.class, "SubDataObject", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
@@ -5399,6 +6345,26 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 0, 1, SubDataObject.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
+        op = initEOperation( getSubDataObject__NameAttributeRequired__DiagnosticChain_Map(), ecorePackage.getEBoolean(),
+                "nameAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
+
+        op = initEOperation( getSubDataObject__TypeAttributeRequired__DiagnosticChain_Map(), ecorePackage.getEBoolean(),
+                "typeAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
+
         initEClass( titledClassEClass, TitledClass.class, "TitledClass", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
         initEAttribute( getTitledClass_TitleID(), ecorePackage.getEString(), "titleID", null, 0, 1, TitledClass.class,
@@ -5406,6 +6372,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEReference( getTitledClass_RefersToTitleDoc(), this.getDoc(), this.getDoc_ReferredByTitledClass(),
                 "refersToTitleDoc", null, 0, 1, TitledClass.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+
+        op = initEOperation( getTitledClass__TitleIDAttributeRequired__DiagnosticChain_Map(),
+                ecorePackage.getEBoolean(), "titleIDAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
 
         initEClass( nsdObjectEClass, NsdObject.class, "NsdObject", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
@@ -5415,8 +6391,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 1, NsdObject.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
 
-        EOperation op = initEOperation( getNsdObject__BuildExplicitLinks__IRiseClipseConsole_boolean(),
-                ecorePackage.getEBoolean(), "buildExplicitLinks", 0, 1, IS_UNIQUE, IS_ORDERED );
+        op = initEOperation( getNsdObject__BuildExplicitLinks__IRiseClipseConsole_boolean(), ecorePackage.getEBoolean(),
+                "buildExplicitLinks", 0, 1, IS_UNIQUE, IS_ORDERED );
         addEParameter( op, this.getIRiseClipseConsole(), "console", 0, 1, IS_UNIQUE, IS_ORDERED );
         addEParameter( op, ecorePackage.getEBoolean(), "forceUpdate", 0, 1, IS_UNIQUE, IS_ORDERED );
 
@@ -5437,6 +6413,26 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getAgNSIdentification_PublicationStage(), this.getPubStage(), "publicationStage", "IS", 0, 1,
                 AgNSIdentification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
+
+        op = initEOperation( getAgNSIdentification__IdAttributeRequired__DiagnosticChain_Map(),
+                ecorePackage.getEBoolean(), "idAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
+
+        op = initEOperation( getAgNSIdentification__VersionAttributeRequired__DiagnosticChain_Map(),
+                ecorePackage.getEBoolean(), "versionAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
 
         initEClass( agPresenceConditionEClass, AgPresenceCondition.class, "AgPresenceCondition", IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
@@ -5672,30 +6668,12 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createResource( eNS_URI );
 
         // Create annotations
-        // http://www.eclipse.org/OCL/Import
-        createImportAnnotations();
         // http://www.eclipse.org/emf/2002/Ecore
         createEcoreAnnotations();
         // http:///org/eclipse/emf/ecore/util/ExtendedMetaData
         createExtendedMetaDataAnnotations();
         // http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
         createPivotAnnotations();
-    }
-
-    /**
-     * Initializes the annotations for <b>http://www.eclipse.org/OCL/Import</b>.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void createImportAnnotations() {
-        String source = "http://www.eclipse.org/OCL/Import";
-        addAnnotation( this,
-                source,
-                new String[] {
-                        "ecore", "http://www.eclipse.org/emf/2002/Ecore",
-                        "ecore.xml.type", "http://www.eclipse.org/emf/2003/XMLType"
-                } );
     }
 
     /**
@@ -5709,9 +6687,6 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         addAnnotation( this,
                 source,
                 new String[] {
-                        "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                        "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                        "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"
                 } );
         addAnnotation( serviceTypeEClass,
                 source,
@@ -5741,12 +6716,12 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         addAnnotation( applicableServiceNSEClass,
                 source,
                 new String[] {
-                        "constraints", "versionAttributeRequired dateAttributeRequired"
+                        "constraints", "dateAttributeRequired"
                 } );
         addAnnotation( applicableServicesEClass,
                 source,
                 new String[] {
-                        "constraints", "uniqueDataSetMemberOf uniqueService"
+                        "constraints", "uniqueService"
                 } );
         addAnnotation( basicTypeEClass,
                 source,
@@ -5756,7 +6731,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         addAnnotation( cdcEClass,
                 source,
                 new String[] {
-                        "constraints", "uniqueCDCChild nameAttributeRequired"
+                        "constraints", "nameAttributeRequired"
                 } );
         addAnnotation( cdCsEClass,
                 source,
@@ -5771,7 +6746,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         addAnnotation( constructedAttributeEClass,
                 source,
                 new String[] {
-                        "constraints", "uniqueSubDataAttribute nameAttributeRequired"
+                        "constraints", "nameAttributeRequired"
                 } );
         addAnnotation( constructedAttributesEClass,
                 source,
@@ -5781,12 +6756,12 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         addAnnotation( dataAttributeEClass,
                 source,
                 new String[] {
-                        "constraints", "nameAttributeRequired fcAttributeRequired"
+                        "constraints", "fcAttributeRequired"
                 } );
         addAnnotation( dataObjectEClass,
                 source,
                 new String[] {
-                        "constraints", "nameAttributeRequired typeAttributeRequired"
+                        "constraints", "typeAttributeRequired"
                 } );
         addAnnotation( dataSetMemberOfEClass,
                 source,
@@ -5801,7 +6776,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         addAnnotation( enumerationEClass,
                 source,
                 new String[] {
-                        "constraints", "uniqueLiteralName uniqueLiteralVal nameAttributeRequired"
+                        "constraints", "nameAttributeRequired"
                 } );
         addAnnotation( enumerationsEClass,
                 source,
@@ -5821,7 +6796,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         addAnnotation( literalEClass,
                 source,
                 new String[] {
-                        "constraints", "nameAttributeRequired literalValAttributeRequired"
+                        "constraints", "literalValAttributeRequired"
                 } );
         addAnnotation( lnClassEClass,
                 source,
@@ -5831,7 +6806,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         addAnnotation( lnClassesEClass,
                 source,
                 new String[] {
-                        "constraints", "uniqueAbstractLNClass uniqueLNClass"
+                        "constraints", "uniqueAbstractLNClass"
                 } );
         addAnnotation( nsDocEClass,
                 source,
@@ -5856,7 +6831,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         addAnnotation( serviceDataAttributeEClass,
                 source,
                 new String[] {
-                        "constraints", "nameAttributeRequired fcAttributeRequired"
+                        "constraints", "fcAttributeRequired"
                 } );
         addAnnotation( serviceParameterEClass,
                 source,
@@ -5871,7 +6846,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         addAnnotation( subDataObjectEClass,
                 source,
                 new String[] {
-                        "constraints", "nameAttributeRequired typeAttributeRequired"
+                        "constraints", "typeAttributeRequired"
                 } );
         addAnnotation( titledClassEClass,
                 source,
@@ -5881,7 +6856,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         addAnnotation( agNSIdentificationEClass,
                 source,
                 new String[] {
-                        "constraints", "idAttributeRequired versionAttributeRequired"
+                        "constraints", "versionAttributeRequired"
                 } );
     }
 
@@ -7179,234 +8154,286 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      */
     protected void createPivotAnnotations() {
         String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";
-        addAnnotation( serviceTypeEClass,
+        addAnnotation( getServiceType__NameAttributeRequired__DiagnosticChain_Map(),
                 source,
                 new String[] {
-                        "nameAttributeRequired",
+                        "body",
                         "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status"
                 } );
-        addAnnotation( abbreviationEClass,
+        addAnnotation( getAbbreviation__NameAttributeRequired__DiagnosticChain_Map(),
                 source,
                 new String[] {
-                        "nameAttributeRequired",
+                        "body",
                         "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status"
                 } );
-        addAnnotation( abbreviationsEClass,
+        addAnnotation( getAbbreviations__UniqueAbbreviation__DiagnosticChain_Map(),
                 source,
                 new String[] {
-                        "uniqueAbbreviation",
+                        "body",
                         "Tuple {\n\tmessage : String = \'There shall not be two Abbreviations elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.abbreviation->isUnique( a : Abbreviation | a.name )\n}.status"
                 } );
-        addAnnotation( abstractLNClassEClass,
+        addAnnotation( getAbstractLNClass__NameAttributeRequired__DiagnosticChain_Map(),
                 source,
                 new String[] {
-                        "nameAttributeRequired",
+                        "body",
                         "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status"
                 } );
-        addAnnotation( anyLNClassEClass,
+        addAnnotation( getAnyLNClass__UniqueDataObject__DiagnosticChain_Map(),
                 source,
                 new String[] {
-                        "uniqueDataObject",
+                        "body",
                         "Tuple {\n\tmessage : String = \'For an AnyLNClass, there shall not be two DataObject sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: base AbstractLNClass should be taken into account\n\t\t\t-- For this, explicit links have to be created first\n\t\t\tself.dataObject->isUnique( d : DataObject | d.name )\n}.status"
                 } );
-        addAnnotation( applicableServiceNSEClass,
+        addAnnotation( getApplicableServiceNS__VersionAttributeRequired__DiagnosticChain_Map(),
                 source,
                 new String[] {
-                        "versionAttributeRequired",
-                        "Tuple {\n\tmessage : String = \'The version attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.version <> null\n}.status",
-                        "dateAttributeRequired",
-                        "Tuple {\n\tmessage : String = \'The date attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.date <> null\n}.status"
-                } );
-        addAnnotation( applicableServicesEClass,
-                source,
-                new String[] {
-                        "uniqueDataSetMemberOf",
-                        "Tuple {\n\tmessage : String = \'For an ApplicableServices, there shall not be two DataSetMemberOf sub-elements with same cb.\',\n\tstatus : Boolean = \n\t\t\tself.dataSetMemberOf->isUnique( d : DataSetMemberOf | d.cb )\n}.status",
-                        "uniqueService",
-                        "Tuple {\n\tmessage : String = \'For an ApplicableServices, there shall not be two ServiceType sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.service->isUnique( s : ServiceType | s.name )\n}.status"
-                } );
-        addAnnotation( basicTypeEClass,
-                source,
-                new String[] {
-                        "nameAttributeRequired",
-                        "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status"
-                } );
-        addAnnotation( cdcEClass,
-                source,
-                new String[] {
-                        "uniqueCDCChild",
-                        "Tuple {\n\tmessage : String = \'For a CDC, there shall not be two sub-elements (SubDataObject or DataAttribute) with same name.\',\n\tstatus : Boolean = \n\t\t\tlet names : Bag(String) = self.subDataObject.name->union(self.dataAttribute.name) in names->size() = names->asSet()->size()\n}.status",
-                        "nameAttributeRequired",
-                        "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status"
-                } );
-        addAnnotation( cdCsEClass,
-                source,
-                new String[] {
-                        "uniqueCDC",
-                        "Tuple {\n\tmessage : String = \'Within an NS, there shall not be two CDC sub-elements with same name and (if defined) variant.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: DependsOn NS should be taken into account ?\n\t\t\t-- For this, explicit links have to be created first\n\t\t\t-- Then, may be this constraint should be in NS and not in Enumerations ?\n\t\t\tself.cDC->select( c : CDC | c.variant = null )->isUnique( c : CDC | c.name )\n\t     or self.cDC->select( c : CDC | c.variant <> null )->forAll( c1, c2 : CDC | c1 <> c2 implies c1.name <> c2.name or c1.variant <> c2.variant )\n}.status"
-                } );
-        addAnnotation( changesEClass,
-                source,
-                new String[] {
-                        "versionAttributeRequired",
+                        "body",
                         "Tuple {\n\tmessage : String = \'The version attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.version <> null\n}.status"
                 } );
-        addAnnotation( constructedAttributeEClass,
+        addAnnotation( getApplicableServiceNS__DateAttributeRequired__DiagnosticChain_Map(),
                 source,
                 new String[] {
-                        "uniqueSubDataAttribute",
-                        "Tuple {\n\tmessage : String = \'For a ConstructedAttribute, there shall not be two SubDataAttribute sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.subDataAttribute->isUnique( s : SubDataAttribute | s.name )\n}.status",
-                        "nameAttributeRequired",
+                        "body",
+                        "Tuple {\n\tmessage : String = \'The date attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.date <> null\n}.status"
+                } );
+        addAnnotation( getApplicableServices__UniqueDataSetMemberOf__DiagnosticChain_Map(),
+                source,
+                new String[] {
+                        "body",
+                        "Tuple {\n\tmessage : String = \'For an ApplicableServices, there shall not be two DataSetMemberOf sub-elements with same cb.\',\n\tstatus : Boolean = \n\t\t\tself.dataSetMemberOf->isUnique( d : DataSetMemberOf | d.cb )\n}.status"
+                } );
+        addAnnotation( getApplicableServices__UniqueService__DiagnosticChain_Map(),
+                source,
+                new String[] {
+                        "body",
+                        "Tuple {\n\tmessage : String = \'For an ApplicableServices, there shall not be two ServiceType sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.service->isUnique( s : ServiceType | s.name )\n}.status"
+                } );
+        addAnnotation( getBasicType__NameAttributeRequired__DiagnosticChain_Map(),
+                source,
+                new String[] {
+                        "body",
                         "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status"
                 } );
-        addAnnotation( constructedAttributesEClass,
+        addAnnotation( getCDC__UniqueCDCChild__DiagnosticChain_Map(),
                 source,
                 new String[] {
-                        "uniqueConstructedAttribute",
+                        "body",
+                        "Tuple {\n\tmessage : String = \'For a CDC, there shall not be two sub-elements (SubDataObject or DataAttribute) with same name.\',\n\tstatus : Boolean = \n\t\t\tlet names : Bag(String) = self.subDataObject.name->union(self.dataAttribute.name) in names->size() = names->asSet()->size()\n}.status"
+                } );
+        addAnnotation( getCDC__NameAttributeRequired__DiagnosticChain_Map(),
+                source,
+                new String[] {
+                        "body",
+                        "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status"
+                } );
+        addAnnotation( getCDCs__UniqueCDC__DiagnosticChain_Map(),
+                source,
+                new String[] {
+                        "body",
+                        "Tuple {\n\tmessage : String = \'Within an NS, there shall not be two CDC sub-elements with same name and (if defined) variant.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: DependsOn NS should be taken into account ?\n\t\t\t-- For this, explicit links have to be created first\n\t\t\t-- Then, may be this constraint should be in NS and not in Enumerations ?\n\t\t\tself.cDC->select( c : CDC | c.variant = null )->isUnique( c : CDC | c.name )\n\t     or self.cDC->select( c : CDC | c.variant <> null )->forAll( c1, c2 : CDC | c1 <> c2 implies c1.name <> c2.name or c1.variant <> c2.variant )\n}.status"
+                } );
+        addAnnotation( getChanges__VersionAttributeRequired__DiagnosticChain_Map(),
+                source,
+                new String[] {
+                        "body",
+                        "Tuple {\n\tmessage : String = \'The version attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.version <> null\n}.status"
+                } );
+        addAnnotation( getConstructedAttribute__UniqueSubDataAttribute__DiagnosticChain_Map(),
+                source,
+                new String[] {
+                        "body",
+                        "Tuple {\n\tmessage : String = \'For a ConstructedAttribute, there shall not be two SubDataAttribute sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.subDataAttribute->isUnique( s : SubDataAttribute | s.name )\n}.status"
+                } );
+        addAnnotation( getConstructedAttribute__NameAttributeRequired__DiagnosticChain_Map(),
+                source,
+                new String[] {
+                        "body",
+                        "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status"
+                } );
+        addAnnotation( getConstructedAttributes__UniqueConstructedAttribute__DiagnosticChain_Map(),
+                source,
+                new String[] {
+                        "body",
                         "Tuple {\n\tmessage : String = \'Within an NS, there shall not be two ConstructedAttribute sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: DependsOn NS should be taken into account ?\n\t\t\t-- For this, explicit links have to be created first\n\t\t\t-- Then, may be this constraint should be in NS and not in Enumerations ?\n\t\t\tself.constructedAttribute->isUnique( c : ConstructedAttribute | c.name )\n}.status"
                 } );
-        addAnnotation( dataAttributeEClass,
+        addAnnotation( getDataAttribute__NameAttributeRequired__DiagnosticChain_Map(),
                 source,
                 new String[] {
-                        "nameAttributeRequired",
-                        "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status",
-                        "fcAttributeRequired",
+                        "body",
+                        "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status"
+                } );
+        addAnnotation( getDataAttribute__FcAttributeRequired__DiagnosticChain_Map(),
+                source,
+                new String[] {
+                        "body",
                         "Tuple {\n\tmessage : String = \'The fc attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.fc <> null\n}.status"
                 } );
-        addAnnotation( dataObjectEClass,
+        addAnnotation( getDataObject__NameAttributeRequired__DiagnosticChain_Map(),
                 source,
                 new String[] {
-                        "nameAttributeRequired",
-                        "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status",
-                        "typeAttributeRequired",
+                        "body",
+                        "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status"
+                } );
+        addAnnotation( getDataObject__TypeAttributeRequired__DiagnosticChain_Map(),
+                source,
+                new String[] {
+                        "body",
                         "Tuple {\n\tmessage : String = \'The type attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.type <> null\n}.status"
                 } );
-        addAnnotation( dataSetMemberOfEClass,
+        addAnnotation( getDataSetMemberOf__CbAttributeRequired__DiagnosticChain_Map(),
                 source,
                 new String[] {
-                        "cbAttributeRequired",
+                        "body",
                         "Tuple {\n\tmessage : String = \'The cb attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.cb <> null\n}.status"
                 } );
-        addAnnotation( docEClass,
+        addAnnotation( getDoc__IdAttributeRequired__DiagnosticChain_Map(),
                 source,
                 new String[] {
-                        "idAttributeRequired",
+                        "body",
                         "Tuple {\n\tmessage : String = \'The id attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.id <> null\n}.status"
                 } );
-        addAnnotation( enumerationEClass,
+        addAnnotation( getEnumeration__UniqueLiteralName__DiagnosticChain_Map(),
                 source,
                 new String[] {
-                        "uniqueLiteralName",
-                        "Tuple {\n\tmessage : String = \'For an Enumeration, there shall not be two Literal sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: inherited literals should be taken into account\n\t\t\t-- For this, explicit links have to be created first\n\t\t\tself.literal->isUnique( l : Literal | l.name )\n}.status",
-                        "uniqueLiteralVal",
-                        "Tuple {\n\tmessage : String = \'For an Enumeration, there shall not be two Literal sub-elements with same literalVal.\',\n\tstatus : Boolean = \n\t\t\tself.literal->isUnique( l : Literal | l.literalVal )\n}.status",
-                        "nameAttributeRequired",
+                        "body",
+                        "Tuple {\n\tmessage : String = \'For an Enumeration, there shall not be two Literal sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: inherited literals should be taken into account\n\t\t\t-- For this, explicit links have to be created first\n\t\t\tself.literal->isUnique( l : Literal | l.name )\n}.status"
+                } );
+        addAnnotation( getEnumeration__UniqueLiteralVal__DiagnosticChain_Map(),
+                source,
+                new String[] {
+                        "body",
+                        "Tuple {\n\tmessage : String = \'For an Enumeration, there shall not be two Literal sub-elements with same literalVal.\',\n\tstatus : Boolean = \n\t\t\tself.literal->isUnique( l : Literal | l.literalVal )\n}.status"
+                } );
+        addAnnotation( getEnumeration__NameAttributeRequired__DiagnosticChain_Map(),
+                source,
+                new String[] {
+                        "body",
                         "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status"
                 } );
-        addAnnotation( enumerationsEClass,
+        addAnnotation( getEnumerations__UniqueEnumeration__DiagnosticChain_Map(),
                 source,
                 new String[] {
-                        "uniqueEnumeration",
+                        "body",
                         "Tuple {\n\tmessage : String = \'Within an NS, there shall not be two Enumeration sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: DependsOn NS should be taken into account ?\n\t\t\t-- For this, explicit links have to be created first\n\t\t\t-- Then, may be this constraint should be in NS and not in Enumerations ?\n\t\t\tself.enumeration->isUnique( e : Enumeration | e.name )\n}.status"
                 } );
-        addAnnotation( functionalConstraintEClass,
+        addAnnotation( getFunctionalConstraint__AbbreviationAttributeRequired__DiagnosticChain_Map(),
                 source,
                 new String[] {
-                        "abbreviationAttributeRequired",
+                        "body",
                         "Tuple {\n\tmessage : String = \'The abbreviation attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.abbreviation <> null\n}.status"
                 } );
-        addAnnotation( functionalConstraintsEClass,
+        addAnnotation( getFunctionalConstraints__UniqueFunctionalConstraint__DiagnosticChain_Map(),
                 source,
                 new String[] {
-                        "uniqueFunctionalConstraint",
+                        "body",
                         "Tuple {\n\tmessage : String = \'There shall not be two FunctionalConstraint elements with same abbreviation.\',\n\tstatus : Boolean = \n\t\t\tself.functionalConstraint->isUnique( f : FunctionalConstraint | f.abbreviation )\n}.status"
                 } );
-        addAnnotation( literalEClass,
+        addAnnotation( getLiteral__NameAttributeRequired__DiagnosticChain_Map(),
                 source,
                 new String[] {
-                        "nameAttributeRequired",
-                        "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status",
-                        "literalValAttributeRequired",
+                        "body",
+                        "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status"
+                } );
+        addAnnotation( getLiteral__LiteralValAttributeRequired__DiagnosticChain_Map(),
+                source,
+                new String[] {
+                        "body",
                         "Tuple {\n\tmessage : String = \'The literalVal attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.literalVal <> null\n}.status"
                 } );
-        addAnnotation( lnClassEClass,
+        addAnnotation( getLNClass__NameAttributeRequired__DiagnosticChain_Map(),
                 source,
                 new String[] {
-                        "nameAttributeRequired",
+                        "body",
                         "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status"
                 } );
-        addAnnotation( lnClassesEClass,
+        addAnnotation( getLNClasses__UniqueLNClass__DiagnosticChain_Map(),
                 source,
                 new String[] {
-                        "uniqueAbstractLNClass",
-                        "Tuple {\n\tmessage : String = \'Within an NS, there shall not be two AbstractLNClass sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.abstractLNClass->isUnique( c : AbstractLNClass | c.name )\n}.status",
-                        "uniqueLNClass",
+                        "body",
                         "Tuple {\n\tmessage : String = \'Within an NS, there shall not be two LNClass sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.lNClass->isUnique( c : LNClass | c.name )\n}.status"
                 } );
-        addAnnotation( nsDocEClass,
+        addAnnotation( getLNClasses__UniqueAbstractLNClass__DiagnosticChain_Map(),
                 source,
                 new String[] {
-                        "langAttributeRequired",
+                        "body",
+                        "Tuple {\n\tmessage : String = \'Within an NS, there shall not be two AbstractLNClass sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.abstractLNClass->isUnique( c : AbstractLNClass | c.name )\n}.status"
+                } );
+        addAnnotation( getNSDoc__LangAttributeRequired__DiagnosticChain_Map(),
+                source,
+                new String[] {
+                        "body",
                         "Tuple {\n\tmessage : String = \'The lang attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.lang <> null\n}.status"
                 } );
-        addAnnotation( presenceConditionEClass,
+        addAnnotation( getPresenceCondition__NameAttributeRequired__DiagnosticChain_Map(),
                 source,
                 new String[] {
-                        "nameAttributeRequired",
+                        "body",
                         "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status"
                 } );
-        addAnnotation( presenceConditionsEClass,
+        addAnnotation( getPresenceConditions__UniquePresenceCondition__DiagnosticChain_Map(),
                 source,
                 new String[] {
-                        "uniquePresenceCondition",
+                        "body",
                         "Tuple {\n\tmessage : String = \'There shall not be two PresenceCondition elements with same name.\',\n\tstatus : Boolean = \n\t\t\tself.presenceCondition->isUnique( p : PresenceCondition | p.name )\n}.status"
                 } );
-        addAnnotation( serviceCDCEClass,
+        addAnnotation( getServiceCDC__CdcAttributeRequired__DiagnosticChain_Map(),
                 source,
                 new String[] {
-                        "cdcAttributeRequired",
+                        "body",
                         "Tuple {\n\tmessage : String = \'The cdc attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.cdc <> null\n}.status"
                 } );
-        addAnnotation( serviceDataAttributeEClass,
+        addAnnotation( getServiceDataAttribute__NameAttributeRequired__DiagnosticChain_Map(),
                 source,
                 new String[] {
-                        "nameAttributeRequired",
-                        "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status",
-                        "fcAttributeRequired",
+                        "body",
+                        "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status"
+                } );
+        addAnnotation( getServiceDataAttribute__FcAttributeRequired__DiagnosticChain_Map(),
+                source,
+                new String[] {
+                        "body",
                         "Tuple {\n\tmessage : String = \'The fc attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.fc <> null\n}.status"
                 } );
-        addAnnotation( serviceParameterEClass,
+        addAnnotation( getServiceParameter__NameAttributeRequired__DiagnosticChain_Map(),
                 source,
                 new String[] {
-                        "nameAttributeRequired",
+                        "body",
                         "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status"
                 } );
-        addAnnotation( subDataAttributeEClass,
+        addAnnotation( getSubDataAttribute__NameAttributeRequired__DiagnosticChain_Map(),
                 source,
                 new String[] {
-                        "nameAttributeRequired",
+                        "body",
                         "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status"
                 } );
-        addAnnotation( subDataObjectEClass,
+        addAnnotation( getSubDataObject__NameAttributeRequired__DiagnosticChain_Map(),
                 source,
                 new String[] {
-                        "nameAttributeRequired",
-                        "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status",
-                        "typeAttributeRequired",
+                        "body",
+                        "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status"
+                } );
+        addAnnotation( getSubDataObject__TypeAttributeRequired__DiagnosticChain_Map(),
+                source,
+                new String[] {
+                        "body",
                         "Tuple {\n\tmessage : String = \'The type attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.type <> null\n}.status"
                 } );
-        addAnnotation( titledClassEClass,
+        addAnnotation( getTitledClass__TitleIDAttributeRequired__DiagnosticChain_Map(),
                 source,
                 new String[] {
-                        "titleIDAttributeRequired",
+                        "body",
                         "Tuple {\n\tmessage : String = \'The titleID attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.titleID <> null\n}.status"
                 } );
-        addAnnotation( agNSIdentificationEClass,
+        addAnnotation( getAgNSIdentification__IdAttributeRequired__DiagnosticChain_Map(),
                 source,
                 new String[] {
-                        "idAttributeRequired",
-                        "Tuple {\n\tmessage : String = \'The id attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.id <> null\n}.status",
-                        "versionAttributeRequired",
+                        "body",
+                        "Tuple {\n\tmessage : String = \'The id attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.id <> null\n}.status"
+                } );
+        addAnnotation( getAgNSIdentification__VersionAttributeRequired__DiagnosticChain_Map(),
+                source,
+                new String[] {
+                        "body",
                         "Tuple {\n\tmessage : String = \'The version attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.version <> null\n}.status"
                 } );
     }

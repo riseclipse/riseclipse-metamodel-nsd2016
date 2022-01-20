@@ -1,6 +1,6 @@
 /*
 *************************************************************************
-**  Copyright (c) 2019 CentraleSupélec & EDF.
+**  Copyright (c) 2016-2021 CentraleSupélec & EDF.
 **  All rights reserved. This program and the accompanying materials
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
@@ -15,10 +15,14 @@
 **      dominique.marcadet@centralesupelec.fr
 **      aurelie.dehouck-neveu@edf.fr
 **  Web site:
-**      http://wdi.supelec.fr/software/RiseClipse/
+**      https://riseclipse.github.io/
 *************************************************************************
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
+
+import java.util.Map;
+
+import org.eclipse.emf.common.util.DiagnosticChain;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,7 +42,6 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAbbreviation()
  * @model extendedMetaData="name='tAbbreviation' kind='empty'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='nameAttributeRequired'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot nameAttributeRequired='Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name &lt;&gt; null\n}.status'"
  * @generated
  */
 public interface Abbreviation extends NsdObject {
@@ -216,5 +219,13 @@ public interface Abbreviation extends NsdObject {
      * @generated
      */
     boolean isSetRefersToDoc();
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name &lt;&gt; null\n}.status'"
+     * @generated
+     */
+    boolean nameAttributeRequired( DiagnosticChain diagnostics, Map< Object, Object > context );
 
 } // Abbreviation

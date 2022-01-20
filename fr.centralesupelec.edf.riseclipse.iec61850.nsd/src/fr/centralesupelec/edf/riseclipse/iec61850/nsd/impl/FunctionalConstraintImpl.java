@@ -1,6 +1,6 @@
 /*
 *************************************************************************
-**  Copyright (c) 2019 CentraleSupélec & EDF.
+**  Copyright (c) 2016-2021 CentraleSupélec & EDF.
 **  All rights reserved. This program and the accompanying materials
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
@@ -15,10 +15,34 @@
 **      dominique.marcadet@centralesupelec.fr
 **      aurelie.dehouck-neveu@edf.fr
 **  Web site:
-**      http://wdi.supelec.fr/software/RiseClipse/
+**      https://riseclipse.github.io/
 *************************************************************************
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
+
+import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
+import java.util.Map;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.ocl.pivot.evaluation.Executor;
+import org.eclipse.ocl.pivot.ids.TypeId;
+import org.eclipse.ocl.pivot.library.oclany.OclComparableLessThanEqualOperation;
+import org.eclipse.ocl.pivot.library.string.CGStringGetSeverityOperation;
+import org.eclipse.ocl.pivot.library.string.CGStringLogDiagnosticOperation;
+import org.eclipse.ocl.pivot.utilities.PivotUtil;
+import org.eclipse.ocl.pivot.utilities.ValueUtil;
+import org.eclipse.ocl.pivot.values.IntegerValue;
+import org.eclipse.ocl.pivot.values.TupleValue;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute;
@@ -26,22 +50,10 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetImpl;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
-
-import java.util.Collection;
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectWithInverseEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -568,7 +580,7 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
     @Override
     public EList< DataAttribute > getReferredByDataAttribute() {
         if( referredByDataAttribute == null ) {
-            referredByDataAttribute = new EObjectWithInverseEList.Unsettable< DataAttribute >( DataAttribute.class,
+            referredByDataAttribute = new EObjectWithInverseEList.Unsettable< >( DataAttribute.class,
                     this, NsdPackage.FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE,
                     NsdPackage.DATA_ATTRIBUTE__REFERS_TO_FUNCTIONAL_CONSTRAINT );
         }
@@ -830,6 +842,71 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
+    public boolean abbreviationAttributeRequired( final DiagnosticChain diagnostics,
+            final Map< Object, Object > context ) {
+        final String constraintName = "FunctionalConstraint::abbreviationAttributeRequired";
+        try {
+            /**
+             *
+             * inv abbreviationAttributeRequired:
+             *   let severity : Integer[1] = constraintName.getSeverity()
+             *   in
+             *     if severity <= 0
+             *     then true
+             *     else
+             *       let
+             *         result : OclAny[1] = let status : Boolean[1] = self.abbreviation <> null
+             *         in
+             *           if status = true
+             *           then true
+             *           else
+             *             Tuple{message = 'The abbreviation attribute is required', status = status
+             *             }
+             *           endif
+             *       in
+             *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
+             *     endif
+             */
+            final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this, context );
+            final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate( executor,
+                    NsdPackage.Literals.FUNCTIONAL_CONSTRAINT___ABBREVIATION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
+            final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
+                    .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
+            /*@NonInvalid*/ boolean symbol_2;
+            if( le ) {
+                symbol_2 = true;
+            }
+            else {
+                final /*@NonInvalid*/ String abbreviation = this.getAbbreviation();
+                final /*@NonInvalid*/ boolean status = abbreviation != null;
+                /*@NonInvalid*/ Object symbol_1;
+                if( status ) {
+                    symbol_1 = ValueUtil.TRUE_VALUE;
+                }
+                else {
+                    final /*@NonInvalid*/ TupleValue symbol_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                            NsdTables.STR_The_32_abbreviation_32_attribute_32_is_32_required, status );
+                    symbol_1 = symbol_0;
+                }
+                final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
+                        .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
+                                context, ( Object ) null, severity_0, symbol_1, NsdTables.INT_0 )
+                        .booleanValue();
+                symbol_2 = logDiagnostic;
+            }
+            return symbol_2;
+        }
+        catch( Throwable e ) {
+            return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @SuppressWarnings( "unchecked" )
     @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
@@ -1033,6 +1110,22 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
      * @generated
      */
     @Override
+    @SuppressWarnings( "unchecked" )
+    public Object eInvoke( int operationID, EList< ? > arguments ) throws InvocationTargetException {
+        switch( operationID ) {
+        case NsdPackage.FUNCTIONAL_CONSTRAINT___ABBREVIATION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP:
+            return abbreviationAttributeRequired( ( DiagnosticChain ) arguments.get( 0 ),
+                    ( Map< Object, Object > ) arguments.get( 1 ) );
+        }
+        return super.eInvoke( operationID, arguments );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public String toString() {
         if( eIsProxy() ) return super.toString();
 
@@ -1069,11 +1162,13 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
         }
         if( identification != null ) {
             if( isSetDescID() ) {
-                Doc doc = (( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( identification, getDescID() );
+                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( identification,
+                        getDescID() );
                 if( doc != null ) setRefersToDescDoc( doc );
             }
             if( isSetTitleID() ) {
-                Doc doc = (( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( identification, getTitleID() );
+                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( identification,
+                        getTitleID() );
                 if( doc != null ) setRefersToTitleDoc( doc );
             }
         }

@@ -1,6 +1,6 @@
 /*
 *************************************************************************
-**  Copyright (c) 2019 CentraleSupélec & EDF.
+**  Copyright (c) 2016-2021 CentraleSupélec & EDF.
 **  All rights reserved. This program and the accompanying materials
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
@@ -15,31 +15,46 @@
 **      dominique.marcadet@centralesupelec.fr
 **      aurelie.dehouck-neveu@edf.fr
 **  Web site:
-**      http://wdi.supelec.fr/software/RiseClipse/
+**      https://riseclipse.github.io/
 *************************************************************************
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
+
+import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.ocl.pivot.evaluation.Executor;
+import org.eclipse.ocl.pivot.ids.IdResolver;
+import org.eclipse.ocl.pivot.ids.TypeId;
+import org.eclipse.ocl.pivot.library.oclany.OclComparableLessThanEqualOperation;
+import org.eclipse.ocl.pivot.library.string.CGStringGetSeverityOperation;
+import org.eclipse.ocl.pivot.library.string.CGStringLogDiagnosticOperation;
+import org.eclipse.ocl.pivot.utilities.PivotUtil;
+import org.eclipse.ocl.pivot.utilities.ValueUtil;
+import org.eclipse.ocl.pivot.values.IntegerValue;
+import org.eclipse.ocl.pivot.values.SetValue;
+import org.eclipse.ocl.pivot.values.SetValue.Accumulator;
+import org.eclipse.ocl.pivot.values.TupleValue;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
-
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS;
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -94,7 +109,7 @@ public class AbbreviationsImpl extends NsdObjectImpl implements Abbreviations {
     @Override
     public EList< Abbreviation > getAbbreviation() {
         if( abbreviation == null ) {
-            abbreviation = new EObjectContainmentWithInverseEList.Unsettable< Abbreviation >( Abbreviation.class, this,
+            abbreviation = new EObjectContainmentWithInverseEList.Unsettable< >( Abbreviation.class, this,
                     NsdPackage.ABBREVIATIONS__ABBREVIATION, NsdPackage.ABBREVIATION__PARENT_ABBREVIATIONS );
         }
         return abbreviation;
@@ -212,6 +227,104 @@ public class AbbreviationsImpl extends NsdObjectImpl implements Abbreviations {
         else if( eNotificationRequired() )
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.ABBREVIATIONS__PARENT_SERVICE_NS,
                     newParentServiceNS, newParentServiceNS ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean uniqueAbbreviation( final DiagnosticChain diagnostics, final Map< Object, Object > context ) {
+        final String constraintName = "Abbreviations::uniqueAbbreviation";
+        try {
+            /**
+             *
+             * inv uniqueAbbreviation:
+             *   let severity : Integer[1] = constraintName.getSeverity()
+             *   in
+             *     if severity <= 0
+             *     then true
+             *     else
+             *       let
+             *         result : OclAny[1] = let
+             *           status : Boolean[1] = self.abbreviation->isUnique(a | a.name)
+             *         in
+             *           if status = true
+             *           then true
+             *           else
+             *             Tuple{message = 'There shall not be two Abbreviations elements with same name.', status = status
+             *             }
+             *           endif
+             *       in
+             *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
+             *     endif
+             */
+            final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this, context );
+            final /*@NonInvalid*/ IdResolver idResolver = executor.getIdResolver();
+            final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate( executor,
+                    NsdPackage.Literals.ABBREVIATIONS___UNIQUE_ABBREVIATION__DIAGNOSTICCHAIN_MAP );
+            final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
+                    .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
+            /*@NonInvalid*/ boolean symbol_2;
+            if( le ) {
+                symbol_2 = true;
+            }
+            else {
+                /*@Caught*/ Object CAUGHT_symbol_1;
+                try {
+                    final /*@NonInvalid*/ List< Abbreviation > abbreviation = this.getAbbreviation();
+                    final /*@NonInvalid*/ SetValue BOXED_abbreviation = idResolver
+                            .createSetOfAll( NsdTables.SET_CLSSid_Abbreviation, abbreviation );
+                    /*@Thrown*/ Accumulator accumulator = ValueUtil
+                            .createSetAccumulatorValue( NsdTables.SET_CLSSid_Abbreviation );
+                    Iterator< Object > ITERATOR_a = BOXED_abbreviation.iterator();
+                    /*@Thrown*/ boolean status;
+                    while( true ) {
+                        if( !ITERATOR_a.hasNext() ) {
+                            status = true;
+                            break;
+                        }
+                        /*@NonInvalid*/ Abbreviation a = ( Abbreviation ) ITERATOR_a.next();
+                        /**
+                         * a.name
+                         */
+                        final /*@NonInvalid*/ String name = a.getName();
+                        //
+                        if( accumulator.includes( name ) == ValueUtil.TRUE_VALUE ) {
+                            status = false;
+                            break; // Abort after second find
+                        }
+                        else {
+                            accumulator.add( name );
+                        }
+                    }
+                    /*@Thrown*/ Object symbol_1;
+                    if( status ) {
+                        symbol_1 = ValueUtil.TRUE_VALUE;
+                    }
+                    else {
+                        final /*@Thrown*/ TupleValue symbol_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                                NsdTables.STR_There_32_shall_32_not_32_be_32_two_32_Abbreviations_32_elements_32_with_32_same_32_name,
+                                status );
+                        symbol_1 = symbol_0;
+                    }
+                    CAUGHT_symbol_1 = symbol_1;
+                }
+                catch( Exception e ) {
+                    CAUGHT_symbol_1 = ValueUtil.createInvalidValue( e );
+                }
+                final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
+                        .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
+                                context, ( Object ) null, severity_0, CAUGHT_symbol_1, NsdTables.INT_0 )
+                        .booleanValue();
+                symbol_2 = logDiagnostic;
+            }
+            return symbol_2;
+        }
+        catch( Throwable e ) {
+            return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
+        }
     }
 
     /**
@@ -351,6 +464,22 @@ public class AbbreviationsImpl extends NsdObjectImpl implements Abbreviations {
             return getParentServiceNS() != null;
         }
         return super.eIsSet( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    @SuppressWarnings( "unchecked" )
+    public Object eInvoke( int operationID, EList< ? > arguments ) throws InvocationTargetException {
+        switch( operationID ) {
+        case NsdPackage.ABBREVIATIONS___UNIQUE_ABBREVIATION__DIAGNOSTICCHAIN_MAP:
+            return uniqueAbbreviation( ( DiagnosticChain ) arguments.get( 0 ),
+                    ( Map< Object, Object > ) arguments.get( 1 ) );
+        }
+        return super.eInvoke( operationID, arguments );
     }
 
 } //AbbreviationsImpl

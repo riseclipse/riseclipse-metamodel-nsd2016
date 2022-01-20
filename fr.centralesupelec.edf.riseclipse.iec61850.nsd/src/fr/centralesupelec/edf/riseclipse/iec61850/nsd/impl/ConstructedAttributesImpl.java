@@ -1,6 +1,6 @@
 /*
 *************************************************************************
-**  Copyright (c) 2019 CentraleSupélec & EDF.
+**  Copyright (c) 2016-2021 CentraleSupélec & EDF.
 **  All rights reserved. This program and the accompanying materials
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
@@ -15,30 +15,45 @@
 **      dominique.marcadet@centralesupelec.fr
 **      aurelie.dehouck-neveu@edf.fr
 **  Web site:
-**      http://wdi.supelec.fr/software/RiseClipse/
+**      https://riseclipse.github.io/
 *************************************************************************
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
+
+import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.ocl.pivot.evaluation.Executor;
+import org.eclipse.ocl.pivot.ids.IdResolver;
+import org.eclipse.ocl.pivot.ids.TypeId;
+import org.eclipse.ocl.pivot.library.oclany.OclComparableLessThanEqualOperation;
+import org.eclipse.ocl.pivot.library.string.CGStringGetSeverityOperation;
+import org.eclipse.ocl.pivot.library.string.CGStringLogDiagnosticOperation;
+import org.eclipse.ocl.pivot.utilities.PivotUtil;
+import org.eclipse.ocl.pivot.utilities.ValueUtil;
+import org.eclipse.ocl.pivot.values.IntegerValue;
+import org.eclipse.ocl.pivot.values.SetValue;
+import org.eclipse.ocl.pivot.values.SetValue.Accumulator;
+import org.eclipse.ocl.pivot.values.TupleValue;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
-
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.InternalEList;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
 
 /**
  * <!-- begin-user-doc -->
@@ -92,7 +107,7 @@ public class ConstructedAttributesImpl extends NsdObjectImpl implements Construc
     @Override
     public EList< ConstructedAttribute > getConstructedAttribute() {
         if( constructedAttribute == null ) {
-            constructedAttribute = new EObjectContainmentWithInverseEList.Unsettable< ConstructedAttribute >(
+            constructedAttribute = new EObjectContainmentWithInverseEList.Unsettable< >(
                     ConstructedAttribute.class, this, NsdPackage.CONSTRUCTED_ATTRIBUTES__CONSTRUCTED_ATTRIBUTE,
                     NsdPackage.CONSTRUCTED_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTES );
         }
@@ -164,6 +179,106 @@ public class ConstructedAttributesImpl extends NsdObjectImpl implements Construc
         else if( eNotificationRequired() )
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CONSTRUCTED_ATTRIBUTES__PARENT_NS,
                     newParentNS, newParentNS ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean uniqueConstructedAttribute( final DiagnosticChain diagnostics,
+            final Map< Object, Object > context ) {
+        final String constraintName = "ConstructedAttributes::uniqueConstructedAttribute";
+        try {
+            /**
+             *
+             * inv uniqueConstructedAttribute:
+             *   let severity : Integer[1] = constraintName.getSeverity()
+             *   in
+             *     if severity <= 0
+             *     then true
+             *     else
+             *       let
+             *         result : OclAny[1] = let
+             *           status : Boolean[1] = self.constructedAttribute->isUnique(c | c.name)
+             *         in
+             *           if status = true
+             *           then true
+             *           else
+             *             Tuple{message = 'Within an NS, there shall not be two ConstructedAttribute sub-elements with same name.', status = status
+             *             }
+             *           endif
+             *       in
+             *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
+             *     endif
+             */
+            final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this, context );
+            final /*@NonInvalid*/ IdResolver idResolver = executor.getIdResolver();
+            final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate( executor,
+                    NsdPackage.Literals.CONSTRUCTED_ATTRIBUTES___UNIQUE_CONSTRUCTED_ATTRIBUTE__DIAGNOSTICCHAIN_MAP );
+            final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
+                    .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
+            /*@NonInvalid*/ boolean symbol_2;
+            if( le ) {
+                symbol_2 = true;
+            }
+            else {
+                /*@Caught*/ Object CAUGHT_symbol_1;
+                try {
+                    final /*@NonInvalid*/ List< ConstructedAttribute > constructedAttribute = this
+                            .getConstructedAttribute();
+                    final /*@NonInvalid*/ SetValue BOXED_constructedAttribute = idResolver
+                            .createSetOfAll( NsdTables.SET_CLSSid_ConstructedAttribute, constructedAttribute );
+                    /*@Thrown*/ Accumulator accumulator = ValueUtil
+                            .createSetAccumulatorValue( NsdTables.SET_CLSSid_ConstructedAttribute );
+                    Iterator< Object > ITERATOR_c = BOXED_constructedAttribute.iterator();
+                    /*@Thrown*/ boolean status;
+                    while( true ) {
+                        if( !ITERATOR_c.hasNext() ) {
+                            status = true;
+                            break;
+                        }
+                        /*@NonInvalid*/ ConstructedAttribute c = ( ConstructedAttribute ) ITERATOR_c.next();
+                        /**
+                         * c.name
+                         */
+                        final /*@NonInvalid*/ String name = c.getName();
+                        //
+                        if( accumulator.includes( name ) == ValueUtil.TRUE_VALUE ) {
+                            status = false;
+                            break; // Abort after second find
+                        }
+                        else {
+                            accumulator.add( name );
+                        }
+                    }
+                    /*@Thrown*/ Object symbol_1;
+                    if( status ) {
+                        symbol_1 = ValueUtil.TRUE_VALUE;
+                    }
+                    else {
+                        final /*@Thrown*/ TupleValue symbol_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                                NsdTables.STR_Within_32_an_32_NS_44_32_there_32_shall_32_not_32_be_32_two_32_ConstructedAttribute_32_sub_m_el,
+                                status );
+                        symbol_1 = symbol_0;
+                    }
+                    CAUGHT_symbol_1 = symbol_1;
+                }
+                catch( Exception e ) {
+                    CAUGHT_symbol_1 = ValueUtil.createInvalidValue( e );
+                }
+                final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
+                        .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
+                                context, ( Object ) null, severity_0, CAUGHT_symbol_1, NsdTables.INT_0 )
+                        .booleanValue();
+                symbol_2 = logDiagnostic;
+            }
+            return symbol_2;
+        }
+        catch( Throwable e ) {
+            return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
+        }
     }
 
     /**
@@ -284,6 +399,22 @@ public class ConstructedAttributesImpl extends NsdObjectImpl implements Construc
             return getParentNS() != null;
         }
         return super.eIsSet( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    @SuppressWarnings( "unchecked" )
+    public Object eInvoke( int operationID, EList< ? > arguments ) throws InvocationTargetException {
+        switch( operationID ) {
+        case NsdPackage.CONSTRUCTED_ATTRIBUTES___UNIQUE_CONSTRUCTED_ATTRIBUTE__DIAGNOSTICCHAIN_MAP:
+            return uniqueConstructedAttribute( ( DiagnosticChain ) arguments.get( 0 ),
+                    ( Map< Object, Object > ) arguments.get( 1 ) );
+        }
+        return super.eInvoke( operationID, arguments );
     }
 
 } //ConstructedAttributesImpl

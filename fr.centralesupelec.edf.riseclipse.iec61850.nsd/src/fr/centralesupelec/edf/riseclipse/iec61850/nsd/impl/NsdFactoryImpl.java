@@ -1,6 +1,6 @@
 /*
 *************************************************************************
-**  Copyright (c) 2019 CentraleSupélec & EDF.
+**  Copyright (c) 2016-2021 CentraleSupélec & EDF.
 **  All rights reserved. This program and the accompanying materials
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
@@ -15,25 +15,74 @@
 **      dominique.marcadet@centralesupelec.fr
 **      aurelie.dehouck-neveu@edf.fr
 **  Web site:
-**      http://wdi.supelec.fr/software/RiseClipse/
+**      https://riseclipse.github.io/
 *************************************************************************
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.*;
-
 import org.eclipse.emf.common.util.Enumerator;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
 import org.eclipse.emf.ecore.util.Diagnostician;
+
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ACSIServicesKind;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServiceNS;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CBKind;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CopyrightNotice;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Copyrighted;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataSetMemberOf;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.License;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LicenseKind;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Notice;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDCs;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttributes;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceParameter;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.UndefinedAttributeTypeKind;
 
 /**
  * <!-- begin-user-doc -->

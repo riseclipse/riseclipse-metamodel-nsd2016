@@ -1,6 +1,6 @@
 /*
 *************************************************************************
-**  Copyright (c) 2019 CentraleSupélec & EDF.
+**  Copyright (c) 2016-2021 CentraleSupélec & EDF.
 **  All rights reserved. This program and the accompanying materials
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
@@ -15,11 +15,14 @@
 **      dominique.marcadet@centralesupelec.fr
 **      aurelie.dehouck-neveu@edf.fr
 **  Web site:
-**      http://wdi.supelec.fr/software/RiseClipse/
+**      https://riseclipse.github.io/
 *************************************************************************
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
+import java.util.Map;
+
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -40,7 +43,6 @@ import org.eclipse.emf.common.util.EList;
  * @model abstract="true"
  *        extendedMetaData="name='tAnyLNClass' kind='elementOnly'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='uniqueDataObject'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot uniqueDataObject='Tuple {\n\tmessage : String = \'For an AnyLNClass, there shall not be two DataObject sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: base AbstractLNClass should be taken into account\n\t\t\t-- For this, explicit links have to be created first\n\t\t\tself.dataObject-&gt;isUnique( d : DataObject | d.name )\n}.status'"
  * @generated
  */
 public interface AnyLNClass extends TitledClass {
@@ -202,5 +204,13 @@ public interface AnyLNClass extends TitledClass {
      * @generated
      */
     LNClasses getParentLNClasses();
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='Tuple {\n\tmessage : String = \'For an AnyLNClass, there shall not be two DataObject sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: base AbstractLNClass should be taken into account\n\t\t\t-- For this, explicit links have to be created first\n\t\t\tself.dataObject-&gt;isUnique( d : DataObject | d.name )\n}.status'"
+     * @generated
+     */
+    boolean uniqueDataObject( DiagnosticChain diagnostics, Map< Object, Object > context );
 
 } // AnyLNClass

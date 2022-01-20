@@ -1,6 +1,6 @@
 /*
 *************************************************************************
-**  Copyright (c) 2019 CentraleSupélec & EDF.
+**  Copyright (c) 2016-2021 CentraleSupélec & EDF.
 **  All rights reserved. This program and the accompanying materials
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
@@ -15,10 +15,40 @@
 **      dominique.marcadet@centralesupelec.fr
 **      aurelie.dehouck-neveu@edf.fr
 **  Web site:
-**      http://wdi.supelec.fr/software/RiseClipse/
+**      https://riseclipse.github.io/
 *************************************************************************
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
+
+import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.ocl.pivot.evaluation.Executor;
+import org.eclipse.ocl.pivot.ids.IdResolver;
+import org.eclipse.ocl.pivot.ids.TypeId;
+import org.eclipse.ocl.pivot.library.oclany.OclComparableLessThanEqualOperation;
+import org.eclipse.ocl.pivot.library.string.CGStringGetSeverityOperation;
+import org.eclipse.ocl.pivot.library.string.CGStringLogDiagnosticOperation;
+import org.eclipse.ocl.pivot.utilities.PivotUtil;
+import org.eclipse.ocl.pivot.utilities.ValueUtil;
+import org.eclipse.ocl.pivot.values.IntegerValue;
+import org.eclipse.ocl.pivot.values.SetValue;
+import org.eclipse.ocl.pivot.values.SetValue.Accumulator;
+import org.eclipse.ocl.pivot.values.TupleValue;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType;
@@ -26,25 +56,10 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetImpl;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
-
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EObjectWithInverseEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -211,7 +226,7 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
     @Override
     public EList< Literal > getLiteral() {
         if( literal == null ) {
-            literal = new EObjectContainmentWithInverseEList.Unsettable< Literal >( Literal.class, this,
+            literal = new EObjectContainmentWithInverseEList.Unsettable< >( Literal.class, this,
                     NsdPackage.ENUMERATION__LITERAL, NsdPackage.LITERAL__PARENT_ENUMERATION );
         }
         return literal;
@@ -514,7 +529,7 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
     @Override
     public EList< Enumeration > getReferredByEnumerationAsBase() {
         if( referredByEnumerationAsBase == null ) {
-            referredByEnumerationAsBase = new EObjectWithInverseEList.Unsettable< Enumeration >( Enumeration.class,
+            referredByEnumerationAsBase = new EObjectWithInverseEList.Unsettable< >( Enumeration.class,
                     this, NsdPackage.ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE,
                     NsdPackage.ENUMERATION__REFERS_TO_BASE_ENUMERATION );
         }
@@ -551,7 +566,7 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
     @Override
     public EList< AgAttributeType > getReferredByAttributeType() {
         if( referredByAttributeType == null ) {
-            referredByAttributeType = new EObjectWithInverseEList.Unsettable< AgAttributeType >( AgAttributeType.class,
+            referredByAttributeType = new EObjectWithInverseEList.Unsettable< >( AgAttributeType.class,
                     this, NsdPackage.ENUMERATION__REFERRED_BY_ATTRIBUTE_TYPE,
                     NsdPackage.AG_ATTRIBUTE_TYPE__REFERS_TO_ENUMERATION );
         }
@@ -586,7 +601,7 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
     @Override
     public EList< AgUnderlyingType > getReferredByUnderlyingType() {
         if( referredByUnderlyingType == null ) {
-            referredByUnderlyingType = new EObjectWithInverseEList.Unsettable< AgUnderlyingType >(
+            referredByUnderlyingType = new EObjectWithInverseEList.Unsettable< >(
                     AgUnderlyingType.class, this, NsdPackage.ENUMERATION__REFERRED_BY_UNDERLYING_TYPE,
                     NsdPackage.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_ENUMERATION );
         }
@@ -612,6 +627,260 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
     public boolean isSetReferredByUnderlyingType() {
         return referredByUnderlyingType != null
                 && ( ( InternalEList.Unsettable< ? > ) referredByUnderlyingType ).isSet();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean uniqueLiteralName( final DiagnosticChain diagnostics, final Map< Object, Object > context ) {
+        final String constraintName = "Enumeration::uniqueLiteralName";
+        try {
+            /**
+             *
+             * inv uniqueLiteralName:
+             *   let severity : Integer[1] = constraintName.getSeverity()
+             *   in
+             *     if severity <= 0
+             *     then true
+             *     else
+             *       let
+             *         result : OclAny[1] = let
+             *           status : Boolean[1] = self.literal->isUnique(l | l.name)
+             *         in
+             *           if status = true
+             *           then true
+             *           else
+             *             Tuple{message = 'For an Enumeration, there shall not be two Literal sub-elements with same name.', status = status
+             *             }
+             *           endif
+             *       in
+             *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
+             *     endif
+             */
+            final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this, context );
+            final /*@NonInvalid*/ IdResolver idResolver = executor.getIdResolver();
+            final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate( executor,
+                    NsdPackage.Literals.ENUMERATION___UNIQUE_LITERAL_NAME__DIAGNOSTICCHAIN_MAP );
+            final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
+                    .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
+            /*@NonInvalid*/ boolean symbol_2;
+            if( le ) {
+                symbol_2 = true;
+            }
+            else {
+                /*@Caught*/ Object CAUGHT_symbol_1;
+                try {
+                    final /*@NonInvalid*/ List< Literal > literal = this.getLiteral();
+                    final /*@NonInvalid*/ SetValue BOXED_literal = idResolver
+                            .createSetOfAll( NsdTables.SET_CLSSid_Literal, literal );
+                    /*@Thrown*/ Accumulator accumulator = ValueUtil
+                            .createSetAccumulatorValue( NsdTables.SET_CLSSid_Literal );
+                    Iterator< Object > ITERATOR_l = BOXED_literal.iterator();
+                    /*@Thrown*/ boolean status;
+                    while( true ) {
+                        if( !ITERATOR_l.hasNext() ) {
+                            status = true;
+                            break;
+                        }
+                        /*@NonInvalid*/ Literal l = ( Literal ) ITERATOR_l.next();
+                        /**
+                         * l.name
+                         */
+                        final /*@NonInvalid*/ String name = l.getName();
+                        //
+                        if( accumulator.includes( name ) == ValueUtil.TRUE_VALUE ) {
+                            status = false;
+                            break; // Abort after second find
+                        }
+                        else {
+                            accumulator.add( name );
+                        }
+                    }
+                    /*@Thrown*/ Object symbol_1;
+                    if( status ) {
+                        symbol_1 = ValueUtil.TRUE_VALUE;
+                    }
+                    else {
+                        final /*@Thrown*/ TupleValue symbol_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                                NsdTables.STR_For_32_an_32_Enumeration_44_32_there_32_shall_32_not_32_be_32_two_32_Literal_32_sub_m_elements_32,
+                                status );
+                        symbol_1 = symbol_0;
+                    }
+                    CAUGHT_symbol_1 = symbol_1;
+                }
+                catch( Exception e ) {
+                    CAUGHT_symbol_1 = ValueUtil.createInvalidValue( e );
+                }
+                final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
+                        .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
+                                context, ( Object ) null, severity_0, CAUGHT_symbol_1, NsdTables.INT_0 )
+                        .booleanValue();
+                symbol_2 = logDiagnostic;
+            }
+            return symbol_2;
+        }
+        catch( Throwable e ) {
+            return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean uniqueLiteralVal( final DiagnosticChain diagnostics, final Map< Object, Object > context ) {
+        final String constraintName = "Enumeration::uniqueLiteralVal";
+        try {
+            /**
+             *
+             * inv uniqueLiteralVal:
+             *   let severity : Integer[1] = constraintName.getSeverity()
+             *   in
+             *     if severity <= 0
+             *     then true
+             *     else
+             *       let
+             *         result : OclAny[1] = let
+             *           status : Boolean[1] = self.literal->isUnique(l | l.literalVal)
+             *         in
+             *           if status = true
+             *           then true
+             *           else
+             *             Tuple{message = 'For an Enumeration, there shall not be two Literal sub-elements with same literalVal.', status = status
+             *             }
+             *           endif
+             *       in
+             *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
+             *     endif
+             */
+            final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this, context );
+            final /*@NonInvalid*/ IdResolver idResolver = executor.getIdResolver();
+            final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate( executor,
+                    NsdPackage.Literals.ENUMERATION___UNIQUE_LITERAL_VAL__DIAGNOSTICCHAIN_MAP );
+            final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
+                    .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
+            /*@NonInvalid*/ boolean symbol_2;
+            if( le ) {
+                symbol_2 = true;
+            }
+            else {
+                final /*@NonInvalid*/ List< Literal > literal = this.getLiteral();
+                final /*@NonInvalid*/ SetValue BOXED_literal = idResolver.createSetOfAll( NsdTables.SET_CLSSid_Literal,
+                        literal );
+                /*@Thrown*/ Accumulator accumulator = ValueUtil
+                        .createSetAccumulatorValue( NsdTables.SET_CLSSid_Literal );
+                Iterator< Object > ITERATOR_l = BOXED_literal.iterator();
+                /*@NonInvalid*/ boolean status;
+                while( true ) {
+                    if( !ITERATOR_l.hasNext() ) {
+                        status = true;
+                        break;
+                    }
+                    /*@NonInvalid*/ Literal l = ( Literal ) ITERATOR_l.next();
+                    /**
+                     * l.literalVal
+                     */
+                    final /*@NonInvalid*/ int literalVal = l.getLiteralVal();
+                    final /*@NonInvalid*/ IntegerValue BOXED_literalVal = ValueUtil.integerValueOf( literalVal );
+                    //
+                    if( accumulator.includes( BOXED_literalVal ) == ValueUtil.TRUE_VALUE ) {
+                        status = false;
+                        break; // Abort after second find
+                    }
+                    else {
+                        accumulator.add( BOXED_literalVal );
+                    }
+                }
+                /*@NonInvalid*/ Object symbol_1;
+                if( status ) {
+                    symbol_1 = ValueUtil.TRUE_VALUE;
+                }
+                else {
+                    final /*@NonInvalid*/ TupleValue symbol_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                            NsdTables.STR_For_32_an_32_Enumeration_44_32_there_32_shall_32_not_32_be_32_two_32_Literal_32_sub_m_elements_32_0,
+                            status );
+                    symbol_1 = symbol_0;
+                }
+                final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
+                        .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
+                                context, ( Object ) null, severity_0, symbol_1, NsdTables.INT_0 )
+                        .booleanValue();
+                symbol_2 = logDiagnostic;
+            }
+            return symbol_2;
+        }
+        catch( Throwable e ) {
+            return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean nameAttributeRequired( final DiagnosticChain diagnostics, final Map< Object, Object > context ) {
+        final String constraintName = "Enumeration::nameAttributeRequired";
+        try {
+            /**
+             *
+             * inv nameAttributeRequired:
+             *   let severity : Integer[1] = constraintName.getSeverity()
+             *   in
+             *     if severity <= 0
+             *     then true
+             *     else
+             *       let
+             *         result : OclAny[1] = let status : Boolean[1] = self.name <> null
+             *         in
+             *           if status = true
+             *           then true
+             *           else
+             *             Tuple{message = 'The name attribute is required', status = status
+             *             }
+             *           endif
+             *       in
+             *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
+             *     endif
+             */
+            final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this, context );
+            final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate( executor,
+                    NsdPackage.Literals.ENUMERATION___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
+            final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
+                    .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
+            /*@NonInvalid*/ boolean symbol_2;
+            if( le ) {
+                symbol_2 = true;
+            }
+            else {
+                final /*@NonInvalid*/ String name = this.getName();
+                final /*@NonInvalid*/ boolean status = name != null;
+                /*@NonInvalid*/ Object symbol_1;
+                if( status ) {
+                    symbol_1 = ValueUtil.TRUE_VALUE;
+                }
+                else {
+                    final /*@NonInvalid*/ TupleValue symbol_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                            NsdTables.STR_The_32_name_32_attribute_32_is_32_required, status );
+                    symbol_1 = symbol_0;
+                }
+                final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
+                        .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
+                                context, ( Object ) null, severity_0, symbol_1, NsdTables.INT_0 )
+                        .booleanValue();
+                symbol_2 = logDiagnostic;
+            }
+            return symbol_2;
+        }
+        catch( Throwable e ) {
+            return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
+        }
     }
 
     /**
@@ -818,6 +1087,28 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
             return isSetReferredByUnderlyingType();
         }
         return super.eIsSet( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    @SuppressWarnings( "unchecked" )
+    public Object eInvoke( int operationID, EList< ? > arguments ) throws InvocationTargetException {
+        switch( operationID ) {
+        case NsdPackage.ENUMERATION___UNIQUE_LITERAL_NAME__DIAGNOSTICCHAIN_MAP:
+            return uniqueLiteralName( ( DiagnosticChain ) arguments.get( 0 ),
+                    ( Map< Object, Object > ) arguments.get( 1 ) );
+        case NsdPackage.ENUMERATION___UNIQUE_LITERAL_VAL__DIAGNOSTICCHAIN_MAP:
+            return uniqueLiteralVal( ( DiagnosticChain ) arguments.get( 0 ),
+                    ( Map< Object, Object > ) arguments.get( 1 ) );
+        case NsdPackage.ENUMERATION___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP:
+            return nameAttributeRequired( ( DiagnosticChain ) arguments.get( 0 ),
+                    ( Map< Object, Object > ) arguments.get( 1 ) );
+        }
+        return super.eInvoke( operationID, arguments );
     }
 
     /**

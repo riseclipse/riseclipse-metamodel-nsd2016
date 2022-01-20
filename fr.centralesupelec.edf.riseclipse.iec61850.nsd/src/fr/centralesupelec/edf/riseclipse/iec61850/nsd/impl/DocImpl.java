@@ -1,6 +1,6 @@
 /*
 *************************************************************************
-**  Copyright (c) 2019 CentraleSupélec & EDF.
+**  Copyright (c) 2016-2021 CentraleSupélec & EDF.
 **  All rights reserved. This program and the accompanying materials
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
@@ -15,10 +15,36 @@
 **      dominique.marcadet@centralesupelec.fr
 **      aurelie.dehouck-neveu@edf.fr
 **  Web site:
-**      http://wdi.supelec.fr/software/RiseClipse/
+**      https://riseclipse.github.io/
 *************************************************************************
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
+
+import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
+import java.util.Map;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.BasicFeatureMap;
+import org.eclipse.emf.ecore.util.EObjectWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.FeatureMap;
+import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.ocl.pivot.evaluation.Executor;
+import org.eclipse.ocl.pivot.ids.TypeId;
+import org.eclipse.ocl.pivot.library.oclany.OclComparableLessThanEqualOperation;
+import org.eclipse.ocl.pivot.library.string.CGStringGetSeverityOperation;
+import org.eclipse.ocl.pivot.library.string.CGStringLogDiagnosticOperation;
+import org.eclipse.ocl.pivot.utilities.PivotUtil;
+import org.eclipse.ocl.pivot.utilities.ValueUtil;
+import org.eclipse.ocl.pivot.values.IntegerValue;
+import org.eclipse.ocl.pivot.values.TupleValue;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSdesc;
@@ -30,23 +56,9 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentedClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
-
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TitledClass;
-import java.util.Collection;
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.BasicFeatureMap;
-import org.eclipse.emf.ecore.util.EObjectWithInverseEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.FeatureMap;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -383,7 +395,7 @@ public class DocImpl extends NsdObjectImpl implements Doc {
     @Override
     public EList< AgNSdesc > getReferredByAgNSDesc() {
         if( referredByAgNSDesc == null ) {
-            referredByAgNSDesc = new EObjectWithInverseEList.Unsettable< AgNSdesc >( AgNSdesc.class, this,
+            referredByAgNSDesc = new EObjectWithInverseEList.Unsettable< >( AgNSdesc.class, this,
                     NsdPackage.DOC__REFERRED_BY_AG_NS_DESC, NsdPackage.AG_NSDESC__REFERS_TO_DOC );
         }
         return referredByAgNSDesc;
@@ -417,7 +429,7 @@ public class DocImpl extends NsdObjectImpl implements Doc {
     @Override
     public EList< PresenceCondition > getReferredByPresenceConditionAsDesc() {
         if( referredByPresenceConditionAsDesc == null ) {
-            referredByPresenceConditionAsDesc = new EObjectWithInverseEList.Unsettable< PresenceCondition >(
+            referredByPresenceConditionAsDesc = new EObjectWithInverseEList.Unsettable< >(
                     PresenceCondition.class, this, NsdPackage.DOC__REFERRED_BY_PRESENCE_CONDITION_AS_DESC,
                     NsdPackage.PRESENCE_CONDITION__REFERS_TO_DESC_DOC );
         }
@@ -454,7 +466,7 @@ public class DocImpl extends NsdObjectImpl implements Doc {
     @Override
     public EList< AgPresenceCondition > getReferredByAgPresenceCondition() {
         if( referredByAgPresenceCondition == null ) {
-            referredByAgPresenceCondition = new EObjectWithInverseEList.Unsettable< AgPresenceCondition >(
+            referredByAgPresenceCondition = new EObjectWithInverseEList.Unsettable< >(
                     AgPresenceCondition.class, this, NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION,
                     NsdPackage.AG_PRESENCE_CONDITION__REFERS_TO_PRES_COND_ARGS_DOC );
         }
@@ -491,7 +503,7 @@ public class DocImpl extends NsdObjectImpl implements Doc {
     @Override
     public EList< Abbreviation > getReferredByAbbreviation() {
         if( referredByAbbreviation == null ) {
-            referredByAbbreviation = new EObjectWithInverseEList.Unsettable< Abbreviation >( Abbreviation.class, this,
+            referredByAbbreviation = new EObjectWithInverseEList.Unsettable< >( Abbreviation.class, this,
                     NsdPackage.DOC__REFERRED_BY_ABBREVIATION, NsdPackage.ABBREVIATION__REFERS_TO_DOC );
         }
         return referredByAbbreviation;
@@ -525,7 +537,7 @@ public class DocImpl extends NsdObjectImpl implements Doc {
     @Override
     public EList< BasicType > getReferredByBasicType() {
         if( referredByBasicType == null ) {
-            referredByBasicType = new EObjectWithInverseEList.Unsettable< BasicType >( BasicType.class, this,
+            referredByBasicType = new EObjectWithInverseEList.Unsettable< >( BasicType.class, this,
                     NsdPackage.DOC__REFERRED_BY_BASIC_TYPE, NsdPackage.BASIC_TYPE__REFERS_TO_DOC );
         }
         return referredByBasicType;
@@ -559,7 +571,7 @@ public class DocImpl extends NsdObjectImpl implements Doc {
     @Override
     public EList< DocumentedClass > getReferredByDocumentedClass() {
         if( referredByDocumentedClass == null ) {
-            referredByDocumentedClass = new EObjectWithInverseEList.Unsettable< DocumentedClass >(
+            referredByDocumentedClass = new EObjectWithInverseEList.Unsettable< >(
                     DocumentedClass.class, this, NsdPackage.DOC__REFERRED_BY_DOCUMENTED_CLASS,
                     NsdPackage.DOCUMENTED_CLASS__REFERS_TO_DESC_DOC );
         }
@@ -595,7 +607,7 @@ public class DocImpl extends NsdObjectImpl implements Doc {
     @Override
     public EList< FunctionalConstraint > getReferredByFunctionalConstraintAsDesc() {
         if( referredByFunctionalConstraintAsDesc == null ) {
-            referredByFunctionalConstraintAsDesc = new EObjectWithInverseEList.Unsettable< FunctionalConstraint >(
+            referredByFunctionalConstraintAsDesc = new EObjectWithInverseEList.Unsettable< >(
                     FunctionalConstraint.class, this, NsdPackage.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT_AS_DESC,
                     NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DESC_DOC );
         }
@@ -632,7 +644,7 @@ public class DocImpl extends NsdObjectImpl implements Doc {
     @Override
     public EList< AgPresenceConditionDerivedStatistics > getReferredByAgPresenceConditionDerivedStatistics() {
         if( referredByAgPresenceConditionDerivedStatistics == null ) {
-            referredByAgPresenceConditionDerivedStatistics = new EObjectWithInverseEList.Unsettable< AgPresenceConditionDerivedStatistics >(
+            referredByAgPresenceConditionDerivedStatistics = new EObjectWithInverseEList.Unsettable< >(
                     AgPresenceConditionDerivedStatistics.class, this,
                     NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION_DERIVED_STATISTICS,
                     NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS__REFERS_TO_DS_PRES_COND_ARGS_DOC );
@@ -670,7 +682,7 @@ public class DocImpl extends NsdObjectImpl implements Doc {
     @Override
     public EList< TitledClass > getReferredByTitledClass() {
         if( referredByTitledClass == null ) {
-            referredByTitledClass = new EObjectWithInverseEList.Unsettable< TitledClass >( TitledClass.class, this,
+            referredByTitledClass = new EObjectWithInverseEList.Unsettable< >( TitledClass.class, this,
                     NsdPackage.DOC__REFERRED_BY_TITLED_CLASS, NsdPackage.TITLED_CLASS__REFERS_TO_TITLE_DOC );
         }
         return referredByTitledClass;
@@ -704,7 +716,7 @@ public class DocImpl extends NsdObjectImpl implements Doc {
     @Override
     public EList< FunctionalConstraint > getReferredByFunctionalConstraintAsTitle() {
         if( referredByFunctionalConstraintAsTitle == null ) {
-            referredByFunctionalConstraintAsTitle = new EObjectWithInverseEList.Unsettable< FunctionalConstraint >(
+            referredByFunctionalConstraintAsTitle = new EObjectWithInverseEList.Unsettable< >(
                     FunctionalConstraint.class, this, NsdPackage.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT_AS_TITLE,
                     NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_TITLE_DOC );
         }
@@ -741,7 +753,7 @@ public class DocImpl extends NsdObjectImpl implements Doc {
     @Override
     public EList< PresenceCondition > getReferredByPresenceConditionAsTitle() {
         if( referredByPresenceConditionAsTitle == null ) {
-            referredByPresenceConditionAsTitle = new EObjectWithInverseEList.Unsettable< PresenceCondition >(
+            referredByPresenceConditionAsTitle = new EObjectWithInverseEList.Unsettable< >(
                     PresenceCondition.class, this, NsdPackage.DOC__REFERRED_BY_PRESENCE_CONDITION_AS_TITLE,
                     NsdPackage.PRESENCE_CONDITION__REFERS_TO_TITLE_DOC );
         }
@@ -768,6 +780,70 @@ public class DocImpl extends NsdObjectImpl implements Doc {
     public boolean isSetReferredByPresenceConditionAsTitle() {
         return referredByPresenceConditionAsTitle != null
                 && ( ( InternalEList.Unsettable< ? > ) referredByPresenceConditionAsTitle ).isSet();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean idAttributeRequired( final DiagnosticChain diagnostics, final Map< Object, Object > context ) {
+        final String constraintName = "Doc::idAttributeRequired";
+        try {
+            /**
+             *
+             * inv idAttributeRequired:
+             *   let severity : Integer[1] = constraintName.getSeverity()
+             *   in
+             *     if severity <= 0
+             *     then true
+             *     else
+             *       let
+             *         result : OclAny[1] = let status : Boolean[1] = self.id <> null
+             *         in
+             *           if status = true
+             *           then true
+             *           else
+             *             Tuple{message = 'The id attribute is required', status = status
+             *             }
+             *           endif
+             *       in
+             *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
+             *     endif
+             */
+            final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this, context );
+            final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate( executor,
+                    NsdPackage.Literals.DOC___ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
+            final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
+                    .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
+            /*@NonInvalid*/ boolean symbol_2;
+            if( le ) {
+                symbol_2 = true;
+            }
+            else {
+                final /*@NonInvalid*/ String id = this.getId();
+                final /*@NonInvalid*/ boolean status = id != null;
+                /*@NonInvalid*/ Object symbol_1;
+                if( status ) {
+                    symbol_1 = ValueUtil.TRUE_VALUE;
+                }
+                else {
+                    final /*@NonInvalid*/ TupleValue symbol_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                            NsdTables.STR_The_32_id_32_attribute_32_is_32_required, status );
+                    symbol_1 = symbol_0;
+                }
+                final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
+                        .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
+                                context, ( Object ) null, severity_0, symbol_1, NsdTables.INT_0 )
+                        .booleanValue();
+                symbol_2 = logDiagnostic;
+            }
+            return symbol_2;
+        }
+        catch( Throwable e ) {
+            return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
+        }
     }
 
     /**
@@ -1101,6 +1177,22 @@ public class DocImpl extends NsdObjectImpl implements Doc {
             return isSetReferredByPresenceConditionAsTitle();
         }
         return super.eIsSet( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    @SuppressWarnings( "unchecked" )
+    public Object eInvoke( int operationID, EList< ? > arguments ) throws InvocationTargetException {
+        switch( operationID ) {
+        case NsdPackage.DOC___ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP:
+            return idAttributeRequired( ( DiagnosticChain ) arguments.get( 0 ),
+                    ( Map< Object, Object > ) arguments.get( 1 ) );
+        }
+        return super.eInvoke( operationID, arguments );
     }
 
     /**

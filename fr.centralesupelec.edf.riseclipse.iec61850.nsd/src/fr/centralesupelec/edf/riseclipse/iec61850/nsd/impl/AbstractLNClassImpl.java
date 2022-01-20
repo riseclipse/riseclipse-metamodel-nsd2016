@@ -1,6 +1,6 @@
 /*
 *************************************************************************
-**  Copyright (c) 2019 CentraleSupélec & EDF.
+**  Copyright (c) 2016-2021 CentraleSupélec & EDF.
 **  All rights reserved. This program and the accompanying materials
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
@@ -15,28 +15,40 @@
 **      dominique.marcadet@centralesupelec.fr
 **      aurelie.dehouck-neveu@edf.fr
 **  Web site:
-**      http://wdi.supelec.fr/software/RiseClipse/
+**      https://riseclipse.github.io/
 *************************************************************************
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
-
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Map;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.ocl.pivot.evaluation.Executor;
+import org.eclipse.ocl.pivot.ids.TypeId;
+import org.eclipse.ocl.pivot.library.oclany.OclComparableLessThanEqualOperation;
+import org.eclipse.ocl.pivot.library.string.CGStringGetSeverityOperation;
+import org.eclipse.ocl.pivot.library.string.CGStringLogDiagnosticOperation;
+import org.eclipse.ocl.pivot.utilities.PivotUtil;
+import org.eclipse.ocl.pivot.utilities.ValueUtil;
+import org.eclipse.ocl.pivot.values.IntegerValue;
+import org.eclipse.ocl.pivot.values.TupleValue;
+
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
 
 /**
  * <!-- begin-user-doc -->
@@ -220,7 +232,7 @@ public class AbstractLNClassImpl extends AnyLNClassImpl implements AbstractLNCla
     @Override
     public EList< AnyLNClass > getReferredByAnyLNClass() {
         if( referredByAnyLNClass == null ) {
-            referredByAnyLNClass = new EObjectWithInverseResolvingEList.Unsettable< AnyLNClass >( AnyLNClass.class,
+            referredByAnyLNClass = new EObjectWithInverseResolvingEList.Unsettable< >( AnyLNClass.class,
                     this, NsdPackage.ABSTRACT_LN_CLASS__REFERRED_BY_ANY_LN_CLASS,
                     NsdPackage.ANY_LN_CLASS__REFERS_TO_ABSTRACT_LN_CLASS );
         }
@@ -245,6 +257,70 @@ public class AbstractLNClassImpl extends AnyLNClassImpl implements AbstractLNCla
     @Override
     public boolean isSetReferredByAnyLNClass() {
         return referredByAnyLNClass != null && ( ( InternalEList.Unsettable< ? > ) referredByAnyLNClass ).isSet();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean nameAttributeRequired( final DiagnosticChain diagnostics, final Map< Object, Object > context ) {
+        final String constraintName = "AbstractLNClass::nameAttributeRequired";
+        try {
+            /**
+             *
+             * inv nameAttributeRequired:
+             *   let severity : Integer[1] = constraintName.getSeverity()
+             *   in
+             *     if severity <= 0
+             *     then true
+             *     else
+             *       let
+             *         result : OclAny[1] = let status : Boolean[1] = self.name <> null
+             *         in
+             *           if status = true
+             *           then true
+             *           else
+             *             Tuple{message = 'The name attribute is required', status = status
+             *             }
+             *           endif
+             *       in
+             *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
+             *     endif
+             */
+            final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this, context );
+            final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate( executor,
+                    NsdPackage.Literals.ABSTRACT_LN_CLASS___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
+            final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
+                    .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
+            /*@NonInvalid*/ boolean symbol_2;
+            if( le ) {
+                symbol_2 = true;
+            }
+            else {
+                final /*@NonInvalid*/ String name = this.getName();
+                final /*@NonInvalid*/ boolean status = name != null;
+                /*@NonInvalid*/ Object symbol_1;
+                if( status ) {
+                    symbol_1 = ValueUtil.TRUE_VALUE;
+                }
+                else {
+                    final /*@NonInvalid*/ TupleValue symbol_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                            NsdTables.STR_The_32_name_32_attribute_32_is_32_required, status );
+                    symbol_1 = symbol_0;
+                }
+                final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
+                        .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
+                                context, ( Object ) null, severity_0, symbol_1, NsdTables.INT_0 )
+                        .booleanValue();
+                symbol_2 = logDiagnostic;
+            }
+            return symbol_2;
+        }
+        catch( Throwable e ) {
+            return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
+        }
     }
 
     /**
@@ -376,6 +452,22 @@ public class AbstractLNClassImpl extends AnyLNClassImpl implements AbstractLNCla
             return isSetReferredByAnyLNClass();
         }
         return super.eIsSet( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    @SuppressWarnings( "unchecked" )
+    public Object eInvoke( int operationID, EList< ? > arguments ) throws InvocationTargetException {
+        switch( operationID ) {
+        case NsdPackage.ABSTRACT_LN_CLASS___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP:
+            return nameAttributeRequired( ( DiagnosticChain ) arguments.get( 0 ),
+                    ( Map< Object, Object > ) arguments.get( 1 ) );
+        }
+        return super.eInvoke( operationID, arguments );
     }
 
     /**

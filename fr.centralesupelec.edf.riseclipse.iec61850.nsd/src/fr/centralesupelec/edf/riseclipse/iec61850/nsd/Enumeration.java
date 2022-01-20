@@ -1,6 +1,6 @@
 /*
 *************************************************************************
-**  Copyright (c) 2019 CentraleSupélec & EDF.
+**  Copyright (c) 2016-2021 CentraleSupélec & EDF.
 **  All rights reserved. This program and the accompanying materials
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
@@ -15,11 +15,14 @@
 **      dominique.marcadet@centralesupelec.fr
 **      aurelie.dehouck-neveu@edf.fr
 **  Web site:
-**      http://wdi.supelec.fr/software/RiseClipse/
+**      https://riseclipse.github.io/
 *************************************************************************
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
+import java.util.Map;
+
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -43,8 +46,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getEnumeration()
  * @model extendedMetaData="name='tEnumeration' kind='elementOnly'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='uniqueLiteralName uniqueLiteralVal nameAttributeRequired'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot uniqueLiteralName='Tuple {\n\tmessage : String = \'For an Enumeration, there shall not be two Literal sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: inherited literals should be taken into account\n\t\t\t-- For this, explicit links have to be created first\n\t\t\tself.literal-&gt;isUnique( l : Literal | l.name )\n}.status' uniqueLiteralVal='Tuple {\n\tmessage : String = \'For an Enumeration, there shall not be two Literal sub-elements with same literalVal.\',\n\tstatus : Boolean = \n\t\t\tself.literal-&gt;isUnique( l : Literal | l.literalVal )\n}.status' nameAttributeRequired='Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name &lt;&gt; null\n}.status'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='nameAttributeRequired'"
  * @generated
  */
 public interface Enumeration extends TitledClass {
@@ -383,5 +385,29 @@ public interface Enumeration extends TitledClass {
      * @generated
      */
     boolean isSetReferredByUnderlyingType();
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='Tuple {\n\tmessage : String = \'For an Enumeration, there shall not be two Literal sub-elements with same name.\',\n\tstatus : Boolean = \n\t\t\t-- TODO: inherited literals should be taken into account\n\t\t\t-- For this, explicit links have to be created first\n\t\t\tself.literal-&gt;isUnique( l : Literal | l.name )\n}.status'"
+     * @generated
+     */
+    boolean uniqueLiteralName( DiagnosticChain diagnostics, Map< Object, Object > context );
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='Tuple {\n\tmessage : String = \'For an Enumeration, there shall not be two Literal sub-elements with same literalVal.\',\n\tstatus : Boolean = \n\t\t\tself.literal-&gt;isUnique( l : Literal | l.literalVal )\n}.status'"
+     * @generated
+     */
+    boolean uniqueLiteralVal( DiagnosticChain diagnostics, Map< Object, Object > context );
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name &lt;&gt; null\n}.status'"
+     * @generated
+     */
+    boolean nameAttributeRequired( DiagnosticChain diagnostics, Map< Object, Object > context );
 
 } // Enumeration

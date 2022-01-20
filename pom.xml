@@ -29,19 +29,19 @@
  
   <groupId>fr.centralesupelec.edf.riseclipse</groupId>
   <artifactId>riseclipse-metamodel-nsd2016</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   
   <parent>
     <groupId>fr.centralesupelec.edf.riseclipse</groupId>
     <artifactId>fr.centralesupelec.edf.riseclipse.developer.maven</artifactId>
-    <version>1.0.8-SNAPSHOT</version>
+    <version>1.1.0-SNAPSHOT</version>
     <relativePath>../riseclipse-developer/fr.centralesupelec.edf.riseclipse.developer.maven/pom.xml</relativePath>
   </parent>
 
   <scm>
-    <connection>scm:git:git@gitlab-research.centralesupelec.fr:RiseClipseGroup/riseclipse-metamodel-nsd2016.git</connection>
-    <developerConnection>scm:git:git@gitlab-research.centralesupelec.fr:RiseClipseGroup/riseclipse-metamodel-nsd2016.git</developerConnection>
+    <connection>scm:git:git@github.com:riseclipse/riseclipse-metamodel-nsd2016.git</connection>
+    <developerConnection>scm:git:git@github.com:riseclipse/riseclipse-metamodel-nsd2016.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
  

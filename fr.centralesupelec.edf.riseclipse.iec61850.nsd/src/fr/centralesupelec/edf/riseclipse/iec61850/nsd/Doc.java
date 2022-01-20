@@ -1,6 +1,6 @@
 /*
 *************************************************************************
-**  Copyright (c) 2019 CentraleSupélec & EDF.
+**  Copyright (c) 2016-2021 CentraleSupélec & EDF.
 **  All rights reserved. This program and the accompanying materials
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
@@ -15,11 +15,14 @@
 **      dominique.marcadet@centralesupelec.fr
 **      aurelie.dehouck-neveu@edf.fr
 **  Web site:
-**      http://wdi.supelec.fr/software/RiseClipse/
+**      https://riseclipse.github.io/
 *************************************************************************
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
+import java.util.Map;
+
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.util.FeatureMap;
 
@@ -53,7 +56,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDoc()
  * @model extendedMetaData="name='tDoc' kind='mixed'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='idAttributeRequired'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot idAttributeRequired='Tuple {\n\tmessage : String = \'The id attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.id &lt;&gt; null\n}.status'"
  * @generated
  */
 public interface Doc extends NsdObject {
@@ -588,5 +590,13 @@ public interface Doc extends NsdObject {
      * @generated
      */
     boolean isSetReferredByPresenceConditionAsTitle();
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='Tuple {\n\tmessage : String = \'The id attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.id &lt;&gt; null\n}.status'"
+     * @generated
+     */
+    boolean idAttributeRequired( DiagnosticChain diagnostics, Map< Object, Object > context );
 
 } // Doc

@@ -1,6 +1,6 @@
 /*
 *************************************************************************
-**  Copyright (c) 2019 CentraleSupélec & EDF.
+**  Copyright (c) 2016-2021 CentraleSupélec & EDF.
 **  All rights reserved. This program and the accompanying materials
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
@@ -15,33 +15,48 @@
 **      dominique.marcadet@centralesupelec.fr
 **      aurelie.dehouck-neveu@edf.fr
 **  Web site:
-**      http://wdi.supelec.fr/software/RiseClipse/
+**      https://riseclipse.github.io/
 *************************************************************************
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
+
+import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.ocl.pivot.evaluation.Executor;
+import org.eclipse.ocl.pivot.ids.IdResolver;
+import org.eclipse.ocl.pivot.ids.TypeId;
+import org.eclipse.ocl.pivot.library.oclany.OclComparableLessThanEqualOperation;
+import org.eclipse.ocl.pivot.library.string.CGStringGetSeverityOperation;
+import org.eclipse.ocl.pivot.library.string.CGStringLogDiagnosticOperation;
+import org.eclipse.ocl.pivot.utilities.PivotUtil;
+import org.eclipse.ocl.pivot.utilities.ValueUtil;
+import org.eclipse.ocl.pivot.values.IntegerValue;
+import org.eclipse.ocl.pivot.values.SetValue;
+import org.eclipse.ocl.pivot.values.SetValue.Accumulator;
+import org.eclipse.ocl.pivot.values.TupleValue;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 import fr.centralesupelec.edf.riseclipse.util.RiseClipseFatalException;
-
-import java.lang.reflect.InvocationTargetException;
-import java.util.Collection;
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -144,7 +159,7 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
     @Override
     public EList< DataObject > getDataObject() {
         if( dataObject == null ) {
-            dataObject = new EObjectContainmentWithInverseEList.Unsettable< DataObject >( DataObject.class, this,
+            dataObject = new EObjectContainmentWithInverseEList.Unsettable< >( DataObject.class, this,
                     NsdPackage.ANY_LN_CLASS__DATA_OBJECT, NsdPackage.DATA_OBJECT__PARENT_ANY_LN_CLASS );
         }
         return dataObject;
@@ -365,6 +380,104 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
+    public boolean uniqueDataObject( final DiagnosticChain diagnostics, final Map< Object, Object > context ) {
+        final String constraintName = "AnyLNClass::uniqueDataObject";
+        try {
+            /**
+             *
+             * inv uniqueDataObject:
+             *   let severity : Integer[1] = constraintName.getSeverity()
+             *   in
+             *     if severity <= 0
+             *     then true
+             *     else
+             *       let
+             *         result : OclAny[1] = let
+             *           status : Boolean[1] = self.dataObject->isUnique(d | d.name)
+             *         in
+             *           if status = true
+             *           then true
+             *           else
+             *             Tuple{message = 'For an AnyLNClass, there shall not be two DataObject sub-elements with same name.', status = status
+             *             }
+             *           endif
+             *       in
+             *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
+             *     endif
+             */
+            final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this, context );
+            final /*@NonInvalid*/ IdResolver idResolver = executor.getIdResolver();
+            final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate( executor,
+                    NsdPackage.Literals.ANY_LN_CLASS___UNIQUE_DATA_OBJECT__DIAGNOSTICCHAIN_MAP );
+            final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
+                    .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
+            /*@NonInvalid*/ boolean symbol_2;
+            if( le ) {
+                symbol_2 = true;
+            }
+            else {
+                /*@Caught*/ Object CAUGHT_symbol_1;
+                try {
+                    final /*@NonInvalid*/ List< DataObject > dataObject = this.getDataObject();
+                    final /*@NonInvalid*/ SetValue BOXED_dataObject = idResolver
+                            .createSetOfAll( NsdTables.SET_CLSSid_DataObject, dataObject );
+                    /*@Thrown*/ Accumulator accumulator = ValueUtil
+                            .createSetAccumulatorValue( NsdTables.SET_CLSSid_DataObject );
+                    Iterator< Object > ITERATOR_d = BOXED_dataObject.iterator();
+                    /*@Thrown*/ boolean status;
+                    while( true ) {
+                        if( !ITERATOR_d.hasNext() ) {
+                            status = true;
+                            break;
+                        }
+                        /*@NonInvalid*/ DataObject d = ( DataObject ) ITERATOR_d.next();
+                        /**
+                         * d.name
+                         */
+                        final /*@NonInvalid*/ String name = d.getName();
+                        //
+                        if( accumulator.includes( name ) == ValueUtil.TRUE_VALUE ) {
+                            status = false;
+                            break; // Abort after second find
+                        }
+                        else {
+                            accumulator.add( name );
+                        }
+                    }
+                    /*@Thrown*/ Object symbol_1;
+                    if( status ) {
+                        symbol_1 = ValueUtil.TRUE_VALUE;
+                    }
+                    else {
+                        final /*@Thrown*/ TupleValue symbol_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                                NsdTables.STR_For_32_an_32_AnyLNClass_44_32_there_32_shall_32_not_32_be_32_two_32_DataObject_32_sub_m_element,
+                                status );
+                        symbol_1 = symbol_0;
+                    }
+                    CAUGHT_symbol_1 = symbol_1;
+                }
+                catch( Exception e ) {
+                    CAUGHT_symbol_1 = ValueUtil.createInvalidValue( e );
+                }
+                final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
+                        .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
+                                context, ( Object ) null, severity_0, CAUGHT_symbol_1, NsdTables.INT_0 )
+                        .booleanValue();
+                symbol_2 = logDiagnostic;
+            }
+            return symbol_2;
+        }
+        catch( Throwable e ) {
+            return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @SuppressWarnings( "unchecked" )
     @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
@@ -483,12 +596,16 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
      * @generated
      */
     @Override
+    @SuppressWarnings( "unchecked" )
     public Object eInvoke( int operationID, EList< ? > arguments ) throws InvocationTargetException {
         switch( operationID ) {
         case NsdPackage.ANY_LN_CLASS___GET_NAME:
             return getName();
         case NsdPackage.ANY_LN_CLASS___GET_PARENT_LN_CLASSES:
             return getParentLNClasses();
+        case NsdPackage.ANY_LN_CLASS___UNIQUE_DATA_OBJECT__DIAGNOSTICCHAIN_MAP:
+            return uniqueDataObject( ( DiagnosticChain ) arguments.get( 0 ),
+                    ( Map< Object, Object > ) arguments.get( 1 ) );
         }
         return super.eInvoke( operationID, arguments );
     }
@@ -513,12 +630,12 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
     }
 
     /* Implicit link
-     *   AnyLNClass.base                    -> AbstractLNClass  
+     *   AnyLNClass.base                    -> AbstractLNClass
      */
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
-        
+
         String id = getNsIdentification().getId();
 
         if( isSetBase() ) {

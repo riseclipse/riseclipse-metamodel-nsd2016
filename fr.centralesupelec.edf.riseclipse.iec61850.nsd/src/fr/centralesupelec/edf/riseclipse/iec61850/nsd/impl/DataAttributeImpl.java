@@ -1,6 +1,6 @@
 /*
 *************************************************************************
-**  Copyright (c) 2019 CentraleSupélec & EDF.
+**  Copyright (c) 2016-2021 CentraleSupélec & EDF.
 **  All rights reserved. This program and the accompanying materials
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
@@ -15,10 +15,36 @@
 **      dominique.marcadet@centralesupelec.fr
 **      aurelie.dehouck-neveu@edf.fr
 **  Web site:
-**      http://wdi.supelec.fr/software/RiseClipse/
+**      https://riseclipse.github.io/
 *************************************************************************
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
+
+import java.lang.reflect.InvocationTargetException;
+import java.math.BigDecimal;
+import java.util.Collection;
+import java.util.Map;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.Enumerator;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.ocl.pivot.evaluation.Executor;
+import org.eclipse.ocl.pivot.ids.TypeId;
+import org.eclipse.ocl.pivot.library.oclany.OclComparableLessThanEqualOperation;
+import org.eclipse.ocl.pivot.library.string.CGStringGetSeverityOperation;
+import org.eclipse.ocl.pivot.library.string.CGStringLogDiagnosticOperation;
+import org.eclipse.ocl.pivot.utilities.PivotUtil;
+import org.eclipse.ocl.pivot.utilities.ValueUtil;
+import org.eclipse.ocl.pivot.values.IntegerValue;
+import org.eclipse.ocl.pivot.values.TupleValue;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgArray;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType;
@@ -35,29 +61,12 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
-
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetImpl;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
-
-import java.math.BigDecimal;
-
-import java.util.Collection;
-import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.Enumerator;
-
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectWithInverseEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -1861,7 +1870,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     @Override
     public EList< SubDataObject > getReferredBySubDataObjectAsSizeAttribute() {
         if( referredBySubDataObjectAsSizeAttribute == null ) {
-            referredBySubDataObjectAsSizeAttribute = new EObjectWithInverseEList.Unsettable< SubDataObject >(
+            referredBySubDataObjectAsSizeAttribute = new EObjectWithInverseEList.Unsettable< >(
                     SubDataObject.class, this, NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_SIZE_ATTRIBUTE,
                     NsdPackage.SUB_DATA_OBJECT__REFERS_TO_SIZE_ATTRIBUTE );
         }
@@ -1898,7 +1907,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     @Override
     public EList< SubDataObject > getReferredBySubDataObjectAsMaxIndexAttribute() {
         if( referredBySubDataObjectAsMaxIndexAttribute == null ) {
-            referredBySubDataObjectAsMaxIndexAttribute = new EObjectWithInverseEList.Unsettable< SubDataObject >(
+            referredBySubDataObjectAsMaxIndexAttribute = new EObjectWithInverseEList.Unsettable< >(
                     SubDataObject.class, this,
                     NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_SUB_DATA_OBJECT_AS_MAX_INDEX_ATTRIBUTE,
                     NsdPackage.SUB_DATA_OBJECT__REFERS_TO_MAX_INDEX_ATTRIBUTE );
@@ -2412,7 +2421,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     @Override
     public EList< DataAttribute > getReferredByDataAttributeAsSizeAttribute() {
         if( referredByDataAttributeAsSizeAttribute == null ) {
-            referredByDataAttributeAsSizeAttribute = new EObjectWithInverseEList.Unsettable< DataAttribute >(
+            referredByDataAttributeAsSizeAttribute = new EObjectWithInverseEList.Unsettable< >(
                     DataAttribute.class, this, NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_SIZE_ATTRIBUTE,
                     NsdPackage.DATA_ATTRIBUTE__REFERS_TO_SIZE_ATTRIBUTE );
         }
@@ -2449,7 +2458,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     @Override
     public EList< DataAttribute > getReferredByDataAttributeAsMaxIndexAttribute() {
         if( referredByDataAttributeAsMaxIndexAttribute == null ) {
-            referredByDataAttributeAsMaxIndexAttribute = new EObjectWithInverseEList.Unsettable< DataAttribute >(
+            referredByDataAttributeAsMaxIndexAttribute = new EObjectWithInverseEList.Unsettable< >(
                     DataAttribute.class, this,
                     NsdPackage.DATA_ATTRIBUTE__REFERRED_BY_DATA_ATTRIBUTE_AS_MAX_INDEX_ATTRIBUTE,
                     NsdPackage.DATA_ATTRIBUTE__REFERS_TO_MAX_INDEX_ATTRIBUTE );
@@ -2477,6 +2486,134 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     public boolean isSetReferredByDataAttributeAsMaxIndexAttribute() {
         return referredByDataAttributeAsMaxIndexAttribute != null
                 && ( ( InternalEList.Unsettable< ? > ) referredByDataAttributeAsMaxIndexAttribute ).isSet();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean nameAttributeRequired( final DiagnosticChain diagnostics, final Map< Object, Object > context ) {
+        final String constraintName = "DataAttribute::nameAttributeRequired";
+        try {
+            /**
+             *
+             * inv nameAttributeRequired:
+             *   let severity : Integer[1] = constraintName.getSeverity()
+             *   in
+             *     if severity <= 0
+             *     then true
+             *     else
+             *       let
+             *         result : OclAny[1] = let status : Boolean[1] = self.name <> null
+             *         in
+             *           if status = true
+             *           then true
+             *           else
+             *             Tuple{message = 'The name attribute is required', status = status
+             *             }
+             *           endif
+             *       in
+             *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
+             *     endif
+             */
+            final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this, context );
+            final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate( executor,
+                    NsdPackage.Literals.DATA_ATTRIBUTE___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
+            final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
+                    .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
+            /*@NonInvalid*/ boolean symbol_2;
+            if( le ) {
+                symbol_2 = true;
+            }
+            else {
+                final /*@NonInvalid*/ String name = this.getName();
+                final /*@NonInvalid*/ boolean status = name != null;
+                /*@NonInvalid*/ Object symbol_1;
+                if( status ) {
+                    symbol_1 = ValueUtil.TRUE_VALUE;
+                }
+                else {
+                    final /*@NonInvalid*/ TupleValue symbol_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                            NsdTables.STR_The_32_name_32_attribute_32_is_32_required, status );
+                    symbol_1 = symbol_0;
+                }
+                final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
+                        .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
+                                context, ( Object ) null, severity_0, symbol_1, NsdTables.INT_0 )
+                        .booleanValue();
+                symbol_2 = logDiagnostic;
+            }
+            return symbol_2;
+        }
+        catch( Throwable e ) {
+            return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean fcAttributeRequired( final DiagnosticChain diagnostics, final Map< Object, Object > context ) {
+        final String constraintName = "DataAttribute::fcAttributeRequired";
+        try {
+            /**
+             *
+             * inv fcAttributeRequired:
+             *   let severity : Integer[1] = constraintName.getSeverity()
+             *   in
+             *     if severity <= 0
+             *     then true
+             *     else
+             *       let
+             *         result : OclAny[1] = let status : Boolean[1] = self.fc <> null
+             *         in
+             *           if status = true
+             *           then true
+             *           else
+             *             Tuple{message = 'The fc attribute is required', status = status
+             *             }
+             *           endif
+             *       in
+             *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
+             *     endif
+             */
+            final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this, context );
+            final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate( executor,
+                    NsdPackage.Literals.DATA_ATTRIBUTE___FC_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
+            final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
+                    .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
+            /*@NonInvalid*/ boolean symbol_2;
+            if( le ) {
+                symbol_2 = true;
+            }
+            else {
+                final /*@NonInvalid*/ String fc = this.getFc();
+                final /*@NonInvalid*/ boolean status = fc != null;
+                /*@NonInvalid*/ Object symbol_1;
+                if( status ) {
+                    symbol_1 = ValueUtil.TRUE_VALUE;
+                }
+                else {
+                    final /*@NonInvalid*/ TupleValue symbol_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                            NsdTables.STR_The_32_fc_32_attribute_32_is_32_required, status );
+                    symbol_1 = symbol_0;
+                }
+                final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
+                        .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
+                                context, ( Object ) null, severity_0, symbol_1, NsdTables.INT_0 )
+                        .booleanValue();
+                symbol_2 = logDiagnostic;
+            }
+            return symbol_2;
+        }
+        catch( Throwable e ) {
+            return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
+        }
     }
 
     /**
@@ -3471,6 +3608,25 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
      * @generated
      */
     @Override
+    @SuppressWarnings( "unchecked" )
+    public Object eInvoke( int operationID, EList< ? > arguments ) throws InvocationTargetException {
+        switch( operationID ) {
+        case NsdPackage.DATA_ATTRIBUTE___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP:
+            return nameAttributeRequired( ( DiagnosticChain ) arguments.get( 0 ),
+                    ( Map< Object, Object > ) arguments.get( 1 ) );
+        case NsdPackage.DATA_ATTRIBUTE___FC_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP:
+            return fcAttributeRequired( ( DiagnosticChain ) arguments.get( 0 ),
+                    ( Map< Object, Object > ) arguments.get( 1 ) );
+        }
+        return super.eInvoke( operationID, arguments );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public String toString() {
         if( eIsProxy() ) return super.toString();
 
@@ -3754,7 +3910,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
 
     @Override
     public NsIdentification getNsIdentification() {
-        return (( CDCImpl ) getParentCDC() ).getNsIdentification();
+        return ( ( CDCImpl ) getParentCDC() ).getNsIdentification();
     }
 
 } //DataAttributeImpl
