@@ -69,6 +69,8 @@ import fr.centralesupelec.edf.riseclipse.util.AbstractRiseClipseResourceSet;
 
 public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
     
+    private static final String NSD_SETUP_CATEGORY = "NSD/Setup";
+
     private Map< NsIdentification, NS > nsdResources = new HashMap<>();
     private Map< NsIdentification, ServiceNS > serviceNSResources = new HashMap<>();
     private Map< NsIdentification, NSDoc > nsdocResources = new HashMap<>();
@@ -108,7 +110,8 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
             return;
         }
         if( ! ( resource.getContents().get( 0 ) instanceof DocumentRoot )) {
-            AbstractRiseClipseConsole.getConsole().error( "The file " + resource.getURI() + " is not an NSD file" );
+            AbstractRiseClipseConsole.getConsole().error( NSD_SETUP_CATEGORY, 0,
+                "The file ", resource.getURI(), " is not an NSD file" );
             this.getResources().remove( resource );
             return;
         }
@@ -117,7 +120,8 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         if( root.getNS() != null ) {
             NsIdentification id = new NsIdentification( root.getNS() );
             if( nsdResources.get( id ) != null ) {
-                AbstractRiseClipseConsole.getConsole().error( "There is already an NSD file with NsIdentification " + id + ", " + resource.getURI() + " is ignored" );
+                AbstractRiseClipseConsole.getConsole().error( NSD_SETUP_CATEGORY, 0,
+                    "There is already an NSD file with NsIdentification ", id, ", ", resource.getURI(), " is ignored" );
                 this.getResources().remove( resource );
                 return;
             }
@@ -128,7 +132,8 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         if( root.getServiceNS() != null ) {
             NsIdentification id = new NsIdentification( root.getServiceNS() );
             if( serviceNSResources.get( id ) != null ) {
-                AbstractRiseClipseConsole.getConsole().error( "There is already an NSD file with NsIdentification " + id + ", " + resource.getURI() + " is ignored" );
+                AbstractRiseClipseConsole.getConsole().error( NSD_SETUP_CATEGORY, 0,
+                    "There is already an NSD file with NsIdentification ", id, ", ", resource.getURI(), " is ignored" );
                 this.getResources().remove( resource );
                 return;
             }
@@ -138,7 +143,8 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         
         if( root.getApplicableServiceNS() != null ) {
             if( appNS != null ) {
-                AbstractRiseClipseConsole.getConsole().error( "There is already an ApplicableServiceNS file, " + resource.getURI() + " is ignored" );
+                AbstractRiseClipseConsole.getConsole().error( NSD_SETUP_CATEGORY, 0,
+                    "There is already an ApplicableServiceNS file, ", resource.getURI(), " is ignored" );
                 this.getResources().remove( resource );
                 return;
             }
@@ -150,7 +156,8 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
             NSDoc nsdoc = ( NSDoc ) root.getNSDoc();
             NsIdentification id = new NsIdentification( nsdoc );
             if( nsdocResources.get( id ) != null ) {
-                AbstractRiseClipseConsole.getConsole().error( "There is already an NSDoc file with NsIdentification " + id + ", " + resource.getURI() + " is ignored" );
+                AbstractRiseClipseConsole.getConsole().error( NSD_SETUP_CATEGORY, 0,
+                    "There is already an NSDoc file with NsIdentification ", id, ", ", resource.getURI(), " is ignored" );
                 this.getResources().remove( resource );
                 return;
             }
@@ -158,7 +165,8 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
             return;
         }
         
-        AbstractRiseClipseConsole.getConsole().error( "The file " + resource.getURI() + " is not an NSD file" );
+        AbstractRiseClipseConsole.getConsole().error( NSD_SETUP_CATEGORY, 0,
+            "The file ", resource.getURI(), " is not an NSD file" );
         this.getResources().remove( resource );
         return;
     }
@@ -189,12 +197,14 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                             applyServiceNs( serviceNSResources.get( serviceNsId ), nsdResources.get( nsId ), nsId, console );
                         }
                         else {
-                            console.warning( "While applying ServiceNsUsage: NS with id " + nsId + " not found" );
+                            console.warning( NSD_SETUP_CATEGORY, 0, 
+                                             "While applying ServiceNsUsage: NS with id ", nsId, " not found" );
                         }
                     }
                 }
                 else {
-                    console.warning( "While applying ServiceNsUsage: ServiceNS with id " + serviceNsId + " not found" );
+                    console.warning( NSD_SETUP_CATEGORY, 0,
+                                     "While applying ServiceNsUsage: ServiceNS with id ", serviceNsId, " not found" );
                 }
             }
         }
@@ -212,13 +222,15 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                         .collect( Collectors.toList() );
                for( AgAttributeType att : atts ) {
                     att.unsetRefersToBasicType();
-                    console.info( "While applying ServiceNsUsage: Service NS: using TypeRealization " + basic.getName() + " to attribute " + att.getType() );
+                    console.info( NSD_SETUP_CATEGORY, 0,
+                                  "While applying ServiceNsUsage: Service NS: using TypeRealization ", basic.getName(), " to attribute ", att.getType() );
                     att.setRefersToConstructedAttribute( typeRealization );
                 }
                 continue;
             }
             else {
-                console.warning( "While applying ServiceNsUsage: BasicType " + typeRealization.getName() + " not found" );
+                console.warning( NSD_SETUP_CATEGORY, 0,
+                                 "While applying ServiceNsUsage: BasicType ", typeRealization.getName(), " not found" );
             }
         }
         
@@ -234,12 +246,14 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                 .stream()
                 .forEach( att -> {
                     DataAttribute da = att.toDataAttribute();
-                    console.info( "While applying ServiceNsUsage: Service NS: Adding DataAttribute " + da.getName() + " to CDC " + cdc.getName() );
+                    console.info( NSD_SETUP_CATEGORY, 0,
+                                  "While applying ServiceNsUsage: Service NS: Adding DataAttribute ", da.getName(), " to CDC ", cdc.getName() );
                     da.setParentCDC( cdc );
                 });
             }
             else {
-                console.warning( "While applying ServiceNsUsage: CDC " + serviceCDC.getCdc() + " not found" );
+                console.warning( NSD_SETUP_CATEGORY, 0,
+                                 "While applying ServiceNsUsage: CDC ", serviceCDC.getCdc(), " not found" );
             }
         }
         
@@ -291,7 +305,8 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
     }
     
     public void setEquivalentNamespace( NsIdentification source, NsIdentification destination, IRiseClipseConsole console ) {
-        console.info( source + " is equivalent to " + destination );
+        console.info( NSD_SETUP_CATEGORY, 0,
+                      source, " is equivalent to ", destination );
         if( ! equivalentNamespaces.containsKey( source )) {
             equivalentNamespaces.put( source, new ArrayList<>() );
         }

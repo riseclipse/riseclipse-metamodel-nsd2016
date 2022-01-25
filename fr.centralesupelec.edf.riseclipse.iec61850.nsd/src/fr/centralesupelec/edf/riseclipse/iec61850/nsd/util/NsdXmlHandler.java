@@ -1,6 +1,6 @@
 /*
 *************************************************************************
-**  Copyright (c) 2016-2021 CentraleSupélec & EDF.
+**  Copyright (c) 2016-2022 CentraleSupélec & EDF.
 **  All rights reserved. This program and the accompanying materials
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
@@ -33,6 +33,8 @@ import fr.centralesupelec.edf.riseclipse.util.AbstractRiseClipseConsole;
 
 public class NsdXmlHandler extends SAXXMLHandler {
 
+    private static final String XML_HANDLER_CATEGORY = "NSD/XMLHandler";
+
     private Stack< Integer > lineNumbers;
 
     public NsdXmlHandler( XMLResource xmiResource, XMLHelper helper, Map< ?, ? > options ) {
@@ -49,13 +51,16 @@ public class NsdXmlHandler extends SAXXMLHandler {
     @Override
     protected void reportUnknownFeature( String prefix, String name, boolean isElement, EObject peekObject,
             String value ) {
-        AbstractRiseClipseConsole.getConsole().warning( "The " + ( isElement ? "element " : "attribute " ) + name + "(line: " + getLineNumber() + ") is unknown and ignored" );
+        AbstractRiseClipseConsole.getConsole().warning(
+            XML_HANDLER_CATEGORY, getLineNumber(),
+            "The ", ( isElement ? "element " : "attribute " ), name, " is unknown and ignored" );
     }
 
     @Override
     protected void processObject( EObject object ) {
         if( lineNumbers.empty() ) {
-            AbstractRiseClipseConsole.getConsole().warning( "NsdXmlHandler: linenumber stack empty !" );
+            AbstractRiseClipseConsole.getConsole().warning(
+                XML_HANDLER_CATEGORY, 0, "linenumber stack empty !" );
         }
         else {
             int lineNumber = lineNumbers.peek();
@@ -70,7 +75,8 @@ public class NsdXmlHandler extends SAXXMLHandler {
     @Override
     public void endElement( String uri, String localName, String name ) {
         if( lineNumbers.empty() ) {
-            AbstractRiseClipseConsole.getConsole().warning( "NsdXmlHandler: linenumber stack empty !" );
+            AbstractRiseClipseConsole.getConsole().warning(
+                XML_HANDLER_CATEGORY, 0, "linenumber stack empty !" );
         }
         else {
             lineNumbers.pop();
@@ -84,9 +90,11 @@ public class NsdXmlHandler extends SAXXMLHandler {
         super.endDocument();
         
         if( ! lineNumbers.empty() ) {
-            AbstractRiseClipseConsole.getConsole().warning( "NsdXmlHandler: linenumber stack not empty !" );
+            AbstractRiseClipseConsole.getConsole().warning(
+                XML_HANDLER_CATEGORY, 0, "linenumber stack not empty !" );
             while( ! lineNumbers.empty() ) {
-                AbstractRiseClipseConsole.getConsole().warning( lineNumbers.pop() );
+                AbstractRiseClipseConsole.getConsole().warning(
+                    XML_HANDLER_CATEGORY, lineNumbers.pop(), "" );
             }
         }
     }

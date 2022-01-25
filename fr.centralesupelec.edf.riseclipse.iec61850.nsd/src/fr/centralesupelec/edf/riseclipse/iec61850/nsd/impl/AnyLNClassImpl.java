@@ -35,6 +35,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.ocl.pivot.evaluation.Executor;
 import org.eclipse.ocl.pivot.ids.IdResolver;
 import org.eclipse.ocl.pivot.ids.TypeId;
@@ -633,15 +634,12 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
      *   AnyLNClass.base                    -> AbstractLNClass
      */
     @Override
-    public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
+    public boolean buildExplicitLinks( @NonNull IRiseClipseConsole console, boolean forceUpdate ) {
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
         String id = getNsIdentification().getId();
 
         if( isSetBase() ) {
-
-            String messagePrefix = "[NSD links] while resolving link from AnyLNClass (name: " + getName()
-                    + ", NS id: " + id + ", line: " + getLineNumber() + "): ";
 
             // This code assumes that the referred AbstractLNClass is in the same NS
             // TODO: check that it is right
@@ -653,13 +651,15 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
                     .ifPresent( abstractLNClass -> setRefersToAbstractLNClass( abstractLNClass ) );
 
             if( isSetRefersToAbstractLNClass() ) {
-                console.info(
-                        "[NSD links] AbstractLNClass (name: " + getBase() + ") refers by AnyLNClass (name: " + getName()
-                                + ") in NS (id:" + id + ") found in NS (id:"
-                                + getRefersToAbstractLNClass().getParentLNClasses().getParentNS().getId() + ")" );
+                console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                              "AbstractLNClass (name: ", getBase(), ") refers by AnyLNClass (name: ", getName(),
+                              ") in NS (id:", id, ") found in NS (id:",
+                              getRefersToAbstractLNClass().getParentLNClasses().getParentNS().getId(), ")" );
             }
             else {
-                console.warning( messagePrefix + "AbstractLNClass (name: " + getBase() + ") not found" );
+                console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                                 "while resolving link from AnyLNClass (name: ", getName(),
+                                 ", NS id: ", id, "): AbstractLNClass (name: ", getBase(), ") not found" );
             }
         }
 
