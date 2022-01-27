@@ -2847,8 +2847,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             else {
                 setRefersToCDC( foundCDC );
                 console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                              "CDC (name: ", getType(), ") refers by DataObject (name: ", getName(),
-                              ") in NS (id:", id, ") found in NS (id:",
+                              messagePrefix, "CDC (name: ", getType(), ") found in NS (id:",
                               getRefersToCDC().getParentCDCs().getParentNS().getId(), ")" );
             }
         }
@@ -2863,8 +2862,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             else {
                 setRefersToPresenceCondition( foundPC );
                 console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                              "PresenceCondition (name: ", getPresCond(), ") refers by DataObject (name: ",
-                              getName(), ") in NS (id:", id, ") found in NS (id:",
+                              messagePrefix, "PresenceCondition (name: ", getPresCond(), ") found in NS (id:",
                               getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId(), ")" );
             }
         }
@@ -2878,8 +2876,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             else {
                 setRefersToPresenceConditionDerivedStatistics( foundPC );
                 console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                              "PresenceCondition (name: ", getDsPresCond(), ") refers by DataObject (name: ",
-                              getName(), ") in NS (id:", id, ") found in NS (id:",
+                              messagePrefix, "PresenceCondition (name: ", getDsPresCond(), ") found in NS (id:",
                               getRefersToPresenceConditionDerivedStatistics().getParentPresenceConditions().getParentNS().getId(),
                               ")" );
             }
@@ -2914,8 +2911,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                     else {
                         setRefersToUnderlyingBasicType( foundBT );
                         console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                                      "BasicType (name: ", getUnderlyingType(), ") refers as type by DataObject (name: ",
-                                      getName(), ") in NS (id:", id, ") found in NS (id:",
+                                      messagePrefix, "BasicType (name: ", getUnderlyingType(), ") found in NS (id:",
                                       getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS().getId(), ")" );
                     }
                     break;
@@ -2942,9 +2938,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                                     .getParentServiceTypeRealizations().getParentServiceNS().getId();
                         }
                         console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                                      "ConstructedAttribute (name: ", getUnderlyingType(),
-                                      ") refers as type by DataObject (name: ",
-                                      getName(), ") in NS (id:", id, ") found in ", foundWhere, ")" );
+                                      messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") found in ", foundWhere, ")" );
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
@@ -2957,8 +2951,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                     else {
                         setRefersToUnderlyingEnumeration( foundEn );
                         console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                                      "Enumeration (name: ", getUnderlyingType(), ") refers as type by DataObject (name: ",
-                                      getName(), ") in NS (id:", id, ") found in NS (id:",
+                                      messagePrefix, "Enumeration (name: ", getUnderlyingType(), ") found in NS (id:",
                                       getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS().getId(),
                                       ")" );
                     }

@@ -2519,9 +2519,7 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                     else {
                         setRefersToUnderlyingBasicType( foundBT );
                         console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                                      "BasicType (name: ", getUnderlyingType(),
-                                      ") refers as type by ServiceDataAttribute (name: ",
-                                      getName(), ") in ServiceNS (id:", sns.getId(), ") found in NS (id:",
+                                      messagePrefix, "BasicType (name: ", getUnderlyingType(), ") found in NS (id:",
                                       getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS().getId(), ")" );
                     }
                     break;
@@ -2548,9 +2546,7 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                                     .getParentServiceTypeRealizations().getParentServiceNS().getId();
                         }
                         console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                                      "ConstructedAttribute (name: " , getUnderlyingType(),
-                                      ") refers as type by ServiceDataAttribute (name: ",
-                                      getName(), ") in ServiceNS (id:", sns.getId(), ") found in ",
+                                      messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") found in ",
                                       foundWhere, ")" );
                     }
                     break;
@@ -2564,9 +2560,7 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                     else {
                         setRefersToUnderlyingEnumeration( foundEn );
                         console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                                      "Enumeration (name: ", getUnderlyingType(),
-                                      ") refers as type by ServiceDataAttribute (name: ",
-                                      getName(), ") in ServiceNS (id:", sns.getId(), ") found in NS (id:",
+                                      messagePrefix, "Enumeration (name: ", getUnderlyingType(), ") found in NS (id:",
                                       getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS().getId(), ")" );
                     }
                     break;

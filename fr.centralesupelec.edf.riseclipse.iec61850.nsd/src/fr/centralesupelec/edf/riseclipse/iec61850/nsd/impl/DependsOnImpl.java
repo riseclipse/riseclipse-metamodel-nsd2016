@@ -1107,8 +1107,7 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         else {
             setRefersToNS( ns );
             console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                          "NS (id: ", identification, ") referred by DependsOn in NS (id:",
-                          new NsIdentification( getParentNS() ), ") found" );
+                          messagePrefix, "NS (id: ", identification, ") found" );
             ns.buildExplicitLinks( console, forceUpdate );
         }
         return false;

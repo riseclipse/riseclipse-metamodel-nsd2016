@@ -2531,9 +2531,7 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
             else {
                 setRefersToPresenceCondition( foundPC );
                 console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                              "PresenceCondition (name: ", getPresCond(),
-                              ") refers by SubDataAttribute (name: ",
-                              getName(), ") in NS (id:", id, ") found in NS (id:",
+                              messagePrefix, "PresenceCondition (name: ", getPresCond(), ") found in NS (id:",
                               getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId(), ")" );
             }
         }
@@ -2551,9 +2549,7 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
                     else {
                         setRefersToBasicType( foundBT );
                         console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                                      "BasicType (name: ", getType(),
-                                      ") refers as type by SubDataAttribute (name: ",
-                                      getName(), ") in NS (id:", id, ") found in NS (id:",
+                                      messagePrefix, "BasicType (name: ", getType(), ") found in NS (id:",
                                       getRefersToBasicType().getParentBasicTypes().getParentNS().getId(), ")" );
                     }
                     break;
@@ -2568,9 +2564,7 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
                     else {
                         setRefersToConstructedAttribute( foundCA );
                         console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                                      "ConstructedAttribute (name: ", getType(),
-                                      ") refers as type by SubDataAttribute (name: ",
-                                      getName(), ") in NS (id:", id, ") found in NS (id:",
+                                      messagePrefix, "ConstructedAttribute (name: ", getType(), ") found in NS (id:",
                                       getRefersToConstructedAttribute().getParentConstructedAttributes().getParentNS().getId(),
                                       ")" );
                     }
@@ -2585,9 +2579,7 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
                     else {
                         setRefersToEnumeration( foundEn );
                         console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                                      "Enumeration (name: ", getType(),
-                                      ") refers as type by SubDataAttribute (name: ",
-                                      getName(), ") in NS (id:", id, ") found in NS (id:",
+                                      messagePrefix, "Enumeration (name: ", getType(), ") found in NS (id:",
                                       getRefersToEnumeration().getParentEnumerations().getParentNS().getId(), ")" );
                     }
                     break;
