@@ -222,7 +222,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                         .collect( Collectors.toList() );
                for( AgAttributeType att : atts ) {
                     att.unsetRefersToBasicType();
-                    console.info( NSD_SETUP_CATEGORY, 0,
+                    console.notice( NSD_SETUP_CATEGORY, 0,
                                   "While applying ServiceNsUsage: Service NS: using TypeRealization ", basic.getName(), " to attribute ", att.getType() );
                     att.setRefersToConstructedAttribute( typeRealization );
                 }
@@ -246,7 +246,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                 .stream()
                 .forEach( att -> {
                     DataAttribute da = att.toDataAttribute();
-                    console.info( NSD_SETUP_CATEGORY, 0,
+                    console.notice( NSD_SETUP_CATEGORY, 0,
                                   "While applying ServiceNsUsage: Service NS: Adding DataAttribute ", da.getName(), " to CDC ", cdc.getName() );
                     da.setParentCDC( cdc );
                 });

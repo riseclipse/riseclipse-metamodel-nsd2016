@@ -2513,6 +2513,8 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
      */
     @Override
     public boolean buildExplicitLinks( @NonNull IRiseClipseConsole console, boolean forceUpdate ) {
+        console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "SubDataAttributeImpl.buildExplicitLinks()" );
+
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
         String id = getNsIdentification().getId();
@@ -2530,7 +2532,7 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
             }
             else {
                 setRefersToPresenceCondition( foundPC );
-                console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
                               "PresenceCondition (name: ", getPresCond(),
                               ") refers by SubDataAttribute (name: ",
                               getName(), ") in NS (id:", id, ") found in NS (id:",
@@ -2550,7 +2552,7 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
                     }
                     else {
                         setRefersToBasicType( foundBT );
-                        console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                        console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
                                       "BasicType (name: ", getType(),
                                       ") refers as type by SubDataAttribute (name: ",
                                       getName(), ") in NS (id:", id, ") found in NS (id:",
@@ -2567,7 +2569,7 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
                     }
                     else {
                         setRefersToConstructedAttribute( foundCA );
-                        console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                        console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
                                       "ConstructedAttribute (name: ", getType(),
                                       ") refers as type by SubDataAttribute (name: ",
                                       getName(), ") in NS (id:", id, ") found in NS (id:",
@@ -2584,7 +2586,7 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
                     }
                     else {
                         setRefersToEnumeration( foundEn );
-                        console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                        console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
                                       "Enumeration (name: ", getType(),
                                       ") refers as type by SubDataAttribute (name: ",
                                       getName(), ") in NS (id:", id, ") found in NS (id:",

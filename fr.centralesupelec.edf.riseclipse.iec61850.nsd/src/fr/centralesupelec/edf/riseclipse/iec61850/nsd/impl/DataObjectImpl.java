@@ -2828,6 +2828,8 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
      */
     @Override
     public boolean buildExplicitLinks( @NonNull IRiseClipseConsole console, boolean forceUpdate ) {
+        console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "DataObjectImpl.buildExplicitLinks()" );
+
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
         String id = getNsIdentification().getId();
@@ -2846,7 +2848,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             }
             else {
                 setRefersToCDC( foundCDC );
-                console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
                               "CDC (name: ", getType(), ") refers by DataObject (name: ", getName(),
                               ") in NS (id:", id, ") found in NS (id:",
                               getRefersToCDC().getParentCDCs().getParentNS().getId(), ")" );
@@ -2862,7 +2864,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             }
             else {
                 setRefersToPresenceCondition( foundPC );
-                console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
                               "PresenceCondition (name: ", getPresCond(), ") refers by DataObject (name: ",
                               getName(), ") in NS (id:", id, ") found in NS (id:",
                               getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId(), ")" );
@@ -2877,7 +2879,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             }
             else {
                 setRefersToPresenceConditionDerivedStatistics( foundPC );
-                console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
                               "PresenceCondition (name: ", getDsPresCond(), ") refers by DataObject (name: ",
                               getName(), ") in NS (id:", id, ") found in NS (id:",
                               getRefersToPresenceConditionDerivedStatistics().getParentPresenceConditions().getParentNS().getId(),
@@ -2913,7 +2915,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                     }
                     else {
                         setRefersToUnderlyingBasicType( foundBT );
-                        console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                        console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
                                       "BasicType (name: ", getUnderlyingType(), ") refers as type by DataObject (name: ",
                                       getName(), ") in NS (id:", id, ") found in NS (id:",
                                       getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS().getId(), ")" );
@@ -2941,7 +2943,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                             foundWhere = "ServiceNS (id:" + getRefersToUnderlyingConstructedAttribute()
                                     .getParentServiceTypeRealizations().getParentServiceNS().getId();
                         }
-                        console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                        console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
                                       "ConstructedAttribute (name: ", getUnderlyingType(),
                                       ") refers as type by DataObject (name: ",
                                       getName(), ") in NS (id:", id, ") found in ", foundWhere, ")" );
@@ -2956,7 +2958,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                     }
                     else {
                         setRefersToUnderlyingEnumeration( foundEn );
-                        console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                        console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
                                       "Enumeration (name: ", getUnderlyingType(), ") refers as type by DataObject (name: ",
                                       getName(), ") in NS (id:", id, ") found in NS (id:",
                                       getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS().getId(),

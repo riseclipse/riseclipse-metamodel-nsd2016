@@ -3729,6 +3729,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
      */
     @Override
     public boolean buildExplicitLinks( @NonNull IRiseClipseConsole console, boolean forceUpdate ) {
+        console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "DataAttributeImpl.buildExplicitLinks()" );
+
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
         String id = getNsIdentification().getId();
@@ -3757,7 +3759,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                     foundWhere = "ServiceNS (id:" + getRefersToFunctionalConstraint().getParentFunctionalConstraints()
                             .getParentServiceNS().getId();
                 }
-                console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
                               "FunctionalConstraint (abbreviation: ", getFc(),
                               ") refers by DataAttribute (name: ",
                               getName(), ") in NS (id:", id, ") found in ",
@@ -3783,7 +3785,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                     foundWhere = "ServiceNS (id:"
                             + getRefersToPresenceCondition().getParentPresenceConditions().getParentServiceNS().getId();
                 }
-                console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
                               "PresenceCondition (name: ", getPresCond(),
                               ") refers by DataAttribute (name: ",
                               getName(), ") in NS (id:", id, ") found in ",
@@ -3800,7 +3802,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                     .ifPresent( att -> setRefersToSizeAttribute( att ) );
 
             if( isSetRefersToSizeAttribute() ) {
-                console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
                               "DataAttribute (name: ", getSizeAttribute(),
                               ") refers as sizeAttribute by DataAttribute (name: ", getName(),
                               ") in NS (id:", id, ") found" );
@@ -3820,7 +3822,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                     .ifPresent( att -> setRefersToMaxIndexAttribute( att ) );
 
             if( isSetRefersToMaxIndexAttribute() ) {
-                console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
                               "[NSD links] DataAttribute (name: ", getMaxIndexAttribute(),
                               ") refers as maxIndexAttribute by DataAttribute (name: ",
                               getName(), ") in NS (id:", id, ") found" );
@@ -3844,7 +3846,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                     }
                     else {
                         setRefersToBasicType( foundBT );
-                        console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                        console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
                                       "BasicType (name: ", getType(),
                                       ") refers as type by DataAttribute (name: ",
                                       getName(), ") in NS (id:", id, ") found in NS (id:",
@@ -3870,7 +3872,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                             foundWhere = "ServiceNS (id:" + getRefersToConstructedAttribute()
                                     .getParentServiceTypeRealizations().getParentServiceNS().getId();
                         }
-                        console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                        console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
                                       "ConstructedAttribute (name: ", getType(),
                                       ") refers as type by DataAttribute (name: ",
                                       getName(), ") in NS (id:", id, ") found in ",
@@ -3886,7 +3888,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                     }
                     else {
                         setRefersToEnumeration( foundEn );
-                        console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                        console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
                                       "[NSD links] Enumeration (name: ", getType(),
                                       ") refers as type by DataAttribute (name: ",
                                       getName(), ") in NS (id:", id, ") found in NS (id:",
@@ -3899,7 +3901,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                 // type for ENUMERATED may be missing if CDC has enumParameterized="true"
                 if( ( getTypeKind().getValue() == DefinedAttributeTypeKind.ENUMERATED_VALUE ) ) {
                     if( getParentCDC().isEnumParameterized() ) {
-                        console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                        console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
                                       messagePrefix, "type is missing for ", getTypeKind(),
                                     " but enumParameterized in parent CDC is true" );
                     }

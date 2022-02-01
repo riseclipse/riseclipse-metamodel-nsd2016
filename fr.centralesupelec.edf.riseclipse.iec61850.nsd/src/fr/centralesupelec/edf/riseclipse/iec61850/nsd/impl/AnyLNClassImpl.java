@@ -57,7 +57,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
-import fr.centralesupelec.edf.riseclipse.util.RiseClipseFatalException;
+import fr.centralesupelec.edf.riseclipse.util.AbstractRiseClipseConsole;
 
 /**
  * <!-- begin-user-doc -->
@@ -373,7 +373,8 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
      */
     @Override
     public LNClasses getParentLNClasses() {
-        throw new RiseClipseFatalException( "AnyLNClass.getParentLNClasses() called", null );
+        AbstractRiseClipseConsole.getConsole().emergency(  EXPLICIT_LINK_CATEGORY,  0, "AnyLNClass.getParentLNClasses() called" );
+        return null;
     }
 
     /**
@@ -635,6 +636,8 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
      */
     @Override
     public boolean buildExplicitLinks( @NonNull IRiseClipseConsole console, boolean forceUpdate ) {
+        console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "AnyLNImpl.buildExplicitLinks()" );
+
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
         String id = getNsIdentification().getId();
@@ -651,7 +654,7 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
                     .ifPresent( abstractLNClass -> setRefersToAbstractLNClass( abstractLNClass ) );
 
             if( isSetRefersToAbstractLNClass() ) {
-                console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
                               "AbstractLNClass (name: ", getBase(), ") refers by AnyLNClass (name: ", getName(),
                               ") in NS (id:", id, ") found in NS (id:",
                               getRefersToAbstractLNClass().getParentLNClasses().getParentNS().getId(), ")" );

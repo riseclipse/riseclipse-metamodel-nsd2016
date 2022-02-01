@@ -805,6 +805,8 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
 
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
+        console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "BasicTypeImpl.buildExplicitLinks()" );
+
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
         if( isSetDescID() ) {

@@ -2488,6 +2488,8 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
 
     @Override
     public boolean buildExplicitLinks( @NonNull IRiseClipseConsole console, boolean forceUpdate ) {
+        console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "ServiceDataAttributeImpl.buildExplicitLinks()" );
+
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
         if( isSetPresCondArgsID() ) {
@@ -2518,7 +2520,7 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                     }
                     else {
                         setRefersToUnderlyingBasicType( foundBT );
-                        console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                        console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
                                       "BasicType (name: ", getUnderlyingType(),
                                       ") refers as type by ServiceDataAttribute (name: ",
                                       getName(), ") in ServiceNS (id:", sns.getId(), ") found in NS (id:",
@@ -2547,7 +2549,7 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                             foundWhere = "ServiceNS (id:" + getRefersToUnderlyingConstructedAttribute()
                                     .getParentServiceTypeRealizations().getParentServiceNS().getId();
                         }
-                        console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                        console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
                                       "[NSD links] ConstructedAttribute (name: " , getUnderlyingType(),
                                       ") refers as type by ServiceDataAttribute (name: ",
                                       getName(), ") in ServiceNS (id:", sns.getId(), ") found in ",
@@ -2563,7 +2565,7 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                     }
                     else {
                         setRefersToUnderlyingEnumeration( foundEn );
-                        console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                        console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
                                       "Enumeration (name: ", getUnderlyingType(),
                                       ") refers as type by ServiceDataAttribute (name: ",
                                       getName(), ") in ServiceNS (id:", sns.getId(), ") found in NS (id:",

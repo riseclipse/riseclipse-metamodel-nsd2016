@@ -494,6 +494,8 @@ public abstract class TitledClassImpl extends DocumentedClassImpl implements Tit
 
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
+        console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "TitledClassImpl.buildExplicitLinks()" );
+
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
         if( isSetTitleID() ) {

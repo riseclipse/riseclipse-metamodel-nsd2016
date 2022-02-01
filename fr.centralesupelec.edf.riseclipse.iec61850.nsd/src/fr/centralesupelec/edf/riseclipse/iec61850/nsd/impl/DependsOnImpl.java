@@ -1092,6 +1092,8 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
      */
     @Override
     public boolean buildExplicitLinks( @NonNull IRiseClipseConsole console, boolean forceUpdate ) {
+        console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "DependsOnImpl.buildExplicitLinks()" );
+
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
         String messagePrefix = "while resolving link from DependsOn (NS id: "
@@ -1106,7 +1108,7 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         }
         else {
             setRefersToNS( ns );
-            console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+            console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
                           "NS (id: ", identification, ") refers by DependsOn in NS (id:",
                           new NsIdentification( getParentNS() ), ") found" );
         }

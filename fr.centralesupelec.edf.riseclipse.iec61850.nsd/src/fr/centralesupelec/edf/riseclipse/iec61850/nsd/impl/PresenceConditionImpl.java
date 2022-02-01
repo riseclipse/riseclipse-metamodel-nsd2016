@@ -1349,6 +1349,8 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
 
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
+        console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "PresenceConditionImpl.buildExplicitLinks()" );
+
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
         NsIdentification identification = null;

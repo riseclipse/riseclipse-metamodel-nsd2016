@@ -164,6 +164,8 @@ public abstract class NsdObjectImpl extends MinimalEObjectImpl.Container impleme
      */
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
+        console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "NsdObjectImpl.buildExplicitLinks()" );
+
         if( ( !forceUpdate ) && isExplicitLinksBuilt() ) return true;
 
         for( EObject o : eContents() ) {
