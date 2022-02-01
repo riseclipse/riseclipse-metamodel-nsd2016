@@ -1091,6 +1091,8 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
      */
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
+        console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "DependsOnImpl.buildExplicitLinks()" );
+
         if( super.buildExplicitLinks( console )) return true;
 
         String messagePrefix = "while resolving link from DependsOn: ";
@@ -1104,11 +1106,11 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         }
         else {
             setRefersToNS( ns );
-            console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                          messagePrefix, "NS (id: ", identification, ") found" );
+            console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                            messagePrefix, "NS (id: ", identification, ") found" );
             if( ! ns.isExplicitLinksBuilt() ) {
-                console.verbose( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                 messagePrefix, "Resolving links for file ", ns.getFilename() );
+                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                              messagePrefix, "Resolving links for file ", ns.getFilename() );
                 ns.buildExplicitLinks( console );
             }
         }

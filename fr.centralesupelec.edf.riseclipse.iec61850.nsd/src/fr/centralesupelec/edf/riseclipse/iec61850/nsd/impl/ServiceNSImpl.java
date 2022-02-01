@@ -2441,6 +2441,8 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
 
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
+        console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "ServiceNSImpl.buildExplicitLinks()" );
+
         if( super.buildExplicitLinks( console )) return true;
 
         if( isSetDescID() ) {

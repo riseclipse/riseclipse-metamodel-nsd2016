@@ -56,7 +56,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
-import fr.centralesupelec.edf.riseclipse.util.RiseClipseFatalException;
+import fr.centralesupelec.edf.riseclipse.util.AbstractRiseClipseConsole;
 
 /**
  * <!-- begin-user-doc -->
@@ -372,7 +372,8 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
      */
     @Override
     public LNClasses getParentLNClasses() {
-        throw new RiseClipseFatalException( "AnyLNClass.getParentLNClasses() called", null );
+        AbstractRiseClipseConsole.getConsole().emergency(  EXPLICIT_LINK_CATEGORY,  0, "AnyLNClass.getParentLNClasses() called" );
+        return null;
     }
 
     /**
@@ -634,6 +635,8 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
      */
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
+        console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "AnyLNImpl.buildExplicitLinks()" );
+
         if( super.buildExplicitLinks( console )) return true;
 
         if( isSetBase() ) {
@@ -652,10 +655,10 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
 
             if( abstractLNClass != null ) {
                 setRefersToAbstractLNClass( abstractLNClass );
-                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                              "while resolving link from AnyLNClass (name: ", getName(),
-                              "): AbstractLNClass (name: ", getBase(), ") found in NS (id:",
-                              getRefersToAbstractLNClass().getParentLNClasses().getParentNS().getId(), ")" );
+                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                                "while resolving link from AnyLNClass (name: ", getName(),
+                                "): AbstractLNClass (name: ", getBase(), ") found in NS (id:",
+                                getRefersToAbstractLNClass().getParentLNClasses().getParentNS().getId(), ")" );
             }
             else {
                 // TODO: Some NSD file (e.g. eTr_IEC61850-90-6_2018A5.nsd) use a non-abstract LNClass as base.

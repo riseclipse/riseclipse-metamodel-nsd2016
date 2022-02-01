@@ -2827,6 +2827,8 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
      */
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
+        console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "DataObjectImpl.buildExplicitLinks()" );
+
         if( super.buildExplicitLinks( console )) return true;
 
         NsdResourceSetImpl rs = getResourceSet();
@@ -2843,9 +2845,9 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             }
             else {
                 setRefersToCDC( foundCDC );
-                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                              messagePrefix, "CDC (name: ", getType(), ") found in NS (id:",
-                              getRefersToCDC().getParentCDCs().getParentNS().getId(), ")" );
+                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                                messagePrefix, "CDC (name: ", getType(), ") found in NS (id:",
+                                getRefersToCDC().getParentCDCs().getParentNS().getId(), ")" );
             }
         }
 
@@ -2858,9 +2860,9 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             }
             else {
                 setRefersToPresenceCondition( foundPC );
-                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                              messagePrefix, "PresenceCondition (name: ", getPresCond(), ") found in NS (id:",
-                              getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId(), ")" );
+                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                                messagePrefix, "PresenceCondition (name: ", getPresCond(), ") found in NS (id:",
+                                getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId(), ")" );
             }
         }
 
@@ -2872,10 +2874,10 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             }
             else {
                 setRefersToPresenceConditionDerivedStatistics( foundPC );
-                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                              messagePrefix, "PresenceCondition (name: ", getDsPresCond(), ") found in NS (id:",
-                              getRefersToPresenceConditionDerivedStatistics().getParentPresenceConditions().getParentNS().getId(),
-                              ")" );
+                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                                messagePrefix, "PresenceCondition (name: ", getDsPresCond(), ") found in NS (id:",
+                                getRefersToPresenceConditionDerivedStatistics().getParentPresenceConditions().getParentNS().getId(),
+                                ")" );
             }
         }
 
@@ -2907,9 +2909,9 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                     }
                     else {
                         setRefersToUnderlyingBasicType( foundBT );
-                        console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                      messagePrefix, "BasicType (name: ", getUnderlyingType(), ") found in NS (id:",
-                                      getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS().getId(), ")" );
+                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                                        messagePrefix, "BasicType (name: ", getUnderlyingType(), ") found in NS (id:",
+                                        getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS().getId(), ")" );
                     }
                     break;
                 case DefinedAttributeTypeKind.CONSTRUCTED_VALUE:
@@ -2933,8 +2935,8 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                             foundWhere = "ServiceNS (id:" + getRefersToUnderlyingConstructedAttribute()
                                     .getParentServiceTypeRealizations().getParentServiceNS().getId();
                         }
-                        console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                      messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") found in ", foundWhere, ")" );
+                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                                        messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") found in ", foundWhere, ")" );
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
@@ -2946,10 +2948,10 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                     }
                     else {
                         setRefersToUnderlyingEnumeration( foundEn );
-                        console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                      messagePrefix, "Enumeration (name: ", getUnderlyingType(), ") found in NS (id:",
-                                      getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS().getId(),
-                                      ")" );
+                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                                        messagePrefix, "Enumeration (name: ", getUnderlyingType(), ") found in NS (id:",
+                                        getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS().getId(),
+                                        ")" );
                     }
                     break;
                 }

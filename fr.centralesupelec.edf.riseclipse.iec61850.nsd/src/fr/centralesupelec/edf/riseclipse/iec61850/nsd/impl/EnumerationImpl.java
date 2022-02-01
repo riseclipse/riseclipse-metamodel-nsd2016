@@ -1140,6 +1140,8 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
      */
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
+        console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "EnumerationImpl.buildExplicitLinks()" );
+
         if( super.buildExplicitLinks( console )) return true;
 
         NsdResourceSetImpl rs = getResourceSet();
@@ -1155,9 +1157,9 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
             }
             else {
                 setRefersToBaseEnumeration( foundBase );
-                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                              messagePrefix, "Enumeration (name: ", getInheritedFrom(), ") found in NS (id:",
-                              getRefersToBaseEnumeration().getParentEnumerations().getParentNS().getId(), ")" );
+                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                                messagePrefix, "Enumeration (name: ", getInheritedFrom(), ") found in NS (id:",
+                                getRefersToBaseEnumeration().getParentEnumerations().getParentNS().getId(), ")" );
             }
         }
 

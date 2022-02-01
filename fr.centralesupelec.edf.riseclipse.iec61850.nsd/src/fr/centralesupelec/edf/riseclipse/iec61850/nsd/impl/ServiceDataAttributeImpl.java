@@ -56,7 +56,6 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetImpl;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
@@ -2487,6 +2486,8 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
 
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
+        console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "ServiceDataAttributeImpl.buildExplicitLinks()" );
+
         if( super.buildExplicitLinks( console )) return true;
 
         if( isSetPresCondArgsID() ) {
@@ -2515,9 +2516,9 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                     }
                     else {
                         setRefersToUnderlyingBasicType( foundBT );
-                        console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                      messagePrefix, "BasicType (name: ", getUnderlyingType(), ") found in NS (id:",
-                                      getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS().getId(), ")" );
+                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                                        messagePrefix, "BasicType (name: ", getUnderlyingType(), ") found in NS (id:",
+                                        getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS().getId(), ")" );
                     }
                     break;
                 case DefinedAttributeTypeKind.CONSTRUCTED_VALUE:
@@ -2541,9 +2542,9 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                             foundWhere = "ServiceNS (id:" + getRefersToUnderlyingConstructedAttribute()
                                     .getParentServiceTypeRealizations().getParentServiceNS().getId();
                         }
-                        console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                      messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") found in ",
-                                      foundWhere, ")" );
+                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                                        messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") found in ",
+                                        foundWhere, ")" );
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
@@ -2555,9 +2556,9 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                     }
                     else {
                         setRefersToUnderlyingEnumeration( foundEn );
-                        console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                      messagePrefix, "Enumeration (name: ", getUnderlyingType(), ") found in NS (id:",
-                                      getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS().getId(), ")" );
+                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                                        messagePrefix, "Enumeration (name: ", getUnderlyingType(), ") found in NS (id:",
+                                        getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS().getId(), ")" );
                     }
                     break;
                 }

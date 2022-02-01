@@ -264,8 +264,8 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         
         if( serviceNS.getAbbreviations() != null ) {
             for( Abbreviation abbreviation : serviceNS.getAbbreviations().getAbbreviation() ) {
-                console.info( NSD_SETUP_CATEGORY, 0,
-                        "Service NS: adding new abbreviation ", abbreviation.getName() );
+                console.notice( NSD_SETUP_CATEGORY, 0,
+                                "Service NS: adding new abbreviation ", abbreviation.getName() );
                 if( applyToNs.getAbbreviations() == null ) {
                     applyToNs.setAbbreviations( NsdFactory.eINSTANCE.createAbbreviations() );
                 }
@@ -279,8 +279,8 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         
         if( serviceNS.getFunctionalConstraints() != null ) {
             for( FunctionalConstraint functionalConstraint : serviceNS.getFunctionalConstraints().getFunctionalConstraint() ) {
-                console.info( NSD_SETUP_CATEGORY, 0,
-                        "Service NS: adding new functional constraint ", functionalConstraint.getAbbreviation() );
+                console.notice( NSD_SETUP_CATEGORY, 0,
+                                "Service NS: adding new functional constraint ", functionalConstraint.getAbbreviation() );
                 if( applyToNs.getFunctionalConstraints() == null ) {
                     applyToNs.setFunctionalConstraints( NsdFactory.eINSTANCE.createFunctionalConstraints() );
                 }
@@ -294,8 +294,8 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         
         if( serviceNS.getPresenceConditions() != null ) {
             for( PresenceCondition presenceCondition : serviceNS.getPresenceConditions().getPresenceCondition() ) {
-                console.info( NSD_SETUP_CATEGORY, 0,
-                        "Service NS: adding new presence condition ", presenceCondition.getName() );
+                console.notice( NSD_SETUP_CATEGORY, 0,
+                                "Service NS: adding new presence condition ", presenceCondition.getName() );
                 if( applyToNs.getPresenceConditions() == null ) {
                     applyToNs.setPresenceConditions( NsdFactory.eINSTANCE.createPresenceConditions() );
                 }
@@ -330,8 +330,8 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                             .collect( Collectors.toList() );
                     for( AgAttributeType att : atts ) {
                         att.unsetRefersToBasicType();
-                        console.info( NSD_SETUP_CATEGORY, 0,
-                                      "Service NS: using TypeRealization ",  basic.getName(), " to attribute ", att.getType() );
+                        console.notice( NSD_SETUP_CATEGORY, 0,
+                                        "Service NS: using TypeRealization ",  basic.getName(), " to attribute ", att.getType() );
                         att.setRefersToConstructedAttribute( typeRealization );
                     }
                 }
@@ -421,8 +421,8 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                 DocumentRoot root = (DocumentRoot) resource.getContents().get( 0 );
                 if(( root.getNS() != null ) && ( ! root.getNS().isExplicitLinksBuilt() )) {
                     // TODO: there is such a constant for category in NsdObjectImpl
-                    console.verbose( "NSD/ExplicitLinks", 0,
-                                     "Resolving links for file " + resource.getURI().lastSegment() );
+                    console.info( "NSD/ExplicitLinks", 0,
+                                  "Resolving links for file " + resource.getURI().lastSegment() );
                     root.getNS().buildExplicitLinks( console );
                 }
             }
@@ -457,7 +457,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                 }
             }
             if( ! progress ) {
-                AbstractRiseClipseConsole.getConsole().fatal( NSD_SETUP_CATEGORY, 0,
+                AbstractRiseClipseConsole.getConsole().emergency( NSD_SETUP_CATEGORY, 0,
                         "getNsIdentificationOrderedList() failed" );
                 return null;
             }

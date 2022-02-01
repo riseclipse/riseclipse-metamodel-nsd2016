@@ -2512,6 +2512,8 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
      */
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
+        console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "SubDataAttributeImpl.buildExplicitLinks()" );
+
         if( super.buildExplicitLinks( console )) return true;
 
         NsdResourceSetImpl rs = getResourceSet();
@@ -2527,9 +2529,9 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
             }
             else {
                 setRefersToPresenceCondition( foundPC );
-                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                              messagePrefix, "PresenceCondition (name: ", getPresCond(), ") found in NS (id:",
-                              getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId(), ")" );
+                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                                messagePrefix, "PresenceCondition (name: ", getPresCond(), ") found in NS (id:",
+                                getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId(), ")" );
             }
         }
 
@@ -2545,8 +2547,8 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
                     }
                     else {
                         setRefersToBasicType( foundBT );
-                        console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                      messagePrefix, "BasicType (name: ", getType(), ") found in NS (id:",
+                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                                        messagePrefix, "BasicType (name: ", getType(), ") found in NS (id:",
                                       getRefersToBasicType().getParentBasicTypes().getParentNS().getId(), ")" );
                     }
                     break;
@@ -2560,10 +2562,10 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
                     }
                     else {
                         setRefersToConstructedAttribute( foundCA );
-                        console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                      messagePrefix, "ConstructedAttribute (name: ", getType(), ") found in NS (id:",
-                                      getRefersToConstructedAttribute().getParentConstructedAttributes().getParentNS().getId(),
-                                      ")" );
+                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                                        messagePrefix, "ConstructedAttribute (name: ", getType(), ") found in NS (id:",
+                                        getRefersToConstructedAttribute().getParentConstructedAttributes().getParentNS().getId(),
+                                        ")" );
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
@@ -2575,9 +2577,9 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
                     }
                     else {
                         setRefersToEnumeration( foundEn );
-                        console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                      messagePrefix, "Enumeration (name: ", getType(), ") found in NS (id:",
-                                      getRefersToEnumeration().getParentEnumerations().getParentNS().getId(), ")" );
+                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                                        messagePrefix, "Enumeration (name: ", getType(), ") found in NS (id:",
+                                        getRefersToEnumeration().getParentEnumerations().getParentNS().getId(), ")" );
                     }
                     break;
                 }
