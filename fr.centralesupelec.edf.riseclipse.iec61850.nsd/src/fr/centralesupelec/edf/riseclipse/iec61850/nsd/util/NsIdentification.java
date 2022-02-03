@@ -26,9 +26,8 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 
 public class NsIdentification {
     
-    public final static String IEC_61950_7_2_CORE_NAMESPACE_ID = "IEC 61850-7-2";
-    public final static String IEC_61950_7_3_CORE_NAMESPACE_ID = "IEC 61850-7-3";
-    public final static String IEC_61950_7_4_CORE_NAMESPACE_ID = "IEC 61850-7-4";
+    public final static String  DEFAULT_REVISION = "A";
+    public final static Integer DEFAULT_RELEASE  = 1;
     
     final private String id;
     final private Integer version;
@@ -52,10 +51,10 @@ public class NsIdentification {
             }
             catch( NumberFormatException ex ) {}
             this.version = tmpVersion;
-            this.revision = ( namespace.length() > ( posColon + 5 )) ? namespace.substring( posColon + 5, posColon + 6 ) : "A";
+            this.revision = ( namespace.length() > ( posColon + 5 )) ? namespace.substring( posColon + 5, posColon + 6 ) : DEFAULT_REVISION;
             Integer tmpRelease = 1;
             try {
-                tmpRelease = ( namespace.length() > ( posColon + 6 )) ? Integer.valueOf( namespace.substring( posColon + 6 )) : 1;
+                tmpRelease = ( namespace.length() > ( posColon + 6 )) ? Integer.valueOf( namespace.substring( posColon + 6 )) : DEFAULT_RELEASE;
             }
             catch( NumberFormatException ex ) {}
             this.release = tmpRelease;
@@ -64,8 +63,8 @@ public class NsIdentification {
             // TODO: is it an error that must be displayed ?
             this.id = namespace;
             this.version = 0;
-            this.revision = "A";
-            this.release = 1;
+            this.revision = DEFAULT_REVISION;
+            this.release = DEFAULT_RELEASE;
         }
     }
     
@@ -99,15 +98,10 @@ public class NsIdentification {
         return release;
     }
     
-    public boolean isCoreNamespace() {
-        return IEC_61950_7_2_CORE_NAMESPACE_ID.equals( id )
-            || IEC_61950_7_3_CORE_NAMESPACE_ID.equals( id )
-            || IEC_61950_7_4_CORE_NAMESPACE_ID.equals( id );
-    }
-
     @Override
     public int hashCode() {
-        return Objects.hash( id, release, revision, version );
+//        return Objects.hash( id, release, revision, version );
+        return Objects.hash( id, revision, version );
     }
 
     @Override
@@ -116,21 +110,18 @@ public class NsIdentification {
         if( obj == null ) return false;
         if( getClass() != obj.getClass() ) return false;
         NsIdentification other = ( NsIdentification ) obj;
-        return Objects.equals( id      , other.id )
-            && Objects.equals( version , other.version )
-            && Objects.equals( revision, other.revision )
-            && Objects.equals( release , other.release );
-    }
-    
-    public boolean equalsIgnoringRelease( NsIdentification other ) {
+//        return Objects.equals( id      , other.id )
+//                && Objects.equals( version , other.version )
+//                && Objects.equals( revision, other.revision )
+//                && Objects.equals( release , other.release );
         return Objects.equals( id      , other.id )
             && Objects.equals( version , other.version )
             && Objects.equals( revision, other.revision );
     }
-
+    
     @Override
     public String toString() {
-        return id + ":" + version + revision + ( release == 1 ? "" : release );
+        return id + ":" + version + revision;
     }
 
 }

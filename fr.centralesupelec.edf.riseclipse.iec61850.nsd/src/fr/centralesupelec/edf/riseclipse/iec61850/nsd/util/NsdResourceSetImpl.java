@@ -36,6 +36,7 @@ import java.util.stream.Stream;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.jdt.annotation.NonNull;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations;
@@ -78,7 +79,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
 
     private static final String NSD_SETUP_CATEGORY = "NSD/Setup";
 
-    private Map< NsIdentification, NS        > nsdResources       = new HashMap<>();
+    private Map< NsIdentification, NS        > nsResources        = new HashMap<>();
     private Map< NsIdentification, ServiceNS > serviceNSResources = new HashMap<>();
     private Map< NsIdentification, NSDoc     > nsdocResources     = new HashMap<>();
     private List< ApplicableServiceNS        > appNSs             = new ArrayList<>();
@@ -86,8 +87,6 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
     private Set< NS >                          nsModified         = new HashSet<>();
 
     private NsdResourceFactoryImpl resourceFactory = new NsdResourceFactoryImpl();
-    // TODO: there may be several appNS
-    // DONE: no: unique file according to 61850-7-7
 
     public NsdResourceSetImpl( boolean strictContent ) {
         super( strictContent );
@@ -111,8 +110,12 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
             // We just ignore it.
             return;
         }
+        
+        @NonNull
+        IRiseClipseConsole console = AbstractRiseClipseConsole.getConsole();
+
         if( ! ( resource.getContents().get( 0 ) instanceof DocumentRoot )) {
-            AbstractRiseClipseConsole.getConsole().error( NSD_SETUP_CATEGORY, resource.getURI().lastSegment(), 0,
+            console.error( NSD_SETUP_CATEGORY, resource.getURI().lastSegment(), 0,
                 "Not an NSD file" );
             this.getResources().remove( resource );
             return;
@@ -121,21 +124,25 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         
         if( root.getNS() != null ) {
             NsIdentification nsId = new NsIdentification( root.getNS() );
-            if( nsdResources.get( nsId ) != null ) {
-                AbstractRiseClipseConsole.getConsole().error( NSD_SETUP_CATEGORY, resource.getURI().lastSegment(), 0,
-                    "There is already an NSD file with NsIdentification \"", nsId, "\", file is ignored" );
+            NS nsResource = nsResources.get( nsId );
+            if( nsResource != null ) {
+                console.error( NSD_SETUP_CATEGORY, resource.getURI().lastSegment(), 0,
+                    "There is already an NSD file with NsIdentification \"", nsId, "\" (with release ",
+                    nsResource.getRelease(), "), ", "file is ignored" );
                 this.getResources().remove( resource );
                 return;
             }
-            nsdResources.put( nsId, root.getNS() );
+            nsResources.put( nsId, root.getNS() );
             return;
         }
         
         if( root.getServiceNS() != null ) {
             NsIdentification nsId = new NsIdentification( root.getServiceNS() );
-            if( serviceNSResources.get( nsId ) != null ) {
-                AbstractRiseClipseConsole.getConsole().error( NSD_SETUP_CATEGORY, resource.getURI().lastSegment(), 0,
-                        "There is already an SNSD file with NsIdentification \"" + nsId + "\", file is ignored" );
+            ServiceNS serviceNSResource = serviceNSResources.get( nsId );
+            if( serviceNSResource != null ) {
+                console.error( NSD_SETUP_CATEGORY, resource.getURI().lastSegment(), 0,
+                        "There is already an SNSD file with NsIdentification \"", nsId, "\" (with release ",
+                        serviceNSResource.getRelease(), "), ", "file is ignored" );
                 this.getResources().remove( resource );
                 return;
             }
@@ -150,51 +157,27 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         
         if( root.getNSDoc() != null ) {
             NSDoc nsdoc = ( NSDoc ) root.getNSDoc();
-            NsIdentification id = new NsIdentification( nsdoc );
-            if( nsdocResources.get( id ) != null ) {
-                AbstractRiseClipseConsole.getConsole().error( NSD_SETUP_CATEGORY, resource.getURI().lastSegment(), 0,
-                    "There is already an NSDoc file with NsIdentification \"", id, "\", this one is ignored" );
+            NsIdentification nsId = new NsIdentification( nsdoc );
+            NSDoc nsDocResource = nsdocResources.get( nsId );
+            if( nsDocResource != null ) {
+                console.error( NSD_SETUP_CATEGORY, resource.getURI().lastSegment(), 0,
+                    "There is already an NSDoc file with NsIdentification \"", nsId, "\" (with release ",
+                    nsDocResource.getRelease(), "), ", "file is ignored" );
                 this.getResources().remove( resource );
                 return;
             }
-            nsdocResources.put( id, nsdoc );
+            nsdocResources.put( nsId, nsdoc );
             return;
         }
         
-        AbstractRiseClipseConsole.getConsole().error( NSD_SETUP_CATEGORY, resource.getURI().lastSegment(), 0,
+        console.error( NSD_SETUP_CATEGORY, resource.getURI().lastSegment(), 0,
             "The file is not an NSD file" );
         this.getResources().remove( resource );
         return;
     }
     
-//    public NS getNS( String namespace ) {
-//        if( namespaces.get( namespace ) == null ) return null;
-//        return nsdResources.get( namespaces.get( namespace ));
-//    }
-    
-    public NS getExactNS( NsIdentification id ) {
-        return nsdResources.get( id );
-    }
-    
-    public NS getRelaxedNS( NsIdentification id ) {
-        NS found = getExactNS( id );
-        if( found != null ) return found;
-
-        // Look for one with the higher release
-        // See mail thread "RE: RiseClipse - Validation 4" (June 24th, 2021) with Sébastien Latraverse
-        for( NsIdentification knownNsId : nsdResources.keySet() ) {
-            NS other = nsdResources.get( knownNsId );
-            if( knownNsId.equalsIgnoringRelease( id )) {
-                if( found == null ) {
-                    found = other;
-                }
-                else if( other.getRelease() > found.getRelease() ) {
-                    found = other;
-                }
-            }
-        }
-        
-        return found;
+    public NS getNS( NsIdentification id ) {
+        return nsResources.get( id );
     }
     
     /* (non-Javadoc)
@@ -209,31 +192,33 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
             for( ServiceNsUsage serviceNsUsage : appNS.getServiceNsUsage() ) {
                 NsIdentification serviceNsId = new NsIdentification( serviceNsUsage );
                 
-                if( serviceNSResources.get( serviceNsId ) != null ) {
+                ServiceNS serviceNSResource = serviceNSResources.get( serviceNsId );
+                if( serviceNSResource != null ) {
+                    if( serviceNSResource.getRelease() != serviceNsId.getRelease() ) {
+                        console.warning( NSD_SETUP_CATEGORY, 0,
+                                         "While processing ApplicableServiceNS \"", appNS.eResource().getURI().lastSegment(), "\", ",
+                                         "while processing ServiceNsUsage \"", serviceNsId, "\", ",
+                                         "the ServiceNS found has a release of ", serviceNSResource.getRelease(),
+                                         " which is not the one expected (", serviceNsId.getRelease(), ") by the ServiceNSUsage" );
+                    }
                     boolean applied = false;
                     for( AppliesToType applyTo : serviceNsUsage.getAppliesTo() ) {
                         NsIdentification applyToNsId = new NsIdentification( applyTo );
                         
-                        // If it is applied to a core namespace, we put it at the root to be sure that additions will be found later
-                        if( applyToNsId.isCoreNamespace() ) {
-                            applyToNsId = new NsIdentification( NsIdentification.IEC_61950_7_2_CORE_NAMESPACE_ID,
-                                                                applyToNsId.getVersion(),
-                                                                applyToNsId.getRevision(),
-                                                                applyToNsId.getRelease() );
-                        }
-
-                        NS applyToNs = getExactNS( applyToNsId );
+                        NS applyToNs = getNS( applyToNsId );
                         if( applyToNs == null ) {
-                            console.info( NSD_SETUP_CATEGORY, 0, 
-                                          "While applying ServiceNS with id ", serviceNsId, ", NS with id ", applyToNsId,
-                                        " not found, looking for one ignoring release attribute" );
-                            applyToNs = getRelaxedNS( applyToNsId );
-                            if( applyToNs == null ) {
-                                console.error( NSD_SETUP_CATEGORY, 0, 
-                                              "While applying ServiceNS with id ", serviceNsId, ", NS with id ", applyToNsId,
-                                              " not found, including when ignoring release attribute" );
-                                continue;
-                            }
+                            console.warning( NSD_SETUP_CATEGORY, 0,
+                                             "While processing ApplicableServiceNS \"", appNS.eResource().getURI().lastSegment(), "\", ",
+                                             "while processing ServiceNsUsage \"", serviceNsId, "\", ",
+                                             "the NS ", applyToNsId, " is unknown" );
+                            continue;
+                        }
+                        if( applyToNs.getRelease() != applyToNsId.getRelease() ) {
+                            console.warning( NSD_SETUP_CATEGORY, 0,
+                                             "While processing ApplicableServiceNS \"", appNS.eResource().getURI().lastSegment(), "\", ",
+                                             "while processing ServiceNsUsage \"", serviceNsId, "\", ",
+                                             "the NS found has a release of ", applyToNs.getRelease(),
+                                             " which is not the one expected (", applyToNsId.getRelease(), ") by the ServiceNSUsage" );
                         }
                         if( nsModified.contains( applyToNs )) {
                             console.warning( NSD_SETUP_CATEGORY, 0, 
@@ -241,10 +226,10 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                                              ", the ServiceNS with id ", serviceNsId, " will not be applied again" );
                             continue;
                         }
-                        console.info( NSD_SETUP_CATEGORY, 0, 
+                        console.notice( NSD_SETUP_CATEGORY, 0, 
                                       "Applying ServiceNS with id ", serviceNsId, ", on NS with id ", applyToNsId );
                         nsModified.add( applyToNs );
-                        applyServiceNs( serviceNSResources.get( serviceNsId ), applyToNsId, applyToNs, console );
+                        applyServiceNs( serviceNSResource, applyToNsId, applyToNs, console );
                         applied = true;
                     }
                     if( ! applied ) {
@@ -346,8 +331,8 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
             // A ServiceConstructedAttribute defines new ConstructedAttribute:
             // they are taken into account in getConstructedAttributeStream()
             for( ServiceConstructedAttribute serviceConstructedAttribute : serviceNS.getServiceConstructedAttributes().getServiceConstructedAttribute() ) {
-                console.info( NSD_SETUP_CATEGORY, 0,
-                              "Service NS: Adding ConstructedAttribute ", serviceConstructedAttribute.getName(), " to NS ", applyToNsId );
+                console.notice( NSD_SETUP_CATEGORY, 0,
+                                "Service NS: Adding ConstructedAttribute ", serviceConstructedAttribute.getName(), " to NS ", applyToNsId );
                 if( applyToNs.getConstructedAttributes() == null ) {
                     applyToNs.setConstructedAttributes( NsdFactory.eINSTANCE.createConstructedAttributes() );
                 }
@@ -370,8 +355,8 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                     .stream()
                     .forEach( att -> {
                         DataAttribute da = att.toDataAttribute();
-                        console.info( NSD_SETUP_CATEGORY, 0,
-                                      "Service NS: Adding DataAttribute ", da.getName(), " to CDC ", cdc.getName() );
+                        console.notice( NSD_SETUP_CATEGORY, 0,
+                                        "Service NS: Adding DataAttribute ", da.getName(), " to CDC ", cdc.getName() );
                         // setParentCDC() should be enough to attach the new attribute to the applyTo resource, giving it the right namespace
                         da.setParentCDC( cdc );
                         da.buildExplicitLinks( console );
@@ -430,47 +415,73 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         
     }
     
-    public List< NsIdentification > getNsIdentificationOrderedList() {
-        LinkedList< NsIdentification > list = new LinkedList< NsIdentification >( nsdResources.keySet() );
+    public List< NsIdentification > getNsIdentificationOrderedList( IRiseClipseConsole console ) {
+        LinkedList< NsIdentification > list = new LinkedList< NsIdentification >( nsResources.keySet() );
         ArrayList< NsIdentification > sortedList = new ArrayList< NsIdentification >();
         // First, add root NS 
         ListIterator< NsIdentification > it = list.listIterator();
         while( it.hasNext() ) {
             NsIdentification nsId = it.next();
-            NS ns = nsdResources.get( nsId );
+            NS ns = nsResources.get( nsId );
             if( ns.getDependsOn() == null ) {
+                console.info( NSD_SETUP_CATEGORY, 0,
+                              "NS ", nsId, " has no DependsOn" );
                 sortedList.add( nsId );
                 it.remove();
             }
         }
-        // The add NS which depend on another already in sortedList
+        // Then add NS which depend on another already in sortedList
         while( ! list.isEmpty() ) {
             boolean progress = false;
             it = list.listIterator();
             while( it.hasNext() ) {
                 NsIdentification nsId = it.next();
-                NS ns = nsdResources.get( nsId );
-                if( sortedList.contains( new NsIdentification( ns.getDependsOn() ))) {
+                NS ns = nsResources.get( nsId );
+                NsIdentification dependsOnNS = new NsIdentification( ns.getDependsOn() );
+                int pos = sortedList.indexOf( dependsOnNS );
+                if( pos >= 0 ) {
+                    console.info( NSD_SETUP_CATEGORY, 0,
+                                  "NS ", nsId, " depends on ", dependsOnNS );
+                    // release is absent in DependsOn element of NSD2007B files
+                    // Therefore, difference is not an error
+                    if(( dependsOnNS.getRelease() != NsIdentification.DEFAULT_RELEASE ) &&
+                       ( dependsOnNS.getRelease() != sortedList.get( pos ).getRelease() )) {
+                        console.warning( NSD_SETUP_CATEGORY, 0,
+                                         "the DependsOn NS found has a release of ", sortedList.get( pos ).getRelease(),
+                                         " which is not the one expected (", dependsOnNS.getRelease(), ") by DependsOn element" );
+                    }
                     sortedList.add( nsId );
                     it.remove();
                     progress = true;
                 }
             }
             if( ! progress ) {
-                AbstractRiseClipseConsole.getConsole().emergency( NSD_SETUP_CATEGORY, 0,
-                        "getNsIdentificationOrderedList() failed" );
-                return null;
+                it = list.listIterator();
+                while( it.hasNext() ) {
+                    NsIdentification nsId = it.next();
+                    NS ns = nsResources.get( nsId );
+                    NsIdentification dependsOnNS = new NsIdentification( ns.getDependsOn() );
+                    if( ! list.contains( dependsOnNS )) {
+                        console.error( NSD_SETUP_CATEGORY, 0,
+                                       "NS ", nsId, " depends on ", dependsOnNS, " which is unknown, it is removed" );
+                    }
+                    else {
+                        console.error( NSD_SETUP_CATEGORY, 0,
+                                       "NS ", nsId, " depends on ", dependsOnNS, " which depends on one which is unknown, it is removed" );
+                    }
+                    it.remove();
+                }
             }
         }
         return sortedList;
     }
 
     public Stream< NsIdentification > getNsIdentificationStream() {
-        return nsdResources.keySet().stream();
+        return nsResources.keySet().stream();
     }
 
     public NsIdentification getDependsOn( NsIdentification nsIdentification ) {
-        NS ns = getRelaxedNS( nsIdentification );
+        NS ns = getNS( nsIdentification );
         if(( ns != null ) && ( ns.getDependsOn() != null )) {
             return new NsIdentification( ns.getDependsOn() );
         }
@@ -613,7 +624,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
     
     public Stream< LNClass > getLNClassStream( NsIdentification identification, boolean useDependsOn ) {
         Stream< LNClass > lnClassStream = Stream.empty();
-        NS ns = getRelaxedNS( identification );
+        NS ns = getNS( identification );
         if( ns != null ) {
             Stream< LNClass > tmp = Stream.concat( lnClassStream, getLNClassStream( ns, useDependsOn ));
             lnClassStream = tmp;
@@ -644,7 +655,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
     
     public Stream< AbstractLNClass > getAbstractLNClassStream( NsIdentification identification, boolean useDependsOn ) {
         Stream< AbstractLNClass > lnClassStream = Stream.empty();
-        NS ns = getRelaxedNS( identification );
+        NS ns = getNS( identification );
         if( ns != null ) {
             Stream< AbstractLNClass > tmp = Stream.concat( lnClassStream, getAbstractLNClassStream( ns, useDependsOn ));
             lnClassStream = tmp;
@@ -675,7 +686,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
     
     public Stream< Abbreviation > getAbbreviationStream( NsIdentification identification, boolean useDependsOn ) {
         Stream< Abbreviation > abbreviationStream = Stream.empty();
-        NS ns = getRelaxedNS( identification );
+        NS ns = getNS( identification );
         if( ns != null ) {
             Stream< Abbreviation > tmp = Stream.concat( abbreviationStream, getAbbreviationStream( ns, useDependsOn ));
             abbreviationStream = tmp;
@@ -706,7 +717,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
     
     public Stream< Enumeration > getEnumerationStream( NsIdentification identification, boolean useDependsOn ) {
         Stream< Enumeration > enumerationStream = Stream.empty();
-        NS ns = getRelaxedNS( identification );
+        NS ns = getNS( identification );
         if( ns != null ) {
             Stream< Enumeration > tmp = Stream.concat( enumerationStream, getEnumerationStream( ns, useDependsOn ));
             enumerationStream = tmp;
@@ -737,7 +748,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
     
     public Stream< CDC > getCDCStream( NsIdentification identification, boolean useDependsOn ) {
         Stream< CDC > cdcStream = Stream.empty();
-        NS ns = getRelaxedNS( identification );
+        NS ns = getNS( identification );
         if( ns != null ) {
             Stream< CDC > tmp = Stream.concat( cdcStream, getCDCStream( ns, useDependsOn ));
             cdcStream = tmp;
@@ -768,7 +779,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
     
     public Stream< ConstructedAttribute > getConstructedAttributeStream( NsIdentification identification, boolean useDependsOn ) {
         Stream< ConstructedAttribute > constructedAttributeStream = Stream.empty();
-        NS ns = getRelaxedNS( identification );
+        NS ns = getNS( identification );
         if( ns != null ) {
             Stream< ConstructedAttribute > tmp = Stream.concat( constructedAttributeStream, getConstructedAttributeStream( ns, useDependsOn ));
             constructedAttributeStream = tmp;
@@ -799,7 +810,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
     
     public Stream< BasicType > getBasicTypeStream( NsIdentification identification, boolean useDependsOn ) {
         Stream< BasicType > basicTypeStream = Stream.empty();
-        NS ns = getRelaxedNS( identification );
+        NS ns = getNS( identification );
         if( ns != null ) {
             Stream< BasicType > tmp = Stream.concat( basicTypeStream, getBasicTypeStream( ns, useDependsOn ));
             basicTypeStream = tmp;
@@ -830,7 +841,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
     
     public Stream< FunctionalConstraint > getFunctionalConstraintStream( NsIdentification identification, boolean useDependsOn ) {
         Stream< FunctionalConstraint > functionalConstraintStream = Stream.empty();
-        NS ns = getRelaxedNS( identification );
+        NS ns = getNS( identification );
         if( ns != null ) {
             Stream< FunctionalConstraint > tmp = Stream.concat( functionalConstraintStream, getFunctionalConstraintStream( ns, useDependsOn ));
             functionalConstraintStream = tmp;
@@ -862,7 +873,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
     
     public Stream< PresenceCondition > getPresenceConditionStream( NsIdentification identification, boolean useDependsOn ) {
         Stream< PresenceCondition > presenceConditionStream = Stream.empty();
-        NS ns = getRelaxedNS( identification );
+        NS ns = getNS( identification );
         if( ns != null ) {
             Stream< PresenceCondition > tmp = Stream.concat( presenceConditionStream, getPresenceConditionStream( ns, useDependsOn ));
             presenceConditionStream = tmp;
