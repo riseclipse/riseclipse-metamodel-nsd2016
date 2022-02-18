@@ -20,6 +20,8 @@
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.util;
 
+import java.io.IOException;
+
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
@@ -44,5 +46,19 @@ public class NsdLoadImpl extends XMLLoadImpl {
         SAXParserFactory f = SAXParserFactory.newInstance();
         f.setNamespaceAware( true );
         return f.newSAXParser();
+    }
+
+    /*
+     * XMLLoadImpl.handleErrors() will throw either Resource.IOWrappedException or IOException
+     * for errors found while parsing document.
+     * Errors are not always fatal (like an InvalidValueException when an Integer
+     * is expected and something else is found).
+     * We will handle such errors later
+     * 
+     * TODO: this should be in riseclipse-main to be done for every file loaded by RiseClipse!
+     */
+    @Override
+    protected void handleErrors() throws IOException {
+        // Nothing
     }
 }

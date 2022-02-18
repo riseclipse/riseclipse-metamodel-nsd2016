@@ -35,7 +35,9 @@ import java.util.stream.Stream;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.xmi.IllegalValueException;
 import org.eclipse.jdt.annotation.NonNull;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation;
@@ -120,6 +122,21 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
             this.getResources().remove( resource );
             return;
         }
+        
+        for( Diagnostic error : resource.getErrors() ) {
+            if( error instanceof IllegalValueException ) {
+                IllegalValueException e = ( IllegalValueException ) error;
+                console.error( NSD_SETUP_CATEGORY, resource.getURI().lastSegment(), e.getLine(),
+                        ( e.getValue().toString().isEmpty() ? "empty value" : "value \"" + e.getValue() + "\"" ),
+                        " is not legal for feature \"", e.getFeature().getName(), "\", it should be a value of ",
+                        e.getFeature().getEType().getName() );
+            }
+            else {
+                console.error( NSD_SETUP_CATEGORY, resource.getURI().lastSegment(), error.getLine(),
+                           error.getMessage() );
+            }
+        }
+        
         DocumentRoot root = (DocumentRoot) resource.getContents().get( 0 );
         
         if( root.getNS() != null ) {
