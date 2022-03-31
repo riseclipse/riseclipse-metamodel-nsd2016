@@ -14,7 +14,7 @@ Export-Package: fr.centralesupelec.edf.riseclipse.iec61850.nsd,
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.ocl.pivot;visibility:=reexport,
- org.eclipse.ocl.examples.codegen;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  fr.centralesupelec.edf.riseclipse.main;bundle-version="1.2.2",
+ com.google.inject
 Bundle-ActivationPolicy: lazy
