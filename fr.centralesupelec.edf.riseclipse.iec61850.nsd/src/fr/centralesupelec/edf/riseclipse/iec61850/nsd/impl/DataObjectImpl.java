@@ -1,6 +1,6 @@
 /*
 *************************************************************************
-**  Copyright (c) 2016-2021 CentraleSupélec & EDF.
+**  Copyright (c) 2016-2022 CentraleSupélec & EDF.
 **  All rights reserved. This program and the accompanying materials
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
@@ -31,6 +31,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.ocl.pivot.evaluation.Executor;
 import org.eclipse.ocl.pivot.ids.TypeId;
 import org.eclipse.ocl.pivot.library.oclany.OclComparableLessThanEqualOperation;
@@ -2826,27 +2827,31 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
      *   DataObject.dsPresCond              -> PresenceCondition.name
      */
     @Override
-    public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
+    public boolean buildExplicitLinks( @NonNull IRiseClipseConsole console, boolean forceUpdate ) {
+        console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "DataObjectImpl.buildExplicitLinks()" );
+
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
         String id = getNsIdentification().getId();
         NsdResourceSetImpl rs = getResourceSet();
         if( rs == null ) return false;
 
-        String messagePrefix = "[NSD links] while resolving link from DataObject (name: " + getName()
-                + ", NS id: " + id + ", line: " + getLineNumber() + "): ";
+        String messagePrefix = "while resolving link from DataObject (name: " + getName()
+                + ", NS id: " + id + "): ";
 
         if( isSetType() ) {
             CDC foundCDC = rs.findCDC( getType(), getNsIdentification(), console );
 
             if( foundCDC == null ) {
-                console.warning( messagePrefix + "CDC (name: " + getType() + ") not found" );
+                console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                                 messagePrefix, "CDC (name: ", getType(), ") not found" );
             }
             else {
                 setRefersToCDC( foundCDC );
-                console.info( "[NSD links] CDC (name: " + getType() + ") refers by DataObject (name: " + getName()
-                        + ") in NS (id:" + id + ") found in NS (id:"
-                        + getRefersToCDC().getParentCDCs().getParentNS().getId() + ")" );
+                console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                              "CDC (name: ", getType(), ") refers by DataObject (name: ", getName(),
+                              ") in NS (id:", id, ") found in NS (id:",
+                              getRefersToCDC().getParentCDCs().getParentNS().getId(), ")" );
             }
         }
 
@@ -2854,29 +2859,31 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             PresenceCondition foundPC = rs.findPresenceCondition( getPresCond(), getNsIdentification(), console );
 
             if( foundPC == null ) {
-                console.warning( messagePrefix + "PresenceCondition (name: " + getPresCond() + ") not found" );
+                console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                                 messagePrefix, "PresenceCondition (name: ", getPresCond(), ") not found" );
             }
             else {
                 setRefersToPresenceCondition( foundPC );
-                console.info( "[NSD links] PresenceCondition (name: " + getPresCond() + ") refers by DataObject (name: "
-                        + getName() + ") in NS (id:" + id + ") found in NS (id:"
-                        + getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId() + ")" );
+                console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                              "PresenceCondition (name: ", getPresCond(), ") refers by DataObject (name: ",
+                              getName(), ") in NS (id:", id, ") found in NS (id:",
+                              getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId(), ")" );
             }
         }
 
         if( isSetDsPresCond() ) {
             PresenceCondition foundPC = rs.findPresenceCondition( getDsPresCond(), getNsIdentification(), console );
             if( foundPC == null ) {
-                console.warning( messagePrefix + "PresenceCondition (name: " + getDsPresCond() + ") not found" );
+                console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                                 messagePrefix, "PresenceCondition (name: ", getDsPresCond(), ") not found" );
             }
             else {
                 setRefersToPresenceConditionDerivedStatistics( foundPC );
-                console.info( "[NSD links] PresenceCondition (name: " + getDsPresCond()
-                        + ") refers by DataObject (name: "
-                        + getName() + ") in NS (id:" + id + ") found in NS (id:"
-                        + getRefersToPresenceConditionDerivedStatistics().getParentPresenceConditions().getParentNS()
-                                .getId()
-                        + ")" );
+                console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                              "PresenceCondition (name: ", getDsPresCond(), ") refers by DataObject (name: ",
+                              getName(), ") in NS (id:", id, ") found in NS (id:",
+                              getRefersToPresenceConditionDerivedStatistics().getParentPresenceConditions().getParentNS().getId(),
+                              ")" );
             }
         }
 
@@ -2903,14 +2910,15 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                     BasicType foundBT = rs.findBasicType( getUnderlyingType(), getNsIdentification(), console );
 
                     if( foundBT == null ) {
-                        console.warning( messagePrefix + "BasicType (name: " + getUnderlyingType() + ") not found" );
+                        console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                                         messagePrefix, "BasicType (name: ", getUnderlyingType(), ") not found" );
                     }
                     else {
                         setRefersToUnderlyingBasicType( foundBT );
-                        console.info( "[NSD links] BasicType (name: " + getUnderlyingType()
-                                + ") refers as type by DataObject (name: "
-                                + getName() + ") in NS (id:" + id + ") found in NS (id:"
-                                + getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS().getId() + ")" );
+                        console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                                      "BasicType (name: ", getUnderlyingType(), ") refers as type by DataObject (name: ",
+                                      getName(), ") in NS (id:", id, ") found in NS (id:",
+                                      getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS().getId(), ")" );
                     }
                     break;
                 case DefinedAttributeTypeKind.CONSTRUCTED_VALUE:
@@ -2919,8 +2927,8 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                             console );
 
                     if( foundCA == null ) {
-                        console.warning(
-                                messagePrefix + "ConstructedAttribute (name: " + getUnderlyingType() + ") not found" );
+                        console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                                         messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") not found" );
                     }
                     else {
                         setRefersToUnderlyingConstructedAttribute( foundCA );
@@ -2935,31 +2943,33 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                             foundWhere = "ServiceNS (id:" + getRefersToUnderlyingConstructedAttribute()
                                     .getParentServiceTypeRealizations().getParentServiceNS().getId();
                         }
-                        console.info( "[NSD links] ConstructedAttribute (name: " + getUnderlyingType()
-                                + ") refers as type by DataObject (name: "
-                                + getName() + ") in NS (id:" + id + ") found in "
-                                + foundWhere + ")" );
+                        console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                                      "ConstructedAttribute (name: ", getUnderlyingType(),
+                                      ") refers as type by DataObject (name: ",
+                                      getName(), ") in NS (id:", id, ") found in ", foundWhere, ")" );
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
                     Enumeration foundEn = rs.findEnumeration( getUnderlyingType(), getNsIdentification(), console );
 
                     if( foundEn == null ) {
-                        console.warning( messagePrefix + "Enumeration (name: " + getUnderlyingType() + ") not found" );
+                        console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                                         messagePrefix, "Enumeration (name: ", getUnderlyingType(), ") not found" );
                     }
                     else {
                         setRefersToUnderlyingEnumeration( foundEn );
-                        console.info( "[NSD links] Enumeration (name: " + getUnderlyingType()
-                                + ") refers as type by DataObject (name: "
-                                + getName() + ") in NS (id:" + id + ") found in NS (id:"
-                                + getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS().getId()
-                                + ")" );
+                        console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                                      "Enumeration (name: ", getUnderlyingType(), ") refers as type by DataObject (name: ",
+                                      getName(), ") in NS (id:", id, ") found in NS (id:",
+                                      getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS().getId(),
+                                      ")" );
                     }
                     break;
                 }
             }
             else {
-                console.warning( messagePrefix + "UnderlyingTypeKind is set but underlying type is missing" );
+                console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                                 messagePrefix, "UnderlyingTypeKind is set but underlying type is missing" );
             }
         }
 

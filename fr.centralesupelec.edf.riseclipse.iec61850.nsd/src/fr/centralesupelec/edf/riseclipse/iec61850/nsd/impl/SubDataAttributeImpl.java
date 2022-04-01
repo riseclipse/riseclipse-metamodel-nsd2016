@@ -1,6 +1,6 @@
 /*
 *************************************************************************
-**  Copyright (c) 2016-2021 CentraleSupélec & EDF.
+**  Copyright (c) 2016-2022 CentraleSupélec & EDF.
 **  All rights reserved. This program and the accompanying materials
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.ocl.pivot.evaluation.Executor;
 import org.eclipse.ocl.pivot.ids.TypeId;
 import org.eclipse.ocl.pivot.library.oclany.OclComparableLessThanEqualOperation;
@@ -2511,27 +2512,31 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
      *   SubDataAttribute.maxIndexAttribute -> DataAttribute.name                   ? Which DataAttribute ?
      */
     @Override
-    public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
+    public boolean buildExplicitLinks( @NonNull IRiseClipseConsole console, boolean forceUpdate ) {
+        console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "SubDataAttributeImpl.buildExplicitLinks()" );
+
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
         String id = getNsIdentification().getId();
         NsdResourceSetImpl rs = getResourceSet();
         if( rs == null ) return false;
 
-        String messagePrefix = "[NSD links] while resolving link from SubDataAttribute (name: " + getName()
-                + ", NS id: " + id + ", line: " + getLineNumber() + "): ";
+        String messagePrefix = "while resolving link from SubDataAttribute (name: " + getName()
+                + ", NS id: " + id + "): ";
 
         if( isSetPresCond() ) {
             PresenceCondition foundPC = rs.findPresenceCondition( getPresCond(), getNsIdentification(), console );
             if( foundPC == null ) {
-                console.warning( messagePrefix + "PresenceCondition (name: " + getPresCond() + ") not found" );
+                console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                                 messagePrefix, "PresenceCondition (name: ", getPresCond(), ") not found" );
             }
             else {
                 setRefersToPresenceCondition( foundPC );
-                console.info( "[NSD links] PresenceCondition (name: " + getPresCond()
-                        + ") refers by SubDataAttribute (name: "
-                        + getName() + ") in NS (id:" + id + ") found in NS (id:"
-                        + getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId() + ")" );
+                console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                              "PresenceCondition (name: ", getPresCond(),
+                              ") refers by SubDataAttribute (name: ",
+                              getName(), ") in NS (id:", id, ") found in NS (id:",
+                              getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId(), ")" );
             }
         }
 
@@ -2542,14 +2547,16 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
                     BasicType foundBT = rs.findBasicType( getType(), getNsIdentification(), console );
 
                     if( foundBT == null ) {
-                        console.warning( messagePrefix + "BasicType (name: " + getType() + ") not found" );
+                        console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                                         messagePrefix, "BasicType (name: ", getType(), ") not found" );
                     }
                     else {
                         setRefersToBasicType( foundBT );
-                        console.info( "[NSD links] BasicType (name: " + getType()
-                                + ") refers as type by SubDataAttribute (name: "
-                                + getName() + ") in NS (id:" + id + ") found in NS (id:"
-                                + getRefersToBasicType().getParentBasicTypes().getParentNS().getId() + ")" );
+                        console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                                      "BasicType (name: ", getType(),
+                                      ") refers as type by SubDataAttribute (name: ",
+                                      getName(), ") in NS (id:", id, ") found in NS (id:",
+                                      getRefersToBasicType().getParentBasicTypes().getParentNS().getId(), ")" );
                     }
                     break;
                 case DefinedAttributeTypeKind.CONSTRUCTED_VALUE:
@@ -2557,36 +2564,40 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
                             console );
 
                     if( foundCA == null ) {
-                        console.warning( messagePrefix + "ConstructedAttribute (name: " + getType() + ") not found" );
+                        console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                                         messagePrefix, "ConstructedAttribute (name: ", getType(), ") not found" );
                     }
                     else {
                         setRefersToConstructedAttribute( foundCA );
-                        console.info( "[NSD links] ConstructedAttribute (name: " + getType()
-                                + ") refers as type by SubDataAttribute (name: "
-                                + getName() + ") in NS (id:" + id + ") found in NS (id:"
-                                + getRefersToConstructedAttribute().getParentConstructedAttributes().getParentNS()
-                                        .getId()
-                                + ")" );
+                        console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                                      "ConstructedAttribute (name: ", getType(),
+                                      ") refers as type by SubDataAttribute (name: ",
+                                      getName(), ") in NS (id:", id, ") found in NS (id:",
+                                      getRefersToConstructedAttribute().getParentConstructedAttributes().getParentNS().getId(),
+                                      ")" );
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
                     Enumeration foundEn = rs.findEnumeration( getType(), getNsIdentification(), console );
 
                     if( foundEn == null ) {
-                        console.warning( messagePrefix + "Enumeration (name: " + getType() + ") not found" );
+                        console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                                         messagePrefix, "Enumeration (name: ", getType(), ") not found" );
                     }
                     else {
                         setRefersToEnumeration( foundEn );
-                        console.info( "[NSD links] Enumeration (name: " + getType()
-                                + ") refers as type by SubDataAttribute (name: "
-                                + getName() + ") in NS (id:" + id + ") found in NS (id:"
-                                + getRefersToEnumeration().getParentEnumerations().getParentNS().getId() + ")" );
+                        console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                                      "Enumeration (name: ", getType(),
+                                      ") refers as type by SubDataAttribute (name: ",
+                                      getName(), ") in NS (id:", id, ") found in NS (id:",
+                                      getRefersToEnumeration().getParentEnumerations().getParentNS().getId(), ")" );
                     }
                     break;
                 }
             }
             else {
-                console.warning( messagePrefix + "type is missing for " + getTypeKind() );
+                console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                                 messagePrefix, "type is missing for ", getTypeKind() );
             }
         }
 

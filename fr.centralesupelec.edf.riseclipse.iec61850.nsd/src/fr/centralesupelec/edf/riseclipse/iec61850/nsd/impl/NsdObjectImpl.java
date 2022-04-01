@@ -1,6 +1,6 @@
 /*
 *************************************************************************
-**  Copyright (c) 2016-2021 CentraleSupélec & EDF.
+**  Copyright (c) 2016-2022 CentraleSupélec & EDF.
 **  All rights reserved. This program and the accompanying materials
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
@@ -49,6 +49,9 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
  * @generated
  */
 public abstract class NsdObjectImpl extends MinimalEObjectImpl.Container implements NsdObject {
+
+    protected static final String EXPLICIT_LINK_CATEGORY = "NSD/ExplicitLinks";
+    
     /**
      * The default value of the '{@link #getLineNumber() <em>Line Number</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -161,6 +164,8 @@ public abstract class NsdObjectImpl extends MinimalEObjectImpl.Container impleme
      */
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
+        console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "NsdObjectImpl.buildExplicitLinks()" );
+
         if( ( !forceUpdate ) && isExplicitLinksBuilt() ) return true;
 
         for( EObject o : eContents() ) {

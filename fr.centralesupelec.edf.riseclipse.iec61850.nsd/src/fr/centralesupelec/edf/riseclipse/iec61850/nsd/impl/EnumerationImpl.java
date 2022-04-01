@@ -1,6 +1,6 @@
 /*
 *************************************************************************
-**  Copyright (c) 2016-2021 CentraleSupélec & EDF.
+**  Copyright (c) 2016-2022 CentraleSupélec & EDF.
 **  All rights reserved. This program and the accompanying materials
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
@@ -37,6 +37,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.ocl.pivot.evaluation.Executor;
 import org.eclipse.ocl.pivot.ids.IdResolver;
 import org.eclipse.ocl.pivot.ids.TypeId;
@@ -1139,26 +1140,30 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
      *   Enumeration.inheritedFrom          -> Enumeration.name
      */
     @Override
-    public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
-        if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
+    public boolean buildExplicitLinks( @NonNull IRiseClipseConsole console, boolean forceUpdate ) {
+        console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "EnumerationImpl.buildExplicitLinks()" );
+
+        if( super.buildExplicitLinks( console, forceUpdate )) return true;
 
         String id = getNsIdentification().getId();
         NsdResourceSetImpl rs = getResourceSet();
         if( rs == null ) return false;
 
-        String messagePrefix = "[NSD links] while resolving link from Enumeration (name: " + getName()
-                + ", NS id: " + id + ", line: " + getLineNumber() + "): ";
+        String messagePrefix = "while resolving link from Enumeration (name: " + getName()
+                + ", NS id: " + id + "): ";
 
         if( isSetInheritedFrom() ) {
             Enumeration foundBase = rs.findEnumeration( getInheritedFrom(), getNsIdentification(), console );
             if( foundBase == null ) {
-                console.warning( messagePrefix + "Enumeration (name: " + getInheritedFrom() + ") not found" );
+                console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                                 messagePrefix, "Enumeration (name: ", getInheritedFrom(), ") not found" );
             }
             else {
                 setRefersToBaseEnumeration( foundBase );
-                console.info( "[NSD links] Enumeration (name: " + getInheritedFrom() + ") refers by Enumeration (name: "
-                        + getName() + ") in NS (id:" + id + ") found in NS (id:"
-                        + getRefersToBaseEnumeration().getParentEnumerations().getParentNS().getId() + ")" );
+                console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                              "Enumeration (name: ", getInheritedFrom(), ") refers by Enumeration (name: ",
+                              getName(), ") in NS (id:", id, ") found in NS (id:",
+                              getRefersToBaseEnumeration().getParentEnumerations().getParentNS().getId(), ")" );
             }
         }
 

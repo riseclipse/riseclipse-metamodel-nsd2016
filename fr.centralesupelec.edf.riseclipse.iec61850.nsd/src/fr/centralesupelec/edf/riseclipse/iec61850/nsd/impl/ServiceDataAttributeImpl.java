@@ -1,6 +1,6 @@
 /*
 *************************************************************************
-**  Copyright (c) 2016-2021 CentraleSupélec & EDF.
+**  Copyright (c) 2016-2022 CentraleSupélec & EDF.
 **  All rights reserved. This program and the accompanying materials
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.ocl.pivot.evaluation.Executor;
 import org.eclipse.ocl.pivot.ids.TypeId;
 import org.eclipse.ocl.pivot.library.oclany.OclComparableLessThanEqualOperation;
@@ -2486,7 +2487,9 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
     }
 
     @Override
-    public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
+    public boolean buildExplicitLinks( @NonNull IRiseClipseConsole console, boolean forceUpdate ) {
+        console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "ServiceDataAttributeImpl.buildExplicitLinks()" );
+
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
         if( isSetPresCondArgsID() ) {
@@ -2502,8 +2505,8 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         NsdResourceSetImpl rs = getResourceSet();
         if( rs == null ) return false;
 
-        String messagePrefix = "[NSD links] while resolving link from ServiceDataAttribute (name: " + getName()
-                + ", ServiceNS id: " + sns.getId() + ", line: " + getLineNumber() + "): ";
+        String messagePrefix = "while resolving link from ServiceDataAttribute (name: " + getName()
+                + ", ServiceNS id: " + sns.getId() + "): ";
 
         if( isSetUnderlyingTypeKind() ) {
             if( isSetUnderlyingType() ) {
@@ -2512,14 +2515,16 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                     BasicType foundBT = rs.findBasicType( getUnderlyingType(), getNsIdentification(), console );
 
                     if( foundBT == null ) {
-                        console.warning( messagePrefix + "BasicType (name: " + getUnderlyingType() + ") not found" );
+                        console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                                         messagePrefix, "BasicType (name: ", getUnderlyingType(), ") not found" );
                     }
                     else {
                         setRefersToUnderlyingBasicType( foundBT );
-                        console.info( "[NSD links] BasicType (name: " + getUnderlyingType()
-                                + ") refers as type by ServiceDataAttribute (name: "
-                                + getName() + ") in ServiceNS (id:" + sns.getId() + ") found in NS (id:"
-                                + getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS().getId() + ")" );
+                        console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                                      "BasicType (name: ", getUnderlyingType(),
+                                      ") refers as type by ServiceDataAttribute (name: ",
+                                      getName(), ") in ServiceNS (id:", sns.getId(), ") found in NS (id:",
+                                      getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS().getId(), ")" );
                     }
                     break;
                 case DefinedAttributeTypeKind.CONSTRUCTED_VALUE:
@@ -2528,8 +2533,8 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                             console );
 
                     if( foundCA == null ) {
-                        console.warning(
-                                messagePrefix + "ConstructedAttribute (name: " + getUnderlyingType() + ") not found" );
+                        console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                                         messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") not found" );
                     }
                     else {
                         setRefersToUnderlyingConstructedAttribute( foundCA );
@@ -2544,31 +2549,34 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                             foundWhere = "ServiceNS (id:" + getRefersToUnderlyingConstructedAttribute()
                                     .getParentServiceTypeRealizations().getParentServiceNS().getId();
                         }
-                        console.info( "[NSD links] ConstructedAttribute (name: " + getUnderlyingType()
-                                + ") refers as type by ServiceDataAttribute (name: "
-                                + getName() + ") in ServiceNS (id:" + sns.getId() + ") found in "
-                                + foundWhere + ")" );
+                        console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                                      "[NSD links] ConstructedAttribute (name: " , getUnderlyingType(),
+                                      ") refers as type by ServiceDataAttribute (name: ",
+                                      getName(), ") in ServiceNS (id:", sns.getId(), ") found in ",
+                                      foundWhere, ")" );
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
                     Enumeration foundEn = rs.findEnumeration( getUnderlyingType(), getNsIdentification(), console );
 
                     if( foundEn == null ) {
-                        console.warning( messagePrefix + "Enumeration (name: " + getUnderlyingType() + ") not found" );
+                        console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                                         messagePrefix, "Enumeration (name: ", getUnderlyingType(), ") not found" );
                     }
                     else {
                         setRefersToUnderlyingEnumeration( foundEn );
-                        console.info( "[NSD links] Enumeration (name: " + getUnderlyingType()
-                                + ") refers as type by ServiceDataAttribute (name: "
-                                + getName() + ") in ServiceNS (id:" + sns.getId() + ") found in NS (id:"
-                                + getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS().getId()
-                                + ")" );
+                        console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                                      "Enumeration (name: ", getUnderlyingType(),
+                                      ") refers as type by ServiceDataAttribute (name: ",
+                                      getName(), ") in ServiceNS (id:", sns.getId(), ") found in NS (id:",
+                                      getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS().getId(), ")" );
                     }
                     break;
                 }
             }
             else {
-                console.warning( messagePrefix + "UnderlyingTypeKind is set but underlying type is missing" );
+                console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                                 messagePrefix, "UnderlyingTypeKind is set but underlying type is missing" );
             }
         }
 

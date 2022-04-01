@@ -2944,6 +2944,8 @@ public class NSImpl extends CopyrightedImpl implements NS {
 
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
+        console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "NSImpl.buildExplicitLinks()" );
+
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
         if( isSetDescID() ) {

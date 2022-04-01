@@ -1151,6 +1151,8 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
 
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
+        console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "FunctionalConstraintImpl.buildExplicitLinks()" );
+
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
         NsIdentification identification = null;

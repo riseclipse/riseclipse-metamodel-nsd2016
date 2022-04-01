@@ -1,6 +1,6 @@
 /*
 *************************************************************************
-**  Copyright (c) 2016-2021 CentraleSupélec & EDF.
+**  Copyright (c) 2016-2022 CentraleSupélec & EDF.
 **  All rights reserved. This program and the accompanying materials
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
@@ -31,6 +31,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.ocl.pivot.evaluation.Executor;
 import org.eclipse.ocl.pivot.ids.TypeId;
 import org.eclipse.ocl.pivot.library.oclany.OclComparableLessThanEqualOperation;
@@ -1090,22 +1091,26 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
      *   DependsOn.id                       -> NS.id
      */
     @Override
-    public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
+    public boolean buildExplicitLinks( @NonNull IRiseClipseConsole console, boolean forceUpdate ) {
+        console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "DependsOnImpl.buildExplicitLinks()" );
+
         if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
 
-        String messagePrefix = "[NSD links] while resolving link from DependsOn (NS id: "
-                + new NsIdentification( getParentNS() ) + ", line: " + getLineNumber() + "): ";
+        String messagePrefix = "while resolving link from DependsOn (NS id: "
+                + new NsIdentification( getParentNS() ) + "): ";
 
         NsIdentification identification = new NsIdentification( getId(), getVersion(), getRevision(), getRelease() );
         NsdResourceSetImpl rs = getResourceSet();
         NS ns = rs.getNS( identification );
         if( ns == null ) {
-            console.warning( messagePrefix + "NS (id: " + identification + ") not found" );
+            console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                             messagePrefix, "NS (id: ", identification, ") not found" );
         }
         else {
             setRefersToNS( ns );
-            console.info( "[NSD links] NS (id: " + identification + ") refers by DependsOn in NS (id:"
-                    + new NsIdentification( getParentNS() ) + ") found" );
+            console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                          "NS (id: ", identification, ") refers by DependsOn in NS (id:",
+                          new NsIdentification( getParentNS() ), ") found" );
         }
         return false;
     }
