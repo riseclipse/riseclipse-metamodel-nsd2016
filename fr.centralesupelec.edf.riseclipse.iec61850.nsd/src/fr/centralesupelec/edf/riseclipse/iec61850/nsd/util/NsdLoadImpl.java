@@ -31,6 +31,7 @@ public class NsdLoadImpl extends AbstractRiseClipseXMLLoadImpl {
         super( helper );
     }
 
+    @Override
     public DefaultHandler makeDefaultHandler() {
         return new NsdXmlHandler( resource, helper, options );
     }
