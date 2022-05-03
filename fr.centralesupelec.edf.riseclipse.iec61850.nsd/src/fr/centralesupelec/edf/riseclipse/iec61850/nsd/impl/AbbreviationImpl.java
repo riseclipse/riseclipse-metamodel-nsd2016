@@ -673,10 +673,10 @@ public class AbbreviationImpl extends NsdObjectImpl implements Abbreviation {
     }
 
     @Override
-    public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
+    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "AbbreviationImpl.buildExplicitLinks()" );
 
-        if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
+        if( super.buildExplicitLinks( console )) return true;
 
         if( isSetDescID() ) {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {

@@ -35,7 +35,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.ocl.pivot.evaluation.Executor;
 import org.eclipse.ocl.pivot.ids.IdResolver;
 import org.eclipse.ocl.pivot.ids.TypeId;
@@ -635,34 +634,41 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
      *   AnyLNClass.base                    -> AbstractLNClass
      */
     @Override
-    public boolean buildExplicitLinks( @NonNull IRiseClipseConsole console, boolean forceUpdate ) {
+    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "AnyLNImpl.buildExplicitLinks()" );
 
-        if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
-
-        String id = getNsIdentification().getId();
+        if( super.buildExplicitLinks( console )) return true;
 
         if( isSetBase() ) {
 
             // This code assumes that the referred AbstractLNClass is in the same NS
             // TODO: check that it is right
-            getParentLNClasses()
-                    .getAbstractLNClass()
-                    .stream()
-                    .filter( abstractLNClass -> abstractLNClass.getName().equals( getBase() ) )
-                    .findAny()
-                    .ifPresent( abstractLNClass -> setRefersToAbstractLNClass( abstractLNClass ) );
+            // DONE: this is not right
+            //            getParentLNClasses()
+            //                    .getAbstractLNClass()
+            //                    .stream()
+            //                    .filter( abstractLNClass -> abstractLNClass.getName().equals( getBase() ) )
+            //                    .findAny()
+            //                    .ifPresent( abstractLNClass -> setRefersToAbstractLNClass( abstractLNClass ) );
+            AbstractLNClass abstractLNClass = getResourceSet().findAbstractLNClass( getBase(), getNsIdentification(),
+                    true );
 
-            if( isSetRefersToAbstractLNClass() ) {
-                console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                              "AbstractLNClass (name: ", getBase(), ") refers by AnyLNClass (name: ", getName(),
-                              ") in NS (id:", id, ") found in NS (id:",
-                              getRefersToAbstractLNClass().getParentLNClasses().getParentNS().getId(), ")" );
+            if( abstractLNClass != null ) {
+                setRefersToAbstractLNClass( abstractLNClass );
+                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                                "while resolving link from AnyLNClass (name: ", getName(),
+                                "): AbstractLNClass (name: ", getBase(), ") found in NS (id:",
+                                getRefersToAbstractLNClass().getParentLNClasses().getParentNS().getId(), ")" );
             }
             else {
-                console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                                 "while resolving link from AnyLNClass (name: ", getName(),
-                                 ", NS id: ", id, "): AbstractLNClass (name: ", getBase(), ") not found" );
+                // TODO: Some NSD file (e.g. eTr_IEC61850-90-6_2018A5.nsd) use a non-abstract LNClass as base.
+                // Is it allowed ?
+                // DONE: no, in 61850-7-7:
+                // An AbstractLNClass shall not be used by a real data model, and an LNClass shall not be
+                // inherited by another LNClass.
+                console.error( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                               "while resolving link from AnyLNClass (name: ", getName(),
+                               "): AbstractLNClass (name: ", getBase(), ") not found" );
             }
         }
 

@@ -31,7 +31,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.ocl.pivot.evaluation.Executor;
 import org.eclipse.ocl.pivot.ids.TypeId;
 import org.eclipse.ocl.pivot.library.oclany.OclComparableLessThanEqualOperation;
@@ -2824,45 +2823,40 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
      *   SubDataObject.maxIndexAttribute    -> DataAttribute.name
      */
     @Override
-    public boolean buildExplicitLinks( @NonNull IRiseClipseConsole console, boolean forceUpdate ) {
-        if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
+    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
+        if( super.buildExplicitLinks( console )) return true;
 
-        String id = getNsIdentification().getId();
         NsdResourceSetImpl rs = getResourceSet();
         if( rs == null ) return false;
 
-        String messagePrefix = "while resolving link from SubDataObject (name: " + getName()
-                + ", NS id: " + id + "): ";
+        String messagePrefix = "while resolving link from SubDataObject (name: " + getName() + "): ";
 
         if( isSetType() ) {
-            CDC foundCDC = rs.findCDC( getType(), getNsIdentification(), console );
+            CDC foundCDC = rs.findCDC( getType(), getNsIdentification(), true );
 
             if( foundCDC == null ) {
-                console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
                                  messagePrefix, "CDC (name: ", getType(), ") not found" );
             }
             else {
                 setRefersToCDC( foundCDC );
-                console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                              "CDC (name: ", getType(), ") refers by SubDataObject (name: ", getName(),
-                              ") in NS (id:", id, ") found in NS (id:",
+                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                              messagePrefix, "CDC (name: ", getType(), ") found in NS (id:",
                               getRefersToCDC().getParentCDCs().getParentNS().getId(), ")" );
             }
         }
 
         if( isSetPresCond() ) {
-            PresenceCondition foundPC = rs.findPresenceCondition( getPresCond(), getNsIdentification(), console );
+            PresenceCondition foundPC = rs.findPresenceCondition( getPresCond(), getNsIdentification(), true );
 
             if( foundPC == null ) {
-                console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
                                  messagePrefix, "PresenceCondition (name: ", getPresCond(), ") not found" );
             }
             else {
                 setRefersToPresenceCondition( foundPC );
-                console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                              "PresenceCondition (name: ", getPresCond(),
-                              ") refers by SubDataObject (name: ",
-                              getName(), ") in NS (id:", id, ") found in NS (id:",
+                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                              messagePrefix, "PresenceCondition (name: ", getPresCond(), ") found in NS (id:",
                               getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId(), ")" );
             }
         }
@@ -2876,13 +2870,11 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                     .ifPresent( att -> setRefersToSizeAttribute( att ) );
 
             if( isSetRefersToSizeAttribute() ) {
-                console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                              "DataAttribute (name: ", getSizeAttribute(),
-                              ") refers as sizeAttribute by SubDataObject (name: ", getName(), ") in NS (id:",
-                              id, ") found" );
+                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                              messagePrefix, "DataAttribute (name: ", getSizeAttribute(), ") found" );
             }
             else {
-                console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
                                  messagePrefix, "DataAttribute (name: ", getSizeAttribute(), ") not found" );
             }
         }
@@ -2896,13 +2888,11 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                     .ifPresent( att -> setRefersToMaxIndexAttribute( att ) );
 
             if( isSetRefersToMaxIndexAttribute() ) {
-                console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                              "DataAttribute (name: ", getMaxIndexAttribute(),
-                              ") refers as maxIndexAttribute by DataAttribute (name: ", getName(), ") in NS (id:",
-                              id, ") found" );
+                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                              messagePrefix, "DataAttribute (name: ", getMaxIndexAttribute(), ") found" );
             }
             else {
-                console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
                                  messagePrefix, "DataAttribute (name: ", getMaxIndexAttribute(), ") not found" );
             }
         }
@@ -2919,28 +2909,25 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
             if( isSetUnderlyingType() ) {
                 switch( getUnderlyingTypeKind().getValue() ) {
                 case DefinedAttributeTypeKind.BASIC_VALUE:
-                    BasicType foundBT = rs.findBasicType( getUnderlyingType(), getNsIdentification(), console );
+                    BasicType foundBT = rs.findBasicType( getUnderlyingType(), getNsIdentification(), true );
 
                     if( foundBT == null ) {
-                        console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
                                          messagePrefix, "BasicType (name: ", getUnderlyingType(), ") not found" );
                     }
                     else {
                         setRefersToUnderlyingBasicType( foundBT );
-                        console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                                      "[NSD links] BasicType (name: ", getUnderlyingType(),
-                                      ") refers as type by SubDataObject (name: ",
-                                      getName(), ") in NS (id:", id, ") found in NS (id:",
+                        console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                                      messagePrefix, "BasicType (name: ", getUnderlyingType(), ") found in NS (id:",
                                       getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS().getId(), ")" );
                     }
                     break;
                 case DefinedAttributeTypeKind.CONSTRUCTED_VALUE:
                     ConstructedAttribute foundCA = rs.findConstructedAttribute( getUnderlyingType(),
-                            getNsIdentification(),
-                            console );
+                            getNsIdentification(), true );
 
                     if( foundCA == null ) {
-                        console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
                                          messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") not found" );
                     }
                     else {
@@ -2956,33 +2943,29 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                             foundWhere = "ServiceNS (id:" + getRefersToUnderlyingConstructedAttribute()
                                     .getParentServiceTypeRealizations().getParentServiceNS().getId();
                         }
-                        console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                                      "ConstructedAttribute (name: ", getUnderlyingType(),
-                                      ") refers as type by SubDataObject (name: ",
-                                      getName(), ") in NS (id:", id, ") found in ",
+                        console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                                      messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") found in ",
                                       foundWhere, ")" );
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
-                    Enumeration foundEn = rs.findEnumeration( getUnderlyingType(), getNsIdentification(), console );
+                    Enumeration foundEn = rs.findEnumeration( getUnderlyingType(), getNsIdentification(), true );
 
                     if( foundEn == null ) {
-                        console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
                                          messagePrefix, "Enumeration (name: ", getUnderlyingType(), ") not found" );
                     }
                     else {
                         setRefersToUnderlyingEnumeration( foundEn );
-                        console.info( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                                      "Enumeration (name: ", getUnderlyingType(),
-                                      ") refers as type by SubDataObject (name: ",
-                                      getName(), ") in NS (id:", id, ") found in NS (id:",
+                        console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                                      messagePrefix, "Enumeration (name: ", getUnderlyingType(), ") found in NS (id:",
                                       getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS().getId(), ")" );
                     }
                     break;
                 }
             }
             else {
-                console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
                                  messagePrefix, "UnderlyingTypeKind is set but underlying type is missing" );
             }
         }
@@ -2992,7 +2975,7 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
 
     @Override
     public NsIdentification getNsIdentification() {
-        return (( CDCImpl ) getParentCDC() ).getNsIdentification();
+        return ( ( CDCImpl ) getParentCDC() ).getNsIdentification();
     }
 
 } //SubDataObjectImpl

@@ -163,14 +163,14 @@ public abstract class NsdObjectImpl extends MinimalEObjectImpl.Container impleme
      * @generated NOT
      */
     @Override
-    public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
-        console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "NsdObjectImpl.buildExplicitLinks()" );
+    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
+        if( isExplicitLinksBuilt() ) return true;
 
-        if( ( !forceUpdate ) && isExplicitLinksBuilt() ) return true;
+        console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "NsdObjectImpl.buildExplicitLinks()" );
 
         for( EObject o : eContents() ) {
             if( o instanceof NsdObject ) {
-                ( ( NsdObject ) o ).buildExplicitLinks( console, forceUpdate );
+                ( ( NsdObject ) o ).buildExplicitLinks( console );
             }
         }
 
@@ -254,8 +254,8 @@ public abstract class NsdObjectImpl extends MinimalEObjectImpl.Container impleme
     @Override
     public Object eInvoke( int operationID, EList< ? > arguments ) throws InvocationTargetException {
         switch( operationID ) {
-        case NsdPackage.NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE_BOOLEAN:
-            return buildExplicitLinks( ( IRiseClipseConsole ) arguments.get( 0 ), ( Boolean ) arguments.get( 1 ) );
+        case NsdPackage.NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE:
+            return buildExplicitLinks( ( IRiseClipseConsole ) arguments.get( 0 ) );
         }
         return super.eInvoke( operationID, arguments );
     }

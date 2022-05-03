@@ -37,7 +37,6 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.ocl.pivot.evaluation.Executor;
 import org.eclipse.ocl.pivot.ids.IdResolver;
 import org.eclipse.ocl.pivot.ids.TypeId;
@@ -1140,30 +1139,27 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
      *   Enumeration.inheritedFrom          -> Enumeration.name
      */
     @Override
-    public boolean buildExplicitLinks( @NonNull IRiseClipseConsole console, boolean forceUpdate ) {
+    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "EnumerationImpl.buildExplicitLinks()" );
 
-        if( super.buildExplicitLinks( console, forceUpdate )) return true;
+        if( super.buildExplicitLinks( console )) return true;
 
-        String id = getNsIdentification().getId();
         NsdResourceSetImpl rs = getResourceSet();
         if( rs == null ) return false;
 
-        String messagePrefix = "while resolving link from Enumeration (name: " + getName()
-                + ", NS id: " + id + "): ";
+        String messagePrefix = "while resolving link from Enumeration (name: " + getName() + "): ";
 
         if( isSetInheritedFrom() ) {
-            Enumeration foundBase = rs.findEnumeration( getInheritedFrom(), getNsIdentification(), console );
+            Enumeration foundBase = rs.findEnumeration( getInheritedFrom(), getNsIdentification(), true );
             if( foundBase == null ) {
-                console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
                                  messagePrefix, "Enumeration (name: ", getInheritedFrom(), ") not found" );
             }
             else {
                 setRefersToBaseEnumeration( foundBase );
-                console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                              "Enumeration (name: ", getInheritedFrom(), ") refers by Enumeration (name: ",
-                              getName(), ") in NS (id:", id, ") found in NS (id:",
-                              getRefersToBaseEnumeration().getParentEnumerations().getParentNS().getId(), ")" );
+                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                                messagePrefix, "Enumeration (name: ", getInheritedFrom(), ") found in NS (id:",
+                                getRefersToBaseEnumeration().getParentEnumerations().getParentNS().getId(), ")" );
             }
         }
 

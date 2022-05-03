@@ -36,7 +36,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.ocl.pivot.evaluation.Executor;
 import org.eclipse.ocl.pivot.ids.TypeId;
 import org.eclipse.ocl.pivot.library.oclany.OclComparableLessThanEqualOperation;
@@ -3728,68 +3727,70 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
      *   DataAttribute.maxIndexAttribute    -> DataAttribute.name
      */
     @Override
-    public boolean buildExplicitLinks( @NonNull IRiseClipseConsole console, boolean forceUpdate ) {
+    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "DataAttributeImpl.buildExplicitLinks()" );
 
-        if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
+        if( super.buildExplicitLinks( console )) return true;
 
-        String id = getNsIdentification().getId();
         NsdResourceSetImpl rs = getResourceSet();
         if( rs == null ) return false;
 
-        String messagePrefix = "while resolving link from DataAttribute (name: " + getName()
-                + ", NS id: " + id + "): ";
+        String messagePrefix = "while resolving link from DataAttribute (name: " + getName() + "): ";
 
         if( isSetFc() ) {
-            FunctionalConstraint foundFC = rs.findFunctionalConstraint( getFc(), getNsIdentification(), console );
+            FunctionalConstraint foundFC = rs.findFunctionalConstraint( getFc(), getNsIdentification(), true );
 
             if( foundFC == null ) {
-                console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
                                  messagePrefix, "FunctionalConstraint (abbreviation: ", getFc(), ") not found" );
             }
             else {
                 setRefersToFunctionalConstraint( foundFC );
                 String foundWhere = "(???";
                 if( getRefersToFunctionalConstraint().getParentFunctionalConstraints().getParentNS() != null ) {
-                    foundWhere = "NS (id:"
-                            + getRefersToFunctionalConstraint().getParentFunctionalConstraints().getParentNS().getId();
+                    foundWhere = "NS \""
+                            + new NsIdentification(
+                                    getRefersToFunctionalConstraint().getParentFunctionalConstraints().getParentNS() )
+                            + "\"";
                 }
                 else if( getRefersToFunctionalConstraint().getParentFunctionalConstraints()
                         .getParentServiceNS() != null ) {
-                    foundWhere = "ServiceNS (id:" + getRefersToFunctionalConstraint().getParentFunctionalConstraints()
-                            .getParentServiceNS().getId();
+                    foundWhere = "ServiceNS \""
+                            + new NsIdentification( getRefersToFunctionalConstraint().getParentFunctionalConstraints()
+                                    .getParentServiceNS() )
+                            + "\"";
                 }
-                console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                              "FunctionalConstraint (abbreviation: ", getFc(),
-                              ") refers by DataAttribute (name: ",
-                              getName(), ") in NS (id:", id, ") found in ",
-                              foundWhere, ")" );
+                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                                messagePrefix, "FunctionalConstraint (abbreviation: ", getFc(), ") found in ",
+                                foundWhere, ")" );
             }
         }
 
         if( isSetPresCond() ) {
-            PresenceCondition foundPC = rs.findPresenceCondition( getPresCond(), getNsIdentification(), console );
+            PresenceCondition foundPC = rs.findPresenceCondition( getPresCond(), getNsIdentification(), true );
 
             if( foundPC == null ) {
-                console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
                                  messagePrefix, "PresenceCondition (name: ", getPresCond(), ") not found" );
             }
             else {
                 setRefersToPresenceCondition( foundPC );
                 String foundWhere = "(???";
                 if( getRefersToPresenceCondition().getParentPresenceConditions().getParentNS() != null ) {
-                    foundWhere = "NS (id:"
-                            + getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId();
+                    foundWhere = "NS \""
+                            + new NsIdentification(
+                                    getRefersToPresenceCondition().getParentPresenceConditions().getParentNS() )
+                            + "\"";
                 }
                 else if( getRefersToPresenceCondition().getParentPresenceConditions().getParentServiceNS() != null ) {
-                    foundWhere = "ServiceNS (id:"
-                            + getRefersToPresenceCondition().getParentPresenceConditions().getParentServiceNS().getId();
+                    foundWhere = "ServiceNS \""
+                            + new NsIdentification(
+                                    getRefersToPresenceCondition().getParentPresenceConditions().getParentServiceNS() )
+                            + "\"";
                 }
-                console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                              "PresenceCondition (name: ", getPresCond(),
-                              ") refers by DataAttribute (name: ",
-                              getName(), ") in NS (id:", id, ") found in ",
-                              foundWhere, ")" );
+                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                                messagePrefix, "PresenceCondition (name: ", getPresCond(), ") found in ",
+                                foundWhere, ")" );
             }
         }
 
@@ -3802,13 +3803,11 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                     .ifPresent( att -> setRefersToSizeAttribute( att ) );
 
             if( isSetRefersToSizeAttribute() ) {
-                console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                              "DataAttribute (name: ", getSizeAttribute(),
-                              ") refers as sizeAttribute by DataAttribute (name: ", getName(),
-                              ") in NS (id:", id, ") found" );
+                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                                messagePrefix, "DataAttribute (name: ", getSizeAttribute(), ") found" );
             }
             else {
-                console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
                                  messagePrefix, "DataAttribute (name: ", getSizeAttribute(), ") not found" );
             }
         }
@@ -3822,13 +3821,12 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                     .ifPresent( att -> setRefersToMaxIndexAttribute( att ) );
 
             if( isSetRefersToMaxIndexAttribute() ) {
-                console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                              "[NSD links] DataAttribute (name: ", getMaxIndexAttribute(),
-                              ") refers as maxIndexAttribute by DataAttribute (name: ",
-                              getName(), ") in NS (id:", id, ") found" );
+                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                                messagePrefix, "DataAttribute (name: ",
+                                getMaxIndexAttribute(), ") found" );
             }
             else {
-                console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
                                  messagePrefix, "DataAttribute (name: ",
                                  getMaxIndexAttribute(), ") not found" );
             }
@@ -3838,61 +3836,59 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
             if( isSetType() ) {
                 switch( getTypeKind().getValue() ) {
                 case DefinedAttributeTypeKind.BASIC_VALUE:
-                    BasicType foundBT = rs.findBasicType( getType(), getNsIdentification(), console );
+                    BasicType foundBT = rs.findBasicType( getType(), getNsIdentification(), true );
 
                     if( foundBT == null ) {
-                        console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
                                          messagePrefix, "BasicType (name: ", getType(), ") not found" );
                     }
                     else {
                         setRefersToBasicType( foundBT );
-                        console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                                      "BasicType (name: ", getType(),
-                                      ") refers as type by DataAttribute (name: ",
-                                      getName(), ") in NS (id:", id, ") found in NS (id:",
-                                      getRefersToBasicType().getParentBasicTypes().getParentNS().getId(), ")" );
+                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                                        messagePrefix, "BasicType (name: ", getType(), ") found in NS (id:",
+                                        getRefersToBasicType().getParentBasicTypes().getParentNS().getId(), ")" );
                     }
                     break;
                 case DefinedAttributeTypeKind.CONSTRUCTED_VALUE:
                     ConstructedAttribute foundCA = rs.findConstructedAttribute( getType(), getNsIdentification(),
-                            console );
+                            true );
 
                     if( foundCA == null ) {
-                        console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
                                          messagePrefix, "ConstructedAttribute (name: ", getType(), ") not found" );
                     }
                     else {
                         setRefersToConstructedAttribute( foundCA );
                         String foundWhere = "(???";
                         if( getRefersToConstructedAttribute().getParentConstructedAttributes() != null ) {
-                            foundWhere = "NS (id:" + getRefersToConstructedAttribute().getParentConstructedAttributes()
-                                    .getParentNS().getId();
+                            foundWhere = "NS \""
+                                    + new NsIdentification( getRefersToConstructedAttribute()
+                                            .getParentConstructedAttributes().getParentNS() )
+                                    + "\"";
                         }
                         else if( getRefersToConstructedAttribute().getParentServiceTypeRealizations() != null ) {
-                            foundWhere = "ServiceNS (id:" + getRefersToConstructedAttribute()
-                                    .getParentServiceTypeRealizations().getParentServiceNS().getId();
+                            foundWhere = "ServiceNS \""
+                                    + new NsIdentification( getRefersToConstructedAttribute()
+                                            .getParentServiceTypeRealizations().getParentServiceNS() )
+                                    + "\"";
                         }
-                        console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                                      "ConstructedAttribute (name: ", getType(),
-                                      ") refers as type by DataAttribute (name: ",
-                                      getName(), ") in NS (id:", id, ") found in ",
-                                      foundWhere, ")" );
+                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                                        messagePrefix, "ConstructedAttribute (name: ", getType(), ") found in ",
+                                        foundWhere, ")" );
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
-                    Enumeration foundEn = rs.findEnumeration( getType(), getNsIdentification(), console );
+                    Enumeration foundEn = rs.findEnumeration( getType(), getNsIdentification(), true );
 
                     if( foundEn == null ) {
-                        console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
                                          messagePrefix, "Enumeration (name: ", getType(), ") not found" );
                     }
                     else {
                         setRefersToEnumeration( foundEn );
-                        console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                                      "[NSD links] Enumeration (name: ", getType(),
-                                      ") refers as type by DataAttribute (name: ",
-                                      getName(), ") in NS (id:", id, ") found in NS (id:",
-                                      getRefersToEnumeration().getParentEnumerations().getParentNS().getId(), ")" );
+                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                                        messagePrefix, "Enumeration (name: ", getType(), ") found in NS (id:",
+                                        getRefersToEnumeration().getParentEnumerations().getParentNS().getId(), ")" );
                     }
                     break;
                 }
@@ -3901,18 +3897,18 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                 // type for ENUMERATED may be missing if CDC has enumParameterized="true"
                 if( ( getTypeKind().getValue() == DefinedAttributeTypeKind.ENUMERATED_VALUE ) ) {
                     if( getParentCDC().isEnumParameterized() ) {
-                        console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                                      messagePrefix, "type is missing for ", getTypeKind(),
-                                    " but enumParameterized in parent CDC is true" );
+                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                                        messagePrefix, "type is missing for ", getTypeKind(),
+                                        " but enumParameterized in parent CDC is true" );
                     }
                     else {
-                        console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
                                          messagePrefix, "type is missing for ", getTypeKind(),
                                          " and enumParameterized in parent CDC is false" );
                     }
                 }
                 else {
-                    console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                    console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
                                      messagePrefix, "type is missing for ", getTypeKind() );
                 }
             }
@@ -3931,7 +3927,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
 
     @Override
     public NsIdentification getNsIdentification() {
-        return (( CDCImpl ) getParentCDC() ).getNsIdentification();
+        return ( ( CDCImpl ) getParentCDC() ).getNsIdentification();
     }
 
 } //DataAttributeImpl

@@ -32,7 +32,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.ocl.pivot.evaluation.Executor;
 import org.eclipse.ocl.pivot.ids.TypeId;
 import org.eclipse.ocl.pivot.library.oclany.OclComparableLessThanEqualOperation;
@@ -57,7 +56,6 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetImpl;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
@@ -2487,10 +2485,10 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
     }
 
     @Override
-    public boolean buildExplicitLinks( @NonNull IRiseClipseConsole console, boolean forceUpdate ) {
+    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "ServiceDataAttributeImpl.buildExplicitLinks()" );
 
-        if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
+        if( super.buildExplicitLinks( console )) return true;
 
         if( isSetPresCondArgsID() ) {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
@@ -2501,44 +2499,39 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
             }
         }
 
-        ServiceNS sns = getParentServiceCDC().getParentServiceCDCs().getParentServiceNS();
         NsdResourceSetImpl rs = getResourceSet();
         if( rs == null ) return false;
 
-        String messagePrefix = "while resolving link from ServiceDataAttribute (name: " + getName()
-                + ", ServiceNS id: " + sns.getId() + "): ";
+        String messagePrefix = "while resolving link from ServiceDataAttribute (name: " + getName() + "): ";
 
         if( isSetUnderlyingTypeKind() ) {
             if( isSetUnderlyingType() ) {
                 switch( getUnderlyingTypeKind().getValue() ) {
                 case DefinedAttributeTypeKind.BASIC_VALUE:
-                    BasicType foundBT = rs.findBasicType( getUnderlyingType(), getNsIdentification(), console );
+                    BasicType foundBT = rs.findBasicType( getUnderlyingType(), getNsIdentification(), true );
 
                     if( foundBT == null ) {
-                        console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
                                          messagePrefix, "BasicType (name: ", getUnderlyingType(), ") not found" );
                     }
                     else {
                         setRefersToUnderlyingBasicType( foundBT );
-                        console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                                      "BasicType (name: ", getUnderlyingType(),
-                                      ") refers as type by ServiceDataAttribute (name: ",
-                                      getName(), ") in ServiceNS (id:", sns.getId(), ") found in NS (id:",
-                                      getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS().getId(), ")" );
+                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                                        messagePrefix, "BasicType (name: ", getUnderlyingType(), ") found in NS (id:",
+                                        getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS().getId(), ")" );
                     }
                     break;
                 case DefinedAttributeTypeKind.CONSTRUCTED_VALUE:
                     ConstructedAttribute foundCA = rs.findConstructedAttribute( getUnderlyingType(),
-                            getNsIdentification(),
-                            console );
+                            getNsIdentification(), true );
 
                     if( foundCA == null ) {
-                        console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
                                          messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") not found" );
                     }
                     else {
                         setRefersToUnderlyingConstructedAttribute( foundCA );
-                        String foundWhere = "(???";
+                        String foundWhere = "???";
                         if( getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes() != null ) {
                             foundWhere = "NS (id:"
                                     + getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes()
@@ -2549,33 +2542,29 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                             foundWhere = "ServiceNS (id:" + getRefersToUnderlyingConstructedAttribute()
                                     .getParentServiceTypeRealizations().getParentServiceNS().getId();
                         }
-                        console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                                      "[NSD links] ConstructedAttribute (name: " , getUnderlyingType(),
-                                      ") refers as type by ServiceDataAttribute (name: ",
-                                      getName(), ") in ServiceNS (id:", sns.getId(), ") found in ",
-                                      foundWhere, ")" );
+                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                                        messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") found in ",
+                                        foundWhere, ")" );
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
-                    Enumeration foundEn = rs.findEnumeration( getUnderlyingType(), getNsIdentification(), console );
+                    Enumeration foundEn = rs.findEnumeration( getUnderlyingType(), getNsIdentification(), true );
 
                     if( foundEn == null ) {
-                        console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
                                          messagePrefix, "Enumeration (name: ", getUnderlyingType(), ") not found" );
                     }
                     else {
                         setRefersToUnderlyingEnumeration( foundEn );
-                        console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                                      "Enumeration (name: ", getUnderlyingType(),
-                                      ") refers as type by ServiceDataAttribute (name: ",
-                                      getName(), ") in ServiceNS (id:", sns.getId(), ") found in NS (id:",
-                                      getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS().getId(), ")" );
+                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                                        messagePrefix, "Enumeration (name: ", getUnderlyingType(), ") found in NS (id:",
+                                        getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS().getId(), ")" );
                     }
                     break;
                 }
             }
             else {
-                console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
                                  messagePrefix, "UnderlyingTypeKind is set but underlying type is missing" );
             }
         }
@@ -2590,7 +2579,7 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
 
     @Override
     public DataAttribute toDataAttribute() {
-        DataAttribute dataAttribute = new DataAttributeImpl();
+        DataAttribute dataAttribute = NsdFactory.eINSTANCE.createDataAttribute();
         dataAttribute.setPresCond( getPresCond() );
         dataAttribute.setPresCondArgs( getPresCondArgs() );
         dataAttribute.setPresCondArgsID( getPresCondArgsID() );

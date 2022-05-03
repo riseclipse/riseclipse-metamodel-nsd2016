@@ -1,6 +1,6 @@
 /*
 *************************************************************************
-**  Copyright (c) 2016-2021 CentraleSupélec & EDF.
+**  Copyright (c) 2016-2022 CentraleSupélec & EDF.
 **  All rights reserved. This program and the accompanying materials
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
@@ -20,29 +20,20 @@
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.util;
 
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
-
 import org.eclipse.emf.ecore.xmi.XMLHelper;
-import org.eclipse.emf.ecore.xmi.impl.XMLLoadImpl;
-import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-public class NsdLoadImpl extends XMLLoadImpl {
+import fr.centralesupelec.edf.riseclipse.util.AbstractRiseClipseXMLLoadImpl;
+
+public class NsdLoadImpl extends AbstractRiseClipseXMLLoadImpl {
 
     public NsdLoadImpl( XMLHelper helper ) {
         super( helper );
     }
 
+    @Override
     public DefaultHandler makeDefaultHandler() {
         return new NsdXmlHandler( resource, helper, options );
     }
 
-    @Override
-    protected SAXParser makeParser() throws ParserConfigurationException, SAXException {
-        SAXParserFactory f = SAXParserFactory.newInstance();
-        f.setNamespaceAware( true );
-        return f.newSAXParser();
-    }
 }

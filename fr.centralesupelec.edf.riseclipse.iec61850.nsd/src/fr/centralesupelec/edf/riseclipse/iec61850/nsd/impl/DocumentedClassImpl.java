@@ -595,10 +595,10 @@ public abstract class DocumentedClassImpl extends NsdObjectImpl implements Docum
     }
 
     @Override
-    public boolean buildExplicitLinks( IRiseClipseConsole console, boolean forceUpdate ) {
+    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "DocumentedClassImpl.buildExplicitLinks()" );
 
-        if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
+        if( super.buildExplicitLinks( console )) return true;
 
         if( isSetDescID() ) {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {

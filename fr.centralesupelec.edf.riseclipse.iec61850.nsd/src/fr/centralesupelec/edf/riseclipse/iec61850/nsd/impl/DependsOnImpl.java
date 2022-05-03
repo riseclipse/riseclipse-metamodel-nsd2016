@@ -31,7 +31,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.ocl.pivot.evaluation.Executor;
 import org.eclipse.ocl.pivot.ids.TypeId;
 import org.eclipse.ocl.pivot.library.oclany.OclComparableLessThanEqualOperation;
@@ -1091,26 +1090,29 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
      *   DependsOn.id                       -> NS.id
      */
     @Override
-    public boolean buildExplicitLinks( @NonNull IRiseClipseConsole console, boolean forceUpdate ) {
+    public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "DependsOnImpl.buildExplicitLinks()" );
 
-        if( super.buildExplicitLinks( console, forceUpdate ) ) return true;
+        if( super.buildExplicitLinks( console )) return true;
 
-        String messagePrefix = "while resolving link from DependsOn (NS id: "
-                + new NsIdentification( getParentNS() ) + "): ";
+        String messagePrefix = "while resolving link from DependsOn: ";
 
         NsIdentification identification = new NsIdentification( getId(), getVersion(), getRevision(), getRelease() );
         NsdResourceSetImpl rs = getResourceSet();
         NS ns = rs.getNS( identification );
         if( ns == null ) {
-            console.warning( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
+            console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
                              messagePrefix, "NS (id: ", identification, ") not found" );
         }
         else {
             setRefersToNS( ns );
-            console.notice( EXPLICIT_LINK_CATEGORY, getLineNumber(), 
-                          "NS (id: ", identification, ") refers by DependsOn in NS (id:",
-                          new NsIdentification( getParentNS() ), ") found" );
+            console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                            messagePrefix, "NS (id: ", identification, ") found" );
+            if( ! ns.isExplicitLinksBuilt() ) {
+                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
+                              messagePrefix, "Resolving links for file ", ns.getFilename() );
+                ns.buildExplicitLinks( console );
+            }
         }
         return false;
     }
