@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -55,8 +55,8 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
-import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 import fr.centralesupelec.edf.riseclipse.util.AbstractRiseClipseConsole;
+import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
 /**
  * <!-- begin-user-doc -->
@@ -372,7 +372,8 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
      */
     @Override
     public LNClasses getParentLNClasses() {
-        AbstractRiseClipseConsole.getConsole().emergency(  EXPLICIT_LINK_CATEGORY,  0, "AnyLNClass.getParentLNClasses() called" );
+        AbstractRiseClipseConsole.getConsole().emergency( EXPLICIT_LINK_CATEGORY, 0,
+                "AnyLNClass.getParentLNClasses() called" );
         return null;
     }
 
@@ -413,12 +414,12 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
                     NsdPackage.Literals.ANY_LN_CLASS___UNIQUE_DATA_OBJECT__DIAGNOSTICCHAIN_MAP );
             final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
                     .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
-            /*@NonInvalid*/ boolean symbol_2;
+            /*@NonInvalid*/ boolean local_2;
             if( le ) {
-                symbol_2 = true;
+                local_2 = true;
             }
             else {
-                /*@Caught*/ Object CAUGHT_symbol_1;
+                /*@Caught*/ Object CAUGHT_local_1;
                 try {
                     final /*@NonInvalid*/ List< DataObject > dataObject = this.getDataObject();
                     final /*@NonInvalid*/ SetValue BOXED_dataObject = idResolver
@@ -446,28 +447,28 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
                             accumulator.add( name );
                         }
                     }
-                    /*@Thrown*/ Object symbol_1;
+                    /*@Thrown*/ Object local_1;
                     if( status ) {
-                        symbol_1 = ValueUtil.TRUE_VALUE;
+                        local_1 = ValueUtil.TRUE_VALUE;
                     }
                     else {
-                        final /*@Thrown*/ TupleValue symbol_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                        final /*@Thrown*/ TupleValue local_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
                                 NsdTables.STR_For_32_an_32_AnyLNClass_44_32_there_32_shall_32_not_32_be_32_two_32_DataObject_32_sub_m_element,
                                 status );
-                        symbol_1 = symbol_0;
+                        local_1 = local_0;
                     }
-                    CAUGHT_symbol_1 = symbol_1;
+                    CAUGHT_local_1 = local_1;
                 }
                 catch( Exception e ) {
-                    CAUGHT_symbol_1 = ValueUtil.createInvalidValue( e );
+                    CAUGHT_local_1 = ValueUtil.createInvalidValue( e );
                 }
                 final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
                         .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
-                                context, ( Object ) null, severity_0, CAUGHT_symbol_1, NsdTables.INT_0 )
+                                context, ( Object ) null, severity_0, CAUGHT_local_1, NsdTables.INT_0 )
                         .booleanValue();
-                symbol_2 = logDiagnostic;
+                local_2 = logDiagnostic;
             }
-            return symbol_2;
+            return local_2;
         }
         catch( Throwable e ) {
             return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
@@ -637,7 +638,7 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "AnyLNImpl.buildExplicitLinks()" );
 
-        if( super.buildExplicitLinks( console )) return true;
+        if( super.buildExplicitLinks( console ) ) return true;
 
         if( isSetBase() ) {
 
@@ -655,10 +656,10 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
 
             if( abstractLNClass != null ) {
                 setRefersToAbstractLNClass( abstractLNClass );
-                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                "while resolving link from AnyLNClass (name: ", getName(),
-                                "): AbstractLNClass (name: ", getBase(), ") found in NS (id:",
-                                getRefersToAbstractLNClass().getParentLNClasses().getParentNS().getId(), ")" );
+                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        "while resolving link from AnyLNClass (name: ", getName(),
+                        "): AbstractLNClass (name: ", getBase(), ") found in NS (id:",
+                        getRefersToAbstractLNClass().getParentLNClasses().getParentNS().getId(), ")" );
             }
             else {
                 // TODO: Some NSD file (e.g. eTr_IEC61850-90-6_2018A5.nsd) use a non-abstract LNClass as base.
@@ -666,9 +667,9 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
                 // DONE: no, in 61850-7-7:
                 // An AbstractLNClass shall not be used by a real data model, and an LNClass shall not be
                 // inherited by another LNClass.
-                console.error( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                               "while resolving link from AnyLNClass (name: ", getName(),
-                               "): AbstractLNClass (name: ", getBase(), ") not found" );
+                console.error( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        "while resolving link from AnyLNClass (name: ", getName(),
+                        "): AbstractLNClass (name: ", getBase(), ") not found" );
             }
         }
 

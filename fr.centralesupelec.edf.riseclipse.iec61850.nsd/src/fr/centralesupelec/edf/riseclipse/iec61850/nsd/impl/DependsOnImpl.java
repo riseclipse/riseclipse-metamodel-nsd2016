@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -692,29 +692,29 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
                     NsdPackage.Literals.AG_NS_IDENTIFICATION___ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
             final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
                     .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
-            /*@NonInvalid*/ boolean symbol_2;
+            /*@NonInvalid*/ boolean local_2;
             if( le ) {
-                symbol_2 = true;
+                local_2 = true;
             }
             else {
                 final /*@NonInvalid*/ String id = this.getId();
                 final /*@NonInvalid*/ boolean status = id != null;
-                /*@NonInvalid*/ Object symbol_1;
+                /*@NonInvalid*/ Object local_1;
                 if( status ) {
-                    symbol_1 = ValueUtil.TRUE_VALUE;
+                    local_1 = ValueUtil.TRUE_VALUE;
                 }
                 else {
-                    final /*@NonInvalid*/ TupleValue symbol_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                    final /*@NonInvalid*/ TupleValue local_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
                             NsdTables.STR_The_32_id_32_attribute_32_is_32_required, status );
-                    symbol_1 = symbol_0;
+                    local_1 = local_0;
                 }
                 final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
                         .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
-                                context, ( Object ) null, severity_0, symbol_1, NsdTables.INT_0 )
+                                context, ( Object ) null, severity_0, local_1, NsdTables.INT_0 )
                         .booleanValue();
-                symbol_2 = logDiagnostic;
+                local_2 = logDiagnostic;
             }
-            return symbol_2;
+            return local_2;
         }
         catch( Throwable e ) {
             return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
@@ -756,31 +756,31 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
                     NsdPackage.Literals.AG_NS_IDENTIFICATION___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
             final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
                     .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
-            /*@NonInvalid*/ boolean symbol_2;
+            /*@NonInvalid*/ boolean local_2;
             if( le ) {
-                symbol_2 = true;
+                local_2 = true;
             }
             else {
                 final /*@NonInvalid*/ Integer version = this.getVersion();
                 final /*@NonInvalid*/ IntegerValue BOXED_version = version == null ? null
                         : ValueUtil.integerValueOf( version );
                 final /*@NonInvalid*/ boolean status = BOXED_version != null;
-                /*@NonInvalid*/ Object symbol_1;
+                /*@NonInvalid*/ Object local_1;
                 if( status ) {
-                    symbol_1 = ValueUtil.TRUE_VALUE;
+                    local_1 = ValueUtil.TRUE_VALUE;
                 }
                 else {
-                    final /*@NonInvalid*/ TupleValue symbol_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                    final /*@NonInvalid*/ TupleValue local_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
                             NsdTables.STR_The_32_version_32_attribute_32_is_32_required, status );
-                    symbol_1 = symbol_0;
+                    local_1 = local_0;
                 }
                 final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
                         .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
-                                context, ( Object ) null, severity_0, symbol_1, NsdTables.INT_0 )
+                                context, ( Object ) null, severity_0, local_1, NsdTables.INT_0 )
                         .booleanValue();
-                symbol_2 = logDiagnostic;
+                local_2 = logDiagnostic;
             }
-            return symbol_2;
+            return local_2;
         }
         catch( Throwable e ) {
             return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
@@ -1093,7 +1093,7 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "DependsOnImpl.buildExplicitLinks()" );
 
-        if( super.buildExplicitLinks( console )) return true;
+        if( super.buildExplicitLinks( console ) ) return true;
 
         String messagePrefix = "while resolving link from DependsOn: ";
 
@@ -1101,16 +1101,16 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         NsdResourceSetImpl rs = getResourceSet();
         NS ns = rs.getNS( identification );
         if( ns == null ) {
-            console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                             messagePrefix, "NS (id: ", identification, ") not found" );
+            console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                    messagePrefix, "NS (id: ", identification, ") not found" );
         }
         else {
             setRefersToNS( ns );
-            console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                            messagePrefix, "NS (id: ", identification, ") found" );
-            if( ! ns.isExplicitLinksBuilt() ) {
-                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                              messagePrefix, "Resolving links for file ", ns.getFilename() );
+            console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                    messagePrefix, "NS (id: ", identification, ") found" );
+            if( !ns.isExplicitLinksBuilt() ) {
+                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        messagePrefix, "Resolving links for file ", ns.getFilename() );
                 ns.buildExplicitLinks( console );
             }
         }

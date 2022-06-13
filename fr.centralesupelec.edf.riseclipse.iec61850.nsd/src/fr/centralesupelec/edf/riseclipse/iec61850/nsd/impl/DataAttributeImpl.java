@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -2523,29 +2523,29 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                     NsdPackage.Literals.DATA_ATTRIBUTE___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
             final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
                     .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
-            /*@NonInvalid*/ boolean symbol_2;
+            /*@NonInvalid*/ boolean local_2;
             if( le ) {
-                symbol_2 = true;
+                local_2 = true;
             }
             else {
                 final /*@NonInvalid*/ String name = this.getName();
                 final /*@NonInvalid*/ boolean status = name != null;
-                /*@NonInvalid*/ Object symbol_1;
+                /*@NonInvalid*/ Object local_1;
                 if( status ) {
-                    symbol_1 = ValueUtil.TRUE_VALUE;
+                    local_1 = ValueUtil.TRUE_VALUE;
                 }
                 else {
-                    final /*@NonInvalid*/ TupleValue symbol_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                    final /*@NonInvalid*/ TupleValue local_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
                             NsdTables.STR_The_32_name_32_attribute_32_is_32_required, status );
-                    symbol_1 = symbol_0;
+                    local_1 = local_0;
                 }
                 final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
                         .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
-                                context, ( Object ) null, severity_0, symbol_1, NsdTables.INT_0 )
+                                context, ( Object ) null, severity_0, local_1, NsdTables.INT_0 )
                         .booleanValue();
-                symbol_2 = logDiagnostic;
+                local_2 = logDiagnostic;
             }
-            return symbol_2;
+            return local_2;
         }
         catch( Throwable e ) {
             return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
@@ -2587,29 +2587,29 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                     NsdPackage.Literals.DATA_ATTRIBUTE___FC_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
             final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
                     .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
-            /*@NonInvalid*/ boolean symbol_2;
+            /*@NonInvalid*/ boolean local_2;
             if( le ) {
-                symbol_2 = true;
+                local_2 = true;
             }
             else {
                 final /*@NonInvalid*/ String fc = this.getFc();
                 final /*@NonInvalid*/ boolean status = fc != null;
-                /*@NonInvalid*/ Object symbol_1;
+                /*@NonInvalid*/ Object local_1;
                 if( status ) {
-                    symbol_1 = ValueUtil.TRUE_VALUE;
+                    local_1 = ValueUtil.TRUE_VALUE;
                 }
                 else {
-                    final /*@NonInvalid*/ TupleValue symbol_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                    final /*@NonInvalid*/ TupleValue local_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
                             NsdTables.STR_The_32_fc_32_attribute_32_is_32_required, status );
-                    symbol_1 = symbol_0;
+                    local_1 = local_0;
                 }
                 final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
                         .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
-                                context, ( Object ) null, severity_0, symbol_1, NsdTables.INT_0 )
+                                context, ( Object ) null, severity_0, local_1, NsdTables.INT_0 )
                         .booleanValue();
-                symbol_2 = logDiagnostic;
+                local_2 = logDiagnostic;
             }
-            return symbol_2;
+            return local_2;
         }
         catch( Throwable e ) {
             return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
@@ -3730,7 +3730,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "DataAttributeImpl.buildExplicitLinks()" );
 
-        if( super.buildExplicitLinks( console )) return true;
+        if( super.buildExplicitLinks( console ) ) return true;
 
         NsdResourceSetImpl rs = getResourceSet();
         if( rs == null ) return false;
@@ -3741,8 +3741,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
             FunctionalConstraint foundFC = rs.findFunctionalConstraint( getFc(), getNsIdentification(), true );
 
             if( foundFC == null ) {
-                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                 messagePrefix, "FunctionalConstraint (abbreviation: ", getFc(), ") not found" );
+                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        messagePrefix, "FunctionalConstraint (abbreviation: ", getFc(), ") not found" );
             }
             else {
                 setRefersToFunctionalConstraint( foundFC );
@@ -3760,9 +3760,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                                     .getParentServiceNS() )
                             + "\"";
                 }
-                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                messagePrefix, "FunctionalConstraint (abbreviation: ", getFc(), ") found in ",
-                                foundWhere, ")" );
+                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        messagePrefix, "FunctionalConstraint (abbreviation: ", getFc(), ") found in ",
+                        foundWhere, ")" );
             }
         }
 
@@ -3770,8 +3770,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
             PresenceCondition foundPC = rs.findPresenceCondition( getPresCond(), getNsIdentification(), true );
 
             if( foundPC == null ) {
-                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                 messagePrefix, "PresenceCondition (name: ", getPresCond(), ") not found" );
+                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        messagePrefix, "PresenceCondition (name: ", getPresCond(), ") not found" );
             }
             else {
                 setRefersToPresenceCondition( foundPC );
@@ -3788,9 +3788,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                                     getRefersToPresenceCondition().getParentPresenceConditions().getParentServiceNS() )
                             + "\"";
                 }
-                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                messagePrefix, "PresenceCondition (name: ", getPresCond(), ") found in ",
-                                foundWhere, ")" );
+                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        messagePrefix, "PresenceCondition (name: ", getPresCond(), ") found in ",
+                        foundWhere, ")" );
             }
         }
 
@@ -3803,12 +3803,12 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                     .ifPresent( att -> setRefersToSizeAttribute( att ) );
 
             if( isSetRefersToSizeAttribute() ) {
-                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                messagePrefix, "DataAttribute (name: ", getSizeAttribute(), ") found" );
+                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        messagePrefix, "DataAttribute (name: ", getSizeAttribute(), ") found" );
             }
             else {
-                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                 messagePrefix, "DataAttribute (name: ", getSizeAttribute(), ") not found" );
+                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        messagePrefix, "DataAttribute (name: ", getSizeAttribute(), ") not found" );
             }
         }
 
@@ -3821,14 +3821,14 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                     .ifPresent( att -> setRefersToMaxIndexAttribute( att ) );
 
             if( isSetRefersToMaxIndexAttribute() ) {
-                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                messagePrefix, "DataAttribute (name: ",
-                                getMaxIndexAttribute(), ") found" );
+                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        messagePrefix, "DataAttribute (name: ",
+                        getMaxIndexAttribute(), ") found" );
             }
             else {
-                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                 messagePrefix, "DataAttribute (name: ",
-                                 getMaxIndexAttribute(), ") not found" );
+                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        messagePrefix, "DataAttribute (name: ",
+                        getMaxIndexAttribute(), ") not found" );
             }
         }
 
@@ -3839,14 +3839,14 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                     BasicType foundBT = rs.findBasicType( getType(), getNsIdentification(), true );
 
                     if( foundBT == null ) {
-                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                         messagePrefix, "BasicType (name: ", getType(), ") not found" );
+                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                messagePrefix, "BasicType (name: ", getType(), ") not found" );
                     }
                     else {
                         setRefersToBasicType( foundBT );
-                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                        messagePrefix, "BasicType (name: ", getType(), ") found in NS (id:",
-                                        getRefersToBasicType().getParentBasicTypes().getParentNS().getId(), ")" );
+                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                messagePrefix, "BasicType (name: ", getType(), ") found in NS (id:",
+                                getRefersToBasicType().getParentBasicTypes().getParentNS().getId(), ")" );
                     }
                     break;
                 case DefinedAttributeTypeKind.CONSTRUCTED_VALUE:
@@ -3854,8 +3854,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                             true );
 
                     if( foundCA == null ) {
-                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                         messagePrefix, "ConstructedAttribute (name: ", getType(), ") not found" );
+                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                messagePrefix, "ConstructedAttribute (name: ", getType(), ") not found" );
                     }
                     else {
                         setRefersToConstructedAttribute( foundCA );
@@ -3872,23 +3872,23 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                                             .getParentServiceTypeRealizations().getParentServiceNS() )
                                     + "\"";
                         }
-                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                        messagePrefix, "ConstructedAttribute (name: ", getType(), ") found in ",
-                                        foundWhere, ")" );
+                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                messagePrefix, "ConstructedAttribute (name: ", getType(), ") found in ",
+                                foundWhere, ")" );
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
                     Enumeration foundEn = rs.findEnumeration( getType(), getNsIdentification(), true );
 
                     if( foundEn == null ) {
-                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                         messagePrefix, "Enumeration (name: ", getType(), ") not found" );
+                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                messagePrefix, "Enumeration (name: ", getType(), ") not found" );
                     }
                     else {
                         setRefersToEnumeration( foundEn );
-                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                        messagePrefix, "Enumeration (name: ", getType(), ") found in NS (id:",
-                                        getRefersToEnumeration().getParentEnumerations().getParentNS().getId(), ")" );
+                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                messagePrefix, "Enumeration (name: ", getType(), ") found in NS (id:",
+                                getRefersToEnumeration().getParentEnumerations().getParentNS().getId(), ")" );
                     }
                     break;
                 }
@@ -3897,26 +3897,26 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                 // type for ENUMERATED may be missing if CDC has enumParameterized="true"
                 if( ( getTypeKind().getValue() == DefinedAttributeTypeKind.ENUMERATED_VALUE ) ) {
                     if( getParentCDC().isEnumParameterized() ) {
-                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                        messagePrefix, "type is missing for ", getTypeKind(),
-                                        " but enumParameterized in parent CDC is true" );
+                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                messagePrefix, "type is missing for ", getTypeKind(),
+                                " but enumParameterized in parent CDC is true" );
                     }
                     else {
-                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                         messagePrefix, "type is missing for ", getTypeKind(),
-                                         " and enumParameterized in parent CDC is false" );
+                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                messagePrefix, "type is missing for ", getTypeKind(),
+                                " and enumParameterized in parent CDC is false" );
                     }
                 }
                 else {
-                    console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                     messagePrefix, "type is missing for ", getTypeKind() );
+                    console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                            messagePrefix, "type is missing for ", getTypeKind() );
                 }
             }
         }
 
         if( isSetPresCondArgsID() ) {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
-                Doc doc = (( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getNsIdentification(),
+                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getNsIdentification(),
                         getPresCondArgsID() );
                 if( doc != null ) setRefersToPresCondArgsDoc( doc );
             }

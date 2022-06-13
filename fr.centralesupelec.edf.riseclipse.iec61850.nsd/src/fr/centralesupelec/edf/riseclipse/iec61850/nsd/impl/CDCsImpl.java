@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -227,12 +227,12 @@ public class CDCsImpl extends NsdObjectImpl implements CDCs {
                     NsdPackage.Literals.CD_CS___UNIQUE_CDC__DIAGNOSTICCHAIN_MAP );
             final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
                     .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
-            /*@NonInvalid*/ boolean symbol_8;
+            /*@NonInvalid*/ boolean local_8;
             if( le ) {
-                symbol_8 = true;
+                local_8 = true;
             }
             else {
-                /*@Caught*/ Object CAUGHT_symbol_7;
+                /*@Caught*/ Object CAUGHT_local_7;
                 try {
                     /*@Caught*/ Object CAUGHT_isUnique;
                     try {
@@ -321,7 +321,7 @@ public class CDCsImpl extends NsdObjectImpl implements CDCs {
                                     select_0 );
                             final LibraryIterationExtension IMPL_forAll_0 = ( LibraryIterationExtension ) TYPE_forAll_0
                                     .lookupImplementation( standardLibrary,
-                                            OCLstdlibTables.Operations._Collection__0_forAll );
+                                            OCLstdlibTables.Operations._Collection__1_forAll );
                             final /*@NonNull*/ Object ACC_forAll_0 = IMPL_forAll_0.createAccumulatorValue( executor,
                                     TypeId.BOOLEAN, TypeId.BOOLEAN );
                             /**
@@ -339,11 +339,11 @@ public class CDCsImpl extends NsdObjectImpl implements CDCs {
                                     final /*@NonInvalid*/ Object c2 = sourceAndArgumentValues[2];
                                     /*@Caught*/ Object CAUGHT_implies;
                                     try {
-                                        final /*@NonInvalid*/ CDC symbol_0 = ( CDC ) c1;
-                                        final /*@NonInvalid*/ CDC symbol_1 = ( CDC ) c2;
-                                        final /*@NonInvalid*/ boolean ne_0 = ( symbol_0 != null )
-                                                ? !symbol_0.equals( symbol_1 )
-                                                : ( symbol_1 != null );
+                                        final /*@NonInvalid*/ CDC local_0 = ( CDC ) c1;
+                                        final /*@NonInvalid*/ CDC local_1 = ( CDC ) c2;
+                                        final /*@NonInvalid*/ boolean ne_0 = ( local_0 != null )
+                                                ? !local_0.equals( local_1 )
+                                                : ( local_1 != null );
                                         final /*@Thrown*/ Boolean implies;
                                         if( !ne_0 ) {
                                             implies = ValueUtil.TRUE_VALUE;
@@ -353,16 +353,16 @@ public class CDCsImpl extends NsdObjectImpl implements CDCs {
                                             try {
                                                 /*@Caught*/ Object CAUGHT_ne_1;
                                                 try {
-                                                    if( symbol_0 == null ) {
+                                                    if( local_0 == null ) {
                                                         throw new InvalidValueException(
                                                                 "Null source for \'\'http://www.iec.ch/61850/2016/NSD\'::CDC::name\'" );
                                                     }
-                                                    final /*@Thrown*/ String name_0 = symbol_0.getName();
-                                                    if( symbol_1 == null ) {
+                                                    final /*@Thrown*/ String name_0 = local_0.getName();
+                                                    if( local_1 == null ) {
                                                         throw new InvalidValueException(
                                                                 "Null source for \'\'http://www.iec.ch/61850/2016/NSD\'::CDC::name\'" );
                                                     }
-                                                    final /*@Thrown*/ String name_1 = symbol_1.getName();
+                                                    final /*@Thrown*/ String name_1 = local_1.getName();
                                                     final /*@Thrown*/ boolean ne_1 = ( name_0 != null )
                                                             ? !name_0.equals( name_1 )
                                                             : ( name_1 != null );
@@ -378,16 +378,16 @@ public class CDCsImpl extends NsdObjectImpl implements CDCs {
                                                 else {
                                                     /*@Caught*/ Object CAUGHT_ne_2;
                                                     try {
-                                                        if( symbol_0 == null ) {
+                                                        if( local_0 == null ) {
                                                             throw new InvalidValueException(
                                                                     "Null source for \'\'http://www.iec.ch/61850/2016/NSD\'::CDC::variant\'" );
                                                         }
-                                                        final /*@Thrown*/ String variant_1 = symbol_0.getVariant();
-                                                        if( symbol_1 == null ) {
+                                                        final /*@Thrown*/ String variant_1 = local_0.getVariant();
+                                                        if( local_1 == null ) {
                                                             throw new InvalidValueException(
                                                                     "Null source for \'\'http://www.iec.ch/61850/2016/NSD\'::CDC::variant\'" );
                                                         }
-                                                        final /*@Thrown*/ String variant_2 = symbol_1.getVariant();
+                                                        final /*@Thrown*/ String variant_2 = local_1.getVariant();
                                                         final /*@Thrown*/ boolean ne_2 = ( variant_1 != null )
                                                                 ? !variant_1.equals( variant_2 )
                                                                 : ( variant_2 != null );
@@ -465,28 +465,28 @@ public class CDCsImpl extends NsdObjectImpl implements CDCs {
                         }
                     }
                     final /*@Thrown*/ boolean eq_0 = status == Boolean.TRUE;
-                    /*@Thrown*/ Object symbol_7;
+                    /*@Thrown*/ Object local_7;
                     if( eq_0 ) {
-                        symbol_7 = ValueUtil.TRUE_VALUE;
+                        local_7 = ValueUtil.TRUE_VALUE;
                     }
                     else {
-                        final /*@Thrown*/ TupleValue symbol_6 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                        final /*@Thrown*/ TupleValue local_6 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
                                 NsdTables.STR_Within_32_an_32_NS_44_32_there_32_shall_32_not_32_be_32_two_32_CDC_32_sub_m_elements_32_with_32_same_32,
                                 status );
-                        symbol_7 = symbol_6;
+                        local_7 = local_6;
                     }
-                    CAUGHT_symbol_7 = symbol_7;
+                    CAUGHT_local_7 = local_7;
                 }
                 catch( Exception e ) {
-                    CAUGHT_symbol_7 = ValueUtil.createInvalidValue( e );
+                    CAUGHT_local_7 = ValueUtil.createInvalidValue( e );
                 }
                 final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
                         .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
-                                context, ( Object ) null, severity_0, CAUGHT_symbol_7, NsdTables.INT_0 )
+                                context, ( Object ) null, severity_0, CAUGHT_local_7, NsdTables.INT_0 )
                         .booleanValue();
-                symbol_8 = logDiagnostic;
+                local_8 = logDiagnostic;
             }
-            return symbol_8;
+            return local_8;
         }
         catch( Throwable e ) {
             return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
