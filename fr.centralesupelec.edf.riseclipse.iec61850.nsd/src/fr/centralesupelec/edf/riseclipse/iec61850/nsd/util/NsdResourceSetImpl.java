@@ -367,21 +367,18 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         if( serviceNS.getServiceCDCs() != null ) {
             // A ServiceCDC add new attribute to an existing CDC
             for( ServiceCDC serviceCDC : serviceNS.getServiceCDCs().getServiceCDC() ) {
-                CDC cdc = findCDC( serviceCDC.getCdc(), applyToNsId, true );
-                if( cdc != null ) {
-                    serviceCDC
-                    .getServiceDataAttribute()
-                    .stream()
-                    .forEach( att -> {
-                        DataAttribute da = (( ServiceDataAttributeImpl ) att ).toDataAttribute( cdc, console );
-                        console.notice( NSD_SETUP_CATEGORY, 0,
-                                        "Service NS: Adding DataAttribute ", da.getName(), " to CDC ", cdc.getName() );
+                getCDCStream( applyToNsId, true )
+                    .filter( cdc -> serviceCDC.getCdc().equals( cdc.getName() ))
+                    .forEach( cdc -> {
+                        serviceCDC
+                        .getServiceDataAttribute()
+                        .stream()
+                        .forEach( att -> {
+                            DataAttribute da = (( ServiceDataAttributeImpl ) att ).toDataAttribute( cdc, console );
+                            console.notice( NSD_SETUP_CATEGORY, 0,
+                                            "Service NS: Adding DataAttribute ", da.getName(), " to CDC ", cdc.getName() );
+                        });
                     });
-                }
-                else {
-                    console.warning( NSD_SETUP_CATEGORY, 0,
-                                     "Service NS: CDC ", serviceCDC.getCdc(), " not found" );
-                }
             }
         }
     }
