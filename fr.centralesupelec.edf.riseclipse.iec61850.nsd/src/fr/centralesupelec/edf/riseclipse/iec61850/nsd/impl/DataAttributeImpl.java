@@ -3874,10 +3874,22 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                                             .getParameterizedServiceConstructedAttribute( underlyingTypeKind,
                                                     underlyingType, console );
                                 }
+                                else if(( DefinedAttributeTypeKind.ENUMERATED.equals( underlyingTypeKind ) && getParentCDC().isEnumParameterized() )) {
+                                    if((( CDCImpl ) getParentCDC() ).getUnderlyingType() != null ) {
+                                        sca = ( ( ServiceConstructedAttributeImpl ) sca )
+                                                .getParameterizedServiceConstructedAttribute( underlyingTypeKind,
+                                                        (( CDCImpl ) getParentCDC() ).getUnderlyingType(), console );
+                                    }
+                                    else {
+                                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                                messagePrefix, "ServiceConstructedAttribute (name: ", getType(),
+                                                ") is typeKindParameterized but no underlyingType" );
+                                    }
+                                }
                                 else {
                                     console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                                             messagePrefix, "ServiceConstructedAttribute (name: ", getType(),
-                                            ") is typeKindParameterized but no underlyingType" );
+                                            ") is typeKindParameterized but no underlyingTypeKind" );
                                 }
                             }
                             foundCA = sca;
@@ -3944,8 +3956,6 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                 console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                         messagePrefix, "type is missing for ", getTypeKind(),
                         " but typeKindParameterized in parent CDC is true" );
-                // This check should be done in CDC.setParameterizedDataAttribute()
-                // but no console available
                 getParentCDC().getParameterizedDataAttributeNames().add( getName() );
             }
             else {

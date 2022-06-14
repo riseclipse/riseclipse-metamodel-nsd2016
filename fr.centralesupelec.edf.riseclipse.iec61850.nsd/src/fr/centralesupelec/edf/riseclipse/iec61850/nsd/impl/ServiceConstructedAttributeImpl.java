@@ -414,7 +414,7 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
     }
 
     // Use only type as key; not typeKind
-    private HashMap< String, ServiceConstructedAttribute > parameterizedServiceConstructedAttributes = new HashMap<>();
+    private static HashMap< String, ServiceConstructedAttribute > parameterizedServiceConstructedAttributes = new HashMap<>();
 
     public ServiceConstructedAttribute getParameterizedServiceConstructedAttribute(
             DefinedAttributeTypeKind underlyingTypeKind, String underlyingType, IRiseClipseConsole console ) {

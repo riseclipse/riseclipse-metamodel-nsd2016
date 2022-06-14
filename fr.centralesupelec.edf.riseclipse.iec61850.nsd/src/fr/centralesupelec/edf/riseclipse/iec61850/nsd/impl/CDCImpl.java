@@ -26,6 +26,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -1417,7 +1418,7 @@ public class CDCImpl extends TitledClassImpl implements CDC {
     }
 
     // Use only type as key; not typeKind
-    private HashMap< String, CDC > parameterizedCDCs = new HashMap<>();
+    private static HashMap< String, CDC > parameterizedCDCs = new HashMap<>();
 
     public CDC getParameterizedCDC( DefinedAttributeTypeKind underlyingTypeKind, String underlyingType,
             IRiseClipseConsole console ) {
@@ -1463,6 +1464,13 @@ public class CDCImpl extends TitledClassImpl implements CDC {
 
     public CDC getParameterizedCDC( String underlyingType, IRiseClipseConsole console ) {
         return getParameterizedCDC( null, underlyingType, console );
+    }
+
+    public String getUnderlyingType() {
+        for( Entry< String, CDC > entry : parameterizedCDCs.entrySet() ) {
+            if( entry.getValue() == this ) return entry.getKey();
+        }
+        return null;
     }
 
 } //CDCImpl
