@@ -64,6 +64,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.UndefinedAttributeTypeKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetImpl;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
@@ -3900,6 +3901,13 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                         console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                                 messagePrefix, "type is missing for ", getTypeKind(),
                                 " but enumParameterized in parent CDC is true" );
+                        // This check should be done in CDC.setParameterizedDataAttribute()
+                        // but no console available
+                        if( getParentCDC().isSetParameterizedDataAttribute() ) {
+                            console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                    messagePrefix, "there is already a parameterizedDataAttribute in CDC, it will be overriden" );
+                        }
+                        getParentCDC().setParameterizedDataAttribute( this );
                     }
                     else {
                         console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
@@ -3911,6 +3919,26 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                     console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                             messagePrefix, "type is missing for ", getTypeKind() );
                 }
+            }
+        }
+        else if( getTypeKind() instanceof UndefinedAttributeTypeKind ) {
+            // type may be missing if CDC has typeKindParameterized="true"
+            if( getParentCDC().isTypeKindParameterized() ) {
+                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        messagePrefix, "type is missing for ", getTypeKind(),
+                        " but typeKindParameterized in parent CDC is true" );
+                // This check should be done in CDC.setParameterizedDataAttribute()
+                // but no console available
+                if( getParentCDC().isSetParameterizedDataAttribute() ) {
+                    console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                            messagePrefix, "there is already a parameterizedDataAttribute in CDC, it will be overriden" );
+                }
+                getParentCDC().setParameterizedDataAttribute( this );
+            }
+            else {
+                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        messagePrefix, "typeKind is ", getTypeKind(),
+                        " and typeKindParameterized in parent CDC is false" );
             }
         }
 

@@ -2428,13 +2428,22 @@ public interface NsdPackage extends EPackage {
     int CDC__REFERRED_BY_SUB_DATA_OBJECT = TITLED_CLASS_FEATURE_COUNT + 10;
 
     /**
+     * The feature id for the '<em><b>Parameterized Data Attribute</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CDC__PARAMETERIZED_DATA_ATTRIBUTE = TITLED_CLASS_FEATURE_COUNT + 11;
+
+    /**
      * The number of structural features of the '<em>CDC</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CDC_FEATURE_COUNT = TITLED_CLASS_FEATURE_COUNT + 11;
+    int CDC_FEATURE_COUNT = TITLED_CLASS_FEATURE_COUNT + 12;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -8957,6 +8966,17 @@ public interface NsdPackage extends EPackage {
     EReference getCDC_ReferredBySubDataObject();
 
     /**
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getParameterizedDataAttribute <em>Parameterized Data Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Parameterized Data Attribute</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getParameterizedDataAttribute()
+     * @see #getCDC()
+     * @generated
+     */
+    EReference getCDC_ParameterizedDataAttribute();
+
+    /**
      * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#uniqueCDCChild(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Unique CDC Child</em>}' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -12864,6 +12884,14 @@ public interface NsdPackage extends EPackage {
          * @generated
          */
         EReference CDC__REFERRED_BY_SUB_DATA_OBJECT = eINSTANCE.getCDC_ReferredBySubDataObject();
+
+        /**
+         * The meta object literal for the '<em><b>Parameterized Data Attribute</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference CDC__PARAMETERIZED_DATA_ATTRIBUTE = eINSTANCE.getCDC_ParameterizedDataAttribute();
 
         /**
          * The meta object literal for the '<em><b>Unique CDC Child</b></em>' operation.

@@ -1458,6 +1458,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EReference getCDC_ParameterizedDataAttribute() {
+        return ( EReference ) cdcEClass.getEStructuralFeatures().get( 11 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EOperation getCDC__UniqueCDCChild__DiagnosticChain_Map() {
         return cdcEClass.getEOperations().get( 0 );
     }
@@ -4601,6 +4611,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEReference( cdcEClass, CDC__PARENT_CD_CS );
         createEReference( cdcEClass, CDC__REFERRED_BY_DATA_OBJECT );
         createEReference( cdcEClass, CDC__REFERRED_BY_SUB_DATA_OBJECT );
+        createEReference( cdcEClass, CDC__PARAMETERIZED_DATA_ATTRIBUTE );
         createEOperation( cdcEClass, CDC___UNIQUE_CDC_CHILD__DIAGNOSTICCHAIN_MAP );
         createEOperation( cdcEClass, CDC___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
 
@@ -5385,6 +5396,10 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 !IS_DERIVED, !IS_ORDERED );
         initEReference( getCDC_ReferredBySubDataObject(), this.getSubDataObject(), this.getSubDataObject_RefersToCDC(),
                 "referredBySubDataObject", null, 0, -1, fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC.class,
+                IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
+                !IS_DERIVED, !IS_ORDERED );
+        initEReference( getCDC_ParameterizedDataAttribute(), this.getDataAttribute(), null,
+                "parameterizedDataAttribute", null, 0, 1, fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC.class,
                 IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
                 !IS_DERIVED, !IS_ORDERED );
 

@@ -22,6 +22,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -59,11 +60,13 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceParameter;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
+import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
 /**
  * <!-- begin-user-doc -->
@@ -84,6 +87,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CDCImpl#getParentCDCs <em>Parent CD Cs</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CDCImpl#getReferredByDataObject <em>Referred By Data Object</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CDCImpl#getReferredBySubDataObject <em>Referred By Sub Data Object</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CDCImpl#getParameterizedDataAttribute <em>Parameterized Data Attribute</em>}</li>
  * </ul>
  *
  * @generated
@@ -292,6 +296,25 @@ public class CDCImpl extends TitledClassImpl implements CDC {
      * @ordered
      */
     protected EList< SubDataObject > referredBySubDataObject;
+
+    /**
+     * The cached value of the '{@link #getParameterizedDataAttribute() <em>Parameterized Data Attribute</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getParameterizedDataAttribute()
+     * @generated
+     * @ordered
+     */
+    protected DataAttribute parameterizedDataAttribute;
+
+    /**
+     * This is true if the Parameterized Data Attribute reference has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean parameterizedDataAttributeESet;
 
     /**
      * <!-- begin-user-doc -->
@@ -873,6 +896,58 @@ public class CDCImpl extends TitledClassImpl implements CDC {
      * @generated
      */
     @Override
+    public DataAttribute getParameterizedDataAttribute() {
+        return parameterizedDataAttribute;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setParameterizedDataAttribute( DataAttribute newParameterizedDataAttribute ) {
+        DataAttribute oldParameterizedDataAttribute = parameterizedDataAttribute;
+        parameterizedDataAttribute = newParameterizedDataAttribute;
+        boolean oldParameterizedDataAttributeESet = parameterizedDataAttributeESet;
+        parameterizedDataAttributeESet = true;
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CDC__PARAMETERIZED_DATA_ATTRIBUTE,
+                    oldParameterizedDataAttribute, parameterizedDataAttribute, !oldParameterizedDataAttributeESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetParameterizedDataAttribute() {
+        DataAttribute oldParameterizedDataAttribute = parameterizedDataAttribute;
+        boolean oldParameterizedDataAttributeESet = parameterizedDataAttributeESet;
+        parameterizedDataAttribute = null;
+        parameterizedDataAttributeESet = false;
+        if( eNotificationRequired() )
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.CDC__PARAMETERIZED_DATA_ATTRIBUTE,
+                    oldParameterizedDataAttribute, null, oldParameterizedDataAttributeESet ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetParameterizedDataAttribute() {
+        return parameterizedDataAttributeESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public boolean uniqueCDCChild( final DiagnosticChain diagnostics, final Map< Object, Object > context ) {
         final String constraintName = "CDC::uniqueCDCChild";
         try {
@@ -1156,6 +1231,8 @@ public class CDCImpl extends TitledClassImpl implements CDC {
             return getReferredByDataObject();
         case NsdPackage.CDC__REFERRED_BY_SUB_DATA_OBJECT:
             return getReferredBySubDataObject();
+        case NsdPackage.CDC__PARAMETERIZED_DATA_ATTRIBUTE:
+            return getParameterizedDataAttribute();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -1206,6 +1283,9 @@ public class CDCImpl extends TitledClassImpl implements CDC {
             getReferredBySubDataObject().clear();
             getReferredBySubDataObject().addAll( ( Collection< ? extends SubDataObject > ) newValue );
             return;
+        case NsdPackage.CDC__PARAMETERIZED_DATA_ATTRIBUTE:
+            setParameterizedDataAttribute( ( DataAttribute ) newValue );
+            return;
         }
         super.eSet( featureID, newValue );
     }
@@ -1251,6 +1331,9 @@ public class CDCImpl extends TitledClassImpl implements CDC {
         case NsdPackage.CDC__REFERRED_BY_SUB_DATA_OBJECT:
             unsetReferredBySubDataObject();
             return;
+        case NsdPackage.CDC__PARAMETERIZED_DATA_ATTRIBUTE:
+            unsetParameterizedDataAttribute();
+            return;
         }
         super.eUnset( featureID );
     }
@@ -1285,6 +1368,8 @@ public class CDCImpl extends TitledClassImpl implements CDC {
             return isSetReferredByDataObject();
         case NsdPackage.CDC__REFERRED_BY_SUB_DATA_OBJECT:
             return isSetReferredBySubDataObject();
+        case NsdPackage.CDC__PARAMETERIZED_DATA_ATTRIBUTE:
+            return isSetParameterizedDataAttribute();
         }
         return super.eIsSet( featureID );
     }
@@ -1350,6 +1435,50 @@ public class CDCImpl extends TitledClassImpl implements CDC {
     @Override
     public NsIdentification getNsIdentification() {
         return new NsIdentification( getParentCDCs().getParentNS() );
+    }
+    
+    private HashMap< String, CDC > parameterizedCDCs = new HashMap<>();
+
+    public CDC getParameterizedCDC( DefinedAttributeTypeKind underlyingTypeKind, String underlyingType, IRiseClipseConsole console ) {
+        if( ! isSetParameterizedDataAttribute() ) {
+            return this;
+        }
+        if( ! parameterizedCDCs.containsKey( underlyingType )) {
+            // EcoreUtil.copy does a deep copy!
+            CDC parameterizedCDC = EcoreUtil.copy( this );
+            if( this.getParentCDCs() != parameterizedCDC.getParentCDCs() ) {
+                parameterizedCDC.setParentCDCs( getParentCDCs() );
+            }
+            for( int i = 0; i <  parameterizedCDC.getDataAttribute().size(); ++i ) {
+                if( parameterizedCDC.getParameterizedDataAttribute().getName().equals( getDataAttribute().get( i ).getName() )) {
+                    parameterizedCDC.getDataAttribute().get( i ).setType( underlyingType );
+                    if( underlyingTypeKind != null ) {
+                        parameterizedCDC.getDataAttribute().get( i ).setTypeKind( underlyingTypeKind );
+                    }
+                    for( DataAttribute da : parameterizedCDC.getDataAttribute() ) {
+                        da.setExplicitLinksBuilt( false );
+                        da.buildExplicitLinks( console );
+                    }
+                    for(  SubDataObject sdo : parameterizedCDC.getSubDataObject() ) {
+                        sdo.setExplicitLinksBuilt( false );
+                        sdo.buildExplicitLinks( console );
+                    }
+                    if( parameterizedCDC.isSetServiceParameter() ) {
+                        parameterizedCDC.getServiceParameter().setExplicitLinksBuilt( false );
+                        parameterizedCDC.getServiceParameter().buildExplicitLinks( console );
+                    }
+                    parameterizedCDC.setExplicitLinksBuilt( false );
+                    parameterizedCDC.buildExplicitLinks( console );
+                    parameterizedCDCs.put( underlyingType, parameterizedCDC );
+                    break;
+                }
+            }
+        }
+        return parameterizedCDCs.get( underlyingType );
+    }
+
+    public CDC getParameterizedCDC( String underlyingType, IRiseClipseConsole console ) {
+        return getParameterizedCDC( null, underlyingType, console );
     }
 
 } //CDCImpl

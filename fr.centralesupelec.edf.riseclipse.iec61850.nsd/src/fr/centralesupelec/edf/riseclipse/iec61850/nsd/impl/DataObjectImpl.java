@@ -2837,14 +2837,33 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         String messagePrefix = "while resolving link from DataObject (name: " + getName() + "): ";
 
         if( isSetType() ) {
-            CDC foundCDC = rs.findCDC( getType(), getNsIdentification(), true );
-
-            if( foundCDC == null ) {
+            CDC usedCDC = rs.findCDC( getType(), getNsIdentification(), true );
+            if( usedCDC == null ) {
                 console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                         messagePrefix, "CDC (name: ", getType(), ") not found" );
             }
             else {
-                setRefersToCDC( foundCDC );
+                if( usedCDC.isTypeKindParameterized() ) {
+                    if( isSetUnderlyingType() && isSetUnderlyingTypeKind() ) {
+                        usedCDC = (( CDCImpl ) usedCDC ).getParameterizedCDC( getUnderlyingTypeKind(), getUnderlyingType(), console );
+                    }
+                    else {
+                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                messagePrefix, "CDC (name: ", getType(), ") is typeKindParameterized",
+                                ", but no underlyingType");
+                    }
+                }
+                else if( usedCDC.isEnumParameterized() ) {
+                    if( isSetUnderlyingType() ) {
+                        usedCDC = (( CDCImpl ) usedCDC ).getParameterizedCDC( getUnderlyingType(), console );
+                    }
+                    else {
+                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                messagePrefix, "CDC (name: ", getType(), ") is enumParameterized",
+                                ", but no underlyingType");
+                    }
+                }
+                setRefersToCDC( usedCDC );
                 console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                         messagePrefix, "CDC (name: ", getType(), ") found in NS (id:",
                         getRefersToCDC().getParentCDCs().getParentNS().getId(), ")" );

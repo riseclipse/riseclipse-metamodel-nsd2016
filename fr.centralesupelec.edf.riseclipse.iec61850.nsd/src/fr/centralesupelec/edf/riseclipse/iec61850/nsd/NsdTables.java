@@ -194,6 +194,7 @@ public class NsdTables extends AbstractTables
 	public static final /*@NonInvalid*/ String STR_Within_32_an_32_NS_44_32_there_32_shall_32_not_32_be_32_two_32_ConstructedAttribute_32_sub_m_el = "Within an NS, there shall not be two ConstructedAttribute sub-elements with same name.";
 	public static final /*@NonInvalid*/ String STR_Within_32_an_32_NS_44_32_there_32_shall_32_not_32_be_32_two_32_Enumeration_32_sub_m_elements_32_wi = "Within an NS, there shall not be two Enumeration sub-elements with same name.";
 	public static final /*@NonInvalid*/ String STR_Within_32_an_32_NS_44_32_there_32_shall_32_not_32_be_32_two_32_LNClass_32_sub_m_elements_32_with_32_s = "Within an NS, there shall not be two LNClass sub-elements with same name.";
+	public static final /*@NonInvalid*/ CollectionTypeId BAG_CLSSid_CDC = TypeId.BAG.getSpecializedId(NsdTables.CLSSid_CDC);
 	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_Enumeration = TypeId.ORDERED_SET.getSpecializedId(NsdTables.CLSSid_Enumeration);
 	public static final /*@NonInvalid*/ CollectionTypeId SEQ_DATAid_EFeatureMapEntry = TypeId.SEQUENCE.getSpecializedId(NsdTables.DATAid_EFeatureMapEntry);
 	public static final /*@NonInvalid*/ CollectionTypeId SET_CLSSid_Abbreviation = TypeId.SET.getSpecializedId(NsdTables.CLSSid_Abbreviation);
@@ -1010,14 +1011,15 @@ public class NsdTables extends AbstractTables
 		public static final ExecutorProperty _CDC__dataAttribute = new EcoreExecutorProperty(NsdPackage.Literals.CDC__DATA_ATTRIBUTE, Types._CDC, 0);
 		public static final ExecutorProperty _CDC__enumParameterized = new EcoreExecutorProperty(NsdPackage.Literals.CDC__ENUM_PARAMETERIZED, Types._CDC, 1);
 		public static final ExecutorProperty _CDC__name = new EcoreExecutorProperty(NsdPackage.Literals.CDC__NAME, Types._CDC, 2);
-		public static final ExecutorProperty _CDC__parentCDCs = new EcoreExecutorProperty(NsdPackage.Literals.CDC__PARENT_CD_CS, Types._CDC, 3);
-		public static final ExecutorProperty _CDC__referredByDataObject = new EcoreExecutorProperty(NsdPackage.Literals.CDC__REFERRED_BY_DATA_OBJECT, Types._CDC, 4);
-		public static final ExecutorProperty _CDC__referredBySubDataObject = new EcoreExecutorProperty(NsdPackage.Literals.CDC__REFERRED_BY_SUB_DATA_OBJECT, Types._CDC, 5);
-		public static final ExecutorProperty _CDC__serviceParameter = new EcoreExecutorProperty(NsdPackage.Literals.CDC__SERVICE_PARAMETER, Types._CDC, 6);
-		public static final ExecutorProperty _CDC__statistics = new EcoreExecutorProperty(NsdPackage.Literals.CDC__STATISTICS, Types._CDC, 7);
-		public static final ExecutorProperty _CDC__subDataObject = new EcoreExecutorProperty(NsdPackage.Literals.CDC__SUB_DATA_OBJECT, Types._CDC, 8);
-		public static final ExecutorProperty _CDC__typeKindParameterized = new EcoreExecutorProperty(NsdPackage.Literals.CDC__TYPE_KIND_PARAMETERIZED, Types._CDC, 9);
-		public static final ExecutorProperty _CDC__variant = new EcoreExecutorProperty(NsdPackage.Literals.CDC__VARIANT, Types._CDC, 10);
+		public static final ExecutorProperty _CDC__parameterizedDataAttribute = new EcoreExecutorProperty(NsdPackage.Literals.CDC__PARAMETERIZED_DATA_ATTRIBUTE, Types._CDC, 3);
+		public static final ExecutorProperty _CDC__parentCDCs = new EcoreExecutorProperty(NsdPackage.Literals.CDC__PARENT_CD_CS, Types._CDC, 4);
+		public static final ExecutorProperty _CDC__referredByDataObject = new EcoreExecutorProperty(NsdPackage.Literals.CDC__REFERRED_BY_DATA_OBJECT, Types._CDC, 5);
+		public static final ExecutorProperty _CDC__referredBySubDataObject = new EcoreExecutorProperty(NsdPackage.Literals.CDC__REFERRED_BY_SUB_DATA_OBJECT, Types._CDC, 6);
+		public static final ExecutorProperty _CDC__serviceParameter = new EcoreExecutorProperty(NsdPackage.Literals.CDC__SERVICE_PARAMETER, Types._CDC, 7);
+		public static final ExecutorProperty _CDC__statistics = new EcoreExecutorProperty(NsdPackage.Literals.CDC__STATISTICS, Types._CDC, 8);
+		public static final ExecutorProperty _CDC__subDataObject = new EcoreExecutorProperty(NsdPackage.Literals.CDC__SUB_DATA_OBJECT, Types._CDC, 9);
+		public static final ExecutorProperty _CDC__typeKindParameterized = new EcoreExecutorProperty(NsdPackage.Literals.CDC__TYPE_KIND_PARAMETERIZED, Types._CDC, 10);
+		public static final ExecutorProperty _CDC__variant = new EcoreExecutorProperty(NsdPackage.Literals.CDC__VARIANT, Types._CDC, 11);
 
 		public static final ExecutorProperty _CDCs__cDC = new EcoreExecutorProperty(NsdPackage.Literals.CD_CS__CDC, Types._CDCs, 0);
 		public static final ExecutorProperty _CDCs__parentNS = new EcoreExecutorProperty(NsdPackage.Literals.CD_CS__PARENT_NS, Types._CDCs, 1);
@@ -1058,6 +1060,7 @@ public class NsdTables extends AbstractTables
 		public static final ExecutorProperty _DataAttribute__refersToMaxIndexAttribute = new EcoreExecutorProperty(NsdPackage.Literals.DATA_ATTRIBUTE__REFERS_TO_MAX_INDEX_ATTRIBUTE, Types._DataAttribute, 8);
 		public static final ExecutorProperty _DataAttribute__refersToPresenceCondition = new EcoreExecutorProperty(NsdPackage.Literals.DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION, Types._DataAttribute, 9);
 		public static final ExecutorProperty _DataAttribute__refersToSizeAttribute = new EcoreExecutorProperty(NsdPackage.Literals.DATA_ATTRIBUTE__REFERS_TO_SIZE_ATTRIBUTE, Types._DataAttribute, 10);
+		public static final ExecutorProperty _DataAttribute__CDC__parameterizedDataAttribute = new ExecutorPropertyWithImplementation("CDC", Types._DataAttribute, 11, new EcoreLibraryOppositeProperty(NsdPackage.Literals.CDC__PARAMETERIZED_DATA_ATTRIBUTE));
 
 		public static final ExecutorProperty _DataObject__name = new EcoreExecutorProperty(NsdPackage.Literals.DATA_OBJECT__NAME, Types._DataObject, 0);
 		public static final ExecutorProperty _DataObject__parentAnyLNClass = new EcoreExecutorProperty(NsdPackage.Literals.DATA_OBJECT__PARENT_ANY_LN_CLASS, Types._DataObject, 1);
@@ -4985,6 +4988,7 @@ public class NsdTables extends AbstractTables
 			NsdTables.Properties._CDC__name,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents,
+			NsdTables.Properties._CDC__parameterizedDataAttribute,
 			NsdTables.Properties._CDC__parentCDCs,
 			NsdTables.Properties._CDC__referredByDataObject,
 			NsdTables.Properties._CDC__referredBySubDataObject,

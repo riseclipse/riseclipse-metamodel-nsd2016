@@ -527,6 +527,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="referredBySubDataObject"
         ordered="false" upperBound="-1" eType="#//SubDataObject" transient="true"
         unsettable="true" resolveProxies="false" eOpposite="#//SubDataObject/refersToCDC"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameterizedDataAttribute"
+        ordered="false" eType="#//DataAttribute" transient="true" unsettable="true"
+        resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CDCs" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">

@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -20,22 +20,20 @@
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.provider;
 
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
 /**
  * This is the item provider adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC} object.
@@ -72,6 +70,7 @@ public class CDCItemProvider extends TitledClassItemProvider {
             addVariantPropertyDescriptor( object );
             addReferredByDataObjectPropertyDescriptor( object );
             addReferredBySubDataObjectPropertyDescriptor( object );
+            addParameterizedDataAttributePropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -219,6 +218,28 @@ public class CDCItemProvider extends TitledClassItemProvider {
                         getString( "_UI_PropertyDescriptor_description", "_UI_CDC_referredBySubDataObject_feature",
                                 "_UI_CDC_type" ),
                         NsdPackage.Literals.CDC__REFERRED_BY_SUB_DATA_OBJECT,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Parameterized Data Attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addParameterizedDataAttributePropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_CDC_parameterizedDataAttribute_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_CDC_parameterizedDataAttribute_feature",
+                                "_UI_CDC_type" ),
+                        NsdPackage.Literals.CDC__PARAMETERIZED_DATA_ATTRIBUTE,
                         true,
                         false,
                         true,
