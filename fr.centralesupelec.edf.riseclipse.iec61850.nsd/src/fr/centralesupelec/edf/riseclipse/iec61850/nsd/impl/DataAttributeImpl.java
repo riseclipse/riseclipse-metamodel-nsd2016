@@ -3732,7 +3732,9 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         return buildExplicitLinks( null, null, console );
     }
-    public boolean buildExplicitLinks( DefinedAttributeTypeKind underlyingTypeKind, String underlyingType, IRiseClipseConsole console ) {
+
+    public boolean buildExplicitLinks( DefinedAttributeTypeKind underlyingTypeKind, String underlyingType,
+            IRiseClipseConsole console ) {
 
         console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "DataAttributeImpl.buildExplicitLinks()" );
 
@@ -3867,12 +3869,15 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                         if( foundCA instanceof ServiceConstructedAttribute ) {
                             ServiceConstructedAttribute sca = ( ServiceConstructedAttribute ) foundCA;
                             if( sca.isSetTypeKindParameterized() ) {
-                                if(( underlyingTypeKind != null ) && ( underlyingType != null )) {
-                                    sca = (( ServiceConstructedAttributeImpl ) sca ).getParameterizedServiceConstructedAttribute( underlyingTypeKind, underlyingType, console );
+                                if( ( underlyingTypeKind != null ) && ( underlyingType != null ) ) {
+                                    sca = ( ( ServiceConstructedAttributeImpl ) sca )
+                                            .getParameterizedServiceConstructedAttribute( underlyingTypeKind,
+                                                    underlyingType, console );
                                 }
                                 else {
                                     console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                                            messagePrefix, "ServiceConstructedAttribute (name: ", getType(), ") is typeKindParameterized but no underlyingType" );
+                                            messagePrefix, "ServiceConstructedAttribute (name: ", getType(),
+                                            ") is typeKindParameterized but no underlyingType" );
                                 }
                             }
                             foundCA = sca;
@@ -3919,14 +3924,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                         console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                                 messagePrefix, "type is missing for ", getTypeKind(),
                                 " but enumParameterized in parent CDC is true" );
-                        // This check should be done in CDC.setParameterizedDataAttribute()
-                        // but no console available
-                        if( getParentCDC().isSetParameterizedDataAttribute() ) {
-                            console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                                    messagePrefix,
-                                    "there is already a parameterizedDataAttribute in CDC, it will be overriden" );
-                        }
-                        getParentCDC().setParameterizedDataAttribute( this );
+                        getParentCDC().getParameterizedDataAttributeNames().add( getName() );
                     }
                     else {
                         console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
@@ -3948,12 +3946,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                         " but typeKindParameterized in parent CDC is true" );
                 // This check should be done in CDC.setParameterizedDataAttribute()
                 // but no console available
-                if( getParentCDC().isSetParameterizedDataAttribute() ) {
-                    console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                            messagePrefix,
-                            "there is already a parameterizedDataAttribute in CDC, it will be overriden" );
-                }
-                getParentCDC().setParameterizedDataAttribute( this );
+                getParentCDC().getParameterizedDataAttributeNames().add( getName() );
             }
             else {
                 console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),

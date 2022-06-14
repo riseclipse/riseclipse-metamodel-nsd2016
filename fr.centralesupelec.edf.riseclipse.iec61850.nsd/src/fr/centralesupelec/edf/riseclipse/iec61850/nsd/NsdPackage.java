@@ -2428,13 +2428,13 @@ public interface NsdPackage extends EPackage {
     int CDC__REFERRED_BY_SUB_DATA_OBJECT = TITLED_CLASS_FEATURE_COUNT + 10;
 
     /**
-     * The feature id for the '<em><b>Parameterized Data Attribute</b></em>' reference.
+     * The feature id for the '<em><b>Parameterized Data Attribute Names</b></em>' attribute list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CDC__PARAMETERIZED_DATA_ATTRIBUTE = TITLED_CLASS_FEATURE_COUNT + 11;
+    int CDC__PARAMETERIZED_DATA_ATTRIBUTE_NAMES = TITLED_CLASS_FEATURE_COUNT + 11;
 
     /**
      * The number of structural features of the '<em>CDC</em>' class.
@@ -5938,13 +5938,13 @@ public interface NsdPackage extends EPackage {
     int SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_CONSTRUCTED_ATTRIBUTES = CONSTRUCTED_ATTRIBUTE_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Parameterized Sub Data Attribute</b></em>' reference.
+     * The feature id for the '<em><b>Parameterized Sub Data Attribute Names</b></em>' attribute list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SERVICE_CONSTRUCTED_ATTRIBUTE__PARAMETERIZED_SUB_DATA_ATTRIBUTE = CONSTRUCTED_ATTRIBUTE_FEATURE_COUNT + 2;
+    int SERVICE_CONSTRUCTED_ATTRIBUTE__PARAMETERIZED_SUB_DATA_ATTRIBUTE_NAMES = CONSTRUCTED_ATTRIBUTE_FEATURE_COUNT + 2;
 
     /**
      * The number of structural features of the '<em>Service Constructed Attribute</em>' class.
@@ -8975,15 +8975,15 @@ public interface NsdPackage extends EPackage {
     EReference getCDC_ReferredBySubDataObject();
 
     /**
-     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getParameterizedDataAttribute <em>Parameterized Data Attribute</em>}'.
+     * Returns the meta object for the attribute list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getParameterizedDataAttributeNames <em>Parameterized Data Attribute Names</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Parameterized Data Attribute</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getParameterizedDataAttribute()
+     * @return the meta object for the attribute list '<em>Parameterized Data Attribute Names</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getParameterizedDataAttributeNames()
      * @see #getCDC()
      * @generated
      */
-    EReference getCDC_ParameterizedDataAttribute();
+    EAttribute getCDC_ParameterizedDataAttributeNames();
 
     /**
      * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#uniqueCDCChild(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Unique CDC Child</em>}' operation.
@@ -11021,15 +11021,15 @@ public interface NsdPackage extends EPackage {
     EReference getServiceConstructedAttribute_ParentServiceConstructedAttributes();
 
     /**
-     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute#getParameterizedSubDataAttribute <em>Parameterized Sub Data Attribute</em>}'.
+     * Returns the meta object for the attribute list '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute#getParameterizedSubDataAttributeNames <em>Parameterized Sub Data Attribute Names</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Parameterized Sub Data Attribute</em>'.
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute#getParameterizedSubDataAttribute()
+     * @return the meta object for the attribute list '<em>Parameterized Sub Data Attribute Names</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute#getParameterizedSubDataAttributeNames()
      * @see #getServiceConstructedAttribute()
      * @generated
      */
-    EReference getServiceConstructedAttribute_ParameterizedSubDataAttribute();
+    EAttribute getServiceConstructedAttribute_ParameterizedSubDataAttributeNames();
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttributes <em>Service Constructed Attributes</em>}'.
@@ -12906,12 +12906,12 @@ public interface NsdPackage extends EPackage {
         EReference CDC__REFERRED_BY_SUB_DATA_OBJECT = eINSTANCE.getCDC_ReferredBySubDataObject();
 
         /**
-         * The meta object literal for the '<em><b>Parameterized Data Attribute</b></em>' reference feature.
+         * The meta object literal for the '<em><b>Parameterized Data Attribute Names</b></em>' attribute list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference CDC__PARAMETERIZED_DATA_ATTRIBUTE = eINSTANCE.getCDC_ParameterizedDataAttribute();
+        EAttribute CDC__PARAMETERIZED_DATA_ATTRIBUTE_NAMES = eINSTANCE.getCDC_ParameterizedDataAttributeNames();
 
         /**
          * The meta object literal for the '<em><b>Unique CDC Child</b></em>' operation.
@@ -14543,13 +14543,13 @@ public interface NsdPackage extends EPackage {
                 .getServiceConstructedAttribute_ParentServiceConstructedAttributes();
 
         /**
-         * The meta object literal for the '<em><b>Parameterized Sub Data Attribute</b></em>' reference feature.
+         * The meta object literal for the '<em><b>Parameterized Sub Data Attribute Names</b></em>' attribute list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SERVICE_CONSTRUCTED_ATTRIBUTE__PARAMETERIZED_SUB_DATA_ATTRIBUTE = eINSTANCE
-                .getServiceConstructedAttribute_ParameterizedSubDataAttribute();
+        EAttribute SERVICE_CONSTRUCTED_ATTRIBUTE__PARAMETERIZED_SUB_DATA_ATTRIBUTE_NAMES = eINSTANCE
+                .getServiceConstructedAttribute_ParameterizedSubDataAttributeNames();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceConstructedAttributesImpl <em>Service Constructed Attributes</em>}' class.

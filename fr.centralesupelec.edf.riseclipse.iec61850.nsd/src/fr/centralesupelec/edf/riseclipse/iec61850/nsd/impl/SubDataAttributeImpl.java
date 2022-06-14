@@ -2600,14 +2600,7 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
                     console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                             messagePrefix, "type is missing for ", getTypeKind(),
                             " but typeKindParameterized in parent ServiceConstructedAttribute is true" );
-                    // This check should be done in ServiceConstructedAttribute.setParameterizedDataAttribute()
-                    // but no console available
-                    if( sca.isSetParameterizedSubDataAttribute() ) {
-                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                                messagePrefix,
-                                "there is already a parameterizedSubDataAttribute in ServiceConstructedAttribute, it will be overriden" );
-                    }
-                    sca.setParameterizedSubDataAttribute( this );
+                    sca.getParameterizedSubDataAttributeNames().add( getName() );
                 }
                 else {
                     console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),

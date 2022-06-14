@@ -62,7 +62,7 @@ public class ServiceConstructedAttributeItemProvider extends ConstructedAttribut
             super.getPropertyDescriptors( object );
 
             addTypeKindParameterizedPropertyDescriptor( object );
-            addParameterizedSubDataAttributePropertyDescriptor( object );
+            addParameterizedSubDataAttributeNamesPropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -91,24 +91,24 @@ public class ServiceConstructedAttributeItemProvider extends ConstructedAttribut
     }
 
     /**
-     * This adds a property descriptor for the Parameterized Sub Data Attribute feature.
+     * This adds a property descriptor for the Parameterized Sub Data Attribute Names feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addParameterizedSubDataAttributePropertyDescriptor( Object object ) {
+    protected void addParameterizedSubDataAttributeNamesPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
                         getResourceLocator(),
-                        getString( "_UI_ServiceConstructedAttribute_parameterizedSubDataAttribute_feature" ),
+                        getString( "_UI_ServiceConstructedAttribute_parameterizedSubDataAttributeNames_feature" ),
                         getString( "_UI_PropertyDescriptor_description",
-                                "_UI_ServiceConstructedAttribute_parameterizedSubDataAttribute_feature",
+                                "_UI_ServiceConstructedAttribute_parameterizedSubDataAttributeNames_feature",
                                 "_UI_ServiceConstructedAttribute_type" ),
-                        NsdPackage.Literals.SERVICE_CONSTRUCTED_ATTRIBUTE__PARAMETERIZED_SUB_DATA_ATTRIBUTE,
+                        NsdPackage.Literals.SERVICE_CONSTRUCTED_ATTRIBUTE__PARAMETERIZED_SUB_DATA_ATTRIBUTE_NAMES,
                         true,
                         false,
-                        true,
-                        null,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
                         null,
                         null ) );
     }
@@ -150,6 +150,7 @@ public class ServiceConstructedAttributeItemProvider extends ConstructedAttribut
 
         switch( notification.getFeatureID( ServiceConstructedAttribute.class ) ) {
         case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__TYPE_KIND_PARAMETERIZED:
+        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__PARAMETERIZED_SUB_DATA_ATTRIBUTE_NAMES:
             fireNotifyChanged( new ViewerNotification( notification, notification.getNotifier(), false, true ) );
             return;
         }

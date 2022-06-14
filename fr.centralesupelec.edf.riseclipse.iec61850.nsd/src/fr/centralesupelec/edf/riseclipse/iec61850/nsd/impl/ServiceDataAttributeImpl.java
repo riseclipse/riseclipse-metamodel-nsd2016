@@ -2591,10 +2591,11 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
 
         dataAttribute.setLineNumber( getLineNumber() );
         dataAttribute.setFilename( getFilename() );
-        
+
         dataAttribute.setParentCDC( cdc );
-        
-        (( DataAttributeImpl ) dataAttribute ).buildExplicitLinks( getUnderlyingTypeKind(), getUnderlyingType(), console );
+
+        ( ( DataAttributeImpl ) dataAttribute ).buildExplicitLinks( getUnderlyingTypeKind(), getUnderlyingType(),
+                console );
 
         return dataAttribute;
     }

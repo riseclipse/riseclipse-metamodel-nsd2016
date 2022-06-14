@@ -20,16 +20,19 @@
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
+import java.util.Collection;
 import java.util.HashMap;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute;
@@ -48,7 +51,7 @@ import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceConstructedAttributeImpl#isTypeKindParameterized <em>Type Kind Parameterized</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceConstructedAttributeImpl#getParentServiceConstructedAttributes <em>Parent Service Constructed Attributes</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceConstructedAttributeImpl#getParameterizedSubDataAttribute <em>Parameterized Sub Data Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceConstructedAttributeImpl#getParameterizedSubDataAttributeNames <em>Parameterized Sub Data Attribute Names</em>}</li>
  * </ul>
  *
  * @generated
@@ -84,23 +87,14 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
     protected boolean typeKindParameterizedESet;
 
     /**
-     * The cached value of the '{@link #getParameterizedSubDataAttribute() <em>Parameterized Sub Data Attribute</em>}' reference.
+     * The cached value of the '{@link #getParameterizedSubDataAttributeNames() <em>Parameterized Sub Data Attribute Names</em>}' attribute list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getParameterizedSubDataAttribute()
+     * @see #getParameterizedSubDataAttributeNames()
      * @generated
      * @ordered
      */
-    protected SubDataAttribute parameterizedSubDataAttribute;
-
-    /**
-     * This is true if the Parameterized Sub Data Attribute reference has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean parameterizedSubDataAttributeESet;
+    protected EList< String > parameterizedSubDataAttributeNames;
 
     /**
      * <!-- begin-user-doc -->
@@ -234,8 +228,12 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
      * @generated
      */
     @Override
-    public SubDataAttribute getParameterizedSubDataAttribute() {
-        return parameterizedSubDataAttribute;
+    public EList< String > getParameterizedSubDataAttributeNames() {
+        if( parameterizedSubDataAttributeNames == null ) {
+            parameterizedSubDataAttributeNames = new EDataTypeUniqueEList.Unsettable< >( String.class, this,
+                    NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__PARAMETERIZED_SUB_DATA_ATTRIBUTE_NAMES );
+        }
+        return parameterizedSubDataAttributeNames;
     }
 
     /**
@@ -244,16 +242,9 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
      * @generated
      */
     @Override
-    public void setParameterizedSubDataAttribute( SubDataAttribute newParameterizedSubDataAttribute ) {
-        SubDataAttribute oldParameterizedSubDataAttribute = parameterizedSubDataAttribute;
-        parameterizedSubDataAttribute = newParameterizedSubDataAttribute;
-        boolean oldParameterizedSubDataAttributeESet = parameterizedSubDataAttributeESet;
-        parameterizedSubDataAttributeESet = true;
-        if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET,
-                    NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__PARAMETERIZED_SUB_DATA_ATTRIBUTE,
-                    oldParameterizedSubDataAttribute, parameterizedSubDataAttribute,
-                    !oldParameterizedSubDataAttributeESet ) );
+    public void unsetParameterizedSubDataAttributeNames() {
+        if( parameterizedSubDataAttributeNames != null )
+            ( ( InternalEList.Unsettable< ? > ) parameterizedSubDataAttributeNames ).unset();
     }
 
     /**
@@ -262,25 +253,9 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
      * @generated
      */
     @Override
-    public void unsetParameterizedSubDataAttribute() {
-        SubDataAttribute oldParameterizedSubDataAttribute = parameterizedSubDataAttribute;
-        boolean oldParameterizedSubDataAttributeESet = parameterizedSubDataAttributeESet;
-        parameterizedSubDataAttribute = null;
-        parameterizedSubDataAttributeESet = false;
-        if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.UNSET,
-                    NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__PARAMETERIZED_SUB_DATA_ATTRIBUTE,
-                    oldParameterizedSubDataAttribute, null, oldParameterizedSubDataAttributeESet ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean isSetParameterizedSubDataAttribute() {
-        return parameterizedSubDataAttributeESet;
+    public boolean isSetParameterizedSubDataAttributeNames() {
+        return parameterizedSubDataAttributeNames != null
+                && ( ( InternalEList.Unsettable< ? > ) parameterizedSubDataAttributeNames ).isSet();
     }
 
     /**
@@ -341,8 +316,8 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
             return isTypeKindParameterized();
         case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_CONSTRUCTED_ATTRIBUTES:
             return getParentServiceConstructedAttributes();
-        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__PARAMETERIZED_SUB_DATA_ATTRIBUTE:
-            return getParameterizedSubDataAttribute();
+        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__PARAMETERIZED_SUB_DATA_ATTRIBUTE_NAMES:
+            return getParameterizedSubDataAttributeNames();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -352,6 +327,7 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
      * <!-- end-user-doc -->
      * @generated
      */
+    @SuppressWarnings( "unchecked" )
     @Override
     public void eSet( int featureID, Object newValue ) {
         switch( featureID ) {
@@ -361,8 +337,9 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
         case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_CONSTRUCTED_ATTRIBUTES:
             setParentServiceConstructedAttributes( ( ServiceConstructedAttributes ) newValue );
             return;
-        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__PARAMETERIZED_SUB_DATA_ATTRIBUTE:
-            setParameterizedSubDataAttribute( ( SubDataAttribute ) newValue );
+        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__PARAMETERIZED_SUB_DATA_ATTRIBUTE_NAMES:
+            getParameterizedSubDataAttributeNames().clear();
+            getParameterizedSubDataAttributeNames().addAll( ( Collection< ? extends String > ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -382,8 +359,8 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
         case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_CONSTRUCTED_ATTRIBUTES:
             setParentServiceConstructedAttributes( ( ServiceConstructedAttributes ) null );
             return;
-        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__PARAMETERIZED_SUB_DATA_ATTRIBUTE:
-            unsetParameterizedSubDataAttribute();
+        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__PARAMETERIZED_SUB_DATA_ATTRIBUTE_NAMES:
+            unsetParameterizedSubDataAttributeNames();
             return;
         }
         super.eUnset( featureID );
@@ -401,8 +378,8 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
             return isSetTypeKindParameterized();
         case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_CONSTRUCTED_ATTRIBUTES:
             return getParentServiceConstructedAttributes() != null;
-        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__PARAMETERIZED_SUB_DATA_ATTRIBUTE:
-            return isSetParameterizedSubDataAttribute();
+        case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__PARAMETERIZED_SUB_DATA_ATTRIBUTE_NAMES:
+            return isSetParameterizedSubDataAttributeNames();
         }
         return super.eIsSet( featureID );
     }
@@ -422,6 +399,8 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
             result.append( typeKindParameterized );
         else
             result.append( "<unset>" );
+        result.append( ", parameterizedSubDataAttributeNames: " );
+        result.append( parameterizedSubDataAttributeNames );
         result.append( ')' );
         return result.toString();
     }
@@ -433,31 +412,38 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
         }
         return super.getNsIdentification();
     }
-    
+
     // Use only type as key; not typeKind
-   private HashMap< String, ServiceConstructedAttribute > parameterizedServiceConstructedAttributes = new HashMap<>();
+    private HashMap< String, ServiceConstructedAttribute > parameterizedServiceConstructedAttributes = new HashMap<>();
 
     public ServiceConstructedAttribute getParameterizedServiceConstructedAttribute(
             DefinedAttributeTypeKind underlyingTypeKind, String underlyingType, IRiseClipseConsole console ) {
-        if( !parameterizedServiceConstructedAttributes.containsKey( underlyingType )) {
+        if( getParameterizedSubDataAttributeNames().isEmpty() ) {
+            console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                    "ServiceConstructedAttribute ", getName(), " has no parameterized sub data attribute" );
+            return this;
+        }
+        
+        if( !parameterizedServiceConstructedAttributes.containsKey( underlyingType ) ) {
             ServiceConstructedAttribute pSCA = EcoreUtil.copy( this );
             pSCA.setParentConstructedAttributes( getParentConstructedAttributes() );
             for( int i = 0; i < getSubDataAttribute().size(); ++i ) {
-                if( pSCA.getSubDataAttribute().get( i ).getName().equals( getParameterizedSubDataAttribute().getName() )) {
+                if( pSCA.getParameterizedSubDataAttributeNames().contains( getSubDataAttribute().get( i ).getName() )) {
                     pSCA.getSubDataAttribute().get( i ).setTypeKind( underlyingTypeKind );
                     pSCA.getSubDataAttribute().get( i ).setType( underlyingType );
-                    for( SubDataAttribute sda : pSCA.getSubDataAttribute() ) {
-                        sda.setExplicitLinksBuilt( false );
-                        sda.buildExplicitLinks( console );
-                    }
-                    pSCA.setExplicitLinksBuilt( false );
-                    pSCA.buildExplicitLinks( console );
-                    parameterizedServiceConstructedAttributes.put( underlyingType, pSCA );
-                    break;
                 }
             }
+            
+            for( SubDataAttribute sda : pSCA.getSubDataAttribute() ) {
+                sda.setExplicitLinksBuilt( false );
+                sda.buildExplicitLinks( console );
+            }
+            pSCA.setExplicitLinksBuilt( false );
+            pSCA.buildExplicitLinks( console );
+            
+            parameterizedServiceConstructedAttributes.put( underlyingType, pSCA );
         }
-        
+
         return parameterizedServiceConstructedAttributes.get( underlyingType );
     }
 

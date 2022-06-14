@@ -70,7 +70,7 @@ public class CDCItemProvider extends TitledClassItemProvider {
             addVariantPropertyDescriptor( object );
             addReferredByDataObjectPropertyDescriptor( object );
             addReferredBySubDataObjectPropertyDescriptor( object );
-            addParameterizedDataAttributePropertyDescriptor( object );
+            addParameterizedDataAttributeNamesPropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -227,23 +227,23 @@ public class CDCItemProvider extends TitledClassItemProvider {
     }
 
     /**
-     * This adds a property descriptor for the Parameterized Data Attribute feature.
+     * This adds a property descriptor for the Parameterized Data Attribute Names feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addParameterizedDataAttributePropertyDescriptor( Object object ) {
+    protected void addParameterizedDataAttributeNamesPropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
                         getResourceLocator(),
-                        getString( "_UI_CDC_parameterizedDataAttribute_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_CDC_parameterizedDataAttribute_feature",
-                                "_UI_CDC_type" ),
-                        NsdPackage.Literals.CDC__PARAMETERIZED_DATA_ATTRIBUTE,
+                        getString( "_UI_CDC_parameterizedDataAttributeNames_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_CDC_parameterizedDataAttributeNames_feature", "_UI_CDC_type" ),
+                        NsdPackage.Literals.CDC__PARAMETERIZED_DATA_ATTRIBUTE_NAMES,
                         true,
                         false,
-                        true,
-                        null,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
                         null,
                         null ) );
     }
@@ -321,6 +321,7 @@ public class CDCItemProvider extends TitledClassItemProvider {
         case NsdPackage.CDC__STATISTICS:
         case NsdPackage.CDC__TYPE_KIND_PARAMETERIZED:
         case NsdPackage.CDC__VARIANT:
+        case NsdPackage.CDC__PARAMETERIZED_DATA_ATTRIBUTE_NAMES:
             fireNotifyChanged( new ViewerNotification( notification, notification.getNotifier(), false, true ) );
             return;
         case NsdPackage.CDC__SUB_DATA_OBJECT:

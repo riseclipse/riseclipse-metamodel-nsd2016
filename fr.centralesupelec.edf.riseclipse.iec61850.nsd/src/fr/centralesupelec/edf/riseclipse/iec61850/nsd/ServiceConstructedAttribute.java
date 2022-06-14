@@ -20,6 +20,8 @@
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Service Constructed Attribute</b></em>'.
@@ -31,7 +33,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute#isTypeKindParameterized <em>Type Kind Parameterized</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute#getParentServiceConstructedAttributes <em>Parent Service Constructed Attributes</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute#getParameterizedSubDataAttribute <em>Parameterized Sub Data Attribute</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute#getParameterizedSubDataAttributeNames <em>Parameterized Sub Data Attribute Names</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceConstructedAttribute()
@@ -115,52 +117,38 @@ public interface ServiceConstructedAttribute extends ConstructedAttribute {
     void setParentServiceConstructedAttributes( ServiceConstructedAttributes value );
 
     /**
-     * Returns the value of the '<em><b>Parameterized Sub Data Attribute</b></em>' reference.
+     * Returns the value of the '<em><b>Parameterized Sub Data Attribute Names</b></em>' attribute list.
+     * The list contents are of type {@link java.lang.String}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Parameterized Sub Data Attribute</em>' reference.
-     * @see #isSetParameterizedSubDataAttribute()
-     * @see #unsetParameterizedSubDataAttribute()
-     * @see #setParameterizedSubDataAttribute(SubDataAttribute)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceConstructedAttribute_ParameterizedSubDataAttribute()
-     * @model resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @return the value of the '<em>Parameterized Sub Data Attribute Names</em>' attribute list.
+     * @see #isSetParameterizedSubDataAttributeNames()
+     * @see #unsetParameterizedSubDataAttributeNames()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceConstructedAttribute_ParameterizedSubDataAttributeNames()
+     * @model unsettable="true" transient="true" ordered="false"
      * @generated
      */
-    SubDataAttribute getParameterizedSubDataAttribute();
+    EList< String > getParameterizedSubDataAttributeNames();
 
     /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute#getParameterizedSubDataAttribute <em>Parameterized Sub Data Attribute</em>}' reference.
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute#getParameterizedSubDataAttributeNames <em>Parameterized Sub Data Attribute Names</em>}' attribute list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Parameterized Sub Data Attribute</em>' reference.
-     * @see #isSetParameterizedSubDataAttribute()
-     * @see #unsetParameterizedSubDataAttribute()
-     * @see #getParameterizedSubDataAttribute()
+     * @see #isSetParameterizedSubDataAttributeNames()
+     * @see #getParameterizedSubDataAttributeNames()
      * @generated
      */
-    void setParameterizedSubDataAttribute( SubDataAttribute value );
+    void unsetParameterizedSubDataAttributeNames();
 
     /**
-     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute#getParameterizedSubDataAttribute <em>Parameterized Sub Data Attribute</em>}' reference.
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute#getParameterizedSubDataAttributeNames <em>Parameterized Sub Data Attribute Names</em>}' attribute list is set.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #isSetParameterizedSubDataAttribute()
-     * @see #getParameterizedSubDataAttribute()
-     * @see #setParameterizedSubDataAttribute(SubDataAttribute)
+     * @return whether the value of the '<em>Parameterized Sub Data Attribute Names</em>' attribute list is set.
+     * @see #unsetParameterizedSubDataAttributeNames()
+     * @see #getParameterizedSubDataAttributeNames()
      * @generated
      */
-    void unsetParameterizedSubDataAttribute();
-
-    /**
-     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute#getParameterizedSubDataAttribute <em>Parameterized Sub Data Attribute</em>}' reference is set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Parameterized Sub Data Attribute</em>' reference is set.
-     * @see #unsetParameterizedSubDataAttribute()
-     * @see #getParameterizedSubDataAttribute()
-     * @see #setParameterizedSubDataAttribute(SubDataAttribute)
-     * @generated
-     */
-    boolean isSetParameterizedSubDataAttribute();
+    boolean isSetParameterizedSubDataAttributeNames();
 
 } // ServiceConstructedAttribute
