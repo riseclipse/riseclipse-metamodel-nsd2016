@@ -1628,6 +1628,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentServiceConstructedAttributes"
         ordered="false" eType="#//ServiceConstructedAttributes" transient="true" unsettable="true"
         resolveProxies="false" eOpposite="#//ServiceConstructedAttributes/serviceConstructedAttribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameterizedSubDataAttribute"
+        ordered="false" eType="#//SubDataAttribute" transient="true" unsettable="true"
+        resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ServiceConstructedAttributes" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">

@@ -2845,22 +2845,23 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             else {
                 if( usedCDC.isTypeKindParameterized() ) {
                     if( isSetUnderlyingType() && isSetUnderlyingTypeKind() ) {
-                        usedCDC = (( CDCImpl ) usedCDC ).getParameterizedCDC( getUnderlyingTypeKind(), getUnderlyingType(), console );
+                        usedCDC = ( ( CDCImpl ) usedCDC ).getParameterizedCDC( getUnderlyingTypeKind(),
+                                getUnderlyingType(), console );
                     }
                     else {
                         console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                                 messagePrefix, "CDC (name: ", getType(), ") is typeKindParameterized",
-                                ", but no underlyingType");
+                                ", but no underlyingType" );
                     }
                 }
                 else if( usedCDC.isEnumParameterized() ) {
                     if( isSetUnderlyingType() ) {
-                        usedCDC = (( CDCImpl ) usedCDC ).getParameterizedCDC( getUnderlyingType(), console );
+                        usedCDC = ( ( CDCImpl ) usedCDC ).getParameterizedCDC( getUnderlyingType(), console );
                     }
                     else {
                         console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                                 messagePrefix, "CDC (name: ", getType(), ") is enumParameterized",
-                                ", but no underlyingType");
+                                ", but no underlyingType" );
                     }
                 }
                 setRefersToCDC( usedCDC );

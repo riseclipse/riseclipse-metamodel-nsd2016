@@ -3368,6 +3368,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EReference getServiceConstructedAttribute_ParameterizedSubDataAttribute() {
+        return ( EReference ) serviceConstructedAttributeEClass.getEStructuralFeatures().get( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getServiceConstructedAttributes() {
         return serviceConstructedAttributesEClass;
     }
@@ -4836,6 +4846,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEAttribute( serviceConstructedAttributeEClass, SERVICE_CONSTRUCTED_ATTRIBUTE__TYPE_KIND_PARAMETERIZED );
         createEReference( serviceConstructedAttributeEClass,
                 SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_CONSTRUCTED_ATTRIBUTES );
+        createEReference( serviceConstructedAttributeEClass,
+                SERVICE_CONSTRUCTED_ATTRIBUTE__PARAMETERIZED_SUB_DATA_ATTRIBUTE );
 
         serviceConstructedAttributesEClass = createEClass( SERVICE_CONSTRUCTED_ATTRIBUTES );
         createEReference( serviceConstructedAttributesEClass,
@@ -6195,6 +6207,10 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 this.getServiceConstructedAttributes_ServiceConstructedAttribute(),
                 "parentServiceConstructedAttributes", null, 0, 1, ServiceConstructedAttribute.class, IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+                !IS_ORDERED );
+        initEReference( getServiceConstructedAttribute_ParameterizedSubDataAttribute(), this.getSubDataAttribute(),
+                null, "parameterizedSubDataAttribute", null, 0, 1, ServiceConstructedAttribute.class, IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED );
 
         initEClass( serviceConstructedAttributesEClass, ServiceConstructedAttributes.class,

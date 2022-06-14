@@ -56,7 +56,9 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.UndefinedAttributeTypeKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetImpl;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
@@ -2589,6 +2591,39 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
                 console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                         messagePrefix, "type is missing for ", getTypeKind() );
             }
+        }
+        else if( getTypeKind() instanceof UndefinedAttributeTypeKind ) {
+            if( getParentConstructedAttribute() instanceof ServiceConstructedAttribute ) {
+                ServiceConstructedAttribute sca = ( ServiceConstructedAttribute ) getParentConstructedAttribute();
+                // type may be missing if CDC has typeKindParameterized="true"
+                if( sca.isTypeKindParameterized() ) {
+                    console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                            messagePrefix, "type is missing for ", getTypeKind(),
+                            " but typeKindParameterized in parent ServiceConstructedAttribute is true" );
+                    // This check should be done in ServiceConstructedAttribute.setParameterizedDataAttribute()
+                    // but no console available
+                    if( sca.isSetParameterizedSubDataAttribute() ) {
+                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                messagePrefix,
+                                "there is already a parameterizedSubDataAttribute in ServiceConstructedAttribute, it will be overriden" );
+                    }
+                    sca.setParameterizedSubDataAttribute( this );
+                }
+                else {
+                    console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                            messagePrefix, "typeKind is ", getTypeKind(),
+                            " and typeKindParameterized in parent ServiceConstructedAttribute is false" );
+                }
+            }
+            else {
+                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        messagePrefix, "typeKind is ", getTypeKind(),
+                        " but not in a ServiceConstructedAttribute" );
+            }
+        }
+        else {
+            console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                    messagePrefix, "typeKind is missing" );
         }
 
         if( isSetPresCondArgsID() ) {

@@ -499,8 +499,8 @@ public abstract class TitledClassImpl extends DocumentedClassImpl implements Tit
         if( super.buildExplicitLinks( console ) ) return true;
 
         if( isSetTitleID() ) {
-            if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
-                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getNsIdentification(),
+            if(( eResource() != null ) && ( eResource().getResourceSet() instanceof NsdResourceSetImpl )) {
+                Doc doc = ( ( NsdResourceSetImpl ) eResource().getResourceSet() ).findDoc( getNsIdentification(),
                         getTitleID() );
                 if( doc != null ) setRefersToTitleDoc( doc );
             }

@@ -46,6 +46,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceCondition;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
@@ -2577,9 +2578,9 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         return new NsIdentification( getParentServiceCDC().getParentServiceCDCs().getParentServiceNS() );
     }
 
-    @Override
-    public DataAttribute toDataAttribute() {
+    public DataAttribute toDataAttribute( CDC cdc, IRiseClipseConsole console ) {
         DataAttribute dataAttribute = NsdFactory.eINSTANCE.createDataAttribute();
+
         dataAttribute.setPresCond( getPresCond() );
         dataAttribute.setPresCondArgs( getPresCondArgs() );
         dataAttribute.setPresCondArgsID( getPresCondArgsID() );
@@ -2590,6 +2591,10 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
 
         dataAttribute.setLineNumber( getLineNumber() );
         dataAttribute.setFilename( getFilename() );
+        
+        dataAttribute.setParentCDC( cdc );
+        
+        (( DataAttributeImpl ) dataAttribute ).buildExplicitLinks( getUnderlyingTypeKind(), getUnderlyingType(), console );
 
         return dataAttribute;
     }

@@ -1436,21 +1436,22 @@ public class CDCImpl extends TitledClassImpl implements CDC {
     public NsIdentification getNsIdentification() {
         return new NsIdentification( getParentCDCs().getParentNS() );
     }
-    
+
+    // Use only type as key; not typeKind
     private HashMap< String, CDC > parameterizedCDCs = new HashMap<>();
 
-    public CDC getParameterizedCDC( DefinedAttributeTypeKind underlyingTypeKind, String underlyingType, IRiseClipseConsole console ) {
-        if( ! isSetParameterizedDataAttribute() ) {
+    public CDC getParameterizedCDC( DefinedAttributeTypeKind underlyingTypeKind, String underlyingType,
+            IRiseClipseConsole console ) {
+        if( !isSetParameterizedDataAttribute() ) {
             return this;
         }
-        if( ! parameterizedCDCs.containsKey( underlyingType )) {
+        if( !parameterizedCDCs.containsKey( underlyingType ) ) {
             // EcoreUtil.copy does a deep copy!
             CDC parameterizedCDC = EcoreUtil.copy( this );
-            if( this.getParentCDCs() != parameterizedCDC.getParentCDCs() ) {
-                parameterizedCDC.setParentCDCs( getParentCDCs() );
-            }
-            for( int i = 0; i <  parameterizedCDC.getDataAttribute().size(); ++i ) {
-                if( parameterizedCDC.getParameterizedDataAttribute().getName().equals( getDataAttribute().get( i ).getName() )) {
+            parameterizedCDC.setParentCDCs( getParentCDCs() );
+            for( int i = 0; i < parameterizedCDC.getDataAttribute().size(); ++i ) {
+                if( parameterizedCDC.getParameterizedDataAttribute().getName()
+                        .equals( getDataAttribute().get( i ).getName() ) ) {
                     parameterizedCDC.getDataAttribute().get( i ).setType( underlyingType );
                     if( underlyingTypeKind != null ) {
                         parameterizedCDC.getDataAttribute().get( i ).setTypeKind( underlyingTypeKind );
@@ -1459,7 +1460,7 @@ public class CDCImpl extends TitledClassImpl implements CDC {
                         da.setExplicitLinksBuilt( false );
                         da.buildExplicitLinks( console );
                     }
-                    for(  SubDataObject sdo : parameterizedCDC.getSubDataObject() ) {
+                    for( SubDataObject sdo : parameterizedCDC.getSubDataObject() ) {
                         sdo.setExplicitLinksBuilt( false );
                         sdo.buildExplicitLinks( console );
                     }

@@ -5938,13 +5938,22 @@ public interface NsdPackage extends EPackage {
     int SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_CONSTRUCTED_ATTRIBUTES = CONSTRUCTED_ATTRIBUTE_FEATURE_COUNT + 1;
 
     /**
+     * The feature id for the '<em><b>Parameterized Sub Data Attribute</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_CONSTRUCTED_ATTRIBUTE__PARAMETERIZED_SUB_DATA_ATTRIBUTE = CONSTRUCTED_ATTRIBUTE_FEATURE_COUNT + 2;
+
+    /**
      * The number of structural features of the '<em>Service Constructed Attribute</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SERVICE_CONSTRUCTED_ATTRIBUTE_FEATURE_COUNT = CONSTRUCTED_ATTRIBUTE_FEATURE_COUNT + 2;
+    int SERVICE_CONSTRUCTED_ATTRIBUTE_FEATURE_COUNT = CONSTRUCTED_ATTRIBUTE_FEATURE_COUNT + 3;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -11012,6 +11021,17 @@ public interface NsdPackage extends EPackage {
     EReference getServiceConstructedAttribute_ParentServiceConstructedAttributes();
 
     /**
+     * Returns the meta object for the reference '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute#getParameterizedSubDataAttribute <em>Parameterized Sub Data Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Parameterized Sub Data Attribute</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute#getParameterizedSubDataAttribute()
+     * @see #getServiceConstructedAttribute()
+     * @generated
+     */
+    EReference getServiceConstructedAttribute_ParameterizedSubDataAttribute();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttributes <em>Service Constructed Attributes</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -14521,6 +14541,15 @@ public interface NsdPackage extends EPackage {
          */
         EReference SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_CONSTRUCTED_ATTRIBUTES = eINSTANCE
                 .getServiceConstructedAttribute_ParentServiceConstructedAttributes();
+
+        /**
+         * The meta object literal for the '<em><b>Parameterized Sub Data Attribute</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference SERVICE_CONSTRUCTED_ATTRIBUTE__PARAMETERIZED_SUB_DATA_ATTRIBUTE = eINSTANCE
+                .getServiceConstructedAttribute_ParameterizedSubDataAttribute();
 
         /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceConstructedAttributesImpl <em>Service Constructed Attributes</em>}' class.

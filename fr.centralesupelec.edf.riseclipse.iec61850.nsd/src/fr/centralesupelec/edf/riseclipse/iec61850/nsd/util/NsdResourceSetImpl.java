@@ -40,6 +40,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.IllegalValueException;
 import org.eclipse.jdt.annotation.NonNull;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceDataAttributeImpl;
+
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass;
@@ -371,12 +373,9 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                     .getServiceDataAttribute()
                     .stream()
                     .forEach( att -> {
-                        DataAttribute da = att.toDataAttribute();
+                        DataAttribute da = (( ServiceDataAttributeImpl ) att ).toDataAttribute( cdc, console );
                         console.notice( NSD_SETUP_CATEGORY, 0,
                                         "Service NS: Adding DataAttribute ", da.getName(), " to CDC ", cdc.getName() );
-                        // setParentCDC() should be enough to attach the new attribute to the applyTo resource, giving it the right namespace
-                        da.setParentCDC( cdc );
-                        da.buildExplicitLinks( console );
                     });
                 }
                 else {

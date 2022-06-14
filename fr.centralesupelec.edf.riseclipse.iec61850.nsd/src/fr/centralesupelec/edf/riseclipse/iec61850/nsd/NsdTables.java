@@ -195,6 +195,7 @@ public class NsdTables extends AbstractTables
 	public static final /*@NonInvalid*/ String STR_Within_32_an_32_NS_44_32_there_32_shall_32_not_32_be_32_two_32_Enumeration_32_sub_m_elements_32_wi = "Within an NS, there shall not be two Enumeration sub-elements with same name.";
 	public static final /*@NonInvalid*/ String STR_Within_32_an_32_NS_44_32_there_32_shall_32_not_32_be_32_two_32_LNClass_32_sub_m_elements_32_with_32_s = "Within an NS, there shall not be two LNClass sub-elements with same name.";
 	public static final /*@NonInvalid*/ CollectionTypeId BAG_CLSSid_CDC = TypeId.BAG.getSpecializedId(NsdTables.CLSSid_CDC);
+	public static final /*@NonInvalid*/ CollectionTypeId BAG_CLSSid_ServiceConstructedAttribute = TypeId.BAG.getSpecializedId(NsdTables.CLSSid_ServiceConstructedAttribute);
 	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_Enumeration = TypeId.ORDERED_SET.getSpecializedId(NsdTables.CLSSid_Enumeration);
 	public static final /*@NonInvalid*/ CollectionTypeId SEQ_DATAid_EFeatureMapEntry = TypeId.SEQUENCE.getSpecializedId(NsdTables.DATAid_EFeatureMapEntry);
 	public static final /*@NonInvalid*/ CollectionTypeId SET_CLSSid_Abbreviation = TypeId.SET.getSpecializedId(NsdTables.CLSSid_Abbreviation);
@@ -1197,8 +1198,9 @@ public class NsdTables extends AbstractTables
 		public static final ExecutorProperty _ServiceCDCs__parentServiceNS = new EcoreExecutorProperty(NsdPackage.Literals.SERVICE_CD_CS__PARENT_SERVICE_NS, Types._ServiceCDCs, 0);
 		public static final ExecutorProperty _ServiceCDCs__serviceCDC = new EcoreExecutorProperty(NsdPackage.Literals.SERVICE_CD_CS__SERVICE_CDC, Types._ServiceCDCs, 1);
 
-		public static final ExecutorProperty _ServiceConstructedAttribute__parentServiceConstructedAttributes = new EcoreExecutorProperty(NsdPackage.Literals.SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_CONSTRUCTED_ATTRIBUTES, Types._ServiceConstructedAttribute, 0);
-		public static final ExecutorProperty _ServiceConstructedAttribute__typeKindParameterized = new EcoreExecutorProperty(NsdPackage.Literals.SERVICE_CONSTRUCTED_ATTRIBUTE__TYPE_KIND_PARAMETERIZED, Types._ServiceConstructedAttribute, 1);
+		public static final ExecutorProperty _ServiceConstructedAttribute__parameterizedSubDataAttribute = new EcoreExecutorProperty(NsdPackage.Literals.SERVICE_CONSTRUCTED_ATTRIBUTE__PARAMETERIZED_SUB_DATA_ATTRIBUTE, Types._ServiceConstructedAttribute, 0);
+		public static final ExecutorProperty _ServiceConstructedAttribute__parentServiceConstructedAttributes = new EcoreExecutorProperty(NsdPackage.Literals.SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_CONSTRUCTED_ATTRIBUTES, Types._ServiceConstructedAttribute, 1);
+		public static final ExecutorProperty _ServiceConstructedAttribute__typeKindParameterized = new EcoreExecutorProperty(NsdPackage.Literals.SERVICE_CONSTRUCTED_ATTRIBUTE__TYPE_KIND_PARAMETERIZED, Types._ServiceConstructedAttribute, 2);
 
 		public static final ExecutorProperty _ServiceConstructedAttributes__parentServiceNS = new EcoreExecutorProperty(NsdPackage.Literals.SERVICE_CONSTRUCTED_ATTRIBUTES__PARENT_SERVICE_NS, Types._ServiceConstructedAttributes, 0);
 		public static final ExecutorProperty _ServiceConstructedAttributes__serviceConstructedAttribute = new EcoreExecutorProperty(NsdPackage.Literals.SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_CONSTRUCTED_ATTRIBUTE, Types._ServiceConstructedAttributes, 1);
@@ -1231,6 +1233,7 @@ public class NsdTables extends AbstractTables
 		public static final ExecutorProperty _SubDataAttribute__name = new EcoreExecutorProperty(NsdPackage.Literals.SUB_DATA_ATTRIBUTE__NAME, Types._SubDataAttribute, 0);
 		public static final ExecutorProperty _SubDataAttribute__parentConstructedAttribute = new EcoreExecutorProperty(NsdPackage.Literals.SUB_DATA_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTE, Types._SubDataAttribute, 1);
 		public static final ExecutorProperty _SubDataAttribute__refersToPresenceCondition = new EcoreExecutorProperty(NsdPackage.Literals.SUB_DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION, Types._SubDataAttribute, 2);
+		public static final ExecutorProperty _SubDataAttribute__ServiceConstructedAttribute__parameterizedSubDataAttribute = new ExecutorPropertyWithImplementation("ServiceConstructedAttribute", Types._SubDataAttribute, 3, new EcoreLibraryOppositeProperty(NsdPackage.Literals.SERVICE_CONSTRUCTED_ATTRIBUTE__PARAMETERIZED_SUB_DATA_ATTRIBUTE));
 
 		public static final ExecutorProperty _SubDataObject__name = new EcoreExecutorProperty(NsdPackage.Literals.SUB_DATA_OBJECT__NAME, Types._SubDataObject, 0);
 		public static final ExecutorProperty _SubDataObject__parentCDC = new EcoreExecutorProperty(NsdPackage.Literals.SUB_DATA_OBJECT__PARENT_CDC, Types._SubDataObject, 1);
@@ -5468,6 +5471,7 @@ public class NsdTables extends AbstractTables
 			NsdTables.Properties._ConstructedAttribute__name,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents,
+			NsdTables.Properties._ServiceConstructedAttribute__parameterizedSubDataAttribute,
 			NsdTables.Properties._ConstructedAttribute__parentConstructedAttributes,
 			NsdTables.Properties._ServiceConstructedAttribute__parentServiceConstructedAttributes,
 			NsdTables.Properties._ConstructedAttribute__parentServiceTypeRealizations,

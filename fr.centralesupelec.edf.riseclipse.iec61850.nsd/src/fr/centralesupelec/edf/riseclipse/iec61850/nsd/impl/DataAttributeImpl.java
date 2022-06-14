@@ -63,6 +63,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.UndefinedAttributeTypeKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
@@ -3729,6 +3730,10 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
      */
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
+        return buildExplicitLinks( null, null, console );
+    }
+    public boolean buildExplicitLinks( DefinedAttributeTypeKind underlyingTypeKind, String underlyingType, IRiseClipseConsole console ) {
+
         console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "DataAttributeImpl.buildExplicitLinks()" );
 
         if( super.buildExplicitLinks( console ) ) return true;
@@ -3859,6 +3864,19 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                                 messagePrefix, "ConstructedAttribute (name: ", getType(), ") not found" );
                     }
                     else {
+                        if( foundCA instanceof ServiceConstructedAttribute ) {
+                            ServiceConstructedAttribute sca = ( ServiceConstructedAttribute ) foundCA;
+                            if( sca.isSetTypeKindParameterized() ) {
+                                if(( underlyingTypeKind != null ) && ( underlyingType != null )) {
+                                    sca = (( ServiceConstructedAttributeImpl ) sca ).getParameterizedServiceConstructedAttribute( underlyingTypeKind, underlyingType, console );
+                                }
+                                else {
+                                    console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                            messagePrefix, "ServiceConstructedAttribute (name: ", getType(), ") is typeKindParameterized but no underlyingType" );
+                                }
+                            }
+                            foundCA = sca;
+                        }
                         setRefersToConstructedAttribute( foundCA );
                         String foundWhere = "(???";
                         if( getRefersToConstructedAttribute().getParentConstructedAttributes() != null ) {
@@ -3905,7 +3923,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                         // but no console available
                         if( getParentCDC().isSetParameterizedDataAttribute() ) {
                             console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                                    messagePrefix, "there is already a parameterizedDataAttribute in CDC, it will be overriden" );
+                                    messagePrefix,
+                                    "there is already a parameterizedDataAttribute in CDC, it will be overriden" );
                         }
                         getParentCDC().setParameterizedDataAttribute( this );
                     }
@@ -3931,7 +3950,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                 // but no console available
                 if( getParentCDC().isSetParameterizedDataAttribute() ) {
                     console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                            messagePrefix, "there is already a parameterizedDataAttribute in CDC, it will be overriden" );
+                            messagePrefix,
+                            "there is already a parameterizedDataAttribute in CDC, it will be overriden" );
                 }
                 getParentCDC().setParameterizedDataAttribute( this );
             }
@@ -3940,6 +3960,10 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                         messagePrefix, "typeKind is ", getTypeKind(),
                         " and typeKindParameterized in parent CDC is false" );
             }
+        }
+        else {
+            console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                    messagePrefix, "typeKind is missing" );
         }
 
         if( isSetPresCondArgsID() ) {
