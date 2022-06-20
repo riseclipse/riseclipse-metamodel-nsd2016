@@ -142,7 +142,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         DocumentRoot root = (DocumentRoot) resource.getContents().get( 0 );
         
         if( root.getNS() != null ) {
-            NsIdentification nsId = new NsIdentification( root.getNS() );
+            NsIdentification nsId = NsIdentification.of( root.getNS() );
             NS nsResource = nsResources.get( nsId );
             if( nsResource != null ) {
                 console.error( NSD_SETUP_CATEGORY, resource.getURI().lastSegment(), 0,
@@ -156,7 +156,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         }
         
         if( root.getServiceNS() != null ) {
-            NsIdentification nsId = new NsIdentification( root.getServiceNS() );
+            NsIdentification nsId = NsIdentification.of( root.getServiceNS() );
             ServiceNS serviceNSResource = serviceNSResources.get( nsId );
             if( serviceNSResource != null ) {
                 console.error( NSD_SETUP_CATEGORY, resource.getURI().lastSegment(), 0,
@@ -176,7 +176,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         
         if( root.getNSDoc() != null ) {
             NSDoc nsdoc = ( NSDoc ) root.getNSDoc();
-            NsIdentification nsId = new NsIdentification( nsdoc );
+            NsIdentification nsId = NsIdentification.of( nsdoc );
             NSDoc nsDocResource = nsdocResources.get( nsId );
             if( nsDocResource != null ) {
                 console.error( NSD_SETUP_CATEGORY, resource.getURI().lastSegment(), 0,
@@ -209,7 +209,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
 
         for( ApplicableServiceNS appNS : appNSs ) {
             for( ServiceNsUsage serviceNsUsage : appNS.getServiceNsUsage() ) {
-                NsIdentification serviceNsId = new NsIdentification( serviceNsUsage );
+                NsIdentification serviceNsId = NsIdentification.of( serviceNsUsage );
                 
                 ServiceNS serviceNSResource = serviceNSResources.get( serviceNsId );
                 if( serviceNSResource != null ) {
@@ -222,7 +222,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                     }
                     boolean applied = false;
                     for( AppliesToType applyTo : serviceNsUsage.getAppliesTo() ) {
-                        NsIdentification applyToNsId = new NsIdentification( applyTo );
+                        NsIdentification applyToNsId = NsIdentification.of( applyTo );
                         
                         NS applyToNs = getNS( applyToNsId );
                         if( applyToNs == null ) {
@@ -450,7 +450,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
             while( it.hasNext() ) {
                 NsIdentification nsId = it.next();
                 NS ns = nsResources.get( nsId );
-                NsIdentification dependsOnNS = new NsIdentification( ns.getDependsOn() );
+                NsIdentification dependsOnNS = NsIdentification.of( ns.getDependsOn() );
                 int pos = sortedList.indexOf( dependsOnNS );
                 if( pos >= 0 ) {
                     console.info( NSD_SETUP_CATEGORY, 0,
@@ -473,7 +473,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                 while( it.hasNext() ) {
                     NsIdentification nsId = it.next();
                     NS ns = nsResources.get( nsId );
-                    NsIdentification dependsOnNS = new NsIdentification( ns.getDependsOn() );
+                    NsIdentification dependsOnNS = NsIdentification.of( ns.getDependsOn() );
                     if( ! list.contains( dependsOnNS )) {
                         console.error( NSD_SETUP_CATEGORY, 0,
                                        "NS ", nsId, " depends on ", dependsOnNS, " which is unknown, it is removed" );
@@ -496,7 +496,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
     public NsIdentification getDependsOn( NsIdentification nsIdentification ) {
         NS ns = getNS( nsIdentification );
         if(( ns != null ) && ( ns.getDependsOn() != null )) {
-            return new NsIdentification( ns.getDependsOn() );
+            return NsIdentification.of( ns.getDependsOn() );
         }
         return null;
     }

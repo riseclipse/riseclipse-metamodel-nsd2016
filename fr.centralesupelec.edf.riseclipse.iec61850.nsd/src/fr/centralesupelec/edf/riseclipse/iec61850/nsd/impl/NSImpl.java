@@ -2951,7 +2951,7 @@ public class NSImpl extends CopyrightedImpl implements NS {
         if( isSetDescID() ) {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
                 Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() )
-                        .findDoc( new NsIdentification( this ), getDescID() );
+                        .findDoc( NsIdentification.of( this ), getDescID() );
                 if( doc != null ) setRefersToDoc( doc );
             }
         }
@@ -2960,7 +2960,7 @@ public class NSImpl extends CopyrightedImpl implements NS {
     }
 
     public NsIdentification getNsIdentification() {
-        return new NsIdentification( getId(), getVersion(), getRevision(), getRelease() );
+        return NsIdentification.of( getId(), getVersion(), getRevision(), getRelease() );
     }
 
 } //NSImpl

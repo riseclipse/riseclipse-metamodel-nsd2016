@@ -2494,7 +2494,7 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         if( isSetPresCondArgsID() ) {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
                 Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc(
-                        new NsIdentification( getParentServiceCDC().getParentServiceCDCs().getParentServiceNS() ),
+                        NsIdentification.of( getParentServiceCDC().getParentServiceCDCs().getParentServiceNS() ),
                         getPresCondArgsID() );
                 if( doc != null ) setRefersToPresCondArgsDoc( doc );
             }
@@ -2575,7 +2575,7 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
 
     @Override
     public NsIdentification getNsIdentification() {
-        return new NsIdentification( getParentServiceCDC().getParentServiceCDCs().getParentServiceNS() );
+        return NsIdentification.of( getParentServiceCDC().getParentServiceCDCs().getParentServiceNS() );
     }
 
     public DataAttribute toDataAttribute( CDC cdc, IRiseClipseConsole console ) {

@@ -1157,10 +1157,10 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
 
         NsIdentification identification = null;
         if( getParentFunctionalConstraints().getParentNS() != null ) {
-            identification = new NsIdentification( getParentFunctionalConstraints().getParentNS() );
+            identification = NsIdentification.of( getParentFunctionalConstraints().getParentNS() );
         }
         else if( getParentFunctionalConstraints().getParentServiceNS() != null ) {
-            identification = new NsIdentification( getParentFunctionalConstraints().getParentServiceNS() );
+            identification = NsIdentification.of( getParentFunctionalConstraints().getParentServiceNS() );
         }
         if( identification != null ) {
             if( isSetDescID() ) {

@@ -812,7 +812,7 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
         if( isSetDescID() ) {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
                 Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() )
-                        .findDoc( new NsIdentification( getParentBasicTypes().getParentNS() ), getDescID() );
+                        .findDoc( NsIdentification.of( getParentBasicTypes().getParentNS() ), getDescID() );
                 if( doc != null ) setRefersToDoc( doc );
             }
         }

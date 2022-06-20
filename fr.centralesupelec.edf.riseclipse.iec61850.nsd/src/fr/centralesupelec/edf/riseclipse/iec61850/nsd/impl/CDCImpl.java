@@ -1411,10 +1411,12 @@ public class CDCImpl extends TitledClassImpl implements CDC {
         result.append( ')' );
         return result.toString();
     }
+    
+    //@formatter:off
 
     @Override
     public NsIdentification getNsIdentification() {
-        return new NsIdentification( getParentCDCs().getParentNS() );
+        return NsIdentification.of( getParentCDCs().getParentNS() );
     }
 
     // Use only type as key; not typeKind
@@ -1472,5 +1474,7 @@ public class CDCImpl extends TitledClassImpl implements CDC {
         }
         return null;
     }
+    
+    //@formatter:on
 
 } //CDCImpl

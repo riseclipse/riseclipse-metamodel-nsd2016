@@ -408,7 +408,7 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
     @Override
     public NsIdentification getNsIdentification() {
         if( getParentServiceConstructedAttributes() != null ) {
-            return new NsIdentification( getParentServiceConstructedAttributes().getParentServiceNS() );
+            return NsIdentification.of( getParentServiceConstructedAttributes().getParentServiceNS() );
         }
         return super.getNsIdentification();
     }

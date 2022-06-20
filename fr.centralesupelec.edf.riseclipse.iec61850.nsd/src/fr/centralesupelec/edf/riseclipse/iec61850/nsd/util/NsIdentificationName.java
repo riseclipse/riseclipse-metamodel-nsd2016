@@ -20,59 +20,49 @@
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.util;
 
+import java.util.HashMap;
+
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 
 /*
  * A name in a namespace, used as a key in maps
  */
-public class NsIdentificationName extends NsIdentification {
-    
+public class NsIdentificationName {
+    final private NsIdentification nsIdentification;
     final private String name;
-
-    public NsIdentificationName( String id, Integer version, String revision, Integer release, String name ) {
-        super( id, version, revision, release );
-        this.name = name;
-    }
     
-    public NsIdentificationName( AgNSIdentification identification, String name ) {
-        super( identification );
-        this.name = name;
-    }
-
-    public NsIdentificationName( NsIdentification identification, String name ) {
-        super( identification );
-        this.name = name;
-    }
-
-    public NsIdentificationName( String namespace, String name ) {
-        super( namespace );
-        this.name = name;
-    }
-
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = super.hashCode();
-        result = prime * result + (( name == null ) ? 0 : name.hashCode() );
-        return result;
-    }
-
-    @Override
-    public boolean equals( Object obj ) {
-        if( this == obj ) return true;
-        if( ! super.equals( obj ) ) return false;
-        if( getClass() != obj.getClass() ) return false;
-        NsIdentificationName other = ( NsIdentificationName ) obj;
-        if( name == null ) {
-            if( other.name != null ) return false;
+    private static HashMap< NsIdentification, HashMap< String, NsIdentificationName >> nsIdentificationNames = new HashMap<>();
+    
+    public static NsIdentificationName of( NsIdentification nsId, String name ) {
+        if( ! nsIdentificationNames.containsKey( nsId )) {
+            nsIdentificationNames.put( nsId, new HashMap<>() );
         }
-        else if( !name.equals( other.name ) ) return false;
-        return true;
+        if( ! nsIdentificationNames.get( nsId ).containsKey( name )) {
+            nsIdentificationNames.get( nsId ).put( name, new NsIdentificationName( nsId, name ));
+        }
+        return nsIdentificationNames.get( nsId ).get( name );
+    }
+
+    private NsIdentificationName( NsIdentification identification, String name ) {
+        this.nsIdentification = identification;
+        this.name = name;
+    }
+
+    public static NsIdentificationName of( String id, Integer version, String revision, Integer release, String name ) {
+        return of( NsIdentification.of( id, version, revision, release ), name );
+    }
+
+    public static NsIdentificationName of( AgNSIdentification identification, String name ) {
+        return of( NsIdentification.of( identification ), name );
+    }
+
+    public static NsIdentificationName of( String namespace, String name ) {
+        return of( NsIdentification.of( namespace ), name );
     }
 
     @Override
     public String toString() {
-        return super.toString() + " - " + name;
+        return nsIdentification.toString() + " - " + name;
     }
-    
+
 }

@@ -681,7 +681,7 @@ public class AbbreviationImpl extends NsdObjectImpl implements Abbreviation {
         if( isSetDescID() ) {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
                 Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() )
-                        .findDoc( new NsIdentification( getParentAbbreviations().getParentNS() ), getDescID() );
+                        .findDoc( NsIdentification.of ( getParentAbbreviations().getParentNS() ), getDescID() );
                 if( doc != null ) setRefersToDoc( doc );
             }
         }

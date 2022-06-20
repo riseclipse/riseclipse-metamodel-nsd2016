@@ -3722,6 +3722,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         return result.toString();
     }
 
+    //@formatter:off
+
     /* Implicit link
      *   DataAttribute.fc                   -> FunctionalConstraint.abbreviation
      *   DataAttribute.presCond             -> PresenceCondition.name
@@ -3757,14 +3759,14 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                 String foundWhere = "(???";
                 if( getRefersToFunctionalConstraint().getParentFunctionalConstraints().getParentNS() != null ) {
                     foundWhere = "NS \""
-                            + new NsIdentification(
+                            + NsIdentification.of(
                                     getRefersToFunctionalConstraint().getParentFunctionalConstraints().getParentNS() )
                             + "\"";
                 }
                 else if( getRefersToFunctionalConstraint().getParentFunctionalConstraints()
                         .getParentServiceNS() != null ) {
                     foundWhere = "ServiceNS \""
-                            + new NsIdentification( getRefersToFunctionalConstraint().getParentFunctionalConstraints()
+                            + NsIdentification.of( getRefersToFunctionalConstraint().getParentFunctionalConstraints()
                                     .getParentServiceNS() )
                             + "\"";
                 }
@@ -3786,13 +3788,13 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                 String foundWhere = "(???";
                 if( getRefersToPresenceCondition().getParentPresenceConditions().getParentNS() != null ) {
                     foundWhere = "NS \""
-                            + new NsIdentification(
+                            + NsIdentification.of(
                                     getRefersToPresenceCondition().getParentPresenceConditions().getParentNS() )
                             + "\"";
                 }
                 else if( getRefersToPresenceCondition().getParentPresenceConditions().getParentServiceNS() != null ) {
                     foundWhere = "ServiceNS \""
-                            + new NsIdentification(
+                            + NsIdentification.of(
                                     getRefersToPresenceCondition().getParentPresenceConditions().getParentServiceNS() )
                             + "\"";
                 }
@@ -3898,13 +3900,13 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                         String foundWhere = "(???";
                         if( getRefersToConstructedAttribute().getParentConstructedAttributes() != null ) {
                             foundWhere = "NS \""
-                                    + new NsIdentification( getRefersToConstructedAttribute()
+                                    + NsIdentification.of( getRefersToConstructedAttribute()
                                             .getParentConstructedAttributes().getParentNS() )
                                     + "\"";
                         }
                         else if( getRefersToConstructedAttribute().getParentServiceTypeRealizations() != null ) {
                             foundWhere = "ServiceNS \""
-                                    + new NsIdentification( getRefersToConstructedAttribute()
+                                    + NsIdentification.of( getRefersToConstructedAttribute()
                                             .getParentServiceTypeRealizations().getParentServiceNS() )
                                     + "\"";
                         }
@@ -3984,5 +3986,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     public NsIdentification getNsIdentification() {
         return ( ( CDCImpl ) getParentCDC() ).getNsIdentification();
     }
+
+    //@formatter:on
 
 } //DataAttributeImpl

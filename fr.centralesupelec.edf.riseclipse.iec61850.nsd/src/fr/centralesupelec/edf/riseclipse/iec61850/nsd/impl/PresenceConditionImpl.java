@@ -1355,10 +1355,10 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
 
         NsIdentification identification = null;
         if( getParentPresenceConditions().getParentNS() != null ) {
-            identification = new NsIdentification( getParentPresenceConditions().getParentNS() );
+            identification = NsIdentification.of( getParentPresenceConditions().getParentNS() );
         }
         else if( getParentPresenceConditions().getParentServiceNS() != null ) {
-            identification = new NsIdentification( getParentPresenceConditions().getParentServiceNS() );
+            identification = NsIdentification.of( getParentPresenceConditions().getParentServiceNS() );
         }
         if( identification != null ) {
             if( isSetDescID() ) {

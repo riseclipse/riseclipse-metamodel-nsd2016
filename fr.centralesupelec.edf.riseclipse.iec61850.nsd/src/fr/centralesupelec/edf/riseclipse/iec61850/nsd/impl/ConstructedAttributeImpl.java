@@ -809,7 +809,7 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
         else if( getParentServiceTypeRealizations() != null ) {
             ns = getParentServiceTypeRealizations().getParentServiceNS();
         }
-        return new NsIdentification( ns );
+        return NsIdentification.of( ns );
     }
 
 } //ConstructedAttributeImpl

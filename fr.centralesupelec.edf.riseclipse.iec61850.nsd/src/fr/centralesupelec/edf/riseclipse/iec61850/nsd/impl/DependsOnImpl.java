@@ -1097,7 +1097,7 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
 
         String messagePrefix = "while resolving link from DependsOn: ";
 
-        NsIdentification identification = new NsIdentification( getId(), getVersion(), getRevision(), getRelease() );
+        NsIdentification identification = NsIdentification.of( getId(), getVersion(), getRevision(), getRelease() );
         NsdResourceSetImpl rs = getResourceSet();
         NS ns = rs.getNS( identification );
         if( ns == null ) {
