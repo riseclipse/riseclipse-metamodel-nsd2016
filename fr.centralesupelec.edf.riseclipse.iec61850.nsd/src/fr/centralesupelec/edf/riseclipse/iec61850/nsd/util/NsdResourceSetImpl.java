@@ -206,6 +206,8 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
     public void finalizeLoad( IRiseClipseConsole console ) {
         // Explicit links must be built first, they are needed for ServiceNsUsage
         buildExplicitLinks( console );
+        
+        setDependsOnLinks( console );
 
         for( ApplicableServiceNS appNS : appNSs ) {
             for( ServiceNsUsage serviceNsUsage : appNS.getServiceNsUsage() ) {
@@ -426,6 +428,16 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
             }
         }
         
+    }
+    
+    private void setDependsOnLinks( IRiseClipseConsole console ) {
+        for( NS ns : nsResources.values() ) {
+            if( ns.getDependsOn() != null ) {
+                NsIdentification nsId = NsIdentification.of( ns );
+                NsIdentification dependsOnNS = NsIdentification.of( ns.getDependsOn() );
+                nsId.setDependsOn( dependsOnNS );
+            }
+        }
     }
     
     public List< NsIdentification > getNsIdentificationOrderedList( IRiseClipseConsole console ) {
