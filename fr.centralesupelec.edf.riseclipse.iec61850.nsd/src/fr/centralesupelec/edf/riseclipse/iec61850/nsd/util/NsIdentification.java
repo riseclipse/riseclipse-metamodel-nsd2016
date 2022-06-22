@@ -29,12 +29,12 @@ public class NsIdentification {
     public final static String  DEFAULT_REVISION = "A";
     public final static Integer DEFAULT_RELEASE  = 1;
     
-    public NsIdentification( String id, Integer version, String revision, Integer release ) {
-    
     private final String id;
     private final Integer version;
     private final String revision;
     private final Integer release;
+    
+    private NsIdentification dependsOn;
     
     private static HashMap< String, HashMap< Integer, HashMap< String, NsIdentification >>> nsIdentifications = new HashMap<>();
     
@@ -56,7 +56,6 @@ public class NsIdentification {
         this.version = version;
         this.revision = revision;
         this.release = release;
-        System.out.println( "Creating " + this );
     }
     
     public static NsIdentification of( String namespace ) {
@@ -100,10 +99,14 @@ public class NsIdentification {
         return release;
     }
     
-
-    @Override
+    public NsIdentification getDependsOn() {
+        return dependsOn;
     }
-    
+
+    public void setDependsOn( NsIdentification dependsOn ) {
+        this.dependsOn = dependsOn;
+    }
+
     @Override
     public String toString() {
         return id + ":" + version + revision;
