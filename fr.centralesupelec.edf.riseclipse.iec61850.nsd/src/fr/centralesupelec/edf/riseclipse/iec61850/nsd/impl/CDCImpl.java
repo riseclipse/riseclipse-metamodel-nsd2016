@@ -63,6 +63,8 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceParameter;
@@ -1420,10 +1422,10 @@ public class CDCImpl extends TitledClassImpl implements CDC {
     }
 
     // Use only type as key; not typeKind
-    private static HashMap< String, CDC > parameterizedCDCs = new HashMap<>();
+    private HashMap< String, CDC > parameterizedCDCs = new HashMap<>();
 
     public CDC getParameterizedCDC( DefinedAttributeTypeKind underlyingTypeKind, String underlyingType,
-            IRiseClipseConsole console ) {
+            NS ns, IRiseClipseConsole console ) {
         if( getParameterizedDataAttributeNames().isEmpty() ) {
             console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                     "CDC ", getName(), " has no parameterized data attribute" );
@@ -1433,7 +1435,10 @@ public class CDCImpl extends TitledClassImpl implements CDC {
         if( !parameterizedCDCs.containsKey( underlyingType ) ) {
             // EcoreUtil.copy does a deep copy!
             CDC parameterizedCDC = EcoreUtil.copy( this );
-            parameterizedCDC.setParentCDCs( getParentCDCs() );
+            if( ns.getCDCs() == null ) {
+                ns.setCDCs( NsdFactory.eINSTANCE.createCDCs() );
+            }
+            ns.getCDCs().getCDC().add( parameterizedCDC );
             for( int i = 0; i < parameterizedCDC.getDataAttribute().size(); ++i ) {
                 if( parameterizedCDC.getParameterizedDataAttributeNames().contains( getDataAttribute().get( i ).getName() )) {
                     parameterizedCDC.getDataAttribute().get( i ).setType( underlyingType );
@@ -1464,8 +1469,8 @@ public class CDCImpl extends TitledClassImpl implements CDC {
         return parameterizedCDCs.get( underlyingType );
     }
 
-    public CDC getParameterizedCDC( String underlyingType, IRiseClipseConsole console ) {
-        return getParameterizedCDC( null, underlyingType, console );
+    public CDC getParameterizedCDC( String underlyingType, NS ns, IRiseClipseConsole console ) {
+        return getParameterizedCDC( null, underlyingType, ns, console );
     }
 
     public String getUnderlyingType() {

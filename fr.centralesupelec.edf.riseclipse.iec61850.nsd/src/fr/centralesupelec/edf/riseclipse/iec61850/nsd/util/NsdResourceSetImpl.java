@@ -40,6 +40,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.IllegalValueException;
 import org.eclipse.jdt.annotation.NonNull;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.LNClassImpl;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceDataAttributeImpl;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation;
@@ -263,6 +264,13 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                                      "While processing ServiceNsUsage: ServiceNS with id ", serviceNsId, " not found" );
                 }
             }
+        }
+        
+        // Create parameterized components
+        // (see comment in DataObjectImpl.buildExplicitLinks())
+        for( NS nsResource : nsResources.values() ) {
+            getLNClassStream( nsResource, false )
+            .forEach( lnClass -> (( LNClassImpl ) lnClass ).createParameterizedComponents( console ) );
         }
     }
 

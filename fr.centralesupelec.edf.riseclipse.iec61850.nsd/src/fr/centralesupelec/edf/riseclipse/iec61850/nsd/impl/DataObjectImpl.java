@@ -51,7 +51,9 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
@@ -2820,6 +2822,8 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         return result.toString();
     }
 
+    //@formatter:off
+
     /* Implicit link
      *   DataObject.type                    -> CDC.name
      *   DataObject.presCond                -> PresenceCondition.name
@@ -2843,27 +2847,48 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                         messagePrefix, "CDC (name: ", getType(), ") not found" );
             }
             else {
-                if( usedCDC.isTypeKindParameterized() ) {
-                    if( isSetUnderlyingType() && isSetUnderlyingTypeKind() ) {
-                        usedCDC = ( ( CDCImpl ) usedCDC ).getParameterizedCDC( getUnderlyingTypeKind(),
-                                getUnderlyingType(), console );
-                    }
-                    else {
-                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                                messagePrefix, "CDC (name: ", getType(), ") is typeKindParameterized",
-                                ", but no underlyingType" );
-                    }
-                }
-                else if( usedCDC.isEnumParameterized() ) {
-                    if( isSetUnderlyingType() ) {
-                        usedCDC = ( ( CDCImpl ) usedCDC ).getParameterizedCDC( getUnderlyingType(), console );
-                    }
-                    else {
-                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                                messagePrefix, "CDC (name: ", getType(), ") is enumParameterized",
-                                ", but no underlyingType" );
-                    }
-                }
+                // Creation of parameterized CDC will be done after application of ServiceNS
+                // This is because:
+                // - we need to put the parameterized CDC in the namespace of the attribute used for parameterization
+                //   so that we can find the validator for it
+                // - but the ServiceNS may not be applied to this namespace 
+                // Example:
+                // - CDC defined in 7-3
+                // - parameterized by 8-1 using an enumeration of 7-4
+                // - the parameterized CDC goes in 7-4
+                // - the 8-1 ServiceNS is only applied to 7-3
+                // See below createParameterizedComponents()
+                
+//                if( usedCDC.isTypeKindParameterized() ) {
+//                    if( isSetUnderlyingType() && isSetUnderlyingTypeKind() ) {
+//                        // Put this CDC in the same namespace/resource than this DataObject so that
+//                        // the validator for the underlyingType is found
+//                        NS ns = (( DocumentRoot ) eResource().getContents().get( 0 )).getNS();
+//                        usedCDC = ( ( CDCImpl ) usedCDC ).getParameterizedCDC( getUnderlyingTypeKind(),
+//                                getUnderlyingType(), ns, console );
+//                    }
+//                    else {
+//                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+//                                messagePrefix, "CDC (name: ", getType(), ") is typeKindParameterized",
+//                                ", but no underlyingType" );
+//                    }
+//                }
+//                else if( usedCDC.isEnumParameterized() ) {
+//                    if( isSetUnderlyingType() ) {
+//                        // Put this CDC in the same namespace/resource than this DataObject so that
+//                        // the validator for the underlyingType is found
+//                        NS ns = (( DocumentRoot ) eResource().getContents().get( 0 )).getNS();
+//                        usedCDC = ( ( CDCImpl ) usedCDC ).getParameterizedCDC( getUnderlyingType(), ns, console );
+//                    }
+//                    else {
+//                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+//                                messagePrefix, "CDC (name: ", getType(), ") is enumParameterized",
+//                                ", but no underlyingType" );
+//                    }
+//                }
+//                else {
+//                    // classic CDC
+//                }
                 setRefersToCDC( usedCDC );
                 console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                         messagePrefix, "CDC (name: ", getType(), ") found in NS (id:",
@@ -2991,5 +3016,43 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     public NsIdentification getNsIdentification() {
         return ( ( AnyLNClassImpl ) getParentAnyLNClass() ).getNsIdentification();
     }
+
+    public void createParameterizedComponents( IRiseClipseConsole console ) {
+        String messagePrefix = "while building parameterized component for DataObject (name: " + getName() + "): ";
+        CDC usedCDC = getRefersToCDC();
+        if( usedCDC.isTypeKindParameterized() ) {
+            if( isSetUnderlyingType() && isSetUnderlyingTypeKind() ) {
+                // Put this CDC in the same namespace/resource than this DataObject so that
+                // the validator for the underlyingType is found
+                NS ns = (( DocumentRoot ) eResource().getContents().get( 0 )).getNS();
+                usedCDC = ( ( CDCImpl ) usedCDC ).getParameterizedCDC( getUnderlyingTypeKind(),
+                        getUnderlyingType(), ns, console );
+            }
+            else {
+                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        messagePrefix, "CDC (name: ", getType(), ") is typeKindParameterized",
+                        ", but no underlyingType" );
+            }
+        }
+        else if( usedCDC.isEnumParameterized() ) {
+            if( isSetUnderlyingType() ) {
+                // Put this CDC in the same namespace/resource than this DataObject so that
+                // the validator for the underlyingType is found
+                NS ns = (( DocumentRoot ) eResource().getContents().get( 0 )).getNS();
+                usedCDC = ( ( CDCImpl ) usedCDC ).getParameterizedCDC( getUnderlyingType(), ns, console );
+            }
+            else {
+                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        messagePrefix, "CDC (name: ", getType(), ") is enumParameterized",
+                        ", but no underlyingType" );
+            }
+        }
+        else {
+            // classic CDC
+        }
+        setRefersToCDC( usedCDC );
+    }
+    
+    //@formatter:on
 
 } //DataObjectImpl

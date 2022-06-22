@@ -45,6 +45,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
+import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
 /**
  * <!-- begin-user-doc -->
@@ -611,6 +612,13 @@ public class LNClassImpl extends AnyLNClassImpl implements LNClass {
             result.append( "<unset>" );
         result.append( ')' );
         return result.toString();
+    }
+
+    public void createParameterizedComponents( IRiseClipseConsole console ) {
+         this
+        .getDataObject()
+        .stream()
+        .forEach( do_ -> (( DataObjectImpl ) do_ ).createParameterizedComponents( console ));
     }
 
 } //LNClassImpl
