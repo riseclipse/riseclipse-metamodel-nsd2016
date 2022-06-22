@@ -599,7 +599,7 @@ public abstract class DocumentedClassImpl extends NsdObjectImpl implements Docum
         if( super.buildExplicitLinks( console ) ) return true;
 
         if( isSetDescID() ) {
-            if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
+            if(( this.eResource() != null ) && ( this.eResource().getResourceSet() instanceof NsdResourceSetImpl )) {
                 Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getNsIdentification(),
                         getDescID() );
                 if( doc != null ) setRefersToDescDoc( doc );

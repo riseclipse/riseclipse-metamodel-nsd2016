@@ -3883,13 +3883,15 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                                                         (( CDCImpl ) getParentCDC() ).getUnderlyingType(), console );
                                     }
                                     else {
-                                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                        // This is not a problem if is is added to a CDC which is parameterized
+                                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                                                 messagePrefix, "ServiceConstructedAttribute (name: ", getType(),
                                                 ") is typeKindParameterized but no underlyingType" );
                                     }
                                 }
                                 else {
-                                    console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                    // This is not a problem if is is added to a CDC which is parameterized
+                                    console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                                             messagePrefix, "ServiceConstructedAttribute (name: ", getType(),
                                             ") is typeKindParameterized but no underlyingTypeKind" );
                                 }
@@ -3980,11 +3982,11 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         }
 
         return false;
-    }
+}
 
     @Override
     public NsIdentification getNsIdentification() {
-        return ( ( CDCImpl ) getParentCDC() ).getNsIdentification();
+        return (( CDCImpl ) getParentCDC() ).getNsIdentification();
     }
 
     //@formatter:on
