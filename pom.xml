@@ -26,7 +26,7 @@
  
   <groupId>io.github.riseclipse</groupId>
   <artifactId>riseclipse-metamodel-nsd2016</artifactId>
-  <version>1.2.4-SNAPSHOT</version>
+  <version>1.2.4</version>
   <packaging>pom</packaging>
   
   <parent>
@@ -39,7 +39,7 @@
     <connection>scm:git:git@github.com:riseclipse/riseclipse-metamodel-nsd2016.git</connection>
     <developerConnection>scm:git:git@github.com:riseclipse/riseclipse-metamodel-nsd2016.git</developerConnection>
     <url>https://github.com/riseclipse/riseclipse-metamodel-nsd2016</url>
-    <tag>HEAD</tag>
+    <tag>riseclipse-metamodel-nsd2016-1.2.4</tag>
   </scm>
  
   <build>
