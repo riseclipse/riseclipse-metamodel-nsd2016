@@ -1,6 +1,6 @@
 /*
 *************************************************************************
-**  Copyright (c) 2016-2021 CentraleSupélec & EDF.
+**  Copyright (c) 2016-2022 CentraleSupélec & EDF.
 **  All rights reserved. This program and the accompanying materials
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
@@ -39,6 +39,9 @@ import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.IllegalValueException;
 import org.eclipse.jdt.annotation.NonNull;
+
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.LNClassImpl;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceDataAttributeImpl;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations;
@@ -140,7 +143,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         DocumentRoot root = (DocumentRoot) resource.getContents().get( 0 );
         
         if( root.getNS() != null ) {
-            NsIdentification nsId = new NsIdentification( root.getNS() );
+            NsIdentification nsId = NsIdentification.of( root.getNS() );
             NS nsResource = nsResources.get( nsId );
             if( nsResource != null ) {
                 console.error( NSD_SETUP_CATEGORY, resource.getURI().lastSegment(), 0,
@@ -154,7 +157,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         }
         
         if( root.getServiceNS() != null ) {
-            NsIdentification nsId = new NsIdentification( root.getServiceNS() );
+            NsIdentification nsId = NsIdentification.of( root.getServiceNS() );
             ServiceNS serviceNSResource = serviceNSResources.get( nsId );
             if( serviceNSResource != null ) {
                 console.error( NSD_SETUP_CATEGORY, resource.getURI().lastSegment(), 0,
@@ -174,7 +177,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         
         if( root.getNSDoc() != null ) {
             NSDoc nsdoc = ( NSDoc ) root.getNSDoc();
-            NsIdentification nsId = new NsIdentification( nsdoc );
+            NsIdentification nsId = NsIdentification.of( nsdoc );
             NSDoc nsDocResource = nsdocResources.get( nsId );
             if( nsDocResource != null ) {
                 console.error( NSD_SETUP_CATEGORY, resource.getURI().lastSegment(), 0,
@@ -204,10 +207,12 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
     public void finalizeLoad( IRiseClipseConsole console ) {
         // Explicit links must be built first, they are needed for ServiceNsUsage
         buildExplicitLinks( console );
+        
+        setDependsOnLinks( console );
 
         for( ApplicableServiceNS appNS : appNSs ) {
             for( ServiceNsUsage serviceNsUsage : appNS.getServiceNsUsage() ) {
-                NsIdentification serviceNsId = new NsIdentification( serviceNsUsage );
+                NsIdentification serviceNsId = NsIdentification.of( serviceNsUsage );
                 
                 ServiceNS serviceNSResource = serviceNSResources.get( serviceNsId );
                 if( serviceNSResource != null ) {
@@ -220,7 +225,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                     }
                     boolean applied = false;
                     for( AppliesToType applyTo : serviceNsUsage.getAppliesTo() ) {
-                        NsIdentification applyToNsId = new NsIdentification( applyTo );
+                        NsIdentification applyToNsId = NsIdentification.of( applyTo );
                         
                         NS applyToNs = getNS( applyToNsId );
                         if( applyToNs == null ) {
@@ -259,6 +264,13 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                                      "While processing ServiceNsUsage: ServiceNS with id ", serviceNsId, " not found" );
                 }
             }
+        }
+        
+        // Create parameterized components
+        // (see comment in DataObjectImpl.buildExplicitLinks())
+        for( NS nsResource : nsResources.values() ) {
+            getLNClassStream( nsResource, false )
+            .forEach( lnClass -> (( LNClassImpl ) lnClass ).createParameterizedComponents( console ) );
         }
     }
 
@@ -321,6 +333,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                 ConstructedAttribute copy = EcoreUtil.copy( typeRealization );
                 // filename not copied ?
                 copy.setFilename( typeRealization.getFilename() );
+                copy.getSubDataAttribute().stream().forEach( sda -> sda.setFilename( typeRealization.getFilename() ));
                 applyToNs.getConstructedAttributes().getConstructedAttribute().add( copy );
                 copy.buildExplicitLinks( console );
                 BasicType basic = findBasicType( typeRealization.getName(), applyToNsId, true );
@@ -365,24 +378,18 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         if( serviceNS.getServiceCDCs() != null ) {
             // A ServiceCDC add new attribute to an existing CDC
             for( ServiceCDC serviceCDC : serviceNS.getServiceCDCs().getServiceCDC() ) {
-                CDC cdc = findCDC( serviceCDC.getCdc(), applyToNsId, true );
-                if( cdc != null ) {
-                    serviceCDC
-                    .getServiceDataAttribute()
-                    .stream()
-                    .forEach( att -> {
-                        DataAttribute da = att.toDataAttribute();
-                        console.notice( NSD_SETUP_CATEGORY, 0,
-                                        "Service NS: Adding DataAttribute ", da.getName(), " to CDC ", cdc.getName() );
-                        // setParentCDC() should be enough to attach the new attribute to the applyTo resource, giving it the right namespace
-                        da.setParentCDC( cdc );
-                        da.buildExplicitLinks( console );
+                getCDCStream( applyToNsId, true )
+                    .filter( cdc -> serviceCDC.getCdc().equals( cdc.getName() ))
+                    .forEach( cdc -> {
+                        serviceCDC
+                        .getServiceDataAttribute()
+                        .stream()
+                        .forEach( att -> {
+                            DataAttribute da = (( ServiceDataAttributeImpl ) att ).toDataAttribute( cdc, console );
+                            console.notice( NSD_SETUP_CATEGORY, 0,
+                                            "Service NS: Adding DataAttribute ", da.getName(), " to CDC ", cdc.getName() );
+                        });
                     });
-                }
-                else {
-                    console.warning( NSD_SETUP_CATEGORY, 0,
-                                     "Service NS: CDC ", serviceCDC.getCdc(), " not found" );
-                }
             }
         }
     }
@@ -432,6 +439,16 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         
     }
     
+    private void setDependsOnLinks( IRiseClipseConsole console ) {
+        for( NS ns : nsResources.values() ) {
+            if( ns.getDependsOn() != null ) {
+                NsIdentification nsId = NsIdentification.of( ns );
+                NsIdentification dependsOnNS = NsIdentification.of( ns.getDependsOn() );
+                nsId.setDependsOn( dependsOnNS );
+            }
+        }
+    }
+    
     public List< NsIdentification > getNsIdentificationOrderedList( IRiseClipseConsole console ) {
         LinkedList< NsIdentification > list = new LinkedList< NsIdentification >( nsResources.keySet() );
         ArrayList< NsIdentification > sortedList = new ArrayList< NsIdentification >();
@@ -454,7 +471,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
             while( it.hasNext() ) {
                 NsIdentification nsId = it.next();
                 NS ns = nsResources.get( nsId );
-                NsIdentification dependsOnNS = new NsIdentification( ns.getDependsOn() );
+                NsIdentification dependsOnNS = NsIdentification.of( ns.getDependsOn() );
                 int pos = sortedList.indexOf( dependsOnNS );
                 if( pos >= 0 ) {
                     console.info( NSD_SETUP_CATEGORY, 0,
@@ -477,7 +494,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                 while( it.hasNext() ) {
                     NsIdentification nsId = it.next();
                     NS ns = nsResources.get( nsId );
-                    NsIdentification dependsOnNS = new NsIdentification( ns.getDependsOn() );
+                    NsIdentification dependsOnNS = NsIdentification.of( ns.getDependsOn() );
                     if( ! list.contains( dependsOnNS )) {
                         console.error( NSD_SETUP_CATEGORY, 0,
                                        "NS ", nsId, " depends on ", dependsOnNS, " which is unknown, it is removed" );
@@ -495,14 +512,6 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
 
     public Stream< NsIdentification > getNsIdentificationStream() {
         return nsResources.keySet().stream();
-    }
-
-    public NsIdentification getDependsOn( NsIdentification nsIdentification ) {
-        NS ns = getNS( nsIdentification );
-        if(( ns != null ) && ( ns.getDependsOn() != null )) {
-            return new NsIdentification( ns.getDependsOn() );
-        }
-        return null;
     }
 
     /*

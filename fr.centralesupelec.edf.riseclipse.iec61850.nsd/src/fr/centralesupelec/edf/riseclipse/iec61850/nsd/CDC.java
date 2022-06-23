@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -45,6 +45,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getParentCDCs <em>Parent CD Cs</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getReferredByDataObject <em>Referred By Data Object</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getReferredBySubDataObject <em>Referred By Sub Data Object</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getParameterizedDataAttributeNames <em>Parameterized Data Attribute Names</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCDC()
@@ -551,6 +552,41 @@ public interface CDC extends TitledClass {
      * @generated
      */
     boolean isSetReferredBySubDataObject();
+
+    /**
+     * Returns the value of the '<em><b>Parameterized Data Attribute Names</b></em>' attribute list.
+     * The list contents are of type {@link java.lang.String}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Parameterized Data Attribute Names</em>' attribute list.
+     * @see #isSetParameterizedDataAttributeNames()
+     * @see #unsetParameterizedDataAttributeNames()
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCDC_ParameterizedDataAttributeNames()
+     * @model unsettable="true" transient="true" ordered="false"
+     * @generated
+     */
+    EList< String > getParameterizedDataAttributeNames();
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getParameterizedDataAttributeNames <em>Parameterized Data Attribute Names</em>}' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetParameterizedDataAttributeNames()
+     * @see #getParameterizedDataAttributeNames()
+     * @generated
+     */
+    void unsetParameterizedDataAttributeNames();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getParameterizedDataAttributeNames <em>Parameterized Data Attribute Names</em>}' attribute list is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Parameterized Data Attribute Names</em>' attribute list is set.
+     * @see #unsetParameterizedDataAttributeNames()
+     * @see #getParameterizedDataAttributeNames()
+     * @generated
+     */
+    boolean isSetParameterizedDataAttributeNames();
 
     /**
      * <!-- begin-user-doc -->

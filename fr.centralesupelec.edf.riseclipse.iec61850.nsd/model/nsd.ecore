@@ -527,6 +527,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="referredBySubDataObject"
         ordered="false" upperBound="-1" eType="#//SubDataObject" transient="true"
         unsettable="true" resolveProxies="false" eOpposite="#//SubDataObject/refersToCDC"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameterizedDataAttributeNames"
+        ordered="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        transient="true" unsettable="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CDCs" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -1625,6 +1628,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentServiceConstructedAttributes"
         ordered="false" eType="#//ServiceConstructedAttributes" transient="true" unsettable="true"
         resolveProxies="false" eOpposite="#//ServiceConstructedAttributes/serviceConstructedAttribute"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameterizedSubDataAttributeNames"
+        ordered="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        transient="true" unsettable="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ServiceConstructedAttributes" eSuperTypes="#//NsdObject">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">

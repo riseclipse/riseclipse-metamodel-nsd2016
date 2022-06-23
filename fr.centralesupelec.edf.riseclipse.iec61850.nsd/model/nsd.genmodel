@@ -4,7 +4,8 @@
     modelDirectory="/fr.centralesupelec.edf.riseclipse.iec61850.nsd/src" modelPluginID="fr.centralesupelec.edf.riseclipse.iec61850.nsd"
     modelName="NSD" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     codeFormatting="true" importerID="org.eclipse.xsd.ecore.importer" complianceLevel="11.0"
-    copyrightFields="false" operationReflection="true" importOrganizing="true" cleanup="true">
+    copyrightFields="false" runtimeVersion="2.26" operationReflection="true" importOrganizing="true"
+    cleanup="true" eclipsePlatformVersion="2021-12">
   <genPackages prefix="Nsd" basePackage="fr.centralesupelec.edf.riseclipse.iec61850"
       resource="XML" disposableProviderFactory="true" fileExtensions="nsd,snsd,nsdoc"
       ecorePackage="nsd.ecore#/" documentation="">
@@ -183,6 +184,7 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//CDC/parentCDCs"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//CDC/referredByDataObject"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//CDC/referredBySubDataObject"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//CDC/parameterizedDataAttributeNames"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//CDCs">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//CDCs/cDC"/>
@@ -372,6 +374,7 @@
     <genClasses ecoreClass="nsd.ecore#//ServiceConstructedAttribute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//ServiceConstructedAttribute/typeKindParameterized"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//ServiceConstructedAttribute/parentServiceConstructedAttributes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//ServiceConstructedAttribute/parameterizedSubDataAttributeNames"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//ServiceConstructedAttributes">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//ServiceConstructedAttributes/serviceConstructedAttribute"/>

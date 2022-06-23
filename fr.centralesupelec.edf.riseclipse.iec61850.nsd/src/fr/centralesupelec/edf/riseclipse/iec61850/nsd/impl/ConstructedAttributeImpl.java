@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -454,12 +454,12 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
                     NsdPackage.Literals.CONSTRUCTED_ATTRIBUTE___UNIQUE_SUB_DATA_ATTRIBUTE__DIAGNOSTICCHAIN_MAP );
             final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
                     .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
-            /*@NonInvalid*/ boolean symbol_2;
+            /*@NonInvalid*/ boolean local_2;
             if( le ) {
-                symbol_2 = true;
+                local_2 = true;
             }
             else {
-                /*@Caught*/ Object CAUGHT_symbol_1;
+                /*@Caught*/ Object CAUGHT_local_1;
                 try {
                     final /*@NonInvalid*/ List< SubDataAttribute > subDataAttribute = this.getSubDataAttribute();
                     final /*@NonInvalid*/ SetValue BOXED_subDataAttribute = idResolver
@@ -487,28 +487,28 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
                             accumulator.add( name );
                         }
                     }
-                    /*@Thrown*/ Object symbol_1;
+                    /*@Thrown*/ Object local_1;
                     if( status ) {
-                        symbol_1 = ValueUtil.TRUE_VALUE;
+                        local_1 = ValueUtil.TRUE_VALUE;
                     }
                     else {
-                        final /*@Thrown*/ TupleValue symbol_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                        final /*@Thrown*/ TupleValue local_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
                                 NsdTables.STR_For_32_a_32_ConstructedAttribute_44_32_there_32_shall_32_not_32_be_32_two_32_SubDataAttrib,
                                 status );
-                        symbol_1 = symbol_0;
+                        local_1 = local_0;
                     }
-                    CAUGHT_symbol_1 = symbol_1;
+                    CAUGHT_local_1 = local_1;
                 }
                 catch( Exception e ) {
-                    CAUGHT_symbol_1 = ValueUtil.createInvalidValue( e );
+                    CAUGHT_local_1 = ValueUtil.createInvalidValue( e );
                 }
                 final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
                         .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
-                                context, ( Object ) null, severity_0, CAUGHT_symbol_1, NsdTables.INT_0 )
+                                context, ( Object ) null, severity_0, CAUGHT_local_1, NsdTables.INT_0 )
                         .booleanValue();
-                symbol_2 = logDiagnostic;
+                local_2 = logDiagnostic;
             }
-            return symbol_2;
+            return local_2;
         }
         catch( Throwable e ) {
             return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
@@ -550,29 +550,29 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
                     NsdPackage.Literals.CONSTRUCTED_ATTRIBUTE___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
             final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
                     .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
-            /*@NonInvalid*/ boolean symbol_2;
+            /*@NonInvalid*/ boolean local_2;
             if( le ) {
-                symbol_2 = true;
+                local_2 = true;
             }
             else {
                 final /*@NonInvalid*/ String name = this.getName();
                 final /*@NonInvalid*/ boolean status = name != null;
-                /*@NonInvalid*/ Object symbol_1;
+                /*@NonInvalid*/ Object local_1;
                 if( status ) {
-                    symbol_1 = ValueUtil.TRUE_VALUE;
+                    local_1 = ValueUtil.TRUE_VALUE;
                 }
                 else {
-                    final /*@NonInvalid*/ TupleValue symbol_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                    final /*@NonInvalid*/ TupleValue local_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
                             NsdTables.STR_The_32_name_32_attribute_32_is_32_required, status );
-                    symbol_1 = symbol_0;
+                    local_1 = local_0;
                 }
                 final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
                         .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
-                                context, ( Object ) null, severity_0, symbol_1, NsdTables.INT_0 )
+                                context, ( Object ) null, severity_0, local_1, NsdTables.INT_0 )
                         .booleanValue();
-                symbol_2 = logDiagnostic;
+                local_2 = logDiagnostic;
             }
-            return symbol_2;
+            return local_2;
         }
         catch( Throwable e ) {
             return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
@@ -809,7 +809,7 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
         else if( getParentServiceTypeRealizations() != null ) {
             ns = getParentServiceTypeRealizations().getParentServiceNS();
         }
-        return new NsIdentification( ns );
+        return NsIdentification.of( ns );
     }
 
 } //ConstructedAttributeImpl

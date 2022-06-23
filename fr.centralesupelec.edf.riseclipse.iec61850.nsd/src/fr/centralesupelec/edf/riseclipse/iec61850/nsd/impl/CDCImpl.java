@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -22,9 +22,11 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -33,6 +35,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -59,11 +62,15 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceParameter;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
+import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
 /**
  * <!-- begin-user-doc -->
@@ -84,6 +91,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CDCImpl#getParentCDCs <em>Parent CD Cs</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CDCImpl#getReferredByDataObject <em>Referred By Data Object</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CDCImpl#getReferredBySubDataObject <em>Referred By Sub Data Object</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CDCImpl#getParameterizedDataAttributeNames <em>Parameterized Data Attribute Names</em>}</li>
  * </ul>
  *
  * @generated
@@ -292,6 +300,16 @@ public class CDCImpl extends TitledClassImpl implements CDC {
      * @ordered
      */
     protected EList< SubDataObject > referredBySubDataObject;
+
+    /**
+     * The cached value of the '{@link #getParameterizedDataAttributeNames() <em>Parameterized Data Attribute Names</em>}' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getParameterizedDataAttributeNames()
+     * @generated
+     * @ordered
+     */
+    protected EList< String > parameterizedDataAttributeNames;
 
     /**
      * <!-- begin-user-doc -->
@@ -873,6 +891,42 @@ public class CDCImpl extends TitledClassImpl implements CDC {
      * @generated
      */
     @Override
+    public EList< String > getParameterizedDataAttributeNames() {
+        if( parameterizedDataAttributeNames == null ) {
+            parameterizedDataAttributeNames = new EDataTypeUniqueEList.Unsettable< >( String.class, this,
+                    NsdPackage.CDC__PARAMETERIZED_DATA_ATTRIBUTE_NAMES );
+        }
+        return parameterizedDataAttributeNames;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetParameterizedDataAttributeNames() {
+        if( parameterizedDataAttributeNames != null )
+            ( ( InternalEList.Unsettable< ? > ) parameterizedDataAttributeNames ).unset();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetParameterizedDataAttributeNames() {
+        return parameterizedDataAttributeNames != null
+                && ( ( InternalEList.Unsettable< ? > ) parameterizedDataAttributeNames ).isSet();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public boolean uniqueCDCChild( final DiagnosticChain diagnostics, final Map< Object, Object > context ) {
         final String constraintName = "CDC::uniqueCDCChild";
         try {
@@ -906,12 +960,12 @@ public class CDCImpl extends TitledClassImpl implements CDC {
                     NsdPackage.Literals.CDC___UNIQUE_CDC_CHILD__DIAGNOSTICCHAIN_MAP );
             final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
                     .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
-            /*@NonInvalid*/ boolean symbol_2;
+            /*@NonInvalid*/ boolean local_2;
             if( le ) {
-                symbol_2 = true;
+                local_2 = true;
             }
             else {
-                /*@Caught*/ Object CAUGHT_symbol_1;
+                /*@Caught*/ Object CAUGHT_local_1;
                 try {
                     final /*@NonInvalid*/ List< SubDataObject > subDataObject = this.getSubDataObject();
                     final /*@NonInvalid*/ SetValue BOXED_subDataObject = idResolver
@@ -962,28 +1016,28 @@ public class CDCImpl extends TitledClassImpl implements CDC {
                     final /*@Thrown*/ SetValue asSet = CollectionAsSetOperation.INSTANCE.evaluate( names );
                     final /*@Thrown*/ IntegerValue size_0 = CollectionSizeOperation.INSTANCE.evaluate( asSet );
                     final /*@Thrown*/ boolean eq = size.equals( size_0 );
-                    /*@Thrown*/ Object symbol_1;
+                    /*@Thrown*/ Object local_1;
                     if( eq ) {
-                        symbol_1 = ValueUtil.TRUE_VALUE;
+                        local_1 = ValueUtil.TRUE_VALUE;
                     }
                     else {
-                        final /*@Thrown*/ TupleValue symbol_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                        final /*@Thrown*/ TupleValue local_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
                                 NsdTables.STR_For_32_a_32_CDC_44_32_there_32_shall_32_not_32_be_32_two_32_sub_m_elements_32_o_SubDataObject_32_or,
                                 eq );
-                        symbol_1 = symbol_0;
+                        local_1 = local_0;
                     }
-                    CAUGHT_symbol_1 = symbol_1;
+                    CAUGHT_local_1 = local_1;
                 }
                 catch( Exception e ) {
-                    CAUGHT_symbol_1 = ValueUtil.createInvalidValue( e );
+                    CAUGHT_local_1 = ValueUtil.createInvalidValue( e );
                 }
                 final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
                         .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
-                                context, ( Object ) null, severity_0, CAUGHT_symbol_1, NsdTables.INT_0 )
+                                context, ( Object ) null, severity_0, CAUGHT_local_1, NsdTables.INT_0 )
                         .booleanValue();
-                symbol_2 = logDiagnostic;
+                local_2 = logDiagnostic;
             }
-            return symbol_2;
+            return local_2;
         }
         catch( Throwable e ) {
             return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
@@ -1025,29 +1079,29 @@ public class CDCImpl extends TitledClassImpl implements CDC {
                     NsdPackage.Literals.CDC___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
             final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
                     .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
-            /*@NonInvalid*/ boolean symbol_2;
+            /*@NonInvalid*/ boolean local_2;
             if( le ) {
-                symbol_2 = true;
+                local_2 = true;
             }
             else {
                 final /*@NonInvalid*/ String name = this.getName();
                 final /*@NonInvalid*/ boolean status = name != null;
-                /*@NonInvalid*/ Object symbol_1;
+                /*@NonInvalid*/ Object local_1;
                 if( status ) {
-                    symbol_1 = ValueUtil.TRUE_VALUE;
+                    local_1 = ValueUtil.TRUE_VALUE;
                 }
                 else {
-                    final /*@NonInvalid*/ TupleValue symbol_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                    final /*@NonInvalid*/ TupleValue local_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
                             NsdTables.STR_The_32_name_32_attribute_32_is_32_required, status );
-                    symbol_1 = symbol_0;
+                    local_1 = local_0;
                 }
                 final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
                         .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
-                                context, ( Object ) null, severity_0, symbol_1, NsdTables.INT_0 )
+                                context, ( Object ) null, severity_0, local_1, NsdTables.INT_0 )
                         .booleanValue();
-                symbol_2 = logDiagnostic;
+                local_2 = logDiagnostic;
             }
-            return symbol_2;
+            return local_2;
         }
         catch( Throwable e ) {
             return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
@@ -1156,6 +1210,8 @@ public class CDCImpl extends TitledClassImpl implements CDC {
             return getReferredByDataObject();
         case NsdPackage.CDC__REFERRED_BY_SUB_DATA_OBJECT:
             return getReferredBySubDataObject();
+        case NsdPackage.CDC__PARAMETERIZED_DATA_ATTRIBUTE_NAMES:
+            return getParameterizedDataAttributeNames();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -1206,6 +1262,10 @@ public class CDCImpl extends TitledClassImpl implements CDC {
             getReferredBySubDataObject().clear();
             getReferredBySubDataObject().addAll( ( Collection< ? extends SubDataObject > ) newValue );
             return;
+        case NsdPackage.CDC__PARAMETERIZED_DATA_ATTRIBUTE_NAMES:
+            getParameterizedDataAttributeNames().clear();
+            getParameterizedDataAttributeNames().addAll( ( Collection< ? extends String > ) newValue );
+            return;
         }
         super.eSet( featureID, newValue );
     }
@@ -1251,6 +1311,9 @@ public class CDCImpl extends TitledClassImpl implements CDC {
         case NsdPackage.CDC__REFERRED_BY_SUB_DATA_OBJECT:
             unsetReferredBySubDataObject();
             return;
+        case NsdPackage.CDC__PARAMETERIZED_DATA_ATTRIBUTE_NAMES:
+            unsetParameterizedDataAttributeNames();
+            return;
         }
         super.eUnset( featureID );
     }
@@ -1285,6 +1348,8 @@ public class CDCImpl extends TitledClassImpl implements CDC {
             return isSetReferredByDataObject();
         case NsdPackage.CDC__REFERRED_BY_SUB_DATA_OBJECT:
             return isSetReferredBySubDataObject();
+        case NsdPackage.CDC__PARAMETERIZED_DATA_ATTRIBUTE_NAMES:
+            return isSetParameterizedDataAttributeNames();
         }
         return super.eIsSet( featureID );
     }
@@ -1343,13 +1408,78 @@ public class CDCImpl extends TitledClassImpl implements CDC {
             result.append( variant );
         else
             result.append( "<unset>" );
+        result.append( ", parameterizedDataAttributeNames: " );
+        result.append( parameterizedDataAttributeNames );
         result.append( ')' );
         return result.toString();
     }
+    
+    //@formatter:off
 
     @Override
     public NsIdentification getNsIdentification() {
-        return new NsIdentification( getParentCDCs().getParentNS() );
+        return NsIdentification.of( getParentCDCs().getParentNS() );
     }
+
+    // Use only type as key; not typeKind
+    private HashMap< String, CDC > parameterizedCDCs = new HashMap<>();
+
+    public CDC getParameterizedCDC( DefinedAttributeTypeKind underlyingTypeKind, String underlyingType,
+            NS ns, IRiseClipseConsole console ) {
+        if( getParameterizedDataAttributeNames().isEmpty() ) {
+            console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                    "CDC ", getName(), " has no parameterized data attribute" );
+            return this;
+        }
+        
+        if( !parameterizedCDCs.containsKey( underlyingType ) ) {
+            // EcoreUtil.copy does a deep copy!
+            CDC parameterizedCDC = EcoreUtil.copy( this );
+            if( ns.getCDCs() == null ) {
+                ns.setCDCs( NsdFactory.eINSTANCE.createCDCs() );
+            }
+            ns.getCDCs().getCDC().add( parameterizedCDC );
+            for( int i = 0; i < parameterizedCDC.getDataAttribute().size(); ++i ) {
+                if( parameterizedCDC.getParameterizedDataAttributeNames().contains( getDataAttribute().get( i ).getName() )) {
+                    parameterizedCDC.getDataAttribute().get( i ).setType( underlyingType );
+                    if( underlyingTypeKind != null ) {
+                        parameterizedCDC.getDataAttribute().get( i ).setTypeKind( underlyingTypeKind );
+                    }
+                }
+            }
+            
+            for( DataAttribute da : parameterizedCDC.getDataAttribute() ) {
+                da.setExplicitLinksBuilt( false );
+                da.buildExplicitLinks( console );
+            }
+            for( SubDataObject sdo : parameterizedCDC.getSubDataObject() ) {
+                sdo.setExplicitLinksBuilt( false );
+                sdo.buildExplicitLinks( console );
+            }
+            if( parameterizedCDC.isSetServiceParameter() ) {
+                parameterizedCDC.getServiceParameter().setExplicitLinksBuilt( false );
+                parameterizedCDC.getServiceParameter().buildExplicitLinks( console );
+            }
+            parameterizedCDC.setExplicitLinksBuilt( false );
+            parameterizedCDC.buildExplicitLinks( console );
+            
+            parameterizedCDCs.put( underlyingType, parameterizedCDC );
+        }
+        
+        return parameterizedCDCs.get( underlyingType );
+    }
+
+    public CDC getParameterizedCDC( String underlyingType, NS ns, IRiseClipseConsole console ) {
+        return getParameterizedCDC( null, underlyingType, ns, console );
+    }
+
+    public String getUnderlyingType() {
+        for( Entry< String, CDC > entry : parameterizedCDCs.entrySet() ) {
+            if( entry.getValue() == this ) return entry.getKey();
+        }
+        return null;
+    }
+    
+    //@formatter:on
 
 } //CDCImpl

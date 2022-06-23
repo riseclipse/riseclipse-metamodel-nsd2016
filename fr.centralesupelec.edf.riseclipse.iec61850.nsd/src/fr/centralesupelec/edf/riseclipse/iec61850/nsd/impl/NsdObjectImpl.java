@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -20,11 +20,8 @@
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdObject;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetImpl;
-import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -33,6 +30,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdObject;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdResourceSetImpl;
+import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,7 +53,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 public abstract class NsdObjectImpl extends MinimalEObjectImpl.Container implements NsdObject {
 
     protected static final String EXPLICIT_LINK_CATEGORY = "NSD/ExplicitLinks";
-    
+
     /**
      * The default value of the '{@link #getLineNumber() <em>Line Number</em>}' attribute.
      * <!-- begin-user-doc -->

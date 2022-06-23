@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -46,6 +46,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceCondition;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
@@ -691,29 +692,29 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                     NsdPackage.Literals.SERVICE_DATA_ATTRIBUTE___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
             final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
                     .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
-            /*@NonInvalid*/ boolean symbol_2;
+            /*@NonInvalid*/ boolean local_2;
             if( le ) {
-                symbol_2 = true;
+                local_2 = true;
             }
             else {
                 final /*@NonInvalid*/ String name = this.getName();
                 final /*@NonInvalid*/ boolean status = name != null;
-                /*@NonInvalid*/ Object symbol_1;
+                /*@NonInvalid*/ Object local_1;
                 if( status ) {
-                    symbol_1 = ValueUtil.TRUE_VALUE;
+                    local_1 = ValueUtil.TRUE_VALUE;
                 }
                 else {
-                    final /*@NonInvalid*/ TupleValue symbol_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                    final /*@NonInvalid*/ TupleValue local_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
                             NsdTables.STR_The_32_name_32_attribute_32_is_32_required, status );
-                    symbol_1 = symbol_0;
+                    local_1 = local_0;
                 }
                 final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
                         .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
-                                context, ( Object ) null, severity_0, symbol_1, NsdTables.INT_0 )
+                                context, ( Object ) null, severity_0, local_1, NsdTables.INT_0 )
                         .booleanValue();
-                symbol_2 = logDiagnostic;
+                local_2 = logDiagnostic;
             }
-            return symbol_2;
+            return local_2;
         }
         catch( Throwable e ) {
             return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
@@ -755,29 +756,29 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                     NsdPackage.Literals.SERVICE_DATA_ATTRIBUTE___FC_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
             final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
                     .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
-            /*@NonInvalid*/ boolean symbol_2;
+            /*@NonInvalid*/ boolean local_2;
             if( le ) {
-                symbol_2 = true;
+                local_2 = true;
             }
             else {
                 final /*@NonInvalid*/ String fc = this.getFc();
                 final /*@NonInvalid*/ boolean status = fc != null;
-                /*@NonInvalid*/ Object symbol_1;
+                /*@NonInvalid*/ Object local_1;
                 if( status ) {
-                    symbol_1 = ValueUtil.TRUE_VALUE;
+                    local_1 = ValueUtil.TRUE_VALUE;
                 }
                 else {
-                    final /*@NonInvalid*/ TupleValue symbol_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                    final /*@NonInvalid*/ TupleValue local_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
                             NsdTables.STR_The_32_fc_32_attribute_32_is_32_required, status );
-                    symbol_1 = symbol_0;
+                    local_1 = local_0;
                 }
                 final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
                         .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
-                                context, ( Object ) null, severity_0, symbol_1, NsdTables.INT_0 )
+                                context, ( Object ) null, severity_0, local_1, NsdTables.INT_0 )
                         .booleanValue();
-                symbol_2 = logDiagnostic;
+                local_2 = logDiagnostic;
             }
-            return symbol_2;
+            return local_2;
         }
         catch( Throwable e ) {
             return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
@@ -2488,12 +2489,12 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "ServiceDataAttributeImpl.buildExplicitLinks()" );
 
-        if( super.buildExplicitLinks( console )) return true;
+        if( super.buildExplicitLinks( console ) ) return true;
 
         if( isSetPresCondArgsID() ) {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
                 Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc(
-                        new NsIdentification( getParentServiceCDC().getParentServiceCDCs().getParentServiceNS() ),
+                        NsIdentification.of( getParentServiceCDC().getParentServiceCDCs().getParentServiceNS() ),
                         getPresCondArgsID() );
                 if( doc != null ) setRefersToPresCondArgsDoc( doc );
             }
@@ -2511,14 +2512,14 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                     BasicType foundBT = rs.findBasicType( getUnderlyingType(), getNsIdentification(), true );
 
                     if( foundBT == null ) {
-                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                         messagePrefix, "BasicType (name: ", getUnderlyingType(), ") not found" );
+                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                messagePrefix, "BasicType (name: ", getUnderlyingType(), ") not found" );
                     }
                     else {
                         setRefersToUnderlyingBasicType( foundBT );
-                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                        messagePrefix, "BasicType (name: ", getUnderlyingType(), ") found in NS (id:",
-                                        getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS().getId(), ")" );
+                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                messagePrefix, "BasicType (name: ", getUnderlyingType(), ") found in NS (id:",
+                                getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS().getId(), ")" );
                     }
                     break;
                 case DefinedAttributeTypeKind.CONSTRUCTED_VALUE:
@@ -2526,8 +2527,8 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                             getNsIdentification(), true );
 
                     if( foundCA == null ) {
-                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                         messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") not found" );
+                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") not found" );
                     }
                     else {
                         setRefersToUnderlyingConstructedAttribute( foundCA );
@@ -2542,30 +2543,30 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                             foundWhere = "ServiceNS (id:" + getRefersToUnderlyingConstructedAttribute()
                                     .getParentServiceTypeRealizations().getParentServiceNS().getId();
                         }
-                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                        messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") found in ",
-                                        foundWhere, ")" );
+                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") found in ",
+                                foundWhere, ")" );
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
                     Enumeration foundEn = rs.findEnumeration( getUnderlyingType(), getNsIdentification(), true );
 
                     if( foundEn == null ) {
-                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                         messagePrefix, "Enumeration (name: ", getUnderlyingType(), ") not found" );
+                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                messagePrefix, "Enumeration (name: ", getUnderlyingType(), ") not found" );
                     }
                     else {
                         setRefersToUnderlyingEnumeration( foundEn );
-                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                        messagePrefix, "Enumeration (name: ", getUnderlyingType(), ") found in NS (id:",
-                                        getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS().getId(), ")" );
+                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                messagePrefix, "Enumeration (name: ", getUnderlyingType(), ") found in NS (id:",
+                                getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS().getId(), ")" );
                     }
                     break;
                 }
             }
             else {
-                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                 messagePrefix, "UnderlyingTypeKind is set but underlying type is missing" );
+                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        messagePrefix, "UnderlyingTypeKind is set but underlying type is missing" );
             }
         }
 
@@ -2574,12 +2575,12 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
 
     @Override
     public NsIdentification getNsIdentification() {
-        return new NsIdentification( getParentServiceCDC().getParentServiceCDCs().getParentServiceNS() );
+        return NsIdentification.of( getParentServiceCDC().getParentServiceCDCs().getParentServiceNS() );
     }
 
-    @Override
-    public DataAttribute toDataAttribute() {
+    public DataAttribute toDataAttribute( CDC cdc, IRiseClipseConsole console ) {
         DataAttribute dataAttribute = NsdFactory.eINSTANCE.createDataAttribute();
+
         dataAttribute.setPresCond( getPresCond() );
         dataAttribute.setPresCondArgs( getPresCondArgs() );
         dataAttribute.setPresCondArgsID( getPresCondArgsID() );
@@ -2590,6 +2591,11 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
 
         dataAttribute.setLineNumber( getLineNumber() );
         dataAttribute.setFilename( getFilename() );
+
+        dataAttribute.setParentCDC( cdc );
+
+        ( ( DataAttributeImpl ) dataAttribute ).buildExplicitLinks( getUnderlyingTypeKind(), getUnderlyingType(),
+                console );
 
         return dataAttribute;
     }

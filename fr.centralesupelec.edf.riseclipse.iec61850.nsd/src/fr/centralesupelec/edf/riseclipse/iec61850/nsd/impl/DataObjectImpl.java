@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -51,7 +51,9 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
@@ -2180,29 +2182,29 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                     NsdPackage.Literals.DATA_OBJECT___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
             final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
                     .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
-            /*@NonInvalid*/ boolean symbol_2;
+            /*@NonInvalid*/ boolean local_2;
             if( le ) {
-                symbol_2 = true;
+                local_2 = true;
             }
             else {
                 final /*@NonInvalid*/ String name = this.getName();
                 final /*@NonInvalid*/ boolean status = name != null;
-                /*@NonInvalid*/ Object symbol_1;
+                /*@NonInvalid*/ Object local_1;
                 if( status ) {
-                    symbol_1 = ValueUtil.TRUE_VALUE;
+                    local_1 = ValueUtil.TRUE_VALUE;
                 }
                 else {
-                    final /*@NonInvalid*/ TupleValue symbol_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                    final /*@NonInvalid*/ TupleValue local_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
                             NsdTables.STR_The_32_name_32_attribute_32_is_32_required, status );
-                    symbol_1 = symbol_0;
+                    local_1 = local_0;
                 }
                 final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
                         .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
-                                context, ( Object ) null, severity_0, symbol_1, NsdTables.INT_0 )
+                                context, ( Object ) null, severity_0, local_1, NsdTables.INT_0 )
                         .booleanValue();
-                symbol_2 = logDiagnostic;
+                local_2 = logDiagnostic;
             }
-            return symbol_2;
+            return local_2;
         }
         catch( Throwable e ) {
             return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
@@ -2244,29 +2246,29 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                     NsdPackage.Literals.DATA_OBJECT___TYPE_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
             final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
                     .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
-            /*@NonInvalid*/ boolean symbol_2;
+            /*@NonInvalid*/ boolean local_2;
             if( le ) {
-                symbol_2 = true;
+                local_2 = true;
             }
             else {
                 final /*@NonInvalid*/ String type = this.getType();
                 final /*@NonInvalid*/ boolean status = type != null;
-                /*@NonInvalid*/ Object symbol_1;
+                /*@NonInvalid*/ Object local_1;
                 if( status ) {
-                    symbol_1 = ValueUtil.TRUE_VALUE;
+                    local_1 = ValueUtil.TRUE_VALUE;
                 }
                 else {
-                    final /*@NonInvalid*/ TupleValue symbol_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                    final /*@NonInvalid*/ TupleValue local_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
                             NsdTables.STR_The_32_type_32_attribute_32_is_32_required, status );
-                    symbol_1 = symbol_0;
+                    local_1 = local_0;
                 }
                 final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
                         .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
-                                context, ( Object ) null, severity_0, symbol_1, NsdTables.INT_0 )
+                                context, ( Object ) null, severity_0, local_1, NsdTables.INT_0 )
                         .booleanValue();
-                symbol_2 = logDiagnostic;
+                local_2 = logDiagnostic;
             }
-            return symbol_2;
+            return local_2;
         }
         catch( Throwable e ) {
             return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
@@ -2820,6 +2822,8 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         return result.toString();
     }
 
+    //@formatter:off
+
     /* Implicit link
      *   DataObject.type                    -> CDC.name
      *   DataObject.presCond                -> PresenceCondition.name
@@ -2829,7 +2833,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "DataObjectImpl.buildExplicitLinks()" );
 
-        if( super.buildExplicitLinks( console )) return true;
+        if( super.buildExplicitLinks( console ) ) return true;
 
         NsdResourceSetImpl rs = getResourceSet();
         if( rs == null ) return false;
@@ -2837,17 +2841,58 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         String messagePrefix = "while resolving link from DataObject (name: " + getName() + "): ";
 
         if( isSetType() ) {
-            CDC foundCDC = rs.findCDC( getType(), getNsIdentification(), true );
-
-            if( foundCDC == null ) {
-                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                 messagePrefix, "CDC (name: ", getType(), ") not found" );
+            CDC usedCDC = rs.findCDC( getType(), getNsIdentification(), true );
+            if( usedCDC == null ) {
+                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        messagePrefix, "CDC (name: ", getType(), ") not found" );
             }
             else {
-                setRefersToCDC( foundCDC );
-                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                messagePrefix, "CDC (name: ", getType(), ") found in NS (id:",
-                                getRefersToCDC().getParentCDCs().getParentNS().getId(), ")" );
+                // Creation of parameterized CDC will be done after application of ServiceNS
+                // This is because:
+                // - we need to put the parameterized CDC in the namespace of the attribute used for parameterization
+                //   so that we can find the validator for it
+                // - but the ServiceNS may not be applied to this namespace 
+                // Example:
+                // - CDC defined in 7-3
+                // - parameterized by 8-1 using an enumeration of 7-4
+                // - the parameterized CDC goes in 7-4
+                // - the 8-1 ServiceNS is only applied to 7-3
+                // See below createParameterizedComponents()
+                
+//                if( usedCDC.isTypeKindParameterized() ) {
+//                    if( isSetUnderlyingType() && isSetUnderlyingTypeKind() ) {
+//                        // Put this CDC in the same namespace/resource than this DataObject so that
+//                        // the validator for the underlyingType is found
+//                        NS ns = (( DocumentRoot ) eResource().getContents().get( 0 )).getNS();
+//                        usedCDC = ( ( CDCImpl ) usedCDC ).getParameterizedCDC( getUnderlyingTypeKind(),
+//                                getUnderlyingType(), ns, console );
+//                    }
+//                    else {
+//                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+//                                messagePrefix, "CDC (name: ", getType(), ") is typeKindParameterized",
+//                                ", but no underlyingType" );
+//                    }
+//                }
+//                else if( usedCDC.isEnumParameterized() ) {
+//                    if( isSetUnderlyingType() ) {
+//                        // Put this CDC in the same namespace/resource than this DataObject so that
+//                        // the validator for the underlyingType is found
+//                        NS ns = (( DocumentRoot ) eResource().getContents().get( 0 )).getNS();
+//                        usedCDC = ( ( CDCImpl ) usedCDC ).getParameterizedCDC( getUnderlyingType(), ns, console );
+//                    }
+//                    else {
+//                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+//                                messagePrefix, "CDC (name: ", getType(), ") is enumParameterized",
+//                                ", but no underlyingType" );
+//                    }
+//                }
+//                else {
+//                    // classic CDC
+//                }
+                setRefersToCDC( usedCDC );
+                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        messagePrefix, "CDC (name: ", getType(), ") found in NS (id:",
+                        getRefersToCDC().getParentCDCs().getParentNS().getId(), ")" );
             }
         }
 
@@ -2855,29 +2900,30 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             PresenceCondition foundPC = rs.findPresenceCondition( getPresCond(), getNsIdentification(), true );
 
             if( foundPC == null ) {
-                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                 messagePrefix, "PresenceCondition (name: ", getPresCond(), ") not found" );
+                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        messagePrefix, "PresenceCondition (name: ", getPresCond(), ") not found" );
             }
             else {
                 setRefersToPresenceCondition( foundPC );
-                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                messagePrefix, "PresenceCondition (name: ", getPresCond(), ") found in NS (id:",
-                                getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId(), ")" );
+                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        messagePrefix, "PresenceCondition (name: ", getPresCond(), ") found in NS (id:",
+                        getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId(), ")" );
             }
         }
 
         if( isSetDsPresCond() ) {
             PresenceCondition foundPC = rs.findPresenceCondition( getDsPresCond(), getNsIdentification(), true );
             if( foundPC == null ) {
-                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                 messagePrefix, "PresenceCondition (name: ", getDsPresCond(), ") not found" );
+                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        messagePrefix, "PresenceCondition (name: ", getDsPresCond(), ") not found" );
             }
             else {
                 setRefersToPresenceConditionDerivedStatistics( foundPC );
-                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                messagePrefix, "PresenceCondition (name: ", getDsPresCond(), ") found in NS (id:",
-                                getRefersToPresenceConditionDerivedStatistics().getParentPresenceConditions().getParentNS().getId(),
-                                ")" );
+                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        messagePrefix, "PresenceCondition (name: ", getDsPresCond(), ") found in NS (id:",
+                        getRefersToPresenceConditionDerivedStatistics().getParentPresenceConditions().getParentNS()
+                                .getId(),
+                        ")" );
             }
         }
 
@@ -2904,14 +2950,14 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                     BasicType foundBT = rs.findBasicType( getUnderlyingType(), getNsIdentification(), true );
 
                     if( foundBT == null ) {
-                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                         messagePrefix, "BasicType (name: ", getUnderlyingType(), ") not found" );
+                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                messagePrefix, "BasicType (name: ", getUnderlyingType(), ") not found" );
                     }
                     else {
                         setRefersToUnderlyingBasicType( foundBT );
-                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                        messagePrefix, "BasicType (name: ", getUnderlyingType(), ") found in NS (id:",
-                                        getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS().getId(), ")" );
+                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                messagePrefix, "BasicType (name: ", getUnderlyingType(), ") found in NS (id:",
+                                getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS().getId(), ")" );
                     }
                     break;
                 case DefinedAttributeTypeKind.CONSTRUCTED_VALUE:
@@ -2919,8 +2965,8 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                             getNsIdentification(), true );
 
                     if( foundCA == null ) {
-                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                         messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") not found" );
+                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") not found" );
                     }
                     else {
                         setRefersToUnderlyingConstructedAttribute( foundCA );
@@ -2935,30 +2981,31 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                             foundWhere = "ServiceNS (id:" + getRefersToUnderlyingConstructedAttribute()
                                     .getParentServiceTypeRealizations().getParentServiceNS().getId();
                         }
-                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                        messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") found in ", foundWhere, ")" );
+                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") found in ",
+                                foundWhere, ")" );
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
                     Enumeration foundEn = rs.findEnumeration( getUnderlyingType(), getNsIdentification(), true );
 
                     if( foundEn == null ) {
-                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                         messagePrefix, "Enumeration (name: ", getUnderlyingType(), ") not found" );
+                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                messagePrefix, "Enumeration (name: ", getUnderlyingType(), ") not found" );
                     }
                     else {
                         setRefersToUnderlyingEnumeration( foundEn );
-                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                        messagePrefix, "Enumeration (name: ", getUnderlyingType(), ") found in NS (id:",
-                                        getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS().getId(),
-                                        ")" );
+                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                messagePrefix, "Enumeration (name: ", getUnderlyingType(), ") found in NS (id:",
+                                getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS().getId(),
+                                ")" );
                     }
                     break;
                 }
             }
             else {
-                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), 
-                                 messagePrefix, "UnderlyingTypeKind is set but underlying type is missing" );
+                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        messagePrefix, "UnderlyingTypeKind is set but underlying type is missing" );
             }
         }
 
@@ -2969,5 +3016,43 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     public NsIdentification getNsIdentification() {
         return ( ( AnyLNClassImpl ) getParentAnyLNClass() ).getNsIdentification();
     }
+
+    public void createParameterizedComponents( IRiseClipseConsole console ) {
+        String messagePrefix = "while building parameterized component for DataObject (name: " + getName() + "): ";
+        CDC usedCDC = getRefersToCDC();
+        if( usedCDC.isTypeKindParameterized() ) {
+            if( isSetUnderlyingType() && isSetUnderlyingTypeKind() ) {
+                // Put this CDC in the same namespace/resource than this DataObject so that
+                // the validator for the underlyingType is found
+                NS ns = (( DocumentRoot ) eResource().getContents().get( 0 )).getNS();
+                usedCDC = ( ( CDCImpl ) usedCDC ).getParameterizedCDC( getUnderlyingTypeKind(),
+                        getUnderlyingType(), ns, console );
+            }
+            else {
+                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        messagePrefix, "CDC (name: ", getType(), ") is typeKindParameterized",
+                        ", but no underlyingType" );
+            }
+        }
+        else if( usedCDC.isEnumParameterized() ) {
+            if( isSetUnderlyingType() ) {
+                // Put this CDC in the same namespace/resource than this DataObject so that
+                // the validator for the underlyingType is found
+                NS ns = (( DocumentRoot ) eResource().getContents().get( 0 )).getNS();
+                usedCDC = ( ( CDCImpl ) usedCDC ).getParameterizedCDC( getUnderlyingType(), ns, console );
+            }
+            else {
+                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        messagePrefix, "CDC (name: ", getType(), ") is enumParameterized",
+                        ", but no underlyingType" );
+            }
+        }
+        else {
+            // classic CDC
+        }
+        setRefersToCDC( usedCDC );
+    }
+    
+    //@formatter:on
 
 } //DataObjectImpl

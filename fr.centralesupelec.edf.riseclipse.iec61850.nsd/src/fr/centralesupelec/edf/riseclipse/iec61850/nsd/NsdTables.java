@@ -865,7 +865,7 @@ public class NsdTables extends AbstractTables
 			Fragments.init();
 		}
 
-		public static final ParameterTypes _IRiseClipseConsole___Boolean = TypeUtil.createParameterTypes(NsdTables.Types._IRiseClipseConsole, OCLstdlibTables.Types._Boolean);
+		public static final ParameterTypes _IRiseClipseConsole = TypeUtil.createParameterTypes(NsdTables.Types._IRiseClipseConsole);
 
 		static {
 			Init.initEnd();
@@ -895,7 +895,7 @@ public class NsdTables extends AbstractTables
 		public static final ExecutorOperation _AnyLNClass__getParentLNClasses = new ExecutorOperation("getParentLNClasses", TypeUtil.EMPTY_PARAMETER_TYPES, Types._AnyLNClass,
 			1, TemplateParameters.EMPTY_LIST, null);
 
-		public static final ExecutorOperation _NsdObject__buildExplicitLinks = new ExecutorOperation("buildExplicitLinks", Parameters._IRiseClipseConsole___Boolean, Types._NsdObject,
+		public static final ExecutorOperation _NsdObject__buildExplicitLinks = new ExecutorOperation("buildExplicitLinks", Parameters._IRiseClipseConsole, Types._NsdObject,
 			0, TemplateParameters.EMPTY_LIST, null);
 
 		static {
@@ -1010,14 +1010,15 @@ public class NsdTables extends AbstractTables
 		public static final ExecutorProperty _CDC__dataAttribute = new EcoreExecutorProperty(NsdPackage.Literals.CDC__DATA_ATTRIBUTE, Types._CDC, 0);
 		public static final ExecutorProperty _CDC__enumParameterized = new EcoreExecutorProperty(NsdPackage.Literals.CDC__ENUM_PARAMETERIZED, Types._CDC, 1);
 		public static final ExecutorProperty _CDC__name = new EcoreExecutorProperty(NsdPackage.Literals.CDC__NAME, Types._CDC, 2);
-		public static final ExecutorProperty _CDC__parentCDCs = new EcoreExecutorProperty(NsdPackage.Literals.CDC__PARENT_CD_CS, Types._CDC, 3);
-		public static final ExecutorProperty _CDC__referredByDataObject = new EcoreExecutorProperty(NsdPackage.Literals.CDC__REFERRED_BY_DATA_OBJECT, Types._CDC, 4);
-		public static final ExecutorProperty _CDC__referredBySubDataObject = new EcoreExecutorProperty(NsdPackage.Literals.CDC__REFERRED_BY_SUB_DATA_OBJECT, Types._CDC, 5);
-		public static final ExecutorProperty _CDC__serviceParameter = new EcoreExecutorProperty(NsdPackage.Literals.CDC__SERVICE_PARAMETER, Types._CDC, 6);
-		public static final ExecutorProperty _CDC__statistics = new EcoreExecutorProperty(NsdPackage.Literals.CDC__STATISTICS, Types._CDC, 7);
-		public static final ExecutorProperty _CDC__subDataObject = new EcoreExecutorProperty(NsdPackage.Literals.CDC__SUB_DATA_OBJECT, Types._CDC, 8);
-		public static final ExecutorProperty _CDC__typeKindParameterized = new EcoreExecutorProperty(NsdPackage.Literals.CDC__TYPE_KIND_PARAMETERIZED, Types._CDC, 9);
-		public static final ExecutorProperty _CDC__variant = new EcoreExecutorProperty(NsdPackage.Literals.CDC__VARIANT, Types._CDC, 10);
+		public static final ExecutorProperty _CDC__parameterizedDataAttributeNames = new EcoreExecutorProperty(NsdPackage.Literals.CDC__PARAMETERIZED_DATA_ATTRIBUTE_NAMES, Types._CDC, 3);
+		public static final ExecutorProperty _CDC__parentCDCs = new EcoreExecutorProperty(NsdPackage.Literals.CDC__PARENT_CD_CS, Types._CDC, 4);
+		public static final ExecutorProperty _CDC__referredByDataObject = new EcoreExecutorProperty(NsdPackage.Literals.CDC__REFERRED_BY_DATA_OBJECT, Types._CDC, 5);
+		public static final ExecutorProperty _CDC__referredBySubDataObject = new EcoreExecutorProperty(NsdPackage.Literals.CDC__REFERRED_BY_SUB_DATA_OBJECT, Types._CDC, 6);
+		public static final ExecutorProperty _CDC__serviceParameter = new EcoreExecutorProperty(NsdPackage.Literals.CDC__SERVICE_PARAMETER, Types._CDC, 7);
+		public static final ExecutorProperty _CDC__statistics = new EcoreExecutorProperty(NsdPackage.Literals.CDC__STATISTICS, Types._CDC, 8);
+		public static final ExecutorProperty _CDC__subDataObject = new EcoreExecutorProperty(NsdPackage.Literals.CDC__SUB_DATA_OBJECT, Types._CDC, 9);
+		public static final ExecutorProperty _CDC__typeKindParameterized = new EcoreExecutorProperty(NsdPackage.Literals.CDC__TYPE_KIND_PARAMETERIZED, Types._CDC, 10);
+		public static final ExecutorProperty _CDC__variant = new EcoreExecutorProperty(NsdPackage.Literals.CDC__VARIANT, Types._CDC, 11);
 
 		public static final ExecutorProperty _CDCs__cDC = new EcoreExecutorProperty(NsdPackage.Literals.CD_CS__CDC, Types._CDCs, 0);
 		public static final ExecutorProperty _CDCs__parentNS = new EcoreExecutorProperty(NsdPackage.Literals.CD_CS__PARENT_NS, Types._CDCs, 1);
@@ -1194,8 +1195,9 @@ public class NsdTables extends AbstractTables
 		public static final ExecutorProperty _ServiceCDCs__parentServiceNS = new EcoreExecutorProperty(NsdPackage.Literals.SERVICE_CD_CS__PARENT_SERVICE_NS, Types._ServiceCDCs, 0);
 		public static final ExecutorProperty _ServiceCDCs__serviceCDC = new EcoreExecutorProperty(NsdPackage.Literals.SERVICE_CD_CS__SERVICE_CDC, Types._ServiceCDCs, 1);
 
-		public static final ExecutorProperty _ServiceConstructedAttribute__parentServiceConstructedAttributes = new EcoreExecutorProperty(NsdPackage.Literals.SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_CONSTRUCTED_ATTRIBUTES, Types._ServiceConstructedAttribute, 0);
-		public static final ExecutorProperty _ServiceConstructedAttribute__typeKindParameterized = new EcoreExecutorProperty(NsdPackage.Literals.SERVICE_CONSTRUCTED_ATTRIBUTE__TYPE_KIND_PARAMETERIZED, Types._ServiceConstructedAttribute, 1);
+		public static final ExecutorProperty _ServiceConstructedAttribute__parameterizedSubDataAttributeNames = new EcoreExecutorProperty(NsdPackage.Literals.SERVICE_CONSTRUCTED_ATTRIBUTE__PARAMETERIZED_SUB_DATA_ATTRIBUTE_NAMES, Types._ServiceConstructedAttribute, 0);
+		public static final ExecutorProperty _ServiceConstructedAttribute__parentServiceConstructedAttributes = new EcoreExecutorProperty(NsdPackage.Literals.SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_CONSTRUCTED_ATTRIBUTES, Types._ServiceConstructedAttribute, 1);
+		public static final ExecutorProperty _ServiceConstructedAttribute__typeKindParameterized = new EcoreExecutorProperty(NsdPackage.Literals.SERVICE_CONSTRUCTED_ATTRIBUTE__TYPE_KIND_PARAMETERIZED, Types._ServiceConstructedAttribute, 2);
 
 		public static final ExecutorProperty _ServiceConstructedAttributes__parentServiceNS = new EcoreExecutorProperty(NsdPackage.Literals.SERVICE_CONSTRUCTED_ATTRIBUTES__PARENT_SERVICE_NS, Types._ServiceConstructedAttributes, 0);
 		public static final ExecutorProperty _ServiceConstructedAttributes__serviceConstructedAttribute = new EcoreExecutorProperty(NsdPackage.Literals.SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_CONSTRUCTED_ATTRIBUTE, Types._ServiceConstructedAttributes, 1);
@@ -2116,7 +2118,7 @@ public class NsdTables extends AbstractTables
 
 		private static final ExecutorOperation /*@NonNull*/ [] _Abbreviation__Abbreviation = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _Abbreviation__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _Abbreviation__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -2147,7 +2149,7 @@ public class NsdTables extends AbstractTables
 
 		private static final ExecutorOperation /*@NonNull*/ [] _Abbreviations__Abbreviations = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _Abbreviations__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _Abbreviations__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -2183,7 +2185,7 @@ public class NsdTables extends AbstractTables
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _AbstractLNClass__DocumentedClass = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _AbstractLNClass__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _AbstractLNClass__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -2500,7 +2502,7 @@ public class NsdTables extends AbstractTables
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _AnyLNClass__DocumentedClass = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _AnyLNClass__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _AnyLNClass__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -2533,7 +2535,7 @@ public class NsdTables extends AbstractTables
 		private static final ExecutorOperation /*@NonNull*/ [] _ApplicableServiceNS__ApplicableServiceNS = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _ApplicableServiceNS__Copyrighted = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _ApplicableServiceNS__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _ApplicableServiceNS__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -2564,7 +2566,7 @@ public class NsdTables extends AbstractTables
 
 		private static final ExecutorOperation /*@NonNull*/ [] _ApplicableServices__ApplicableServices = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _ApplicableServices__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _ApplicableServices__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -2596,7 +2598,7 @@ public class NsdTables extends AbstractTables
 		private static final ExecutorOperation /*@NonNull*/ [] _AppliesToType__AppliesToType = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _AppliesToType__AgNSIdentification = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _AppliesToType__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _AppliesToType__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -2646,7 +2648,7 @@ public class NsdTables extends AbstractTables
 
 		private static final ExecutorOperation /*@NonNull*/ [] _BasicType__BasicType = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _BasicType__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _BasicType__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -2677,7 +2679,7 @@ public class NsdTables extends AbstractTables
 
 		private static final ExecutorOperation /*@NonNull*/ [] _BasicTypes__BasicTypes = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _BasicTypes__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _BasicTypes__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -2762,7 +2764,7 @@ public class NsdTables extends AbstractTables
 		private static final ExecutorOperation /*@NonNull*/ [] _CDC__CDC = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _CDC__DocumentedClass = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _CDC__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _CDC__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -2794,7 +2796,7 @@ public class NsdTables extends AbstractTables
 
 		private static final ExecutorOperation /*@NonNull*/ [] _CDCs__CDCs = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _CDCs__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _CDCs__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -2825,7 +2827,7 @@ public class NsdTables extends AbstractTables
 
 		private static final ExecutorOperation /*@NonNull*/ [] _Changes__Changes = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _Changes__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _Changes__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -2857,7 +2859,7 @@ public class NsdTables extends AbstractTables
 		private static final ExecutorOperation /*@NonNull*/ [] _ConstructedAttribute__ConstructedAttribute = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _ConstructedAttribute__DocumentedClass = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _ConstructedAttribute__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _ConstructedAttribute__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -2889,7 +2891,7 @@ public class NsdTables extends AbstractTables
 
 		private static final ExecutorOperation /*@NonNull*/ [] _ConstructedAttributes__ConstructedAttributes = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _ConstructedAttributes__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _ConstructedAttributes__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -2920,7 +2922,7 @@ public class NsdTables extends AbstractTables
 
 		private static final ExecutorOperation /*@NonNull*/ [] _CopyrightNotice__CopyrightNotice = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _CopyrightNotice__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _CopyrightNotice__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -2951,7 +2953,7 @@ public class NsdTables extends AbstractTables
 
 		private static final ExecutorOperation /*@NonNull*/ [] _Copyrighted__Copyrighted = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _Copyrighted__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _Copyrighted__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -2988,7 +2990,7 @@ public class NsdTables extends AbstractTables
 		private static final ExecutorOperation /*@NonNull*/ [] _DataAttribute__AgTrgOp = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _DataAttribute__DocumentedClass = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _DataAttribute__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _DataAttribute__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -3023,7 +3025,7 @@ public class NsdTables extends AbstractTables
 		private static final ExecutorOperation /*@NonNull*/ [] _DataObject__AgUnderlyingType = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _DataObject__DocumentedClass = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _DataObject__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _DataObject__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -3054,7 +3056,7 @@ public class NsdTables extends AbstractTables
 
 		private static final ExecutorOperation /*@NonNull*/ [] _DataSetMemberOf__DataSetMemberOf = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _DataSetMemberOf__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _DataSetMemberOf__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -3139,7 +3141,7 @@ public class NsdTables extends AbstractTables
 		private static final ExecutorOperation /*@NonNull*/ [] _DependsOn__DependsOn = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _DependsOn__AgNSIdentification = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _DependsOn__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _DependsOn__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -3170,7 +3172,7 @@ public class NsdTables extends AbstractTables
 
 		private static final ExecutorOperation /*@NonNull*/ [] _Doc__Doc = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _Doc__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _Doc__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -3229,7 +3231,7 @@ public class NsdTables extends AbstractTables
 
 		private static final ExecutorOperation /*@NonNull*/ [] _DocumentedClass__DocumentedClass = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _DocumentedClass__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _DocumentedClass__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -3261,7 +3263,7 @@ public class NsdTables extends AbstractTables
 		private static final ExecutorOperation /*@NonNull*/ [] _Enumeration__Enumeration = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _Enumeration__DocumentedClass = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _Enumeration__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _Enumeration__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -3293,7 +3295,7 @@ public class NsdTables extends AbstractTables
 
 		private static final ExecutorOperation /*@NonNull*/ [] _Enumerations__Enumerations = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _Enumerations__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _Enumerations__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -3324,7 +3326,7 @@ public class NsdTables extends AbstractTables
 
 		private static final ExecutorOperation /*@NonNull*/ [] _FunctionalConstraint__FunctionalConstraint = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _FunctionalConstraint__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _FunctionalConstraint__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -3355,7 +3357,7 @@ public class NsdTables extends AbstractTables
 
 		private static final ExecutorOperation /*@NonNull*/ [] _FunctionalConstraints__FunctionalConstraints = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _FunctionalConstraints__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _FunctionalConstraints__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -3419,7 +3421,7 @@ public class NsdTables extends AbstractTables
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _LNClass__DocumentedClass = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _LNClass__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _LNClass__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -3451,7 +3453,7 @@ public class NsdTables extends AbstractTables
 
 		private static final ExecutorOperation /*@NonNull*/ [] _LNClasses__LNClasses = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _LNClasses__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _LNClasses__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -3482,7 +3484,7 @@ public class NsdTables extends AbstractTables
 
 		private static final ExecutorOperation /*@NonNull*/ [] _License__License = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _License__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _License__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -3567,7 +3569,7 @@ public class NsdTables extends AbstractTables
 		private static final ExecutorOperation /*@NonNull*/ [] _Literal__Literal = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _Literal__DocumentedClass = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _Literal__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _Literal__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -3602,7 +3604,7 @@ public class NsdTables extends AbstractTables
 		private static final ExecutorOperation /*@NonNull*/ [] _NS__AgUML = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _NS__Copyrighted = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _NS__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _NS__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -3636,7 +3638,7 @@ public class NsdTables extends AbstractTables
 		private static final ExecutorOperation /*@NonNull*/ [] _NSDoc__AgUML = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _NSDoc__Copyrighted = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _NSDoc__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _NSDoc__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -3667,7 +3669,7 @@ public class NsdTables extends AbstractTables
 
 		private static final ExecutorOperation /*@NonNull*/ [] _Notice__Notice = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _Notice__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _Notice__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -3697,7 +3699,7 @@ public class NsdTables extends AbstractTables
 		};
 
 		private static final ExecutorOperation /*@NonNull*/ [] _NsdObject__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _NsdObject__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -3728,7 +3730,7 @@ public class NsdTables extends AbstractTables
 
 		private static final ExecutorOperation /*@NonNull*/ [] _PresenceCondition__PresenceCondition = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _PresenceCondition__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _PresenceCondition__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -3759,7 +3761,7 @@ public class NsdTables extends AbstractTables
 
 		private static final ExecutorOperation /*@NonNull*/ [] _PresenceConditions__PresenceConditions = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _PresenceConditions__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _PresenceConditions__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -3843,7 +3845,7 @@ public class NsdTables extends AbstractTables
 
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceCDC__ServiceCDC = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceCDC__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceCDC__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -3874,7 +3876,7 @@ public class NsdTables extends AbstractTables
 
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceCDCs__ServiceCDCs = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceCDCs__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceCDCs__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -3907,7 +3909,7 @@ public class NsdTables extends AbstractTables
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceConstructedAttribute__ConstructedAttribute = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceConstructedAttribute__DocumentedClass = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceConstructedAttribute__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceConstructedAttribute__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -3939,7 +3941,7 @@ public class NsdTables extends AbstractTables
 
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceConstructedAttributes__ServiceConstructedAttributes = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceConstructedAttributes__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceConstructedAttributes__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -3974,7 +3976,7 @@ public class NsdTables extends AbstractTables
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceDataAttribute__AgUnderlyingType = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceDataAttribute__DocumentedClass = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceDataAttribute__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceDataAttribute__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -4009,7 +4011,7 @@ public class NsdTables extends AbstractTables
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceNS__AgUML = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceNS__Copyrighted = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceNS__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceNS__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -4041,7 +4043,7 @@ public class NsdTables extends AbstractTables
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceNsUsage__ServiceNsUsage = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceNsUsage__AgNSIdentification = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceNsUsage__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceNsUsage__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -4075,7 +4077,7 @@ public class NsdTables extends AbstractTables
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceParameter__AgAttributeTypeAndValues = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceParameter__DocumentedClass = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceParameter__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceParameter__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -4106,7 +4108,7 @@ public class NsdTables extends AbstractTables
 
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceType__ServiceType = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceType__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceType__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -4137,7 +4139,7 @@ public class NsdTables extends AbstractTables
 
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceTypeRealizations__ServiceTypeRealizations = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceTypeRealizations__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceTypeRealizations__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -4173,7 +4175,7 @@ public class NsdTables extends AbstractTables
 		private static final ExecutorOperation /*@NonNull*/ [] _SubDataAttribute__AgPresenceCondition = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _SubDataAttribute__DocumentedClass = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _SubDataAttribute__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _SubDataAttribute__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -4208,7 +4210,7 @@ public class NsdTables extends AbstractTables
 		private static final ExecutorOperation /*@NonNull*/ [] _SubDataObject__AgUnderlyingType = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _SubDataObject__DocumentedClass = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _SubDataObject__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _SubDataObject__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -4240,7 +4242,7 @@ public class NsdTables extends AbstractTables
 		private static final ExecutorOperation /*@NonNull*/ [] _TitledClass__TitledClass = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _TitledClass__DocumentedClass = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _TitledClass__NsdObject = {
-			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?],Boolean[1]) */
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _TitledClass__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -4985,6 +4987,7 @@ public class NsdTables extends AbstractTables
 			NsdTables.Properties._CDC__name,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents,
+			NsdTables.Properties._CDC__parameterizedDataAttributeNames,
 			NsdTables.Properties._CDC__parentCDCs,
 			NsdTables.Properties._CDC__referredByDataObject,
 			NsdTables.Properties._CDC__referredBySubDataObject,
@@ -5464,6 +5467,7 @@ public class NsdTables extends AbstractTables
 			NsdTables.Properties._ConstructedAttribute__name,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents,
+			NsdTables.Properties._ServiceConstructedAttribute__parameterizedSubDataAttributeNames,
 			NsdTables.Properties._ConstructedAttribute__parentConstructedAttributes,
 			NsdTables.Properties._ServiceConstructedAttribute__parentServiceConstructedAttributes,
 			NsdTables.Properties._ConstructedAttribute__parentServiceTypeRealizations,

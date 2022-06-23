@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -20,22 +20,20 @@
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.provider;
 
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
 /**
  * This is the item provider adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC} object.
@@ -72,6 +70,7 @@ public class CDCItemProvider extends TitledClassItemProvider {
             addVariantPropertyDescriptor( object );
             addReferredByDataObjectPropertyDescriptor( object );
             addReferredBySubDataObjectPropertyDescriptor( object );
+            addParameterizedDataAttributeNamesPropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -228,6 +227,28 @@ public class CDCItemProvider extends TitledClassItemProvider {
     }
 
     /**
+     * This adds a property descriptor for the Parameterized Data Attribute Names feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addParameterizedDataAttributeNamesPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_CDC_parameterizedDataAttributeNames_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_CDC_parameterizedDataAttributeNames_feature", "_UI_CDC_type" ),
+                        NsdPackage.Literals.CDC__PARAMETERIZED_DATA_ATTRIBUTE_NAMES,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
      * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
      * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
      * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -300,6 +321,7 @@ public class CDCItemProvider extends TitledClassItemProvider {
         case NsdPackage.CDC__STATISTICS:
         case NsdPackage.CDC__TYPE_KIND_PARAMETERIZED:
         case NsdPackage.CDC__VARIANT:
+        case NsdPackage.CDC__PARAMETERIZED_DATA_ATTRIBUTE_NAMES:
             fireNotifyChanged( new ViewerNotification( notification, notification.getNotifier(), false, true ) );
             return;
         case NsdPackage.CDC__SUB_DATA_OBJECT:

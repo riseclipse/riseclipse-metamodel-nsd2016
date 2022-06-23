@@ -184,6 +184,4 @@ public interface ServiceDataAttribute extends DocumentedClass, AgPresenceConditi
      */
     boolean fcAttributeRequired( DiagnosticChain diagnostics, Map< Object, Object > context );
 
-    DataAttribute toDataAttribute();
-
 } // ServiceDataAttribute

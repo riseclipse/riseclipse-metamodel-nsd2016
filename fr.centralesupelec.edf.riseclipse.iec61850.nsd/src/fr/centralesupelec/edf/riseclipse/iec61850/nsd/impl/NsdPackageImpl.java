@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -1450,6 +1450,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EReference getCDC_ReferredBySubDataObject() {
         return ( EReference ) cdcEClass.getEStructuralFeatures().get( 10 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EAttribute getCDC_ParameterizedDataAttributeNames() {
+        return ( EAttribute ) cdcEClass.getEStructuralFeatures().get( 11 );
     }
 
     /**
@@ -3358,6 +3368,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EAttribute getServiceConstructedAttribute_ParameterizedSubDataAttributeNames() {
+        return ( EAttribute ) serviceConstructedAttributeEClass.getEStructuralFeatures().get( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getServiceConstructedAttributes() {
         return serviceConstructedAttributesEClass;
     }
@@ -4601,6 +4621,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEReference( cdcEClass, CDC__PARENT_CD_CS );
         createEReference( cdcEClass, CDC__REFERRED_BY_DATA_OBJECT );
         createEReference( cdcEClass, CDC__REFERRED_BY_SUB_DATA_OBJECT );
+        createEAttribute( cdcEClass, CDC__PARAMETERIZED_DATA_ATTRIBUTE_NAMES );
         createEOperation( cdcEClass, CDC___UNIQUE_CDC_CHILD__DIAGNOSTICCHAIN_MAP );
         createEOperation( cdcEClass, CDC___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
 
@@ -4825,6 +4846,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEAttribute( serviceConstructedAttributeEClass, SERVICE_CONSTRUCTED_ATTRIBUTE__TYPE_KIND_PARAMETERIZED );
         createEReference( serviceConstructedAttributeEClass,
                 SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_CONSTRUCTED_ATTRIBUTES );
+        createEAttribute( serviceConstructedAttributeEClass,
+                SERVICE_CONSTRUCTED_ATTRIBUTE__PARAMETERIZED_SUB_DATA_ATTRIBUTE_NAMES );
 
         serviceConstructedAttributesEClass = createEClass( SERVICE_CONSTRUCTED_ATTRIBUTES );
         createEReference( serviceConstructedAttributesEClass,
@@ -5387,6 +5410,10 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 "referredBySubDataObject", null, 0, -1, fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC.class,
                 IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
                 !IS_DERIVED, !IS_ORDERED );
+        initEAttribute( getCDC_ParameterizedDataAttributeNames(), ecorePackage.getEString(),
+                "parameterizedDataAttributeNames", null, 0, -1,
+                fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         op = initEOperation( getCDC__UniqueCDCChild__DiagnosticChain_Map(), ecorePackage.getEBoolean(),
                 "uniqueCDCChild", 0, 1, IS_UNIQUE, IS_ORDERED );
@@ -6181,6 +6208,9 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 "parentServiceConstructedAttributes", null, 0, 1, ServiceConstructedAttribute.class, IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED );
+        initEAttribute( getServiceConstructedAttribute_ParameterizedSubDataAttributeNames(), ecorePackage.getEString(),
+                "parameterizedSubDataAttributeNames", null, 0, -1, ServiceConstructedAttribute.class, IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
 
         initEClass( serviceConstructedAttributesEClass, ServiceConstructedAttributes.class,
                 "ServiceConstructedAttributes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
@@ -6391,8 +6421,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 1, NsdObject.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
 
-        op = initEOperation( getNsdObject__BuildExplicitLinks__IRiseClipseConsole(),
-                ecorePackage.getEBoolean(), "buildExplicitLinks", 0, 1, IS_UNIQUE, IS_ORDERED );
+        op = initEOperation( getNsdObject__BuildExplicitLinks__IRiseClipseConsole(), ecorePackage.getEBoolean(),
+                "buildExplicitLinks", 0, 1, IS_UNIQUE, IS_ORDERED );
         addEParameter( op, this.getIRiseClipseConsole(), "console", 0, 1, IS_UNIQUE, IS_ORDERED );
 
         initEClass( agNSIdentificationEClass, AgNSIdentification.class, "AgNSIdentification", IS_ABSTRACT,

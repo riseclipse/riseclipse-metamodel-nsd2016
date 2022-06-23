@@ -1,6 +1,6 @@
 /*
 *************************************************************************
-**  Copyright (c) 2016-2021 CentraleSupélec & EDF.
+**  Copyright (c) 2016-2022 CentraleSupélec & EDF.
 **  All rights reserved. This program and the accompanying materials
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
@@ -20,7 +20,7 @@
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.util;
 
-import java.util.Objects;
+import java.util.HashMap;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 
@@ -29,57 +29,58 @@ public class NsIdentification {
     public final static String  DEFAULT_REVISION = "A";
     public final static Integer DEFAULT_RELEASE  = 1;
     
-    final private String id;
-    final private Integer version;
-    final private String revision;
-    final private Integer release;
-
-    public NsIdentification( String id, Integer version, String revision, Integer release ) {
+    private final String id;
+    private final Integer version;
+    private final String revision;
+    private final Integer release;
+    
+    private NsIdentification dependsOn;
+    
+    private static HashMap< String, HashMap< Integer, HashMap< String, NsIdentification >>> nsIdentifications = new HashMap<>();
+    
+    public static NsIdentification of( String id, Integer version, String revision, Integer release ) {
+        if( ! nsIdentifications.containsKey( id )) {
+            nsIdentifications.put( id, new HashMap<>() );
+        }
+        if( ! nsIdentifications.get( id ).containsKey( version )) {
+            nsIdentifications.get( id ).put( version, new HashMap<>() );
+        }
+        if( ! nsIdentifications.get( id ).get( version ).containsKey( revision )) {
+            nsIdentifications.get( id ).get( version ).put( revision, new NsIdentification( id, version, revision, release ));
+        }
+        return nsIdentifications.get( id ).get( version ).get( revision );
+    }
+    
+    private NsIdentification( String id, Integer version, String revision, Integer release ) {
         this.id = id;
         this.version = version;
         this.revision = revision;
         this.release = release;
     }
     
-    public NsIdentification( String namespace ) {
+    public static NsIdentification of( String namespace ) {
+        String id = namespace;
+        Integer version = 0;
+        String revision = DEFAULT_REVISION;
+        Integer release = DEFAULT_RELEASE;
         int posColon = namespace.lastIndexOf( ":" );
         if( posColon != -1 ) {
-            this.id = namespace.substring( 0, posColon );
-            Integer tmpVersion = null;
+            id = namespace.substring( 0, posColon );
             try {
-                tmpVersion = Integer.valueOf( namespace.substring( posColon + 1, posColon + 5 ));
+                version = Integer.valueOf( namespace.substring( posColon + 1, posColon + 5 ));
             }
             catch( NumberFormatException ex ) {}
-            this.version = tmpVersion;
-            this.revision = ( namespace.length() > ( posColon + 5 )) ? namespace.substring( posColon + 5, posColon + 6 ) : DEFAULT_REVISION;
-            Integer tmpRelease = 1;
+            revision = ( namespace.length() > ( posColon + 5 )) ? namespace.substring( posColon + 5, posColon + 6 ) : DEFAULT_REVISION;
             try {
-                tmpRelease = ( namespace.length() > ( posColon + 6 )) ? Integer.valueOf( namespace.substring( posColon + 6 )) : DEFAULT_RELEASE;
+                release = ( namespace.length() > ( posColon + 6 )) ? Integer.valueOf( namespace.substring( posColon + 6 )) : DEFAULT_RELEASE;
             }
             catch( NumberFormatException ex ) {}
-            this.release = tmpRelease;
         }
-        else {
-            // TODO: is it an error that must be displayed ?
-            this.id = namespace;
-            this.version = 0;
-            this.revision = DEFAULT_REVISION;
-            this.release = DEFAULT_RELEASE;
-        }
+        return of( id, version, revision, release );
     }
     
-    public NsIdentification( AgNSIdentification identification ) {
-        this.id = identification.getId();
-        this.version = identification.getVersion();
-        this.revision = identification.getRevision();
-        this.release = identification.getRelease();
-    }
-
-    public NsIdentification( NsIdentification identification ) {
-        this.id = identification.id;
-        this.version = identification.version;
-        this.revision = identification.revision;
-        this.release = identification.release;
+    public static NsIdentification of( AgNSIdentification identification ) {
+        return of( identification.getId(), identification.getVersion(), identification.getRevision(), identification.getRelease() );
     }
 
     public String getId() {
@@ -98,27 +99,14 @@ public class NsIdentification {
         return release;
     }
     
-    @Override
-    public int hashCode() {
-//        return Objects.hash( id, release, revision, version );
-        return Objects.hash( id, revision, version );
+    public NsIdentification getDependsOn() {
+        return dependsOn;
     }
 
-    @Override
-    public boolean equals( Object obj ) {
-        if( this == obj ) return true;
-        if( obj == null ) return false;
-        if( getClass() != obj.getClass() ) return false;
-        NsIdentification other = ( NsIdentification ) obj;
-//        return Objects.equals( id      , other.id )
-//                && Objects.equals( version , other.version )
-//                && Objects.equals( revision, other.revision )
-//                && Objects.equals( release , other.release );
-        return Objects.equals( id      , other.id )
-            && Objects.equals( version , other.version )
-            && Objects.equals( revision, other.revision );
+    public void setDependsOn( NsIdentification dependsOn ) {
+        this.dependsOn = dependsOn;
     }
-    
+
     @Override
     public String toString() {
         return id + ":" + version + revision;
