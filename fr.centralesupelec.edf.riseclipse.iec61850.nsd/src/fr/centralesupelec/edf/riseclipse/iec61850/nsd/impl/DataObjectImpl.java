@@ -3020,6 +3020,11 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     public void createParameterizedComponents( IRiseClipseConsole console ) {
         String messagePrefix = "while building parameterized component for DataObject (name: " + getName() + "): ";
         CDC usedCDC = getRefersToCDC();
+        if( usedCDC == null ) {
+            console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                    messagePrefix, "The CDC (name: ", getType(), ") is unknown" );
+            return;
+        }
         if( usedCDC.isTypeKindParameterized() ) {
             if( isSetUnderlyingType() && isSetUnderlyingTypeKind() ) {
                 // Put this CDC in the same namespace/resource than this DataObject so that
