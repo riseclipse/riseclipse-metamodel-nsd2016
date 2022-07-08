@@ -51,7 +51,6 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
@@ -3014,10 +3013,10 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
 
     @Override
     public NsIdentification getNsIdentification() {
-        return ( ( AnyLNClassImpl ) getParentAnyLNClass() ).getNsIdentification();
+        return (( AnyLNClassImpl ) getParentAnyLNClass() ).getNsIdentification();
     }
 
-    public void createParameterizedComponents( IRiseClipseConsole console ) {
+    public void createParameterizedComponents( IRiseClipseConsole console, NsIdentification nsIdentification ) {
         String messagePrefix = "while building parameterized component for DataObject (name: " + getName() + "): ";
         CDC usedCDC = getRefersToCDC();
         if( usedCDC == null ) {
@@ -3029,7 +3028,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             if( isSetUnderlyingType() && isSetUnderlyingTypeKind() ) {
                 // Put this CDC in the same namespace/resource than this DataObject so that
                 // the validator for the underlyingType is found
-                NS ns = (( DocumentRoot ) eResource().getContents().get( 0 )).getNS();
+                NS ns = getResourceSet().getNS( nsIdentification );
                 usedCDC = ( ( CDCImpl ) usedCDC ).getParameterizedCDC( getUnderlyingTypeKind(),
                         getUnderlyingType(), ns, console );
             }
@@ -3041,10 +3040,11 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         }
         else if( usedCDC.isEnumParameterized() ) {
             if( isSetUnderlyingType() ) {
-                // Put this CDC in the same namespace/resource than this DataObject so that
-                // the validator for the underlyingType is found
-                NS ns = (( DocumentRoot ) eResource().getContents().get( 0 )).getNS();
-                usedCDC = ( ( CDCImpl ) usedCDC ).getParameterizedCDC( getUnderlyingType(), ns, console );
+                // Put this CDC in the same namespace/resource than the underlyingType so that
+                // the validator for it is found
+                //getResourceSet().fin
+                NS ns = getResourceSet().getNS( nsIdentification );
+                usedCDC = (( CDCImpl ) usedCDC ).getParameterizedCDC( DefinedAttributeTypeKind.ENUMERATED, getUnderlyingType(), ns, console );
             }
             else {
                 console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),

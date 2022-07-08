@@ -1443,18 +1443,15 @@ public class CDCImpl extends TitledClassImpl implements CDC {
             }
             ns.getCDCs().getCDC().add( parameterizedCDC );
             for( int i = 0; i < parameterizedCDC.getDataAttribute().size(); ++i ) {
-                if( parameterizedCDC.getParameterizedDataAttributeNames().contains( getDataAttribute().get( i ).getName() )) {
-                    parameterizedCDC.getDataAttribute().get( i ).setType( underlyingType );
-                    if( underlyingTypeKind != null ) {
-                        parameterizedCDC.getDataAttribute().get( i ).setTypeKind( underlyingTypeKind );
-                    }
+                DataAttributeImpl da = ( DataAttributeImpl ) parameterizedCDC.getDataAttribute().get( i );
+                // We won't be able to get it back
+                if( getDataAttribute().get( i ).isSetRefersToConstructedAttribute() ) {
+                    da.setRefersToConstructedAttribute( getDataAttribute().get( i ).getRefersToConstructedAttribute() );
                 }
+                da.setExplicitLinksBuilt( false );
+                da.buildExplicitLinks( underlyingTypeKind, underlyingType, console );
             }
             
-            for( DataAttribute da : parameterizedCDC.getDataAttribute() ) {
-                da.setExplicitLinksBuilt( false );
-                da.buildExplicitLinks( console );
-            }
             for( SubDataObject sdo : parameterizedCDC.getSubDataObject() ) {
                 sdo.setExplicitLinksBuilt( false );
                 sdo.buildExplicitLinks( console );

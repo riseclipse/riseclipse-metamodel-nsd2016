@@ -34,10 +34,11 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttributes;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
@@ -419,7 +420,7 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
     private static HashMap< String, HashMap< String, ServiceConstructedAttribute >> parameterizedServiceConstructedAttributes = new HashMap<>();
 
     public ServiceConstructedAttribute getParameterizedServiceConstructedAttribute(
-            DefinedAttributeTypeKind underlyingTypeKind, String underlyingType, IRiseClipseConsole console ) {
+            DefinedAttributeTypeKind underlyingTypeKind, String underlyingType, NsIdentification nsIdentification, IRiseClipseConsole console ) {
         if( getParameterizedSubDataAttributeNames().isEmpty() ) {
             console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                     "ServiceConstructedAttribute ", getName(), " has no parameterized sub data attribute" );
@@ -431,18 +432,21 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
         }
         if( ! parameterizedServiceConstructedAttributes.get( getName() ).containsKey( underlyingType ) ) {
             ServiceConstructedAttribute pSCA = EcoreUtil.copy( this );
-            pSCA.setParentConstructedAttributes( getParentConstructedAttributes() );
+            pSCA.setFilename( getFilename() );
+            NS ns = getResourceSet().getNS( nsIdentification );
+            if( ns.getConstructedAttributes() == null ) {
+                ns.setConstructedAttributes( NsdFactory.eINSTANCE.createConstructedAttributes() );
+            }
+            pSCA.setParentConstructedAttributes( ns.getConstructedAttributes() );
             for( int i = 0; i < getSubDataAttribute().size(); ++i ) {
                 if( pSCA.getParameterizedSubDataAttributeNames().contains( getSubDataAttribute().get( i ).getName() )) {
                     pSCA.getSubDataAttribute().get( i ).setTypeKind( underlyingTypeKind );
                     pSCA.getSubDataAttribute().get( i ).setType( underlyingType );
                 }
+                pSCA.getSubDataAttribute().get( i ).setExplicitLinksBuilt( false );
+                pSCA.getSubDataAttribute().get( i ).buildExplicitLinks( console );
             }
             
-            for( SubDataAttribute sda : pSCA.getSubDataAttribute() ) {
-                sda.setExplicitLinksBuilt( false );
-                sda.buildExplicitLinks( console );
-            }
             pSCA.setExplicitLinksBuilt( false );
             pSCA.buildExplicitLinks( console );
             

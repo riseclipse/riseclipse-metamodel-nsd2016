@@ -3842,6 +3842,12 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
             }
         }
 
+        if(( ! isSetType() ) && ( underlyingType != null )) {
+            setType( underlyingType );
+            if( underlyingTypeKind != null ) {
+                setTypeKind( underlyingTypeKind );
+            }
+        }
         if( getTypeKind() instanceof DefinedAttributeTypeKind ) {
             if( isSetType() ) {
                 switch( getTypeKind().getValue() ) {
@@ -3871,16 +3877,18 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                         if( foundCA instanceof ServiceConstructedAttribute ) {
                             ServiceConstructedAttribute sca = ( ServiceConstructedAttribute ) foundCA;
                             if( sca.isSetTypeKindParameterized() ) {
-                                if( ( underlyingTypeKind != null ) && ( underlyingType != null ) ) {
+                                if( underlyingType != null ) {
+                                    // The parameterized SCA must be put in the same namespace than
+                                    // this DataAttribute so that underlyingType is found
                                     sca = ( ( ServiceConstructedAttributeImpl ) sca )
                                             .getParameterizedServiceConstructedAttribute( underlyingTypeKind,
-                                                    underlyingType, console );
+                                                    underlyingType, getNsIdentification(), console );
                                 }
                                 else if(( DefinedAttributeTypeKind.ENUMERATED.equals( underlyingTypeKind ) && getParentCDC().isEnumParameterized() )) {
                                     if((( CDCImpl ) getParentCDC() ).getUnderlyingType() != null ) {
                                         sca = ( ( ServiceConstructedAttributeImpl ) sca )
                                                 .getParameterizedServiceConstructedAttribute( underlyingTypeKind,
-                                                        (( CDCImpl ) getParentCDC() ).getUnderlyingType(), console );
+                                                        (( CDCImpl ) getParentCDC() ).getUnderlyingType(), getNsIdentification(), console );
                                     }
                                     else {
                                         // This is not a problem if is is added to a CDC which is parameterized
