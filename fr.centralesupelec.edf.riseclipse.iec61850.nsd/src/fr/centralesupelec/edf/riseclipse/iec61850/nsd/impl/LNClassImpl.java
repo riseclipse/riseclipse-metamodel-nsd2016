@@ -616,13 +616,6 @@ public class LNClassImpl extends AnyLNClassImpl implements LNClass {
         return result.toString();
     }
 
-    public void createParameterizedComponents( IRiseClipseConsole console ) {
-         this
-        .getDataObject()
-        .stream()
-        .forEach( do_ -> (( DataObjectImpl ) do_ ).createParameterizedComponents( console ));
-    }
-
     public void addDataObjectsFromExtendedLNClass( IRiseClipseConsole console ) {
         AnyLNClass lnClass = getResourceSet().findLNClass( getName(), getNsIdentification().getDependsOn(), true );
         if( lnClass == null ) {

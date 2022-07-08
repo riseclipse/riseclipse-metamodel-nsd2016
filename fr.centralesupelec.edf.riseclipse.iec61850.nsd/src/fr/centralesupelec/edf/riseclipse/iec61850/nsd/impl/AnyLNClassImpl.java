@@ -681,4 +681,11 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
         return NsIdentification.of( getParentLNClasses().getParentNS() );
     }
 
+    public void createParameterizedComponents( IRiseClipseConsole console ) {
+        this
+       .getDataObject()
+       .stream()
+       .forEach( do_ -> (( DataObjectImpl ) do_ ).createParameterizedComponents( console, getNsIdentification() ));
+   }
+
 } //AnyLNClassImpl
