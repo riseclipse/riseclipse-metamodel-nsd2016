@@ -413,8 +413,10 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
         return super.getNsIdentification();
     }
 
+    //@formatter:off
+
     // Use only type as key; not typeKind
-    private static HashMap< String, ServiceConstructedAttribute > parameterizedServiceConstructedAttributes = new HashMap<>();
+    private static HashMap< String, HashMap< String, ServiceConstructedAttribute >> parameterizedServiceConstructedAttributes = new HashMap<>();
 
     public ServiceConstructedAttribute getParameterizedServiceConstructedAttribute(
             DefinedAttributeTypeKind underlyingTypeKind, String underlyingType, IRiseClipseConsole console ) {
@@ -424,7 +426,10 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
             return this;
         }
         
-        if( !parameterizedServiceConstructedAttributes.containsKey( underlyingType ) ) {
+        if( ! parameterizedServiceConstructedAttributes.containsKey( getName() )) {
+            parameterizedServiceConstructedAttributes.put( getName(), new HashMap<>() );
+        }
+        if( ! parameterizedServiceConstructedAttributes.get( getName() ).containsKey( underlyingType ) ) {
             ServiceConstructedAttribute pSCA = EcoreUtil.copy( this );
             pSCA.setParentConstructedAttributes( getParentConstructedAttributes() );
             for( int i = 0; i < getSubDataAttribute().size(); ++i ) {
@@ -441,10 +446,12 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
             pSCA.setExplicitLinksBuilt( false );
             pSCA.buildExplicitLinks( console );
             
-            parameterizedServiceConstructedAttributes.put( underlyingType, pSCA );
+            parameterizedServiceConstructedAttributes.get( getName() ).put( underlyingType, pSCA );
         }
 
-        return parameterizedServiceConstructedAttributes.get( underlyingType );
+        return parameterizedServiceConstructedAttributes.get( getName() ).get( underlyingType );
     }
+
+    //@formatter:on
 
 } //ServiceConstructedAttributeImpl
