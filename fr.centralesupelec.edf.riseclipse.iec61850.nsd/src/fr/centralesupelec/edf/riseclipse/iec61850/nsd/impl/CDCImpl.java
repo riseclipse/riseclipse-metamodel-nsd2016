@@ -1422,7 +1422,7 @@ public class CDCImpl extends TitledClassImpl implements CDC {
     }
 
     // Use only type as key; not typeKind
-    private HashMap< String, CDC > parameterizedCDCs = new HashMap<>();
+    private static HashMap< String, HashMap< String, CDC >> parameterizedCDCs = new HashMap<>();
 
     public CDC getParameterizedCDC( DefinedAttributeTypeKind underlyingTypeKind, String underlyingType,
             NS ns, IRiseClipseConsole console ) {
@@ -1432,7 +1432,10 @@ public class CDCImpl extends TitledClassImpl implements CDC {
             return this;
         }
         
-        if( !parameterizedCDCs.containsKey( underlyingType ) ) {
+        if( ! parameterizedCDCs.containsKey( getName() ) ) {
+            parameterizedCDCs.put( getName(),  new HashMap<>() );
+        }
+        if( ! parameterizedCDCs.get( getName() ).containsKey( underlyingType )) {
             // EcoreUtil.copy does a deep copy!
             CDC parameterizedCDC = EcoreUtil.copy( this );
             if( ns.getCDCs() == null ) {
@@ -1463,10 +1466,10 @@ public class CDCImpl extends TitledClassImpl implements CDC {
             parameterizedCDC.setExplicitLinksBuilt( false );
             parameterizedCDC.buildExplicitLinks( console );
             
-            parameterizedCDCs.put( underlyingType, parameterizedCDC );
+            parameterizedCDCs.get( getName() ).put( underlyingType, parameterizedCDC );
         }
         
-        return parameterizedCDCs.get( underlyingType );
+        return parameterizedCDCs.get( getName() ).get( underlyingType );
     }
 
     public CDC getParameterizedCDC( String underlyingType, NS ns, IRiseClipseConsole console ) {
@@ -1474,7 +1477,10 @@ public class CDCImpl extends TitledClassImpl implements CDC {
     }
 
     public String getUnderlyingType() {
-        for( Entry< String, CDC > entry : parameterizedCDCs.entrySet() ) {
+        if( ! parameterizedCDCs.containsKey( getName() ) ) {
+            return null;
+        }
+        for( Entry< String, CDC > entry : parameterizedCDCs.get( getName() ).entrySet() ) {
             if( entry.getValue() == this ) return entry.getKey();
         }
         return null;
