@@ -41,6 +41,8 @@ import org.eclipse.ocl.pivot.utilities.ValueUtil;
 import org.eclipse.ocl.pivot.values.IntegerValue;
 import org.eclipse.ocl.pivot.values.TupleValue;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
@@ -619,6 +621,28 @@ public class LNClassImpl extends AnyLNClassImpl implements LNClass {
         .getDataObject()
         .stream()
         .forEach( do_ -> (( DataObjectImpl ) do_ ).createParameterizedComponents( console ));
+    }
+
+    public void addDataObjectsFromExtendedLNClass( IRiseClipseConsole console ) {
+        AnyLNClass lnClass = getResourceSet().findLNClass( getName(), getNsIdentification().getDependsOn(), true );
+        if( lnClass == null ) {
+            console.error( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                    "while processing LNClass extension in namespace: ", getNsIdentification(),
+                    ": LNClass (name: ", getName(), ") not found" );
+            return;
+        }
+        while( lnClass != null ) {
+            for( DataObject do_ : lnClass.getDataObject() ) {
+                DataObject copy = EcoreUtil.copy( do_ );
+                copy.setFilename( getFilename() );
+                getDataObject().add( copy );
+                copy.setExplicitLinksBuilt( false );
+                copy.buildExplicitLinks( console );
+                getDataObject().add( copy );
+            }
+            lnClass = lnClass.getRefersToAbstractLNClass();
+        }
+        return;
     }
 
 } //LNClassImpl
