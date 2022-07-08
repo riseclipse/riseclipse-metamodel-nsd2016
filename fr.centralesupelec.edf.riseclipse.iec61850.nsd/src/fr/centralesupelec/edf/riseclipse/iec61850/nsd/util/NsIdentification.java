@@ -106,6 +106,15 @@ public class NsIdentification {
     public void setDependsOn( NsIdentification dependsOn ) {
         this.dependsOn = dependsOn;
     }
+    
+    public boolean dependsOn( NsIdentification dependsOn ) {
+        NsIdentification me = this;
+        while( me != null ) {
+            if( me == dependsOn ) return true;
+            me = me.getDependsOn();
+        }
+        return false;
+    }
 
     @Override
     public String toString() {
