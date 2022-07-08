@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: fr.centralesupelec.edf.riseclipse.iec61850.nsd;singleton:=true
 Automatic-Module-Name: fr.centralesupelec.edf.riseclipse.iec61850.nsd
-Bundle-Version: 1.2.5.qualifier
+Bundle-Version: 1.2.6.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
