@@ -22,6 +22,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.IdentityHashMap;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -40,6 +41,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttributes;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentificationName;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
 /**
@@ -417,7 +419,7 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
     //@formatter:off
 
     // Use only type as key; not typeKind
-    private static HashMap< String, HashMap< String, ServiceConstructedAttribute >> parameterizedServiceConstructedAttributes = new HashMap<>();
+    private static IdentityHashMap< NsIdentificationName, HashMap< String, ServiceConstructedAttribute >> parameterizedServiceConstructedAttributes = new IdentityHashMap<>();
 
     public ServiceConstructedAttribute getParameterizedServiceConstructedAttribute(
             DefinedAttributeTypeKind underlyingTypeKind, String underlyingType, NsIdentification nsIdentification, IRiseClipseConsole console ) {
@@ -427,10 +429,11 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
             return this;
         }
         
-        if( ! parameterizedServiceConstructedAttributes.containsKey( getName() )) {
-            parameterizedServiceConstructedAttributes.put( getName(), new HashMap<>() );
+        NsIdentificationName key = NsIdentificationName.of( getNsIdentification(), getName() );
+        if( ! parameterizedServiceConstructedAttributes.containsKey( key )) {
+            parameterizedServiceConstructedAttributes.put( key, new HashMap<>() );
         }
-        if( ! parameterizedServiceConstructedAttributes.get( getName() ).containsKey( underlyingType ) ) {
+        if( ! parameterizedServiceConstructedAttributes.get( key ).containsKey( underlyingType ) ) {
             ServiceConstructedAttribute pSCA = EcoreUtil.copy( this );
             pSCA.setFilename( getFilename() );
             NS ns = getResourceSet().getNS( nsIdentification );
@@ -450,10 +453,10 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
             pSCA.setExplicitLinksBuilt( false );
             pSCA.buildExplicitLinks( console );
             
-            parameterizedServiceConstructedAttributes.get( getName() ).put( underlyingType, pSCA );
+            parameterizedServiceConstructedAttributes.get( key ).put( underlyingType, pSCA );
         }
 
-        return parameterizedServiceConstructedAttributes.get( getName() ).get( underlyingType );
+        return parameterizedServiceConstructedAttributes.get( key ).get( underlyingType );
     }
 
     //@formatter:on
