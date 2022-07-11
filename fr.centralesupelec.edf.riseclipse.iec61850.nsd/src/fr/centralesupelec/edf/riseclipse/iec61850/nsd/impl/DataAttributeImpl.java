@@ -3861,8 +3861,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                     else {
                         setRefersToBasicType( foundBT );
                         console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                                messagePrefix, "BasicType (name: ", getType(), ") found in NS (id:",
-                                getRefersToBasicType().getParentBasicTypes().getParentNS().getId(), ")" );
+                                messagePrefix, "BasicType (name: ", getType(), ") found in NS \"",
+                                NsIdentification.of( getRefersToBasicType().getParentBasicTypes().getParentNS() ), "\"" );
                     }
                     break;
                 case DefinedAttributeTypeKind.CONSTRUCTED_VALUE:
@@ -3935,8 +3935,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                     else {
                         setRefersToEnumeration( foundEn );
                         console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                                messagePrefix, "Enumeration (name: ", getType(), ") found in NS (id:",
-                                getRefersToEnumeration().getParentEnumerations().getParentNS().getId(), ")" );
+                                messagePrefix, "Enumeration (name: ", getType(), ") found in NS \"",
+                                NsIdentification.of( getRefersToEnumeration().getParentEnumerations().getParentNS() ), "\"" );
                     }
                     break;
                 }

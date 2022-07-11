@@ -2518,8 +2518,8 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                     else {
                         setRefersToUnderlyingBasicType( foundBT );
                         console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                                messagePrefix, "BasicType (name: ", getUnderlyingType(), ") found in NS (id:",
-                                getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS().getId(), ")" );
+                                messagePrefix, "BasicType (name: ", getUnderlyingType(), ") found in NS \"",
+                                NsIdentification.of( getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS() ), "\"" );
                     }
                     break;
                 case DefinedAttributeTypeKind.CONSTRUCTED_VALUE:
@@ -2534,18 +2534,17 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                         setRefersToUnderlyingConstructedAttribute( foundCA );
                         String foundWhere = "???";
                         if( getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes() != null ) {
-                            foundWhere = "NS (id:"
-                                    + getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes()
-                                            .getParentNS().getId();
+                            foundWhere = "NS \""
+                                + NsIdentification.of( getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes().getParentNS() );
                         }
                         else if( getRefersToUnderlyingConstructedAttribute()
                                 .getParentServiceTypeRealizations() != null ) {
-                            foundWhere = "ServiceNS (id:" + getRefersToUnderlyingConstructedAttribute()
-                                    .getParentServiceTypeRealizations().getParentServiceNS().getId();
+                            foundWhere = "ServiceNS \""
+                                + NsIdentification.of( getRefersToUnderlyingConstructedAttribute().getParentServiceTypeRealizations().getParentServiceNS() );
                         }
                         console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                                 messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") found in ",
-                                foundWhere, ")" );
+                                foundWhere, "\"" );
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
@@ -2558,8 +2557,8 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                     else {
                         setRefersToUnderlyingEnumeration( foundEn );
                         console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                                messagePrefix, "Enumeration (name: ", getUnderlyingType(), ") found in NS (id:",
-                                getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS().getId(), ")" );
+                                messagePrefix, "Enumeration (name: ", getUnderlyingType(), ") found in NS \"",
+                                NsIdentification.of( getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS() ), "\"" );
                     }
                     break;
                 }

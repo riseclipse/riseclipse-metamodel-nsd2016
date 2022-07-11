@@ -1102,12 +1102,12 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         NS ns = rs.getNS( identification );
         if( ns == null ) {
             console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                    messagePrefix, "NS (id: ", identification, ") not found" );
+                    messagePrefix, "NS \"", identification, "\" not found" );
         }
         else {
             setRefersToNS( ns );
             console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                    messagePrefix, "NS (id: ", identification, ") found" );
+                    messagePrefix, "NS \"", identification, "\" found" );
             if( !ns.isExplicitLinksBuilt() ) {
                 console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                         messagePrefix, "Resolving links for file ", ns.getFilename() );
