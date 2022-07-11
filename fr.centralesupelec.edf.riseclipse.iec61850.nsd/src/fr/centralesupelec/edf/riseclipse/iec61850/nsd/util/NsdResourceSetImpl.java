@@ -359,6 +359,8 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                                         "Service NS: using TypeRealization ",  basic.getName(), " to attribute ", att.getType() );
                         att.setRefersToConstructedAttribute( typeRealization );
                     }
+                    // If we keep it, a validator will be built for it and given back instead of the one for the new constructed type
+                    removeBasicType( basic, applyToNsId );
                 }
                 else {
                     console.warning( NSD_SETUP_CATEGORY, 0,
@@ -861,6 +863,18 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                 .orElse( null );
     }
     
+    private void removeBasicType( BasicType basic, NsIdentification applyToNsId ) {
+        while( applyToNsId != null ) {
+            NS ns = getNS( applyToNsId );
+            if(( ns.getBasicTypes() != null ) && ( ns.getBasicTypes().getBasicType().contains( basic ))) {
+                ns.getBasicTypes().getBasicType().remove( basic );
+                return;
+            }
+            applyToNsId = applyToNsId.getDependsOn();
+        }
+        System.out.println("NO");
+    }
+
     private Stream< FunctionalConstraint > getFunctionalConstraintStream( NS ns, boolean useDependsOn ) {
         Stream< FunctionalConstraint > functionalConstraintStream = Stream.empty();
         FunctionalConstraints functionalConstraints = ns.getFunctionalConstraints();
