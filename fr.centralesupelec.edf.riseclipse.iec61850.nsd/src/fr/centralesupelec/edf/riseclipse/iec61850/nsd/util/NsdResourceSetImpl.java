@@ -267,13 +267,6 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
             }
         }
         
-        // Handle LNClass extensions
-        for( NS nsResource : nsResources.values() ) {
-            getLNClassStream( nsResource, false )
-            .filter( lnClass -> lnClass.isIsExtension() )
-            .forEach( lnClass -> (( LNClassImpl ) lnClass ).addDataObjectsFromExtendedLNClass( console ) );
-        }
-        
         // Create parameterized components
         // (see comment in DataObjectImpl.buildExplicitLinks())
         for( NS nsResource : nsResources.values() ) {
@@ -281,6 +274,13 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
             .forEach( lnClass -> (( AnyLNClassImpl ) lnClass ).createParameterizedComponents( console ) );
             getLNClassStream( nsResource, false )
             .forEach( lnClass -> (( AnyLNClassImpl ) lnClass ).createParameterizedComponents( console ) );
+        }
+        
+        // Handle LNClass extensions
+        for( NS nsResource : nsResources.values() ) {
+            getLNClassStream( nsResource, false )
+            .filter( lnClass -> lnClass.isIsExtension() )
+            .forEach( lnClass -> (( LNClassImpl ) lnClass ).addDataObjectsFromExtendedLNClass( console ) );
         }
     }
 
