@@ -2841,8 +2841,8 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
             else {
                 setRefersToCDC( foundCDC );
                 console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                        messagePrefix, "CDC (name: ", getType(), ") found in NS (id:",
-                        getRefersToCDC().getParentCDCs().getParentNS().getId(), ")" );
+                        messagePrefix, "CDC (name: ", getType(), ") found in NS \"",
+                        NsIdentification.of( getRefersToCDC().getParentCDCs().getParentNS() ), "\"" );
             }
         }
 
@@ -2856,8 +2856,8 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
             else {
                 setRefersToPresenceCondition( foundPC );
                 console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                        messagePrefix, "PresenceCondition (name: ", getPresCond(), ") found in NS (id:",
-                        getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId(), ")" );
+                        messagePrefix, "PresenceCondition (name: ", getPresCond(), ") found in NS \"",
+                        NsIdentification.of( getRefersToPresenceCondition().getParentPresenceConditions().getParentNS() ), "\"" );
             }
         }
 
@@ -2918,8 +2918,8 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                     else {
                         setRefersToUnderlyingBasicType( foundBT );
                         console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                                messagePrefix, "BasicType (name: ", getUnderlyingType(), ") found in NS (id:",
-                                getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS().getId(), ")" );
+                                messagePrefix, "BasicType (name: ", getUnderlyingType(), ") found in NS \"",
+                                NsIdentification.of( getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS() ), "\"" );
                     }
                     break;
                 case DefinedAttributeTypeKind.CONSTRUCTED_VALUE:
@@ -2932,16 +2932,15 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                     }
                     else {
                         setRefersToUnderlyingConstructedAttribute( foundCA );
-                        String foundWhere = "(???";
+                        String foundWhere = "\"???";
                         if( getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes() != null ) {
-                            foundWhere = "NS (id:"
-                                    + getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes()
-                                            .getParentNS().getId();
+                            foundWhere = "NS \""
+                                + NsIdentification.of( getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes().getParentNS() );
                         }
                         else if( getRefersToUnderlyingConstructedAttribute()
                                 .getParentServiceTypeRealizations() != null ) {
-                            foundWhere = "ServiceNS (id:" + getRefersToUnderlyingConstructedAttribute()
-                                    .getParentServiceTypeRealizations().getParentServiceNS().getId();
+                            foundWhere = "ServiceNS\""
+                                + NsIdentification.of( getRefersToUnderlyingConstructedAttribute().getParentServiceTypeRealizations().getParentServiceNS() );
                         }
                         console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                                 messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") found in ",
@@ -2958,8 +2957,8 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                     else {
                         setRefersToUnderlyingEnumeration( foundEn );
                         console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                                messagePrefix, "Enumeration (name: ", getUnderlyingType(), ") found in NS (id:",
-                                getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS().getId(), ")" );
+                                messagePrefix, "Enumeration (name: ", getUnderlyingType(), ") found in NS \"",
+                                NsIdentification.of( getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS() ), "\"" );
                     }
                     break;
                 }

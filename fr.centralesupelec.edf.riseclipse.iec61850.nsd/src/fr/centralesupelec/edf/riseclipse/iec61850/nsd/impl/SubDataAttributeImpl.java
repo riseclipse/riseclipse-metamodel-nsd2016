@@ -2532,8 +2532,8 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
             else {
                 setRefersToPresenceCondition( foundPC );
                 console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                        messagePrefix, "PresenceCondition (name: ", getPresCond(), ") found in NS (id:",
-                        getRefersToPresenceCondition().getParentPresenceConditions().getParentNS().getId(), ")" );
+                        messagePrefix, "PresenceCondition (name: ", getPresCond(), ") found in NS \"",
+                        NsIdentification.of( getRefersToPresenceCondition().getParentPresenceConditions().getParentNS() ), "\"" );
             }
         }
 
@@ -2550,8 +2550,8 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
                     else {
                         setRefersToBasicType( foundBT );
                         console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                                messagePrefix, "BasicType (name: ", getType(), ") found in NS (id:",
-                                getRefersToBasicType().getParentBasicTypes().getParentNS().getId(), ")" );
+                                messagePrefix, "BasicType (name: ", getType(), ") found in NS \"",
+                                NsIdentification.of( getRefersToBasicType().getParentBasicTypes().getParentNS() ), "\"" );
                     }
                     break;
                 case DefinedAttributeTypeKind.CONSTRUCTED_VALUE:
@@ -2565,10 +2565,8 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
                     else {
                         setRefersToConstructedAttribute( foundCA );
                         console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                                messagePrefix, "ConstructedAttribute (name: ", getType(), ") found in NS (id:",
-                                getRefersToConstructedAttribute().getParentConstructedAttributes().getParentNS()
-                                        .getId(),
-                                ")" );
+                                messagePrefix, "ConstructedAttribute (name: ", getType(), ") found in NS \"",
+                                NsIdentification.of( getRefersToConstructedAttribute().getParentConstructedAttributes().getParentNS() ), "\"" );
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
@@ -2581,8 +2579,8 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
                     else {
                         setRefersToEnumeration( foundEn );
                         console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                                messagePrefix, "Enumeration (name: ", getType(), ") found in NS (id:",
-                                getRefersToEnumeration().getParentEnumerations().getParentNS().getId(), ")" );
+                                messagePrefix, "Enumeration (name: ", getType(), ") found in NS \"",
+                                NsIdentification.of( getRefersToEnumeration().getParentEnumerations().getParentNS() ), "\"" );
                     }
                     break;
                 }

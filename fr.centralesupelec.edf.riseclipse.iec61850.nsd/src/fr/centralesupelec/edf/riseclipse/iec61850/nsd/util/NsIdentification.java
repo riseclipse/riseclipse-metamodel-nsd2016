@@ -24,6 +24,12 @@ import java.util.HashMap;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 
+/*
+ * Identify a namespace
+ * 
+ * The uniqueness of its instances is ensured so that they can be used as keys in an IdentityHashMap
+ */
+
 public class NsIdentification {
     
     public final static String  DEFAULT_REVISION = "A";

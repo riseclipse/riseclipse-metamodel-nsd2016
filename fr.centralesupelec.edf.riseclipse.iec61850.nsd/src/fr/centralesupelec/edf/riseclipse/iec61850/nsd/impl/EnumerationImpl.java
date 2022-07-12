@@ -1158,8 +1158,8 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
             else {
                 setRefersToBaseEnumeration( foundBase );
                 console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                        messagePrefix, "Enumeration (name: ", getInheritedFrom(), ") found in NS (id:",
-                        getRefersToBaseEnumeration().getParentEnumerations().getParentNS().getId(), ")" );
+                        messagePrefix, "Enumeration (name: ", getInheritedFrom(), ") found in NS \"",
+                        NsIdentification.of( getRefersToBaseEnumeration().getParentEnumerations().getParentNS() ), "\"" );
             }
         }
 

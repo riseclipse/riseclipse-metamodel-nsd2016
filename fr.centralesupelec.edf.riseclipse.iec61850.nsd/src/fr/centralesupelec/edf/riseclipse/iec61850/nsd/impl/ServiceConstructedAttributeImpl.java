@@ -22,6 +22,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.IdentityHashMap;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -34,11 +35,13 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttributes;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentificationName;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
 /**
@@ -413,38 +416,49 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
         return super.getNsIdentification();
     }
 
+    //@formatter:off
+
     // Use only type as key; not typeKind
-    private static HashMap< String, ServiceConstructedAttribute > parameterizedServiceConstructedAttributes = new HashMap<>();
+    private static IdentityHashMap< NsIdentificationName, HashMap< String, ServiceConstructedAttribute >> parameterizedServiceConstructedAttributes = new IdentityHashMap<>();
 
     public ServiceConstructedAttribute getParameterizedServiceConstructedAttribute(
-            DefinedAttributeTypeKind underlyingTypeKind, String underlyingType, IRiseClipseConsole console ) {
+            DefinedAttributeTypeKind underlyingTypeKind, String underlyingType, NsIdentification nsIdentification, IRiseClipseConsole console ) {
         if( getParameterizedSubDataAttributeNames().isEmpty() ) {
             console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                     "ServiceConstructedAttribute ", getName(), " has no parameterized sub data attribute" );
             return this;
         }
         
-        if( !parameterizedServiceConstructedAttributes.containsKey( underlyingType ) ) {
+        NsIdentificationName key = NsIdentificationName.of( getNsIdentification(), getName() );
+        if( ! parameterizedServiceConstructedAttributes.containsKey( key )) {
+            parameterizedServiceConstructedAttributes.put( key, new HashMap<>() );
+        }
+        if( ! parameterizedServiceConstructedAttributes.get( key ).containsKey( underlyingType ) ) {
             ServiceConstructedAttribute pSCA = EcoreUtil.copy( this );
-            pSCA.setParentConstructedAttributes( getParentConstructedAttributes() );
+            pSCA.setFilename( getFilename() );
+            NS ns = getResourceSet().getNS( nsIdentification );
+            if( ns.getConstructedAttributes() == null ) {
+                ns.setConstructedAttributes( NsdFactory.eINSTANCE.createConstructedAttributes() );
+            }
+            pSCA.setParentConstructedAttributes( ns.getConstructedAttributes() );
             for( int i = 0; i < getSubDataAttribute().size(); ++i ) {
                 if( pSCA.getParameterizedSubDataAttributeNames().contains( getSubDataAttribute().get( i ).getName() )) {
                     pSCA.getSubDataAttribute().get( i ).setTypeKind( underlyingTypeKind );
                     pSCA.getSubDataAttribute().get( i ).setType( underlyingType );
                 }
+                pSCA.getSubDataAttribute().get( i ).setExplicitLinksBuilt( false );
+                pSCA.getSubDataAttribute().get( i ).buildExplicitLinks( console );
             }
             
-            for( SubDataAttribute sda : pSCA.getSubDataAttribute() ) {
-                sda.setExplicitLinksBuilt( false );
-                sda.buildExplicitLinks( console );
-            }
             pSCA.setExplicitLinksBuilt( false );
             pSCA.buildExplicitLinks( console );
             
-            parameterizedServiceConstructedAttributes.put( underlyingType, pSCA );
+            parameterizedServiceConstructedAttributes.get( key ).put( underlyingType, pSCA );
         }
 
-        return parameterizedServiceConstructedAttributes.get( underlyingType );
+        return parameterizedServiceConstructedAttributes.get( key ).get( underlyingType );
     }
+
+    //@formatter:on
 
 } //ServiceConstructedAttributeImpl

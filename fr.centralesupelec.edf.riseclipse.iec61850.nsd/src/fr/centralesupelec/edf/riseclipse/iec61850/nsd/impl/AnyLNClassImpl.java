@@ -658,8 +658,8 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
                 setRefersToAbstractLNClass( abstractLNClass );
                 console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                         "while resolving link from AnyLNClass (name: ", getName(),
-                        "): AbstractLNClass (name: ", getBase(), ") found in NS (id:",
-                        getRefersToAbstractLNClass().getParentLNClasses().getParentNS().getId(), ")" );
+                        "): AbstractLNClass (name: ", getBase(), ") found in NS \"",
+                        NsIdentification.of( getRefersToAbstractLNClass().getParentLNClasses().getParentNS() ), "\"" );
             }
             else {
                 // TODO: Some NSD file (e.g. eTr_IEC61850-90-6_2018A5.nsd) use a non-abstract LNClass as base.
@@ -680,5 +680,12 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
     public NsIdentification getNsIdentification() {
         return NsIdentification.of( getParentLNClasses().getParentNS() );
     }
+
+    public void createParameterizedComponents( IRiseClipseConsole console ) {
+        this
+       .getDataObject()
+       .stream()
+       .forEach( do_ -> (( DataObjectImpl ) do_ ).createParameterizedComponents( console, getNsIdentification() ));
+   }
 
 } //AnyLNClassImpl

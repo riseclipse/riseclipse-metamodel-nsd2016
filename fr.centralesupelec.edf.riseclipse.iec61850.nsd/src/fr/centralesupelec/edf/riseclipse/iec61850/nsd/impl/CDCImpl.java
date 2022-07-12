@@ -23,6 +23,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -70,6 +71,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceParameter;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentification;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsIdentificationName;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
 /**
@@ -1422,7 +1424,7 @@ public class CDCImpl extends TitledClassImpl implements CDC {
     }
 
     // Use only type as key; not typeKind
-    private HashMap< String, CDC > parameterizedCDCs = new HashMap<>();
+    private static IdentityHashMap< NsIdentificationName, HashMap< String, CDC >> parameterizedCDCs = new IdentityHashMap<>();
 
     public CDC getParameterizedCDC( DefinedAttributeTypeKind underlyingTypeKind, String underlyingType,
             NS ns, IRiseClipseConsole console ) {
@@ -1432,7 +1434,11 @@ public class CDCImpl extends TitledClassImpl implements CDC {
             return this;
         }
         
-        if( !parameterizedCDCs.containsKey( underlyingType ) ) {
+        NsIdentificationName key = NsIdentificationName.of( getNsIdentification(), getName() );
+        if( ! parameterizedCDCs.containsKey( key)) {
+            parameterizedCDCs.put( key,  new HashMap<>() );
+        }
+        if( ! parameterizedCDCs.get( key ).containsKey( underlyingType )) {
             // EcoreUtil.copy does a deep copy!
             CDC parameterizedCDC = EcoreUtil.copy( this );
             if( ns.getCDCs() == null ) {
@@ -1440,18 +1446,15 @@ public class CDCImpl extends TitledClassImpl implements CDC {
             }
             ns.getCDCs().getCDC().add( parameterizedCDC );
             for( int i = 0; i < parameterizedCDC.getDataAttribute().size(); ++i ) {
-                if( parameterizedCDC.getParameterizedDataAttributeNames().contains( getDataAttribute().get( i ).getName() )) {
-                    parameterizedCDC.getDataAttribute().get( i ).setType( underlyingType );
-                    if( underlyingTypeKind != null ) {
-                        parameterizedCDC.getDataAttribute().get( i ).setTypeKind( underlyingTypeKind );
-                    }
+                DataAttributeImpl da = ( DataAttributeImpl ) parameterizedCDC.getDataAttribute().get( i );
+                // We won't be able to get it back
+                if( getDataAttribute().get( i ).isSetRefersToConstructedAttribute() ) {
+                    da.setRefersToConstructedAttribute( getDataAttribute().get( i ).getRefersToConstructedAttribute() );
                 }
+                da.setExplicitLinksBuilt( false );
+                da.buildExplicitLinks( underlyingTypeKind, underlyingType, console );
             }
             
-            for( DataAttribute da : parameterizedCDC.getDataAttribute() ) {
-                da.setExplicitLinksBuilt( false );
-                da.buildExplicitLinks( console );
-            }
             for( SubDataObject sdo : parameterizedCDC.getSubDataObject() ) {
                 sdo.setExplicitLinksBuilt( false );
                 sdo.buildExplicitLinks( console );
@@ -1463,10 +1466,10 @@ public class CDCImpl extends TitledClassImpl implements CDC {
             parameterizedCDC.setExplicitLinksBuilt( false );
             parameterizedCDC.buildExplicitLinks( console );
             
-            parameterizedCDCs.put( underlyingType, parameterizedCDC );
+            parameterizedCDCs.get( key ).put( underlyingType, parameterizedCDC );
         }
         
-        return parameterizedCDCs.get( underlyingType );
+        return parameterizedCDCs.get( key ).get( underlyingType );
     }
 
     public CDC getParameterizedCDC( String underlyingType, NS ns, IRiseClipseConsole console ) {
@@ -1474,7 +1477,11 @@ public class CDCImpl extends TitledClassImpl implements CDC {
     }
 
     public String getUnderlyingType() {
-        for( Entry< String, CDC > entry : parameterizedCDCs.entrySet() ) {
+        NsIdentificationName key = NsIdentificationName.of( getNsIdentification(), getName() );
+        if( ! parameterizedCDCs.containsKey( key ) ) {
+            return null;
+        }
+        for( Entry< String, CDC > entry : parameterizedCDCs.get( key ).entrySet() ) {
             if( entry.getValue() == this ) return entry.getKey();
         }
         return null;
