@@ -956,18 +956,18 @@ public class CDCImpl extends TitledClassImpl implements CDC {
              *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
              *     endif
              */
-            final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this, context );
+            final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this );
             final /*@NonInvalid*/ IdResolver idResolver = executor.getIdResolver();
             final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate( executor,
                     NsdPackage.Literals.CDC___UNIQUE_CDC_CHILD__DIAGNOSTICCHAIN_MAP );
             final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
                     .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
-            /*@NonInvalid*/ boolean local_2;
+            /*@NonInvalid*/ boolean IF_le;
             if( le ) {
-                local_2 = true;
+                IF_le = true;
             }
             else {
-                /*@Caught*/ Object CAUGHT_local_1;
+                /*@Caught*/ Object CAUGHT_IF_eq;
                 try {
                     final /*@NonInvalid*/ List< SubDataObject > subDataObject = this.getSubDataObject();
                     final /*@NonInvalid*/ SetValue BOXED_subDataObject = idResolver
@@ -1018,28 +1018,28 @@ public class CDCImpl extends TitledClassImpl implements CDC {
                     final /*@Thrown*/ SetValue asSet = CollectionAsSetOperation.INSTANCE.evaluate( names );
                     final /*@Thrown*/ IntegerValue size_0 = CollectionSizeOperation.INSTANCE.evaluate( asSet );
                     final /*@Thrown*/ boolean eq = size.equals( size_0 );
-                    /*@Thrown*/ Object local_1;
+                    /*@Thrown*/ Object IF_eq;
                     if( eq ) {
-                        local_1 = ValueUtil.TRUE_VALUE;
+                        IF_eq = ValueUtil.TRUE_VALUE;
                     }
                     else {
-                        final /*@Thrown*/ TupleValue local_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                        final /*@Thrown*/ TupleValue TUP_ = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
                                 NsdTables.STR_For_32_a_32_CDC_44_32_there_32_shall_32_not_32_be_32_two_32_sub_m_elements_32_o_SubDataObject_32_or,
                                 eq );
-                        local_1 = local_0;
+                        IF_eq = TUP_;
                     }
-                    CAUGHT_local_1 = local_1;
+                    CAUGHT_IF_eq = IF_eq;
                 }
                 catch( Exception e ) {
-                    CAUGHT_local_1 = ValueUtil.createInvalidValue( e );
+                    CAUGHT_IF_eq = ValueUtil.createInvalidValue( e );
                 }
                 final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
                         .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
-                                context, ( Object ) null, severity_0, CAUGHT_local_1, NsdTables.INT_0 )
+                                context, ( Object ) null, severity_0, CAUGHT_IF_eq, NsdTables.INT_0 )
                         .booleanValue();
-                local_2 = logDiagnostic;
+                IF_le = logDiagnostic;
             }
-            return local_2;
+            return IF_le;
         }
         catch( Throwable e ) {
             return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
@@ -1076,34 +1076,34 @@ public class CDCImpl extends TitledClassImpl implements CDC {
              *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
              *     endif
              */
-            final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this, context );
+            final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this );
             final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate( executor,
                     NsdPackage.Literals.CDC___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
             final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
                     .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
-            /*@NonInvalid*/ boolean local_2;
+            /*@NonInvalid*/ boolean IF_le;
             if( le ) {
-                local_2 = true;
+                IF_le = true;
             }
             else {
                 final /*@NonInvalid*/ String name = this.getName();
                 final /*@NonInvalid*/ boolean status = name != null;
-                /*@NonInvalid*/ Object local_1;
+                /*@NonInvalid*/ Object IF_status;
                 if( status ) {
-                    local_1 = ValueUtil.TRUE_VALUE;
+                    IF_status = ValueUtil.TRUE_VALUE;
                 }
                 else {
-                    final /*@NonInvalid*/ TupleValue local_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                    final /*@NonInvalid*/ TupleValue TUP_ = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
                             NsdTables.STR_The_32_name_32_attribute_32_is_32_required, status );
-                    local_1 = local_0;
+                    IF_status = TUP_;
                 }
                 final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
                         .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
-                                context, ( Object ) null, severity_0, local_1, NsdTables.INT_0 )
+                                context, ( Object ) null, severity_0, IF_status, NsdTables.INT_0 )
                         .booleanValue();
-                local_2 = logDiagnostic;
+                IF_le = logDiagnostic;
             }
-            return local_2;
+            return IF_le;
         }
         catch( Throwable e ) {
             return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
@@ -1415,7 +1415,7 @@ public class CDCImpl extends TitledClassImpl implements CDC {
         result.append( ')' );
         return result.toString();
     }
-    
+
     //@formatter:off
 
     @Override
@@ -1433,7 +1433,7 @@ public class CDCImpl extends TitledClassImpl implements CDC {
                     "CDC ", getName(), " has no parameterized data attribute" );
             return this;
         }
-        
+
         NsIdentificationName key = NsIdentificationName.of( getNsIdentification(), getName() );
         if( ! parameterizedCDCs.containsKey( key)) {
             parameterizedCDCs.put( key,  new HashMap<>() );
@@ -1454,7 +1454,7 @@ public class CDCImpl extends TitledClassImpl implements CDC {
                 da.setExplicitLinksBuilt( false );
                 da.buildExplicitLinks( underlyingTypeKind, underlyingType, console );
             }
-            
+
             for( SubDataObject sdo : parameterizedCDC.getSubDataObject() ) {
                 sdo.setExplicitLinksBuilt( false );
                 sdo.buildExplicitLinks( console );
@@ -1465,10 +1465,10 @@ public class CDCImpl extends TitledClassImpl implements CDC {
             }
             parameterizedCDC.setExplicitLinksBuilt( false );
             parameterizedCDC.buildExplicitLinks( console );
-            
+
             parameterizedCDCs.get( key ).put( underlyingType, parameterizedCDC );
         }
-        
+
         return parameterizedCDCs.get( key ).get( underlyingType );
     }
 
@@ -1486,7 +1486,7 @@ public class CDCImpl extends TitledClassImpl implements CDC {
         }
         return null;
     }
-    
+
     //@formatter:on
 
 } //CDCImpl

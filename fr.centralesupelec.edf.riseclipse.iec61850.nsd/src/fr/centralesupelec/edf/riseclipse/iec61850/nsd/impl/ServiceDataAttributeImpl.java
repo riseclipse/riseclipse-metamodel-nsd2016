@@ -687,34 +687,34 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
              *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
              *     endif
              */
-            final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this, context );
+            final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this );
             final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate( executor,
                     NsdPackage.Literals.SERVICE_DATA_ATTRIBUTE___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
             final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
                     .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
-            /*@NonInvalid*/ boolean local_2;
+            /*@NonInvalid*/ boolean IF_le;
             if( le ) {
-                local_2 = true;
+                IF_le = true;
             }
             else {
                 final /*@NonInvalid*/ String name = this.getName();
                 final /*@NonInvalid*/ boolean status = name != null;
-                /*@NonInvalid*/ Object local_1;
+                /*@NonInvalid*/ Object IF_status;
                 if( status ) {
-                    local_1 = ValueUtil.TRUE_VALUE;
+                    IF_status = ValueUtil.TRUE_VALUE;
                 }
                 else {
-                    final /*@NonInvalid*/ TupleValue local_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                    final /*@NonInvalid*/ TupleValue TUP_ = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
                             NsdTables.STR_The_32_name_32_attribute_32_is_32_required, status );
-                    local_1 = local_0;
+                    IF_status = TUP_;
                 }
                 final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
                         .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
-                                context, ( Object ) null, severity_0, local_1, NsdTables.INT_0 )
+                                context, ( Object ) null, severity_0, IF_status, NsdTables.INT_0 )
                         .booleanValue();
-                local_2 = logDiagnostic;
+                IF_le = logDiagnostic;
             }
-            return local_2;
+            return IF_le;
         }
         catch( Throwable e ) {
             return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
@@ -751,34 +751,34 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
              *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
              *     endif
              */
-            final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this, context );
+            final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this );
             final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate( executor,
                     NsdPackage.Literals.SERVICE_DATA_ATTRIBUTE___FC_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
             final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
                     .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
-            /*@NonInvalid*/ boolean local_2;
+            /*@NonInvalid*/ boolean IF_le;
             if( le ) {
-                local_2 = true;
+                IF_le = true;
             }
             else {
                 final /*@NonInvalid*/ String fc = this.getFc();
                 final /*@NonInvalid*/ boolean status = fc != null;
-                /*@NonInvalid*/ Object local_1;
+                /*@NonInvalid*/ Object IF_status;
                 if( status ) {
-                    local_1 = ValueUtil.TRUE_VALUE;
+                    IF_status = ValueUtil.TRUE_VALUE;
                 }
                 else {
-                    final /*@NonInvalid*/ TupleValue local_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                    final /*@NonInvalid*/ TupleValue TUP_ = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
                             NsdTables.STR_The_32_fc_32_attribute_32_is_32_required, status );
-                    local_1 = local_0;
+                    IF_status = TUP_;
                 }
                 final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
                         .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
-                                context, ( Object ) null, severity_0, local_1, NsdTables.INT_0 )
+                                context, ( Object ) null, severity_0, IF_status, NsdTables.INT_0 )
                         .booleanValue();
-                local_2 = logDiagnostic;
+                IF_le = logDiagnostic;
             }
-            return local_2;
+            return IF_le;
         }
         catch( Throwable e ) {
             return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
@@ -2519,7 +2519,9 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                         setRefersToUnderlyingBasicType( foundBT );
                         console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                                 messagePrefix, "BasicType (name: ", getUnderlyingType(), ") found in NS \"",
-                                NsIdentification.of( getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS() ), "\"" );
+                                NsIdentification.of(
+                                        getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS() ),
+                                "\"" );
                     }
                     break;
                 case DefinedAttributeTypeKind.CONSTRUCTED_VALUE:
@@ -2535,12 +2537,14 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                         String foundWhere = "???";
                         if( getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes() != null ) {
                             foundWhere = "NS \""
-                                + NsIdentification.of( getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes().getParentNS() );
+                                    + NsIdentification.of( getRefersToUnderlyingConstructedAttribute()
+                                            .getParentConstructedAttributes().getParentNS() );
                         }
                         else if( getRefersToUnderlyingConstructedAttribute()
                                 .getParentServiceTypeRealizations() != null ) {
                             foundWhere = "ServiceNS \""
-                                + NsIdentification.of( getRefersToUnderlyingConstructedAttribute().getParentServiceTypeRealizations().getParentServiceNS() );
+                                    + NsIdentification.of( getRefersToUnderlyingConstructedAttribute()
+                                            .getParentServiceTypeRealizations().getParentServiceNS() );
                         }
                         console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                                 messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") found in ",
@@ -2558,7 +2562,9 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                         setRefersToUnderlyingEnumeration( foundEn );
                         console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                                 messagePrefix, "Enumeration (name: ", getUnderlyingType(), ") found in NS \"",
-                                NsIdentification.of( getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS() ), "\"" );
+                                NsIdentification
+                                        .of( getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS() ),
+                                "\"" );
                     }
                     break;
                 }

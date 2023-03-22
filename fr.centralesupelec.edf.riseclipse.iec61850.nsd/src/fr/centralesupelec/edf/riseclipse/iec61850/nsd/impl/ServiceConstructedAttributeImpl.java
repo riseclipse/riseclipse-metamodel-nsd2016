@@ -428,7 +428,7 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
                     "ServiceConstructedAttribute ", getName(), " has no parameterized sub data attribute" );
             return this;
         }
-        
+
         NsIdentificationName key = NsIdentificationName.of( getNsIdentification(), getName() );
         if( ! parameterizedServiceConstructedAttributes.containsKey( key )) {
             parameterizedServiceConstructedAttributes.put( key, new HashMap<>() );
@@ -449,10 +449,10 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
                 pSCA.getSubDataAttribute().get( i ).setExplicitLinksBuilt( false );
                 pSCA.getSubDataAttribute().get( i ).buildExplicitLinks( console );
             }
-            
+
             pSCA.setExplicitLinksBuilt( false );
             pSCA.buildExplicitLinks( console );
-            
+
             parameterizedServiceConstructedAttributes.get( key ).put( underlyingType, pSCA );
         }
 

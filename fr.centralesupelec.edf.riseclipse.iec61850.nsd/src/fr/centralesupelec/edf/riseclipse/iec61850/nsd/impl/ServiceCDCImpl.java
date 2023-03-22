@@ -370,23 +370,23 @@ public class ServiceCDCImpl extends NsdObjectImpl implements ServiceCDC {
              *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
              *     endif
              */
-            final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this, context );
+            final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this );
             final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate( executor,
                     NsdPackage.Literals.SERVICE_CDC___CDC_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
             final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
                     .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
-            /*@NonInvalid*/ boolean local_0;
+            /*@NonInvalid*/ boolean IF_le;
             if( le ) {
-                local_0 = true;
+                IF_le = true;
             }
             else {
                 final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
                         .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
                                 context, ( Object ) null, severity_0, ValueUtil.TRUE_VALUE, NsdTables.INT_0 )
                         .booleanValue();
-                local_0 = logDiagnostic;
+                IF_le = logDiagnostic;
             }
-            return local_0;
+            return IF_le;
         }
         catch( Throwable e ) {
             return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
