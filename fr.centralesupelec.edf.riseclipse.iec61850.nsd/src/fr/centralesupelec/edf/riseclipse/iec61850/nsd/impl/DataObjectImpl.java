@@ -2176,34 +2176,34 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
              *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
              *     endif
              */
-            final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this, context );
+            final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this );
             final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate( executor,
                     NsdPackage.Literals.DATA_OBJECT___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
             final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
                     .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
-            /*@NonInvalid*/ boolean local_2;
+            /*@NonInvalid*/ boolean IF_le;
             if( le ) {
-                local_2 = true;
+                IF_le = true;
             }
             else {
                 final /*@NonInvalid*/ String name = this.getName();
                 final /*@NonInvalid*/ boolean status = name != null;
-                /*@NonInvalid*/ Object local_1;
+                /*@NonInvalid*/ Object IF_status;
                 if( status ) {
-                    local_1 = ValueUtil.TRUE_VALUE;
+                    IF_status = ValueUtil.TRUE_VALUE;
                 }
                 else {
-                    final /*@NonInvalid*/ TupleValue local_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                    final /*@NonInvalid*/ TupleValue TUP_ = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
                             NsdTables.STR_The_32_name_32_attribute_32_is_32_required, status );
-                    local_1 = local_0;
+                    IF_status = TUP_;
                 }
                 final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
                         .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
-                                context, ( Object ) null, severity_0, local_1, NsdTables.INT_0 )
+                                context, ( Object ) null, severity_0, IF_status, NsdTables.INT_0 )
                         .booleanValue();
-                local_2 = logDiagnostic;
+                IF_le = logDiagnostic;
             }
-            return local_2;
+            return IF_le;
         }
         catch( Throwable e ) {
             return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
@@ -2240,34 +2240,34 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
              *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
              *     endif
              */
-            final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this, context );
+            final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this );
             final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate( executor,
                     NsdPackage.Literals.DATA_OBJECT___TYPE_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
             final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
                     .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
-            /*@NonInvalid*/ boolean local_2;
+            /*@NonInvalid*/ boolean IF_le;
             if( le ) {
-                local_2 = true;
+                IF_le = true;
             }
             else {
                 final /*@NonInvalid*/ String type = this.getType();
                 final /*@NonInvalid*/ boolean status = type != null;
-                /*@NonInvalid*/ Object local_1;
+                /*@NonInvalid*/ Object IF_status;
                 if( status ) {
-                    local_1 = ValueUtil.TRUE_VALUE;
+                    IF_status = ValueUtil.TRUE_VALUE;
                 }
                 else {
-                    final /*@NonInvalid*/ TupleValue local_0 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                    final /*@NonInvalid*/ TupleValue TUP_ = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
                             NsdTables.STR_The_32_type_32_attribute_32_is_32_required, status );
-                    local_1 = local_0;
+                    IF_status = TUP_;
                 }
                 final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
                         .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
-                                context, ( Object ) null, severity_0, local_1, NsdTables.INT_0 )
+                                context, ( Object ) null, severity_0, IF_status, NsdTables.INT_0 )
                         .booleanValue();
-                local_2 = logDiagnostic;
+                IF_le = logDiagnostic;
             }
-            return local_2;
+            return IF_le;
         }
         catch( Throwable e ) {
             return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
@@ -2850,14 +2850,14 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                 // This is because:
                 // - we need to put the parameterized CDC in the namespace of the attribute used for parameterization
                 //   so that we can find the validator for it
-                // - but the ServiceNS may not be applied to this namespace 
+                // - but the ServiceNS may not be applied to this namespace
                 // Example:
                 // - CDC defined in 7-3
                 // - parameterized by 8-1 using an enumeration of 7-4
                 // - the parameterized CDC goes in 7-4
                 // - the 8-1 ServiceNS is only applied to 7-3
                 // See below createParameterizedComponents()
-                
+
 //                if( usedCDC.isTypeKindParameterized() ) {
 //                    if( isSetUnderlyingType() && isSetUnderlyingTypeKind() ) {
 //                        // Put this CDC in the same namespace/resource than this DataObject so that
@@ -3054,7 +3054,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         }
         setRefersToCDC( usedCDC );
     }
-    
+
     //@formatter:on
 
 } //DataObjectImpl

@@ -220,19 +220,19 @@ public class CDCsImpl extends NsdObjectImpl implements CDCs {
              *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
              *     endif
              */
-            final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this, context );
+            final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this );
             final /*@NonInvalid*/ IdResolver idResolver = executor.getIdResolver();
             final /*@NonInvalid*/ StandardLibrary standardLibrary = idResolver.getStandardLibrary();
             final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate( executor,
                     NsdPackage.Literals.CD_CS___UNIQUE_CDC__DIAGNOSTICCHAIN_MAP );
             final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
                     .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
-            /*@NonInvalid*/ boolean local_8;
+            /*@NonInvalid*/ boolean IF_le;
             if( le ) {
-                local_8 = true;
+                IF_le = true;
             }
             else {
-                /*@Caught*/ Object CAUGHT_local_7;
+                /*@Caught*/ Object CAUGHT_IF_eq_0;
                 try {
                     /*@Caught*/ Object CAUGHT_isUnique;
                     try {
@@ -339,11 +339,11 @@ public class CDCsImpl extends NsdObjectImpl implements CDCs {
                                     final /*@NonInvalid*/ Object c2 = sourceAndArgumentValues[2];
                                     /*@Caught*/ Object CAUGHT_implies;
                                     try {
-                                        final /*@NonInvalid*/ CDC local_0 = ( CDC ) c1;
-                                        final /*@NonInvalid*/ CDC local_1 = ( CDC ) c2;
-                                        final /*@NonInvalid*/ boolean ne_0 = ( local_0 != null )
-                                                ? !local_0.equals( local_1 )
-                                                : ( local_1 != null );
+                                        final /*@NonInvalid*/ CDC CAST_null = ( CDC ) c1;
+                                        final /*@NonInvalid*/ CDC CAST_null_0 = ( CDC ) c2;
+                                        final /*@NonInvalid*/ boolean ne_0 = ( CAST_null != null )
+                                                ? !CAST_null.equals( CAST_null_0 )
+                                                : ( CAST_null_0 != null );
                                         final /*@Thrown*/ Boolean implies;
                                         if( !ne_0 ) {
                                             implies = ValueUtil.TRUE_VALUE;
@@ -353,16 +353,16 @@ public class CDCsImpl extends NsdObjectImpl implements CDCs {
                                             try {
                                                 /*@Caught*/ Object CAUGHT_ne_1;
                                                 try {
-                                                    if( local_0 == null ) {
+                                                    if( CAST_null == null ) {
                                                         throw new InvalidValueException(
                                                                 "Null source for \'\'http://www.iec.ch/61850/2016/NSD\'::CDC::name\'" );
                                                     }
-                                                    final /*@Thrown*/ String name_0 = local_0.getName();
-                                                    if( local_1 == null ) {
+                                                    final /*@Thrown*/ String name_0 = CAST_null.getName();
+                                                    if( CAST_null_0 == null ) {
                                                         throw new InvalidValueException(
                                                                 "Null source for \'\'http://www.iec.ch/61850/2016/NSD\'::CDC::name\'" );
                                                     }
-                                                    final /*@Thrown*/ String name_1 = local_1.getName();
+                                                    final /*@Thrown*/ String name_1 = CAST_null_0.getName();
                                                     final /*@Thrown*/ boolean ne_1 = ( name_0 != null )
                                                             ? !name_0.equals( name_1 )
                                                             : ( name_1 != null );
@@ -378,16 +378,16 @@ public class CDCsImpl extends NsdObjectImpl implements CDCs {
                                                 else {
                                                     /*@Caught*/ Object CAUGHT_ne_2;
                                                     try {
-                                                        if( local_0 == null ) {
+                                                        if( CAST_null == null ) {
                                                             throw new InvalidValueException(
                                                                     "Null source for \'\'http://www.iec.ch/61850/2016/NSD\'::CDC::variant\'" );
                                                         }
-                                                        final /*@Thrown*/ String variant_1 = local_0.getVariant();
-                                                        if( local_1 == null ) {
+                                                        final /*@Thrown*/ String variant_1 = CAST_null.getVariant();
+                                                        if( CAST_null_0 == null ) {
                                                             throw new InvalidValueException(
                                                                     "Null source for \'\'http://www.iec.ch/61850/2016/NSD\'::CDC::variant\'" );
                                                         }
-                                                        final /*@Thrown*/ String variant_2 = local_1.getVariant();
+                                                        final /*@Thrown*/ String variant_2 = CAST_null_0.getVariant();
                                                         final /*@Thrown*/ boolean ne_2 = ( variant_1 != null )
                                                                 ? !variant_1.equals( variant_2 )
                                                                 : ( variant_2 != null );
@@ -438,7 +438,7 @@ public class CDCsImpl extends NsdObjectImpl implements CDCs {
                                 }
                             };
                             final ExecutorMultipleIterationManager MGR_forAll_0 = new ExecutorMultipleIterationManager(
-                                    executor, 2, TypeId.BOOLEAN, BODY_forAll_0, select_0, ACC_forAll_0 );
+                                    executor, 2, false, TypeId.BOOLEAN, BODY_forAll_0, select_0, ACC_forAll_0 );
                             final /*@Thrown*/ Boolean forAll = ( Boolean ) IMPL_forAll_0
                                     .evaluateIteration( MGR_forAll_0 );
                             CAUGHT_forAll = forAll;
@@ -465,28 +465,28 @@ public class CDCsImpl extends NsdObjectImpl implements CDCs {
                         }
                     }
                     final /*@Thrown*/ boolean eq_0 = status == Boolean.TRUE;
-                    /*@Thrown*/ Object local_7;
+                    /*@Thrown*/ Object IF_eq_0;
                     if( eq_0 ) {
-                        local_7 = ValueUtil.TRUE_VALUE;
+                        IF_eq_0 = ValueUtil.TRUE_VALUE;
                     }
                     else {
-                        final /*@Thrown*/ TupleValue local_6 = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                        final /*@Thrown*/ TupleValue TUP_ = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
                                 NsdTables.STR_Within_32_an_32_NS_44_32_there_32_shall_32_not_32_be_32_two_32_CDC_32_sub_m_elements_32_with_32_same_32,
                                 status );
-                        local_7 = local_6;
+                        IF_eq_0 = TUP_;
                     }
-                    CAUGHT_local_7 = local_7;
+                    CAUGHT_IF_eq_0 = IF_eq_0;
                 }
                 catch( Exception e ) {
-                    CAUGHT_local_7 = ValueUtil.createInvalidValue( e );
+                    CAUGHT_IF_eq_0 = ValueUtil.createInvalidValue( e );
                 }
                 final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
                         .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
-                                context, ( Object ) null, severity_0, CAUGHT_local_7, NsdTables.INT_0 )
+                                context, ( Object ) null, severity_0, CAUGHT_IF_eq_0, NsdTables.INT_0 )
                         .booleanValue();
-                local_8 = logDiagnostic;
+                IF_le = logDiagnostic;
             }
-            return local_8;
+            return IF_le;
         }
         catch( Throwable e ) {
             return ValueUtil.validationFailedDiagnostic( constraintName, this, diagnostics, context, e );
