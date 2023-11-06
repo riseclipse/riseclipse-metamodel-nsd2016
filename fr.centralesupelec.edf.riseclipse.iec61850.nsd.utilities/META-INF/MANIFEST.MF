@@ -5,7 +5,7 @@ Bundle-Vendor: %providerName
 Bundle-SymbolicName: fr.centralesupelec.edf.riseclipse.iec61850.nsd.utilities
 Bundle-Version: 1.2.8
 Automatic-Module-Name: fr.centralesupelec.edf.riseclipse.iec61850.nsd.utilities
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Require-Bundle: org.eclipse.emf.common,
  org.eclipse.emf.ecore,
  org.eclipse.emf.edit,

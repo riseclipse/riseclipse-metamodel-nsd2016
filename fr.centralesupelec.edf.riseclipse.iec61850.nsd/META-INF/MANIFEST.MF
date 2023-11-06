@@ -7,7 +7,7 @@ Bundle-Version: 1.2.8
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: fr.centralesupelec.edf.riseclipse.iec61850.nsd,
  fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl,
  fr.centralesupelec.edf.riseclipse.iec61850.nsd.util
