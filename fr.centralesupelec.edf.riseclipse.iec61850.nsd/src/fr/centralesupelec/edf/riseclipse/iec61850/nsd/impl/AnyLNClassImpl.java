@@ -172,7 +172,9 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
      */
     @Override
     public void unsetDataObject() {
-        if( dataObject != null ) ( ( InternalEList.Unsettable< ? > ) dataObject ).unset();
+        if( dataObject != null ) {
+            ( ( InternalEList.Unsettable< ? > ) dataObject ).unset();
+        }
     }
 
     /**
@@ -206,9 +208,10 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
         base = newBase;
         boolean oldBaseESet = baseESet;
         baseESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.ANY_LN_CLASS__BASE, oldBase, base,
                     !oldBaseESet ) );
+        }
     }
 
     /**
@@ -222,9 +225,10 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
         boolean oldBaseESet = baseESet;
         base = BASE_EDEFAULT;
         baseESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.ANY_LN_CLASS__BASE, oldBase,
                     BASE_EDEFAULT, oldBaseESet ) );
+        }
     }
 
     /**
@@ -262,10 +266,12 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.ANY_LN_CLASS__REFERS_TO_ABSTRACT_LN_CLASS, oldRefersToAbstractLNClass,
                     newRefersToAbstractLNClass, !oldRefersToAbstractLNClassESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -279,22 +285,27 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
     public void setRefersToAbstractLNClass( AbstractLNClass newRefersToAbstractLNClass ) {
         if( newRefersToAbstractLNClass != refersToAbstractLNClass ) {
             NotificationChain msgs = null;
-            if( refersToAbstractLNClass != null )
+            if( refersToAbstractLNClass != null ) {
                 msgs = ( ( InternalEObject ) refersToAbstractLNClass ).eInverseRemove( this,
                         NsdPackage.ABSTRACT_LN_CLASS__REFERRED_BY_ANY_LN_CLASS, AbstractLNClass.class, msgs );
-            if( newRefersToAbstractLNClass != null )
+            }
+            if( newRefersToAbstractLNClass != null ) {
                 msgs = ( ( InternalEObject ) newRefersToAbstractLNClass ).eInverseAdd( this,
                         NsdPackage.ABSTRACT_LN_CLASS__REFERRED_BY_ANY_LN_CLASS, AbstractLNClass.class, msgs );
+            }
             msgs = basicSetRefersToAbstractLNClass( newRefersToAbstractLNClass, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToAbstractLNClassESet = refersToAbstractLNClassESet;
             refersToAbstractLNClassESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET,
                         NsdPackage.ANY_LN_CLASS__REFERS_TO_ABSTRACT_LN_CLASS, newRefersToAbstractLNClass,
                         newRefersToAbstractLNClass, !oldRefersToAbstractLNClassESet ) );
+            }
         }
     }
 
@@ -312,10 +323,12 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.ANY_LN_CLASS__REFERS_TO_ABSTRACT_LN_CLASS, oldRefersToAbstractLNClass, null,
                     oldRefersToAbstractLNClassESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -332,15 +345,18 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
             msgs = ( ( InternalEObject ) refersToAbstractLNClass ).eInverseRemove( this,
                     NsdPackage.ABSTRACT_LN_CLASS__REFERRED_BY_ANY_LN_CLASS, AbstractLNClass.class, msgs );
             msgs = basicUnsetRefersToAbstractLNClass( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToAbstractLNClassESet = refersToAbstractLNClassESet;
             refersToAbstractLNClassESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET,
                         NsdPackage.ANY_LN_CLASS__REFERS_TO_ABSTRACT_LN_CLASS, null, null,
                         oldRefersToAbstractLNClassESet ) );
+            }
         }
     }
 
@@ -488,9 +504,10 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getDataObject() ).basicAdd( otherEnd,
                     msgs );
         case NsdPackage.ANY_LN_CLASS__REFERS_TO_ABSTRACT_LN_CLASS:
-            if( refersToAbstractLNClass != null )
+            if( refersToAbstractLNClass != null ) {
                 msgs = ( ( InternalEObject ) refersToAbstractLNClass ).eInverseRemove( this,
                         NsdPackage.ABSTRACT_LN_CLASS__REFERRED_BY_ANY_LN_CLASS, AbstractLNClass.class, msgs );
+            }
             return basicSetRefersToAbstractLNClass( ( AbstractLNClass ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
@@ -619,14 +636,18 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
      */
     @Override
     public String toString() {
-        if( eIsProxy() ) return super.toString();
+        if( eIsProxy() ) {
+            return super.toString();
+        }
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (base: " );
-        if( baseESet )
+        if( baseESet ) {
             result.append( base );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ')' );
         return result.toString();
     }
@@ -638,7 +659,9 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "AnyLNImpl.buildExplicitLinks()" );
 
-        if( super.buildExplicitLinks( console ) ) return true;
+        if( super.buildExplicitLinks( console ) ) {
+            return true;
+        }
 
         if( isSetBase() ) {
 

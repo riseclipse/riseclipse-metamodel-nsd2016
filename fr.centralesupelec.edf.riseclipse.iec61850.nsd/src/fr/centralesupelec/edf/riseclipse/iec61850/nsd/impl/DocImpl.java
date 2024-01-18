@@ -311,8 +311,9 @@ public class DocImpl extends NsdObjectImpl implements Doc {
         id = newId;
         boolean oldIdESet = idESet;
         idESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DOC__ID, oldId, id, !oldIdESet ) );
+        }
     }
 
     /**
@@ -326,9 +327,10 @@ public class DocImpl extends NsdObjectImpl implements Doc {
         boolean oldIdESet = idESet;
         id = ID_EDEFAULT;
         idESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DOC__ID, oldId, ID_EDEFAULT,
                     oldIdESet ) );
+        }
     }
 
     /**
@@ -348,7 +350,9 @@ public class DocImpl extends NsdObjectImpl implements Doc {
      */
     @Override
     public NSDoc getParentNSDoc() {
-        if( eContainerFeatureID() != NsdPackage.DOC__PARENT_NS_DOC ) return null;
+        if( eContainerFeatureID() != NsdPackage.DOC__PARENT_NS_DOC ) {
+            return null;
+        }
         return ( NSDoc ) eInternalContainer();
     }
 
@@ -371,20 +375,26 @@ public class DocImpl extends NsdObjectImpl implements Doc {
     public void setParentNSDoc( NSDoc newParentNSDoc ) {
         if( newParentNSDoc != eInternalContainer()
                 || ( eContainerFeatureID() != NsdPackage.DOC__PARENT_NS_DOC && newParentNSDoc != null ) ) {
-            if( EcoreUtil.isAncestor( this, newParentNSDoc ) )
+            if( EcoreUtil.isAncestor( this, newParentNSDoc ) ) {
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            }
             NotificationChain msgs = null;
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newParentNSDoc != null )
+            }
+            if( newParentNSDoc != null ) {
                 msgs = ( ( InternalEObject ) newParentNSDoc ).eInverseAdd( this, NsdPackage.NS_DOC__DOC, NSDoc.class,
                         msgs );
+            }
             msgs = basicSetParentNSDoc( newParentNSDoc, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
-        else if( eNotificationRequired() )
+        else if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DOC__PARENT_NS_DOC, newParentNSDoc,
                     newParentNSDoc ) );
+        }
     }
 
     /**
@@ -408,7 +418,9 @@ public class DocImpl extends NsdObjectImpl implements Doc {
      */
     @Override
     public void unsetReferredByAgNSDesc() {
-        if( referredByAgNSDesc != null ) ( ( InternalEList.Unsettable< ? > ) referredByAgNSDesc ).unset();
+        if( referredByAgNSDesc != null ) {
+            ( ( InternalEList.Unsettable< ? > ) referredByAgNSDesc ).unset();
+        }
     }
 
     /**
@@ -443,8 +455,9 @@ public class DocImpl extends NsdObjectImpl implements Doc {
      */
     @Override
     public void unsetReferredByPresenceConditionAsDesc() {
-        if( referredByPresenceConditionAsDesc != null )
+        if( referredByPresenceConditionAsDesc != null ) {
             ( ( InternalEList.Unsettable< ? > ) referredByPresenceConditionAsDesc ).unset();
+        }
     }
 
     /**
@@ -480,8 +493,9 @@ public class DocImpl extends NsdObjectImpl implements Doc {
      */
     @Override
     public void unsetReferredByAgPresenceCondition() {
-        if( referredByAgPresenceCondition != null )
+        if( referredByAgPresenceCondition != null ) {
             ( ( InternalEList.Unsettable< ? > ) referredByAgPresenceCondition ).unset();
+        }
     }
 
     /**
@@ -516,7 +530,9 @@ public class DocImpl extends NsdObjectImpl implements Doc {
      */
     @Override
     public void unsetReferredByAbbreviation() {
-        if( referredByAbbreviation != null ) ( ( InternalEList.Unsettable< ? > ) referredByAbbreviation ).unset();
+        if( referredByAbbreviation != null ) {
+            ( ( InternalEList.Unsettable< ? > ) referredByAbbreviation ).unset();
+        }
     }
 
     /**
@@ -550,7 +566,9 @@ public class DocImpl extends NsdObjectImpl implements Doc {
      */
     @Override
     public void unsetReferredByBasicType() {
-        if( referredByBasicType != null ) ( ( InternalEList.Unsettable< ? > ) referredByBasicType ).unset();
+        if( referredByBasicType != null ) {
+            ( ( InternalEList.Unsettable< ? > ) referredByBasicType ).unset();
+        }
     }
 
     /**
@@ -585,7 +603,9 @@ public class DocImpl extends NsdObjectImpl implements Doc {
      */
     @Override
     public void unsetReferredByDocumentedClass() {
-        if( referredByDocumentedClass != null ) ( ( InternalEList.Unsettable< ? > ) referredByDocumentedClass ).unset();
+        if( referredByDocumentedClass != null ) {
+            ( ( InternalEList.Unsettable< ? > ) referredByDocumentedClass ).unset();
+        }
     }
 
     /**
@@ -621,8 +641,9 @@ public class DocImpl extends NsdObjectImpl implements Doc {
      */
     @Override
     public void unsetReferredByFunctionalConstraintAsDesc() {
-        if( referredByFunctionalConstraintAsDesc != null )
+        if( referredByFunctionalConstraintAsDesc != null ) {
             ( ( InternalEList.Unsettable< ? > ) referredByFunctionalConstraintAsDesc ).unset();
+        }
     }
 
     /**
@@ -659,8 +680,9 @@ public class DocImpl extends NsdObjectImpl implements Doc {
      */
     @Override
     public void unsetReferredByAgPresenceConditionDerivedStatistics() {
-        if( referredByAgPresenceConditionDerivedStatistics != null )
+        if( referredByAgPresenceConditionDerivedStatistics != null ) {
             ( ( InternalEList.Unsettable< ? > ) referredByAgPresenceConditionDerivedStatistics ).unset();
+        }
     }
 
     /**
@@ -695,7 +717,9 @@ public class DocImpl extends NsdObjectImpl implements Doc {
      */
     @Override
     public void unsetReferredByTitledClass() {
-        if( referredByTitledClass != null ) ( ( InternalEList.Unsettable< ? > ) referredByTitledClass ).unset();
+        if( referredByTitledClass != null ) {
+            ( ( InternalEList.Unsettable< ? > ) referredByTitledClass ).unset();
+        }
     }
 
     /**
@@ -730,8 +754,9 @@ public class DocImpl extends NsdObjectImpl implements Doc {
      */
     @Override
     public void unsetReferredByFunctionalConstraintAsTitle() {
-        if( referredByFunctionalConstraintAsTitle != null )
+        if( referredByFunctionalConstraintAsTitle != null ) {
             ( ( InternalEList.Unsettable< ? > ) referredByFunctionalConstraintAsTitle ).unset();
+        }
     }
 
     /**
@@ -767,8 +792,9 @@ public class DocImpl extends NsdObjectImpl implements Doc {
      */
     @Override
     public void unsetReferredByPresenceConditionAsTitle() {
-        if( referredByPresenceConditionAsTitle != null )
+        if( referredByPresenceConditionAsTitle != null ) {
             ( ( InternalEList.Unsettable< ? > ) referredByPresenceConditionAsTitle ).unset();
+        }
     }
 
     /**
@@ -856,8 +882,9 @@ public class DocImpl extends NsdObjectImpl implements Doc {
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.DOC__PARENT_NS_DOC:
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
+            }
             return basicSetParentNSDoc( ( NSDoc ) otherEnd, msgs );
         case NsdPackage.DOC__REFERRED_BY_AG_NS_DESC:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByAgNSDesc() )
@@ -962,13 +989,19 @@ public class DocImpl extends NsdObjectImpl implements Doc {
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
         case NsdPackage.DOC__MIXED:
-            if( coreType ) return getMixed();
+            if( coreType ) {
+                return getMixed();
+            }
             return ( ( FeatureMap.Internal ) getMixed() ).getWrapper();
         case NsdPackage.DOC__GROUP:
-            if( coreType ) return getGroup();
+            if( coreType ) {
+                return getGroup();
+            }
             return ( ( FeatureMap.Internal ) getGroup() ).getWrapper();
         case NsdPackage.DOC__ANY:
-            if( coreType ) return getAny();
+            if( coreType ) {
+                return getAny();
+            }
             return ( ( FeatureMap.Internal ) getAny() ).getWrapper();
         case NsdPackage.DOC__ID:
             return getId();
@@ -1202,16 +1235,20 @@ public class DocImpl extends NsdObjectImpl implements Doc {
      */
     @Override
     public String toString() {
-        if( eIsProxy() ) return super.toString();
+        if( eIsProxy() ) {
+            return super.toString();
+        }
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (mixed: " );
         result.append( mixed );
         result.append( ", id: " );
-        if( idESet )
+        if( idESet ) {
             result.append( id );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ')' );
         return result.toString();
     }

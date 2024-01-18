@@ -593,10 +593,12 @@ public class NSImpl extends CopyrightedImpl implements NS {
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET, NsdPackage.NS__CHANGES,
                     oldChanges, newChanges, !oldChangesESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -610,21 +612,26 @@ public class NSImpl extends CopyrightedImpl implements NS {
     public void setChanges( Changes newChanges ) {
         if( newChanges != changes ) {
             NotificationChain msgs = null;
-            if( changes != null )
+            if( changes != null ) {
                 msgs = ( ( InternalEObject ) changes ).eInverseRemove( this, NsdPackage.CHANGES__PARENT_NS,
                         Changes.class, msgs );
-            if( newChanges != null )
+            }
+            if( newChanges != null ) {
                 msgs = ( ( InternalEObject ) newChanges ).eInverseAdd( this, NsdPackage.CHANGES__PARENT_NS,
                         Changes.class, msgs );
+            }
             msgs = basicSetChanges( newChanges, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldChangesESet = changesESet;
             changesESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS__CHANGES, newChanges, newChanges,
                         !oldChangesESet ) );
+            }
         }
     }
 
@@ -641,10 +648,12 @@ public class NSImpl extends CopyrightedImpl implements NS {
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS__CHANGES,
                     oldChanges, null, oldChangesESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -661,14 +670,17 @@ public class NSImpl extends CopyrightedImpl implements NS {
             msgs = ( ( InternalEObject ) changes ).eInverseRemove( this, NsdPackage.CHANGES__PARENT_NS, Changes.class,
                     msgs );
             msgs = basicUnsetChanges( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldChangesESet = changesESet;
             changesESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS__CHANGES, null, null,
                         oldChangesESet ) );
+            }
         }
     }
 
@@ -705,10 +717,12 @@ public class NSImpl extends CopyrightedImpl implements NS {
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET, NsdPackage.NS__DEPENDS_ON,
                     oldDependsOn, newDependsOn, !oldDependsOnESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -722,21 +736,26 @@ public class NSImpl extends CopyrightedImpl implements NS {
     public void setDependsOn( DependsOn newDependsOn ) {
         if( newDependsOn != dependsOn ) {
             NotificationChain msgs = null;
-            if( dependsOn != null )
+            if( dependsOn != null ) {
                 msgs = ( ( InternalEObject ) dependsOn ).eInverseRemove( this, NsdPackage.DEPENDS_ON__PARENT_NS,
                         DependsOn.class, msgs );
-            if( newDependsOn != null )
+            }
+            if( newDependsOn != null ) {
                 msgs = ( ( InternalEObject ) newDependsOn ).eInverseAdd( this, NsdPackage.DEPENDS_ON__PARENT_NS,
                         DependsOn.class, msgs );
+            }
             msgs = basicSetDependsOn( newDependsOn, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldDependsOnESet = dependsOnESet;
             dependsOnESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS__DEPENDS_ON, newDependsOn,
                         newDependsOn, !oldDependsOnESet ) );
+            }
         }
     }
 
@@ -753,10 +772,12 @@ public class NSImpl extends CopyrightedImpl implements NS {
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS__DEPENDS_ON,
                     oldDependsOn, null, oldDependsOnESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -773,14 +794,17 @@ public class NSImpl extends CopyrightedImpl implements NS {
             msgs = ( ( InternalEObject ) dependsOn ).eInverseRemove( this, NsdPackage.DEPENDS_ON__PARENT_NS,
                     DependsOn.class, msgs );
             msgs = basicUnsetDependsOn( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldDependsOnESet = dependsOnESet;
             dependsOnESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS__DEPENDS_ON, null, null,
                         oldDependsOnESet ) );
+            }
         }
     }
 
@@ -817,10 +841,12 @@ public class NSImpl extends CopyrightedImpl implements NS {
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET, NsdPackage.NS__BASIC_TYPES,
                     oldBasicTypes, newBasicTypes, !oldBasicTypesESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -834,21 +860,26 @@ public class NSImpl extends CopyrightedImpl implements NS {
     public void setBasicTypes( BasicTypes newBasicTypes ) {
         if( newBasicTypes != basicTypes ) {
             NotificationChain msgs = null;
-            if( basicTypes != null )
+            if( basicTypes != null ) {
                 msgs = ( ( InternalEObject ) basicTypes ).eInverseRemove( this, NsdPackage.BASIC_TYPES__PARENT_NS,
                         BasicTypes.class, msgs );
-            if( newBasicTypes != null )
+            }
+            if( newBasicTypes != null ) {
                 msgs = ( ( InternalEObject ) newBasicTypes ).eInverseAdd( this, NsdPackage.BASIC_TYPES__PARENT_NS,
                         BasicTypes.class, msgs );
+            }
             msgs = basicSetBasicTypes( newBasicTypes, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldBasicTypesESet = basicTypesESet;
             basicTypesESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS__BASIC_TYPES, newBasicTypes,
                         newBasicTypes, !oldBasicTypesESet ) );
+            }
         }
     }
 
@@ -865,10 +896,12 @@ public class NSImpl extends CopyrightedImpl implements NS {
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.NS__BASIC_TYPES, oldBasicTypes, null, oldBasicTypesESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -885,14 +918,17 @@ public class NSImpl extends CopyrightedImpl implements NS {
             msgs = ( ( InternalEObject ) basicTypes ).eInverseRemove( this, NsdPackage.BASIC_TYPES__PARENT_NS,
                     BasicTypes.class, msgs );
             msgs = basicUnsetBasicTypes( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldBasicTypesESet = basicTypesESet;
             basicTypesESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS__BASIC_TYPES, null, null,
                         oldBasicTypesESet ) );
+            }
         }
     }
 
@@ -931,10 +967,12 @@ public class NSImpl extends CopyrightedImpl implements NS {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.NS__FUNCTIONAL_CONSTRAINTS, oldFunctionalConstraints, newFunctionalConstraints,
                     !oldFunctionalConstraintsESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -948,21 +986,26 @@ public class NSImpl extends CopyrightedImpl implements NS {
     public void setFunctionalConstraints( FunctionalConstraints newFunctionalConstraints ) {
         if( newFunctionalConstraints != functionalConstraints ) {
             NotificationChain msgs = null;
-            if( functionalConstraints != null )
+            if( functionalConstraints != null ) {
                 msgs = ( ( InternalEObject ) functionalConstraints ).eInverseRemove( this,
                         NsdPackage.FUNCTIONAL_CONSTRAINTS__PARENT_NS, FunctionalConstraints.class, msgs );
-            if( newFunctionalConstraints != null )
+            }
+            if( newFunctionalConstraints != null ) {
                 msgs = ( ( InternalEObject ) newFunctionalConstraints ).eInverseAdd( this,
                         NsdPackage.FUNCTIONAL_CONSTRAINTS__PARENT_NS, FunctionalConstraints.class, msgs );
+            }
             msgs = basicSetFunctionalConstraints( newFunctionalConstraints, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldFunctionalConstraintsESet = functionalConstraintsESet;
             functionalConstraintsESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS__FUNCTIONAL_CONSTRAINTS,
                         newFunctionalConstraints, newFunctionalConstraints, !oldFunctionalConstraintsESet ) );
+            }
         }
     }
 
@@ -980,10 +1023,12 @@ public class NSImpl extends CopyrightedImpl implements NS {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.NS__FUNCTIONAL_CONSTRAINTS, oldFunctionalConstraints, null,
                     oldFunctionalConstraintsESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1000,14 +1045,17 @@ public class NSImpl extends CopyrightedImpl implements NS {
             msgs = ( ( InternalEObject ) functionalConstraints ).eInverseRemove( this,
                     NsdPackage.FUNCTIONAL_CONSTRAINTS__PARENT_NS, FunctionalConstraints.class, msgs );
             msgs = basicUnsetFunctionalConstraints( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldFunctionalConstraintsESet = functionalConstraintsESet;
             functionalConstraintsESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS__FUNCTIONAL_CONSTRAINTS, null,
                         null, oldFunctionalConstraintsESet ) );
+            }
         }
     }
 
@@ -1046,10 +1094,12 @@ public class NSImpl extends CopyrightedImpl implements NS {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.NS__PRESENCE_CONDITIONS, oldPresenceConditions, newPresenceConditions,
                     !oldPresenceConditionsESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1063,21 +1113,26 @@ public class NSImpl extends CopyrightedImpl implements NS {
     public void setPresenceConditions( PresenceConditions newPresenceConditions ) {
         if( newPresenceConditions != presenceConditions ) {
             NotificationChain msgs = null;
-            if( presenceConditions != null )
+            if( presenceConditions != null ) {
                 msgs = ( ( InternalEObject ) presenceConditions ).eInverseRemove( this,
                         NsdPackage.PRESENCE_CONDITIONS__PARENT_NS, PresenceConditions.class, msgs );
-            if( newPresenceConditions != null )
+            }
+            if( newPresenceConditions != null ) {
                 msgs = ( ( InternalEObject ) newPresenceConditions ).eInverseAdd( this,
                         NsdPackage.PRESENCE_CONDITIONS__PARENT_NS, PresenceConditions.class, msgs );
+            }
             msgs = basicSetPresenceConditions( newPresenceConditions, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldPresenceConditionsESet = presenceConditionsESet;
             presenceConditionsESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS__PRESENCE_CONDITIONS,
                         newPresenceConditions, newPresenceConditions, !oldPresenceConditionsESet ) );
+            }
         }
     }
 
@@ -1094,10 +1149,12 @@ public class NSImpl extends CopyrightedImpl implements NS {
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.NS__PRESENCE_CONDITIONS, oldPresenceConditions, null, oldPresenceConditionsESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1114,14 +1171,17 @@ public class NSImpl extends CopyrightedImpl implements NS {
             msgs = ( ( InternalEObject ) presenceConditions ).eInverseRemove( this,
                     NsdPackage.PRESENCE_CONDITIONS__PARENT_NS, PresenceConditions.class, msgs );
             msgs = basicUnsetPresenceConditions( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldPresenceConditionsESet = presenceConditionsESet;
             presenceConditionsESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS__PRESENCE_CONDITIONS, null,
                         null, oldPresenceConditionsESet ) );
+            }
         }
     }
 
@@ -1158,10 +1218,12 @@ public class NSImpl extends CopyrightedImpl implements NS {
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.NS__ABBREVIATIONS, oldAbbreviations, newAbbreviations, !oldAbbreviationsESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1175,21 +1237,26 @@ public class NSImpl extends CopyrightedImpl implements NS {
     public void setAbbreviations( Abbreviations newAbbreviations ) {
         if( newAbbreviations != abbreviations ) {
             NotificationChain msgs = null;
-            if( abbreviations != null )
+            if( abbreviations != null ) {
                 msgs = ( ( InternalEObject ) abbreviations ).eInverseRemove( this, NsdPackage.ABBREVIATIONS__PARENT_NS,
                         Abbreviations.class, msgs );
-            if( newAbbreviations != null )
+            }
+            if( newAbbreviations != null ) {
                 msgs = ( ( InternalEObject ) newAbbreviations ).eInverseAdd( this, NsdPackage.ABBREVIATIONS__PARENT_NS,
                         Abbreviations.class, msgs );
+            }
             msgs = basicSetAbbreviations( newAbbreviations, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldAbbreviationsESet = abbreviationsESet;
             abbreviationsESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS__ABBREVIATIONS, newAbbreviations,
                         newAbbreviations, !oldAbbreviationsESet ) );
+            }
         }
     }
 
@@ -1206,10 +1273,12 @@ public class NSImpl extends CopyrightedImpl implements NS {
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.NS__ABBREVIATIONS, oldAbbreviations, null, oldAbbreviationsESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1226,14 +1295,17 @@ public class NSImpl extends CopyrightedImpl implements NS {
             msgs = ( ( InternalEObject ) abbreviations ).eInverseRemove( this, NsdPackage.ABBREVIATIONS__PARENT_NS,
                     Abbreviations.class, msgs );
             msgs = basicUnsetAbbreviations( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldAbbreviationsESet = abbreviationsESet;
             abbreviationsESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS__ABBREVIATIONS, null, null,
                         oldAbbreviationsESet ) );
+            }
         }
     }
 
@@ -1270,10 +1342,12 @@ public class NSImpl extends CopyrightedImpl implements NS {
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET, NsdPackage.NS__ENUMERATIONS,
                     oldEnumerations, newEnumerations, !oldEnumerationsESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1287,21 +1361,26 @@ public class NSImpl extends CopyrightedImpl implements NS {
     public void setEnumerations( Enumerations newEnumerations ) {
         if( newEnumerations != enumerations ) {
             NotificationChain msgs = null;
-            if( enumerations != null )
+            if( enumerations != null ) {
                 msgs = ( ( InternalEObject ) enumerations ).eInverseRemove( this, NsdPackage.ENUMERATIONS__PARENT_NS,
                         Enumerations.class, msgs );
-            if( newEnumerations != null )
+            }
+            if( newEnumerations != null ) {
                 msgs = ( ( InternalEObject ) newEnumerations ).eInverseAdd( this, NsdPackage.ENUMERATIONS__PARENT_NS,
                         Enumerations.class, msgs );
+            }
             msgs = basicSetEnumerations( newEnumerations, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldEnumerationsESet = enumerationsESet;
             enumerationsESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS__ENUMERATIONS, newEnumerations,
                         newEnumerations, !oldEnumerationsESet ) );
+            }
         }
     }
 
@@ -1318,10 +1397,12 @@ public class NSImpl extends CopyrightedImpl implements NS {
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.NS__ENUMERATIONS, oldEnumerations, null, oldEnumerationsESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1338,14 +1419,17 @@ public class NSImpl extends CopyrightedImpl implements NS {
             msgs = ( ( InternalEObject ) enumerations ).eInverseRemove( this, NsdPackage.ENUMERATIONS__PARENT_NS,
                     Enumerations.class, msgs );
             msgs = basicUnsetEnumerations( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldEnumerationsESet = enumerationsESet;
             enumerationsESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS__ENUMERATIONS, null, null,
                         oldEnumerationsESet ) );
+            }
         }
     }
 
@@ -1384,10 +1468,12 @@ public class NSImpl extends CopyrightedImpl implements NS {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.NS__CONSTRUCTED_ATTRIBUTES, oldConstructedAttributes, newConstructedAttributes,
                     !oldConstructedAttributesESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1401,21 +1487,26 @@ public class NSImpl extends CopyrightedImpl implements NS {
     public void setConstructedAttributes( ConstructedAttributes newConstructedAttributes ) {
         if( newConstructedAttributes != constructedAttributes ) {
             NotificationChain msgs = null;
-            if( constructedAttributes != null )
+            if( constructedAttributes != null ) {
                 msgs = ( ( InternalEObject ) constructedAttributes ).eInverseRemove( this,
                         NsdPackage.CONSTRUCTED_ATTRIBUTES__PARENT_NS, ConstructedAttributes.class, msgs );
-            if( newConstructedAttributes != null )
+            }
+            if( newConstructedAttributes != null ) {
                 msgs = ( ( InternalEObject ) newConstructedAttributes ).eInverseAdd( this,
                         NsdPackage.CONSTRUCTED_ATTRIBUTES__PARENT_NS, ConstructedAttributes.class, msgs );
+            }
             msgs = basicSetConstructedAttributes( newConstructedAttributes, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldConstructedAttributesESet = constructedAttributesESet;
             constructedAttributesESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS__CONSTRUCTED_ATTRIBUTES,
                         newConstructedAttributes, newConstructedAttributes, !oldConstructedAttributesESet ) );
+            }
         }
     }
 
@@ -1433,10 +1524,12 @@ public class NSImpl extends CopyrightedImpl implements NS {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.NS__CONSTRUCTED_ATTRIBUTES, oldConstructedAttributes, null,
                     oldConstructedAttributesESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1453,14 +1546,17 @@ public class NSImpl extends CopyrightedImpl implements NS {
             msgs = ( ( InternalEObject ) constructedAttributes ).eInverseRemove( this,
                     NsdPackage.CONSTRUCTED_ATTRIBUTES__PARENT_NS, ConstructedAttributes.class, msgs );
             msgs = basicUnsetConstructedAttributes( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldConstructedAttributesESet = constructedAttributesESet;
             constructedAttributesESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS__CONSTRUCTED_ATTRIBUTES, null,
                         null, oldConstructedAttributesESet ) );
+            }
         }
     }
 
@@ -1497,10 +1593,12 @@ public class NSImpl extends CopyrightedImpl implements NS {
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET, NsdPackage.NS__CD_CS,
                     oldCDCs, newCDCs, !oldCDCsESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1514,21 +1612,26 @@ public class NSImpl extends CopyrightedImpl implements NS {
     public void setCDCs( CDCs newCDCs ) {
         if( newCDCs != cDCs ) {
             NotificationChain msgs = null;
-            if( cDCs != null )
+            if( cDCs != null ) {
                 msgs = ( ( InternalEObject ) cDCs ).eInverseRemove( this, NsdPackage.CD_CS__PARENT_NS, CDCs.class,
                         msgs );
-            if( newCDCs != null )
+            }
+            if( newCDCs != null ) {
                 msgs = ( ( InternalEObject ) newCDCs ).eInverseAdd( this, NsdPackage.CD_CS__PARENT_NS, CDCs.class,
                         msgs );
+            }
             msgs = basicSetCDCs( newCDCs, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldCDCsESet = cDCsESet;
             cDCsESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS__CD_CS, newCDCs, newCDCs,
                         !oldCDCsESet ) );
+            }
         }
     }
 
@@ -1545,10 +1648,12 @@ public class NSImpl extends CopyrightedImpl implements NS {
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS__CD_CS,
                     oldCDCs, null, oldCDCsESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1564,14 +1669,17 @@ public class NSImpl extends CopyrightedImpl implements NS {
             NotificationChain msgs = null;
             msgs = ( ( InternalEObject ) cDCs ).eInverseRemove( this, NsdPackage.CD_CS__PARENT_NS, CDCs.class, msgs );
             msgs = basicUnsetCDCs( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldCDCsESet = cDCsESet;
             cDCsESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS__CD_CS, null, null,
                         oldCDCsESet ) );
+            }
         }
     }
 
@@ -1608,10 +1716,12 @@ public class NSImpl extends CopyrightedImpl implements NS {
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET, NsdPackage.NS__LN_CLASSES,
                     oldLNClasses, newLNClasses, !oldLNClassesESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1625,21 +1735,26 @@ public class NSImpl extends CopyrightedImpl implements NS {
     public void setLNClasses( LNClasses newLNClasses ) {
         if( newLNClasses != lNClasses ) {
             NotificationChain msgs = null;
-            if( lNClasses != null )
+            if( lNClasses != null ) {
                 msgs = ( ( InternalEObject ) lNClasses ).eInverseRemove( this, NsdPackage.LN_CLASSES__PARENT_NS,
                         LNClasses.class, msgs );
-            if( newLNClasses != null )
+            }
+            if( newLNClasses != null ) {
                 msgs = ( ( InternalEObject ) newLNClasses ).eInverseAdd( this, NsdPackage.LN_CLASSES__PARENT_NS,
                         LNClasses.class, msgs );
+            }
             msgs = basicSetLNClasses( newLNClasses, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldLNClassesESet = lNClassesESet;
             lNClassesESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS__LN_CLASSES, newLNClasses,
                         newLNClasses, !oldLNClassesESet ) );
+            }
         }
     }
 
@@ -1656,10 +1771,12 @@ public class NSImpl extends CopyrightedImpl implements NS {
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS__LN_CLASSES,
                     oldLNClasses, null, oldLNClassesESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1676,14 +1793,17 @@ public class NSImpl extends CopyrightedImpl implements NS {
             msgs = ( ( InternalEObject ) lNClasses ).eInverseRemove( this, NsdPackage.LN_CLASSES__PARENT_NS,
                     LNClasses.class, msgs );
             msgs = basicUnsetLNClasses( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldLNClassesESet = lNClassesESet;
             lNClassesESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS__LN_CLASSES, null, null,
                         oldLNClassesESet ) );
+            }
         }
     }
 
@@ -1718,7 +1838,9 @@ public class NSImpl extends CopyrightedImpl implements NS {
      */
     @Override
     public void unsetReferredByDependsOn() {
-        if( referredByDependsOn != null ) ( ( InternalEList.Unsettable< ? > ) referredByDependsOn ).unset();
+        if( referredByDependsOn != null ) {
+            ( ( InternalEList.Unsettable< ? > ) referredByDependsOn ).unset();
+        }
     }
 
     /**
@@ -1882,9 +2004,10 @@ public class NSImpl extends CopyrightedImpl implements NS {
         descID = newDescID;
         boolean oldDescIDESet = descIDESet;
         descIDESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS__DESC_ID, oldDescID, descID,
                     !oldDescIDESet ) );
+        }
     }
 
     /**
@@ -1898,9 +2021,10 @@ public class NSImpl extends CopyrightedImpl implements NS {
         boolean oldDescIDESet = descIDESet;
         descID = DESC_ID_EDEFAULT;
         descIDESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS__DESC_ID, oldDescID,
                     DESC_ID_EDEFAULT, oldDescIDESet ) );
+        }
     }
 
     /**
@@ -1936,10 +2060,12 @@ public class NSImpl extends CopyrightedImpl implements NS {
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.NS__REFERS_TO_DOC, oldRefersToDoc, newRefersToDoc, !oldRefersToDocESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1953,21 +2079,26 @@ public class NSImpl extends CopyrightedImpl implements NS {
     public void setRefersToDoc( Doc newRefersToDoc ) {
         if( newRefersToDoc != refersToDoc ) {
             NotificationChain msgs = null;
-            if( refersToDoc != null )
+            if( refersToDoc != null ) {
                 msgs = ( ( InternalEObject ) refersToDoc ).eInverseRemove( this, NsdPackage.DOC__REFERRED_BY_AG_NS_DESC,
                         Doc.class, msgs );
-            if( newRefersToDoc != null )
+            }
+            if( newRefersToDoc != null ) {
                 msgs = ( ( InternalEObject ) newRefersToDoc ).eInverseAdd( this, NsdPackage.DOC__REFERRED_BY_AG_NS_DESC,
                         Doc.class, msgs );
+            }
             msgs = basicSetRefersToDoc( newRefersToDoc, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToDocESet = refersToDocESet;
             refersToDocESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS__REFERS_TO_DOC, newRefersToDoc,
                         newRefersToDoc, !oldRefersToDocESet ) );
+            }
         }
     }
 
@@ -1984,10 +2115,12 @@ public class NSImpl extends CopyrightedImpl implements NS {
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.NS__REFERS_TO_DOC, oldRefersToDoc, null, oldRefersToDocESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -2004,14 +2137,17 @@ public class NSImpl extends CopyrightedImpl implements NS {
             msgs = ( ( InternalEObject ) refersToDoc ).eInverseRemove( this, NsdPackage.DOC__REFERRED_BY_AG_NS_DESC,
                     Doc.class, msgs );
             msgs = basicUnsetRefersToDoc( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToDocESet = refersToDocESet;
             refersToDocESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS__REFERS_TO_DOC, null, null,
                         oldRefersToDocESet ) );
+            }
         }
     }
 
@@ -2046,8 +2182,9 @@ public class NSImpl extends CopyrightedImpl implements NS {
         id = newId;
         boolean oldIdESet = idESet;
         idESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS__ID, oldId, id, !oldIdESet ) );
+        }
     }
 
     /**
@@ -2061,9 +2198,10 @@ public class NSImpl extends CopyrightedImpl implements NS {
         boolean oldIdESet = idESet;
         id = ID_EDEFAULT;
         idESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS__ID, oldId, ID_EDEFAULT,
                     oldIdESet ) );
+        }
     }
 
     /**
@@ -2097,9 +2235,10 @@ public class NSImpl extends CopyrightedImpl implements NS {
         publicationStage = newPublicationStage == null ? PUBLICATION_STAGE_EDEFAULT : newPublicationStage;
         boolean oldPublicationStageESet = publicationStageESet;
         publicationStageESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS__PUBLICATION_STAGE,
                     oldPublicationStage, publicationStage, !oldPublicationStageESet ) );
+        }
     }
 
     /**
@@ -2113,9 +2252,10 @@ public class NSImpl extends CopyrightedImpl implements NS {
         boolean oldPublicationStageESet = publicationStageESet;
         publicationStage = PUBLICATION_STAGE_EDEFAULT;
         publicationStageESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS__PUBLICATION_STAGE,
                     oldPublicationStage, PUBLICATION_STAGE_EDEFAULT, oldPublicationStageESet ) );
+        }
     }
 
     /**
@@ -2149,9 +2289,10 @@ public class NSImpl extends CopyrightedImpl implements NS {
         release = newRelease;
         boolean oldReleaseESet = releaseESet;
         releaseESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS__RELEASE, oldRelease, release,
                     !oldReleaseESet ) );
+        }
     }
 
     /**
@@ -2165,9 +2306,10 @@ public class NSImpl extends CopyrightedImpl implements NS {
         boolean oldReleaseESet = releaseESet;
         release = RELEASE_EDEFAULT;
         releaseESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS__RELEASE, oldRelease,
                     RELEASE_EDEFAULT, oldReleaseESet ) );
+        }
     }
 
     /**
@@ -2201,9 +2343,10 @@ public class NSImpl extends CopyrightedImpl implements NS {
         revision = newRevision;
         boolean oldRevisionESet = revisionESet;
         revisionESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS__REVISION, oldRevision, revision,
                     !oldRevisionESet ) );
+        }
     }
 
     /**
@@ -2217,9 +2360,10 @@ public class NSImpl extends CopyrightedImpl implements NS {
         boolean oldRevisionESet = revisionESet;
         revision = REVISION_EDEFAULT;
         revisionESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS__REVISION, oldRevision,
                     REVISION_EDEFAULT, oldRevisionESet ) );
+        }
     }
 
     /**
@@ -2253,9 +2397,10 @@ public class NSImpl extends CopyrightedImpl implements NS {
         umlDate = newUmlDate;
         boolean oldUmlDateESet = umlDateESet;
         umlDateESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS__UML_DATE, oldUmlDate, umlDate,
                     !oldUmlDateESet ) );
+        }
     }
 
     /**
@@ -2269,9 +2414,10 @@ public class NSImpl extends CopyrightedImpl implements NS {
         boolean oldUmlDateESet = umlDateESet;
         umlDate = UML_DATE_EDEFAULT;
         umlDateESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS__UML_DATE, oldUmlDate,
                     UML_DATE_EDEFAULT, oldUmlDateESet ) );
+        }
     }
 
     /**
@@ -2305,9 +2451,10 @@ public class NSImpl extends CopyrightedImpl implements NS {
         umlVersion = newUmlVersion;
         boolean oldUmlVersionESet = umlVersionESet;
         umlVersionESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS__UML_VERSION, oldUmlVersion,
                     umlVersion, !oldUmlVersionESet ) );
+        }
     }
 
     /**
@@ -2321,9 +2468,10 @@ public class NSImpl extends CopyrightedImpl implements NS {
         boolean oldUmlVersionESet = umlVersionESet;
         umlVersion = UML_VERSION_EDEFAULT;
         umlVersionESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS__UML_VERSION, oldUmlVersion,
                     UML_VERSION_EDEFAULT, oldUmlVersionESet ) );
+        }
     }
 
     /**
@@ -2346,59 +2494,70 @@ public class NSImpl extends CopyrightedImpl implements NS {
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.NS__REFERS_TO_DOC:
-            if( refersToDoc != null )
+            if( refersToDoc != null ) {
                 msgs = ( ( InternalEObject ) refersToDoc ).eInverseRemove( this, NsdPackage.DOC__REFERRED_BY_AG_NS_DESC,
                         Doc.class, msgs );
+            }
             return basicSetRefersToDoc( ( Doc ) otherEnd, msgs );
         case NsdPackage.NS__CHANGES:
-            if( changes != null )
+            if( changes != null ) {
                 msgs = ( ( InternalEObject ) changes ).eInverseRemove( this,
                         EOPPOSITE_FEATURE_BASE - NsdPackage.NS__CHANGES, null, msgs );
+            }
             return basicSetChanges( ( Changes ) otherEnd, msgs );
         case NsdPackage.NS__DEPENDS_ON:
-            if( dependsOn != null )
+            if( dependsOn != null ) {
                 msgs = ( ( InternalEObject ) dependsOn ).eInverseRemove( this,
                         EOPPOSITE_FEATURE_BASE - NsdPackage.NS__DEPENDS_ON, null, msgs );
+            }
             return basicSetDependsOn( ( DependsOn ) otherEnd, msgs );
         case NsdPackage.NS__BASIC_TYPES:
-            if( basicTypes != null )
+            if( basicTypes != null ) {
                 msgs = ( ( InternalEObject ) basicTypes ).eInverseRemove( this,
                         EOPPOSITE_FEATURE_BASE - NsdPackage.NS__BASIC_TYPES, null, msgs );
+            }
             return basicSetBasicTypes( ( BasicTypes ) otherEnd, msgs );
         case NsdPackage.NS__FUNCTIONAL_CONSTRAINTS:
-            if( functionalConstraints != null )
+            if( functionalConstraints != null ) {
                 msgs = ( ( InternalEObject ) functionalConstraints ).eInverseRemove( this,
                         EOPPOSITE_FEATURE_BASE - NsdPackage.NS__FUNCTIONAL_CONSTRAINTS, null, msgs );
+            }
             return basicSetFunctionalConstraints( ( FunctionalConstraints ) otherEnd, msgs );
         case NsdPackage.NS__PRESENCE_CONDITIONS:
-            if( presenceConditions != null )
+            if( presenceConditions != null ) {
                 msgs = ( ( InternalEObject ) presenceConditions ).eInverseRemove( this,
                         EOPPOSITE_FEATURE_BASE - NsdPackage.NS__PRESENCE_CONDITIONS, null, msgs );
+            }
             return basicSetPresenceConditions( ( PresenceConditions ) otherEnd, msgs );
         case NsdPackage.NS__ABBREVIATIONS:
-            if( abbreviations != null )
+            if( abbreviations != null ) {
                 msgs = ( ( InternalEObject ) abbreviations ).eInverseRemove( this,
                         EOPPOSITE_FEATURE_BASE - NsdPackage.NS__ABBREVIATIONS, null, msgs );
+            }
             return basicSetAbbreviations( ( Abbreviations ) otherEnd, msgs );
         case NsdPackage.NS__ENUMERATIONS:
-            if( enumerations != null )
+            if( enumerations != null ) {
                 msgs = ( ( InternalEObject ) enumerations ).eInverseRemove( this,
                         EOPPOSITE_FEATURE_BASE - NsdPackage.NS__ENUMERATIONS, null, msgs );
+            }
             return basicSetEnumerations( ( Enumerations ) otherEnd, msgs );
         case NsdPackage.NS__CONSTRUCTED_ATTRIBUTES:
-            if( constructedAttributes != null )
+            if( constructedAttributes != null ) {
                 msgs = ( ( InternalEObject ) constructedAttributes ).eInverseRemove( this,
                         EOPPOSITE_FEATURE_BASE - NsdPackage.NS__CONSTRUCTED_ATTRIBUTES, null, msgs );
+            }
             return basicSetConstructedAttributes( ( ConstructedAttributes ) otherEnd, msgs );
         case NsdPackage.NS__CD_CS:
-            if( cDCs != null )
+            if( cDCs != null ) {
                 msgs = ( ( InternalEObject ) cDCs ).eInverseRemove( this, EOPPOSITE_FEATURE_BASE - NsdPackage.NS__CD_CS,
                         null, msgs );
+            }
             return basicSetCDCs( ( CDCs ) otherEnd, msgs );
         case NsdPackage.NS__LN_CLASSES:
-            if( lNClasses != null )
+            if( lNClasses != null ) {
                 msgs = ( ( InternalEObject ) lNClasses ).eInverseRemove( this,
                         EOPPOSITE_FEATURE_BASE - NsdPackage.NS__LN_CLASSES, null, msgs );
+            }
             return basicSetLNClasses( ( LNClasses ) otherEnd, msgs );
         case NsdPackage.NS__REFERRED_BY_DEPENDS_ON:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByDependsOn() )
@@ -2428,9 +2587,10 @@ public class NSImpl extends CopyrightedImpl implements NS {
         version = newVersion;
         boolean oldVersionESet = versionESet;
         versionESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS__VERSION, oldVersion, version,
                     !oldVersionESet ) );
+        }
     }
 
     /**
@@ -2444,9 +2604,10 @@ public class NSImpl extends CopyrightedImpl implements NS {
         boolean oldVersionESet = versionESet;
         version = VERSION_EDEFAULT;
         versionESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS__VERSION, oldVersion,
                     VERSION_EDEFAULT, oldVersionESet ) );
+        }
     }
 
     /**
@@ -2895,49 +3056,67 @@ public class NSImpl extends CopyrightedImpl implements NS {
      */
     @Override
     public String toString() {
-        if( eIsProxy() ) return super.toString();
+        if( eIsProxy() ) {
+            return super.toString();
+        }
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (release: " );
-        if( releaseESet )
+        if( releaseESet ) {
             result.append( release );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", version: " );
-        if( versionESet )
+        if( versionESet ) {
             result.append( version );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", id: " );
-        if( idESet )
+        if( idESet ) {
             result.append( id );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", revision: " );
-        if( revisionESet )
+        if( revisionESet ) {
             result.append( revision );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", publicationStage: " );
-        if( publicationStageESet )
+        if( publicationStageESet ) {
             result.append( publicationStage );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", umlDate: " );
-        if( umlDateESet )
+        if( umlDateESet ) {
             result.append( umlDate );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", umlVersion: " );
-        if( umlVersionESet )
+        if( umlVersionESet ) {
             result.append( umlVersion );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", descID: " );
-        if( descIDESet )
+        if( descIDESet ) {
             result.append( descID );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ')' );
         return result.toString();
     }
@@ -2946,13 +3125,17 @@ public class NSImpl extends CopyrightedImpl implements NS {
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "NSImpl.buildExplicitLinks()" );
 
-        if( super.buildExplicitLinks( console ) ) return true;
+        if( super.buildExplicitLinks( console ) ) {
+            return true;
+        }
 
         if( isSetDescID() ) {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
                 Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() )
                         .findDoc( NsIdentification.of( this ), getDescID() );
-                if( doc != null ) setRefersToDoc( doc );
+                if( doc != null ) {
+                    setRefersToDoc( doc );
+                }
             }
         }
 

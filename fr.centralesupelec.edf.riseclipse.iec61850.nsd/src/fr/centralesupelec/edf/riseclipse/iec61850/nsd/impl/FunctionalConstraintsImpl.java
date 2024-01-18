@@ -123,7 +123,9 @@ public class FunctionalConstraintsImpl extends NsdObjectImpl implements Function
      */
     @Override
     public void unsetFunctionalConstraint() {
-        if( functionalConstraint != null ) ( ( InternalEList.Unsettable< ? > ) functionalConstraint ).unset();
+        if( functionalConstraint != null ) {
+            ( ( InternalEList.Unsettable< ? > ) functionalConstraint ).unset();
+        }
     }
 
     /**
@@ -143,7 +145,9 @@ public class FunctionalConstraintsImpl extends NsdObjectImpl implements Function
      */
     @Override
     public NS getParentNS() {
-        if( eContainerFeatureID() != NsdPackage.FUNCTIONAL_CONSTRAINTS__PARENT_NS ) return null;
+        if( eContainerFeatureID() != NsdPackage.FUNCTIONAL_CONSTRAINTS__PARENT_NS ) {
+            return null;
+        }
         return ( NS ) eInternalContainer();
     }
 
@@ -167,20 +171,26 @@ public class FunctionalConstraintsImpl extends NsdObjectImpl implements Function
     public void setParentNS( NS newParentNS ) {
         if( newParentNS != eInternalContainer()
                 || ( eContainerFeatureID() != NsdPackage.FUNCTIONAL_CONSTRAINTS__PARENT_NS && newParentNS != null ) ) {
-            if( EcoreUtil.isAncestor( this, newParentNS ) )
+            if( EcoreUtil.isAncestor( this, newParentNS ) ) {
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            }
             NotificationChain msgs = null;
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newParentNS != null )
+            }
+            if( newParentNS != null ) {
                 msgs = ( ( InternalEObject ) newParentNS ).eInverseAdd( this, NsdPackage.NS__FUNCTIONAL_CONSTRAINTS,
                         NS.class, msgs );
+            }
             msgs = basicSetParentNS( newParentNS, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
-        else if( eNotificationRequired() )
+        else if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.FUNCTIONAL_CONSTRAINTS__PARENT_NS,
                     newParentNS, newParentNS ) );
+        }
     }
 
     /**
@@ -190,7 +200,9 @@ public class FunctionalConstraintsImpl extends NsdObjectImpl implements Function
      */
     @Override
     public ServiceNS getParentServiceNS() {
-        if( eContainerFeatureID() != NsdPackage.FUNCTIONAL_CONSTRAINTS__PARENT_SERVICE_NS ) return null;
+        if( eContainerFeatureID() != NsdPackage.FUNCTIONAL_CONSTRAINTS__PARENT_SERVICE_NS ) {
+            return null;
+        }
         return ( ServiceNS ) eInternalContainer();
     }
 
@@ -215,20 +227,26 @@ public class FunctionalConstraintsImpl extends NsdObjectImpl implements Function
         if( newParentServiceNS != eInternalContainer()
                 || ( eContainerFeatureID() != NsdPackage.FUNCTIONAL_CONSTRAINTS__PARENT_SERVICE_NS
                         && newParentServiceNS != null ) ) {
-            if( EcoreUtil.isAncestor( this, newParentServiceNS ) )
+            if( EcoreUtil.isAncestor( this, newParentServiceNS ) ) {
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            }
             NotificationChain msgs = null;
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newParentServiceNS != null )
+            }
+            if( newParentServiceNS != null ) {
                 msgs = ( ( InternalEObject ) newParentServiceNS ).eInverseAdd( this,
                         NsdPackage.SERVICE_NS__FUNCTIONAL_CONSTRAINTS, ServiceNS.class, msgs );
+            }
             msgs = basicSetParentServiceNS( newParentServiceNS, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
-        else if( eNotificationRequired() )
+        else if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET,
                     NsdPackage.FUNCTIONAL_CONSTRAINTS__PARENT_SERVICE_NS, newParentServiceNS, newParentServiceNS ) );
+        }
     }
 
     /**
@@ -344,12 +362,14 @@ public class FunctionalConstraintsImpl extends NsdObjectImpl implements Function
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getFunctionalConstraint() )
                     .basicAdd( otherEnd, msgs );
         case NsdPackage.FUNCTIONAL_CONSTRAINTS__PARENT_NS:
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
+            }
             return basicSetParentNS( ( NS ) otherEnd, msgs );
         case NsdPackage.FUNCTIONAL_CONSTRAINTS__PARENT_SERVICE_NS:
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
+            }
             return basicSetParentServiceNS( ( ServiceNS ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );

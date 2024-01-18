@@ -133,7 +133,9 @@ public class LNClassesImpl extends NsdObjectImpl implements LNClasses {
      */
     @Override
     public void unsetAbstractLNClass() {
-        if( abstractLNClass != null ) ( ( InternalEList.Unsettable< ? > ) abstractLNClass ).unset();
+        if( abstractLNClass != null ) {
+            ( ( InternalEList.Unsettable< ? > ) abstractLNClass ).unset();
+        }
     }
 
     /**
@@ -167,7 +169,9 @@ public class LNClassesImpl extends NsdObjectImpl implements LNClasses {
      */
     @Override
     public void unsetLNClass() {
-        if( lNClass != null ) ( ( InternalEList.Unsettable< ? > ) lNClass ).unset();
+        if( lNClass != null ) {
+            ( ( InternalEList.Unsettable< ? > ) lNClass ).unset();
+        }
     }
 
     /**
@@ -187,7 +191,9 @@ public class LNClassesImpl extends NsdObjectImpl implements LNClasses {
      */
     @Override
     public NS getParentNS() {
-        if( eContainerFeatureID() != NsdPackage.LN_CLASSES__PARENT_NS ) return null;
+        if( eContainerFeatureID() != NsdPackage.LN_CLASSES__PARENT_NS ) {
+            return null;
+        }
         return ( NS ) eInternalContainer();
     }
 
@@ -210,20 +216,26 @@ public class LNClassesImpl extends NsdObjectImpl implements LNClasses {
     public void setParentNS( NS newParentNS ) {
         if( newParentNS != eInternalContainer()
                 || ( eContainerFeatureID() != NsdPackage.LN_CLASSES__PARENT_NS && newParentNS != null ) ) {
-            if( EcoreUtil.isAncestor( this, newParentNS ) )
+            if( EcoreUtil.isAncestor( this, newParentNS ) ) {
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            }
             NotificationChain msgs = null;
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newParentNS != null )
+            }
+            if( newParentNS != null ) {
                 msgs = ( ( InternalEObject ) newParentNS ).eInverseAdd( this, NsdPackage.NS__LN_CLASSES, NS.class,
                         msgs );
+            }
             msgs = basicSetParentNS( newParentNS, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
-        else if( eNotificationRequired() )
+        else if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.LN_CLASSES__PARENT_NS, newParentNS,
                     newParentNS ) );
+        }
     }
 
     /**
@@ -438,8 +450,9 @@ public class LNClassesImpl extends NsdObjectImpl implements LNClasses {
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getLNClass() ).basicAdd( otherEnd,
                     msgs );
         case NsdPackage.LN_CLASSES__PARENT_NS:
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
+            }
             return basicSetParentNS( ( NS ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );

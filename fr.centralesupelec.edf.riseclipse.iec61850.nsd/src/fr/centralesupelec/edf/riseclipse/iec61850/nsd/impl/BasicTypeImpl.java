@@ -211,9 +211,10 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
         descID = newDescID;
         boolean oldDescIDESet = descIDESet;
         descIDESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.BASIC_TYPE__DESC_ID, oldDescID, descID,
                     !oldDescIDESet ) );
+        }
     }
 
     /**
@@ -227,9 +228,10 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
         boolean oldDescIDESet = descIDESet;
         descID = DESC_ID_EDEFAULT;
         descIDESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.BASIC_TYPE__DESC_ID, oldDescID,
                     DESC_ID_EDEFAULT, oldDescIDESet ) );
+        }
     }
 
     /**
@@ -263,9 +265,10 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
         name = newName;
         boolean oldNameESet = nameESet;
         nameESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.BASIC_TYPE__NAME, oldName, name,
                     !oldNameESet ) );
+        }
     }
 
     /**
@@ -279,9 +282,10 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
         boolean oldNameESet = nameESet;
         name = NAME_EDEFAULT;
         nameESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.BASIC_TYPE__NAME, oldName,
                     NAME_EDEFAULT, oldNameESet ) );
+        }
     }
 
     /**
@@ -301,7 +305,9 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
      */
     @Override
     public BasicTypes getParentBasicTypes() {
-        if( eContainerFeatureID() != NsdPackage.BASIC_TYPE__PARENT_BASIC_TYPES ) return null;
+        if( eContainerFeatureID() != NsdPackage.BASIC_TYPE__PARENT_BASIC_TYPES ) {
+            return null;
+        }
         return ( BasicTypes ) eInternalContainer();
     }
 
@@ -326,20 +332,26 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
         if( newParentBasicTypes != eInternalContainer()
                 || ( eContainerFeatureID() != NsdPackage.BASIC_TYPE__PARENT_BASIC_TYPES
                         && newParentBasicTypes != null ) ) {
-            if( EcoreUtil.isAncestor( this, newParentBasicTypes ) )
+            if( EcoreUtil.isAncestor( this, newParentBasicTypes ) ) {
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            }
             NotificationChain msgs = null;
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newParentBasicTypes != null )
+            }
+            if( newParentBasicTypes != null ) {
                 msgs = ( ( InternalEObject ) newParentBasicTypes ).eInverseAdd( this,
                         NsdPackage.BASIC_TYPES__BASIC_TYPE, BasicTypes.class, msgs );
+            }
             msgs = basicSetParentBasicTypes( newParentBasicTypes, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
-        else if( eNotificationRequired() )
+        else if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.BASIC_TYPE__PARENT_BASIC_TYPES,
                     newParentBasicTypes, newParentBasicTypes ) );
+        }
     }
 
     /**
@@ -364,7 +376,9 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
      */
     @Override
     public void unsetReferredByAttributeType() {
-        if( referredByAttributeType != null ) ( ( InternalEList.Unsettable< ? > ) referredByAttributeType ).unset();
+        if( referredByAttributeType != null ) {
+            ( ( InternalEList.Unsettable< ? > ) referredByAttributeType ).unset();
+        }
     }
 
     /**
@@ -400,10 +414,12 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.BASIC_TYPE__REFERS_TO_DOC, oldRefersToDoc, newRefersToDoc, !oldRefersToDocESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -417,21 +433,26 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
     public void setRefersToDoc( Doc newRefersToDoc ) {
         if( newRefersToDoc != refersToDoc ) {
             NotificationChain msgs = null;
-            if( refersToDoc != null )
+            if( refersToDoc != null ) {
                 msgs = ( ( InternalEObject ) refersToDoc ).eInverseRemove( this, NsdPackage.DOC__REFERRED_BY_BASIC_TYPE,
                         Doc.class, msgs );
-            if( newRefersToDoc != null )
+            }
+            if( newRefersToDoc != null ) {
                 msgs = ( ( InternalEObject ) newRefersToDoc ).eInverseAdd( this, NsdPackage.DOC__REFERRED_BY_BASIC_TYPE,
                         Doc.class, msgs );
+            }
             msgs = basicSetRefersToDoc( newRefersToDoc, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToDocESet = refersToDocESet;
             refersToDocESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.BASIC_TYPE__REFERS_TO_DOC,
                         newRefersToDoc, newRefersToDoc, !oldRefersToDocESet ) );
+            }
         }
     }
 
@@ -448,10 +469,12 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.BASIC_TYPE__REFERS_TO_DOC, oldRefersToDoc, null, oldRefersToDocESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -468,14 +491,17 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
             msgs = ( ( InternalEObject ) refersToDoc ).eInverseRemove( this, NsdPackage.DOC__REFERRED_BY_BASIC_TYPE,
                     Doc.class, msgs );
             msgs = basicUnsetRefersToDoc( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToDocESet = refersToDocESet;
             refersToDocESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.BASIC_TYPE__REFERS_TO_DOC, null,
                         null, oldRefersToDocESet ) );
+            }
         }
     }
 
@@ -511,7 +537,9 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
      */
     @Override
     public void unsetReferredByUnderlyingType() {
-        if( referredByUnderlyingType != null ) ( ( InternalEList.Unsettable< ? > ) referredByUnderlyingType ).unset();
+        if( referredByUnderlyingType != null ) {
+            ( ( InternalEList.Unsettable< ? > ) referredByUnderlyingType ).unset();
+        }
     }
 
     /**
@@ -599,16 +627,18 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.BASIC_TYPE__PARENT_BASIC_TYPES:
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
+            }
             return basicSetParentBasicTypes( ( BasicTypes ) otherEnd, msgs );
         case NsdPackage.BASIC_TYPE__REFERRED_BY_ATTRIBUTE_TYPE:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByAttributeType() )
                     .basicAdd( otherEnd, msgs );
         case NsdPackage.BASIC_TYPE__REFERS_TO_DOC:
-            if( refersToDoc != null )
+            if( refersToDoc != null ) {
                 msgs = ( ( InternalEObject ) refersToDoc ).eInverseRemove( this, NsdPackage.DOC__REFERRED_BY_BASIC_TYPE,
                         Doc.class, msgs );
+            }
             return basicSetRefersToDoc( ( Doc ) otherEnd, msgs );
         case NsdPackage.BASIC_TYPE__REFERRED_BY_UNDERLYING_TYPE:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByUnderlyingType() )
@@ -786,19 +816,25 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
      */
     @Override
     public String toString() {
-        if( eIsProxy() ) return super.toString();
+        if( eIsProxy() ) {
+            return super.toString();
+        }
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (descID: " );
-        if( descIDESet )
+        if( descIDESet ) {
             result.append( descID );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", name: " );
-        if( nameESet )
+        if( nameESet ) {
             result.append( name );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ')' );
         return result.toString();
     }
@@ -807,13 +843,17 @@ public class BasicTypeImpl extends NsdObjectImpl implements BasicType {
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "BasicTypeImpl.buildExplicitLinks()" );
 
-        if( super.buildExplicitLinks( console ) ) return true;
+        if( super.buildExplicitLinks( console ) ) {
+            return true;
+        }
 
         if( isSetDescID() ) {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
                 Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() )
                         .findDoc( NsIdentification.of( getParentBasicTypes().getParentNS() ), getDescID() );
-                if( doc != null ) setRefersToDoc( doc );
+                if( doc != null ) {
+                    setRefersToDoc( doc );
+                }
             }
         }
 

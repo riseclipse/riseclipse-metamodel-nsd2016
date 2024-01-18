@@ -274,10 +274,12 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.FUNCTIONAL_CONSTRAINT__APPLICABLE_SERVICES, oldApplicableServices, newApplicableServices,
                     !oldApplicableServicesESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -291,22 +293,27 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
     public void setApplicableServices( ApplicableServices newApplicableServices ) {
         if( newApplicableServices != applicableServices ) {
             NotificationChain msgs = null;
-            if( applicableServices != null )
+            if( applicableServices != null ) {
                 msgs = ( ( InternalEObject ) applicableServices ).eInverseRemove( this,
                         NsdPackage.APPLICABLE_SERVICES__PARENT_FUNCTIONAL_CONSTRAINT, ApplicableServices.class, msgs );
-            if( newApplicableServices != null )
+            }
+            if( newApplicableServices != null ) {
                 msgs = ( ( InternalEObject ) newApplicableServices ).eInverseAdd( this,
                         NsdPackage.APPLICABLE_SERVICES__PARENT_FUNCTIONAL_CONSTRAINT, ApplicableServices.class, msgs );
+            }
             msgs = basicSetApplicableServices( newApplicableServices, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldApplicableServicesESet = applicableServicesESet;
             applicableServicesESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET,
                         NsdPackage.FUNCTIONAL_CONSTRAINT__APPLICABLE_SERVICES, newApplicableServices,
                         newApplicableServices, !oldApplicableServicesESet ) );
+            }
         }
     }
 
@@ -324,10 +331,12 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.FUNCTIONAL_CONSTRAINT__APPLICABLE_SERVICES, oldApplicableServices, null,
                     oldApplicableServicesESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -344,15 +353,18 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
             msgs = ( ( InternalEObject ) applicableServices ).eInverseRemove( this,
                     NsdPackage.APPLICABLE_SERVICES__PARENT_FUNCTIONAL_CONSTRAINT, ApplicableServices.class, msgs );
             msgs = basicUnsetApplicableServices( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldApplicableServicesESet = applicableServicesESet;
             applicableServicesESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET,
                         NsdPackage.FUNCTIONAL_CONSTRAINT__APPLICABLE_SERVICES, null, null,
                         oldApplicableServicesESet ) );
+            }
         }
     }
 
@@ -387,9 +399,10 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
         abbreviation = newAbbreviation;
         boolean oldAbbreviationESet = abbreviationESet;
         abbreviationESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.FUNCTIONAL_CONSTRAINT__ABBREVIATION,
                     oldAbbreviation, abbreviation, !oldAbbreviationESet ) );
+        }
     }
 
     /**
@@ -403,9 +416,10 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
         boolean oldAbbreviationESet = abbreviationESet;
         abbreviation = ABBREVIATION_EDEFAULT;
         abbreviationESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.FUNCTIONAL_CONSTRAINT__ABBREVIATION,
                     oldAbbreviation, ABBREVIATION_EDEFAULT, oldAbbreviationESet ) );
+        }
     }
 
     /**
@@ -439,9 +453,10 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
         descID = newDescID;
         boolean oldDescIDESet = descIDESet;
         descIDESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.FUNCTIONAL_CONSTRAINT__DESC_ID,
                     oldDescID, descID, !oldDescIDESet ) );
+        }
     }
 
     /**
@@ -455,9 +470,10 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
         boolean oldDescIDESet = descIDESet;
         descID = DESC_ID_EDEFAULT;
         descIDESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.FUNCTIONAL_CONSTRAINT__DESC_ID,
                     oldDescID, DESC_ID_EDEFAULT, oldDescIDESet ) );
+        }
     }
 
     /**
@@ -491,9 +507,10 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
         titleID = newTitleID;
         boolean oldTitleIDESet = titleIDESet;
         titleIDESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.FUNCTIONAL_CONSTRAINT__TITLE_ID,
                     oldTitleID, titleID, !oldTitleIDESet ) );
+        }
     }
 
     /**
@@ -507,9 +524,10 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
         boolean oldTitleIDESet = titleIDESet;
         titleID = TITLE_ID_EDEFAULT;
         titleIDESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.FUNCTIONAL_CONSTRAINT__TITLE_ID,
                     oldTitleID, TITLE_ID_EDEFAULT, oldTitleIDESet ) );
+        }
     }
 
     /**
@@ -529,7 +547,9 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
      */
     @Override
     public FunctionalConstraints getParentFunctionalConstraints() {
-        if( eContainerFeatureID() != NsdPackage.FUNCTIONAL_CONSTRAINT__PARENT_FUNCTIONAL_CONSTRAINTS ) return null;
+        if( eContainerFeatureID() != NsdPackage.FUNCTIONAL_CONSTRAINT__PARENT_FUNCTIONAL_CONSTRAINTS ) {
+            return null;
+        }
         return ( FunctionalConstraints ) eInternalContainer();
     }
 
@@ -555,21 +575,27 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
         if( newParentFunctionalConstraints != eInternalContainer()
                 || ( eContainerFeatureID() != NsdPackage.FUNCTIONAL_CONSTRAINT__PARENT_FUNCTIONAL_CONSTRAINTS
                         && newParentFunctionalConstraints != null ) ) {
-            if( EcoreUtil.isAncestor( this, newParentFunctionalConstraints ) )
+            if( EcoreUtil.isAncestor( this, newParentFunctionalConstraints ) ) {
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            }
             NotificationChain msgs = null;
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newParentFunctionalConstraints != null )
+            }
+            if( newParentFunctionalConstraints != null ) {
                 msgs = ( ( InternalEObject ) newParentFunctionalConstraints ).eInverseAdd( this,
                         NsdPackage.FUNCTIONAL_CONSTRAINTS__FUNCTIONAL_CONSTRAINT, FunctionalConstraints.class, msgs );
+            }
             msgs = basicSetParentFunctionalConstraints( newParentFunctionalConstraints, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
-        else if( eNotificationRequired() )
+        else if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET,
                     NsdPackage.FUNCTIONAL_CONSTRAINT__PARENT_FUNCTIONAL_CONSTRAINTS, newParentFunctionalConstraints,
                     newParentFunctionalConstraints ) );
+        }
     }
 
     /**
@@ -594,7 +620,9 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
      */
     @Override
     public void unsetReferredByDataAttribute() {
-        if( referredByDataAttribute != null ) ( ( InternalEList.Unsettable< ? > ) referredByDataAttribute ).unset();
+        if( referredByDataAttribute != null ) {
+            ( ( InternalEList.Unsettable< ? > ) referredByDataAttribute ).unset();
+        }
     }
 
     /**
@@ -631,10 +659,12 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DESC_DOC, oldRefersToDescDoc, newRefersToDescDoc,
                     !oldRefersToDescDocESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -648,22 +678,27 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
     public void setRefersToDescDoc( Doc newRefersToDescDoc ) {
         if( newRefersToDescDoc != refersToDescDoc ) {
             NotificationChain msgs = null;
-            if( refersToDescDoc != null )
+            if( refersToDescDoc != null ) {
                 msgs = ( ( InternalEObject ) refersToDescDoc ).eInverseRemove( this,
                         NsdPackage.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT_AS_DESC, Doc.class, msgs );
-            if( newRefersToDescDoc != null )
+            }
+            if( newRefersToDescDoc != null ) {
                 msgs = ( ( InternalEObject ) newRefersToDescDoc ).eInverseAdd( this,
                         NsdPackage.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT_AS_DESC, Doc.class, msgs );
+            }
             msgs = basicSetRefersToDescDoc( newRefersToDescDoc, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToDescDocESet = refersToDescDocESet;
             refersToDescDocESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET,
                         NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DESC_DOC, newRefersToDescDoc, newRefersToDescDoc,
                         !oldRefersToDescDocESet ) );
+            }
         }
     }
 
@@ -681,10 +716,12 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DESC_DOC, oldRefersToDescDoc, null,
                     oldRefersToDescDocESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -701,14 +738,17 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
             msgs = ( ( InternalEObject ) refersToDescDoc ).eInverseRemove( this,
                     NsdPackage.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT_AS_DESC, Doc.class, msgs );
             msgs = basicUnsetRefersToDescDoc( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToDescDocESet = refersToDescDocESet;
             refersToDescDocESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET,
                         NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DESC_DOC, null, null, oldRefersToDescDocESet ) );
+            }
         }
     }
 
@@ -746,10 +786,12 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_TITLE_DOC, oldRefersToTitleDoc, newRefersToTitleDoc,
                     !oldRefersToTitleDocESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -763,22 +805,27 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
     public void setRefersToTitleDoc( Doc newRefersToTitleDoc ) {
         if( newRefersToTitleDoc != refersToTitleDoc ) {
             NotificationChain msgs = null;
-            if( refersToTitleDoc != null )
+            if( refersToTitleDoc != null ) {
                 msgs = ( ( InternalEObject ) refersToTitleDoc ).eInverseRemove( this,
                         NsdPackage.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT_AS_TITLE, Doc.class, msgs );
-            if( newRefersToTitleDoc != null )
+            }
+            if( newRefersToTitleDoc != null ) {
                 msgs = ( ( InternalEObject ) newRefersToTitleDoc ).eInverseAdd( this,
                         NsdPackage.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT_AS_TITLE, Doc.class, msgs );
+            }
             msgs = basicSetRefersToTitleDoc( newRefersToTitleDoc, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToTitleDocESet = refersToTitleDocESet;
             refersToTitleDocESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET,
                         NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_TITLE_DOC, newRefersToTitleDoc, newRefersToTitleDoc,
                         !oldRefersToTitleDocESet ) );
+            }
         }
     }
 
@@ -796,10 +843,12 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_TITLE_DOC, oldRefersToTitleDoc, null,
                     oldRefersToTitleDocESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -816,14 +865,17 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
             msgs = ( ( InternalEObject ) refersToTitleDoc ).eInverseRemove( this,
                     NsdPackage.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT_AS_TITLE, Doc.class, msgs );
             msgs = basicUnsetRefersToTitleDoc( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToTitleDocESet = refersToTitleDocESet;
             refersToTitleDocESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET,
                         NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_TITLE_DOC, null, null, oldRefersToTitleDocESet ) );
+            }
         }
     }
 
@@ -912,26 +964,30 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.FUNCTIONAL_CONSTRAINT__APPLICABLE_SERVICES:
-            if( applicableServices != null )
+            if( applicableServices != null ) {
                 msgs = ( ( InternalEObject ) applicableServices ).eInverseRemove( this,
                         EOPPOSITE_FEATURE_BASE - NsdPackage.FUNCTIONAL_CONSTRAINT__APPLICABLE_SERVICES, null, msgs );
+            }
             return basicSetApplicableServices( ( ApplicableServices ) otherEnd, msgs );
         case NsdPackage.FUNCTIONAL_CONSTRAINT__PARENT_FUNCTIONAL_CONSTRAINTS:
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
+            }
             return basicSetParentFunctionalConstraints( ( FunctionalConstraints ) otherEnd, msgs );
         case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERRED_BY_DATA_ATTRIBUTE:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByDataAttribute() )
                     .basicAdd( otherEnd, msgs );
         case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_DESC_DOC:
-            if( refersToDescDoc != null )
+            if( refersToDescDoc != null ) {
                 msgs = ( ( InternalEObject ) refersToDescDoc ).eInverseRemove( this,
                         NsdPackage.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT_AS_DESC, Doc.class, msgs );
+            }
             return basicSetRefersToDescDoc( ( Doc ) otherEnd, msgs );
         case NsdPackage.FUNCTIONAL_CONSTRAINT__REFERS_TO_TITLE_DOC:
-            if( refersToTitleDoc != null )
+            if( refersToTitleDoc != null ) {
                 msgs = ( ( InternalEObject ) refersToTitleDoc ).eInverseRemove( this,
                         NsdPackage.DOC__REFERRED_BY_FUNCTIONAL_CONSTRAINT_AS_TITLE, Doc.class, msgs );
+            }
             return basicSetRefersToTitleDoc( ( Doc ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
@@ -1127,24 +1183,32 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
      */
     @Override
     public String toString() {
-        if( eIsProxy() ) return super.toString();
+        if( eIsProxy() ) {
+            return super.toString();
+        }
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (abbreviation: " );
-        if( abbreviationESet )
+        if( abbreviationESet ) {
             result.append( abbreviation );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", descID: " );
-        if( descIDESet )
+        if( descIDESet ) {
             result.append( descID );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", titleID: " );
-        if( titleIDESet )
+        if( titleIDESet ) {
             result.append( titleID );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ')' );
         return result.toString();
     }
@@ -1153,7 +1217,9 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "FunctionalConstraintImpl.buildExplicitLinks()" );
 
-        if( super.buildExplicitLinks( console ) ) return true;
+        if( super.buildExplicitLinks( console ) ) {
+            return true;
+        }
 
         NsIdentification identification = null;
         if( getParentFunctionalConstraints().getParentNS() != null ) {
@@ -1166,12 +1232,16 @@ public class FunctionalConstraintImpl extends NsdObjectImpl implements Functiona
             if( isSetDescID() ) {
                 Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( identification,
                         getDescID() );
-                if( doc != null ) setRefersToDescDoc( doc );
+                if( doc != null ) {
+                    setRefersToDescDoc( doc );
+                }
             }
             if( isSetTitleID() ) {
                 Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( identification,
                         getTitleID() );
-                if( doc != null ) setRefersToTitleDoc( doc );
+                if( doc != null ) {
+                    setRefersToTitleDoc( doc );
+                }
             }
         }
 

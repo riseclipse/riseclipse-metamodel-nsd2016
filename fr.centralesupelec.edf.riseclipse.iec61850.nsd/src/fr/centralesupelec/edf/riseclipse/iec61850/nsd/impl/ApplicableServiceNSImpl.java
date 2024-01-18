@@ -175,7 +175,9 @@ public class ApplicableServiceNSImpl extends CopyrightedImpl implements Applicab
      */
     @Override
     public void unsetServiceNsUsage() {
-        if( serviceNsUsage != null ) ( ( InternalEList.Unsettable< ? > ) serviceNsUsage ).unset();
+        if( serviceNsUsage != null ) {
+            ( ( InternalEList.Unsettable< ? > ) serviceNsUsage ).unset();
+        }
     }
 
     /**
@@ -209,9 +211,10 @@ public class ApplicableServiceNSImpl extends CopyrightedImpl implements Applicab
         date = newDate;
         boolean oldDateESet = dateESet;
         dateESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.APPLICABLE_SERVICE_NS__DATE, oldDate,
                     date, !oldDateESet ) );
+        }
     }
 
     /**
@@ -225,9 +228,10 @@ public class ApplicableServiceNSImpl extends CopyrightedImpl implements Applicab
         boolean oldDateESet = dateESet;
         date = DATE_EDEFAULT;
         dateESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.APPLICABLE_SERVICE_NS__DATE, oldDate,
                     DATE_EDEFAULT, oldDateESet ) );
+        }
     }
 
     /**
@@ -261,9 +265,10 @@ public class ApplicableServiceNSImpl extends CopyrightedImpl implements Applicab
         version = newVersion;
         boolean oldVersionESet = versionESet;
         versionESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.APPLICABLE_SERVICE_NS__VERSION,
                     oldVersion, version, !oldVersionESet ) );
+        }
     }
 
     /**
@@ -277,9 +282,10 @@ public class ApplicableServiceNSImpl extends CopyrightedImpl implements Applicab
         boolean oldVersionESet = versionESet;
         version = VERSION_EDEFAULT;
         versionESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.APPLICABLE_SERVICE_NS__VERSION,
                     oldVersion, VERSION_EDEFAULT, oldVersionESet ) );
+        }
     }
 
     /**
@@ -545,19 +551,25 @@ public class ApplicableServiceNSImpl extends CopyrightedImpl implements Applicab
      */
     @Override
     public String toString() {
-        if( eIsProxy() ) return super.toString();
+        if( eIsProxy() ) {
+            return super.toString();
+        }
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (date: " );
-        if( dateESet )
+        if( dateESet ) {
             result.append( date );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", version: " );
-        if( versionESet )
+        if( versionESet ) {
             result.append( version );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ')' );
         return result.toString();
     }

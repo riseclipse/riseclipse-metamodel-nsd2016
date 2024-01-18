@@ -122,7 +122,9 @@ public class AbbreviationsImpl extends NsdObjectImpl implements Abbreviations {
      */
     @Override
     public void unsetAbbreviation() {
-        if( abbreviation != null ) ( ( InternalEList.Unsettable< ? > ) abbreviation ).unset();
+        if( abbreviation != null ) {
+            ( ( InternalEList.Unsettable< ? > ) abbreviation ).unset();
+        }
     }
 
     /**
@@ -142,7 +144,9 @@ public class AbbreviationsImpl extends NsdObjectImpl implements Abbreviations {
      */
     @Override
     public NS getParentNS() {
-        if( eContainerFeatureID() != NsdPackage.ABBREVIATIONS__PARENT_NS ) return null;
+        if( eContainerFeatureID() != NsdPackage.ABBREVIATIONS__PARENT_NS ) {
+            return null;
+        }
         return ( NS ) eInternalContainer();
     }
 
@@ -165,20 +169,26 @@ public class AbbreviationsImpl extends NsdObjectImpl implements Abbreviations {
     public void setParentNS( NS newParentNS ) {
         if( newParentNS != eInternalContainer()
                 || ( eContainerFeatureID() != NsdPackage.ABBREVIATIONS__PARENT_NS && newParentNS != null ) ) {
-            if( EcoreUtil.isAncestor( this, newParentNS ) )
+            if( EcoreUtil.isAncestor( this, newParentNS ) ) {
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            }
             NotificationChain msgs = null;
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newParentNS != null )
+            }
+            if( newParentNS != null ) {
                 msgs = ( ( InternalEObject ) newParentNS ).eInverseAdd( this, NsdPackage.NS__ABBREVIATIONS, NS.class,
                         msgs );
+            }
             msgs = basicSetParentNS( newParentNS, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
-        else if( eNotificationRequired() )
+        else if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.ABBREVIATIONS__PARENT_NS, newParentNS,
                     newParentNS ) );
+        }
     }
 
     /**
@@ -188,7 +198,9 @@ public class AbbreviationsImpl extends NsdObjectImpl implements Abbreviations {
      */
     @Override
     public ServiceNS getParentServiceNS() {
-        if( eContainerFeatureID() != NsdPackage.ABBREVIATIONS__PARENT_SERVICE_NS ) return null;
+        if( eContainerFeatureID() != NsdPackage.ABBREVIATIONS__PARENT_SERVICE_NS ) {
+            return null;
+        }
         return ( ServiceNS ) eInternalContainer();
     }
 
@@ -213,20 +225,26 @@ public class AbbreviationsImpl extends NsdObjectImpl implements Abbreviations {
         if( newParentServiceNS != eInternalContainer()
                 || ( eContainerFeatureID() != NsdPackage.ABBREVIATIONS__PARENT_SERVICE_NS
                         && newParentServiceNS != null ) ) {
-            if( EcoreUtil.isAncestor( this, newParentServiceNS ) )
+            if( EcoreUtil.isAncestor( this, newParentServiceNS ) ) {
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            }
             NotificationChain msgs = null;
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newParentServiceNS != null )
+            }
+            if( newParentServiceNS != null ) {
                 msgs = ( ( InternalEObject ) newParentServiceNS ).eInverseAdd( this,
                         NsdPackage.SERVICE_NS__ABBREVIATIONS, ServiceNS.class, msgs );
+            }
             msgs = basicSetParentServiceNS( newParentServiceNS, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
-        else if( eNotificationRequired() )
+        else if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.ABBREVIATIONS__PARENT_SERVICE_NS,
                     newParentServiceNS, newParentServiceNS ) );
+        }
     }
 
     /**
@@ -340,12 +358,14 @@ public class AbbreviationsImpl extends NsdObjectImpl implements Abbreviations {
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getAbbreviation() ).basicAdd( otherEnd,
                     msgs );
         case NsdPackage.ABBREVIATIONS__PARENT_NS:
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
+            }
             return basicSetParentNS( ( NS ) otherEnd, msgs );
         case NsdPackage.ABBREVIATIONS__PARENT_SERVICE_NS:
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
+            }
             return basicSetParentServiceNS( ( ServiceNS ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
