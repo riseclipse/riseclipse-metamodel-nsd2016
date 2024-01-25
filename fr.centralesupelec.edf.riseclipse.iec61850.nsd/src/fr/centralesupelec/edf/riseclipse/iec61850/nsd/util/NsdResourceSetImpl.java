@@ -872,7 +872,6 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
             }
             applyToNsId = applyToNsId.getDependsOn();
         }
-        System.out.println("NO");
     }
 
     private Stream< FunctionalConstraint > getFunctionalConstraintStream( NS ns, boolean useDependsOn ) {
