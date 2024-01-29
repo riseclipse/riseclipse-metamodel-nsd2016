@@ -631,7 +631,6 @@ public class LNClassImpl extends AnyLNClassImpl implements LNClass {
                 getDataObject().add( copy );
                 copy.setExplicitLinksBuilt( false );
                 copy.buildExplicitLinks( console );
-                getDataObject().add( copy );
             }
             lnClass = lnClass.getRefersToAbstractLNClass();
         }
