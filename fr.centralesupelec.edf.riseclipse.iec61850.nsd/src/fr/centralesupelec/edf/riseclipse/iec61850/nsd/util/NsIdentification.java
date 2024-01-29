@@ -21,7 +21,6 @@
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.util;
 
 import java.util.HashMap;
-
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 
 /*
@@ -42,7 +41,11 @@ public class NsIdentification {
     
     private NsIdentification dependsOn;
     
-    private static HashMap< String, HashMap< Integer, HashMap< String, NsIdentification >>> nsIdentifications = new HashMap<>();
+    private static HashMap< String, HashMap< Integer, HashMap< String, NsIdentification >>> nsIdentifications;
+    
+    public static void reset() {
+        nsIdentifications = new HashMap<>();
+    }
     
     public static NsIdentification of( String id, Integer version, String revision, Integer release ) {
         if( ! nsIdentifications.containsKey( id )) {

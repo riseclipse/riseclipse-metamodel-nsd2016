@@ -41,7 +41,9 @@ import org.eclipse.emf.ecore.xmi.IllegalValueException;
 import org.eclipse.jdt.annotation.NonNull;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AnyLNClassImpl;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CDCImpl;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.LNClassImpl;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceConstructedAttributeImpl;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceDataAttributeImpl;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation;
@@ -206,6 +208,14 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
      */
     @Override
     public void finalizeLoad( IRiseClipseConsole console ) {
+        // static maps are used (e.g. parameterized components)
+        // within Eclipse, they must be cleared after a previous load
+        NsIdentification.reset();
+        NsIdentificationName.reset();
+        NsIdentificationObject.reset();
+        CDCImpl.reset();
+        ServiceConstructedAttributeImpl.reset();
+        
         // Explicit links must be built first, they are needed for ServiceNsUsage
         buildExplicitLinks( console );
         

@@ -14,7 +14,11 @@ public class NsIdentificationObject {
     final private NsIdentification nsIdentification;
     final private Object object;
     
-    private static IdentityHashMap< NsIdentification, IdentityHashMap< Object, NsIdentificationObject >> nsIdentificationObjects = new IdentityHashMap<>();
+    private static IdentityHashMap< NsIdentification, IdentityHashMap< Object, NsIdentificationObject >> nsIdentificationObjects;
+    
+    public static void reset() {
+        nsIdentificationObjects = new IdentityHashMap<>();
+    }
     
     public static NsIdentificationObject of( NsIdentification nsId, Object object ) {
         if( ! nsIdentificationObjects.containsKey( nsId )) {

@@ -434,7 +434,7 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
     //@formatter:off
 
     // Use only type as key; not typeKind
-    private static IdentityHashMap< NsIdentificationName, HashMap< String, ServiceConstructedAttribute >> parameterizedServiceConstructedAttributes = new IdentityHashMap<>();
+    private static IdentityHashMap< NsIdentificationName, HashMap< String, ServiceConstructedAttribute >> parameterizedServiceConstructedAttributes;
 
     public ServiceConstructedAttribute getParameterizedServiceConstructedAttribute(
             DefinedAttributeTypeKind underlyingTypeKind, String underlyingType, NsIdentification nsIdentification, IRiseClipseConsole console ) {
@@ -475,5 +475,9 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
     }
 
     //@formatter:on
+
+    public static void reset() {
+        parameterizedServiceConstructedAttributes = new IdentityHashMap<>();
+    }
 
 } //ServiceConstructedAttributeImpl

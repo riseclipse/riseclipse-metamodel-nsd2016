@@ -1477,7 +1477,7 @@ public class CDCImpl extends TitledClassImpl implements CDC {
     }
 
     // Use only type as key; not typeKind
-    private static IdentityHashMap< NsIdentificationName, HashMap< String, CDC >> parameterizedCDCs = new IdentityHashMap<>();
+    private static IdentityHashMap< NsIdentificationName, HashMap< String, CDC >> parameterizedCDCs;
 
     public CDC getParameterizedCDC( DefinedAttributeTypeKind underlyingTypeKind, String underlyingType,
             NS ns, IRiseClipseConsole console ) {
@@ -1540,6 +1540,10 @@ public class CDCImpl extends TitledClassImpl implements CDC {
             }
         }
         return null;
+    }
+
+    public static void reset() {
+        parameterizedCDCs = new IdentityHashMap<>();
     }
 
     //@formatter:on
