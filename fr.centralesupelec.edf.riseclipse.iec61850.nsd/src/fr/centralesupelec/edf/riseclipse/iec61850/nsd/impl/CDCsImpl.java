@@ -344,6 +344,7 @@ public class CDCsImpl extends NsdObjectImpl implements CDCs {
                                 @Override
                                 public /*@Nullable*/ Object evaluate( final Executor executor, final TypeId typeId,
                                         final /*@Nullable*/ Object /*@NonNull*/ [] sourceAndArgumentValues ) {
+                                    @SuppressWarnings( "unused" )
                                     final /*@NonInvalid*/ SetValue select_0 = ( SetValue ) sourceAndArgumentValues[0];
                                     final /*@NonInvalid*/ Object c1 = sourceAndArgumentValues[1];
                                     final /*@NonInvalid*/ Object c2 = sourceAndArgumentValues[2];
