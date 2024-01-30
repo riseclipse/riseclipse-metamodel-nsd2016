@@ -1,6 +1,6 @@
 /*
 *************************************************************************
-**  Copyright (c) 2016-2022 CentraleSupélec & EDF.
+**  Copyright (c) 2016-2024 CentraleSupélec & EDF.
 **  All rights reserved. This program and the accompanying materials
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
@@ -21,7 +21,6 @@
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.util;
 
 import java.util.HashMap;
-
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 
 /*
@@ -42,6 +41,7 @@ public class NsIdentification {
     
     private NsIdentification dependsOn;
     
+    // This map can be shared among all ResourceSets
     private static HashMap< String, HashMap< Integer, HashMap< String, NsIdentification >>> nsIdentifications = new HashMap<>();
     
     public static NsIdentification of( String id, Integer version, String revision, Integer release ) {

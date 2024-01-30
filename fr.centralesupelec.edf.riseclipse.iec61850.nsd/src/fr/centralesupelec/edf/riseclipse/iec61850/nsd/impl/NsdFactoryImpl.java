@@ -818,8 +818,10 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      */
     public ACSIServicesKind createACSIServicesKindFromString( EDataType eDataType, String initialValue ) {
         ACSIServicesKind result = ACSIServicesKind.get( initialValue );
-        if( result == null ) throw new IllegalArgumentException(
-                "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'" );
+        if( result == null ) {
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'" );
+        }
         return result;
     }
 
@@ -839,8 +841,10 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      */
     public CBKind createCBKindFromString( EDataType eDataType, String initialValue ) {
         CBKind result = CBKind.get( initialValue );
-        if( result == null ) throw new IllegalArgumentException(
-                "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'" );
+        if( result == null ) {
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'" );
+        }
         return result;
     }
 
@@ -861,8 +865,10 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
     public DefinedAttributeTypeKind createDefinedAttributeTypeKindFromString( EDataType eDataType,
             String initialValue ) {
         DefinedAttributeTypeKind result = DefinedAttributeTypeKind.get( initialValue );
-        if( result == null ) throw new IllegalArgumentException(
-                "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'" );
+        if( result == null ) {
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'" );
+        }
         return result;
     }
 
@@ -882,8 +888,10 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      */
     public LicenseKind createLicenseKindFromString( EDataType eDataType, String initialValue ) {
         LicenseKind result = LicenseKind.get( initialValue );
-        if( result == null ) throw new IllegalArgumentException(
-                "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'" );
+        if( result == null ) {
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'" );
+        }
         return result;
     }
 
@@ -903,8 +911,10 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      */
     public PubStage createPubStageFromString( EDataType eDataType, String initialValue ) {
         PubStage result = PubStage.get( initialValue );
-        if( result == null ) throw new IllegalArgumentException(
-                "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'" );
+        if( result == null ) {
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'" );
+        }
         return result;
     }
 
@@ -925,8 +935,10 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
     public UndefinedAttributeTypeKind createUndefinedAttributeTypeKindFromString( EDataType eDataType,
             String initialValue ) {
         UndefinedAttributeTypeKind result = UndefinedAttributeTypeKind.get( initialValue );
-        if( result == null ) throw new IllegalArgumentException(
-                "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'" );
+        if( result == null ) {
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'" );
+        }
         return result;
     }
 
@@ -963,7 +975,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     public Enumerator createAttributeTypeKindFromString( EDataType eDataType, String initialValue ) {
-        if( initialValue == null ) return null;
+        if( initialValue == null ) {
+            return null;
+        }
         Enumerator result = null;
         RuntimeException exception = null;
         try {
@@ -986,7 +1000,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
         catch( RuntimeException e ) {
             exception = e;
         }
-        if( result != null || exception == null ) return result;
+        if( result != null || exception == null ) {
+            return result;
+        }
 
         throw exception;
     }
@@ -997,12 +1013,16 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     public String convertAttributeTypeKindToString( EDataType eDataType, Object instanceValue ) {
-        if( instanceValue == null ) return null;
+        if( instanceValue == null ) {
+            return null;
+        }
         if( NsdPackage.Literals.DEFINED_ATTRIBUTE_TYPE_KIND.isInstance( instanceValue ) ) {
             try {
                 String value = convertDefinedAttributeTypeKindToString( NsdPackage.Literals.DEFINED_ATTRIBUTE_TYPE_KIND,
                         instanceValue );
-                if( value != null ) return value;
+                if( value != null ) {
+                    return value;
+                }
             }
             catch( Exception e ) {
                 // Keep trying other member types until all have failed.
@@ -1012,7 +1032,9 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
             try {
                 String value = convertUndefinedAttributeTypeKindToString(
                         NsdPackage.Literals.UNDEFINED_ATTRIBUTE_TYPE_KIND, instanceValue );
-                if( value != null ) return value;
+                if( value != null ) {
+                    return value;
+                }
             }
             catch( Exception e ) {
                 // Keep trying other member types until all have failed.

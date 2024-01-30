@@ -239,7 +239,9 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
      */
     @Override
     public void unsetLiteral() {
-        if( literal != null ) ( ( InternalEList.Unsettable< ? > ) literal ).unset();
+        if( literal != null ) {
+            ( ( InternalEList.Unsettable< ? > ) literal ).unset();
+        }
     }
 
     /**
@@ -273,9 +275,10 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
         inheritedFrom = newInheritedFrom;
         boolean oldInheritedFromESet = inheritedFromESet;
         inheritedFromESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.ENUMERATION__INHERITED_FROM,
                     oldInheritedFrom, inheritedFrom, !oldInheritedFromESet ) );
+        }
     }
 
     /**
@@ -289,9 +292,10 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
         boolean oldInheritedFromESet = inheritedFromESet;
         inheritedFrom = INHERITED_FROM_EDEFAULT;
         inheritedFromESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.ENUMERATION__INHERITED_FROM,
                     oldInheritedFrom, INHERITED_FROM_EDEFAULT, oldInheritedFromESet ) );
+        }
     }
 
     /**
@@ -325,9 +329,10 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
         name = newName;
         boolean oldNameESet = nameESet;
         nameESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.ENUMERATION__NAME, oldName, name,
                     !oldNameESet ) );
+        }
     }
 
     /**
@@ -341,9 +346,10 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
         boolean oldNameESet = nameESet;
         name = NAME_EDEFAULT;
         nameESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.ENUMERATION__NAME, oldName,
                     NAME_EDEFAULT, oldNameESet ) );
+        }
     }
 
     /**
@@ -363,7 +369,9 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
      */
     @Override
     public Enumerations getParentEnumerations() {
-        if( eContainerFeatureID() != NsdPackage.ENUMERATION__PARENT_ENUMERATIONS ) return null;
+        if( eContainerFeatureID() != NsdPackage.ENUMERATION__PARENT_ENUMERATIONS ) {
+            return null;
+        }
         return ( Enumerations ) eInternalContainer();
     }
 
@@ -388,20 +396,26 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
         if( newParentEnumerations != eInternalContainer()
                 || ( eContainerFeatureID() != NsdPackage.ENUMERATION__PARENT_ENUMERATIONS
                         && newParentEnumerations != null ) ) {
-            if( EcoreUtil.isAncestor( this, newParentEnumerations ) )
+            if( EcoreUtil.isAncestor( this, newParentEnumerations ) ) {
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            }
             NotificationChain msgs = null;
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newParentEnumerations != null )
+            }
+            if( newParentEnumerations != null ) {
                 msgs = ( ( InternalEObject ) newParentEnumerations ).eInverseAdd( this,
                         NsdPackage.ENUMERATIONS__ENUMERATION, Enumerations.class, msgs );
+            }
             msgs = basicSetParentEnumerations( newParentEnumerations, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
-        else if( eNotificationRequired() )
+        else if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.ENUMERATION__PARENT_ENUMERATIONS,
                     newParentEnumerations, newParentEnumerations ) );
+        }
     }
 
     /**
@@ -429,10 +443,12 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.ENUMERATION__REFERS_TO_BASE_ENUMERATION, oldRefersToBaseEnumeration,
                     newRefersToBaseEnumeration, !oldRefersToBaseEnumerationESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -446,22 +462,27 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
     public void setRefersToBaseEnumeration( Enumeration newRefersToBaseEnumeration ) {
         if( newRefersToBaseEnumeration != refersToBaseEnumeration ) {
             NotificationChain msgs = null;
-            if( refersToBaseEnumeration != null )
+            if( refersToBaseEnumeration != null ) {
                 msgs = ( ( InternalEObject ) refersToBaseEnumeration ).eInverseRemove( this,
                         NsdPackage.ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE, Enumeration.class, msgs );
-            if( newRefersToBaseEnumeration != null )
+            }
+            if( newRefersToBaseEnumeration != null ) {
                 msgs = ( ( InternalEObject ) newRefersToBaseEnumeration ).eInverseAdd( this,
                         NsdPackage.ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE, Enumeration.class, msgs );
+            }
             msgs = basicSetRefersToBaseEnumeration( newRefersToBaseEnumeration, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToBaseEnumerationESet = refersToBaseEnumerationESet;
             refersToBaseEnumerationESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET,
                         NsdPackage.ENUMERATION__REFERS_TO_BASE_ENUMERATION, newRefersToBaseEnumeration,
                         newRefersToBaseEnumeration, !oldRefersToBaseEnumerationESet ) );
+            }
         }
     }
 
@@ -479,10 +500,12 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.ENUMERATION__REFERS_TO_BASE_ENUMERATION, oldRefersToBaseEnumeration, null,
                     oldRefersToBaseEnumerationESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -499,15 +522,18 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
             msgs = ( ( InternalEObject ) refersToBaseEnumeration ).eInverseRemove( this,
                     NsdPackage.ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE, Enumeration.class, msgs );
             msgs = basicUnsetRefersToBaseEnumeration( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToBaseEnumerationESet = refersToBaseEnumerationESet;
             refersToBaseEnumerationESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET,
                         NsdPackage.ENUMERATION__REFERS_TO_BASE_ENUMERATION, null, null,
                         oldRefersToBaseEnumerationESet ) );
+            }
         }
     }
 
@@ -543,8 +569,9 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
      */
     @Override
     public void unsetReferredByEnumerationAsBase() {
-        if( referredByEnumerationAsBase != null )
+        if( referredByEnumerationAsBase != null ) {
             ( ( InternalEList.Unsettable< ? > ) referredByEnumerationAsBase ).unset();
+        }
     }
 
     /**
@@ -580,7 +607,9 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
      */
     @Override
     public void unsetReferredByAttributeType() {
-        if( referredByAttributeType != null ) ( ( InternalEList.Unsettable< ? > ) referredByAttributeType ).unset();
+        if( referredByAttributeType != null ) {
+            ( ( InternalEList.Unsettable< ? > ) referredByAttributeType ).unset();
+        }
     }
 
     /**
@@ -615,7 +644,9 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
      */
     @Override
     public void unsetReferredByUnderlyingType() {
-        if( referredByUnderlyingType != null ) ( ( InternalEList.Unsettable< ? > ) referredByUnderlyingType ).unset();
+        if( referredByUnderlyingType != null ) {
+            ( ( InternalEList.Unsettable< ? > ) referredByUnderlyingType ).unset();
+        }
     }
 
     /**
@@ -896,13 +927,15 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getLiteral() ).basicAdd( otherEnd,
                     msgs );
         case NsdPackage.ENUMERATION__PARENT_ENUMERATIONS:
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
+            }
             return basicSetParentEnumerations( ( Enumerations ) otherEnd, msgs );
         case NsdPackage.ENUMERATION__REFERS_TO_BASE_ENUMERATION:
-            if( refersToBaseEnumeration != null )
+            if( refersToBaseEnumeration != null ) {
                 msgs = ( ( InternalEObject ) refersToBaseEnumeration ).eInverseRemove( this,
                         NsdPackage.ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE, Enumeration.class, msgs );
+            }
             return basicSetRefersToBaseEnumeration( ( Enumeration ) otherEnd, msgs );
         case NsdPackage.ENUMERATION__REFERRED_BY_ENUMERATION_AS_BASE:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByEnumerationAsBase() )
@@ -1118,19 +1151,25 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
      */
     @Override
     public String toString() {
-        if( eIsProxy() ) return super.toString();
+        if( eIsProxy() ) {
+            return super.toString();
+        }
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (inheritedFrom: " );
-        if( inheritedFromESet )
+        if( inheritedFromESet ) {
             result.append( inheritedFrom );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", name: " );
-        if( nameESet )
+        if( nameESet ) {
             result.append( name );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ')' );
         return result.toString();
     }
@@ -1142,10 +1181,14 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "EnumerationImpl.buildExplicitLinks()" );
 
-        if( super.buildExplicitLinks( console ) ) return true;
+        if( super.buildExplicitLinks( console ) ) {
+            return true;
+        }
 
         NsdResourceSetImpl rs = getResourceSet();
-        if( rs == null ) return false;
+        if( rs == null ) {
+            return false;
+        }
 
         String messagePrefix = "while resolving link from Enumeration (name: " + getName() + "): ";
 

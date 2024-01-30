@@ -357,7 +357,9 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
      */
     @Override
     public void unsetDoc() {
-        if( doc != null ) ( ( InternalEList.Unsettable< ? > ) doc ).unset();
+        if( doc != null ) {
+            ( ( InternalEList.Unsettable< ? > ) doc ).unset();
+        }
     }
 
     /**
@@ -391,8 +393,9 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         id = newId;
         boolean oldIdESet = idESet;
         idESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS_DOC__ID, oldId, id, !oldIdESet ) );
+        }
     }
 
     /**
@@ -406,9 +409,10 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         boolean oldIdESet = idESet;
         id = ID_EDEFAULT;
         idESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS_DOC__ID, oldId, ID_EDEFAULT,
                     oldIdESet ) );
+        }
     }
 
     /**
@@ -442,9 +446,10 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         lang = newLang;
         boolean oldLangESet = langESet;
         langESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS_DOC__LANG, oldLang, lang,
                     !oldLangESet ) );
+        }
     }
 
     /**
@@ -458,9 +463,10 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         boolean oldLangESet = langESet;
         lang = LANG_EDEFAULT;
         langESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS_DOC__LANG, oldLang, LANG_EDEFAULT,
                     oldLangESet ) );
+        }
     }
 
     /**
@@ -688,9 +694,10 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         publicationStage = newPublicationStage == null ? PUBLICATION_STAGE_EDEFAULT : newPublicationStage;
         boolean oldPublicationStageESet = publicationStageESet;
         publicationStageESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS_DOC__PUBLICATION_STAGE,
                     oldPublicationStage, publicationStage, !oldPublicationStageESet ) );
+        }
     }
 
     /**
@@ -704,9 +711,10 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         boolean oldPublicationStageESet = publicationStageESet;
         publicationStage = PUBLICATION_STAGE_EDEFAULT;
         publicationStageESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS_DOC__PUBLICATION_STAGE,
                     oldPublicationStage, PUBLICATION_STAGE_EDEFAULT, oldPublicationStageESet ) );
+        }
     }
 
     /**
@@ -740,9 +748,10 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         release = newRelease;
         boolean oldReleaseESet = releaseESet;
         releaseESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS_DOC__RELEASE, oldRelease, release,
                     !oldReleaseESet ) );
+        }
     }
 
     /**
@@ -756,9 +765,10 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         boolean oldReleaseESet = releaseESet;
         release = RELEASE_EDEFAULT;
         releaseESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS_DOC__RELEASE, oldRelease,
                     RELEASE_EDEFAULT, oldReleaseESet ) );
+        }
     }
 
     /**
@@ -792,9 +802,10 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         revision = newRevision;
         boolean oldRevisionESet = revisionESet;
         revisionESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS_DOC__REVISION, oldRevision, revision,
                     !oldRevisionESet ) );
+        }
     }
 
     /**
@@ -808,9 +819,10 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         boolean oldRevisionESet = revisionESet;
         revision = REVISION_EDEFAULT;
         revisionESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS_DOC__REVISION, oldRevision,
                     REVISION_EDEFAULT, oldRevisionESet ) );
+        }
     }
 
     /**
@@ -844,9 +856,10 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         umlDate = newUmlDate;
         boolean oldUmlDateESet = umlDateESet;
         umlDateESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS_DOC__UML_DATE, oldUmlDate, umlDate,
                     !oldUmlDateESet ) );
+        }
     }
 
     /**
@@ -860,9 +873,10 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         boolean oldUmlDateESet = umlDateESet;
         umlDate = UML_DATE_EDEFAULT;
         umlDateESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS_DOC__UML_DATE, oldUmlDate,
                     UML_DATE_EDEFAULT, oldUmlDateESet ) );
+        }
     }
 
     /**
@@ -896,9 +910,10 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         umlVersion = newUmlVersion;
         boolean oldUmlVersionESet = umlVersionESet;
         umlVersionESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS_DOC__UML_VERSION, oldUmlVersion,
                     umlVersion, !oldUmlVersionESet ) );
+        }
     }
 
     /**
@@ -912,9 +927,10 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         boolean oldUmlVersionESet = umlVersionESet;
         umlVersion = UML_VERSION_EDEFAULT;
         umlVersionESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS_DOC__UML_VERSION, oldUmlVersion,
                     UML_VERSION_EDEFAULT, oldUmlVersionESet ) );
+        }
     }
 
     /**
@@ -963,9 +979,10 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         version = newVersion;
         boolean oldVersionESet = versionESet;
         versionESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS_DOC__VERSION, oldVersion, version,
                     !oldVersionESet ) );
+        }
     }
 
     /**
@@ -979,9 +996,10 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         boolean oldVersionESet = versionESet;
         version = VERSION_EDEFAULT;
         versionESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS_DOC__VERSION, oldVersion,
                     VERSION_EDEFAULT, oldVersionESet ) );
+        }
     }
 
     /**
@@ -1275,49 +1293,67 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
      */
     @Override
     public String toString() {
-        if( eIsProxy() ) return super.toString();
+        if( eIsProxy() ) {
+            return super.toString();
+        }
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (release: " );
-        if( releaseESet )
+        if( releaseESet ) {
             result.append( release );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", version: " );
-        if( versionESet )
+        if( versionESet ) {
             result.append( version );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", id: " );
-        if( idESet )
+        if( idESet ) {
             result.append( id );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", revision: " );
-        if( revisionESet )
+        if( revisionESet ) {
             result.append( revision );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", publicationStage: " );
-        if( publicationStageESet )
+        if( publicationStageESet ) {
             result.append( publicationStage );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", umlDate: " );
-        if( umlDateESet )
+        if( umlDateESet ) {
             result.append( umlDate );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", umlVersion: " );
-        if( umlVersionESet )
+        if( umlVersionESet ) {
             result.append( umlVersion );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", lang: " );
-        if( langESet )
+        if( langESet ) {
             result.append( lang );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ')' );
         return result.toString();
     }

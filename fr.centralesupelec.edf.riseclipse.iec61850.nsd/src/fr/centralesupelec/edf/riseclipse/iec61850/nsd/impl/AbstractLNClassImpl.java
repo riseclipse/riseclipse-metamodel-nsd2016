@@ -145,9 +145,10 @@ public class AbstractLNClassImpl extends AnyLNClassImpl implements AbstractLNCla
         name = newName;
         boolean oldNameESet = nameESet;
         nameESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.ABSTRACT_LN_CLASS__NAME, oldName, name,
                     !oldNameESet ) );
+        }
     }
 
     /**
@@ -161,9 +162,10 @@ public class AbstractLNClassImpl extends AnyLNClassImpl implements AbstractLNCla
         boolean oldNameESet = nameESet;
         name = NAME_EDEFAULT;
         nameESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.ABSTRACT_LN_CLASS__NAME, oldName,
                     NAME_EDEFAULT, oldNameESet ) );
+        }
     }
 
     /**
@@ -183,7 +185,9 @@ public class AbstractLNClassImpl extends AnyLNClassImpl implements AbstractLNCla
      */
     @Override
     public LNClasses getParentLNClasses() {
-        if( eContainerFeatureID() != NsdPackage.ABSTRACT_LN_CLASS__PARENT_LN_CLASSES ) return null;
+        if( eContainerFeatureID() != NsdPackage.ABSTRACT_LN_CLASS__PARENT_LN_CLASSES ) {
+            return null;
+        }
         return ( LNClasses ) eInternalContainer();
     }
 
@@ -208,20 +212,26 @@ public class AbstractLNClassImpl extends AnyLNClassImpl implements AbstractLNCla
         if( newParentLNClasses != eInternalContainer()
                 || ( eContainerFeatureID() != NsdPackage.ABSTRACT_LN_CLASS__PARENT_LN_CLASSES
                         && newParentLNClasses != null ) ) {
-            if( EcoreUtil.isAncestor( this, newParentLNClasses ) )
+            if( EcoreUtil.isAncestor( this, newParentLNClasses ) ) {
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            }
             NotificationChain msgs = null;
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newParentLNClasses != null )
+            }
+            if( newParentLNClasses != null ) {
                 msgs = ( ( InternalEObject ) newParentLNClasses ).eInverseAdd( this,
                         NsdPackage.LN_CLASSES__ABSTRACT_LN_CLASS, LNClasses.class, msgs );
+            }
             msgs = basicSetParentLNClasses( newParentLNClasses, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
-        else if( eNotificationRequired() )
+        else if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.ABSTRACT_LN_CLASS__PARENT_LN_CLASSES,
                     newParentLNClasses, newParentLNClasses ) );
+        }
     }
 
     /**
@@ -246,7 +256,9 @@ public class AbstractLNClassImpl extends AnyLNClassImpl implements AbstractLNCla
      */
     @Override
     public void unsetReferredByAnyLNClass() {
-        if( referredByAnyLNClass != null ) ( ( InternalEList.Unsettable< ? > ) referredByAnyLNClass ).unset();
+        if( referredByAnyLNClass != null ) {
+            ( ( InternalEList.Unsettable< ? > ) referredByAnyLNClass ).unset();
+        }
     }
 
     /**
@@ -333,8 +345,9 @@ public class AbstractLNClassImpl extends AnyLNClassImpl implements AbstractLNCla
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.ABSTRACT_LN_CLASS__PARENT_LN_CLASSES:
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
+            }
             return basicSetParentLNClasses( ( LNClasses ) otherEnd, msgs );
         case NsdPackage.ABSTRACT_LN_CLASS__REFERRED_BY_ANY_LN_CLASS:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByAnyLNClass() )
@@ -477,14 +490,18 @@ public class AbstractLNClassImpl extends AnyLNClassImpl implements AbstractLNCla
      */
     @Override
     public String toString() {
-        if( eIsProxy() ) return super.toString();
+        if( eIsProxy() ) {
+            return super.toString();
+        }
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (name: " );
-        if( nameESet )
+        if( nameESet ) {
             result.append( name );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ')' );
         return result.toString();
     }

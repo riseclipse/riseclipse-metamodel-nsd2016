@@ -1,6 +1,6 @@
 /*
 *************************************************************************
-**  Copyright (c) 2016-2022 CentraleSupélec & EDF.
+**  Copyright (c) 2016-2024 CentraleSupélec & EDF.
 **  All rights reserved. This program and the accompanying materials
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.IdentityHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
@@ -68,6 +69,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdObject;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions;
@@ -93,6 +95,30 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
     private Set< NS >                          nsModified         = new HashSet<>();
 
     private NsdResourceFactoryImpl resourceFactory = new NsdResourceFactoryImpl();
+    
+    // We need to ensure uniqueness of some objects like parameterized CDC
+    // This uniqueness is only valid for a given ResourceSet, so static attributes are not OK when using Eclipse
+    // Therefore, we keep here the needed maps
+    
+    // Use only type as key; not typeKind
+    private Map< NsIdentificationName, HashMap< String, CDC >> parameterizedCDCs = new IdentityHashMap<>();
+
+    public Map< NsIdentificationName, HashMap< String, CDC >> getparameterizedCDCMap() {
+        return parameterizedCDCs;
+    }
+
+    // Use only type as key; not typeKind
+    private Map< NsIdentificationName, HashMap< String, ServiceConstructedAttribute >> parameterizedServiceConstructedAttributes = new IdentityHashMap<>();
+
+    public Map< NsIdentificationName, HashMap< String, ServiceConstructedAttribute >> getParameterizedServiceConstructedAttributesMap() {
+        return parameterizedServiceConstructedAttributes;
+    }
+
+    private Map< NsIdentification, IdentityHashMap< NsdObject, NsIdentificationObject >> nsIdentificationObjects = new IdentityHashMap<>();
+    
+    public Map< NsIdentification, IdentityHashMap< NsdObject, NsIdentificationObject >> getNsIdentificationObjects() {
+        return nsIdentificationObjects;
+    }
 
     public NsdResourceSetImpl( boolean strictContent ) {
         super( strictContent );
@@ -267,6 +293,14 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
             }
         }
         
+        // Handle LNClass extensions
+        // This has to be done before handling parameterized components so that these extensions are taken into account
+        for( NS nsResource : nsResources.values() ) {
+            getLNClassStream( nsResource, false )
+            .filter( lnClass -> lnClass.isIsExtension() )
+            .forEach( lnClass -> (( LNClassImpl ) lnClass ).addDataObjectsFromExtendedLNClass( console ) );
+        }
+        
         // Create parameterized components
         // (see comment in DataObjectImpl.buildExplicitLinks())
         for( NS nsResource : nsResources.values() ) {
@@ -274,13 +308,6 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
             .forEach( lnClass -> (( AnyLNClassImpl ) lnClass ).createParameterizedComponents( console ) );
             getLNClassStream( nsResource, false )
             .forEach( lnClass -> (( AnyLNClassImpl ) lnClass ).createParameterizedComponents( console ) );
-        }
-        
-        // Handle LNClass extensions
-        for( NS nsResource : nsResources.values() ) {
-            getLNClassStream( nsResource, false )
-            .filter( lnClass -> lnClass.isIsExtension() )
-            .forEach( lnClass -> (( LNClassImpl ) lnClass ).addDataObjectsFromExtendedLNClass( console ) );
         }
     }
 
@@ -364,7 +391,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                 }
                 else {
                     console.warning( NSD_SETUP_CATEGORY, 0,
-                                     "BasicType ", typeRealization.getName(), " not found" );
+                                     "BasicType ", typeRealization.getName(), " not found for TypeRealization" );
                 }
             }
         }
@@ -872,7 +899,6 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
             }
             applyToNsId = applyToNsId.getDependsOn();
         }
-        System.out.println("NO");
     }
 
     private Stream< FunctionalConstraint > getFunctionalConstraintStream( NS ns, boolean useDependsOn ) {

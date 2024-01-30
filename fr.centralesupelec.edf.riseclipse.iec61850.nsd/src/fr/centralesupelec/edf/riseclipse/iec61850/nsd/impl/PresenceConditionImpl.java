@@ -326,9 +326,10 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
         argument = newArgument;
         boolean oldArgumentESet = argumentESet;
         argumentESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.PRESENCE_CONDITION__ARGUMENT,
                     oldArgument, argument, !oldArgumentESet ) );
+        }
     }
 
     /**
@@ -342,9 +343,10 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
         boolean oldArgumentESet = argumentESet;
         argument = ARGUMENT_EDEFAULT;
         argumentESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.PRESENCE_CONDITION__ARGUMENT,
                     oldArgument, ARGUMENT_EDEFAULT, oldArgumentESet ) );
+        }
     }
 
     /**
@@ -378,9 +380,10 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
         descID = newDescID;
         boolean oldDescIDESet = descIDESet;
         descIDESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.PRESENCE_CONDITION__DESC_ID, oldDescID,
                     descID, !oldDescIDESet ) );
+        }
     }
 
     /**
@@ -394,9 +397,10 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
         boolean oldDescIDESet = descIDESet;
         descID = DESC_ID_EDEFAULT;
         descIDESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.PRESENCE_CONDITION__DESC_ID, oldDescID,
                     DESC_ID_EDEFAULT, oldDescIDESet ) );
+        }
     }
 
     /**
@@ -430,9 +434,10 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
         name = newName;
         boolean oldNameESet = nameESet;
         nameESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.PRESENCE_CONDITION__NAME, oldName, name,
                     !oldNameESet ) );
+        }
     }
 
     /**
@@ -446,9 +451,10 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
         boolean oldNameESet = nameESet;
         name = NAME_EDEFAULT;
         nameESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.PRESENCE_CONDITION__NAME, oldName,
                     NAME_EDEFAULT, oldNameESet ) );
+        }
     }
 
     /**
@@ -482,9 +488,10 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
         titleID = newTitleID;
         boolean oldTitleIDESet = titleIDESet;
         titleIDESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.PRESENCE_CONDITION__TITLE_ID, oldTitleID,
                     titleID, !oldTitleIDESet ) );
+        }
     }
 
     /**
@@ -498,9 +505,10 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
         boolean oldTitleIDESet = titleIDESet;
         titleID = TITLE_ID_EDEFAULT;
         titleIDESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.PRESENCE_CONDITION__TITLE_ID,
                     oldTitleID, TITLE_ID_EDEFAULT, oldTitleIDESet ) );
+        }
     }
 
     /**
@@ -520,7 +528,9 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
      */
     @Override
     public PresenceConditions getParentPresenceConditions() {
-        if( eContainerFeatureID() != NsdPackage.PRESENCE_CONDITION__PARENT_PRESENCE_CONDITIONS ) return null;
+        if( eContainerFeatureID() != NsdPackage.PRESENCE_CONDITION__PARENT_PRESENCE_CONDITIONS ) {
+            return null;
+        }
         return ( PresenceConditions ) eInternalContainer();
     }
 
@@ -546,21 +556,27 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
         if( newParentPresenceConditions != eInternalContainer()
                 || ( eContainerFeatureID() != NsdPackage.PRESENCE_CONDITION__PARENT_PRESENCE_CONDITIONS
                         && newParentPresenceConditions != null ) ) {
-            if( EcoreUtil.isAncestor( this, newParentPresenceConditions ) )
+            if( EcoreUtil.isAncestor( this, newParentPresenceConditions ) ) {
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            }
             NotificationChain msgs = null;
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newParentPresenceConditions != null )
+            }
+            if( newParentPresenceConditions != null ) {
                 msgs = ( ( InternalEObject ) newParentPresenceConditions ).eInverseAdd( this,
                         NsdPackage.PRESENCE_CONDITIONS__PRESENCE_CONDITION, PresenceConditions.class, msgs );
+            }
             msgs = basicSetParentPresenceConditions( newParentPresenceConditions, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
-        else if( eNotificationRequired() )
+        else if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET,
                     NsdPackage.PRESENCE_CONDITION__PARENT_PRESENCE_CONDITIONS, newParentPresenceConditions,
                     newParentPresenceConditions ) );
+        }
     }
 
     /**
@@ -585,7 +601,9 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
      */
     @Override
     public void unsetReferredByDataObject() {
-        if( referredByDataObject != null ) ( ( InternalEList.Unsettable< ? > ) referredByDataObject ).unset();
+        if( referredByDataObject != null ) {
+            ( ( InternalEList.Unsettable< ? > ) referredByDataObject ).unset();
+        }
     }
 
     /**
@@ -621,8 +639,9 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
      */
     @Override
     public void unsetReferredByDataObjectForDerivedStatistics() {
-        if( referredByDataObjectForDerivedStatistics != null )
+        if( referredByDataObjectForDerivedStatistics != null ) {
             ( ( InternalEList.Unsettable< ? > ) referredByDataObjectForDerivedStatistics ).unset();
+        }
     }
 
     /**
@@ -658,7 +677,9 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
      */
     @Override
     public void unsetReferredBySubDataObject() {
-        if( referredBySubDataObject != null ) ( ( InternalEList.Unsettable< ? > ) referredBySubDataObject ).unset();
+        if( referredBySubDataObject != null ) {
+            ( ( InternalEList.Unsettable< ? > ) referredBySubDataObject ).unset();
+        }
     }
 
     /**
@@ -693,7 +714,9 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
      */
     @Override
     public void unsetReferredByDataAttribute() {
-        if( referredByDataAttribute != null ) ( ( InternalEList.Unsettable< ? > ) referredByDataAttribute ).unset();
+        if( referredByDataAttribute != null ) {
+            ( ( InternalEList.Unsettable< ? > ) referredByDataAttribute ).unset();
+        }
     }
 
     /**
@@ -728,8 +751,9 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
      */
     @Override
     public void unsetReferredBySubDataAttribute() {
-        if( referredBySubDataAttribute != null )
+        if( referredBySubDataAttribute != null ) {
             ( ( InternalEList.Unsettable< ? > ) referredBySubDataAttribute ).unset();
+        }
     }
 
     /**
@@ -767,10 +791,12 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.PRESENCE_CONDITION__REFERS_TO_DESC_DOC, oldRefersToDescDoc, newRefersToDescDoc,
                     !oldRefersToDescDocESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -784,22 +810,27 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
     public void setRefersToDescDoc( Doc newRefersToDescDoc ) {
         if( newRefersToDescDoc != refersToDescDoc ) {
             NotificationChain msgs = null;
-            if( refersToDescDoc != null )
+            if( refersToDescDoc != null ) {
                 msgs = ( ( InternalEObject ) refersToDescDoc ).eInverseRemove( this,
                         NsdPackage.DOC__REFERRED_BY_PRESENCE_CONDITION_AS_DESC, Doc.class, msgs );
-            if( newRefersToDescDoc != null )
+            }
+            if( newRefersToDescDoc != null ) {
                 msgs = ( ( InternalEObject ) newRefersToDescDoc ).eInverseAdd( this,
                         NsdPackage.DOC__REFERRED_BY_PRESENCE_CONDITION_AS_DESC, Doc.class, msgs );
+            }
             msgs = basicSetRefersToDescDoc( newRefersToDescDoc, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToDescDocESet = refersToDescDocESet;
             refersToDescDocESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET,
                         NsdPackage.PRESENCE_CONDITION__REFERS_TO_DESC_DOC, newRefersToDescDoc, newRefersToDescDoc,
                         !oldRefersToDescDocESet ) );
+            }
         }
     }
 
@@ -817,10 +848,12 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.PRESENCE_CONDITION__REFERS_TO_DESC_DOC, oldRefersToDescDoc, null,
                     oldRefersToDescDocESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -837,14 +870,17 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
             msgs = ( ( InternalEObject ) refersToDescDoc ).eInverseRemove( this,
                     NsdPackage.DOC__REFERRED_BY_PRESENCE_CONDITION_AS_DESC, Doc.class, msgs );
             msgs = basicUnsetRefersToDescDoc( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToDescDocESet = refersToDescDocESet;
             refersToDescDocESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET,
                         NsdPackage.PRESENCE_CONDITION__REFERS_TO_DESC_DOC, null, null, oldRefersToDescDocESet ) );
+            }
         }
     }
 
@@ -882,10 +918,12 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.PRESENCE_CONDITION__REFERS_TO_TITLE_DOC, oldRefersToTitleDoc, newRefersToTitleDoc,
                     !oldRefersToTitleDocESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -899,22 +937,27 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
     public void setRefersToTitleDoc( Doc newRefersToTitleDoc ) {
         if( newRefersToTitleDoc != refersToTitleDoc ) {
             NotificationChain msgs = null;
-            if( refersToTitleDoc != null )
+            if( refersToTitleDoc != null ) {
                 msgs = ( ( InternalEObject ) refersToTitleDoc ).eInverseRemove( this,
                         NsdPackage.DOC__REFERRED_BY_PRESENCE_CONDITION_AS_TITLE, Doc.class, msgs );
-            if( newRefersToTitleDoc != null )
+            }
+            if( newRefersToTitleDoc != null ) {
                 msgs = ( ( InternalEObject ) newRefersToTitleDoc ).eInverseAdd( this,
                         NsdPackage.DOC__REFERRED_BY_PRESENCE_CONDITION_AS_TITLE, Doc.class, msgs );
+            }
             msgs = basicSetRefersToTitleDoc( newRefersToTitleDoc, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToTitleDocESet = refersToTitleDocESet;
             refersToTitleDocESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET,
                         NsdPackage.PRESENCE_CONDITION__REFERS_TO_TITLE_DOC, newRefersToTitleDoc, newRefersToTitleDoc,
                         !oldRefersToTitleDocESet ) );
+            }
         }
     }
 
@@ -932,10 +975,12 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.PRESENCE_CONDITION__REFERS_TO_TITLE_DOC, oldRefersToTitleDoc, null,
                     oldRefersToTitleDocESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -952,14 +997,17 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
             msgs = ( ( InternalEObject ) refersToTitleDoc ).eInverseRemove( this,
                     NsdPackage.DOC__REFERRED_BY_PRESENCE_CONDITION_AS_TITLE, Doc.class, msgs );
             msgs = basicUnsetRefersToTitleDoc( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToTitleDocESet = refersToTitleDocESet;
             refersToTitleDocESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET,
                         NsdPackage.PRESENCE_CONDITION__REFERS_TO_TITLE_DOC, null, null, oldRefersToTitleDocESet ) );
+            }
         }
     }
 
@@ -1047,8 +1095,9 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.PRESENCE_CONDITION__PARENT_PRESENCE_CONDITIONS:
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
+            }
             return basicSetParentPresenceConditions( ( PresenceConditions ) otherEnd, msgs );
         case NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT:
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredByDataObject() )
@@ -1066,14 +1115,16 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getReferredBySubDataAttribute() )
                     .basicAdd( otherEnd, msgs );
         case NsdPackage.PRESENCE_CONDITION__REFERS_TO_DESC_DOC:
-            if( refersToDescDoc != null )
+            if( refersToDescDoc != null ) {
                 msgs = ( ( InternalEObject ) refersToDescDoc ).eInverseRemove( this,
                         NsdPackage.DOC__REFERRED_BY_PRESENCE_CONDITION_AS_DESC, Doc.class, msgs );
+            }
             return basicSetRefersToDescDoc( ( Doc ) otherEnd, msgs );
         case NsdPackage.PRESENCE_CONDITION__REFERS_TO_TITLE_DOC:
-            if( refersToTitleDoc != null )
+            if( refersToTitleDoc != null ) {
                 msgs = ( ( InternalEObject ) refersToTitleDoc ).eInverseRemove( this,
                         NsdPackage.DOC__REFERRED_BY_PRESENCE_CONDITION_AS_TITLE, Doc.class, msgs );
+            }
             return basicSetRefersToTitleDoc( ( Doc ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
@@ -1320,29 +1371,39 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
      */
     @Override
     public String toString() {
-        if( eIsProxy() ) return super.toString();
+        if( eIsProxy() ) {
+            return super.toString();
+        }
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (argument: " );
-        if( argumentESet )
+        if( argumentESet ) {
             result.append( argument );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", descID: " );
-        if( descIDESet )
+        if( descIDESet ) {
             result.append( descID );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", name: " );
-        if( nameESet )
+        if( nameESet ) {
             result.append( name );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", titleID: " );
-        if( titleIDESet )
+        if( titleIDESet ) {
             result.append( titleID );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ')' );
         return result.toString();
     }
@@ -1351,7 +1412,9 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "PresenceConditionImpl.buildExplicitLinks()" );
 
-        if( super.buildExplicitLinks( console ) ) return true;
+        if( super.buildExplicitLinks( console ) ) {
+            return true;
+        }
 
         NsIdentification identification = null;
         if( getParentPresenceConditions().getParentNS() != null ) {
@@ -1364,12 +1427,16 @@ public class PresenceConditionImpl extends NsdObjectImpl implements PresenceCond
             if( isSetDescID() ) {
                 Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( identification,
                         getDescID() );
-                if( doc != null ) setRefersToDescDoc( doc );
+                if( doc != null ) {
+                    setRefersToDescDoc( doc );
+                }
             }
             if( isSetTitleID() ) {
                 Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( identification,
                         getTitleID() );
-                if( doc != null ) setRefersToTitleDoc( doc );
+                if( doc != null ) {
+                    setRefersToTitleDoc( doc );
+                }
             }
         }
 

@@ -123,7 +123,9 @@ public class PresenceConditionsImpl extends NsdObjectImpl implements PresenceCon
      */
     @Override
     public void unsetPresenceCondition() {
-        if( presenceCondition != null ) ( ( InternalEList.Unsettable< ? > ) presenceCondition ).unset();
+        if( presenceCondition != null ) {
+            ( ( InternalEList.Unsettable< ? > ) presenceCondition ).unset();
+        }
     }
 
     /**
@@ -143,7 +145,9 @@ public class PresenceConditionsImpl extends NsdObjectImpl implements PresenceCon
      */
     @Override
     public NS getParentNS() {
-        if( eContainerFeatureID() != NsdPackage.PRESENCE_CONDITIONS__PARENT_NS ) return null;
+        if( eContainerFeatureID() != NsdPackage.PRESENCE_CONDITIONS__PARENT_NS ) {
+            return null;
+        }
         return ( NS ) eInternalContainer();
     }
 
@@ -166,20 +170,26 @@ public class PresenceConditionsImpl extends NsdObjectImpl implements PresenceCon
     public void setParentNS( NS newParentNS ) {
         if( newParentNS != eInternalContainer()
                 || ( eContainerFeatureID() != NsdPackage.PRESENCE_CONDITIONS__PARENT_NS && newParentNS != null ) ) {
-            if( EcoreUtil.isAncestor( this, newParentNS ) )
+            if( EcoreUtil.isAncestor( this, newParentNS ) ) {
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            }
             NotificationChain msgs = null;
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newParentNS != null )
+            }
+            if( newParentNS != null ) {
                 msgs = ( ( InternalEObject ) newParentNS ).eInverseAdd( this, NsdPackage.NS__PRESENCE_CONDITIONS,
                         NS.class, msgs );
+            }
             msgs = basicSetParentNS( newParentNS, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
-        else if( eNotificationRequired() )
+        else if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.PRESENCE_CONDITIONS__PARENT_NS,
                     newParentNS, newParentNS ) );
+        }
     }
 
     /**
@@ -189,7 +199,9 @@ public class PresenceConditionsImpl extends NsdObjectImpl implements PresenceCon
      */
     @Override
     public ServiceNS getParentServiceNS() {
-        if( eContainerFeatureID() != NsdPackage.PRESENCE_CONDITIONS__PARENT_SERVICE_NS ) return null;
+        if( eContainerFeatureID() != NsdPackage.PRESENCE_CONDITIONS__PARENT_SERVICE_NS ) {
+            return null;
+        }
         return ( ServiceNS ) eInternalContainer();
     }
 
@@ -214,20 +226,26 @@ public class PresenceConditionsImpl extends NsdObjectImpl implements PresenceCon
         if( newParentServiceNS != eInternalContainer()
                 || ( eContainerFeatureID() != NsdPackage.PRESENCE_CONDITIONS__PARENT_SERVICE_NS
                         && newParentServiceNS != null ) ) {
-            if( EcoreUtil.isAncestor( this, newParentServiceNS ) )
+            if( EcoreUtil.isAncestor( this, newParentServiceNS ) ) {
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            }
             NotificationChain msgs = null;
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newParentServiceNS != null )
+            }
+            if( newParentServiceNS != null ) {
                 msgs = ( ( InternalEObject ) newParentServiceNS ).eInverseAdd( this,
                         NsdPackage.SERVICE_NS__PRESENCE_CONDITIONS, ServiceNS.class, msgs );
+            }
             msgs = basicSetParentServiceNS( newParentServiceNS, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
-        else if( eNotificationRequired() )
+        else if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.PRESENCE_CONDITIONS__PARENT_SERVICE_NS,
                     newParentServiceNS, newParentServiceNS ) );
+        }
     }
 
     /**
@@ -341,12 +359,14 @@ public class PresenceConditionsImpl extends NsdObjectImpl implements PresenceCon
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getPresenceCondition() )
                     .basicAdd( otherEnd, msgs );
         case NsdPackage.PRESENCE_CONDITIONS__PARENT_NS:
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
+            }
             return basicSetParentNS( ( NS ) otherEnd, msgs );
         case NsdPackage.PRESENCE_CONDITIONS__PARENT_SERVICE_NS:
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
+            }
             return basicSetParentServiceNS( ( ServiceNS ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );

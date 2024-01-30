@@ -267,9 +267,10 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
         release = newRelease;
         boolean oldReleaseESet = releaseESet;
         releaseESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_NS_USAGE__RELEASE, oldRelease,
                     release, !oldReleaseESet ) );
+        }
     }
 
     /**
@@ -283,9 +284,10 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
         boolean oldReleaseESet = releaseESet;
         release = RELEASE_EDEFAULT;
         releaseESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_NS_USAGE__RELEASE, oldRelease,
                     RELEASE_EDEFAULT, oldReleaseESet ) );
+        }
     }
 
     /**
@@ -319,9 +321,10 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
         version = newVersion;
         boolean oldVersionESet = versionESet;
         versionESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_NS_USAGE__VERSION, oldVersion,
                     version, !oldVersionESet ) );
+        }
     }
 
     /**
@@ -335,9 +338,10 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
         boolean oldVersionESet = versionESet;
         version = VERSION_EDEFAULT;
         versionESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_NS_USAGE__VERSION, oldVersion,
                     VERSION_EDEFAULT, oldVersionESet ) );
+        }
     }
 
     /**
@@ -371,7 +375,9 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
      */
     @Override
     public void unsetAppliesTo() {
-        if( appliesTo != null ) ( ( InternalEList.Unsettable< ? > ) appliesTo ).unset();
+        if( appliesTo != null ) {
+            ( ( InternalEList.Unsettable< ? > ) appliesTo ).unset();
+        }
     }
 
     /**
@@ -391,7 +397,9 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
      */
     @Override
     public ApplicableServiceNS getParentApplicableServiceNS() {
-        if( eContainerFeatureID() != NsdPackage.SERVICE_NS_USAGE__PARENT_APPLICABLE_SERVICE_NS ) return null;
+        if( eContainerFeatureID() != NsdPackage.SERVICE_NS_USAGE__PARENT_APPLICABLE_SERVICE_NS ) {
+            return null;
+        }
         return ( ApplicableServiceNS ) eInternalContainer();
     }
 
@@ -417,21 +425,27 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
         if( newParentApplicableServiceNS != eInternalContainer()
                 || ( eContainerFeatureID() != NsdPackage.SERVICE_NS_USAGE__PARENT_APPLICABLE_SERVICE_NS
                         && newParentApplicableServiceNS != null ) ) {
-            if( EcoreUtil.isAncestor( this, newParentApplicableServiceNS ) )
+            if( EcoreUtil.isAncestor( this, newParentApplicableServiceNS ) ) {
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            }
             NotificationChain msgs = null;
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newParentApplicableServiceNS != null )
+            }
+            if( newParentApplicableServiceNS != null ) {
                 msgs = ( ( InternalEObject ) newParentApplicableServiceNS ).eInverseAdd( this,
                         NsdPackage.APPLICABLE_SERVICE_NS__SERVICE_NS_USAGE, ApplicableServiceNS.class, msgs );
+            }
             msgs = basicSetParentApplicableServiceNS( newParentApplicableServiceNS, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
-        else if( eNotificationRequired() )
+        else if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET,
                     NsdPackage.SERVICE_NS_USAGE__PARENT_APPLICABLE_SERVICE_NS, newParentApplicableServiceNS,
                     newParentApplicableServiceNS ) );
+        }
     }
 
     /**
@@ -585,9 +599,10 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
         id = newId;
         boolean oldIdESet = idESet;
         idESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_NS_USAGE__ID, oldId, id,
                     !oldIdESet ) );
+        }
     }
 
     /**
@@ -601,9 +616,10 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
         boolean oldIdESet = idESet;
         id = ID_EDEFAULT;
         idESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_NS_USAGE__ID, oldId,
                     ID_EDEFAULT, oldIdESet ) );
+        }
     }
 
     /**
@@ -637,9 +653,10 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
         publicationStage = newPublicationStage == null ? PUBLICATION_STAGE_EDEFAULT : newPublicationStage;
         boolean oldPublicationStageESet = publicationStageESet;
         publicationStageESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_NS_USAGE__PUBLICATION_STAGE,
                     oldPublicationStage, publicationStage, !oldPublicationStageESet ) );
+        }
     }
 
     /**
@@ -653,9 +670,10 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
         boolean oldPublicationStageESet = publicationStageESet;
         publicationStage = PUBLICATION_STAGE_EDEFAULT;
         publicationStageESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_NS_USAGE__PUBLICATION_STAGE,
                     oldPublicationStage, PUBLICATION_STAGE_EDEFAULT, oldPublicationStageESet ) );
+        }
     }
 
     /**
@@ -689,9 +707,10 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
         revision = newRevision;
         boolean oldRevisionESet = revisionESet;
         revisionESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_NS_USAGE__REVISION, oldRevision,
                     revision, !oldRevisionESet ) );
+        }
     }
 
     /**
@@ -705,9 +724,10 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
         boolean oldRevisionESet = revisionESet;
         revision = REVISION_EDEFAULT;
         revisionESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_NS_USAGE__REVISION,
                     oldRevision, REVISION_EDEFAULT, oldRevisionESet ) );
+        }
     }
 
     /**
@@ -733,8 +753,9 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getAppliesTo() ).basicAdd( otherEnd,
                     msgs );
         case NsdPackage.SERVICE_NS_USAGE__PARENT_APPLICABLE_SERVICE_NS:
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
+            }
             return basicSetParentApplicableServiceNS( ( ApplicableServiceNS ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
@@ -989,34 +1010,46 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
      */
     @Override
     public String toString() {
-        if( eIsProxy() ) return super.toString();
+        if( eIsProxy() ) {
+            return super.toString();
+        }
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (release: " );
-        if( releaseESet )
+        if( releaseESet ) {
             result.append( release );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", version: " );
-        if( versionESet )
+        if( versionESet ) {
             result.append( version );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", id: " );
-        if( idESet )
+        if( idESet ) {
             result.append( id );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", revision: " );
-        if( revisionESet )
+        if( revisionESet ) {
             result.append( revision );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", publicationStage: " );
-        if( publicationStageESet )
+        if( publicationStageESet ) {
             result.append( publicationStage );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ')' );
         return result.toString();
     }

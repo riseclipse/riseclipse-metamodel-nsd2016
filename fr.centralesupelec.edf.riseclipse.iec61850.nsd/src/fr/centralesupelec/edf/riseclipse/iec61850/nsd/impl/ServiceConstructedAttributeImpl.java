@@ -1,6 +1,6 @@
 /*
 *************************************************************************
-**  Copyright (c) 2016-2021 CentraleSupélec & EDF.
+**  Copyright (c) 2016-2024 CentraleSupélec & EDF.
 **  All rights reserved. This program and the accompanying materials
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
@@ -22,7 +22,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.IdentityHashMap;
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -139,10 +139,11 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
         typeKindParameterized = newTypeKindParameterized;
         boolean oldTypeKindParameterizedESet = typeKindParameterizedESet;
         typeKindParameterizedESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET,
                     NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__TYPE_KIND_PARAMETERIZED, oldTypeKindParameterized,
                     typeKindParameterized, !oldTypeKindParameterizedESet ) );
+        }
     }
 
     /**
@@ -156,10 +157,11 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
         boolean oldTypeKindParameterizedESet = typeKindParameterizedESet;
         typeKindParameterized = TYPE_KIND_PARAMETERIZED_EDEFAULT;
         typeKindParameterizedESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__TYPE_KIND_PARAMETERIZED, oldTypeKindParameterized,
                     TYPE_KIND_PARAMETERIZED_EDEFAULT, oldTypeKindParameterizedESet ) );
+        }
     }
 
     /**
@@ -179,8 +181,9 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
      */
     @Override
     public ServiceConstructedAttributes getParentServiceConstructedAttributes() {
-        if( eContainerFeatureID() != NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_CONSTRUCTED_ATTRIBUTES )
+        if( eContainerFeatureID() != NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_CONSTRUCTED_ATTRIBUTES ) {
             return null;
+        }
         return ( ServiceConstructedAttributes ) eInternalContainer();
     }
 
@@ -207,22 +210,28 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
         if( newParentServiceConstructedAttributes != eInternalContainer()
                 || ( eContainerFeatureID() != NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_CONSTRUCTED_ATTRIBUTES
                         && newParentServiceConstructedAttributes != null ) ) {
-            if( EcoreUtil.isAncestor( this, newParentServiceConstructedAttributes ) )
+            if( EcoreUtil.isAncestor( this, newParentServiceConstructedAttributes ) ) {
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            }
             NotificationChain msgs = null;
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newParentServiceConstructedAttributes != null )
+            }
+            if( newParentServiceConstructedAttributes != null ) {
                 msgs = ( ( InternalEObject ) newParentServiceConstructedAttributes ).eInverseAdd( this,
                         NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__SERVICE_CONSTRUCTED_ATTRIBUTE,
                         ServiceConstructedAttributes.class, msgs );
+            }
             msgs = basicSetParentServiceConstructedAttributes( newParentServiceConstructedAttributes, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
-        else if( eNotificationRequired() )
+        else if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET,
                     NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_CONSTRUCTED_ATTRIBUTES,
                     newParentServiceConstructedAttributes, newParentServiceConstructedAttributes ) );
+        }
     }
 
     /**
@@ -246,8 +255,9 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
      */
     @Override
     public void unsetParameterizedSubDataAttributeNames() {
-        if( parameterizedSubDataAttributeNames != null )
+        if( parameterizedSubDataAttributeNames != null ) {
             ( ( InternalEList.Unsettable< ? > ) parameterizedSubDataAttributeNames ).unset();
+        }
     }
 
     /**
@@ -270,8 +280,9 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_CONSTRUCTED_ATTRIBUTES:
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
+            }
             return basicSetParentServiceConstructedAttributes( ( ServiceConstructedAttributes ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
@@ -394,14 +405,18 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
      */
     @Override
     public String toString() {
-        if( eIsProxy() ) return super.toString();
+        if( eIsProxy() ) {
+            return super.toString();
+        }
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (typeKindParameterized: " );
-        if( typeKindParameterizedESet )
+        if( typeKindParameterizedESet ) {
             result.append( typeKindParameterized );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", parameterizedSubDataAttributeNames: " );
         result.append( parameterizedSubDataAttributeNames );
         result.append( ')' );
@@ -418,9 +433,6 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
 
     //@formatter:off
 
-    // Use only type as key; not typeKind
-    private static IdentityHashMap< NsIdentificationName, HashMap< String, ServiceConstructedAttribute >> parameterizedServiceConstructedAttributes = new IdentityHashMap<>();
-
     public ServiceConstructedAttribute getParameterizedServiceConstructedAttribute(
             DefinedAttributeTypeKind underlyingTypeKind, String underlyingType, NsIdentification nsIdentification, IRiseClipseConsole console ) {
         if( getParameterizedSubDataAttributeNames().isEmpty() ) {
@@ -430,6 +442,7 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
         }
 
         NsIdentificationName key = NsIdentificationName.of( getNsIdentification(), getName() );
+        Map< NsIdentificationName, HashMap< String, ServiceConstructedAttribute >> parameterizedServiceConstructedAttributes = getResourceSet().getParameterizedServiceConstructedAttributesMap();
         if( ! parameterizedServiceConstructedAttributes.containsKey( key )) {
             parameterizedServiceConstructedAttributes.put( key, new HashMap<>() );
         }
