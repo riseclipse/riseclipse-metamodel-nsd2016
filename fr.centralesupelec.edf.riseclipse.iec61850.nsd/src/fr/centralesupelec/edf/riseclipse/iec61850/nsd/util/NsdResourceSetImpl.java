@@ -1,6 +1,6 @@
 /*
 *************************************************************************
-**  Copyright (c) 2016-2022 CentraleSupélec & EDF.
+**  Copyright (c) 2016-2024 CentraleSupélec & EDF.
 **  All rights reserved. This program and the accompanying materials
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.IdentityHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
@@ -41,9 +42,7 @@ import org.eclipse.emf.ecore.xmi.IllegalValueException;
 import org.eclipse.jdt.annotation.NonNull;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AnyLNClassImpl;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.CDCImpl;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.LNClassImpl;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceConstructedAttributeImpl;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceDataAttributeImpl;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation;
@@ -70,6 +69,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdObject;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions;
@@ -95,6 +95,30 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
     private Set< NS >                          nsModified         = new HashSet<>();
 
     private NsdResourceFactoryImpl resourceFactory = new NsdResourceFactoryImpl();
+    
+    // We need to ensure uniqueness of some objects like parameterized CDC
+    // This uniqueness is only valid for a given ResourceSet, so static attributes are not OK when using Eclipse
+    // Therefore, we keep here the needed maps
+    
+    // Use only type as key; not typeKind
+    private Map< NsIdentificationName, HashMap< String, CDC >> parameterizedCDCs = new IdentityHashMap<>();
+
+    public Map< NsIdentificationName, HashMap< String, CDC >> getparameterizedCDCMap() {
+        return parameterizedCDCs;
+    }
+
+    // Use only type as key; not typeKind
+    private Map< NsIdentificationName, HashMap< String, ServiceConstructedAttribute >> parameterizedServiceConstructedAttributes = new IdentityHashMap<>();
+
+    public Map< NsIdentificationName, HashMap< String, ServiceConstructedAttribute >> getParameterizedServiceConstructedAttributesMap() {
+        return parameterizedServiceConstructedAttributes;
+    }
+
+    private Map< NsIdentification, IdentityHashMap< NsdObject, NsIdentificationObject >> nsIdentificationObjects = new IdentityHashMap<>();
+    
+    public Map< NsIdentification, IdentityHashMap< NsdObject, NsIdentificationObject >> getNsIdentificationObjects() {
+        return nsIdentificationObjects;
+    }
 
     public NsdResourceSetImpl( boolean strictContent ) {
         super( strictContent );
@@ -208,14 +232,6 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
      */
     @Override
     public void finalizeLoad( IRiseClipseConsole console ) {
-        // static maps are used (e.g. parameterized components)
-        // within Eclipse, they must be cleared after a previous load
-        NsIdentification.reset();
-        NsIdentificationName.reset();
-        NsIdentificationObject.reset();
-        CDCImpl.reset();
-        ServiceConstructedAttributeImpl.reset();
-        
         // Explicit links must be built first, they are needed for ServiceNsUsage
         buildExplicitLinks( console );
         

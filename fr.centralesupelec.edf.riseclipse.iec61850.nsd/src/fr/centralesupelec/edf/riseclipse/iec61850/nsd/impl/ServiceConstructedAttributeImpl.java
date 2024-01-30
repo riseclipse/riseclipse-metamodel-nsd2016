@@ -1,6 +1,6 @@
 /*
 *************************************************************************
-**  Copyright (c) 2016-2021 CentraleSupélec & EDF.
+**  Copyright (c) 2016-2024 CentraleSupélec & EDF.
 **  All rights reserved. This program and the accompanying materials
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
@@ -22,7 +22,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.IdentityHashMap;
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -433,9 +433,6 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
 
     //@formatter:off
 
-    // Use only type as key; not typeKind
-    private static IdentityHashMap< NsIdentificationName, HashMap< String, ServiceConstructedAttribute >> parameterizedServiceConstructedAttributes;
-
     public ServiceConstructedAttribute getParameterizedServiceConstructedAttribute(
             DefinedAttributeTypeKind underlyingTypeKind, String underlyingType, NsIdentification nsIdentification, IRiseClipseConsole console ) {
         if( getParameterizedSubDataAttributeNames().isEmpty() ) {
@@ -445,6 +442,7 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
         }
 
         NsIdentificationName key = NsIdentificationName.of( getNsIdentification(), getName() );
+        Map< NsIdentificationName, HashMap< String, ServiceConstructedAttribute >> parameterizedServiceConstructedAttributes = getResourceSet().getParameterizedServiceConstructedAttributesMap();
         if( ! parameterizedServiceConstructedAttributes.containsKey( key )) {
             parameterizedServiceConstructedAttributes.put( key, new HashMap<>() );
         }
@@ -475,9 +473,5 @@ public class ServiceConstructedAttributeImpl extends ConstructedAttributeImpl im
     }
 
     //@formatter:on
-
-    public static void reset() {
-        parameterizedServiceConstructedAttributes = new IdentityHashMap<>();
-    }
 
 } //ServiceConstructedAttributeImpl

@@ -1,6 +1,6 @@
 /*
 *************************************************************************
-**  Copyright (c) 2016-2021 CentraleSupélec & EDF.
+**  Copyright (c) 2016-2024 CentraleSupélec & EDF.
 **  All rights reserved. This program and the accompanying materials
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
@@ -23,7 +23,6 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -1476,9 +1475,6 @@ public class CDCImpl extends TitledClassImpl implements CDC {
         return NsIdentification.of( getParentCDCs().getParentNS() );
     }
 
-    // Use only type as key; not typeKind
-    private static IdentityHashMap< NsIdentificationName, HashMap< String, CDC >> parameterizedCDCs;
-
     public CDC getParameterizedCDC( DefinedAttributeTypeKind underlyingTypeKind, String underlyingType,
             NS ns, IRiseClipseConsole console ) {
         if( getParameterizedDataAttributeNames().isEmpty() ) {
@@ -1488,6 +1484,7 @@ public class CDCImpl extends TitledClassImpl implements CDC {
         }
 
         NsIdentificationName key = NsIdentificationName.of( getNsIdentification(), getName() );
+        Map< NsIdentificationName, HashMap< String, CDC >> parameterizedCDCs = getResourceSet().getparameterizedCDCMap();
         if( ! parameterizedCDCs.containsKey( key)) {
             parameterizedCDCs.put( key,  new HashMap<>() );
         }
@@ -1531,6 +1528,7 @@ public class CDCImpl extends TitledClassImpl implements CDC {
 
     public String getUnderlyingType() {
         NsIdentificationName key = NsIdentificationName.of( getNsIdentification(), getName() );
+        Map< NsIdentificationName, HashMap< String, CDC >> parameterizedCDCs = getResourceSet().getparameterizedCDCMap();
         if( ! parameterizedCDCs.containsKey( key ) ) {
             return null;
         }
@@ -1540,10 +1538,6 @@ public class CDCImpl extends TitledClassImpl implements CDC {
             }
         }
         return null;
-    }
-
-    public static void reset() {
-        parameterizedCDCs = new IdentityHashMap<>();
     }
 
     //@formatter:on

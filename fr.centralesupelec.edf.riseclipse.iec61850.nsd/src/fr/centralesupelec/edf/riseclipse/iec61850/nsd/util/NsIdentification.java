@@ -1,6 +1,6 @@
 /*
 *************************************************************************
-**  Copyright (c) 2016-2022 CentraleSupélec & EDF.
+**  Copyright (c) 2016-2024 CentraleSupélec & EDF.
 **  All rights reserved. This program and the accompanying materials
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
@@ -41,11 +41,8 @@ public class NsIdentification {
     
     private NsIdentification dependsOn;
     
-    private static HashMap< String, HashMap< Integer, HashMap< String, NsIdentification >>> nsIdentifications;
-    
-    public static void reset() {
-        nsIdentifications = new HashMap<>();
-    }
+    // This map can be shared among all ResourceSets
+    private static HashMap< String, HashMap< Integer, HashMap< String, NsIdentification >>> nsIdentifications = new HashMap<>();
     
     public static NsIdentification of( String id, Integer version, String revision, Integer release ) {
         if( ! nsIdentifications.containsKey( id )) {
