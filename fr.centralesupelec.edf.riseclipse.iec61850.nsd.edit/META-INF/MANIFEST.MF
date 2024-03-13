@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: fr.centralesupelec.edf.riseclipse.iec61850.nsd.edit;singleton:=true
 Automatic-Module-Name: fr.centralesupelec.edf.riseclipse.iec61850.nsd.edit
-Bundle-Version: 1.2.9
+Bundle-Version: 1.2.10.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: fr.centralesupelec.edf.riseclipse.iec61850.nsd.provider.NSDEditPlugin$Implementation
 Bundle-Vendor: %providerName
