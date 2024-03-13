@@ -3080,16 +3080,21 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                     messagePrefix, "The CDC (name: ", getType(), ") is unknown" );
             return;
         }
+        NS ns = getResourceSet().getNS( nsIdentification );
         if( usedCDC.isTypeKindParameterized() ) {
             if( isSetUnderlyingType() && isSetUnderlyingTypeKind() ) {
-                // Put this CDC in the same namespace/resource than the underlyingType so that
-                // the validator for the underlyingType is found
-                NS ns = getResourceSet().getNS( nsIdentification );
+                // Two namespaces are concerned: the one of the CDC and the one of the underlyingType
+                // To be sure to find the validators, we will use the more general one
+                // Correction after mail from Aurélie 9 February 2024, point 11
+                NS underlyingTypeNs = null;
                 if( getRefersToUnderlyingBasicType() != null ) {
-                    ns = getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS();
+                    underlyingTypeNs = getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS();
                 }
                 else if( getRefersToUnderlyingConstructedAttribute() != null ) {
-                    ns = getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes().getParentNS();
+                    underlyingTypeNs = getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes().getParentNS();
+                }
+                if(( underlyingTypeNs != null && ( NsIdentification.of( underlyingTypeNs ).dependsOn( nsIdentification )))) {
+                    ns = underlyingTypeNs;
                 }
                 usedCDC = ( ( CDCImpl ) usedCDC ).getParameterizedCDC( getUnderlyingTypeKind(),
                         getUnderlyingType(), ns, console );
@@ -3102,11 +3107,12 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         }
         else if( usedCDC.isEnumParameterized() ) {
             if( isSetUnderlyingType() ) {
-                // Put this CDC in the same namespace/resource than the underlyingType so that
-                // the validator for it is found
-                NS ns = getResourceSet().getNS( nsIdentification );
+                NS underlyingTypeNs = null;
                 if( getRefersToUnderlyingEnumeration() != null ) {
-                    ns = getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS();
+                    underlyingTypeNs = getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS();
+                }
+                if(( underlyingTypeNs != null && ( NsIdentification.of( underlyingTypeNs ).dependsOn( nsIdentification )))) {
+                    ns = underlyingTypeNs;
                 }
                 usedCDC = (( CDCImpl ) usedCDC ).getParameterizedCDC( DefinedAttributeTypeKind.ENUMERATED, getUnderlyingType(), ns, console );
             }
