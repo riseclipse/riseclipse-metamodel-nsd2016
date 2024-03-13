@@ -2531,7 +2531,7 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
             }
             else {
                 setRefersToPresenceCondition( foundPC );
-                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                         messagePrefix, "PresenceCondition (name: ", getPresCond(), ") found in NS \"",
                         NsIdentification.of(
                                 getRefersToPresenceCondition().getParentPresenceConditions().getParentNS() ),
@@ -2551,7 +2551,7 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
                     }
                     else {
                         setRefersToBasicType( foundBT );
-                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                                 messagePrefix, "BasicType (name: ", getType(), ") found in NS \"",
                                 NsIdentification.of( getRefersToBasicType().getParentBasicTypes().getParentNS() ),
                                 "\"" );
@@ -2567,7 +2567,7 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
                     }
                     else {
                         setRefersToConstructedAttribute( foundCA );
-                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                                 messagePrefix, "ConstructedAttribute (name: ", getType(), ") found in NS \"",
                                 NsIdentification.of( getRefersToConstructedAttribute().getParentConstructedAttributes()
                                         .getParentNS() ),
@@ -2583,7 +2583,7 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
                     }
                     else {
                         setRefersToEnumeration( foundEn );
-                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                                 messagePrefix, "Enumeration (name: ", getType(), ") found in NS \"",
                                 NsIdentification.of( getRefersToEnumeration().getParentEnumerations().getParentNS() ),
                                 "\"" );
@@ -2601,7 +2601,7 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
                 ServiceConstructedAttribute sca = ( ServiceConstructedAttribute ) getParentConstructedAttribute();
                 // type may be missing if CDC has typeKindParameterized="true"
                 if( sca.isTypeKindParameterized() ) {
-                    console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                    console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                             messagePrefix, "type is missing for ", getTypeKind(),
                             " but typeKindParameterized in parent ServiceConstructedAttribute is true" );
                     sca.getParameterizedSubDataAttributeNames().add( getName() );

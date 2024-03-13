@@ -2889,7 +2889,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
 //                    // classic CDC
 //                }
                 setRefersToCDC( usedCDC );
-                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                         messagePrefix, "CDC (name: ", getType(), ") found in NS \"",
                         NsIdentification.of( getRefersToCDC().getParentCDCs().getParentNS() ), "\"" );
             }
@@ -2904,7 +2904,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             }
             else {
                 setRefersToPresenceCondition( foundPC );
-                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                         messagePrefix, "PresenceCondition (name: ", getPresCond(), ") found in NS \"",
                         NsIdentification.of( getRefersToPresenceCondition().getParentPresenceConditions().getParentNS() ), "\"" );
             }
@@ -2918,7 +2918,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             }
             else {
                 setRefersToPresenceConditionDerivedStatistics( foundPC );
-                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                         messagePrefix, "PresenceCondition (name: ", getDsPresCond(), ") found in NS \"",
                         NsIdentification.of( getRefersToPresenceConditionDerivedStatistics().getParentPresenceConditions().getParentNS() ), "\"" );
             }
@@ -2954,7 +2954,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                     }
                     else {
                         setRefersToUnderlyingBasicType( foundBT );
-                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                                 messagePrefix, "BasicType (name: ", getUnderlyingType(), ") found in NS \"",
                                 NsIdentification.of( getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS() ), "\"" );
                     }
@@ -2980,7 +2980,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                             foundWhere = "ServiceNS \"" + getRefersToUnderlyingConstructedAttribute()
                                     .getParentServiceTypeRealizations().getParentServiceNS().getId();
                         }
-                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                                 messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") found in ",
                                 foundWhere, "\"" );
                     }
@@ -2994,7 +2994,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                     }
                     else {
                         setRefersToUnderlyingEnumeration( foundEn );
-                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                                 messagePrefix, "Enumeration (name: ", getUnderlyingType(), ") found in NS \"",
                                 NsIdentification.of( getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS() ), "\"" );
                     }
@@ -3014,7 +3014,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             if( foundBT != null ) {
                 setRefersToUnderlyingBasicType( foundBT );
                 found = true;
-                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                         messagePrefix, "BasicType (name: ", getUnderlyingType(), ") found in NS \"",
                         NsIdentification.of( getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS() ), "\"" );
             }
@@ -3035,7 +3035,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                     foundWhere = "ServiceNS \"" + getRefersToUnderlyingConstructedAttribute()
                             .getParentServiceTypeRealizations().getParentServiceNS().getId();
                 }
-                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                         messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") found in ",
                         foundWhere, "\"" );
             }
@@ -3044,7 +3044,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             if( foundEn != null ) {
                 setRefersToUnderlyingEnumeration( foundEn );
                 found = true;
-                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                         messagePrefix, "Enumeration (name: ", getUnderlyingType(), ") found in NS \"",
                         NsIdentification.of( getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS() ), "\"" );
             }
@@ -3055,7 +3055,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                 // resolved at implementation and not in the NSD itself. To address this case, the specific
                 // keyword “EnumDA”.
                 if( ! "EnumDA".equals( getUnderlyingType() )) {
-                    console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                    console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                             messagePrefix, "UnderlyingType is set but not found" );
                 }
                 else {

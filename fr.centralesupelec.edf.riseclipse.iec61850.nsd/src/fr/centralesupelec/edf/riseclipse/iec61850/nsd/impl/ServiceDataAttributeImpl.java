@@ -2517,7 +2517,7 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                     }
                     else {
                         setRefersToUnderlyingBasicType( foundBT );
-                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                                 messagePrefix, "BasicType (name: ", getUnderlyingType(), ") found in NS \"",
                                 NsIdentification.of(
                                         getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS() ),
@@ -2546,7 +2546,7 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                                     + NsIdentification.of( getRefersToUnderlyingConstructedAttribute()
                                             .getParentServiceTypeRealizations().getParentServiceNS() );
                         }
-                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                                 messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") found in ",
                                 foundWhere, "\"" );
                     }
@@ -2560,7 +2560,7 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                     }
                     else {
                         setRefersToUnderlyingEnumeration( foundEn );
-                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                                 messagePrefix, "Enumeration (name: ", getUnderlyingType(), ") found in NS \"",
                                 NsIdentification
                                         .of( getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS() ),
