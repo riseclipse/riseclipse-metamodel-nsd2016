@@ -3050,8 +3050,17 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             }
             
             if( ! found ) {
-                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                        messagePrefix, "UnderlyingType is set but not found" );
+                // IEC 61850-7-7
+                // It exists also a specific case for parameterized enumeration where the enumeration will be
+                // resolved at implementation and not in the NSD itself. To address this case, the specific
+                // keyword “EnumDA”.
+                if( ! "EnumDA".equals( getUnderlyingType() )) {
+                    console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                            messagePrefix, "UnderlyingType is set but not found" );
+                }
+                else {
+                    // TODO: is a message needed?
+                }
             }
         }
 

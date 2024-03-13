@@ -4117,17 +4117,26 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
-                    Enumeration foundEn = rs.findEnumeration( getType(), getNsIdentification(), true );
-
-                    if( foundEn == null ) {
-                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                                messagePrefix, "Enumeration (name: ", getType(), ") not found" );
+                    // IEC 61850-7-7
+                    // It exists also a specific case for parameterized enumeration where the enumeration will be
+                    // resolved at implementation and not in the NSD itself. To address this case, the specific
+                    // keyword “EnumDA”.
+                    if( ! "EnumDA".equals( getType() )) {
+                        Enumeration foundEn = rs.findEnumeration( getType(), getNsIdentification(), true );
+    
+                        if( foundEn == null ) {
+                            console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                    messagePrefix, "Enumeration (name: ", getType(), ") not found" );
+                        }
+                        else {
+                            setRefersToEnumeration( foundEn );
+                            console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                    messagePrefix, "Enumeration (name: ", getType(), ") found in NS \"",
+                                    NsIdentification.of( getRefersToEnumeration().getParentEnumerations().getParentNS() ), "\"" );
+                        }
                     }
                     else {
-                        setRefersToEnumeration( foundEn );
-                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                                messagePrefix, "Enumeration (name: ", getType(), ") found in NS \"",
-                                NsIdentification.of( getRefersToEnumeration().getParentEnumerations().getParentNS() ), "\"" );
+                        // TODO: is a message needed?
                     }
                     break;
                 }
