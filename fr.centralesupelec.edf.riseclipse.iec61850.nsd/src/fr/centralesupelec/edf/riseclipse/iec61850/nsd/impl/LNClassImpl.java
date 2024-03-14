@@ -626,6 +626,13 @@ public class LNClassImpl extends AnyLNClassImpl implements LNClass {
         }
         while( lnClass != null ) {
             for( DataObject do_ : lnClass.getDataObject() ) {
+                // An extension may replace a DataObject already present in the extended class,
+                // for example to change its presence condition
+                // See mail 9 February 2024 from Aurélie
+                boolean alreadyPresent = getDataObject()
+                    .stream()
+                    .anyMatch( d -> d.getName().equals( do_.getName() ));
+                if( alreadyPresent ) continue;
                 DataObject copy = EcoreUtil.copy( do_ );
                 copy.setFilename( getFilename() );
                 getDataObject().add( copy );
