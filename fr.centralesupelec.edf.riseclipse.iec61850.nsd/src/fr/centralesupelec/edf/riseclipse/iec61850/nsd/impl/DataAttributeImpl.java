@@ -3961,7 +3961,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                                     .getParentServiceNS() )
                             + "\"";
                 }
-                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                         messagePrefix, "FunctionalConstraint (abbreviation: ", getFc(), ") found in ",
                         foundWhere, ")" );
             }
@@ -3989,7 +3989,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                                     getRefersToPresenceCondition().getParentPresenceConditions().getParentServiceNS() )
                             + "\"";
                 }
-                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                         messagePrefix, "PresenceCondition (name: ", getPresCond(), ") found in ",
                         foundWhere, ")" );
             }
@@ -4004,7 +4004,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                     .ifPresent( att -> setRefersToSizeAttribute( att ) );
 
             if( isSetRefersToSizeAttribute() ) {
-                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                         messagePrefix, "DataAttribute (name: ", getSizeAttribute(), ") found" );
             }
             else {
@@ -4022,7 +4022,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                     .ifPresent( att -> setRefersToMaxIndexAttribute( att ) );
 
             if( isSetRefersToMaxIndexAttribute() ) {
-                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                         messagePrefix, "DataAttribute (name: ",
                         getMaxIndexAttribute(), ") found" );
             }
@@ -4051,7 +4051,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                     }
                     else {
                         setRefersToBasicType( foundBT );
-                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                                 messagePrefix, "BasicType (name: ", getType(), ") found in NS \"",
                                 NsIdentification.of( getRefersToBasicType().getParentBasicTypes().getParentNS() ), "\"" );
                     }
@@ -4083,14 +4083,14 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                                     }
                                     else {
                                         // This is not a problem if is is added to a CDC which is parameterized
-                                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                        console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                                                 messagePrefix, "ServiceConstructedAttribute (name: ", getType(),
                                                 ") is typeKindParameterized but no underlyingType" );
                                     }
                                 }
                                 else {
                                     // This is not a problem if is is added to a CDC which is parameterized
-                                    console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                    console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                                             messagePrefix, "ServiceConstructedAttribute (name: ", getType(),
                                             ") is typeKindParameterized but no underlyingTypeKind" );
                                 }
@@ -4111,23 +4111,32 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                                             .getParentServiceTypeRealizations().getParentServiceNS() )
                                     + "\"";
                         }
-                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                                 messagePrefix, "ConstructedAttribute (name: ", getType(), ") found in ",
                                 foundWhere, ")" );
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
-                    Enumeration foundEn = rs.findEnumeration( getType(), getNsIdentification(), true );
-
-                    if( foundEn == null ) {
-                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                                messagePrefix, "Enumeration (name: ", getType(), ") not found" );
+                    // IEC 61850-7-7
+                    // It exists also a specific case for parameterized enumeration where the enumeration will be
+                    // resolved at implementation and not in the NSD itself. To address this case, the specific
+                    // keyword “EnumDA”.
+                    if( ! "EnumDA".equals( getType() )) {
+                        Enumeration foundEn = rs.findEnumeration( getType(), getNsIdentification(), true );
+    
+                        if( foundEn == null ) {
+                            console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                    messagePrefix, "Enumeration (name: ", getType(), ") not found" );
+                        }
+                        else {
+                            setRefersToEnumeration( foundEn );
+                            console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                    messagePrefix, "Enumeration (name: ", getType(), ") found in NS \"",
+                                    NsIdentification.of( getRefersToEnumeration().getParentEnumerations().getParentNS() ), "\"" );
+                        }
                     }
                     else {
-                        setRefersToEnumeration( foundEn );
-                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                                messagePrefix, "Enumeration (name: ", getType(), ") found in NS \"",
-                                NsIdentification.of( getRefersToEnumeration().getParentEnumerations().getParentNS() ), "\"" );
+                        // TODO: is a message needed?
                     }
                     break;
                 }
@@ -4136,7 +4145,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                 // type for ENUMERATED may be missing if CDC has enumParameterized="true"
                 if( ( getTypeKind().getValue() == DefinedAttributeTypeKind.ENUMERATED_VALUE ) ) {
                     if( getParentCDC().isEnumParameterized() ) {
-                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                                 messagePrefix, "type is missing for ", getTypeKind(),
                                 " but enumParameterized in parent CDC is true" );
                         getParentCDC().getParameterizedDataAttributeNames().add( getName() );
@@ -4156,7 +4165,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
         else if( getTypeKind() instanceof UndefinedAttributeTypeKind ) {
             // type may be missing if CDC has typeKindParameterized="true"
             if( getParentCDC().isTypeKindParameterized() ) {
-                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                         messagePrefix, "type is missing for ", getTypeKind(),
                         " but typeKindParameterized in parent CDC is true" );
                 getParentCDC().getParameterizedDataAttributeNames().add( getName() );

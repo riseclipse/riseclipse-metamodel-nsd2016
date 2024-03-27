@@ -2889,7 +2889,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
 //                    // classic CDC
 //                }
                 setRefersToCDC( usedCDC );
-                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                         messagePrefix, "CDC (name: ", getType(), ") found in NS \"",
                         NsIdentification.of( getRefersToCDC().getParentCDCs().getParentNS() ), "\"" );
             }
@@ -2904,7 +2904,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             }
             else {
                 setRefersToPresenceCondition( foundPC );
-                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                         messagePrefix, "PresenceCondition (name: ", getPresCond(), ") found in NS \"",
                         NsIdentification.of( getRefersToPresenceCondition().getParentPresenceConditions().getParentNS() ), "\"" );
             }
@@ -2918,7 +2918,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             }
             else {
                 setRefersToPresenceConditionDerivedStatistics( foundPC );
-                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                         messagePrefix, "PresenceCondition (name: ", getDsPresCond(), ") found in NS \"",
                         NsIdentification.of( getRefersToPresenceConditionDerivedStatistics().getParentPresenceConditions().getParentNS() ), "\"" );
             }
@@ -2954,7 +2954,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                     }
                     else {
                         setRefersToUnderlyingBasicType( foundBT );
-                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                                 messagePrefix, "BasicType (name: ", getUnderlyingType(), ") found in NS \"",
                                 NsIdentification.of( getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS() ), "\"" );
                     }
@@ -2980,7 +2980,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                             foundWhere = "ServiceNS \"" + getRefersToUnderlyingConstructedAttribute()
                                     .getParentServiceTypeRealizations().getParentServiceNS().getId();
                         }
-                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                                 messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") found in ",
                                 foundWhere, "\"" );
                     }
@@ -2994,7 +2994,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                     }
                     else {
                         setRefersToUnderlyingEnumeration( foundEn );
-                        console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                        console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                                 messagePrefix, "Enumeration (name: ", getUnderlyingType(), ") found in NS \"",
                                 NsIdentification.of( getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS() ), "\"" );
                     }
@@ -3014,7 +3014,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             if( foundBT != null ) {
                 setRefersToUnderlyingBasicType( foundBT );
                 found = true;
-                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                         messagePrefix, "BasicType (name: ", getUnderlyingType(), ") found in NS \"",
                         NsIdentification.of( getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS() ), "\"" );
             }
@@ -3035,7 +3035,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                     foundWhere = "ServiceNS \"" + getRefersToUnderlyingConstructedAttribute()
                             .getParentServiceTypeRealizations().getParentServiceNS().getId();
                 }
-                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                         messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") found in ",
                         foundWhere, "\"" );
             }
@@ -3044,14 +3044,23 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             if( foundEn != null ) {
                 setRefersToUnderlyingEnumeration( foundEn );
                 found = true;
-                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                         messagePrefix, "Enumeration (name: ", getUnderlyingType(), ") found in NS \"",
                         NsIdentification.of( getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS() ), "\"" );
             }
             
             if( ! found ) {
-                console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                        messagePrefix, "UnderlyingType is set but not found" );
+                // IEC 61850-7-7
+                // It exists also a specific case for parameterized enumeration where the enumeration will be
+                // resolved at implementation and not in the NSD itself. To address this case, the specific
+                // keyword “EnumDA”.
+                if( ! "EnumDA".equals( getUnderlyingType() )) {
+                    console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                            messagePrefix, "UnderlyingType is set but not found" );
+                }
+                else {
+                    // TODO: is a message needed?
+                }
             }
         }
 
@@ -3071,16 +3080,21 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                     messagePrefix, "The CDC (name: ", getType(), ") is unknown" );
             return;
         }
+        NS ns = getResourceSet().getNS( nsIdentification );
         if( usedCDC.isTypeKindParameterized() ) {
             if( isSetUnderlyingType() && isSetUnderlyingTypeKind() ) {
-                // Put this CDC in the same namespace/resource than the underlyingType so that
-                // the validator for the underlyingType is found
-                NS ns = getResourceSet().getNS( nsIdentification );
+                // Two namespaces are concerned: the one of the CDC and the one of the underlyingType
+                // To be sure to find the validators, we will use the more general one
+                // Correction after mail from Aurélie 9 February 2024, point 11
+                NS underlyingTypeNs = null;
                 if( getRefersToUnderlyingBasicType() != null ) {
-                    ns = getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS();
+                    underlyingTypeNs = getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS();
                 }
                 else if( getRefersToUnderlyingConstructedAttribute() != null ) {
-                    ns = getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes().getParentNS();
+                    underlyingTypeNs = getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes().getParentNS();
+                }
+                if(( underlyingTypeNs != null && ( NsIdentification.of( underlyingTypeNs ).dependsOn( nsIdentification )))) {
+                    ns = underlyingTypeNs;
                 }
                 usedCDC = ( ( CDCImpl ) usedCDC ).getParameterizedCDC( getUnderlyingTypeKind(),
                         getUnderlyingType(), ns, console );
@@ -3093,11 +3107,12 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         }
         else if( usedCDC.isEnumParameterized() ) {
             if( isSetUnderlyingType() ) {
-                // Put this CDC in the same namespace/resource than the underlyingType so that
-                // the validator for it is found
-                NS ns = getResourceSet().getNS( nsIdentification );
+                NS underlyingTypeNs = null;
                 if( getRefersToUnderlyingEnumeration() != null ) {
-                    ns = getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS();
+                    underlyingTypeNs = getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS();
+                }
+                if(( underlyingTypeNs != null && ( NsIdentification.of( underlyingTypeNs ).dependsOn( nsIdentification )))) {
+                    ns = underlyingTypeNs;
                 }
                 usedCDC = (( CDCImpl ) usedCDC ).getParameterizedCDC( DefinedAttributeTypeKind.ENUMERATED, getUnderlyingType(), ns, console );
             }

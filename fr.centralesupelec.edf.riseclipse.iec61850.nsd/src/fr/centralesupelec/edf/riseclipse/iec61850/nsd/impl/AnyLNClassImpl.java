@@ -679,7 +679,7 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
 
             if( abstractLNClass != null ) {
                 setRefersToAbstractLNClass( abstractLNClass );
-                console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                         "while resolving link from AnyLNClass (name: ", getName(),
                         "): AbstractLNClass (name: ", getBase(), ") found in NS \"",
                         NsIdentification.of( getRefersToAbstractLNClass().getParentLNClasses().getParentNS() ), "\"" );

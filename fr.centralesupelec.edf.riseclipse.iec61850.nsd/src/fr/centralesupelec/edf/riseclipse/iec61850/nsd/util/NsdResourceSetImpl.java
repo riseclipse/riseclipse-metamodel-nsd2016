@@ -275,7 +275,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                                              ", the ServiceNS with id ", serviceNsId, " will not be applied again" );
                             continue;
                         }
-                        console.notice( NSD_SETUP_CATEGORY, 0, 
+                        console.info( NSD_SETUP_CATEGORY, 0, 
                                       "Applying ServiceNS with id ", serviceNsId, ", on NS with id ", applyToNsId );
                         nsModified.add( applyToNs );
                         applyServiceNs( serviceNSResource, applyToNsId, applyToNs, console );
@@ -315,7 +315,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         
         if( serviceNS.getAbbreviations() != null ) {
             for( Abbreviation abbreviation : serviceNS.getAbbreviations().getAbbreviation() ) {
-                console.notice( NSD_SETUP_CATEGORY, 0,
+                console.info( NSD_SETUP_CATEGORY, 0,
                                 "Service NS: adding new abbreviation ", abbreviation.getName() );
                 if( applyToNs.getAbbreviations() == null ) {
                     applyToNs.setAbbreviations( NsdFactory.eINSTANCE.createAbbreviations() );
@@ -330,7 +330,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         
         if( serviceNS.getFunctionalConstraints() != null ) {
             for( FunctionalConstraint functionalConstraint : serviceNS.getFunctionalConstraints().getFunctionalConstraint() ) {
-                console.notice( NSD_SETUP_CATEGORY, 0,
+                console.info( NSD_SETUP_CATEGORY, 0,
                                 "Service NS: adding new functional constraint ", functionalConstraint.getAbbreviation() );
                 if( applyToNs.getFunctionalConstraints() == null ) {
                     applyToNs.setFunctionalConstraints( NsdFactory.eINSTANCE.createFunctionalConstraints() );
@@ -345,7 +345,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         
         if( serviceNS.getPresenceConditions() != null ) {
             for( PresenceCondition presenceCondition : serviceNS.getPresenceConditions().getPresenceCondition() ) {
-                console.notice( NSD_SETUP_CATEGORY, 0,
+                console.info( NSD_SETUP_CATEGORY, 0,
                                 "Service NS: adding new presence condition ", presenceCondition.getName() );
                 if( applyToNs.getPresenceConditions() == null ) {
                     applyToNs.setPresenceConditions( NsdFactory.eINSTANCE.createPresenceConditions() );
@@ -382,7 +382,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                             .collect( Collectors.toList() );
                     for( AgAttributeType att : atts ) {
                         att.unsetRefersToBasicType();
-                        console.notice( NSD_SETUP_CATEGORY, 0,
+                        console.info( NSD_SETUP_CATEGORY, 0,
                                         "Service NS: using TypeRealization ",  basic.getName(), " to attribute ", att.getType() );
                         att.setRefersToConstructedAttribute( typeRealization );
                     }
@@ -400,7 +400,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
             // A ServiceConstructedAttribute defines new ConstructedAttribute:
             // they are taken into account in getConstructedAttributeStream()
             for( ServiceConstructedAttribute serviceConstructedAttribute : serviceNS.getServiceConstructedAttributes().getServiceConstructedAttribute() ) {
-                console.notice( NSD_SETUP_CATEGORY, 0,
+                console.info( NSD_SETUP_CATEGORY, 0,
                                 "Service NS: Adding ConstructedAttribute ", serviceConstructedAttribute.getName(), " to NS ", applyToNsId );
                 if( applyToNs.getConstructedAttributes() == null ) {
                     applyToNs.setConstructedAttributes( NsdFactory.eINSTANCE.createConstructedAttributes() );
@@ -425,7 +425,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                         .stream()
                         .forEach( att -> {
                             DataAttribute da = (( ServiceDataAttributeImpl ) att ).toDataAttribute( cdc, console );
-                            console.notice( NSD_SETUP_CATEGORY, 0,
+                            console.info( NSD_SETUP_CATEGORY, 0,
                                             "Service NS: Adding DataAttribute ", da.getName(), " to CDC ", cdc.getName() );
                         });
                     });

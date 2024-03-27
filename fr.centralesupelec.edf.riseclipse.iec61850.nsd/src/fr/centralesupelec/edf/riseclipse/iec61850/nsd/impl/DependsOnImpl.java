@@ -1106,7 +1106,7 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         }
         else {
             setRefersToNS( ns );
-            console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+            console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                     messagePrefix, "NS \"", identification, "\" found" );
             if( !ns.isExplicitLinksBuilt() ) {
                 console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
