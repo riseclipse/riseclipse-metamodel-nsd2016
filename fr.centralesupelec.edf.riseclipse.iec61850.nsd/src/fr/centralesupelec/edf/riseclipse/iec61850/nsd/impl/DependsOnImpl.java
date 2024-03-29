@@ -1091,7 +1091,7 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
      */
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
-        console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "DependsOnImpl.buildExplicitLinks()" );
+        console.debug( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), "DependsOnImpl.buildExplicitLinks()" );
 
         if( super.buildExplicitLinks( console ) ) return true;
 

@@ -3925,7 +3925,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     public boolean buildExplicitLinks( DefinedAttributeTypeKind underlyingTypeKind, String underlyingType,
             IRiseClipseConsole console ) {
 
-        console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "DataAttributeImpl.buildExplicitLinks()" );
+        console.debug( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), "DataAttributeImpl.buildExplicitLinks(): ",
+                       getName(), " in CDC ", getParentCDC().getName() );
 
         if( super.buildExplicitLinks( console ) ) {
             return true;

@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-Vendor: %providerName
 Bundle-SymbolicName: fr.centralesupelec.edf.riseclipse.iec61850.nsd.utilities
-Bundle-Version: 1.2.10
+Bundle-Version: 1.2.11.qualifier
 Automatic-Module-Name: fr.centralesupelec.edf.riseclipse.iec61850.nsd.utilities
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Require-Bundle: org.eclipse.emf.common,

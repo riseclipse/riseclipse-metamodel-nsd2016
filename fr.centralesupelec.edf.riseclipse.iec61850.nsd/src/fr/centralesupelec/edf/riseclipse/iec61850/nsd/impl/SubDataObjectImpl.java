@@ -2824,6 +2824,8 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
      */
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
+        console.debug( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), "SubDataObjectImpl.buildExplicitLinks()" );
+
         if( super.buildExplicitLinks( console ) ) return true;
 
         NsdResourceSetImpl rs = getResourceSet();

@@ -1179,7 +1179,7 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
      */
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
-        console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "EnumerationImpl.buildExplicitLinks()" );
+        console.debug( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), "EnumerationImpl.buildExplicitLinks()" );
 
         if( super.buildExplicitLinks( console ) ) {
             return true;
