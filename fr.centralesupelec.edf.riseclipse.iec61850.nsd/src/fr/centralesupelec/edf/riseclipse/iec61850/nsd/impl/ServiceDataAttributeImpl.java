@@ -2487,7 +2487,7 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
 
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
-        console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "ServiceDataAttributeImpl.buildExplicitLinks()" );
+        console.debug( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), "ServiceDataAttributeImpl.buildExplicitLinks()" );
 
         if( super.buildExplicitLinks( console ) ) return true;
 

@@ -2514,7 +2514,7 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
      */
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
-        console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "SubDataAttributeImpl.buildExplicitLinks()" );
+        console.debug( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), "SubDataAttributeImpl.buildExplicitLinks()" );
 
         if( super.buildExplicitLinks( console ) ) return true;
 

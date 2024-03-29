@@ -594,7 +594,7 @@ public abstract class DocumentedClassImpl extends NsdObjectImpl implements Docum
 
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
-        console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "DocumentedClassImpl.buildExplicitLinks()" );
+        console.debug( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), "DocumentedClassImpl.buildExplicitLinks()" );
 
         if( super.buildExplicitLinks( console ) ) return true;
 

@@ -617,6 +617,9 @@ public class LNClassImpl extends AnyLNClassImpl implements LNClass {
     }
 
     public void addDataObjectsFromExtendedLNClass( IRiseClipseConsole console ) {
+        console.debug( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), "LNClassImpl.addDataObjectsFromExtendedLNClass() for: ",
+                       getName(), " in namespace \"", getNsIdentification(), "\"" );
+
         AnyLNClass lnClass = getResourceSet().findLNClass( getName(), getNsIdentification().getDependsOn(), true );
         if( lnClass == null ) {
             console.error( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
@@ -634,8 +637,10 @@ public class LNClassImpl extends AnyLNClassImpl implements LNClass {
                     .anyMatch( d -> d.getName().equals( do_.getName() ));
                 if( alreadyPresent ) continue;
                 DataObject copy = EcoreUtil.copy( do_ );
-                copy.setFilename( getFilename() );
                 getDataObject().add( copy );
+                // filename not copied
+                copy.setFilename( do_.getFilename() );
+                // References not copied
                 copy.setExplicitLinksBuilt( false );
                 copy.buildExplicitLinks( console );
             }

@@ -657,7 +657,7 @@ public abstract class AnyLNClassImpl extends TitledClassImpl implements AnyLNCla
      */
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
-        console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "AnyLNImpl.buildExplicitLinks()" );
+        console.debug( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), "AnyLNImpl.buildExplicitLinks()" );
 
         if( super.buildExplicitLinks( console ) ) {
             return true;

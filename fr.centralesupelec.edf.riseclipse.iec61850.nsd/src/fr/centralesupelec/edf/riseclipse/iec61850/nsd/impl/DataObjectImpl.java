@@ -2830,7 +2830,8 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
      */
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
-        console.debug( EXPLICIT_LINK_CATEGORY, getLineNumber(), "DataObjectImpl.buildExplicitLinks()" );
+        console.debug( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), "DataObjectImpl.buildExplicitLinks(): ",
+                       getName(), " in LNClass ", getParentAnyLNClass().getName() );
 
         if( super.buildExplicitLinks( console ) ) return true;
 
