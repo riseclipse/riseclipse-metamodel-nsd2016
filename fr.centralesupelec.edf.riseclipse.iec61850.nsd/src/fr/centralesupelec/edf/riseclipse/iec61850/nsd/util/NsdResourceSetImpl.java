@@ -295,18 +295,18 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         
         // Handle LNClass extensions
         // This has to be done before handling parameterized components so that these extensions are taken into account
-        for( NS nsResource : nsResources.values() ) {
-            getLNClassStream( nsResource, false )
+        for( NsIdentification ns : getNsIdentificationOrderedList( console )) {
+            getLNClassStream( ns, false )
             .filter( lnClass -> lnClass.isIsExtension() )
             .forEach( lnClass -> (( LNClassImpl ) lnClass ).addDataObjectsFromExtendedLNClass( console ) );
         }
         
         // Create parameterized components
         // (see comment in DataObjectImpl.buildExplicitLinks())
-        for( NS nsResource : nsResources.values() ) {
-            getAbstractLNClassStream( nsResource, false )
+        for( NsIdentification ns : getNsIdentificationOrderedList( console )) {
+            getAbstractLNClassStream( ns, false )
             .forEach( lnClass -> (( AnyLNClassImpl ) lnClass ).createParameterizedComponents( console ) );
-            getLNClassStream( nsResource, false )
+            getLNClassStream( ns, false )
             .forEach( lnClass -> (( AnyLNClassImpl ) lnClass ).createParameterizedComponents( console ) );
         }
     }
