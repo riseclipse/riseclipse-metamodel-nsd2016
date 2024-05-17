@@ -1484,7 +1484,7 @@ public class CDCImpl extends TitledClassImpl implements CDC {
         }
 
         NsIdentificationName key = NsIdentificationName.of( getNsIdentification(), getName() );
-        Map< NsIdentificationName, HashMap< String, CDC >> parameterizedCDCs = getResourceSet().getparameterizedCDCMap();
+        Map< NsIdentificationName, HashMap< String, CDC >> parameterizedCDCs = getResourceSet().getParameterizedCDCMap();
         if( ! parameterizedCDCs.containsKey( key)) {
             parameterizedCDCs.put( key,  new HashMap<>() );
         }
@@ -1532,7 +1532,7 @@ public class CDCImpl extends TitledClassImpl implements CDC {
 
     public String getUnderlyingType() {
         NsIdentificationName key = NsIdentificationName.of( getNsIdentification(), getName() );
-        Map< NsIdentificationName, HashMap< String, CDC >> parameterizedCDCs = getResourceSet().getparameterizedCDCMap();
+        Map< NsIdentificationName, HashMap< String, CDC >> parameterizedCDCs = getResourceSet().getParameterizedCDCMap();
         if( ! parameterizedCDCs.containsKey( key ) ) {
             return null;
         }

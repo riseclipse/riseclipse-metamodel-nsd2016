@@ -103,7 +103,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
     // Use only type as key; not typeKind
     private Map< NsIdentificationName, HashMap< String, CDC >> parameterizedCDCs = new IdentityHashMap<>();
 
-    public Map< NsIdentificationName, HashMap< String, CDC >> getparameterizedCDCMap() {
+    public Map< NsIdentificationName, HashMap< String, CDC >> getParameterizedCDCMap() {
         return parameterizedCDCs;
     }
 
