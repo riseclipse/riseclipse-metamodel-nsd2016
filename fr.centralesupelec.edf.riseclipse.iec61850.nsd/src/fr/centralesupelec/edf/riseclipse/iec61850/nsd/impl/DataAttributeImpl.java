@@ -4124,7 +4124,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                     // keyword “EnumDA”.
                     if( ! "EnumDA".equals( getType() )) {
                         Enumeration foundEn = rs.findEnumeration( getType(), getNsIdentification(), true );
-    
+
                         if( foundEn == null ) {
                             console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                                     messagePrefix, "Enumeration (name: ", getType(), ") not found" );

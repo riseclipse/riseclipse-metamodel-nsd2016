@@ -608,9 +608,10 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
         defaultValue = newDefaultValue;
         boolean oldDefaultValueESet = defaultValueESet;
         defaultValueESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SUB_DATA_ATTRIBUTE__DEFAULT_VALUE,
                     oldDefaultValue, defaultValue, !oldDefaultValueESet ) );
+        }
     }
 
     /**
@@ -624,9 +625,10 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
         boolean oldDefaultValueESet = defaultValueESet;
         defaultValue = DEFAULT_VALUE_EDEFAULT;
         defaultValueESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SUB_DATA_ATTRIBUTE__DEFAULT_VALUE,
                     oldDefaultValue, DEFAULT_VALUE_EDEFAULT, oldDefaultValueESet ) );
+        }
     }
 
     /**
@@ -660,9 +662,10 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
         isArray = newIsArray;
         boolean oldIsArrayESet = isArrayESet;
         isArrayESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SUB_DATA_ATTRIBUTE__IS_ARRAY, oldIsArray,
                     isArray, !oldIsArrayESet ) );
+        }
     }
 
     /**
@@ -676,9 +679,10 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
         boolean oldIsArrayESet = isArrayESet;
         isArray = IS_ARRAY_EDEFAULT;
         isArrayESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SUB_DATA_ATTRIBUTE__IS_ARRAY,
                     oldIsArray, IS_ARRAY_EDEFAULT, oldIsArrayESet ) );
+        }
     }
 
     /**
@@ -712,9 +716,10 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
         maxIndexAttribute = newMaxIndexAttribute;
         boolean oldMaxIndexAttributeESet = maxIndexAttributeESet;
         maxIndexAttributeESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SUB_DATA_ATTRIBUTE__MAX_INDEX_ATTRIBUTE,
                     oldMaxIndexAttribute, maxIndexAttribute, !oldMaxIndexAttributeESet ) );
+        }
     }
 
     /**
@@ -728,10 +733,11 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
         boolean oldMaxIndexAttributeESet = maxIndexAttributeESet;
         maxIndexAttribute = MAX_INDEX_ATTRIBUTE_EDEFAULT;
         maxIndexAttributeESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.SUB_DATA_ATTRIBUTE__MAX_INDEX_ATTRIBUTE, oldMaxIndexAttribute,
                     MAX_INDEX_ATTRIBUTE_EDEFAULT, oldMaxIndexAttributeESet ) );
+        }
     }
 
     /**
@@ -765,9 +771,10 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
         maxValue = newMaxValue;
         boolean oldMaxValueESet = maxValueESet;
         maxValueESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SUB_DATA_ATTRIBUTE__MAX_VALUE,
                     oldMaxValue, maxValue, !oldMaxValueESet ) );
+        }
     }
 
     /**
@@ -781,9 +788,10 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
         boolean oldMaxValueESet = maxValueESet;
         maxValue = MAX_VALUE_EDEFAULT;
         maxValueESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SUB_DATA_ATTRIBUTE__MAX_VALUE,
                     oldMaxValue, MAX_VALUE_EDEFAULT, oldMaxValueESet ) );
+        }
     }
 
     /**
@@ -817,9 +825,10 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
         minIndex = newMinIndex;
         boolean oldMinIndexESet = minIndexESet;
         minIndexESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SUB_DATA_ATTRIBUTE__MIN_INDEX,
                     oldMinIndex, minIndex, !oldMinIndexESet ) );
+        }
     }
 
     /**
@@ -833,9 +842,10 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
         boolean oldMinIndexESet = minIndexESet;
         minIndex = MIN_INDEX_EDEFAULT;
         minIndexESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SUB_DATA_ATTRIBUTE__MIN_INDEX,
                     oldMinIndex, MIN_INDEX_EDEFAULT, oldMinIndexESet ) );
+        }
     }
 
     /**
@@ -869,9 +879,10 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
         minValue = newMinValue;
         boolean oldMinValueESet = minValueESet;
         minValueESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SUB_DATA_ATTRIBUTE__MIN_VALUE,
                     oldMinValue, minValue, !oldMinValueESet ) );
+        }
     }
 
     /**
@@ -885,9 +896,10 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
         boolean oldMinValueESet = minValueESet;
         minValue = MIN_VALUE_EDEFAULT;
         minValueESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SUB_DATA_ATTRIBUTE__MIN_VALUE,
                     oldMinValue, MIN_VALUE_EDEFAULT, oldMinValueESet ) );
+        }
     }
 
     /**
@@ -921,9 +933,10 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
         name = newName;
         boolean oldNameESet = nameESet;
         nameESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SUB_DATA_ATTRIBUTE__NAME, oldName, name,
                     !oldNameESet ) );
+        }
     }
 
     /**
@@ -937,9 +950,10 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
         boolean oldNameESet = nameESet;
         name = NAME_EDEFAULT;
         nameESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SUB_DATA_ATTRIBUTE__NAME, oldName,
                     NAME_EDEFAULT, oldNameESet ) );
+        }
     }
 
     /**
@@ -959,7 +973,9 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
      */
     @Override
     public ConstructedAttribute getParentConstructedAttribute() {
-        if( eContainerFeatureID() != NsdPackage.SUB_DATA_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTE ) return null;
+        if( eContainerFeatureID() != NsdPackage.SUB_DATA_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTE ) {
+            return null;
+        }
         return ( ConstructedAttribute ) eInternalContainer();
     }
 
@@ -985,21 +1001,27 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
         if( newParentConstructedAttribute != eInternalContainer()
                 || ( eContainerFeatureID() != NsdPackage.SUB_DATA_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTE
                         && newParentConstructedAttribute != null ) ) {
-            if( EcoreUtil.isAncestor( this, newParentConstructedAttribute ) )
+            if( EcoreUtil.isAncestor( this, newParentConstructedAttribute ) ) {
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            }
             NotificationChain msgs = null;
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newParentConstructedAttribute != null )
+            }
+            if( newParentConstructedAttribute != null ) {
                 msgs = ( ( InternalEObject ) newParentConstructedAttribute ).eInverseAdd( this,
                         NsdPackage.CONSTRUCTED_ATTRIBUTE__SUB_DATA_ATTRIBUTE, ConstructedAttribute.class, msgs );
+            }
             msgs = basicSetParentConstructedAttribute( newParentConstructedAttribute, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
-        else if( eNotificationRequired() )
+        else if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET,
                     NsdPackage.SUB_DATA_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTE, newParentConstructedAttribute,
                     newParentConstructedAttribute ) );
+        }
     }
 
     /**
@@ -1023,9 +1045,10 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
         presCond = newPresCond;
         boolean oldPresCondESet = presCondESet;
         presCondESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SUB_DATA_ATTRIBUTE__PRES_COND,
                     oldPresCond, presCond, !oldPresCondESet ) );
+        }
     }
 
     /**
@@ -1039,9 +1062,10 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
         boolean oldPresCondESet = presCondESet;
         presCond = PRES_COND_EDEFAULT;
         presCondESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SUB_DATA_ATTRIBUTE__PRES_COND,
                     oldPresCond, PRES_COND_EDEFAULT, oldPresCondESet ) );
+        }
     }
 
     /**
@@ -1075,9 +1099,10 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
         presCondArgs = newPresCondArgs;
         boolean oldPresCondArgsESet = presCondArgsESet;
         presCondArgsESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SUB_DATA_ATTRIBUTE__PRES_COND_ARGS,
                     oldPresCondArgs, presCondArgs, !oldPresCondArgsESet ) );
+        }
     }
 
     /**
@@ -1091,9 +1116,10 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
         boolean oldPresCondArgsESet = presCondArgsESet;
         presCondArgs = PRES_COND_ARGS_EDEFAULT;
         presCondArgsESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SUB_DATA_ATTRIBUTE__PRES_COND_ARGS,
                     oldPresCondArgs, PRES_COND_ARGS_EDEFAULT, oldPresCondArgsESet ) );
+        }
     }
 
     /**
@@ -1127,9 +1153,10 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
         presCondArgsID = newPresCondArgsID;
         boolean oldPresCondArgsIDESet = presCondArgsIDESet;
         presCondArgsIDESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SUB_DATA_ATTRIBUTE__PRES_COND_ARGS_ID,
                     oldPresCondArgsID, presCondArgsID, !oldPresCondArgsIDESet ) );
+        }
     }
 
     /**
@@ -1143,9 +1170,10 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
         boolean oldPresCondArgsIDESet = presCondArgsIDESet;
         presCondArgsID = PRES_COND_ARGS_ID_EDEFAULT;
         presCondArgsIDESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SUB_DATA_ATTRIBUTE__PRES_COND_ARGS_ID,
                     oldPresCondArgsID, PRES_COND_ARGS_ID_EDEFAULT, oldPresCondArgsIDESet ) );
+        }
     }
 
     /**
@@ -1182,10 +1210,12 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.SUB_DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC, oldRefersToPresCondArgsDoc,
                     newRefersToPresCondArgsDoc, !oldRefersToPresCondArgsDocESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1199,22 +1229,27 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
     public void setRefersToPresCondArgsDoc( Doc newRefersToPresCondArgsDoc ) {
         if( newRefersToPresCondArgsDoc != refersToPresCondArgsDoc ) {
             NotificationChain msgs = null;
-            if( refersToPresCondArgsDoc != null )
+            if( refersToPresCondArgsDoc != null ) {
                 msgs = ( ( InternalEObject ) refersToPresCondArgsDoc ).eInverseRemove( this,
                         NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION, Doc.class, msgs );
-            if( newRefersToPresCondArgsDoc != null )
+            }
+            if( newRefersToPresCondArgsDoc != null ) {
                 msgs = ( ( InternalEObject ) newRefersToPresCondArgsDoc ).eInverseAdd( this,
                         NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION, Doc.class, msgs );
+            }
             msgs = basicSetRefersToPresCondArgsDoc( newRefersToPresCondArgsDoc, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToPresCondArgsDocESet = refersToPresCondArgsDocESet;
             refersToPresCondArgsDocESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET,
                         NsdPackage.SUB_DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC, newRefersToPresCondArgsDoc,
                         newRefersToPresCondArgsDoc, !oldRefersToPresCondArgsDocESet ) );
+            }
         }
     }
 
@@ -1232,10 +1267,12 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.SUB_DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC, oldRefersToPresCondArgsDoc, null,
                     oldRefersToPresCondArgsDocESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1252,15 +1289,18 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
             msgs = ( ( InternalEObject ) refersToPresCondArgsDoc ).eInverseRemove( this,
                     NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION, Doc.class, msgs );
             msgs = basicUnsetRefersToPresCondArgsDoc( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToPresCondArgsDocESet = refersToPresCondArgsDocESet;
             refersToPresCondArgsDocESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET,
                         NsdPackage.SUB_DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC, null, null,
                         oldRefersToPresCondArgsDocESet ) );
+            }
         }
     }
 
@@ -1295,9 +1335,10 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
         sizeAttribute = newSizeAttribute;
         boolean oldSizeAttributeESet = sizeAttributeESet;
         sizeAttributeESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SUB_DATA_ATTRIBUTE__SIZE_ATTRIBUTE,
                     oldSizeAttribute, sizeAttribute, !oldSizeAttributeESet ) );
+        }
     }
 
     /**
@@ -1311,9 +1352,10 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
         boolean oldSizeAttributeESet = sizeAttributeESet;
         sizeAttribute = SIZE_ATTRIBUTE_EDEFAULT;
         sizeAttributeESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SUB_DATA_ATTRIBUTE__SIZE_ATTRIBUTE,
                     oldSizeAttribute, SIZE_ATTRIBUTE_EDEFAULT, oldSizeAttributeESet ) );
+        }
     }
 
     /**
@@ -1347,9 +1389,10 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
         type = newType;
         boolean oldTypeESet = typeESet;
         typeESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SUB_DATA_ATTRIBUTE__TYPE, oldType, type,
                     !oldTypeESet ) );
+        }
     }
 
     /**
@@ -1363,9 +1406,10 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
         boolean oldTypeESet = typeESet;
         type = TYPE_EDEFAULT;
         typeESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SUB_DATA_ATTRIBUTE__TYPE, oldType,
                     TYPE_EDEFAULT, oldTypeESet ) );
+        }
     }
 
     /**
@@ -1399,9 +1443,10 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
         typeKind = newTypeKind;
         boolean oldTypeKindESet = typeKindESet;
         typeKindESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SUB_DATA_ATTRIBUTE__TYPE_KIND,
                     oldTypeKind, typeKind, !oldTypeKindESet ) );
+        }
     }
 
     /**
@@ -1415,9 +1460,10 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
         boolean oldTypeKindESet = typeKindESet;
         typeKind = TYPE_KIND_EDEFAULT;
         typeKindESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SUB_DATA_ATTRIBUTE__TYPE_KIND,
                     oldTypeKind, TYPE_KIND_EDEFAULT, oldTypeKindESet ) );
+        }
     }
 
     /**
@@ -1454,10 +1500,12 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.SUB_DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE, oldRefersToBasicType, newRefersToBasicType,
                     !oldRefersToBasicTypeESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1471,22 +1519,27 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
     public void setRefersToBasicType( BasicType newRefersToBasicType ) {
         if( newRefersToBasicType != refersToBasicType ) {
             NotificationChain msgs = null;
-            if( refersToBasicType != null )
+            if( refersToBasicType != null ) {
                 msgs = ( ( InternalEObject ) refersToBasicType ).eInverseRemove( this,
                         NsdPackage.BASIC_TYPE__REFERRED_BY_ATTRIBUTE_TYPE, BasicType.class, msgs );
-            if( newRefersToBasicType != null )
+            }
+            if( newRefersToBasicType != null ) {
                 msgs = ( ( InternalEObject ) newRefersToBasicType ).eInverseAdd( this,
                         NsdPackage.BASIC_TYPE__REFERRED_BY_ATTRIBUTE_TYPE, BasicType.class, msgs );
+            }
             msgs = basicSetRefersToBasicType( newRefersToBasicType, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToBasicTypeESet = refersToBasicTypeESet;
             refersToBasicTypeESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET,
                         NsdPackage.SUB_DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE, newRefersToBasicType, newRefersToBasicType,
                         !oldRefersToBasicTypeESet ) );
+            }
         }
     }
 
@@ -1504,10 +1557,12 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.SUB_DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE, oldRefersToBasicType, null,
                     oldRefersToBasicTypeESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1524,14 +1579,17 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
             msgs = ( ( InternalEObject ) refersToBasicType ).eInverseRemove( this,
                     NsdPackage.BASIC_TYPE__REFERRED_BY_ATTRIBUTE_TYPE, BasicType.class, msgs );
             msgs = basicUnsetRefersToBasicType( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToBasicTypeESet = refersToBasicTypeESet;
             refersToBasicTypeESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET,
                         NsdPackage.SUB_DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE, null, null, oldRefersToBasicTypeESet ) );
+            }
         }
     }
 
@@ -1570,10 +1628,12 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.SUB_DATA_ATTRIBUTE__REFERS_TO_CONSTRUCTED_ATTRIBUTE, oldRefersToConstructedAttribute,
                     newRefersToConstructedAttribute, !oldRefersToConstructedAttributeESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1587,24 +1647,29 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
     public void setRefersToConstructedAttribute( ConstructedAttribute newRefersToConstructedAttribute ) {
         if( newRefersToConstructedAttribute != refersToConstructedAttribute ) {
             NotificationChain msgs = null;
-            if( refersToConstructedAttribute != null )
+            if( refersToConstructedAttribute != null ) {
                 msgs = ( ( InternalEObject ) refersToConstructedAttribute ).eInverseRemove( this,
                         NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_ATTRIBUTE_TYPE, ConstructedAttribute.class,
                         msgs );
-            if( newRefersToConstructedAttribute != null )
+            }
+            if( newRefersToConstructedAttribute != null ) {
                 msgs = ( ( InternalEObject ) newRefersToConstructedAttribute ).eInverseAdd( this,
                         NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_ATTRIBUTE_TYPE, ConstructedAttribute.class,
                         msgs );
+            }
             msgs = basicSetRefersToConstructedAttribute( newRefersToConstructedAttribute, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToConstructedAttributeESet = refersToConstructedAttributeESet;
             refersToConstructedAttributeESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET,
                         NsdPackage.SUB_DATA_ATTRIBUTE__REFERS_TO_CONSTRUCTED_ATTRIBUTE, newRefersToConstructedAttribute,
                         newRefersToConstructedAttribute, !oldRefersToConstructedAttributeESet ) );
+            }
         }
     }
 
@@ -1622,10 +1687,12 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.SUB_DATA_ATTRIBUTE__REFERS_TO_CONSTRUCTED_ATTRIBUTE, oldRefersToConstructedAttribute,
                     null, oldRefersToConstructedAttributeESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1642,15 +1709,18 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
             msgs = ( ( InternalEObject ) refersToConstructedAttribute ).eInverseRemove( this,
                     NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_ATTRIBUTE_TYPE, ConstructedAttribute.class, msgs );
             msgs = basicUnsetRefersToConstructedAttribute( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToConstructedAttributeESet = refersToConstructedAttributeESet;
             refersToConstructedAttributeESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET,
                         NsdPackage.SUB_DATA_ATTRIBUTE__REFERS_TO_CONSTRUCTED_ATTRIBUTE, null, null,
                         oldRefersToConstructedAttributeESet ) );
+            }
         }
     }
 
@@ -1688,10 +1758,12 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.SUB_DATA_ATTRIBUTE__REFERS_TO_ENUMERATION, oldRefersToEnumeration,
                     newRefersToEnumeration, !oldRefersToEnumerationESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1705,22 +1777,27 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
     public void setRefersToEnumeration( Enumeration newRefersToEnumeration ) {
         if( newRefersToEnumeration != refersToEnumeration ) {
             NotificationChain msgs = null;
-            if( refersToEnumeration != null )
+            if( refersToEnumeration != null ) {
                 msgs = ( ( InternalEObject ) refersToEnumeration ).eInverseRemove( this,
                         NsdPackage.ENUMERATION__REFERRED_BY_ATTRIBUTE_TYPE, Enumeration.class, msgs );
-            if( newRefersToEnumeration != null )
+            }
+            if( newRefersToEnumeration != null ) {
                 msgs = ( ( InternalEObject ) newRefersToEnumeration ).eInverseAdd( this,
                         NsdPackage.ENUMERATION__REFERRED_BY_ATTRIBUTE_TYPE, Enumeration.class, msgs );
+            }
             msgs = basicSetRefersToEnumeration( newRefersToEnumeration, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToEnumerationESet = refersToEnumerationESet;
             refersToEnumerationESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET,
                         NsdPackage.SUB_DATA_ATTRIBUTE__REFERS_TO_ENUMERATION, newRefersToEnumeration,
                         newRefersToEnumeration, !oldRefersToEnumerationESet ) );
+            }
         }
     }
 
@@ -1738,10 +1815,12 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.SUB_DATA_ATTRIBUTE__REFERS_TO_ENUMERATION, oldRefersToEnumeration, null,
                     oldRefersToEnumerationESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1758,15 +1837,18 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
             msgs = ( ( InternalEObject ) refersToEnumeration ).eInverseRemove( this,
                     NsdPackage.ENUMERATION__REFERRED_BY_ATTRIBUTE_TYPE, Enumeration.class, msgs );
             msgs = basicUnsetRefersToEnumeration( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToEnumerationESet = refersToEnumerationESet;
             refersToEnumerationESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET,
                         NsdPackage.SUB_DATA_ATTRIBUTE__REFERS_TO_ENUMERATION, null, null,
                         oldRefersToEnumerationESet ) );
+            }
         }
     }
 
@@ -1805,10 +1887,12 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.SUB_DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION, oldRefersToPresenceCondition,
                     newRefersToPresenceCondition, !oldRefersToPresenceConditionESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1822,22 +1906,27 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
     public void setRefersToPresenceCondition( PresenceCondition newRefersToPresenceCondition ) {
         if( newRefersToPresenceCondition != refersToPresenceCondition ) {
             NotificationChain msgs = null;
-            if( refersToPresenceCondition != null )
+            if( refersToPresenceCondition != null ) {
                 msgs = ( ( InternalEObject ) refersToPresenceCondition ).eInverseRemove( this,
                         NsdPackage.PRESENCE_CONDITION__REFERRED_BY_SUB_DATA_ATTRIBUTE, PresenceCondition.class, msgs );
-            if( newRefersToPresenceCondition != null )
+            }
+            if( newRefersToPresenceCondition != null ) {
                 msgs = ( ( InternalEObject ) newRefersToPresenceCondition ).eInverseAdd( this,
                         NsdPackage.PRESENCE_CONDITION__REFERRED_BY_SUB_DATA_ATTRIBUTE, PresenceCondition.class, msgs );
+            }
             msgs = basicSetRefersToPresenceCondition( newRefersToPresenceCondition, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToPresenceConditionESet = refersToPresenceConditionESet;
             refersToPresenceConditionESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET,
                         NsdPackage.SUB_DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION, newRefersToPresenceCondition,
                         newRefersToPresenceCondition, !oldRefersToPresenceConditionESet ) );
+            }
         }
     }
 
@@ -1855,10 +1944,12 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.SUB_DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION, oldRefersToPresenceCondition, null,
                     oldRefersToPresenceConditionESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1875,15 +1966,18 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
             msgs = ( ( InternalEObject ) refersToPresenceCondition ).eInverseRemove( this,
                     NsdPackage.PRESENCE_CONDITION__REFERRED_BY_SUB_DATA_ATTRIBUTE, PresenceCondition.class, msgs );
             msgs = basicUnsetRefersToPresenceCondition( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToPresenceConditionESet = refersToPresenceConditionESet;
             refersToPresenceConditionESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET,
                         NsdPackage.SUB_DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION, null, null,
                         oldRefersToPresenceConditionESet ) );
+            }
         }
     }
 
@@ -1970,34 +2064,40 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.SUB_DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC:
-            if( refersToPresCondArgsDoc != null )
+            if( refersToPresCondArgsDoc != null ) {
                 msgs = ( ( InternalEObject ) refersToPresCondArgsDoc ).eInverseRemove( this,
                         NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION, Doc.class, msgs );
+            }
             return basicSetRefersToPresCondArgsDoc( ( Doc ) otherEnd, msgs );
         case NsdPackage.SUB_DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE:
-            if( refersToBasicType != null )
+            if( refersToBasicType != null ) {
                 msgs = ( ( InternalEObject ) refersToBasicType ).eInverseRemove( this,
                         NsdPackage.BASIC_TYPE__REFERRED_BY_ATTRIBUTE_TYPE, BasicType.class, msgs );
+            }
             return basicSetRefersToBasicType( ( BasicType ) otherEnd, msgs );
         case NsdPackage.SUB_DATA_ATTRIBUTE__REFERS_TO_CONSTRUCTED_ATTRIBUTE:
-            if( refersToConstructedAttribute != null )
+            if( refersToConstructedAttribute != null ) {
                 msgs = ( ( InternalEObject ) refersToConstructedAttribute ).eInverseRemove( this,
                         NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_ATTRIBUTE_TYPE, ConstructedAttribute.class,
                         msgs );
+            }
             return basicSetRefersToConstructedAttribute( ( ConstructedAttribute ) otherEnd, msgs );
         case NsdPackage.SUB_DATA_ATTRIBUTE__REFERS_TO_ENUMERATION:
-            if( refersToEnumeration != null )
+            if( refersToEnumeration != null ) {
                 msgs = ( ( InternalEObject ) refersToEnumeration ).eInverseRemove( this,
                         NsdPackage.ENUMERATION__REFERRED_BY_ATTRIBUTE_TYPE, Enumeration.class, msgs );
+            }
             return basicSetRefersToEnumeration( ( Enumeration ) otherEnd, msgs );
         case NsdPackage.SUB_DATA_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTE:
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
+            }
             return basicSetParentConstructedAttribute( ( ConstructedAttribute ) otherEnd, msgs );
         case NsdPackage.SUB_DATA_ATTRIBUTE__REFERS_TO_PRESENCE_CONDITION:
-            if( refersToPresenceCondition != null )
+            if( refersToPresenceCondition != null ) {
                 msgs = ( ( InternalEObject ) refersToPresenceCondition ).eInverseRemove( this,
                         NsdPackage.PRESENCE_CONDITION__REFERRED_BY_SUB_DATA_ATTRIBUTE, PresenceCondition.class, msgs );
+            }
             return basicSetRefersToPresenceCondition( ( PresenceCondition ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
@@ -2435,74 +2535,102 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
      */
     @Override
     public String toString() {
-        if( eIsProxy() ) return super.toString();
+        if( eIsProxy() ) {
+            return super.toString();
+        }
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (presCond: " );
-        if( presCondESet )
+        if( presCondESet ) {
             result.append( presCond );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", presCondArgs: " );
-        if( presCondArgsESet )
+        if( presCondArgsESet ) {
             result.append( presCondArgs );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", presCondArgsID: " );
-        if( presCondArgsIDESet )
+        if( presCondArgsIDESet ) {
             result.append( presCondArgsID );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", isArray: " );
-        if( isArrayESet )
+        if( isArrayESet ) {
             result.append( isArray );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", maxIndexAttribute: " );
-        if( maxIndexAttributeESet )
+        if( maxIndexAttributeESet ) {
             result.append( maxIndexAttribute );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", minIndex: " );
-        if( minIndexESet )
+        if( minIndexESet ) {
             result.append( minIndex );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", sizeAttribute: " );
-        if( sizeAttributeESet )
+        if( sizeAttributeESet ) {
             result.append( sizeAttribute );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", type: " );
-        if( typeESet )
+        if( typeESet ) {
             result.append( type );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", typeKind: " );
-        if( typeKindESet )
+        if( typeKindESet ) {
             result.append( typeKind );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", defaultValue: " );
-        if( defaultValueESet )
+        if( defaultValueESet ) {
             result.append( defaultValue );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", maxValue: " );
-        if( maxValueESet )
+        if( maxValueESet ) {
             result.append( maxValue );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", minValue: " );
-        if( minValueESet )
+        if( minValueESet ) {
             result.append( minValue );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", name: " );
-        if( nameESet )
+        if( nameESet ) {
             result.append( name );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ')' );
         return result.toString();
     }
@@ -2514,12 +2642,17 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
      */
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
-        console.debug( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), "SubDataAttributeImpl.buildExplicitLinks()" );
+        console.debug( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                "SubDataAttributeImpl.buildExplicitLinks()" );
 
-        if( super.buildExplicitLinks( console ) ) return true;
+        if( super.buildExplicitLinks( console ) ) {
+            return true;
+        }
 
         NsdResourceSetImpl rs = getResourceSet();
-        if( rs == null ) return false;
+        if( rs == null ) {
+            return false;
+        }
 
         String messagePrefix = "while resolving link from SubDataAttribute (name: " + getName() + "): ";
 
@@ -2627,7 +2760,9 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
                 Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getNsIdentification(),
                         getPresCondArgsID() );
-                if( doc != null ) setRefersToPresCondArgsDoc( doc );
+                if( doc != null ) {
+                    setRefersToPresCondArgsDoc( doc );
+                }
             }
         }
 

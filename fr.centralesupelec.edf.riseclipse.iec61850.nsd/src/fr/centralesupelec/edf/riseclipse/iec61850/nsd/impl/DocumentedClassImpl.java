@@ -196,9 +196,10 @@ public abstract class DocumentedClassImpl extends NsdObjectImpl implements Docum
         deprecated = newDeprecated;
         boolean oldDeprecatedESet = deprecatedESet;
         deprecatedESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DOCUMENTED_CLASS__DEPRECATED,
                     oldDeprecated, deprecated, !oldDeprecatedESet ) );
+        }
     }
 
     /**
@@ -212,9 +213,10 @@ public abstract class DocumentedClassImpl extends NsdObjectImpl implements Docum
         boolean oldDeprecatedESet = deprecatedESet;
         deprecated = DEPRECATED_EDEFAULT;
         deprecatedESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DOCUMENTED_CLASS__DEPRECATED,
                     oldDeprecated, DEPRECATED_EDEFAULT, oldDeprecatedESet ) );
+        }
     }
 
     /**
@@ -248,9 +250,10 @@ public abstract class DocumentedClassImpl extends NsdObjectImpl implements Docum
         descID = newDescID;
         boolean oldDescIDESet = descIDESet;
         descIDESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DOCUMENTED_CLASS__DESC_ID, oldDescID,
                     descID, !oldDescIDESet ) );
+        }
     }
 
     /**
@@ -264,9 +267,10 @@ public abstract class DocumentedClassImpl extends NsdObjectImpl implements Docum
         boolean oldDescIDESet = descIDESet;
         descID = DESC_ID_EDEFAULT;
         descIDESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DOCUMENTED_CLASS__DESC_ID, oldDescID,
                     DESC_ID_EDEFAULT, oldDescIDESet ) );
+        }
     }
 
     /**
@@ -300,9 +304,10 @@ public abstract class DocumentedClassImpl extends NsdObjectImpl implements Docum
         informative = newInformative;
         boolean oldInformativeESet = informativeESet;
         informativeESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DOCUMENTED_CLASS__INFORMATIVE,
                     oldInformative, informative, !oldInformativeESet ) );
+        }
     }
 
     /**
@@ -316,9 +321,10 @@ public abstract class DocumentedClassImpl extends NsdObjectImpl implements Docum
         boolean oldInformativeESet = informativeESet;
         informative = INFORMATIVE_EDEFAULT;
         informativeESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DOCUMENTED_CLASS__INFORMATIVE,
                     oldInformative, INFORMATIVE_EDEFAULT, oldInformativeESet ) );
+        }
     }
 
     /**
@@ -355,10 +361,12 @@ public abstract class DocumentedClassImpl extends NsdObjectImpl implements Docum
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.DOCUMENTED_CLASS__REFERS_TO_DESC_DOC, oldRefersToDescDoc, newRefersToDescDoc,
                     !oldRefersToDescDocESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -372,21 +380,26 @@ public abstract class DocumentedClassImpl extends NsdObjectImpl implements Docum
     public void setRefersToDescDoc( Doc newRefersToDescDoc ) {
         if( newRefersToDescDoc != refersToDescDoc ) {
             NotificationChain msgs = null;
-            if( refersToDescDoc != null )
+            if( refersToDescDoc != null ) {
                 msgs = ( ( InternalEObject ) refersToDescDoc ).eInverseRemove( this,
                         NsdPackage.DOC__REFERRED_BY_DOCUMENTED_CLASS, Doc.class, msgs );
-            if( newRefersToDescDoc != null )
+            }
+            if( newRefersToDescDoc != null ) {
                 msgs = ( ( InternalEObject ) newRefersToDescDoc ).eInverseAdd( this,
                         NsdPackage.DOC__REFERRED_BY_DOCUMENTED_CLASS, Doc.class, msgs );
+            }
             msgs = basicSetRefersToDescDoc( newRefersToDescDoc, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToDescDocESet = refersToDescDocESet;
             refersToDescDocESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DOCUMENTED_CLASS__REFERS_TO_DESC_DOC,
                         newRefersToDescDoc, newRefersToDescDoc, !oldRefersToDescDocESet ) );
+            }
         }
     }
 
@@ -403,10 +416,12 @@ public abstract class DocumentedClassImpl extends NsdObjectImpl implements Docum
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.DOCUMENTED_CLASS__REFERS_TO_DESC_DOC, oldRefersToDescDoc, null, oldRefersToDescDocESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -423,14 +438,17 @@ public abstract class DocumentedClassImpl extends NsdObjectImpl implements Docum
             msgs = ( ( InternalEObject ) refersToDescDoc ).eInverseRemove( this,
                     NsdPackage.DOC__REFERRED_BY_DOCUMENTED_CLASS, Doc.class, msgs );
             msgs = basicUnsetRefersToDescDoc( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToDescDocESet = refersToDescDocESet;
             refersToDescDocESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET,
                         NsdPackage.DOCUMENTED_CLASS__REFERS_TO_DESC_DOC, null, null, oldRefersToDescDocESet ) );
+            }
         }
     }
 
@@ -453,9 +471,10 @@ public abstract class DocumentedClassImpl extends NsdObjectImpl implements Docum
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.DOCUMENTED_CLASS__REFERS_TO_DESC_DOC:
-            if( refersToDescDoc != null )
+            if( refersToDescDoc != null ) {
                 msgs = ( ( InternalEObject ) refersToDescDoc ).eInverseRemove( this,
                         NsdPackage.DOC__REFERRED_BY_DOCUMENTED_CLASS, Doc.class, msgs );
+            }
             return basicSetRefersToDescDoc( ( Doc ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
@@ -570,39 +589,52 @@ public abstract class DocumentedClassImpl extends NsdObjectImpl implements Docum
      */
     @Override
     public String toString() {
-        if( eIsProxy() ) return super.toString();
+        if( eIsProxy() ) {
+            return super.toString();
+        }
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (deprecated: " );
-        if( deprecatedESet )
+        if( deprecatedESet ) {
             result.append( deprecated );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", descID: " );
-        if( descIDESet )
+        if( descIDESet ) {
             result.append( descID );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", informative: " );
-        if( informativeESet )
+        if( informativeESet ) {
             result.append( informative );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ')' );
         return result.toString();
     }
 
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
-        console.debug( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), "DocumentedClassImpl.buildExplicitLinks()" );
+        console.debug( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                "DocumentedClassImpl.buildExplicitLinks()" );
 
-        if( super.buildExplicitLinks( console ) ) return true;
+        if( super.buildExplicitLinks( console ) ) {
+            return true;
+        }
 
         if( isSetDescID() ) {
             if( ( this.eResource() != null ) && ( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) ) {
                 Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getNsIdentification(),
                         getDescID() );
-                if( doc != null ) setRefersToDescDoc( doc );
+                if( doc != null ) {
+                    setRefersToDescDoc( doc );
+                }
             }
         }
 

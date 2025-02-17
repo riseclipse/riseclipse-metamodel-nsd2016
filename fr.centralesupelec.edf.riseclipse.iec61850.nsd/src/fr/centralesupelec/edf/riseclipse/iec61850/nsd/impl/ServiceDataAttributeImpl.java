@@ -526,9 +526,10 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         fc = newFc;
         boolean oldFcESet = fcESet;
         fcESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_DATA_ATTRIBUTE__FC, oldFc, fc,
                     !oldFcESet ) );
+        }
     }
 
     /**
@@ -542,9 +543,10 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         boolean oldFcESet = fcESet;
         fc = FC_EDEFAULT;
         fcESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_DATA_ATTRIBUTE__FC, oldFc,
                     FC_EDEFAULT, oldFcESet ) );
+        }
     }
 
     /**
@@ -578,9 +580,10 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         name = newName;
         boolean oldNameESet = nameESet;
         nameESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_DATA_ATTRIBUTE__NAME, oldName,
                     name, !oldNameESet ) );
+        }
     }
 
     /**
@@ -594,9 +597,10 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         boolean oldNameESet = nameESet;
         name = NAME_EDEFAULT;
         nameESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_DATA_ATTRIBUTE__NAME, oldName,
                     NAME_EDEFAULT, oldNameESet ) );
+        }
     }
 
     /**
@@ -616,7 +620,9 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
      */
     @Override
     public ServiceCDC getParentServiceCDC() {
-        if( eContainerFeatureID() != NsdPackage.SERVICE_DATA_ATTRIBUTE__PARENT_SERVICE_CDC ) return null;
+        if( eContainerFeatureID() != NsdPackage.SERVICE_DATA_ATTRIBUTE__PARENT_SERVICE_CDC ) {
+            return null;
+        }
         return ( ServiceCDC ) eInternalContainer();
     }
 
@@ -641,20 +647,26 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         if( newParentServiceCDC != eInternalContainer()
                 || ( eContainerFeatureID() != NsdPackage.SERVICE_DATA_ATTRIBUTE__PARENT_SERVICE_CDC
                         && newParentServiceCDC != null ) ) {
-            if( EcoreUtil.isAncestor( this, newParentServiceCDC ) )
+            if( EcoreUtil.isAncestor( this, newParentServiceCDC ) ) {
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            }
             NotificationChain msgs = null;
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newParentServiceCDC != null )
+            }
+            if( newParentServiceCDC != null ) {
                 msgs = ( ( InternalEObject ) newParentServiceCDC ).eInverseAdd( this,
                         NsdPackage.SERVICE_CDC__SERVICE_DATA_ATTRIBUTE, ServiceCDC.class, msgs );
+            }
             msgs = basicSetParentServiceCDC( newParentServiceCDC, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
-        else if( eNotificationRequired() )
+        else if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET,
                     NsdPackage.SERVICE_DATA_ATTRIBUTE__PARENT_SERVICE_CDC, newParentServiceCDC, newParentServiceCDC ) );
+        }
     }
 
     /**
@@ -806,9 +818,10 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         presCond = newPresCond;
         boolean oldPresCondESet = presCondESet;
         presCondESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND,
                     oldPresCond, presCond, !oldPresCondESet ) );
+        }
     }
 
     /**
@@ -822,9 +835,10 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         boolean oldPresCondESet = presCondESet;
         presCond = PRES_COND_EDEFAULT;
         presCondESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND,
                     oldPresCond, PRES_COND_EDEFAULT, oldPresCondESet ) );
+        }
     }
 
     /**
@@ -858,9 +872,10 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         presCondArgs = newPresCondArgs;
         boolean oldPresCondArgsESet = presCondArgsESet;
         presCondArgsESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS,
                     oldPresCondArgs, presCondArgs, !oldPresCondArgsESet ) );
+        }
     }
 
     /**
@@ -874,9 +889,10 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         boolean oldPresCondArgsESet = presCondArgsESet;
         presCondArgs = PRES_COND_ARGS_EDEFAULT;
         presCondArgsESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS,
                     oldPresCondArgs, PRES_COND_ARGS_EDEFAULT, oldPresCondArgsESet ) );
+        }
     }
 
     /**
@@ -910,10 +926,11 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         presCondArgsID = newPresCondArgsID;
         boolean oldPresCondArgsIDESet = presCondArgsIDESet;
         presCondArgsIDESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET,
                     NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS_ID, oldPresCondArgsID, presCondArgsID,
                     !oldPresCondArgsIDESet ) );
+        }
     }
 
     /**
@@ -927,10 +944,11 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         boolean oldPresCondArgsIDESet = presCondArgsIDESet;
         presCondArgsID = PRES_COND_ARGS_ID_EDEFAULT;
         presCondArgsIDESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.SERVICE_DATA_ATTRIBUTE__PRES_COND_ARGS_ID, oldPresCondArgsID, PRES_COND_ARGS_ID_EDEFAULT,
                     oldPresCondArgsIDESet ) );
+        }
     }
 
     /**
@@ -967,10 +985,12 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC, oldRefersToPresCondArgsDoc,
                     newRefersToPresCondArgsDoc, !oldRefersToPresCondArgsDocESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -984,22 +1004,27 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
     public void setRefersToPresCondArgsDoc( Doc newRefersToPresCondArgsDoc ) {
         if( newRefersToPresCondArgsDoc != refersToPresCondArgsDoc ) {
             NotificationChain msgs = null;
-            if( refersToPresCondArgsDoc != null )
+            if( refersToPresCondArgsDoc != null ) {
                 msgs = ( ( InternalEObject ) refersToPresCondArgsDoc ).eInverseRemove( this,
                         NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION, Doc.class, msgs );
-            if( newRefersToPresCondArgsDoc != null )
+            }
+            if( newRefersToPresCondArgsDoc != null ) {
                 msgs = ( ( InternalEObject ) newRefersToPresCondArgsDoc ).eInverseAdd( this,
                         NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION, Doc.class, msgs );
+            }
             msgs = basicSetRefersToPresCondArgsDoc( newRefersToPresCondArgsDoc, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToPresCondArgsDocESet = refersToPresCondArgsDocESet;
             refersToPresCondArgsDocESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET,
                         NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC, newRefersToPresCondArgsDoc,
                         newRefersToPresCondArgsDoc, !oldRefersToPresCondArgsDocESet ) );
+            }
         }
     }
 
@@ -1017,10 +1042,12 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC, oldRefersToPresCondArgsDoc, null,
                     oldRefersToPresCondArgsDocESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1037,15 +1064,18 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
             msgs = ( ( InternalEObject ) refersToPresCondArgsDoc ).eInverseRemove( this,
                     NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION, Doc.class, msgs );
             msgs = basicUnsetRefersToPresCondArgsDoc( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToPresCondArgsDocESet = refersToPresCondArgsDocESet;
             refersToPresCondArgsDocESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET,
                         NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC, null, null,
                         oldRefersToPresCondArgsDocESet ) );
+            }
         }
     }
 
@@ -1080,9 +1110,10 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         type = newType;
         boolean oldTypeESet = typeESet;
         typeESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_DATA_ATTRIBUTE__TYPE, oldType,
                     type, !oldTypeESet ) );
+        }
     }
 
     /**
@@ -1096,9 +1127,10 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         boolean oldTypeESet = typeESet;
         type = TYPE_EDEFAULT;
         typeESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_DATA_ATTRIBUTE__TYPE, oldType,
                     TYPE_EDEFAULT, oldTypeESet ) );
+        }
     }
 
     /**
@@ -1132,9 +1164,10 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         typeKind = newTypeKind;
         boolean oldTypeKindESet = typeKindESet;
         typeKindESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_DATA_ATTRIBUTE__TYPE_KIND,
                     oldTypeKind, typeKind, !oldTypeKindESet ) );
+        }
     }
 
     /**
@@ -1148,9 +1181,10 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         boolean oldTypeKindESet = typeKindESet;
         typeKind = TYPE_KIND_EDEFAULT;
         typeKindESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_DATA_ATTRIBUTE__TYPE_KIND,
                     oldTypeKind, TYPE_KIND_EDEFAULT, oldTypeKindESet ) );
+        }
     }
 
     /**
@@ -1187,10 +1221,12 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE, oldRefersToBasicType, newRefersToBasicType,
                     !oldRefersToBasicTypeESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1204,22 +1240,27 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
     public void setRefersToBasicType( BasicType newRefersToBasicType ) {
         if( newRefersToBasicType != refersToBasicType ) {
             NotificationChain msgs = null;
-            if( refersToBasicType != null )
+            if( refersToBasicType != null ) {
                 msgs = ( ( InternalEObject ) refersToBasicType ).eInverseRemove( this,
                         NsdPackage.BASIC_TYPE__REFERRED_BY_ATTRIBUTE_TYPE, BasicType.class, msgs );
-            if( newRefersToBasicType != null )
+            }
+            if( newRefersToBasicType != null ) {
                 msgs = ( ( InternalEObject ) newRefersToBasicType ).eInverseAdd( this,
                         NsdPackage.BASIC_TYPE__REFERRED_BY_ATTRIBUTE_TYPE, BasicType.class, msgs );
+            }
             msgs = basicSetRefersToBasicType( newRefersToBasicType, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToBasicTypeESet = refersToBasicTypeESet;
             refersToBasicTypeESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET,
                         NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE, newRefersToBasicType,
                         newRefersToBasicType, !oldRefersToBasicTypeESet ) );
+            }
         }
     }
 
@@ -1237,10 +1278,12 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE, oldRefersToBasicType, null,
                     oldRefersToBasicTypeESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1257,15 +1300,18 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
             msgs = ( ( InternalEObject ) refersToBasicType ).eInverseRemove( this,
                     NsdPackage.BASIC_TYPE__REFERRED_BY_ATTRIBUTE_TYPE, BasicType.class, msgs );
             msgs = basicUnsetRefersToBasicType( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToBasicTypeESet = refersToBasicTypeESet;
             refersToBasicTypeESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET,
                         NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE, null, null,
                         oldRefersToBasicTypeESet ) );
+            }
         }
     }
 
@@ -1304,10 +1350,12 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_CONSTRUCTED_ATTRIBUTE, oldRefersToConstructedAttribute,
                     newRefersToConstructedAttribute, !oldRefersToConstructedAttributeESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1321,25 +1369,30 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
     public void setRefersToConstructedAttribute( ConstructedAttribute newRefersToConstructedAttribute ) {
         if( newRefersToConstructedAttribute != refersToConstructedAttribute ) {
             NotificationChain msgs = null;
-            if( refersToConstructedAttribute != null )
+            if( refersToConstructedAttribute != null ) {
                 msgs = ( ( InternalEObject ) refersToConstructedAttribute ).eInverseRemove( this,
                         NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_ATTRIBUTE_TYPE, ConstructedAttribute.class,
                         msgs );
-            if( newRefersToConstructedAttribute != null )
+            }
+            if( newRefersToConstructedAttribute != null ) {
                 msgs = ( ( InternalEObject ) newRefersToConstructedAttribute ).eInverseAdd( this,
                         NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_ATTRIBUTE_TYPE, ConstructedAttribute.class,
                         msgs );
+            }
             msgs = basicSetRefersToConstructedAttribute( newRefersToConstructedAttribute, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToConstructedAttributeESet = refersToConstructedAttributeESet;
             refersToConstructedAttributeESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET,
                         NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_CONSTRUCTED_ATTRIBUTE,
                         newRefersToConstructedAttribute, newRefersToConstructedAttribute,
                         !oldRefersToConstructedAttributeESet ) );
+            }
         }
     }
 
@@ -1357,10 +1410,12 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_CONSTRUCTED_ATTRIBUTE, oldRefersToConstructedAttribute,
                     null, oldRefersToConstructedAttributeESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1377,15 +1432,18 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
             msgs = ( ( InternalEObject ) refersToConstructedAttribute ).eInverseRemove( this,
                     NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_ATTRIBUTE_TYPE, ConstructedAttribute.class, msgs );
             msgs = basicUnsetRefersToConstructedAttribute( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToConstructedAttributeESet = refersToConstructedAttributeESet;
             refersToConstructedAttributeESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET,
                         NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_CONSTRUCTED_ATTRIBUTE, null, null,
                         oldRefersToConstructedAttributeESet ) );
+            }
         }
     }
 
@@ -1423,10 +1481,12 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_ENUMERATION, oldRefersToEnumeration,
                     newRefersToEnumeration, !oldRefersToEnumerationESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1440,22 +1500,27 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
     public void setRefersToEnumeration( Enumeration newRefersToEnumeration ) {
         if( newRefersToEnumeration != refersToEnumeration ) {
             NotificationChain msgs = null;
-            if( refersToEnumeration != null )
+            if( refersToEnumeration != null ) {
                 msgs = ( ( InternalEObject ) refersToEnumeration ).eInverseRemove( this,
                         NsdPackage.ENUMERATION__REFERRED_BY_ATTRIBUTE_TYPE, Enumeration.class, msgs );
-            if( newRefersToEnumeration != null )
+            }
+            if( newRefersToEnumeration != null ) {
                 msgs = ( ( InternalEObject ) newRefersToEnumeration ).eInverseAdd( this,
                         NsdPackage.ENUMERATION__REFERRED_BY_ATTRIBUTE_TYPE, Enumeration.class, msgs );
+            }
             msgs = basicSetRefersToEnumeration( newRefersToEnumeration, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToEnumerationESet = refersToEnumerationESet;
             refersToEnumerationESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET,
                         NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_ENUMERATION, newRefersToEnumeration,
                         newRefersToEnumeration, !oldRefersToEnumerationESet ) );
+            }
         }
     }
 
@@ -1473,10 +1538,12 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_ENUMERATION, oldRefersToEnumeration, null,
                     oldRefersToEnumerationESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1493,15 +1560,18 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
             msgs = ( ( InternalEObject ) refersToEnumeration ).eInverseRemove( this,
                     NsdPackage.ENUMERATION__REFERRED_BY_ATTRIBUTE_TYPE, Enumeration.class, msgs );
             msgs = basicUnsetRefersToEnumeration( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToEnumerationESet = refersToEnumerationESet;
             refersToEnumerationESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET,
                         NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_ENUMERATION, null, null,
                         oldRefersToEnumerationESet ) );
+            }
         }
     }
 
@@ -1536,9 +1606,10 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         underlyingType = newUnderlyingType;
         boolean oldUnderlyingTypeESet = underlyingTypeESet;
         underlyingTypeESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE,
                     oldUnderlyingType, underlyingType, !oldUnderlyingTypeESet ) );
+        }
     }
 
     /**
@@ -1552,10 +1623,11 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         boolean oldUnderlyingTypeESet = underlyingTypeESet;
         underlyingType = UNDERLYING_TYPE_EDEFAULT;
         underlyingTypeESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE, oldUnderlyingType, UNDERLYING_TYPE_EDEFAULT,
                     oldUnderlyingTypeESet ) );
+        }
     }
 
     /**
@@ -1589,10 +1661,11 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         underlyingTypeKind = newUnderlyingTypeKind == null ? UNDERLYING_TYPE_KIND_EDEFAULT : newUnderlyingTypeKind;
         boolean oldUnderlyingTypeKindESet = underlyingTypeKindESet;
         underlyingTypeKindESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET,
                     NsdPackage.SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE_KIND, oldUnderlyingTypeKind, underlyingTypeKind,
                     !oldUnderlyingTypeKindESet ) );
+        }
     }
 
     /**
@@ -1606,10 +1679,11 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
         boolean oldUnderlyingTypeKindESet = underlyingTypeKindESet;
         underlyingTypeKind = UNDERLYING_TYPE_KIND_EDEFAULT;
         underlyingTypeKindESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.SERVICE_DATA_ATTRIBUTE__UNDERLYING_TYPE_KIND, oldUnderlyingTypeKind,
                     UNDERLYING_TYPE_KIND_EDEFAULT, oldUnderlyingTypeKindESet ) );
+        }
     }
 
     /**
@@ -1647,10 +1721,12 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_UNDERLYING_BASIC_TYPE, oldRefersToUnderlyingBasicType,
                     newRefersToUnderlyingBasicType, !oldRefersToUnderlyingBasicTypeESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1664,23 +1740,28 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
     public void setRefersToUnderlyingBasicType( BasicType newRefersToUnderlyingBasicType ) {
         if( newRefersToUnderlyingBasicType != refersToUnderlyingBasicType ) {
             NotificationChain msgs = null;
-            if( refersToUnderlyingBasicType != null )
+            if( refersToUnderlyingBasicType != null ) {
                 msgs = ( ( InternalEObject ) refersToUnderlyingBasicType ).eInverseRemove( this,
                         NsdPackage.BASIC_TYPE__REFERRED_BY_UNDERLYING_TYPE, BasicType.class, msgs );
-            if( newRefersToUnderlyingBasicType != null )
+            }
+            if( newRefersToUnderlyingBasicType != null ) {
                 msgs = ( ( InternalEObject ) newRefersToUnderlyingBasicType ).eInverseAdd( this,
                         NsdPackage.BASIC_TYPE__REFERRED_BY_UNDERLYING_TYPE, BasicType.class, msgs );
+            }
             msgs = basicSetRefersToUnderlyingBasicType( newRefersToUnderlyingBasicType, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToUnderlyingBasicTypeESet = refersToUnderlyingBasicTypeESet;
             refersToUnderlyingBasicTypeESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET,
                         NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_UNDERLYING_BASIC_TYPE,
                         newRefersToUnderlyingBasicType, newRefersToUnderlyingBasicType,
                         !oldRefersToUnderlyingBasicTypeESet ) );
+            }
         }
     }
 
@@ -1698,10 +1779,12 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_UNDERLYING_BASIC_TYPE, oldRefersToUnderlyingBasicType,
                     null, oldRefersToUnderlyingBasicTypeESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1718,15 +1801,18 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
             msgs = ( ( InternalEObject ) refersToUnderlyingBasicType ).eInverseRemove( this,
                     NsdPackage.BASIC_TYPE__REFERRED_BY_UNDERLYING_TYPE, BasicType.class, msgs );
             msgs = basicUnsetRefersToUnderlyingBasicType( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToUnderlyingBasicTypeESet = refersToUnderlyingBasicTypeESet;
             refersToUnderlyingBasicTypeESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET,
                         NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_UNDERLYING_BASIC_TYPE, null, null,
                         oldRefersToUnderlyingBasicTypeESet ) );
+            }
         }
     }
 
@@ -1766,10 +1852,12 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                     NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE,
                     oldRefersToUnderlyingConstructedAttribute, newRefersToUnderlyingConstructedAttribute,
                     !oldRefersToUnderlyingConstructedAttributeESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1784,25 +1872,30 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
             ConstructedAttribute newRefersToUnderlyingConstructedAttribute ) {
         if( newRefersToUnderlyingConstructedAttribute != refersToUnderlyingConstructedAttribute ) {
             NotificationChain msgs = null;
-            if( refersToUnderlyingConstructedAttribute != null )
+            if( refersToUnderlyingConstructedAttribute != null ) {
                 msgs = ( ( InternalEObject ) refersToUnderlyingConstructedAttribute ).eInverseRemove( this,
                         NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_UNDERLYING_TYPE, ConstructedAttribute.class,
                         msgs );
-            if( newRefersToUnderlyingConstructedAttribute != null )
+            }
+            if( newRefersToUnderlyingConstructedAttribute != null ) {
                 msgs = ( ( InternalEObject ) newRefersToUnderlyingConstructedAttribute ).eInverseAdd( this,
                         NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_UNDERLYING_TYPE, ConstructedAttribute.class,
                         msgs );
+            }
             msgs = basicSetRefersToUnderlyingConstructedAttribute( newRefersToUnderlyingConstructedAttribute, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToUnderlyingConstructedAttributeESet = refersToUnderlyingConstructedAttributeESet;
             refersToUnderlyingConstructedAttributeESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET,
                         NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE,
                         newRefersToUnderlyingConstructedAttribute, newRefersToUnderlyingConstructedAttribute,
                         !oldRefersToUnderlyingConstructedAttributeESet ) );
+            }
         }
     }
 
@@ -1820,10 +1913,12 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE,
                     oldRefersToUnderlyingConstructedAttribute, null, oldRefersToUnderlyingConstructedAttributeESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1840,15 +1935,18 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
             msgs = ( ( InternalEObject ) refersToUnderlyingConstructedAttribute ).eInverseRemove( this,
                     NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_UNDERLYING_TYPE, ConstructedAttribute.class, msgs );
             msgs = basicUnsetRefersToUnderlyingConstructedAttribute( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToUnderlyingConstructedAttributeESet = refersToUnderlyingConstructedAttributeESet;
             refersToUnderlyingConstructedAttributeESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET,
                         NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE, null, null,
                         oldRefersToUnderlyingConstructedAttributeESet ) );
+            }
         }
     }
 
@@ -1888,10 +1986,12 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                     NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_UNDERLYING_ENUMERATION,
                     oldRefersToUnderlyingEnumeration, newRefersToUnderlyingEnumeration,
                     !oldRefersToUnderlyingEnumerationESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1905,23 +2005,28 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
     public void setRefersToUnderlyingEnumeration( Enumeration newRefersToUnderlyingEnumeration ) {
         if( newRefersToUnderlyingEnumeration != refersToUnderlyingEnumeration ) {
             NotificationChain msgs = null;
-            if( refersToUnderlyingEnumeration != null )
+            if( refersToUnderlyingEnumeration != null ) {
                 msgs = ( ( InternalEObject ) refersToUnderlyingEnumeration ).eInverseRemove( this,
                         NsdPackage.ENUMERATION__REFERRED_BY_UNDERLYING_TYPE, Enumeration.class, msgs );
-            if( newRefersToUnderlyingEnumeration != null )
+            }
+            if( newRefersToUnderlyingEnumeration != null ) {
                 msgs = ( ( InternalEObject ) newRefersToUnderlyingEnumeration ).eInverseAdd( this,
                         NsdPackage.ENUMERATION__REFERRED_BY_UNDERLYING_TYPE, Enumeration.class, msgs );
+            }
             msgs = basicSetRefersToUnderlyingEnumeration( newRefersToUnderlyingEnumeration, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToUnderlyingEnumerationESet = refersToUnderlyingEnumerationESet;
             refersToUnderlyingEnumerationESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET,
                         NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_UNDERLYING_ENUMERATION,
                         newRefersToUnderlyingEnumeration, newRefersToUnderlyingEnumeration,
                         !oldRefersToUnderlyingEnumerationESet ) );
+            }
         }
     }
 
@@ -1939,10 +2044,12 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_UNDERLYING_ENUMERATION,
                     oldRefersToUnderlyingEnumeration, null, oldRefersToUnderlyingEnumerationESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1959,15 +2066,18 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
             msgs = ( ( InternalEObject ) refersToUnderlyingEnumeration ).eInverseRemove( this,
                     NsdPackage.ENUMERATION__REFERRED_BY_UNDERLYING_TYPE, Enumeration.class, msgs );
             msgs = basicUnsetRefersToUnderlyingEnumeration( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToUnderlyingEnumerationESet = refersToUnderlyingEnumerationESet;
             refersToUnderlyingEnumerationESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET,
                         NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_UNDERLYING_ENUMERATION, null, null,
                         oldRefersToUnderlyingEnumerationESet ) );
+            }
         }
     }
 
@@ -1990,45 +2100,53 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_PRES_COND_ARGS_DOC:
-            if( refersToPresCondArgsDoc != null )
+            if( refersToPresCondArgsDoc != null ) {
                 msgs = ( ( InternalEObject ) refersToPresCondArgsDoc ).eInverseRemove( this,
                         NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION, Doc.class, msgs );
+            }
             return basicSetRefersToPresCondArgsDoc( ( Doc ) otherEnd, msgs );
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_BASIC_TYPE:
-            if( refersToBasicType != null )
+            if( refersToBasicType != null ) {
                 msgs = ( ( InternalEObject ) refersToBasicType ).eInverseRemove( this,
                         NsdPackage.BASIC_TYPE__REFERRED_BY_ATTRIBUTE_TYPE, BasicType.class, msgs );
+            }
             return basicSetRefersToBasicType( ( BasicType ) otherEnd, msgs );
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_CONSTRUCTED_ATTRIBUTE:
-            if( refersToConstructedAttribute != null )
+            if( refersToConstructedAttribute != null ) {
                 msgs = ( ( InternalEObject ) refersToConstructedAttribute ).eInverseRemove( this,
                         NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_ATTRIBUTE_TYPE, ConstructedAttribute.class,
                         msgs );
+            }
             return basicSetRefersToConstructedAttribute( ( ConstructedAttribute ) otherEnd, msgs );
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_ENUMERATION:
-            if( refersToEnumeration != null )
+            if( refersToEnumeration != null ) {
                 msgs = ( ( InternalEObject ) refersToEnumeration ).eInverseRemove( this,
                         NsdPackage.ENUMERATION__REFERRED_BY_ATTRIBUTE_TYPE, Enumeration.class, msgs );
+            }
             return basicSetRefersToEnumeration( ( Enumeration ) otherEnd, msgs );
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_UNDERLYING_BASIC_TYPE:
-            if( refersToUnderlyingBasicType != null )
+            if( refersToUnderlyingBasicType != null ) {
                 msgs = ( ( InternalEObject ) refersToUnderlyingBasicType ).eInverseRemove( this,
                         NsdPackage.BASIC_TYPE__REFERRED_BY_UNDERLYING_TYPE, BasicType.class, msgs );
+            }
             return basicSetRefersToUnderlyingBasicType( ( BasicType ) otherEnd, msgs );
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE:
-            if( refersToUnderlyingConstructedAttribute != null )
+            if( refersToUnderlyingConstructedAttribute != null ) {
                 msgs = ( ( InternalEObject ) refersToUnderlyingConstructedAttribute ).eInverseRemove( this,
                         NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_UNDERLYING_TYPE, ConstructedAttribute.class,
                         msgs );
+            }
             return basicSetRefersToUnderlyingConstructedAttribute( ( ConstructedAttribute ) otherEnd, msgs );
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__REFERS_TO_UNDERLYING_ENUMERATION:
-            if( refersToUnderlyingEnumeration != null )
+            if( refersToUnderlyingEnumeration != null ) {
                 msgs = ( ( InternalEObject ) refersToUnderlyingEnumeration ).eInverseRemove( this,
                         NsdPackage.ENUMERATION__REFERRED_BY_UNDERLYING_TYPE, Enumeration.class, msgs );
+            }
             return basicSetRefersToUnderlyingEnumeration( ( Enumeration ) otherEnd, msgs );
         case NsdPackage.SERVICE_DATA_ATTRIBUTE__PARENT_SERVICE_CDC:
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
+            }
             return basicSetParentServiceCDC( ( ServiceCDC ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
@@ -2433,75 +2551,102 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
      */
     @Override
     public String toString() {
-        if( eIsProxy() ) return super.toString();
+        if( eIsProxy() ) {
+            return super.toString();
+        }
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (presCond: " );
-        if( presCondESet )
+        if( presCondESet ) {
             result.append( presCond );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", presCondArgs: " );
-        if( presCondArgsESet )
+        if( presCondArgsESet ) {
             result.append( presCondArgs );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", presCondArgsID: " );
-        if( presCondArgsIDESet )
+        if( presCondArgsIDESet ) {
             result.append( presCondArgsID );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", type: " );
-        if( typeESet )
+        if( typeESet ) {
             result.append( type );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", typeKind: " );
-        if( typeKindESet )
+        if( typeKindESet ) {
             result.append( typeKind );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", underlyingType: " );
-        if( underlyingTypeESet )
+        if( underlyingTypeESet ) {
             result.append( underlyingType );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", underlyingTypeKind: " );
-        if( underlyingTypeKindESet )
+        if( underlyingTypeKindESet ) {
             result.append( underlyingTypeKind );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", fc: " );
-        if( fcESet )
+        if( fcESet ) {
             result.append( fc );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", name: " );
-        if( nameESet )
+        if( nameESet ) {
             result.append( name );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ')' );
         return result.toString();
     }
 
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
-        console.debug( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), "ServiceDataAttributeImpl.buildExplicitLinks()" );
+        console.debug( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                "ServiceDataAttributeImpl.buildExplicitLinks()" );
 
-        if( super.buildExplicitLinks( console ) ) return true;
+        if( super.buildExplicitLinks( console ) ) {
+            return true;
+        }
 
         if( isSetPresCondArgsID() ) {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
                 Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc(
                         NsIdentification.of( getParentServiceCDC().getParentServiceCDCs().getParentServiceNS() ),
                         getPresCondArgsID() );
-                if( doc != null ) setRefersToPresCondArgsDoc( doc );
+                if( doc != null ) {
+                    setRefersToPresCondArgsDoc( doc );
+                }
             }
         }
 
         NsdResourceSetImpl rs = getResourceSet();
-        if( rs == null ) return false;
+        if( rs == null ) {
+            return false;
+        }
 
         String messagePrefix = "while resolving link from ServiceDataAttribute (name: " + getName() + "): ";
 

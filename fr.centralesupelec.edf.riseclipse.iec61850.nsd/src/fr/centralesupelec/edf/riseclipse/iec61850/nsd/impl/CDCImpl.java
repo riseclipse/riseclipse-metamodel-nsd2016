@@ -1517,10 +1517,10 @@ public class CDCImpl extends TitledClassImpl implements CDC {
             parameterizedCDC.buildExplicitLinks( console );
 
             parameterizedCDCs.get( key ).put( underlyingType, parameterizedCDC );
-            
+
             console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                     "CDC ", getName(), " parameterized with ", underlyingType, " has been added to namespace ", ns.getId() );
-                    
+
         }
 
         return parameterizedCDCs.get( key ).get( underlyingType );
