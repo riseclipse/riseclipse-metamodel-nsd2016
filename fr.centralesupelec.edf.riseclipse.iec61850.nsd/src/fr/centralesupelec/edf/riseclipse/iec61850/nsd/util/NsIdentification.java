@@ -21,6 +21,8 @@
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.util;
 
 import java.util.HashMap;
+
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgDependsOn;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 
 /*
@@ -44,6 +46,9 @@ public class NsIdentification {
     // This map can be shared among all ResourceSets
     private static HashMap< String, HashMap< Integer, HashMap< String, NsIdentification >>> nsIdentifications = new HashMap<>();
     
+    public static NsIdentification of( String id, Integer version, String revision ) {
+        return of( id, version, revision, DEFAULT_RELEASE );
+    }
     public static NsIdentification of( String id, Integer version, String revision, Integer release ) {
         if( ! nsIdentifications.containsKey( id )) {
             nsIdentifications.put( id, new HashMap<>() );
@@ -87,6 +92,10 @@ public class NsIdentification {
     
     public static NsIdentification of( AgNSIdentification identification ) {
         return of( identification.getId(), identification.getVersion(), identification.getRevision(), identification.getRelease() );
+    }
+
+    public static NsIdentification of( AgDependsOn dependsOn ) {
+        return of( dependsOn.getId(), dependsOn.getVersion(), dependsOn.getRevision() );
     }
 
     public String getId() {
