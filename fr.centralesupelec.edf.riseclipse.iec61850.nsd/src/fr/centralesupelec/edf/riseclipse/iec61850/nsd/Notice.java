@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -66,7 +66,7 @@ public interface Notice extends NsdObject {
      * @see #setParentCopyrightNotice(CopyrightNotice)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNotice_ParentCopyrightNotice()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CopyrightNotice#getNotice
-     * @model opposite="notice" resolveProxies="false" unsettable="true" ordered="false"
+     * @model opposite="notice" resolveProxies="false" unsettable="true"
      * @generated
      */
     CopyrightNotice getParentCopyrightNotice();

@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -149,7 +149,7 @@ public interface ConstructedAttribute extends TitledClass {
      * @see #setParentConstructedAttributes(ConstructedAttributes)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getConstructedAttribute_ParentConstructedAttributes()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes#getConstructedAttribute
-     * @model opposite="constructedAttribute" resolveProxies="false" unsettable="true" ordered="false"
+     * @model opposite="constructedAttribute" resolveProxies="false" unsettable="true"
      * @generated
      */
     ConstructedAttributes getParentConstructedAttributes();
@@ -173,7 +173,7 @@ public interface ConstructedAttribute extends TitledClass {
      * @see #setParentServiceTypeRealizations(ServiceTypeRealizations)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getConstructedAttribute_ParentServiceTypeRealizations()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations#getServiceTypeRealization
-     * @model opposite="serviceTypeRealization" resolveProxies="false" unsettable="true" ordered="false"
+     * @model opposite="serviceTypeRealization" resolveProxies="false" unsettable="true"
      * @generated
      */
     ServiceTypeRealizations getParentServiceTypeRealizations();

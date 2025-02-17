@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -55,7 +55,7 @@ public interface LNClass extends AnyLNClass {
      * @see #unsetCanHaveLOG()
      * @see #setCanHaveLOG(boolean)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getLNClass_CanHaveLOG()
-     * @model default="false" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+     * @model default="false" unsettable="true" required="true"
      *        extendedMetaData="kind='attribute' name='canHaveLOG'"
      * @generated
      */
@@ -106,7 +106,7 @@ public interface LNClass extends AnyLNClass {
      * @see #unsetIsExtension()
      * @see #setIsExtension(boolean)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getLNClass_IsExtension()
-     * @model default="false" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+     * @model default="false" unsettable="true" required="true"
      *        extendedMetaData="kind='attribute' name='isExtension'"
      * @generated
      */
@@ -207,7 +207,7 @@ public interface LNClass extends AnyLNClass {
      * @see #setParentLNClasses(LNClasses)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getLNClass_ParentLNClasses()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses#getLNClass
-     * @model opposite="lNClass" resolveProxies="false" unsettable="true" ordered="false"
+     * @model opposite="lNClass" resolveProxies="false" unsettable="true"
      * @generated
      */
     @Override

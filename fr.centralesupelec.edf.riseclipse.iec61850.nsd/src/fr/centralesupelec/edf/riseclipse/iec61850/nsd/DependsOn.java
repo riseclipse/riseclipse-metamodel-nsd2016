@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -47,7 +47,7 @@ public interface DependsOn extends NsdObject, AgNSIdentification {
      * @see #setParentNS(NS)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDependsOn_ParentNS()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getDependsOn
-     * @model opposite="dependsOn" resolveProxies="false" unsettable="true" ordered="false"
+     * @model opposite="dependsOn" resolveProxies="false" unsettable="true"
      * @generated
      */
     NS getParentNS();
@@ -77,7 +77,7 @@ public interface DependsOn extends NsdObject, AgNSIdentification {
      * @see #setRefersToNS(NS)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDependsOn_RefersToNS()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getReferredByDependsOn
-     * @model opposite="referredByDependsOn" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @model opposite="referredByDependsOn" resolveProxies="false" unsettable="true" transient="true"
      * @generated
      */
     NS getRefersToNS();

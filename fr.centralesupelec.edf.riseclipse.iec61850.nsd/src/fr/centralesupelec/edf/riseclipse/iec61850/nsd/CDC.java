@@ -153,7 +153,7 @@ public interface CDC extends TitledClass {
      * @see #setServiceParameter(ServiceParameter)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCDC_ServiceParameter()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceParameter#getParentCDC
-     * @model opposite="parentCDC" containment="true" unsettable="true" ordered="false"
+     * @model opposite="parentCDC" containment="true" unsettable="true"
      *        extendedMetaData="kind='element' name='ServiceParameter' namespace='##targetNamespace'"
      * @generated
      */
@@ -204,7 +204,7 @@ public interface CDC extends TitledClass {
      * @see #unsetEnumParameterized()
      * @see #setEnumParameterized(boolean)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCDC_EnumParameterized()
-     * @model default="false" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+     * @model default="false" unsettable="true" required="true"
      *        extendedMetaData="kind='attribute' name='enumParameterized'"
      * @generated
      */
@@ -305,7 +305,7 @@ public interface CDC extends TitledClass {
      * @see #unsetStatistics()
      * @see #setStatistics(boolean)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCDC_Statistics()
-     * @model default="false" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+     * @model default="false" unsettable="true" required="true"
      *        extendedMetaData="kind='attribute' name='statistics'"
      * @generated
      */
@@ -356,7 +356,7 @@ public interface CDC extends TitledClass {
      * @see #unsetTypeKindParameterized()
      * @see #setTypeKindParameterized(boolean)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCDC_TypeKindParameterized()
-     * @model default="false" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+     * @model default="false" unsettable="true" required="true"
      *        extendedMetaData="kind='attribute' name='typeKindParameterized'"
      * @generated
      */
@@ -456,7 +456,7 @@ public interface CDC extends TitledClass {
      * @see #setParentCDCs(CDCs)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCDC_ParentCDCs()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs#getCDC
-     * @model opposite="cDC" resolveProxies="false" unsettable="true" ordered="false"
+     * @model opposite="cDC" resolveProxies="false" unsettable="true"
      * @generated
      */
     CDCs getParentCDCs();

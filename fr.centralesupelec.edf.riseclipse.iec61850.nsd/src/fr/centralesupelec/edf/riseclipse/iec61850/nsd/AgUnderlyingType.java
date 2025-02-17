@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -165,7 +165,7 @@ public interface AgUnderlyingType extends EObject {
      * @see #setRefersToUnderlyingBasicType(BasicType)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgUnderlyingType_RefersToUnderlyingBasicType()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getReferredByUnderlyingType
-     * @model opposite="referredByUnderlyingType" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @model opposite="referredByUnderlyingType" resolveProxies="false" unsettable="true" transient="true"
      * @generated
      */
     BasicType getRefersToUnderlyingBasicType();
@@ -216,7 +216,7 @@ public interface AgUnderlyingType extends EObject {
      * @see #setRefersToUnderlyingConstructedAttribute(ConstructedAttribute)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgUnderlyingType_RefersToUnderlyingConstructedAttribute()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getReferredByUnderlyingType
-     * @model opposite="referredByUnderlyingType" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @model opposite="referredByUnderlyingType" resolveProxies="false" unsettable="true" transient="true"
      * @generated
      */
     ConstructedAttribute getRefersToUnderlyingConstructedAttribute();
@@ -267,7 +267,7 @@ public interface AgUnderlyingType extends EObject {
      * @see #setRefersToUnderlyingEnumeration(Enumeration)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgUnderlyingType_RefersToUnderlyingEnumeration()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getReferredByUnderlyingType
-     * @model opposite="referredByUnderlyingType" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @model opposite="referredByUnderlyingType" resolveProxies="false" unsettable="true" transient="true"
      * @generated
      */
     Enumeration getRefersToUnderlyingEnumeration();

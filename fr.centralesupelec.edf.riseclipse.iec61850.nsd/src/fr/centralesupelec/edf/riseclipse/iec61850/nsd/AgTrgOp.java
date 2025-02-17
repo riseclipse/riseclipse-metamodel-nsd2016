@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -55,7 +55,7 @@ public interface AgTrgOp extends EObject {
      * @see #unsetDchg()
      * @see #setDchg(boolean)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgTrgOp_Dchg()
-     * @model default="false" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+     * @model default="false" unsettable="true" required="true"
      *        extendedMetaData="kind='attribute' name='dchg'"
      * @generated
      */
@@ -110,7 +110,7 @@ public interface AgTrgOp extends EObject {
      * @see #unsetDupd()
      * @see #setDupd(boolean)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgTrgOp_Dupd()
-     * @model default="false" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+     * @model default="false" unsettable="true" required="true"
      *        extendedMetaData="kind='attribute' name='dupd'"
      * @generated
      */
@@ -165,7 +165,7 @@ public interface AgTrgOp extends EObject {
      * @see #unsetQchg()
      * @see #setQchg(boolean)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgTrgOp_Qchg()
-     * @model default="false" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+     * @model default="false" unsettable="true" required="true"
      *        extendedMetaData="kind='attribute' name='qchg'"
      * @generated
      */

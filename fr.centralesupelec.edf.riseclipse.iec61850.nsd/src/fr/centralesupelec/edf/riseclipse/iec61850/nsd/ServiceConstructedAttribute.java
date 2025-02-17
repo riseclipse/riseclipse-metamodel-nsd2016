@@ -51,7 +51,7 @@ public interface ServiceConstructedAttribute extends ConstructedAttribute {
      * @see #unsetTypeKindParameterized()
      * @see #setTypeKindParameterized(boolean)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceConstructedAttribute_TypeKindParameterized()
-     * @model default="false" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+     * @model default="false" unsettable="true" required="true"
      *        extendedMetaData="kind='attribute' name='typeKindParameterized'"
      * @generated
      */
@@ -101,7 +101,7 @@ public interface ServiceConstructedAttribute extends ConstructedAttribute {
      * @see #setParentServiceConstructedAttributes(ServiceConstructedAttributes)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceConstructedAttribute_ParentServiceConstructedAttributes()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttributes#getServiceConstructedAttribute
-     * @model opposite="serviceConstructedAttribute" resolveProxies="false" unsettable="true" ordered="false"
+     * @model opposite="serviceConstructedAttribute" resolveProxies="false" unsettable="true"
      * @generated
      */
     ServiceConstructedAttributes getParentServiceConstructedAttributes();

@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -21,7 +21,6 @@
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
 
 import org.eclipse.emf.common.util.Enumerator;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -165,7 +164,7 @@ public interface AgAttributeType extends EObject {
      * @see #setRefersToBasicType(BasicType)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgAttributeType_RefersToBasicType()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getReferredByAttributeType
-     * @model opposite="referredByAttributeType" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @model opposite="referredByAttributeType" resolveProxies="false" unsettable="true" transient="true"
      * @generated
      */
     BasicType getRefersToBasicType();
@@ -216,7 +215,7 @@ public interface AgAttributeType extends EObject {
      * @see #setRefersToConstructedAttribute(ConstructedAttribute)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgAttributeType_RefersToConstructedAttribute()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getReferredByAttributeType
-     * @model opposite="referredByAttributeType" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @model opposite="referredByAttributeType" resolveProxies="false" unsettable="true" transient="true"
      * @generated
      */
     ConstructedAttribute getRefersToConstructedAttribute();
@@ -267,7 +266,7 @@ public interface AgAttributeType extends EObject {
      * @see #setRefersToEnumeration(Enumeration)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgAttributeType_RefersToEnumeration()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getReferredByAttributeType
-     * @model opposite="referredByAttributeType" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @model opposite="referredByAttributeType" resolveProxies="false" unsettable="true" transient="true"
      * @generated
      */
     Enumeration getRefersToEnumeration();

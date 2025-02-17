@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -60,7 +60,7 @@ public interface NS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
      * @see #setChanges(Changes)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNS_Changes()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getParentNS
-     * @model opposite="parentNS" containment="true" unsettable="true" ordered="false"
+     * @model opposite="parentNS" containment="true" unsettable="true"
      *        extendedMetaData="kind='element' name='Changes' namespace='##targetNamespace'"
      * @generated
      */
@@ -112,7 +112,7 @@ public interface NS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
      * @see #setDependsOn(DependsOn)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNS_DependsOn()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn#getParentNS
-     * @model opposite="parentNS" containment="true" unsettable="true" ordered="false"
+     * @model opposite="parentNS" containment="true" unsettable="true"
      *        extendedMetaData="kind='element' name='DependsOn' namespace='##targetNamespace'"
      * @generated
      */
@@ -164,7 +164,7 @@ public interface NS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
      * @see #setBasicTypes(BasicTypes)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNS_BasicTypes()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes#getParentNS
-     * @model opposite="parentNS" containment="true" unsettable="true" ordered="false"
+     * @model opposite="parentNS" containment="true" unsettable="true"
      *        extendedMetaData="kind='element' name='BasicTypes' namespace='##targetNamespace'"
      * @generated
      */
@@ -216,7 +216,7 @@ public interface NS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
      * @see #setFunctionalConstraints(FunctionalConstraints)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNS_FunctionalConstraints()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints#getParentNS
-     * @model opposite="parentNS" containment="true" unsettable="true" ordered="false"
+     * @model opposite="parentNS" containment="true" unsettable="true"
      *        extendedMetaData="kind='element' name='FunctionalConstraints' namespace='##targetNamespace'"
      * @generated
      */
@@ -268,7 +268,7 @@ public interface NS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
      * @see #setPresenceConditions(PresenceConditions)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNS_PresenceConditions()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions#getParentNS
-     * @model opposite="parentNS" containment="true" unsettable="true" ordered="false"
+     * @model opposite="parentNS" containment="true" unsettable="true"
      *        extendedMetaData="kind='element' name='PresenceConditions' namespace='##targetNamespace'"
      * @generated
      */
@@ -320,7 +320,7 @@ public interface NS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
      * @see #setAbbreviations(Abbreviations)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNS_Abbreviations()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations#getParentNS
-     * @model opposite="parentNS" containment="true" unsettable="true" ordered="false"
+     * @model opposite="parentNS" containment="true" unsettable="true"
      *        extendedMetaData="kind='element' name='Abbreviations' namespace='##targetNamespace'"
      * @generated
      */
@@ -372,7 +372,7 @@ public interface NS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
      * @see #setEnumerations(Enumerations)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNS_Enumerations()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations#getParentNS
-     * @model opposite="parentNS" containment="true" unsettable="true" ordered="false"
+     * @model opposite="parentNS" containment="true" unsettable="true"
      *        extendedMetaData="kind='element' name='Enumerations' namespace='##targetNamespace'"
      * @generated
      */
@@ -424,7 +424,7 @@ public interface NS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
      * @see #setConstructedAttributes(ConstructedAttributes)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNS_ConstructedAttributes()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes#getParentNS
-     * @model opposite="parentNS" containment="true" unsettable="true" ordered="false"
+     * @model opposite="parentNS" containment="true" unsettable="true"
      *        extendedMetaData="kind='element' name='ConstructedAttributes' namespace='##targetNamespace'"
      * @generated
      */
@@ -476,7 +476,7 @@ public interface NS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
      * @see #setCDCs(CDCs)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNS_CDCs()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs#getParentNS
-     * @model opposite="parentNS" containment="true" unsettable="true" ordered="false"
+     * @model opposite="parentNS" containment="true" unsettable="true"
      *        extendedMetaData="kind='element' name='CDCs' namespace='##targetNamespace'"
      * @generated
      */
@@ -528,7 +528,7 @@ public interface NS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
      * @see #setLNClasses(LNClasses)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getNS_LNClasses()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses#getParentNS
-     * @model opposite="parentNS" containment="true" unsettable="true" ordered="false"
+     * @model opposite="parentNS" containment="true" unsettable="true"
      *        extendedMetaData="kind='element' name='LNClasses' namespace='##targetNamespace'"
      * @generated
      */

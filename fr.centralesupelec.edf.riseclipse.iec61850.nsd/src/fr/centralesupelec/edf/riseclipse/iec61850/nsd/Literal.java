@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -53,7 +53,7 @@ public interface Literal extends DocumentedClass {
      * @see #unsetLiteralVal()
      * @see #setLiteralVal(int)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getLiteral_LiteralVal()
-     * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Int"
+     * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Int" required="true"
      *        extendedMetaData="kind='attribute' name='literalVal'"
      * @generated
      */
@@ -153,7 +153,7 @@ public interface Literal extends DocumentedClass {
      * @see #setParentEnumeration(Enumeration)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getLiteral_ParentEnumeration()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getLiteral
-     * @model opposite="literal" resolveProxies="false" unsettable="true" ordered="false"
+     * @model opposite="literal" resolveProxies="false" unsettable="true"
      * @generated
      */
     Enumeration getParentEnumeration();

@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -48,7 +48,7 @@ public interface Copyrighted extends NsdObject {
      * @see #setCopyright(CopyrightNotice)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCopyrighted_Copyright()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CopyrightNotice#getParentCopyrighted
-     * @model opposite="parentCopyrighted" containment="true" unsettable="true" ordered="false"
+     * @model opposite="parentCopyrighted" containment="true" unsettable="true"
      *        extendedMetaData="kind='element' name='Copyright' namespace='##targetNamespace'"
      * @generated
      */

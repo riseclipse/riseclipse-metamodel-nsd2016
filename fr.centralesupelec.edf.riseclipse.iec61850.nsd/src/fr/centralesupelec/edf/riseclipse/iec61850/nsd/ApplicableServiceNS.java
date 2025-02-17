@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -144,7 +144,7 @@ public interface ApplicableServiceNS extends Copyrighted {
      * @see #unsetVersion()
      * @see #setVersion(long)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getApplicableServiceNS_Version()
-     * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.UnsignedInt"
+     * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.UnsignedInt" required="true"
      *        extendedMetaData="kind='attribute' name='version'"
      * @generated
      */

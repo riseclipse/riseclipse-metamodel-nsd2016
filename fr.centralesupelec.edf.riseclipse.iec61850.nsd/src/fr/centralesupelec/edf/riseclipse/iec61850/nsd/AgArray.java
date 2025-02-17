@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -56,7 +56,7 @@ public interface AgArray extends EObject {
      * @see #unsetIsArray()
      * @see #setIsArray(boolean)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgArray_IsArray()
-     * @model default="false" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+     * @model default="false" unsettable="true" required="true"
      *        extendedMetaData="kind='attribute' name='isArray'"
      * @generated
      */
@@ -165,7 +165,7 @@ public interface AgArray extends EObject {
      * @see #unsetMinIndex()
      * @see #setMinIndex(long)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgArray_MinIndex()
-     * @model default="0" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.UnsignedInt"
+     * @model default="0" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.UnsignedInt" required="true"
      *        extendedMetaData="kind='attribute' name='minIndex'"
      * @generated
      */

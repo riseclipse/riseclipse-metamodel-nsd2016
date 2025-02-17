@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -157,7 +157,7 @@ public interface SubDataObject extends DocumentedClass, AgPresenceCondition, AgA
      * @see #setParentCDC(CDC)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getSubDataObject_ParentCDC()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getSubDataObject
-     * @model opposite="subDataObject" resolveProxies="false" unsettable="true" ordered="false"
+     * @model opposite="subDataObject" resolveProxies="false" unsettable="true"
      * @generated
      */
     CDC getParentCDC();
@@ -187,7 +187,7 @@ public interface SubDataObject extends DocumentedClass, AgPresenceCondition, AgA
      * @see #setRefersToCDC(CDC)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getSubDataObject_RefersToCDC()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getReferredBySubDataObject
-     * @model opposite="referredBySubDataObject" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @model opposite="referredBySubDataObject" resolveProxies="false" unsettable="true" transient="true"
      * @generated
      */
     CDC getRefersToCDC();
@@ -242,7 +242,7 @@ public interface SubDataObject extends DocumentedClass, AgPresenceCondition, AgA
      * @see #setRefersToPresenceCondition(PresenceCondition)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getSubDataObject_RefersToPresenceCondition()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getReferredBySubDataObject
-     * @model opposite="referredBySubDataObject" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @model opposite="referredBySubDataObject" resolveProxies="false" unsettable="true" transient="true"
      * @generated
      */
     PresenceCondition getRefersToPresenceCondition();
@@ -297,7 +297,7 @@ public interface SubDataObject extends DocumentedClass, AgPresenceCondition, AgA
      * @see #setRefersToSizeAttribute(DataAttribute)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getSubDataObject_RefersToSizeAttribute()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredBySubDataObjectAsSizeAttribute
-     * @model opposite="referredBySubDataObjectAsSizeAttribute" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @model opposite="referredBySubDataObjectAsSizeAttribute" resolveProxies="false" unsettable="true" transient="true"
      * @generated
      */
     DataAttribute getRefersToSizeAttribute();
@@ -352,7 +352,7 @@ public interface SubDataObject extends DocumentedClass, AgPresenceCondition, AgA
      * @see #setRefersToMaxIndexAttribute(DataAttribute)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getSubDataObject_RefersToMaxIndexAttribute()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredBySubDataObjectAsMaxIndexAttribute
-     * @model opposite="referredBySubDataObjectAsMaxIndexAttribute" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @model opposite="referredBySubDataObjectAsMaxIndexAttribute" resolveProxies="false" unsettable="true" transient="true"
      * @generated
      */
     DataAttribute getRefersToMaxIndexAttribute();
