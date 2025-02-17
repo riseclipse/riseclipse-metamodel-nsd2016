@@ -38,6 +38,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgArray;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeTypeAndValues;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgDependsOn;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSDIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSdesc;
@@ -78,6 +79,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.License;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LicenseKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDependencyType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Notice;
@@ -505,12 +507,28 @@ public class NsdValidator extends EObjectValidator {
     public static final int AG_NS_IDENTIFICATION__VERSION_ATTRIBUTE_REQUIRED = 47;
 
     /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Id Attribute Required' of 'Ag Depends On'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int AG_DEPENDS_ON__ID_ATTRIBUTE_REQUIRED = 48;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Version Attribute Required' of 'Ag Depends On'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int AG_DEPENDS_ON__VERSION_ATTRIBUTE_REQUIRED = 49;
+
+    /**
      * A constant with a fixed name that can be used as the base value for additional hand written constants.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 47;
+    private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 49;
 
     /**
      * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
@@ -674,6 +692,8 @@ public class NsdValidator extends EObjectValidator {
             return validateAgNSdesc( ( AgNSdesc ) value, diagnostics, context );
         case NsdPackage.AG_NSD_IDENTIFICATION:
             return validateAgNSDIdentification( ( AgNSDIdentification ) value, diagnostics, context );
+        case NsdPackage.AG_DEPENDS_ON:
+            return validateAgDependsOn( ( AgDependsOn ) value, diagnostics, context );
         case NsdPackage.IRISE_CLIPSE_CONSOLE:
             return validateIRiseClipseConsole( ( IRiseClipseConsole ) value, diagnostics, context );
         case NsdPackage.ACSI_SERVICES_KIND:
@@ -690,6 +710,8 @@ public class NsdValidator extends EObjectValidator {
             return validateUndefinedAttributeTypeKind( ( UndefinedAttributeTypeKind ) value, diagnostics, context );
         case NsdPackage.NS_TYPE:
             return validateNSType( ( NSType ) value, diagnostics, context );
+        case NsdPackage.NS_DEPENDENCY_TYPE:
+            return validateNSDependencyType( ( NSDependencyType ) value, diagnostics, context );
         case NsdPackage.ACSI_SERVICES_KIND_OBJECT:
             return validateACSIServicesKindObject( ( ACSIServicesKind ) value, diagnostics, context );
         case NsdPackage.ATTRIBUTE_TYPE_KIND:
@@ -784,10 +806,10 @@ public class NsdValidator extends EObjectValidator {
             result &= validate_EveryMapEntryUnique( dependsOn, diagnostics, context );
         }
         if( result || diagnostics != null ) {
-            result &= validateAgNSIdentification_versionAttributeRequired( dependsOn, diagnostics, context );
+            result &= validateAgDependsOn_versionAttributeRequired( dependsOn, diagnostics, context );
         }
         if( result || diagnostics != null ) {
-            result &= validateAgNSIdentification_idAttributeRequired( dependsOn, diagnostics, context );
+            result &= validateAgDependsOn_idAttributeRequired( dependsOn, diagnostics, context );
         }
         return result;
     }
@@ -3042,6 +3064,69 @@ public class NsdValidator extends EObjectValidator {
      * <!-- end-user-doc -->
      * @generated
      */
+    public boolean validateAgDependsOn( AgDependsOn agDependsOn, DiagnosticChain diagnostics,
+            Map< Object, Object > context ) {
+        if( !validate_NoCircularContainment( agDependsOn, diagnostics, context ) ) {
+            return false;
+        }
+        boolean result = validate_EveryMultiplicityConforms( agDependsOn, diagnostics, context );
+        if( result || diagnostics != null ) {
+            result &= validate_EveryDataValueConforms( agDependsOn, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryReferenceIsContained( agDependsOn, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryBidirectionalReferenceIsPaired( agDependsOn, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryProxyResolves( agDependsOn, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( agDependsOn, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryKeyUnique( agDependsOn, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryMapEntryUnique( agDependsOn, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validateAgDependsOn_versionAttributeRequired( agDependsOn, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validateAgDependsOn_idAttributeRequired( agDependsOn, diagnostics, context );
+        }
+        return result;
+    }
+
+    /**
+     * Validates the versionAttributeRequired constraint of '<em>Ag Depends On</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateAgDependsOn_versionAttributeRequired( AgDependsOn agDependsOn, DiagnosticChain diagnostics,
+            Map< Object, Object > context ) {
+        return agDependsOn.versionAttributeRequired( diagnostics, context );
+    }
+
+    /**
+     * Validates the idAttributeRequired constraint of '<em>Ag Depends On</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateAgDependsOn_idAttributeRequired( AgDependsOn agDependsOn, DiagnosticChain diagnostics,
+            Map< Object, Object > context ) {
+        return agDependsOn.idAttributeRequired( diagnostics, context );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public boolean validateIRiseClipseConsole( IRiseClipseConsole iRiseClipseConsole, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
         return validate_EveryDefaultConstraint( ( EObject ) iRiseClipseConsole, diagnostics, context );
@@ -3111,6 +3196,16 @@ public class NsdValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateNSType( NSType nsType, DiagnosticChain diagnostics, Map< Object, Object > context ) {
+        return true;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateNSDependencyType( NSDependencyType nsDependencyType, DiagnosticChain diagnostics,
+            Map< Object, Object > context ) {
         return true;
     }
 

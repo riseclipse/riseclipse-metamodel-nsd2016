@@ -107,6 +107,11 @@
       <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//NSType/product"/>
       <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//NSType/private"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="nsd.ecore#//NSDependencyType">
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//NSDependencyType/dependsOn"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//NSDependencyType/includes"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//NSDependencyType/extends"/>
+    </genEnums>
     <genDataTypes ecoreDataType="nsd.ecore#//ACSIServicesKindObject"/>
     <genDataTypes ecoreDataType="nsd.ecore#//AttributeTypeKind"/>
     <genDataTypes ecoreDataType="nsd.ecore#//CBKindObject"/>
@@ -500,6 +505,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgNSDIdentification/nsdVersion"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgNSDIdentification/nsdRevision"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgNSDIdentification/nsdRelease"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="nsd.ecore#//AgDependsOn">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgDependsOn/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgDependsOn/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgDependsOn/revision"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgDependsOn/dependencyType"/>
     </genClasses>
     <genClasses image="false" ecoreClass="nsd.ecore#//IRiseClipseConsole"/>
   </genPackages>

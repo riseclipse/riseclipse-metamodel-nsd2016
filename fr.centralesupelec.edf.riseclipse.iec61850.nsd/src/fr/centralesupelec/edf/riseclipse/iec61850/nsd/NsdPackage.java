@@ -871,13 +871,13 @@ public interface NsdPackage extends EPackage {
     int DEPENDS_ON__EXPLICIT_LINKS_BUILT = NSD_OBJECT__EXPLICIT_LINKS_BUILT;
 
     /**
-     * The feature id for the '<em><b>Release</b></em>' attribute.
+     * The feature id for the '<em><b>Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DEPENDS_ON__RELEASE = NSD_OBJECT_FEATURE_COUNT + 0;
+    int DEPENDS_ON__ID = NSD_OBJECT_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -889,40 +889,22 @@ public interface NsdPackage extends EPackage {
     int DEPENDS_ON__VERSION = NSD_OBJECT_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Id</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DEPENDS_ON__ID = NSD_OBJECT_FEATURE_COUNT + 2;
-
-    /**
      * The feature id for the '<em><b>Revision</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DEPENDS_ON__REVISION = NSD_OBJECT_FEATURE_COUNT + 3;
+    int DEPENDS_ON__REVISION = NSD_OBJECT_FEATURE_COUNT + 2;
 
     /**
-     * The feature id for the '<em><b>Publication Stage</b></em>' attribute.
+     * The feature id for the '<em><b>Dependency Type</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DEPENDS_ON__PUBLICATION_STAGE = NSD_OBJECT_FEATURE_COUNT + 4;
-
-    /**
-     * The feature id for the '<em><b>Namespace Type</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DEPENDS_ON__NAMESPACE_TYPE = NSD_OBJECT_FEATURE_COUNT + 5;
+    int DEPENDS_ON__DEPENDENCY_TYPE = NSD_OBJECT_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Parent NS</b></em>' container reference.
@@ -931,7 +913,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DEPENDS_ON__PARENT_NS = NSD_OBJECT_FEATURE_COUNT + 6;
+    int DEPENDS_ON__PARENT_NS = NSD_OBJECT_FEATURE_COUNT + 4;
 
     /**
      * The feature id for the '<em><b>Refers To NS</b></em>' reference.
@@ -940,7 +922,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DEPENDS_ON__REFERS_TO_NS = NSD_OBJECT_FEATURE_COUNT + 7;
+    int DEPENDS_ON__REFERS_TO_NS = NSD_OBJECT_FEATURE_COUNT + 5;
 
     /**
      * The number of structural features of the '<em>Depends On</em>' class.
@@ -949,7 +931,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DEPENDS_ON_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 8;
+    int DEPENDS_ON_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 6;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -8243,6 +8225,88 @@ public interface NsdPackage extends EPackage {
     int AG_NSD_IDENTIFICATION_OPERATION_COUNT = 0;
 
     /**
+     * The meta object id for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AgDependsOnImpl <em>Ag Depends On</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AgDependsOnImpl
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getAgDependsOn()
+     * @generated
+     */
+    int AG_DEPENDS_ON = 61;
+
+    /**
+     * The feature id for the '<em><b>Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AG_DEPENDS_ON__ID = 0;
+
+    /**
+     * The feature id for the '<em><b>Version</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AG_DEPENDS_ON__VERSION = 1;
+
+    /**
+     * The feature id for the '<em><b>Revision</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AG_DEPENDS_ON__REVISION = 2;
+
+    /**
+     * The feature id for the '<em><b>Dependency Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AG_DEPENDS_ON__DEPENDENCY_TYPE = 3;
+
+    /**
+     * The number of structural features of the '<em>Ag Depends On</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AG_DEPENDS_ON_FEATURE_COUNT = 4;
+
+    /**
+     * The operation id for the '<em>Id Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AG_DEPENDS_ON___ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = 0;
+
+    /**
+     * The operation id for the '<em>Version Attribute Required</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AG_DEPENDS_ON___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = 1;
+
+    /**
+     * The number of operations of the '<em>Ag Depends On</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AG_DEPENDS_ON_OPERATION_COUNT = 2;
+
+    /**
      * The meta object id for the '{@link fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole <em>IRise Clipse Console</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8250,7 +8314,7 @@ public interface NsdPackage extends EPackage {
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getIRiseClipseConsole()
      * @generated
      */
-    int IRISE_CLIPSE_CONSOLE = 61;
+    int IRISE_CLIPSE_CONSOLE = 62;
 
     /**
      * The number of structural features of the '<em>IRise Clipse Console</em>' class.
@@ -8278,7 +8342,7 @@ public interface NsdPackage extends EPackage {
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getACSIServicesKind()
      * @generated
      */
-    int ACSI_SERVICES_KIND = 62;
+    int ACSI_SERVICES_KIND = 63;
 
     /**
      * The meta object id for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.CBKind <em>CB Kind</em>}' enum.
@@ -8288,7 +8352,7 @@ public interface NsdPackage extends EPackage {
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getCBKind()
      * @generated
      */
-    int CB_KIND = 63;
+    int CB_KIND = 64;
 
     /**
      * The meta object id for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind <em>Defined Attribute Type Kind</em>}' enum.
@@ -8298,7 +8362,7 @@ public interface NsdPackage extends EPackage {
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getDefinedAttributeTypeKind()
      * @generated
      */
-    int DEFINED_ATTRIBUTE_TYPE_KIND = 64;
+    int DEFINED_ATTRIBUTE_TYPE_KIND = 65;
 
     /**
      * The meta object id for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.LicenseKind <em>License Kind</em>}' enum.
@@ -8308,7 +8372,7 @@ public interface NsdPackage extends EPackage {
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getLicenseKind()
      * @generated
      */
-    int LICENSE_KIND = 65;
+    int LICENSE_KIND = 66;
 
     /**
      * The meta object id for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage <em>Pub Stage</em>}' enum.
@@ -8318,7 +8382,7 @@ public interface NsdPackage extends EPackage {
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getPubStage()
      * @generated
      */
-    int PUB_STAGE = 66;
+    int PUB_STAGE = 67;
 
     /**
      * The meta object id for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.UndefinedAttributeTypeKind <em>Undefined Attribute Type Kind</em>}' enum.
@@ -8328,7 +8392,7 @@ public interface NsdPackage extends EPackage {
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getUndefinedAttributeTypeKind()
      * @generated
      */
-    int UNDEFINED_ATTRIBUTE_TYPE_KIND = 67;
+    int UNDEFINED_ATTRIBUTE_TYPE_KIND = 68;
 
     /**
      * The meta object id for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSType <em>NS Type</em>}' enum.
@@ -8338,7 +8402,17 @@ public interface NsdPackage extends EPackage {
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getNSType()
      * @generated
      */
-    int NS_TYPE = 68;
+    int NS_TYPE = 69;
+
+    /**
+     * The meta object id for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDependencyType <em>NS Dependency Type</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDependencyType
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getNSDependencyType()
+     * @generated
+     */
+    int NS_DEPENDENCY_TYPE = 70;
 
     /**
      * The meta object id for the '<em>ACSI Services Kind Object</em>' data type.
@@ -8348,7 +8422,7 @@ public interface NsdPackage extends EPackage {
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getACSIServicesKindObject()
      * @generated
      */
-    int ACSI_SERVICES_KIND_OBJECT = 69;
+    int ACSI_SERVICES_KIND_OBJECT = 71;
 
     /**
      * The meta object id for the '<em>Attribute Type Kind</em>' data type.
@@ -8358,7 +8432,7 @@ public interface NsdPackage extends EPackage {
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getAttributeTypeKind()
      * @generated
      */
-    int ATTRIBUTE_TYPE_KIND = 70;
+    int ATTRIBUTE_TYPE_KIND = 72;
 
     /**
      * The meta object id for the '<em>CB Kind Object</em>' data type.
@@ -8368,7 +8442,7 @@ public interface NsdPackage extends EPackage {
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getCBKindObject()
      * @generated
      */
-    int CB_KIND_OBJECT = 71;
+    int CB_KIND_OBJECT = 73;
 
     /**
      * The meta object id for the '<em>Defined Attribute Type Kind Object</em>' data type.
@@ -8378,7 +8452,7 @@ public interface NsdPackage extends EPackage {
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getDefinedAttributeTypeKindObject()
      * @generated
      */
-    int DEFINED_ATTRIBUTE_TYPE_KIND_OBJECT = 72;
+    int DEFINED_ATTRIBUTE_TYPE_KIND_OBJECT = 74;
 
     /**
      * The meta object id for the '<em>License Kind Object</em>' data type.
@@ -8388,7 +8462,7 @@ public interface NsdPackage extends EPackage {
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getLicenseKindObject()
      * @generated
      */
-    int LICENSE_KIND_OBJECT = 73;
+    int LICENSE_KIND_OBJECT = 75;
 
     /**
      * The meta object id for the '<em>Pub Stage Object</em>' data type.
@@ -8398,7 +8472,7 @@ public interface NsdPackage extends EPackage {
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getPubStageObject()
      * @generated
      */
-    int PUB_STAGE_OBJECT = 74;
+    int PUB_STAGE_OBJECT = 76;
 
     /**
      * The meta object id for the '<em>Undefined Attribute Type Kind Object</em>' data type.
@@ -8408,7 +8482,7 @@ public interface NsdPackage extends EPackage {
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getUndefinedAttributeTypeKindObject()
      * @generated
      */
-    int UNDEFINED_ATTRIBUTE_TYPE_KIND_OBJECT = 75;
+    int UNDEFINED_ATTRIBUTE_TYPE_KIND_OBJECT = 77;
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType <em>Applies To Type</em>}'.
@@ -12381,6 +12455,80 @@ public interface NsdPackage extends EPackage {
     EAttribute getAgNSDIdentification_NsdRelease();
 
     /**
+     * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgDependsOn <em>Ag Depends On</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Ag Depends On</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgDependsOn
+     * @generated
+     */
+    EClass getAgDependsOn();
+
+    /**
+     * Returns the meta object for the attribute '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgDependsOn#getId <em>Id</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Id</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgDependsOn#getId()
+     * @see #getAgDependsOn()
+     * @generated
+     */
+    EAttribute getAgDependsOn_Id();
+
+    /**
+     * Returns the meta object for the attribute '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgDependsOn#getVersion <em>Version</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Version</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgDependsOn#getVersion()
+     * @see #getAgDependsOn()
+     * @generated
+     */
+    EAttribute getAgDependsOn_Version();
+
+    /**
+     * Returns the meta object for the attribute '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgDependsOn#getRevision <em>Revision</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Revision</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgDependsOn#getRevision()
+     * @see #getAgDependsOn()
+     * @generated
+     */
+    EAttribute getAgDependsOn_Revision();
+
+    /**
+     * Returns the meta object for the attribute '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgDependsOn#getDependencyType <em>Dependency Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Dependency Type</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgDependsOn#getDependencyType()
+     * @see #getAgDependsOn()
+     * @generated
+     */
+    EAttribute getAgDependsOn_DependencyType();
+
+    /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgDependsOn#idAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Id Attribute Required</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Id Attribute Required</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgDependsOn#idAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getAgDependsOn__IdAttributeRequired__DiagnosticChain_Map();
+
+    /**
+     * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgDependsOn#versionAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Version Attribute Required</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Version Attribute Required</em>' operation.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgDependsOn#versionAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     */
+    EOperation getAgDependsOn__VersionAttributeRequired__DiagnosticChain_Map();
+
+    /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole <em>IRise Clipse Console</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -12460,6 +12608,16 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EEnum getNSType();
+
+    /**
+     * Returns the meta object for enum '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDependencyType <em>NS Dependency Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for enum '<em>NS Dependency Type</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDependencyType
+     * @generated
+     */
+    EEnum getNSDependencyType();
 
     /**
      * Returns the meta object for data type '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ACSIServicesKind <em>ACSI Services Kind Object</em>}'.
@@ -15754,6 +15912,66 @@ public interface NsdPackage extends EPackage {
         EAttribute AG_NSD_IDENTIFICATION__NSD_RELEASE = eINSTANCE.getAgNSDIdentification_NsdRelease();
 
         /**
+         * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AgDependsOnImpl <em>Ag Depends On</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AgDependsOnImpl
+         * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getAgDependsOn()
+         * @generated
+         */
+        EClass AG_DEPENDS_ON = eINSTANCE.getAgDependsOn();
+
+        /**
+         * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute AG_DEPENDS_ON__ID = eINSTANCE.getAgDependsOn_Id();
+
+        /**
+         * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute AG_DEPENDS_ON__VERSION = eINSTANCE.getAgDependsOn_Version();
+
+        /**
+         * The meta object literal for the '<em><b>Revision</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute AG_DEPENDS_ON__REVISION = eINSTANCE.getAgDependsOn_Revision();
+
+        /**
+         * The meta object literal for the '<em><b>Dependency Type</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute AG_DEPENDS_ON__DEPENDENCY_TYPE = eINSTANCE.getAgDependsOn_DependencyType();
+
+        /**
+         * The meta object literal for the '<em><b>Id Attribute Required</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation AG_DEPENDS_ON___ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getAgDependsOn__IdAttributeRequired__DiagnosticChain_Map();
+
+        /**
+         * The meta object literal for the '<em><b>Version Attribute Required</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation AG_DEPENDS_ON___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getAgDependsOn__VersionAttributeRequired__DiagnosticChain_Map();
+
+        /**
          * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole <em>IRise Clipse Console</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -15832,6 +16050,16 @@ public interface NsdPackage extends EPackage {
          * @generated
          */
         EEnum NS_TYPE = eINSTANCE.getNSType();
+
+        /**
+         * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDependencyType <em>NS Dependency Type</em>}' enum.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDependencyType
+         * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getNSDependencyType()
+         * @generated
+         */
+        EEnum NS_DEPENDENCY_TYPE = eINSTANCE.getNSDependencyType();
 
         /**
          * The meta object literal for the '<em>ACSI Services Kind Object</em>' data type.

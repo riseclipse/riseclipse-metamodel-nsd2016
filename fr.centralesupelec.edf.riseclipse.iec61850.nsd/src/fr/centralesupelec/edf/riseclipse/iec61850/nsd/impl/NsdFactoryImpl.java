@@ -63,6 +63,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.License;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LicenseKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDependencyType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Notice;
@@ -248,6 +249,8 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
             return createUndefinedAttributeTypeKindFromString( eDataType, initialValue );
         case NsdPackage.NS_TYPE:
             return createNSTypeFromString( eDataType, initialValue );
+        case NsdPackage.NS_DEPENDENCY_TYPE:
+            return createNSDependencyTypeFromString( eDataType, initialValue );
         case NsdPackage.ACSI_SERVICES_KIND_OBJECT:
             return createACSIServicesKindObjectFromString( eDataType, initialValue );
         case NsdPackage.ATTRIBUTE_TYPE_KIND:
@@ -290,6 +293,8 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
             return convertUndefinedAttributeTypeKindToString( eDataType, instanceValue );
         case NsdPackage.NS_TYPE:
             return convertNSTypeToString( eDataType, instanceValue );
+        case NsdPackage.NS_DEPENDENCY_TYPE:
+            return convertNSDependencyTypeToString( eDataType, instanceValue );
         case NsdPackage.ACSI_SERVICES_KIND_OBJECT:
             return convertACSIServicesKindObjectToString( eDataType, instanceValue );
         case NsdPackage.ATTRIBUTE_TYPE_KIND:
@@ -976,6 +981,29 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
      * @generated
      */
     public String convertNSTypeToString( EDataType eDataType, Object instanceValue ) {
+        return instanceValue == null ? null : instanceValue.toString();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NSDependencyType createNSDependencyTypeFromString( EDataType eDataType, String initialValue ) {
+        NSDependencyType result = NSDependencyType.get( initialValue );
+        if( result == null ) {
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'" );
+        }
+        return result;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertNSDependencyTypeToString( EDataType eDataType, Object instanceValue ) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 

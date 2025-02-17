@@ -31,6 +31,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgArray;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeTypeAndValues;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgDependsOn;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSDIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSdesc;
@@ -447,6 +448,11 @@ public class NsdAdapterFactory extends AdapterFactoryImpl {
         @Override
         public Adapter caseAgNSDIdentification( AgNSDIdentification object ) {
             return createAgNSDIdentificationAdapter();
+        }
+
+        @Override
+        public Adapter caseAgDependsOn( AgDependsOn object ) {
+            return createAgDependsOnAdapter();
         }
 
         @Override
@@ -1324,6 +1330,20 @@ public class NsdAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createAgNSDIdentificationAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgDependsOn <em>Ag Depends On</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgDependsOn
+     * @generated
+     */
+    public Adapter createAgDependsOnAdapter() {
         return null;
     }
 

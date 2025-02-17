@@ -40,6 +40,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgArray;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeTypeAndValues;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgDependsOn;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSDIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSdesc;
@@ -78,6 +79,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.License;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LicenseKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDependencyType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Notice;
@@ -543,6 +545,13 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    private EClass agDependsOnEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     private EClass iRiseClipseConsoleEClass = null;
 
     /**
@@ -593,6 +602,13 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     private EEnum nsTypeEEnum = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EEnum nsDependencyTypeEEnum = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -4436,6 +4452,76 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EClass getAgDependsOn() {
+        return agDependsOnEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EAttribute getAgDependsOn_Id() {
+        return ( EAttribute ) agDependsOnEClass.getEStructuralFeatures().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EAttribute getAgDependsOn_Version() {
+        return ( EAttribute ) agDependsOnEClass.getEStructuralFeatures().get( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EAttribute getAgDependsOn_Revision() {
+        return ( EAttribute ) agDependsOnEClass.getEStructuralFeatures().get( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EAttribute getAgDependsOn_DependencyType() {
+        return ( EAttribute ) agDependsOnEClass.getEStructuralFeatures().get( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getAgDependsOn__IdAttributeRequired__DiagnosticChain_Map() {
+        return agDependsOnEClass.getEOperations().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getAgDependsOn__VersionAttributeRequired__DiagnosticChain_Map() {
+        return agDependsOnEClass.getEOperations().get( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getIRiseClipseConsole() {
         return iRiseClipseConsoleEClass;
     }
@@ -4508,6 +4594,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EEnum getNSType() {
         return nsTypeEEnum;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EEnum getNSDependencyType() {
+        return nsDependencyTypeEEnum;
     }
 
     /**
@@ -5062,6 +5158,14 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEAttribute( agNSDIdentificationEClass, AG_NSD_IDENTIFICATION__NSD_REVISION );
         createEAttribute( agNSDIdentificationEClass, AG_NSD_IDENTIFICATION__NSD_RELEASE );
 
+        agDependsOnEClass = createEClass( AG_DEPENDS_ON );
+        createEAttribute( agDependsOnEClass, AG_DEPENDS_ON__ID );
+        createEAttribute( agDependsOnEClass, AG_DEPENDS_ON__VERSION );
+        createEAttribute( agDependsOnEClass, AG_DEPENDS_ON__REVISION );
+        createEAttribute( agDependsOnEClass, AG_DEPENDS_ON__DEPENDENCY_TYPE );
+        createEOperation( agDependsOnEClass, AG_DEPENDS_ON___ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
+        createEOperation( agDependsOnEClass, AG_DEPENDS_ON___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
+
         iRiseClipseConsoleEClass = createEClass( IRISE_CLIPSE_CONSOLE );
 
         // Create enums
@@ -5072,6 +5176,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         pubStageEEnum = createEEnum( PUB_STAGE );
         undefinedAttributeTypeKindEEnum = createEEnum( UNDEFINED_ATTRIBUTE_TYPE_KIND );
         nsTypeEEnum = createEEnum( NS_TYPE );
+        nsDependencyTypeEEnum = createEEnum( NS_DEPENDENCY_TYPE );
 
         // Create data types
         acsiServicesKindObjectEDataType = createEDataType( ACSI_SERVICES_KIND_OBJECT );
@@ -5120,7 +5225,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         appliesToTypeEClass.getESuperTypes().add( this.getNsdObject() );
         appliesToTypeEClass.getESuperTypes().add( this.getAgNSIdentification() );
         dependsOnEClass.getESuperTypes().add( this.getNsdObject() );
-        dependsOnEClass.getESuperTypes().add( this.getAgNSIdentification() );
+        dependsOnEClass.getESuperTypes().add( this.getAgDependsOn() );
         serviceTypeEClass.getESuperTypes().add( this.getNsdObject() );
         abbreviationEClass.getESuperTypes().add( this.getNsdObject() );
         abbreviationsEClass.getESuperTypes().add( this.getNsdObject() );
@@ -6688,6 +6793,39 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 AgNSDIdentification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
 
+        initEClass( agDependsOnEClass, AgDependsOn.class, "AgDependsOn", IS_ABSTRACT, !IS_INTERFACE,
+                IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute( getAgDependsOn_Id(), ecorePackage.getEString(), "id", null, 0, 1, AgDependsOn.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getAgDependsOn_Version(), ecorePackage.getEIntegerObject(), "version", null, 0, 1,
+                AgDependsOn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getAgDependsOn_Revision(), ecorePackage.getEString(), "revision", "A", 0, 1, AgDependsOn.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getAgDependsOn_DependencyType(), this.getNSDependencyType(), "dependencyType", "dependsOn", 0,
+                1, AgDependsOn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+
+        op = initEOperation( getAgDependsOn__IdAttributeRequired__DiagnosticChain_Map(), ecorePackage.getEBoolean(),
+                "idAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
+
+        op = initEOperation( getAgDependsOn__VersionAttributeRequired__DiagnosticChain_Map(),
+                ecorePackage.getEBoolean(), "versionAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
+
         initEClass( iRiseClipseConsoleEClass, IRiseClipseConsole.class, "IRiseClipseConsole", IS_ABSTRACT, IS_INTERFACE,
                 !IS_GENERATED_INSTANCE_CLASS );
 
@@ -6789,6 +6927,11 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         addEEnumLiteral( nsTypeEEnum, NSType.TRANSITIONAL );
         addEEnumLiteral( nsTypeEEnum, NSType.PRODUCT );
         addEEnumLiteral( nsTypeEEnum, NSType.PRIVATE );
+
+        initEEnum( nsDependencyTypeEEnum, NSDependencyType.class, "NSDependencyType" );
+        addEEnumLiteral( nsDependencyTypeEEnum, NSDependencyType.DEPENDS_ON );
+        addEEnumLiteral( nsDependencyTypeEEnum, NSDependencyType.INCLUDES );
+        addEEnumLiteral( nsDependencyTypeEEnum, NSDependencyType.EXTENDS );
 
         // Initialize data types
         initEDataType( acsiServicesKindObjectEDataType, ACSIServicesKind.class, "ACSIServicesKindObject",
@@ -6996,6 +7139,11 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                         "constraints", "titleIDAttributeRequired"
                 } );
         addAnnotation( agNSIdentificationEClass,
+                source,
+                new String[] {
+                        "constraints", "versionAttributeRequired"
+                } );
+        addAnnotation( agDependsOnEClass,
                 source,
                 new String[] {
                         "constraints", "versionAttributeRequired"
@@ -8315,6 +8463,35 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 new String[] {
                         "name", "tNSType"
                 } );
+        addAnnotation( nsDependencyTypeEEnum,
+                source,
+                new String[] {
+                        "name", "tNSDependencyType"
+                } );
+        addAnnotation( getAgDependsOn_Id(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "id"
+                } );
+        addAnnotation( getAgDependsOn_Version(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "version"
+                } );
+        addAnnotation( getAgDependsOn_Revision(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "revision"
+                } );
+        addAnnotation( getAgDependsOn_DependencyType(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "dependencyType"
+                } );
     }
 
     /**
@@ -8602,6 +8779,18 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                         "Tuple {\n\tmessage : String = \'The id attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.id <> null\n}.status"
                 } );
         addAnnotation( getAgNSIdentification__VersionAttributeRequired__DiagnosticChain_Map(),
+                source,
+                new String[] {
+                        "body",
+                        "Tuple {\n\tmessage : String = \'The version attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.version <> null\n}.status"
+                } );
+        addAnnotation( getAgDependsOn__IdAttributeRequired__DiagnosticChain_Map(),
+                source,
+                new String[] {
+                        "body",
+                        "Tuple {\n\tmessage : String = \'The id attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.id <> null\n}.status"
+                } );
+        addAnnotation( getAgDependsOn__VersionAttributeRequired__DiagnosticChain_Map(),
                 source,
                 new String[] {
                         "body",

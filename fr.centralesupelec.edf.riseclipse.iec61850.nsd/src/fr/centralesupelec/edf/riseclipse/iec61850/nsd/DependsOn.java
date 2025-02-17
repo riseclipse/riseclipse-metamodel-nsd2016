@@ -37,7 +37,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
  * @model extendedMetaData="name='DependsOn_._type' kind='empty'"
  * @generated
  */
-public interface DependsOn extends NsdObject, AgNSIdentification {
+public interface DependsOn extends NsdObject, AgDependsOn {
     /**
      * Returns the value of the '<em><b>Parent NS</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getDependsOn <em>Depends On</em>}'.

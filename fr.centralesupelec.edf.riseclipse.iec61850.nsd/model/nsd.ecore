@@ -18,7 +18,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentServiceNsUsage" eType="#//ServiceNsUsage"
         transient="true" unsettable="true" resolveProxies="false" eOpposite="#//ServiceNsUsage/appliesTo"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DependsOn" eSuperTypes="#//NsdObject #//AgNSIdentification">
+  <eClassifiers xsi:type="ecore:EClass" name="DependsOn" eSuperTypes="#//NsdObject #//AgDependsOn">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="DependsOn_._type"/>
       <details key="kind" value="empty"/>
@@ -2162,11 +2162,11 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="NSType">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Type of namespace."/>
-    </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tNSType"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Type of namespace."/>
     </eAnnotations>
     <eLiterals name="basic">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2193,6 +2193,66 @@
         <details key="documentation" value="Private namespace"/>
       </eAnnotations>
     </eLiterals>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="NSDependencyType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="tNSDependencyType"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Type of namespace dependency."/>
+    </eAnnotations>
+    <eLiterals name="dependsOn">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This namespace depends on the one mentioned"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="includes" value="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This namespace includes on the one mentioned"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="extends" value="2">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This namespace extends on the one mentioned"/>
+      </eAnnotations>
+    </eLiterals>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AgDependsOn" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="idAttributeRequired versionAttributeRequired"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="idAttributeRequired" value="Tuple {&#xA;&#x9;message : String = 'The id attribute is required',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.id &lt;> null&#xA;}.status"/>
+      <details key="versionAttributeRequired" value="Tuple {&#xA;&#x9;message : String = 'The version attribute is required',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.version &lt;> null&#xA;}.status"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="id"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="version"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="revision" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="A" unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="revision"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dependencyType" eType="#//NSDependencyType"
+        defaultValueLiteral="dependsOn" unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="dependencyType"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IRiseClipseConsole" instanceClassName="fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole"
       abstract="true" interface="true"/>

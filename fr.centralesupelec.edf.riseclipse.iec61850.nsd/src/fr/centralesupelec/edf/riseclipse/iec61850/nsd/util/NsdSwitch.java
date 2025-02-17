@@ -30,6 +30,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgArray;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeTypeAndValues;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgDependsOn;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSDIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSdesc;
@@ -166,7 +167,7 @@ public class NsdSwitch< T > extends Switch< T > {
                 result = caseNsdObject( dependsOn );
             }
             if( result == null ) {
-                result = caseAgNSIdentification( dependsOn );
+                result = caseAgDependsOn( dependsOn );
             }
             if( result == null ) {
                 result = defaultCase( theEObject );
@@ -967,6 +968,14 @@ public class NsdSwitch< T > extends Switch< T > {
         case NsdPackage.AG_NSD_IDENTIFICATION: {
             AgNSDIdentification agNSDIdentification = ( AgNSDIdentification ) theEObject;
             T result = caseAgNSDIdentification( agNSDIdentification );
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
+            return result;
+        }
+        case NsdPackage.AG_DEPENDS_ON: {
+            AgDependsOn agDependsOn = ( AgDependsOn ) theEObject;
+            T result = caseAgDependsOn( agDependsOn );
             if( result == null ) {
                 result = defaultCase( theEObject );
             }
@@ -1897,6 +1906,21 @@ public class NsdSwitch< T > extends Switch< T > {
      * @generated
      */
     public T caseAgNSDIdentification( AgNSDIdentification object ) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Ag Depends On</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Ag Depends On</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAgDependsOn( AgDependsOn object ) {
         return null;
     }
 
