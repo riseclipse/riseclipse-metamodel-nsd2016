@@ -68,6 +68,7 @@ public class NSDocItemProvider extends CopyrightedItemProvider {
             addIdPropertyDescriptor( object );
             addRevisionPropertyDescriptor( object );
             addPublicationStagePropertyDescriptor( object );
+            addNamespaceTypePropertyDescriptor( object );
             addNsdVersionPropertyDescriptor( object );
             addNsdRevisionPropertyDescriptor( object );
             addNsdReleasePropertyDescriptor( object );
@@ -135,6 +136,28 @@ public class NSDocItemProvider extends CopyrightedItemProvider {
                         getString( "_UI_PropertyDescriptor_description",
                                 "_UI_AgNSIdentification_publicationStage_feature", "_UI_AgNSIdentification_type" ),
                         NsdPackage.Literals.AG_NS_IDENTIFICATION__PUBLICATION_STAGE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Namespace Type feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addNamespaceTypePropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_AgNSIdentification_namespaceType_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgNSIdentification_namespaceType_feature",
+                                "_UI_AgNSIdentification_type" ),
+                        NsdPackage.Literals.AG_NS_IDENTIFICATION__NAMESPACE_TYPE,
                         true,
                         false,
                         false,
@@ -390,6 +413,7 @@ public class NSDocItemProvider extends CopyrightedItemProvider {
         case NsdPackage.NS_DOC__ID:
         case NsdPackage.NS_DOC__REVISION:
         case NsdPackage.NS_DOC__PUBLICATION_STAGE:
+        case NsdPackage.NS_DOC__NAMESPACE_TYPE:
         case NsdPackage.NS_DOC__NSD_VERSION:
         case NsdPackage.NS_DOC__NSD_REVISION:
         case NsdPackage.NS_DOC__NSD_RELEASE:

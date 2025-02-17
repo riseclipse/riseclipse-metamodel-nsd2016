@@ -100,6 +100,13 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="nsd.ecore#//UndefinedAttributeTypeKind">
       <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//UndefinedAttributeTypeKind/undefined"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="nsd.ecore#//NSType">
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//NSType/basic"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//NSType/domain"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//NSType/transitional"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//NSType/product"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//NSType/private"/>
+    </genEnums>
     <genDataTypes ecoreDataType="nsd.ecore#//ACSIServicesKindObject"/>
     <genDataTypes ecoreDataType="nsd.ecore#//AttributeTypeKind"/>
     <genDataTypes ecoreDataType="nsd.ecore#//CBKindObject"/>
@@ -437,6 +444,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgNSIdentification/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgNSIdentification/revision"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgNSIdentification/publicationStage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgNSIdentification/namespaceType"/>
     </genClasses>
     <genClasses image="false" ecoreClass="nsd.ecore#//AgPresenceCondition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgPresenceCondition/presCond"/>

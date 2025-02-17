@@ -790,13 +790,22 @@ public interface NsdPackage extends EPackage {
     int APPLIES_TO_TYPE__PUBLICATION_STAGE = NSD_OBJECT_FEATURE_COUNT + 4;
 
     /**
+     * The feature id for the '<em><b>Namespace Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int APPLIES_TO_TYPE__NAMESPACE_TYPE = NSD_OBJECT_FEATURE_COUNT + 5;
+
+    /**
      * The feature id for the '<em><b>Parent Service Ns Usage</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int APPLIES_TO_TYPE__PARENT_SERVICE_NS_USAGE = NSD_OBJECT_FEATURE_COUNT + 5;
+    int APPLIES_TO_TYPE__PARENT_SERVICE_NS_USAGE = NSD_OBJECT_FEATURE_COUNT + 6;
 
     /**
      * The number of structural features of the '<em>Applies To Type</em>' class.
@@ -805,7 +814,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int APPLIES_TO_TYPE_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 6;
+    int APPLIES_TO_TYPE_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 7;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -907,13 +916,22 @@ public interface NsdPackage extends EPackage {
     int DEPENDS_ON__PUBLICATION_STAGE = NSD_OBJECT_FEATURE_COUNT + 4;
 
     /**
+     * The feature id for the '<em><b>Namespace Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DEPENDS_ON__NAMESPACE_TYPE = NSD_OBJECT_FEATURE_COUNT + 5;
+
+    /**
      * The feature id for the '<em><b>Parent NS</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DEPENDS_ON__PARENT_NS = NSD_OBJECT_FEATURE_COUNT + 5;
+    int DEPENDS_ON__PARENT_NS = NSD_OBJECT_FEATURE_COUNT + 6;
 
     /**
      * The feature id for the '<em><b>Refers To NS</b></em>' reference.
@@ -922,7 +940,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DEPENDS_ON__REFERS_TO_NS = NSD_OBJECT_FEATURE_COUNT + 6;
+    int DEPENDS_ON__REFERS_TO_NS = NSD_OBJECT_FEATURE_COUNT + 7;
 
     /**
      * The number of structural features of the '<em>Depends On</em>' class.
@@ -931,7 +949,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DEPENDS_ON_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 7;
+    int DEPENDS_ON_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 8;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -5083,13 +5101,22 @@ public interface NsdPackage extends EPackage {
     int NS__PUBLICATION_STAGE = COPYRIGHTED_FEATURE_COUNT + 4;
 
     /**
+     * The feature id for the '<em><b>Namespace Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NS__NAMESPACE_TYPE = COPYRIGHTED_FEATURE_COUNT + 5;
+
+    /**
      * The feature id for the '<em><b>Nsd Version</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int NS__NSD_VERSION = COPYRIGHTED_FEATURE_COUNT + 5;
+    int NS__NSD_VERSION = COPYRIGHTED_FEATURE_COUNT + 6;
 
     /**
      * The feature id for the '<em><b>Nsd Revision</b></em>' attribute.
@@ -5098,7 +5125,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS__NSD_REVISION = COPYRIGHTED_FEATURE_COUNT + 6;
+    int NS__NSD_REVISION = COPYRIGHTED_FEATURE_COUNT + 7;
 
     /**
      * The feature id for the '<em><b>Nsd Release</b></em>' attribute.
@@ -5107,7 +5134,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS__NSD_RELEASE = COPYRIGHTED_FEATURE_COUNT + 7;
+    int NS__NSD_RELEASE = COPYRIGHTED_FEATURE_COUNT + 8;
 
     /**
      * The feature id for the '<em><b>Uml Date</b></em>' attribute.
@@ -5116,7 +5143,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS__UML_DATE = COPYRIGHTED_FEATURE_COUNT + 8;
+    int NS__UML_DATE = COPYRIGHTED_FEATURE_COUNT + 9;
 
     /**
      * The feature id for the '<em><b>Uml Version</b></em>' attribute.
@@ -5125,7 +5152,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS__UML_VERSION = COPYRIGHTED_FEATURE_COUNT + 9;
+    int NS__UML_VERSION = COPYRIGHTED_FEATURE_COUNT + 10;
 
     /**
      * The feature id for the '<em><b>Desc ID</b></em>' attribute.
@@ -5134,7 +5161,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS__DESC_ID = COPYRIGHTED_FEATURE_COUNT + 10;
+    int NS__DESC_ID = COPYRIGHTED_FEATURE_COUNT + 11;
 
     /**
      * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
@@ -5143,7 +5170,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS__REFERS_TO_DOC = COPYRIGHTED_FEATURE_COUNT + 11;
+    int NS__REFERS_TO_DOC = COPYRIGHTED_FEATURE_COUNT + 12;
 
     /**
      * The feature id for the '<em><b>Changes</b></em>' containment reference.
@@ -5152,7 +5179,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS__CHANGES = COPYRIGHTED_FEATURE_COUNT + 12;
+    int NS__CHANGES = COPYRIGHTED_FEATURE_COUNT + 13;
 
     /**
      * The feature id for the '<em><b>Depends On</b></em>' containment reference.
@@ -5161,7 +5188,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS__DEPENDS_ON = COPYRIGHTED_FEATURE_COUNT + 13;
+    int NS__DEPENDS_ON = COPYRIGHTED_FEATURE_COUNT + 14;
 
     /**
      * The feature id for the '<em><b>Basic Types</b></em>' containment reference.
@@ -5170,7 +5197,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS__BASIC_TYPES = COPYRIGHTED_FEATURE_COUNT + 14;
+    int NS__BASIC_TYPES = COPYRIGHTED_FEATURE_COUNT + 15;
 
     /**
      * The feature id for the '<em><b>Functional Constraints</b></em>' containment reference.
@@ -5179,7 +5206,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS__FUNCTIONAL_CONSTRAINTS = COPYRIGHTED_FEATURE_COUNT + 15;
+    int NS__FUNCTIONAL_CONSTRAINTS = COPYRIGHTED_FEATURE_COUNT + 16;
 
     /**
      * The feature id for the '<em><b>Presence Conditions</b></em>' containment reference.
@@ -5188,7 +5215,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS__PRESENCE_CONDITIONS = COPYRIGHTED_FEATURE_COUNT + 16;
+    int NS__PRESENCE_CONDITIONS = COPYRIGHTED_FEATURE_COUNT + 17;
 
     /**
      * The feature id for the '<em><b>Abbreviations</b></em>' containment reference.
@@ -5197,7 +5224,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS__ABBREVIATIONS = COPYRIGHTED_FEATURE_COUNT + 17;
+    int NS__ABBREVIATIONS = COPYRIGHTED_FEATURE_COUNT + 18;
 
     /**
      * The feature id for the '<em><b>Enumerations</b></em>' containment reference.
@@ -5206,7 +5233,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS__ENUMERATIONS = COPYRIGHTED_FEATURE_COUNT + 18;
+    int NS__ENUMERATIONS = COPYRIGHTED_FEATURE_COUNT + 19;
 
     /**
      * The feature id for the '<em><b>Constructed Attributes</b></em>' containment reference.
@@ -5215,7 +5242,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS__CONSTRUCTED_ATTRIBUTES = COPYRIGHTED_FEATURE_COUNT + 19;
+    int NS__CONSTRUCTED_ATTRIBUTES = COPYRIGHTED_FEATURE_COUNT + 20;
 
     /**
      * The feature id for the '<em><b>CD Cs</b></em>' containment reference.
@@ -5224,7 +5251,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS__CD_CS = COPYRIGHTED_FEATURE_COUNT + 20;
+    int NS__CD_CS = COPYRIGHTED_FEATURE_COUNT + 21;
 
     /**
      * The feature id for the '<em><b>LN Classes</b></em>' containment reference.
@@ -5233,7 +5260,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS__LN_CLASSES = COPYRIGHTED_FEATURE_COUNT + 21;
+    int NS__LN_CLASSES = COPYRIGHTED_FEATURE_COUNT + 22;
 
     /**
      * The feature id for the '<em><b>Referred By Depends On</b></em>' reference list.
@@ -5242,7 +5269,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS__REFERRED_BY_DEPENDS_ON = COPYRIGHTED_FEATURE_COUNT + 22;
+    int NS__REFERRED_BY_DEPENDS_ON = COPYRIGHTED_FEATURE_COUNT + 23;
 
     /**
      * The number of structural features of the '<em>NS</em>' class.
@@ -5251,7 +5278,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS_FEATURE_COUNT = COPYRIGHTED_FEATURE_COUNT + 23;
+    int NS_FEATURE_COUNT = COPYRIGHTED_FEATURE_COUNT + 24;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -5362,13 +5389,22 @@ public interface NsdPackage extends EPackage {
     int NS_DOC__PUBLICATION_STAGE = COPYRIGHTED_FEATURE_COUNT + 4;
 
     /**
+     * The feature id for the '<em><b>Namespace Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NS_DOC__NAMESPACE_TYPE = COPYRIGHTED_FEATURE_COUNT + 5;
+
+    /**
      * The feature id for the '<em><b>Nsd Version</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int NS_DOC__NSD_VERSION = COPYRIGHTED_FEATURE_COUNT + 5;
+    int NS_DOC__NSD_VERSION = COPYRIGHTED_FEATURE_COUNT + 6;
 
     /**
      * The feature id for the '<em><b>Nsd Revision</b></em>' attribute.
@@ -5377,7 +5413,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS_DOC__NSD_REVISION = COPYRIGHTED_FEATURE_COUNT + 6;
+    int NS_DOC__NSD_REVISION = COPYRIGHTED_FEATURE_COUNT + 7;
 
     /**
      * The feature id for the '<em><b>Nsd Release</b></em>' attribute.
@@ -5386,7 +5422,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS_DOC__NSD_RELEASE = COPYRIGHTED_FEATURE_COUNT + 7;
+    int NS_DOC__NSD_RELEASE = COPYRIGHTED_FEATURE_COUNT + 8;
 
     /**
      * The feature id for the '<em><b>Uml Date</b></em>' attribute.
@@ -5395,7 +5431,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS_DOC__UML_DATE = COPYRIGHTED_FEATURE_COUNT + 8;
+    int NS_DOC__UML_DATE = COPYRIGHTED_FEATURE_COUNT + 9;
 
     /**
      * The feature id for the '<em><b>Uml Version</b></em>' attribute.
@@ -5404,7 +5440,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS_DOC__UML_VERSION = COPYRIGHTED_FEATURE_COUNT + 9;
+    int NS_DOC__UML_VERSION = COPYRIGHTED_FEATURE_COUNT + 10;
 
     /**
      * The feature id for the '<em><b>Doc</b></em>' containment reference list.
@@ -5413,7 +5449,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS_DOC__DOC = COPYRIGHTED_FEATURE_COUNT + 10;
+    int NS_DOC__DOC = COPYRIGHTED_FEATURE_COUNT + 11;
 
     /**
      * The feature id for the '<em><b>Lang</b></em>' attribute.
@@ -5422,7 +5458,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS_DOC__LANG = COPYRIGHTED_FEATURE_COUNT + 11;
+    int NS_DOC__LANG = COPYRIGHTED_FEATURE_COUNT + 12;
 
     /**
      * The number of structural features of the '<em>NS Doc</em>' class.
@@ -5431,7 +5467,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NS_DOC_FEATURE_COUNT = COPYRIGHTED_FEATURE_COUNT + 12;
+    int NS_DOC_FEATURE_COUNT = COPYRIGHTED_FEATURE_COUNT + 13;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -6469,13 +6505,22 @@ public interface NsdPackage extends EPackage {
     int SERVICE_NS__PUBLICATION_STAGE = COPYRIGHTED_FEATURE_COUNT + 4;
 
     /**
+     * The feature id for the '<em><b>Namespace Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_NS__NAMESPACE_TYPE = COPYRIGHTED_FEATURE_COUNT + 5;
+
+    /**
      * The feature id for the '<em><b>Nsd Version</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SERVICE_NS__NSD_VERSION = COPYRIGHTED_FEATURE_COUNT + 5;
+    int SERVICE_NS__NSD_VERSION = COPYRIGHTED_FEATURE_COUNT + 6;
 
     /**
      * The feature id for the '<em><b>Nsd Revision</b></em>' attribute.
@@ -6484,7 +6529,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_NS__NSD_REVISION = COPYRIGHTED_FEATURE_COUNT + 6;
+    int SERVICE_NS__NSD_REVISION = COPYRIGHTED_FEATURE_COUNT + 7;
 
     /**
      * The feature id for the '<em><b>Nsd Release</b></em>' attribute.
@@ -6493,7 +6538,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_NS__NSD_RELEASE = COPYRIGHTED_FEATURE_COUNT + 7;
+    int SERVICE_NS__NSD_RELEASE = COPYRIGHTED_FEATURE_COUNT + 8;
 
     /**
      * The feature id for the '<em><b>Uml Date</b></em>' attribute.
@@ -6502,7 +6547,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_NS__UML_DATE = COPYRIGHTED_FEATURE_COUNT + 8;
+    int SERVICE_NS__UML_DATE = COPYRIGHTED_FEATURE_COUNT + 9;
 
     /**
      * The feature id for the '<em><b>Uml Version</b></em>' attribute.
@@ -6511,7 +6556,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_NS__UML_VERSION = COPYRIGHTED_FEATURE_COUNT + 9;
+    int SERVICE_NS__UML_VERSION = COPYRIGHTED_FEATURE_COUNT + 10;
 
     /**
      * The feature id for the '<em><b>Desc ID</b></em>' attribute.
@@ -6520,7 +6565,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_NS__DESC_ID = COPYRIGHTED_FEATURE_COUNT + 10;
+    int SERVICE_NS__DESC_ID = COPYRIGHTED_FEATURE_COUNT + 11;
 
     /**
      * The feature id for the '<em><b>Refers To Doc</b></em>' reference.
@@ -6529,7 +6574,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_NS__REFERS_TO_DOC = COPYRIGHTED_FEATURE_COUNT + 11;
+    int SERVICE_NS__REFERS_TO_DOC = COPYRIGHTED_FEATURE_COUNT + 12;
 
     /**
      * The feature id for the '<em><b>Changes</b></em>' containment reference.
@@ -6538,7 +6583,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_NS__CHANGES = COPYRIGHTED_FEATURE_COUNT + 12;
+    int SERVICE_NS__CHANGES = COPYRIGHTED_FEATURE_COUNT + 13;
 
     /**
      * The feature id for the '<em><b>Functional Constraints</b></em>' containment reference.
@@ -6547,7 +6592,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_NS__FUNCTIONAL_CONSTRAINTS = COPYRIGHTED_FEATURE_COUNT + 13;
+    int SERVICE_NS__FUNCTIONAL_CONSTRAINTS = COPYRIGHTED_FEATURE_COUNT + 14;
 
     /**
      * The feature id for the '<em><b>Presence Conditions</b></em>' containment reference.
@@ -6556,7 +6601,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_NS__PRESENCE_CONDITIONS = COPYRIGHTED_FEATURE_COUNT + 14;
+    int SERVICE_NS__PRESENCE_CONDITIONS = COPYRIGHTED_FEATURE_COUNT + 15;
 
     /**
      * The feature id for the '<em><b>Abbreviations</b></em>' containment reference.
@@ -6565,7 +6610,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_NS__ABBREVIATIONS = COPYRIGHTED_FEATURE_COUNT + 15;
+    int SERVICE_NS__ABBREVIATIONS = COPYRIGHTED_FEATURE_COUNT + 16;
 
     /**
      * The feature id for the '<em><b>Service Type Realizations</b></em>' containment reference.
@@ -6574,7 +6619,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_NS__SERVICE_TYPE_REALIZATIONS = COPYRIGHTED_FEATURE_COUNT + 16;
+    int SERVICE_NS__SERVICE_TYPE_REALIZATIONS = COPYRIGHTED_FEATURE_COUNT + 17;
 
     /**
      * The feature id for the '<em><b>Service Constructed Attributes</b></em>' containment reference.
@@ -6583,7 +6628,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_NS__SERVICE_CONSTRUCTED_ATTRIBUTES = COPYRIGHTED_FEATURE_COUNT + 17;
+    int SERVICE_NS__SERVICE_CONSTRUCTED_ATTRIBUTES = COPYRIGHTED_FEATURE_COUNT + 18;
 
     /**
      * The feature id for the '<em><b>Service CD Cs</b></em>' containment reference.
@@ -6592,7 +6637,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_NS__SERVICE_CD_CS = COPYRIGHTED_FEATURE_COUNT + 18;
+    int SERVICE_NS__SERVICE_CD_CS = COPYRIGHTED_FEATURE_COUNT + 19;
 
     /**
      * The number of structural features of the '<em>Service NS</em>' class.
@@ -6601,7 +6646,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_NS_FEATURE_COUNT = COPYRIGHTED_FEATURE_COUNT + 19;
+    int SERVICE_NS_FEATURE_COUNT = COPYRIGHTED_FEATURE_COUNT + 20;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -6703,13 +6748,22 @@ public interface NsdPackage extends EPackage {
     int SERVICE_NS_USAGE__PUBLICATION_STAGE = NSD_OBJECT_FEATURE_COUNT + 4;
 
     /**
+     * The feature id for the '<em><b>Namespace Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_NS_USAGE__NAMESPACE_TYPE = NSD_OBJECT_FEATURE_COUNT + 5;
+
+    /**
      * The feature id for the '<em><b>Applies To</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SERVICE_NS_USAGE__APPLIES_TO = NSD_OBJECT_FEATURE_COUNT + 5;
+    int SERVICE_NS_USAGE__APPLIES_TO = NSD_OBJECT_FEATURE_COUNT + 6;
 
     /**
      * The feature id for the '<em><b>Parent Applicable Service NS</b></em>' container reference.
@@ -6718,7 +6772,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_NS_USAGE__PARENT_APPLICABLE_SERVICE_NS = NSD_OBJECT_FEATURE_COUNT + 6;
+    int SERVICE_NS_USAGE__PARENT_APPLICABLE_SERVICE_NS = NSD_OBJECT_FEATURE_COUNT + 7;
 
     /**
      * The number of structural features of the '<em>Service Ns Usage</em>' class.
@@ -6727,7 +6781,7 @@ public interface NsdPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE_NS_USAGE_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 7;
+    int SERVICE_NS_USAGE_FEATURE_COUNT = NSD_OBJECT_FEATURE_COUNT + 8;
 
     /**
      * The operation id for the '<em>Build Explicit Links</em>' operation.
@@ -7594,13 +7648,22 @@ public interface NsdPackage extends EPackage {
     int AG_NS_IDENTIFICATION__PUBLICATION_STAGE = 4;
 
     /**
+     * The feature id for the '<em><b>Namespace Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AG_NS_IDENTIFICATION__NAMESPACE_TYPE = 5;
+
+    /**
      * The number of structural features of the '<em>Ag NS Identification</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int AG_NS_IDENTIFICATION_FEATURE_COUNT = 5;
+    int AG_NS_IDENTIFICATION_FEATURE_COUNT = 6;
 
     /**
      * The operation id for the '<em>Id Attribute Required</em>' operation.
@@ -8268,6 +8331,16 @@ public interface NsdPackage extends EPackage {
     int UNDEFINED_ATTRIBUTE_TYPE_KIND = 67;
 
     /**
+     * The meta object id for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSType <em>NS Type</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSType
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getNSType()
+     * @generated
+     */
+    int NS_TYPE = 68;
+
+    /**
      * The meta object id for the '<em>ACSI Services Kind Object</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8275,7 +8348,7 @@ public interface NsdPackage extends EPackage {
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getACSIServicesKindObject()
      * @generated
      */
-    int ACSI_SERVICES_KIND_OBJECT = 68;
+    int ACSI_SERVICES_KIND_OBJECT = 69;
 
     /**
      * The meta object id for the '<em>Attribute Type Kind</em>' data type.
@@ -8285,7 +8358,7 @@ public interface NsdPackage extends EPackage {
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getAttributeTypeKind()
      * @generated
      */
-    int ATTRIBUTE_TYPE_KIND = 69;
+    int ATTRIBUTE_TYPE_KIND = 70;
 
     /**
      * The meta object id for the '<em>CB Kind Object</em>' data type.
@@ -8295,7 +8368,7 @@ public interface NsdPackage extends EPackage {
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getCBKindObject()
      * @generated
      */
-    int CB_KIND_OBJECT = 70;
+    int CB_KIND_OBJECT = 71;
 
     /**
      * The meta object id for the '<em>Defined Attribute Type Kind Object</em>' data type.
@@ -8305,7 +8378,7 @@ public interface NsdPackage extends EPackage {
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getDefinedAttributeTypeKindObject()
      * @generated
      */
-    int DEFINED_ATTRIBUTE_TYPE_KIND_OBJECT = 71;
+    int DEFINED_ATTRIBUTE_TYPE_KIND_OBJECT = 72;
 
     /**
      * The meta object id for the '<em>License Kind Object</em>' data type.
@@ -8315,7 +8388,7 @@ public interface NsdPackage extends EPackage {
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getLicenseKindObject()
      * @generated
      */
-    int LICENSE_KIND_OBJECT = 72;
+    int LICENSE_KIND_OBJECT = 73;
 
     /**
      * The meta object id for the '<em>Pub Stage Object</em>' data type.
@@ -8325,7 +8398,7 @@ public interface NsdPackage extends EPackage {
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getPubStageObject()
      * @generated
      */
-    int PUB_STAGE_OBJECT = 73;
+    int PUB_STAGE_OBJECT = 74;
 
     /**
      * The meta object id for the '<em>Undefined Attribute Type Kind Object</em>' data type.
@@ -8335,7 +8408,7 @@ public interface NsdPackage extends EPackage {
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getUndefinedAttributeTypeKindObject()
      * @generated
      */
-    int UNDEFINED_ATTRIBUTE_TYPE_KIND_OBJECT = 74;
+    int UNDEFINED_ATTRIBUTE_TYPE_KIND_OBJECT = 75;
 
     /**
      * Returns the meta object for class '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType <em>Applies To Type</em>}'.
@@ -11792,6 +11865,17 @@ public interface NsdPackage extends EPackage {
     EAttribute getAgNSIdentification_PublicationStage();
 
     /**
+     * Returns the meta object for the attribute '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification#getNamespaceType <em>Namespace Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Namespace Type</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification#getNamespaceType()
+     * @see #getAgNSIdentification()
+     * @generated
+     */
+    EAttribute getAgNSIdentification_NamespaceType();
+
+    /**
      * Returns the meta object for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification#idAttributeRequired(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Id Attribute Required</em>}' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -12366,6 +12450,16 @@ public interface NsdPackage extends EPackage {
      * @generated
      */
     EEnum getUndefinedAttributeTypeKind();
+
+    /**
+     * Returns the meta object for enum '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSType <em>NS Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for enum '<em>NS Type</em>'.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSType
+     * @generated
+     */
+    EEnum getNSType();
 
     /**
      * Returns the meta object for data type '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ACSIServicesKind <em>ACSI Services Kind Object</em>}'.
@@ -15245,6 +15339,14 @@ public interface NsdPackage extends EPackage {
         EAttribute AG_NS_IDENTIFICATION__PUBLICATION_STAGE = eINSTANCE.getAgNSIdentification_PublicationStage();
 
         /**
+         * The meta object literal for the '<em><b>Namespace Type</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute AG_NS_IDENTIFICATION__NAMESPACE_TYPE = eINSTANCE.getAgNSIdentification_NamespaceType();
+
+        /**
          * The meta object literal for the '<em><b>Id Attribute Required</b></em>' operation.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -15720,6 +15822,16 @@ public interface NsdPackage extends EPackage {
          * @generated
          */
         EEnum UNDEFINED_ATTRIBUTE_TYPE_KIND = eINSTANCE.getUndefinedAttributeTypeKind();
+
+        /**
+         * The meta object literal for the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSType <em>NS Type</em>}' enum.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSType
+         * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NsdPackageImpl#getNSType()
+         * @generated
+         */
+        EEnum NS_TYPE = eINSTANCE.getNSType();
 
         /**
          * The meta object literal for the '<em>ACSI Services Kind Object</em>' data type.

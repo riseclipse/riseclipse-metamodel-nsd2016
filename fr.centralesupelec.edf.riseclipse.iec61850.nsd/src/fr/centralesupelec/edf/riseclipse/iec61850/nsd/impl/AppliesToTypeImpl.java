@@ -43,6 +43,7 @@ import org.eclipse.ocl.pivot.values.TupleValue;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage;
@@ -61,6 +62,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AppliesToTypeImpl#getId <em>Id</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AppliesToTypeImpl#getRevision <em>Revision</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AppliesToTypeImpl#getPublicationStage <em>Publication Stage</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AppliesToTypeImpl#getNamespaceType <em>Namespace Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AppliesToTypeImpl#getParentServiceNsUsage <em>Parent Service Ns Usage</em>}</li>
  * </ul>
  *
@@ -213,6 +215,35 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
     protected boolean publicationStageESet;
 
     /**
+     * The default value of the '{@link #getNamespaceType() <em>Namespace Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNamespaceType()
+     * @generated
+     * @ordered
+     */
+    protected static final NSType NAMESPACE_TYPE_EDEFAULT = NSType.BASIC;
+
+    /**
+     * The cached value of the '{@link #getNamespaceType() <em>Namespace Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNamespaceType()
+     * @generated
+     * @ordered
+     */
+    protected NSType namespaceType = NAMESPACE_TYPE_EDEFAULT;
+
+    /**
+     * This is true if the Namespace Type attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean namespaceTypeESet;
+
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -252,9 +283,10 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
         release = newRelease;
         boolean oldReleaseESet = releaseESet;
         releaseESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.APPLIES_TO_TYPE__RELEASE, oldRelease,
                     release, !oldReleaseESet ) );
+        }
     }
 
     /**
@@ -268,9 +300,10 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
         boolean oldReleaseESet = releaseESet;
         release = RELEASE_EDEFAULT;
         releaseESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.APPLIES_TO_TYPE__RELEASE, oldRelease,
                     RELEASE_EDEFAULT, oldReleaseESet ) );
+        }
     }
 
     /**
@@ -304,9 +337,10 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
         version = newVersion;
         boolean oldVersionESet = versionESet;
         versionESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.APPLIES_TO_TYPE__VERSION, oldVersion,
                     version, !oldVersionESet ) );
+        }
     }
 
     /**
@@ -320,9 +354,10 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
         boolean oldVersionESet = versionESet;
         version = VERSION_EDEFAULT;
         versionESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.APPLIES_TO_TYPE__VERSION, oldVersion,
                     VERSION_EDEFAULT, oldVersionESet ) );
+        }
     }
 
     /**
@@ -356,9 +391,10 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
         id = newId;
         boolean oldIdESet = idESet;
         idESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.APPLIES_TO_TYPE__ID, oldId, id,
                     !oldIdESet ) );
+        }
     }
 
     /**
@@ -372,9 +408,10 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
         boolean oldIdESet = idESet;
         id = ID_EDEFAULT;
         idESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.APPLIES_TO_TYPE__ID, oldId,
                     ID_EDEFAULT, oldIdESet ) );
+        }
     }
 
     /**
@@ -408,9 +445,10 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
         revision = newRevision;
         boolean oldRevisionESet = revisionESet;
         revisionESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.APPLIES_TO_TYPE__REVISION, oldRevision,
                     revision, !oldRevisionESet ) );
+        }
     }
 
     /**
@@ -424,9 +462,10 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
         boolean oldRevisionESet = revisionESet;
         revision = REVISION_EDEFAULT;
         revisionESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.APPLIES_TO_TYPE__REVISION, oldRevision,
                     REVISION_EDEFAULT, oldRevisionESet ) );
+        }
     }
 
     /**
@@ -460,9 +499,10 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
         publicationStage = newPublicationStage == null ? PUBLICATION_STAGE_EDEFAULT : newPublicationStage;
         boolean oldPublicationStageESet = publicationStageESet;
         publicationStageESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE,
                     oldPublicationStage, publicationStage, !oldPublicationStageESet ) );
+        }
     }
 
     /**
@@ -476,9 +516,10 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
         boolean oldPublicationStageESet = publicationStageESet;
         publicationStage = PUBLICATION_STAGE_EDEFAULT;
         publicationStageESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE,
                     oldPublicationStage, PUBLICATION_STAGE_EDEFAULT, oldPublicationStageESet ) );
+        }
     }
 
     /**
@@ -497,8 +538,64 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
      * @generated
      */
     @Override
+    public NSType getNamespaceType() {
+        return namespaceType;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setNamespaceType( NSType newNamespaceType ) {
+        NSType oldNamespaceType = namespaceType;
+        namespaceType = newNamespaceType == null ? NAMESPACE_TYPE_EDEFAULT : newNamespaceType;
+        boolean oldNamespaceTypeESet = namespaceTypeESet;
+        namespaceTypeESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.APPLIES_TO_TYPE__NAMESPACE_TYPE,
+                    oldNamespaceType, namespaceType, !oldNamespaceTypeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetNamespaceType() {
+        NSType oldNamespaceType = namespaceType;
+        boolean oldNamespaceTypeESet = namespaceTypeESet;
+        namespaceType = NAMESPACE_TYPE_EDEFAULT;
+        namespaceTypeESet = false;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.APPLIES_TO_TYPE__NAMESPACE_TYPE,
+                    oldNamespaceType, NAMESPACE_TYPE_EDEFAULT, oldNamespaceTypeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetNamespaceType() {
+        return namespaceTypeESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public ServiceNsUsage getParentServiceNsUsage() {
-        if( eContainerFeatureID() != NsdPackage.APPLIES_TO_TYPE__PARENT_SERVICE_NS_USAGE ) return null;
+        if( eContainerFeatureID() != NsdPackage.APPLIES_TO_TYPE__PARENT_SERVICE_NS_USAGE ) {
+            return null;
+        }
         return ( ServiceNsUsage ) eInternalContainer();
     }
 
@@ -524,20 +621,26 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
         if( newParentServiceNsUsage != eInternalContainer()
                 || ( eContainerFeatureID() != NsdPackage.APPLIES_TO_TYPE__PARENT_SERVICE_NS_USAGE
                         && newParentServiceNsUsage != null ) ) {
-            if( EcoreUtil.isAncestor( this, newParentServiceNsUsage ) )
+            if( EcoreUtil.isAncestor( this, newParentServiceNsUsage ) ) {
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            }
             NotificationChain msgs = null;
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newParentServiceNsUsage != null )
+            }
+            if( newParentServiceNsUsage != null ) {
                 msgs = ( ( InternalEObject ) newParentServiceNsUsage ).eInverseAdd( this,
                         NsdPackage.SERVICE_NS_USAGE__APPLIES_TO, ServiceNsUsage.class, msgs );
+            }
             msgs = basicSetParentServiceNsUsage( newParentServiceNsUsage, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
-        else if( eNotificationRequired() )
+        else if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.APPLIES_TO_TYPE__PARENT_SERVICE_NS_USAGE,
                     newParentServiceNsUsage, newParentServiceNsUsage ) );
+        }
     }
 
     /**
@@ -679,8 +782,9 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.APPLIES_TO_TYPE__PARENT_SERVICE_NS_USAGE:
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
+            }
             return basicSetParentServiceNsUsage( ( ServiceNsUsage ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
@@ -733,6 +837,8 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
             return getRevision();
         case NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE:
             return getPublicationStage();
+        case NsdPackage.APPLIES_TO_TYPE__NAMESPACE_TYPE:
+            return getNamespaceType();
         case NsdPackage.APPLIES_TO_TYPE__PARENT_SERVICE_NS_USAGE:
             return getParentServiceNsUsage();
         }
@@ -761,6 +867,9 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
             return;
         case NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE:
             setPublicationStage( ( PubStage ) newValue );
+            return;
+        case NsdPackage.APPLIES_TO_TYPE__NAMESPACE_TYPE:
+            setNamespaceType( ( NSType ) newValue );
             return;
         case NsdPackage.APPLIES_TO_TYPE__PARENT_SERVICE_NS_USAGE:
             setParentServiceNsUsage( ( ServiceNsUsage ) newValue );
@@ -792,6 +901,9 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
         case NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE:
             unsetPublicationStage();
             return;
+        case NsdPackage.APPLIES_TO_TYPE__NAMESPACE_TYPE:
+            unsetNamespaceType();
+            return;
         case NsdPackage.APPLIES_TO_TYPE__PARENT_SERVICE_NS_USAGE:
             setParentServiceNsUsage( ( ServiceNsUsage ) null );
             return;
@@ -817,6 +929,8 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
             return isSetRevision();
         case NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE:
             return isSetPublicationStage();
+        case NsdPackage.APPLIES_TO_TYPE__NAMESPACE_TYPE:
+            return isSetNamespaceType();
         case NsdPackage.APPLIES_TO_TYPE__PARENT_SERVICE_NS_USAGE:
             return getParentServiceNsUsage() != null;
         }
@@ -842,6 +956,8 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
                 return NsdPackage.AG_NS_IDENTIFICATION__REVISION;
             case NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE:
                 return NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE;
+            case NsdPackage.APPLIES_TO_TYPE__NAMESPACE_TYPE:
+                return NsdPackage.AG_NS_IDENTIFICATION__NAMESPACE_TYPE;
             default:
                 return -1;
             }
@@ -868,6 +984,8 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
                 return NsdPackage.APPLIES_TO_TYPE__REVISION;
             case NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE:
                 return NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE;
+            case NsdPackage.AG_NS_IDENTIFICATION__NAMESPACE_TYPE:
+                return NsdPackage.APPLIES_TO_TYPE__NAMESPACE_TYPE;
             default:
                 return -1;
             }
@@ -921,34 +1039,53 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
      */
     @Override
     public String toString() {
-        if( eIsProxy() ) return super.toString();
+        if( eIsProxy() ) {
+            return super.toString();
+        }
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (release: " );
-        if( releaseESet )
+        if( releaseESet ) {
             result.append( release );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", version: " );
-        if( versionESet )
+        if( versionESet ) {
             result.append( version );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", id: " );
-        if( idESet )
+        if( idESet ) {
             result.append( id );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", revision: " );
-        if( revisionESet )
+        if( revisionESet ) {
             result.append( revision );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", publicationStage: " );
-        if( publicationStageESet )
+        if( publicationStageESet ) {
             result.append( publicationStage );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
+        result.append( ", namespaceType: " );
+        if( namespaceTypeESet ) {
+            result.append( namespaceType );
+        }
+        else {
+            result.append( "<unset>" );
+        }
         result.append( ')' );
         return result.toString();
     }

@@ -47,6 +47,7 @@ import org.eclipse.ocl.pivot.values.TupleValue;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServiceNS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage;
@@ -65,6 +66,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getId <em>Id</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getRevision <em>Revision</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getPublicationStage <em>Publication Stage</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getNamespaceType <em>Namespace Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getAppliesTo <em>Applies To</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getParentApplicableServiceNS <em>Parent Applicable Service NS</em>}</li>
  * </ul>
@@ -216,6 +218,35 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
      * @ordered
      */
     protected boolean publicationStageESet;
+
+    /**
+     * The default value of the '{@link #getNamespaceType() <em>Namespace Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNamespaceType()
+     * @generated
+     * @ordered
+     */
+    protected static final NSType NAMESPACE_TYPE_EDEFAULT = NSType.BASIC;
+
+    /**
+     * The cached value of the '{@link #getNamespaceType() <em>Namespace Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNamespaceType()
+     * @generated
+     * @ordered
+     */
+    protected NSType namespaceType = NAMESPACE_TYPE_EDEFAULT;
+
+    /**
+     * This is true if the Namespace Type attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean namespaceTypeESet;
 
     /**
      * The cached value of the '{@link #getAppliesTo() <em>Applies To</em>}' containment reference list.
@@ -692,6 +723,60 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
      * @generated
      */
     @Override
+    public NSType getNamespaceType() {
+        return namespaceType;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setNamespaceType( NSType newNamespaceType ) {
+        NSType oldNamespaceType = namespaceType;
+        namespaceType = newNamespaceType == null ? NAMESPACE_TYPE_EDEFAULT : newNamespaceType;
+        boolean oldNamespaceTypeESet = namespaceTypeESet;
+        namespaceTypeESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_NS_USAGE__NAMESPACE_TYPE,
+                    oldNamespaceType, namespaceType, !oldNamespaceTypeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetNamespaceType() {
+        NSType oldNamespaceType = namespaceType;
+        boolean oldNamespaceTypeESet = namespaceTypeESet;
+        namespaceType = NAMESPACE_TYPE_EDEFAULT;
+        namespaceTypeESet = false;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_NS_USAGE__NAMESPACE_TYPE,
+                    oldNamespaceType, NAMESPACE_TYPE_EDEFAULT, oldNamespaceTypeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetNamespaceType() {
+        return namespaceTypeESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public String getRevision() {
         return revision;
     }
@@ -810,6 +895,8 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
             return getRevision();
         case NsdPackage.SERVICE_NS_USAGE__PUBLICATION_STAGE:
             return getPublicationStage();
+        case NsdPackage.SERVICE_NS_USAGE__NAMESPACE_TYPE:
+            return getNamespaceType();
         case NsdPackage.SERVICE_NS_USAGE__APPLIES_TO:
             return getAppliesTo();
         case NsdPackage.SERVICE_NS_USAGE__PARENT_APPLICABLE_SERVICE_NS:
@@ -841,6 +928,9 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
             return;
         case NsdPackage.SERVICE_NS_USAGE__PUBLICATION_STAGE:
             setPublicationStage( ( PubStage ) newValue );
+            return;
+        case NsdPackage.SERVICE_NS_USAGE__NAMESPACE_TYPE:
+            setNamespaceType( ( NSType ) newValue );
             return;
         case NsdPackage.SERVICE_NS_USAGE__APPLIES_TO:
             getAppliesTo().clear();
@@ -876,6 +966,9 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
         case NsdPackage.SERVICE_NS_USAGE__PUBLICATION_STAGE:
             unsetPublicationStage();
             return;
+        case NsdPackage.SERVICE_NS_USAGE__NAMESPACE_TYPE:
+            unsetNamespaceType();
+            return;
         case NsdPackage.SERVICE_NS_USAGE__APPLIES_TO:
             unsetAppliesTo();
             return;
@@ -904,6 +997,8 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
             return isSetRevision();
         case NsdPackage.SERVICE_NS_USAGE__PUBLICATION_STAGE:
             return isSetPublicationStage();
+        case NsdPackage.SERVICE_NS_USAGE__NAMESPACE_TYPE:
+            return isSetNamespaceType();
         case NsdPackage.SERVICE_NS_USAGE__APPLIES_TO:
             return isSetAppliesTo();
         case NsdPackage.SERVICE_NS_USAGE__PARENT_APPLICABLE_SERVICE_NS:
@@ -931,6 +1026,8 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
                 return NsdPackage.AG_NS_IDENTIFICATION__REVISION;
             case NsdPackage.SERVICE_NS_USAGE__PUBLICATION_STAGE:
                 return NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE;
+            case NsdPackage.SERVICE_NS_USAGE__NAMESPACE_TYPE:
+                return NsdPackage.AG_NS_IDENTIFICATION__NAMESPACE_TYPE;
             default:
                 return -1;
             }
@@ -957,6 +1054,8 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
                 return NsdPackage.SERVICE_NS_USAGE__REVISION;
             case NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE:
                 return NsdPackage.SERVICE_NS_USAGE__PUBLICATION_STAGE;
+            case NsdPackage.AG_NS_IDENTIFICATION__NAMESPACE_TYPE:
+                return NsdPackage.SERVICE_NS_USAGE__NAMESPACE_TYPE;
             default:
                 return -1;
             }
@@ -1046,6 +1145,13 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
         result.append( ", publicationStage: " );
         if( publicationStageESet ) {
             result.append( publicationStage );
+        }
+        else {
+            result.append( "<unset>" );
+        }
+        result.append( ", namespaceType: " );
+        if( namespaceTypeESet ) {
+            result.append( namespaceType );
         }
         else {
             result.append( "<unset>" );

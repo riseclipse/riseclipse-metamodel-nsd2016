@@ -164,6 +164,7 @@ public class NsdTables extends AbstractTables
 	public static final /*@NonInvalid*/ EnumerationId ENUMid_CBKind = NsdTables.PACKid_http_c_s_s_www_iec_ch_s_61850_s_2016_s_NSD.getEnumerationId("CBKind");
 	public static final /*@NonInvalid*/ EnumerationId ENUMid_DefinedAttributeTypeKind = NsdTables.PACKid_http_c_s_s_www_iec_ch_s_61850_s_2016_s_NSD.getEnumerationId("DefinedAttributeTypeKind");
 	public static final /*@NonInvalid*/ EnumerationId ENUMid_LicenseKind = NsdTables.PACKid_http_c_s_s_www_iec_ch_s_61850_s_2016_s_NSD.getEnumerationId("LicenseKind");
+	public static final /*@NonInvalid*/ EnumerationId ENUMid_NSType = NsdTables.PACKid_http_c_s_s_www_iec_ch_s_61850_s_2016_s_NSD.getEnumerationId("NSType");
 	public static final /*@NonInvalid*/ EnumerationId ENUMid_PubStage = NsdTables.PACKid_http_c_s_s_www_iec_ch_s_61850_s_2016_s_NSD.getEnumerationId("PubStage");
 	public static final /*@NonInvalid*/ IntegerValue INT_0 = ValueUtil.integerValueOf("0");
 	public static final /*@NonInvalid*/ MapTypeId MAP_PRIMid_String_PRIMid_String = TypeId.MAP.getSpecializedId(TypeId.STRING, TypeId.STRING, false, false);
@@ -313,6 +314,7 @@ public class NsdTables extends AbstractTables
 		public static final EcoreExecutorType _Literal = new EcoreExecutorType(NsdPackage.Literals.LITERAL, PACKAGE, 0);
 		public static final EcoreExecutorType _NS = new EcoreExecutorType(NsdPackage.Literals.NS, PACKAGE, 0);
 		public static final EcoreExecutorType _NSDoc = new EcoreExecutorType(NsdPackage.Literals.NS_DOC, PACKAGE, 0);
+		public static final EcoreExecutorEnumeration _NSType = new EcoreExecutorEnumeration(NsdPackage.Literals.NS_TYPE, PACKAGE, 0);
 		public static final EcoreExecutorType _Notice = new EcoreExecutorType(NsdPackage.Literals.NOTICE, PACKAGE, 0);
 		public static final EcoreExecutorType _NsdObject = new EcoreExecutorType(NsdPackage.Literals.NSD_OBJECT, PACKAGE, 0 | ExecutorType.ABSTRACT);
 		public static final EcoreExecutorType _PresenceCondition = new EcoreExecutorType(NsdPackage.Literals.PRESENCE_CONDITION, PACKAGE, 0);
@@ -390,6 +392,7 @@ public class NsdTables extends AbstractTables
 			_Literal,
 			_NS,
 			_NSDoc,
+			_NSType,
 			_Notice,
 			_NsdObject,
 			_PresenceCondition,
@@ -726,6 +729,12 @@ public class NsdTables extends AbstractTables
 		private static final ExecutorFragment _NSDoc__OclAny = new ExecutorFragment(Types._NSDoc, OCLstdlibTables.Types._OclAny);
 		private static final ExecutorFragment _NSDoc__OclElement = new ExecutorFragment(Types._NSDoc, OCLstdlibTables.Types._OclElement);
 
+		private static final ExecutorFragment _NSType__NSType = new ExecutorFragment(Types._NSType, NsdTables.Types._NSType);
+		private static final ExecutorFragment _NSType__OclAny = new ExecutorFragment(Types._NSType, OCLstdlibTables.Types._OclAny);
+		private static final ExecutorFragment _NSType__OclElement = new ExecutorFragment(Types._NSType, OCLstdlibTables.Types._OclElement);
+		private static final ExecutorFragment _NSType__OclEnumeration = new ExecutorFragment(Types._NSType, OCLstdlibTables.Types._OclEnumeration);
+		private static final ExecutorFragment _NSType__OclType = new ExecutorFragment(Types._NSType, OCLstdlibTables.Types._OclType);
+
 		private static final ExecutorFragment _Notice__Notice = new ExecutorFragment(Types._Notice, NsdTables.Types._Notice);
 		private static final ExecutorFragment _Notice__NsdObject = new ExecutorFragment(Types._Notice, NsdTables.Types._NsdObject);
 		private static final ExecutorFragment _Notice__OclAny = new ExecutorFragment(Types._Notice, OCLstdlibTables.Types._OclAny);
@@ -967,10 +976,11 @@ public class NsdTables extends AbstractTables
 		public static final ExecutorProperty _AgNSDIdentification__nsdVersion = new EcoreExecutorProperty(NsdPackage.Literals.AG_NSD_IDENTIFICATION__NSD_VERSION, Types._AgNSDIdentification, 2);
 
 		public static final ExecutorProperty _AgNSIdentification__id = new EcoreExecutorProperty(NsdPackage.Literals.AG_NS_IDENTIFICATION__ID, Types._AgNSIdentification, 0);
-		public static final ExecutorProperty _AgNSIdentification__publicationStage = new EcoreExecutorProperty(NsdPackage.Literals.AG_NS_IDENTIFICATION__PUBLICATION_STAGE, Types._AgNSIdentification, 1);
-		public static final ExecutorProperty _AgNSIdentification__release = new EcoreExecutorProperty(NsdPackage.Literals.AG_NS_IDENTIFICATION__RELEASE, Types._AgNSIdentification, 2);
-		public static final ExecutorProperty _AgNSIdentification__revision = new EcoreExecutorProperty(NsdPackage.Literals.AG_NS_IDENTIFICATION__REVISION, Types._AgNSIdentification, 3);
-		public static final ExecutorProperty _AgNSIdentification__version = new EcoreExecutorProperty(NsdPackage.Literals.AG_NS_IDENTIFICATION__VERSION, Types._AgNSIdentification, 4);
+		public static final ExecutorProperty _AgNSIdentification__namespaceType = new EcoreExecutorProperty(NsdPackage.Literals.AG_NS_IDENTIFICATION__NAMESPACE_TYPE, Types._AgNSIdentification, 1);
+		public static final ExecutorProperty _AgNSIdentification__publicationStage = new EcoreExecutorProperty(NsdPackage.Literals.AG_NS_IDENTIFICATION__PUBLICATION_STAGE, Types._AgNSIdentification, 2);
+		public static final ExecutorProperty _AgNSIdentification__release = new EcoreExecutorProperty(NsdPackage.Literals.AG_NS_IDENTIFICATION__RELEASE, Types._AgNSIdentification, 3);
+		public static final ExecutorProperty _AgNSIdentification__revision = new EcoreExecutorProperty(NsdPackage.Literals.AG_NS_IDENTIFICATION__REVISION, Types._AgNSIdentification, 4);
+		public static final ExecutorProperty _AgNSIdentification__version = new EcoreExecutorProperty(NsdPackage.Literals.AG_NS_IDENTIFICATION__VERSION, Types._AgNSIdentification, 5);
 
 		public static final ExecutorProperty _AgNSdesc__descID = new EcoreExecutorProperty(NsdPackage.Literals.AG_NSDESC__DESC_ID, Types._AgNSdesc, 0);
 		public static final ExecutorProperty _AgNSdesc__refersToDoc = new EcoreExecutorProperty(NsdPackage.Literals.AG_NSDESC__REFERS_TO_DOC, Types._AgNSdesc, 1);
@@ -1782,6 +1792,16 @@ public class NsdTables extends AbstractTables
 			};
 		private static final int /*@NonNull*/ [] __NSDoc = { 1,1,4,1,1 };
 
+		private static final ExecutorFragment /*@NonNull*/ [] _NSType =
+			{
+				Fragments._NSType__OclAny /* 0 */,
+				Fragments._NSType__OclElement /* 1 */,
+				Fragments._NSType__OclType /* 2 */,
+				Fragments._NSType__OclEnumeration /* 3 */,
+				Fragments._NSType__NSType /* 4 */
+			};
+		private static final int /*@NonNull*/ [] __NSType = { 1,1,1,1,1 };
+
 		private static final ExecutorFragment /*@NonNull*/ [] _Notice =
 			{
 				Fragments._Notice__OclAny /* 0 */,
@@ -2052,6 +2072,7 @@ public class NsdTables extends AbstractTables
 			Types._Literal.initFragments(_Literal, __Literal);
 			Types._NS.initFragments(_NS, __NS);
 			Types._NSDoc.initFragments(_NSDoc, __NSDoc);
+			Types._NSType.initFragments(_NSType, __NSType);
 			Types._Notice.initFragments(_Notice, __Notice);
 			Types._NsdObject.initFragments(_NsdObject, __NsdObject);
 			Types._PresenceCondition.initFragments(_PresenceCondition, __PresenceCondition);
@@ -3972,6 +3993,45 @@ public class NsdTables extends AbstractTables
 			OCLstdlibTables.Operations._OclElement__oclModelTypes /* oclModelTypes() */
 		};
 
+		private static final ExecutorOperation /*@NonNull*/ [] _NSType__NSType = {};
+		private static final ExecutorOperation /*@NonNull*/ [] _NSType__OclAny = {
+			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
+			OCLstdlibTables.Operations._OclAny___eq_ /* _'='(OclSelf[?]) */,
+			OCLstdlibTables.Operations._OclAny__oclAsSet /* oclAsSet() */,
+			OCLstdlibTables.Operations._OclAny__oclAsType /* oclAsType(TT)(TT[1]) */,
+			OCLstdlibTables.Operations._OclAny__oclIsInState /* oclIsInState(OclState[?]) */,
+			OCLstdlibTables.Operations._OclAny__oclIsInvalid /* oclIsInvalid() */,
+			OCLstdlibTables.Operations._OclAny__oclIsKindOf /* oclIsKindOf(OclType[1]) */,
+			OCLstdlibTables.Operations._OclAny__oclIsNew /* oclIsNew() */,
+			OCLstdlibTables.Operations._OclAny__oclIsTypeOf /* oclIsTypeOf(OclType[1]) */,
+			OCLstdlibTables.Operations._OclAny__oclIsUndefined /* oclIsUndefined() */,
+			OCLstdlibTables.Operations._OclAny__0_oclLog /* oclLog() */,
+			OCLstdlibTables.Operations._OclAny__1_oclLog /* oclLog(String[1]) */,
+			OCLstdlibTables.Operations._OclAny__oclType /* oclType() */,
+			OCLstdlibTables.Operations._OclAny__oclTypes /* oclTypes() */,
+			OCLstdlibTables.Operations._OclAny__toString /* toString() */
+		};
+		private static final ExecutorOperation /*@NonNull*/ [] _NSType__OclElement = {
+			OCLstdlibTables.Operations._OclEnumeration__allInstances /* allInstances(Integer[1]) */,
+			OCLstdlibTables.Operations._OclElement__oclAsModelType /* oclAsModelType(TT)(TT[1]) */,
+			OCLstdlibTables.Operations._OclElement__0_oclBase /* oclBase() */,
+			OCLstdlibTables.Operations._OclElement__1_oclBase /* oclBase(OclType[1]) */,
+			OCLstdlibTables.Operations._OclElement__oclContainer /* oclContainer() */,
+			OCLstdlibTables.Operations._OclElement__oclContents /* oclContents() */,
+			OCLstdlibTables.Operations._OclElement__oclExtension /* oclExtension(OclStereotype[1]) */,
+			OCLstdlibTables.Operations._OclElement__0_oclExtensions /* oclExtensions() */,
+			OCLstdlibTables.Operations._OclElement__1_oclExtensions /* oclExtensions(OclStereotype[1]) */,
+			OCLstdlibTables.Operations._OclElement__oclIsModelKindOf /* oclIsModelKindOf(OclType[1]) */,
+			OCLstdlibTables.Operations._OclElement__oclModelType /* oclModelType() */,
+			OCLstdlibTables.Operations._OclElement__oclModelTypes /* oclModelTypes() */
+		};
+		private static final ExecutorOperation /*@NonNull*/ [] _NSType__OclEnumeration = {
+			OCLstdlibTables.Operations._OclEnumeration__allInstances /* allInstances(Integer[1]) */
+		};
+		private static final ExecutorOperation /*@NonNull*/ [] _NSType__OclType = {
+			OCLstdlibTables.Operations._OclType__conformsTo /* conformsTo(OclType[?]) */
+		};
+
 		private static final ExecutorOperation /*@NonNull*/ [] _Notice__Notice = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _Notice__NsdObject = {
 			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
@@ -5019,6 +5079,12 @@ public class NsdTables extends AbstractTables
 			Fragments._NSDoc__OclAny.initOperations(_NSDoc__OclAny);
 			Fragments._NSDoc__OclElement.initOperations(_NSDoc__OclElement);
 
+			Fragments._NSType__NSType.initOperations(_NSType__NSType);
+			Fragments._NSType__OclAny.initOperations(_NSType__OclAny);
+			Fragments._NSType__OclElement.initOperations(_NSType__OclElement);
+			Fragments._NSType__OclEnumeration.initOperations(_NSType__OclEnumeration);
+			Fragments._NSType__OclType.initOperations(_NSType__OclType);
+
 			Fragments._Notice__Notice.initOperations(_Notice__Notice);
 			Fragments._Notice__NsdObject.initOperations(_Notice__NsdObject);
 			Fragments._Notice__OclAny.initOperations(_Notice__OclAny);
@@ -5254,6 +5320,7 @@ public class NsdTables extends AbstractTables
 
 		private static final ExecutorProperty /*@NonNull*/ [] _AgNSIdentification = {
 			NsdTables.Properties._AgNSIdentification__id,
+			NsdTables.Properties._AgNSIdentification__namespaceType,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents,
 			NsdTables.Properties._AgNSIdentification__publicationStage,
@@ -5356,6 +5423,7 @@ public class NsdTables extends AbstractTables
 			NsdTables.Properties._NsdObject__explicitLinksBuilt,
 			NsdTables.Properties._AgNSIdentification__id,
 			NsdTables.Properties._NsdObject__lineNumber,
+			NsdTables.Properties._AgNSIdentification__namespaceType,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents,
 			NsdTables.Properties._AppliesToType__parentServiceNsUsage,
@@ -5583,6 +5651,7 @@ public class NsdTables extends AbstractTables
 			NsdTables.Properties._NsdObject__explicitLinksBuilt,
 			NsdTables.Properties._AgNSIdentification__id,
 			NsdTables.Properties._NsdObject__lineNumber,
+			NsdTables.Properties._AgNSIdentification__namespaceType,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents,
 			NsdTables.Properties._DependsOn__parentNS,
@@ -5776,6 +5845,7 @@ public class NsdTables extends AbstractTables
 			NsdTables.Properties._AgNSIdentification__id,
 			NsdTables.Properties._NS__lNClasses,
 			NsdTables.Properties._NsdObject__lineNumber,
+			NsdTables.Properties._AgNSIdentification__namespaceType,
 			NsdTables.Properties._AgNSDIdentification__nsdRelease,
 			NsdTables.Properties._AgNSDIdentification__nsdRevision,
 			NsdTables.Properties._AgNSDIdentification__nsdVersion,
@@ -5799,6 +5869,7 @@ public class NsdTables extends AbstractTables
 			NsdTables.Properties._AgNSIdentification__id,
 			NsdTables.Properties._NSDoc__lang,
 			NsdTables.Properties._NsdObject__lineNumber,
+			NsdTables.Properties._AgNSIdentification__namespaceType,
 			NsdTables.Properties._AgNSDIdentification__nsdRelease,
 			NsdTables.Properties._AgNSDIdentification__nsdRevision,
 			NsdTables.Properties._AgNSDIdentification__nsdVersion,
@@ -5810,6 +5881,11 @@ public class NsdTables extends AbstractTables
 			NsdTables.Properties._AgUML__umlDate,
 			NsdTables.Properties._AgUML__umlVersion,
 			NsdTables.Properties._AgNSIdentification__version
+		};
+
+		private static final ExecutorProperty /*@NonNull*/ [] _NSType = {
+			OCLstdlibTables.Properties._OclElement__oclContainer,
+			OCLstdlibTables.Properties._OclElement__oclContents
 		};
 
 		private static final ExecutorProperty /*@NonNull*/ [] _Notice = {
@@ -5952,6 +6028,7 @@ public class NsdTables extends AbstractTables
 			NsdTables.Properties._ServiceNS__functionalConstraints,
 			NsdTables.Properties._AgNSIdentification__id,
 			NsdTables.Properties._NsdObject__lineNumber,
+			NsdTables.Properties._AgNSIdentification__namespaceType,
 			NsdTables.Properties._AgNSDIdentification__nsdRelease,
 			NsdTables.Properties._AgNSDIdentification__nsdRevision,
 			NsdTables.Properties._AgNSDIdentification__nsdVersion,
@@ -5975,6 +6052,7 @@ public class NsdTables extends AbstractTables
 			NsdTables.Properties._NsdObject__explicitLinksBuilt,
 			NsdTables.Properties._AgNSIdentification__id,
 			NsdTables.Properties._NsdObject__lineNumber,
+			NsdTables.Properties._AgNSIdentification__namespaceType,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents,
 			NsdTables.Properties._ServiceNsUsage__parentApplicableServiceNS,
@@ -6162,6 +6240,7 @@ public class NsdTables extends AbstractTables
 			Fragments._Literal__Literal.initProperties(_Literal);
 			Fragments._NS__NS.initProperties(_NS);
 			Fragments._NSDoc__NSDoc.initProperties(_NSDoc);
+			Fragments._NSType__NSType.initProperties(_NSType);
 			Fragments._Notice__Notice.initProperties(_Notice);
 			Fragments._NsdObject__NsdObject.initProperties(_NsdObject);
 			Fragments._PresenceCondition__PresenceCondition.initProperties(_PresenceCondition);
@@ -6352,6 +6431,19 @@ public class NsdTables extends AbstractTables
 			_LicenseKind__None
 		};
 
+		public static final EcoreExecutorEnumerationLiteral _NSType__basic = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.NS_TYPE.getEEnumLiteral("basic"), Types._NSType, 0);
+		public static final EcoreExecutorEnumerationLiteral _NSType__domain = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.NS_TYPE.getEEnumLiteral("domain"), Types._NSType, 1);
+		public static final EcoreExecutorEnumerationLiteral _NSType__transitional = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.NS_TYPE.getEEnumLiteral("transitional"), Types._NSType, 2);
+		public static final EcoreExecutorEnumerationLiteral _NSType__product = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.NS_TYPE.getEEnumLiteral("product"), Types._NSType, 3);
+		public static final EcoreExecutorEnumerationLiteral _NSType__private = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.NS_TYPE.getEEnumLiteral("private"), Types._NSType, 4);
+		private static final EcoreExecutorEnumerationLiteral /*@NonNull*/ [] _NSType = {
+			_NSType__basic,
+			_NSType__domain,
+			_NSType__transitional,
+			_NSType__product,
+			_NSType__private
+		};
+
 		public static final EcoreExecutorEnumerationLiteral _PubStage__WD = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("WD"), Types._PubStage, 0);
 		public static final EcoreExecutorEnumerationLiteral _PubStage__CD = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("CD"), Types._PubStage, 1);
 		public static final EcoreExecutorEnumerationLiteral _PubStage__CDV = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("CDV"), Types._PubStage, 2);
@@ -6386,6 +6478,7 @@ public class NsdTables extends AbstractTables
 			Types._CBKind.initLiterals(_CBKind);
 			Types._DefinedAttributeTypeKind.initLiterals(_DefinedAttributeTypeKind);
 			Types._LicenseKind.initLiterals(_LicenseKind);
+			Types._NSType.initLiterals(_NSType);
 			Types._PubStage.initLiterals(_PubStage);
 			Types._UndefinedAttributeTypeKind.initLiterals(_UndefinedAttributeTypeKind);
 

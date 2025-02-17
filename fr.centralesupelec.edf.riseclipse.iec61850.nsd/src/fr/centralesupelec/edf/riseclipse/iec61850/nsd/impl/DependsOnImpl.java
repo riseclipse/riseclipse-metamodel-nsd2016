@@ -44,6 +44,7 @@ import org.eclipse.ocl.pivot.values.TupleValue;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage;
@@ -64,6 +65,7 @@ import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DependsOnImpl#getId <em>Id</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DependsOnImpl#getRevision <em>Revision</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DependsOnImpl#getPublicationStage <em>Publication Stage</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DependsOnImpl#getNamespaceType <em>Namespace Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DependsOnImpl#getParentNS <em>Parent NS</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DependsOnImpl#getRefersToNS <em>Refers To NS</em>}</li>
  * </ul>
@@ -203,6 +205,32 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
     protected boolean publicationStageESet;
 
     /**
+     * The default value of the '{@link #getNamespaceType() <em>Namespace Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNamespaceType()
+     * @generated
+     * @ordered
+     */
+    protected static final NSType NAMESPACE_TYPE_EDEFAULT = NSType.BASIC;
+    /**
+     * The cached value of the '{@link #getNamespaceType() <em>Namespace Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNamespaceType()
+     * @generated
+     * @ordered
+     */
+    protected NSType namespaceType = NAMESPACE_TYPE_EDEFAULT;
+    /**
+     * This is true if the Namespace Type attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean namespaceTypeESet;
+    /**
      * The cached value of the '{@link #getRefersToNS() <em>Refers To NS</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -260,9 +288,10 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         release = newRelease;
         boolean oldReleaseESet = releaseESet;
         releaseESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DEPENDS_ON__RELEASE, oldRelease, release,
                     !oldReleaseESet ) );
+        }
     }
 
     /**
@@ -276,9 +305,10 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         boolean oldReleaseESet = releaseESet;
         release = RELEASE_EDEFAULT;
         releaseESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DEPENDS_ON__RELEASE, oldRelease,
                     RELEASE_EDEFAULT, oldReleaseESet ) );
+        }
     }
 
     /**
@@ -312,9 +342,10 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         version = newVersion;
         boolean oldVersionESet = versionESet;
         versionESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DEPENDS_ON__VERSION, oldVersion, version,
                     !oldVersionESet ) );
+        }
     }
 
     /**
@@ -328,9 +359,10 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         boolean oldVersionESet = versionESet;
         version = VERSION_EDEFAULT;
         versionESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DEPENDS_ON__VERSION, oldVersion,
                     VERSION_EDEFAULT, oldVersionESet ) );
+        }
     }
 
     /**
@@ -364,9 +396,10 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         id = newId;
         boolean oldIdESet = idESet;
         idESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DEPENDS_ON__ID, oldId, id,
                     !oldIdESet ) );
+        }
     }
 
     /**
@@ -380,9 +413,10 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         boolean oldIdESet = idESet;
         id = ID_EDEFAULT;
         idESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DEPENDS_ON__ID, oldId, ID_EDEFAULT,
                     oldIdESet ) );
+        }
     }
 
     /**
@@ -416,9 +450,10 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         revision = newRevision;
         boolean oldRevisionESet = revisionESet;
         revisionESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DEPENDS_ON__REVISION, oldRevision,
                     revision, !oldRevisionESet ) );
+        }
     }
 
     /**
@@ -432,9 +467,10 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         boolean oldRevisionESet = revisionESet;
         revision = REVISION_EDEFAULT;
         revisionESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DEPENDS_ON__REVISION, oldRevision,
                     REVISION_EDEFAULT, oldRevisionESet ) );
+        }
     }
 
     /**
@@ -468,9 +504,10 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         publicationStage = newPublicationStage == null ? PUBLICATION_STAGE_EDEFAULT : newPublicationStage;
         boolean oldPublicationStageESet = publicationStageESet;
         publicationStageESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DEPENDS_ON__PUBLICATION_STAGE,
                     oldPublicationStage, publicationStage, !oldPublicationStageESet ) );
+        }
     }
 
     /**
@@ -484,9 +521,10 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         boolean oldPublicationStageESet = publicationStageESet;
         publicationStage = PUBLICATION_STAGE_EDEFAULT;
         publicationStageESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DEPENDS_ON__PUBLICATION_STAGE,
                     oldPublicationStage, PUBLICATION_STAGE_EDEFAULT, oldPublicationStageESet ) );
+        }
     }
 
     /**
@@ -505,8 +543,64 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
      * @generated
      */
     @Override
+    public NSType getNamespaceType() {
+        return namespaceType;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setNamespaceType( NSType newNamespaceType ) {
+        NSType oldNamespaceType = namespaceType;
+        namespaceType = newNamespaceType == null ? NAMESPACE_TYPE_EDEFAULT : newNamespaceType;
+        boolean oldNamespaceTypeESet = namespaceTypeESet;
+        namespaceTypeESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DEPENDS_ON__NAMESPACE_TYPE,
+                    oldNamespaceType, namespaceType, !oldNamespaceTypeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetNamespaceType() {
+        NSType oldNamespaceType = namespaceType;
+        boolean oldNamespaceTypeESet = namespaceTypeESet;
+        namespaceType = NAMESPACE_TYPE_EDEFAULT;
+        namespaceTypeESet = false;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DEPENDS_ON__NAMESPACE_TYPE,
+                    oldNamespaceType, NAMESPACE_TYPE_EDEFAULT, oldNamespaceTypeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetNamespaceType() {
+        return namespaceTypeESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public NS getParentNS() {
-        if( eContainerFeatureID() != NsdPackage.DEPENDS_ON__PARENT_NS ) return null;
+        if( eContainerFeatureID() != NsdPackage.DEPENDS_ON__PARENT_NS ) {
+            return null;
+        }
         return ( NS ) eInternalContainer();
     }
 
@@ -529,20 +623,26 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
     public void setParentNS( NS newParentNS ) {
         if( newParentNS != eInternalContainer()
                 || ( eContainerFeatureID() != NsdPackage.DEPENDS_ON__PARENT_NS && newParentNS != null ) ) {
-            if( EcoreUtil.isAncestor( this, newParentNS ) )
+            if( EcoreUtil.isAncestor( this, newParentNS ) ) {
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            }
             NotificationChain msgs = null;
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newParentNS != null )
+            }
+            if( newParentNS != null ) {
                 msgs = ( ( InternalEObject ) newParentNS ).eInverseAdd( this, NsdPackage.NS__DEPENDS_ON, NS.class,
                         msgs );
+            }
             msgs = basicSetParentNS( newParentNS, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
-        else if( eNotificationRequired() )
+        else if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DEPENDS_ON__PARENT_NS, newParentNS,
                     newParentNS ) );
+        }
     }
 
     /**
@@ -568,10 +668,12 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.DEPENDS_ON__REFERS_TO_NS, oldRefersToNS, newRefersToNS, !oldRefersToNSESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -585,21 +687,26 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
     public void setRefersToNS( NS newRefersToNS ) {
         if( newRefersToNS != refersToNS ) {
             NotificationChain msgs = null;
-            if( refersToNS != null )
+            if( refersToNS != null ) {
                 msgs = ( ( InternalEObject ) refersToNS ).eInverseRemove( this, NsdPackage.NS__REFERRED_BY_DEPENDS_ON,
                         NS.class, msgs );
-            if( newRefersToNS != null )
+            }
+            if( newRefersToNS != null ) {
                 msgs = ( ( InternalEObject ) newRefersToNS ).eInverseAdd( this, NsdPackage.NS__REFERRED_BY_DEPENDS_ON,
                         NS.class, msgs );
+            }
             msgs = basicSetRefersToNS( newRefersToNS, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToNSESet = refersToNSESet;
             refersToNSESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DEPENDS_ON__REFERS_TO_NS,
                         newRefersToNS, newRefersToNS, !oldRefersToNSESet ) );
+            }
         }
     }
 
@@ -616,10 +723,12 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.DEPENDS_ON__REFERS_TO_NS, oldRefersToNS, null, oldRefersToNSESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -636,14 +745,17 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
             msgs = ( ( InternalEObject ) refersToNS ).eInverseRemove( this, NsdPackage.NS__REFERRED_BY_DEPENDS_ON,
                     NS.class, msgs );
             msgs = basicUnsetRefersToNS( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToNSESet = refersToNSESet;
             refersToNSESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DEPENDS_ON__REFERS_TO_NS, null,
                         null, oldRefersToNSESet ) );
+            }
         }
     }
 
@@ -796,13 +908,15 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.DEPENDS_ON__PARENT_NS:
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
+            }
             return basicSetParentNS( ( NS ) otherEnd, msgs );
         case NsdPackage.DEPENDS_ON__REFERS_TO_NS:
-            if( refersToNS != null )
+            if( refersToNS != null ) {
                 msgs = ( ( InternalEObject ) refersToNS ).eInverseRemove( this, NsdPackage.NS__REFERRED_BY_DEPENDS_ON,
                         NS.class, msgs );
+            }
             return basicSetRefersToNS( ( NS ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
@@ -856,6 +970,8 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
             return getRevision();
         case NsdPackage.DEPENDS_ON__PUBLICATION_STAGE:
             return getPublicationStage();
+        case NsdPackage.DEPENDS_ON__NAMESPACE_TYPE:
+            return getNamespaceType();
         case NsdPackage.DEPENDS_ON__PARENT_NS:
             return getParentNS();
         case NsdPackage.DEPENDS_ON__REFERS_TO_NS:
@@ -886,6 +1002,9 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
             return;
         case NsdPackage.DEPENDS_ON__PUBLICATION_STAGE:
             setPublicationStage( ( PubStage ) newValue );
+            return;
+        case NsdPackage.DEPENDS_ON__NAMESPACE_TYPE:
+            setNamespaceType( ( NSType ) newValue );
             return;
         case NsdPackage.DEPENDS_ON__PARENT_NS:
             setParentNS( ( NS ) newValue );
@@ -920,6 +1039,9 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
         case NsdPackage.DEPENDS_ON__PUBLICATION_STAGE:
             unsetPublicationStage();
             return;
+        case NsdPackage.DEPENDS_ON__NAMESPACE_TYPE:
+            unsetNamespaceType();
+            return;
         case NsdPackage.DEPENDS_ON__PARENT_NS:
             setParentNS( ( NS ) null );
             return;
@@ -948,6 +1070,8 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
             return isSetRevision();
         case NsdPackage.DEPENDS_ON__PUBLICATION_STAGE:
             return isSetPublicationStage();
+        case NsdPackage.DEPENDS_ON__NAMESPACE_TYPE:
+            return isSetNamespaceType();
         case NsdPackage.DEPENDS_ON__PARENT_NS:
             return getParentNS() != null;
         case NsdPackage.DEPENDS_ON__REFERS_TO_NS:
@@ -975,6 +1099,8 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
                 return NsdPackage.AG_NS_IDENTIFICATION__REVISION;
             case NsdPackage.DEPENDS_ON__PUBLICATION_STAGE:
                 return NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE;
+            case NsdPackage.DEPENDS_ON__NAMESPACE_TYPE:
+                return NsdPackage.AG_NS_IDENTIFICATION__NAMESPACE_TYPE;
             default:
                 return -1;
             }
@@ -1001,6 +1127,8 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
                 return NsdPackage.DEPENDS_ON__REVISION;
             case NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE:
                 return NsdPackage.DEPENDS_ON__PUBLICATION_STAGE;
+            case NsdPackage.AG_NS_IDENTIFICATION__NAMESPACE_TYPE:
+                return NsdPackage.DEPENDS_ON__NAMESPACE_TYPE;
             default:
                 return -1;
             }
@@ -1054,34 +1182,53 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
      */
     @Override
     public String toString() {
-        if( eIsProxy() ) return super.toString();
+        if( eIsProxy() ) {
+            return super.toString();
+        }
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (release: " );
-        if( releaseESet )
+        if( releaseESet ) {
             result.append( release );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", version: " );
-        if( versionESet )
+        if( versionESet ) {
             result.append( version );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", id: " );
-        if( idESet )
+        if( idESet ) {
             result.append( id );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", revision: " );
-        if( revisionESet )
+        if( revisionESet ) {
             result.append( revision );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", publicationStage: " );
-        if( publicationStageESet )
+        if( publicationStageESet ) {
             result.append( publicationStage );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
+        result.append( ", namespaceType: " );
+        if( namespaceTypeESet ) {
+            result.append( namespaceType );
+        }
+        else {
+            result.append( "<unset>" );
+        }
         result.append( ')' );
         return result.toString();
     }
@@ -1093,7 +1240,9 @@ public class DependsOnImpl extends NsdObjectImpl implements DependsOn {
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         console.debug( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), "DependsOnImpl.buildExplicitLinks()" );
 
-        if( super.buildExplicitLinks( console ) ) return true;
+        if( super.buildExplicitLinks( console ) ) {
+            return true;
+        }
 
         String messagePrefix = "while resolving link from DependsOn: ";
 

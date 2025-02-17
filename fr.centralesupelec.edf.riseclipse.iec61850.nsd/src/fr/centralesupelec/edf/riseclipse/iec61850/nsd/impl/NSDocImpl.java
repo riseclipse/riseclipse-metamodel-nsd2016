@@ -50,6 +50,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUML;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage;
@@ -67,6 +68,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getId <em>Id</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getRevision <em>Revision</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getPublicationStage <em>Publication Stage</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getNamespaceType <em>Namespace Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getNsdVersion <em>Nsd Version</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getNsdRevision <em>Nsd Revision</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getNsdRelease <em>Nsd Release</em>}</li>
@@ -223,6 +225,35 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
      * @ordered
      */
     protected boolean publicationStageESet;
+
+    /**
+     * The default value of the '{@link #getNamespaceType() <em>Namespace Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNamespaceType()
+     * @generated
+     * @ordered
+     */
+    protected static final NSType NAMESPACE_TYPE_EDEFAULT = NSType.BASIC;
+
+    /**
+     * The cached value of the '{@link #getNamespaceType() <em>Namespace Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNamespaceType()
+     * @generated
+     * @ordered
+     */
+    protected NSType namespaceType = NAMESPACE_TYPE_EDEFAULT;
+
+    /**
+     * This is true if the Namespace Type attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean namespaceTypeESet;
 
     /**
      * The default value of the '{@link #getNsdVersion() <em>Nsd Version</em>}' attribute.
@@ -824,6 +855,60 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
      * @generated
      */
     @Override
+    public NSType getNamespaceType() {
+        return namespaceType;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setNamespaceType( NSType newNamespaceType ) {
+        NSType oldNamespaceType = namespaceType;
+        namespaceType = newNamespaceType == null ? NAMESPACE_TYPE_EDEFAULT : newNamespaceType;
+        boolean oldNamespaceTypeESet = namespaceTypeESet;
+        namespaceTypeESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS_DOC__NAMESPACE_TYPE, oldNamespaceType,
+                    namespaceType, !oldNamespaceTypeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetNamespaceType() {
+        NSType oldNamespaceType = namespaceType;
+        boolean oldNamespaceTypeESet = namespaceTypeESet;
+        namespaceType = NAMESPACE_TYPE_EDEFAULT;
+        namespaceTypeESet = false;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS_DOC__NAMESPACE_TYPE,
+                    oldNamespaceType, NAMESPACE_TYPE_EDEFAULT, oldNamespaceTypeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetNamespaceType() {
+        return namespaceTypeESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public Integer getNsdVersion() {
         return nsdVersion;
     }
@@ -1297,6 +1382,8 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
             return getRevision();
         case NsdPackage.NS_DOC__PUBLICATION_STAGE:
             return getPublicationStage();
+        case NsdPackage.NS_DOC__NAMESPACE_TYPE:
+            return getNamespaceType();
         case NsdPackage.NS_DOC__NSD_VERSION:
             return getNsdVersion();
         case NsdPackage.NS_DOC__NSD_REVISION:
@@ -1338,6 +1425,9 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
             return;
         case NsdPackage.NS_DOC__PUBLICATION_STAGE:
             setPublicationStage( ( PubStage ) newValue );
+            return;
+        case NsdPackage.NS_DOC__NAMESPACE_TYPE:
+            setNamespaceType( ( NSType ) newValue );
             return;
         case NsdPackage.NS_DOC__NSD_VERSION:
             setNsdVersion( ( Integer ) newValue );
@@ -1388,6 +1478,9 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         case NsdPackage.NS_DOC__PUBLICATION_STAGE:
             unsetPublicationStage();
             return;
+        case NsdPackage.NS_DOC__NAMESPACE_TYPE:
+            unsetNamespaceType();
+            return;
         case NsdPackage.NS_DOC__NSD_VERSION:
             unsetNsdVersion();
             return;
@@ -1431,6 +1524,8 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
             return isSetRevision();
         case NsdPackage.NS_DOC__PUBLICATION_STAGE:
             return isSetPublicationStage();
+        case NsdPackage.NS_DOC__NAMESPACE_TYPE:
+            return isSetNamespaceType();
         case NsdPackage.NS_DOC__NSD_VERSION:
             return isSetNsdVersion();
         case NsdPackage.NS_DOC__NSD_REVISION:
@@ -1468,6 +1563,8 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
                 return NsdPackage.AG_NS_IDENTIFICATION__REVISION;
             case NsdPackage.NS_DOC__PUBLICATION_STAGE:
                 return NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE;
+            case NsdPackage.NS_DOC__NAMESPACE_TYPE:
+                return NsdPackage.AG_NS_IDENTIFICATION__NAMESPACE_TYPE;
             default:
                 return -1;
             }
@@ -1516,6 +1613,8 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
                 return NsdPackage.NS_DOC__REVISION;
             case NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE:
                 return NsdPackage.NS_DOC__PUBLICATION_STAGE;
+            case NsdPackage.AG_NS_IDENTIFICATION__NAMESPACE_TYPE:
+                return NsdPackage.NS_DOC__NAMESPACE_TYPE;
             default:
                 return -1;
             }
@@ -1642,6 +1741,13 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         result.append( ", publicationStage: " );
         if( publicationStageESet ) {
             result.append( publicationStage );
+        }
+        else {
+            result.append( "<unset>" );
+        }
+        result.append( ", namespaceType: " );
+        if( namespaceTypeESet ) {
+            result.append( namespaceType );
         }
         else {
             result.append( "<unset>" );

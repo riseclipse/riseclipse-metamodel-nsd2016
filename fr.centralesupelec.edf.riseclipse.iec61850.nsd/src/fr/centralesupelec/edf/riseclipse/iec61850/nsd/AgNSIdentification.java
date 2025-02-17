@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -39,6 +39,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification#getId <em>Id</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification#getRevision <em>Revision</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification#getPublicationStage <em>Publication Stage</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification#getNamespaceType <em>Namespace Type</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgNSIdentification()
@@ -322,6 +323,60 @@ public interface AgNSIdentification extends EObject {
      * @generated
      */
     boolean isSetPublicationStage();
+
+    /**
+     * Returns the value of the '<em><b>Namespace Type</b></em>' attribute.
+     * The default value is <code>"basic"</code>.
+     * The literals are from the enumeration {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSType}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Namespace Type</em>' attribute.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSType
+     * @see #isSetNamespaceType()
+     * @see #unsetNamespaceType()
+     * @see #setNamespaceType(NSType)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgNSIdentification_NamespaceType()
+     * @model default="basic" unsettable="true"
+     *        extendedMetaData="kind='attribute' name='namespaceType'"
+     * @generated
+     */
+    NSType getNamespaceType();
+
+    /**
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification#getNamespaceType <em>Namespace Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Namespace Type</em>' attribute.
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSType
+     * @see #isSetNamespaceType()
+     * @see #unsetNamespaceType()
+     * @see #getNamespaceType()
+     * @generated
+     */
+    void setNamespaceType( NSType value );
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification#getNamespaceType <em>Namespace Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetNamespaceType()
+     * @see #getNamespaceType()
+     * @see #setNamespaceType(NSType)
+     * @generated
+     */
+    void unsetNamespaceType();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification#getNamespaceType <em>Namespace Type</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Namespace Type</em>' attribute is set.
+     * @see #unsetNamespaceType()
+     * @see #getNamespaceType()
+     * @see #setNamespaceType(NSType)
+     * @generated
+     */
+    boolean isSetNamespaceType();
 
     /**
      * <!-- begin-user-doc -->

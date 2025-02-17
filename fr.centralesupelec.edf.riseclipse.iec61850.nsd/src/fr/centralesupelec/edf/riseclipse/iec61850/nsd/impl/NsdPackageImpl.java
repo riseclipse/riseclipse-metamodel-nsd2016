@@ -79,6 +79,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.License;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LicenseKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Notice;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdObject;
@@ -585,6 +586,13 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     private EEnum undefinedAttributeTypeKindEEnum = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EEnum nsTypeEEnum = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -3948,6 +3956,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EAttribute getAgNSIdentification_NamespaceType() {
+        return ( EAttribute ) agNSIdentificationEClass.getEStructuralFeatures().get( 5 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EOperation getAgNSIdentification__IdAttributeRequired__DiagnosticChain_Map() {
         return agNSIdentificationEClass.getEOperations().get( 0 );
     }
@@ -4488,6 +4506,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EEnum getNSType() {
+        return nsTypeEEnum;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EDataType getACSIServicesKindObject() {
         return acsiServicesKindObjectEDataType;
     }
@@ -4970,6 +4998,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEAttribute( agNSIdentificationEClass, AG_NS_IDENTIFICATION__ID );
         createEAttribute( agNSIdentificationEClass, AG_NS_IDENTIFICATION__REVISION );
         createEAttribute( agNSIdentificationEClass, AG_NS_IDENTIFICATION__PUBLICATION_STAGE );
+        createEAttribute( agNSIdentificationEClass, AG_NS_IDENTIFICATION__NAMESPACE_TYPE );
         createEOperation( agNSIdentificationEClass, AG_NS_IDENTIFICATION___ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
         createEOperation( agNSIdentificationEClass,
                 AG_NS_IDENTIFICATION___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
@@ -5042,6 +5071,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         licenseKindEEnum = createEEnum( LICENSE_KIND );
         pubStageEEnum = createEEnum( PUB_STAGE );
         undefinedAttributeTypeKindEEnum = createEEnum( UNDEFINED_ATTRIBUTE_TYPE_KIND );
+        nsTypeEEnum = createEEnum( NS_TYPE );
 
         // Create data types
         acsiServicesKindObjectEDataType = createEDataType( ACSI_SERVICES_KIND_OBJECT );
@@ -6503,6 +6533,9 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getAgNSIdentification_PublicationStage(), this.getPubStage(), "publicationStage", "IS", 0, 1,
                 AgNSIdentification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getAgNSIdentification_NamespaceType(), this.getNSType(), "namespaceType", "basic", 0, 1,
+                AgNSIdentification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
 
         op = initEOperation( getAgNSIdentification__IdAttributeRequired__DiagnosticChain_Map(),
                 ecorePackage.getEBoolean(), "idAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
@@ -6749,6 +6782,13 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
 
         initEEnum( undefinedAttributeTypeKindEEnum, UndefinedAttributeTypeKind.class, "UndefinedAttributeTypeKind" );
         addEEnumLiteral( undefinedAttributeTypeKindEEnum, UndefinedAttributeTypeKind.UNDEFINED );
+
+        initEEnum( nsTypeEEnum, NSType.class, "NSType" );
+        addEEnumLiteral( nsTypeEEnum, NSType.BASIC );
+        addEEnumLiteral( nsTypeEEnum, NSType.DOMAIN );
+        addEEnumLiteral( nsTypeEEnum, NSType.TRANSITIONAL );
+        addEEnumLiteral( nsTypeEEnum, NSType.PRODUCT );
+        addEEnumLiteral( nsTypeEEnum, NSType.PRIVATE );
 
         // Initialize data types
         initEDataType( acsiServicesKindObjectEDataType, ACSIServicesKind.class, "ACSIServicesKindObject",
@@ -8108,6 +8148,12 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                         "kind", "attribute",
                         "name", "publicationStage"
                 } );
+        addAnnotation( getAgNSIdentification_NamespaceType(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "namespaceType"
+                } );
         addAnnotation( getAgPresenceCondition_PresCond(),
                 source,
                 new String[] {
@@ -8263,6 +8309,11 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 new String[] {
                         "kind", "attribute",
                         "name", "nsdRelease"
+                } );
+        addAnnotation( nsTypeEEnum,
+                source,
+                new String[] {
+                        "name", "tNSType"
                 } );
     }
 

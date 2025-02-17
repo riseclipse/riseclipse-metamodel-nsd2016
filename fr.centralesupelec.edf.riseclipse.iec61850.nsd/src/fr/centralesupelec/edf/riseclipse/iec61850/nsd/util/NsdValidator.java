@@ -79,6 +79,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LicenseKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Notice;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdObject;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
@@ -687,6 +688,8 @@ public class NsdValidator extends EObjectValidator {
             return validatePubStage( ( PubStage ) value, diagnostics, context );
         case NsdPackage.UNDEFINED_ATTRIBUTE_TYPE_KIND:
             return validateUndefinedAttributeTypeKind( ( UndefinedAttributeTypeKind ) value, diagnostics, context );
+        case NsdPackage.NS_TYPE:
+            return validateNSType( ( NSType ) value, diagnostics, context );
         case NsdPackage.ACSI_SERVICES_KIND_OBJECT:
             return validateACSIServicesKindObject( ( ACSIServicesKind ) value, diagnostics, context );
         case NsdPackage.ATTRIBUTE_TYPE_KIND:
@@ -3099,6 +3102,15 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateUndefinedAttributeTypeKind( UndefinedAttributeTypeKind undefinedAttributeTypeKind,
             DiagnosticChain diagnostics, Map< Object, Object > context ) {
+        return true;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateNSType( NSType nsType, DiagnosticChain diagnostics, Map< Object, Object > context ) {
         return true;
     }
 

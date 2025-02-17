@@ -1927,6 +1927,13 @@
         <details key="name" value="publicationStage"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="namespaceType" eType="#//NSType"
+        defaultValueLiteral="basic" unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="namespaceType"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AgPresenceCondition" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="presCond" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -2153,6 +2160,39 @@
         <details key="name" value="nsdRelease"/>
       </eAnnotations>
     </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="NSType">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Type of namespace."/>
+    </eAnnotations>
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="tNSType"/>
+    </eAnnotations>
+    <eLiterals name="basic">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Basic namespace"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="domain" value="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Domain namespace"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="transitional" value="2">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Transitional namespace"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="product" value="3">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Product namespace"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="private" value="4">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Private namespace"/>
+      </eAnnotations>
+    </eLiterals>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IRiseClipseConsole" instanceClassName="fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole"
       abstract="true" interface="true"/>

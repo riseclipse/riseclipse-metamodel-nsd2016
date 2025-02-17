@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -20,8 +20,6 @@
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.provider;
 
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -31,6 +29,9 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
 /**
  * This is the item provider adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn} object.
@@ -65,6 +66,7 @@ public class DependsOnItemProvider extends NsdObjectItemProvider {
             addIdPropertyDescriptor( object );
             addRevisionPropertyDescriptor( object );
             addPublicationStagePropertyDescriptor( object );
+            addNamespaceTypePropertyDescriptor( object );
             addRefersToNSPropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
@@ -181,6 +183,28 @@ public class DependsOnItemProvider extends NsdObjectItemProvider {
     }
 
     /**
+     * This adds a property descriptor for the Namespace Type feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addNamespaceTypePropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_AgNSIdentification_namespaceType_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgNSIdentification_namespaceType_feature",
+                                "_UI_AgNSIdentification_type" ),
+                        NsdPackage.Literals.AG_NS_IDENTIFICATION__NAMESPACE_TYPE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
      * This adds a property descriptor for the Refers To NS feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -243,6 +267,7 @@ public class DependsOnItemProvider extends NsdObjectItemProvider {
         case NsdPackage.DEPENDS_ON__ID:
         case NsdPackage.DEPENDS_ON__REVISION:
         case NsdPackage.DEPENDS_ON__PUBLICATION_STAGE:
+        case NsdPackage.DEPENDS_ON__NAMESPACE_TYPE:
             fireNotifyChanged( new ViewerNotification( notification, notification.getNotifier(), false, true ) );
             return;
         }
