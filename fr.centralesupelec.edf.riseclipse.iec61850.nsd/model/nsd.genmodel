@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText=" Copyright (c) 2016-2024 CentraleSupélec &amp; EDF.&#xA; All rights reserved. This program and the accompanying materials&#xA; are made available under the terms of the Eclipse Public License v2.0&#xA; which accompanies this distribution, and is available at&#xA; https://www.eclipse.org/legal/epl-v20.html&#xA;&#xA; This file is part of the RiseClipse tool&#xA; &#xA; Contributors:&#xA;     Computer Science Department, CentraleSupélec&#xA;     EDF R&amp;D&#xA; Contacts:&#xA;     dominique.marcadet@centralesupelec.fr&#xA;     aurelie.dehouck-neveu@edf.fr&#xA; Web site:&#xA;     https://riseclipse.github.io/&#xA;"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText=" Copyright (c) 2016-2025 CentraleSupélec &amp; EDF.&#xA; All rights reserved. This program and the accompanying materials&#xA; are made available under the terms of the Eclipse Public License v2.0&#xA; which accompanies this distribution, and is available at&#xA; https://www.eclipse.org/legal/epl-v20.html&#xA;&#xA; This file is part of the RiseClipse tool&#xA; &#xA; Contributors:&#xA;     Computer Science Department, CentraleSupélec&#xA;     EDF R&amp;D&#xA; Contacts:&#xA;     dominique.marcadet@centralesupelec.fr&#xA;     aurelie.dehouck-neveu@edf.fr&#xA; Web site:&#xA;     https://riseclipse.github.io/&#xA;"
     modelDirectory="/fr.centralesupelec.edf.riseclipse.iec61850.nsd/src" modelPluginID="fr.centralesupelec.edf.riseclipse.iec61850.nsd"
     modelName="NSD" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    codeFormatting="true" importerID="org.eclipse.xsd.ecore.importer" complianceLevel="17.0"
-    copyrightFields="false" runtimeVersion="2.36" operationReflection="true" importOrganizing="true"
-    cleanup="true" eclipsePlatformVersion="2023-12">
+    codeFormatting="true" importerID="org.eclipse.xsd.ecore.importer" complianceLevel="21.0"
+    copyrightFields="false" runtimeVersion="2.40" operationReflection="true" importOrganizing="true"
+    cleanup="true" eclipsePlatformVersion="2024-12">
   <genPackages prefix="Nsd" basePackage="fr.centralesupelec.edf.riseclipse.iec61850"
       resource="XML" disposableProviderFactory="true" fileExtensions="nsd,snsd,nsdoc"
       ecorePackage="nsd.ecore#/" documentation="">
