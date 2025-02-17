@@ -295,7 +295,7 @@
         eType="#//AbstractLNClass" transient="true" unsettable="true" resolveProxies="false"
         eOpposite="#//AbstractLNClass/referredByAnyLNClass"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ApplicableServiceNS" eSuperTypes="#//Copyrighted">
+  <eClassifiers xsi:type="ecore:EClass" name="ApplicableServiceNS" eSuperTypes="#//Copyrighted #//AgNSDIdentification">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tApplicableServiceNS"/>
       <details key="kind" value="elementOnly"/>
@@ -1268,7 +1268,7 @@
         eType="#//CopyrightNotice" transient="true" unsettable="true" resolveProxies="false"
         eOpposite="#//CopyrightNotice/notice"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NS" eSuperTypes="#//Copyrighted #//AgNSIdentification #//AgUML #//AgNSdesc">
+  <eClassifiers xsi:type="ecore:EClass" name="NS" eSuperTypes="#//Copyrighted #//AgNSIdentification #//AgNSDIdentification #//AgUML #//AgNSdesc">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tNS"/>
       <details key="kind" value="elementOnly"/>
@@ -1359,7 +1359,7 @@
         upperBound="-1" eType="#//DependsOn" transient="true" unsettable="true" resolveProxies="false"
         eOpposite="#//DependsOn/refersToNS"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NSDoc" eSuperTypes="#//Copyrighted #//AgNSIdentification #//AgUML">
+  <eClassifiers xsi:type="ecore:EClass" name="NSDoc" eSuperTypes="#//Copyrighted #//AgNSIdentification #//AgNSDIdentification #//AgUML">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tNSDoc"/>
       <details key="kind" value="elementOnly"/>
@@ -1650,7 +1650,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentServiceCDC" eType="#//ServiceCDC"
         transient="true" unsettable="true" resolveProxies="false" eOpposite="#//ServiceCDC/serviceDataAttribute"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ServiceNS" eSuperTypes="#//Copyrighted #//AgNSIdentification #//AgUML #//AgNSdesc">
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceNS" eSuperTypes="#//Copyrighted #//AgNSIdentification #//AgNSDIdentification #//AgUML #//AgNSdesc">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tServiceNS"/>
       <details key="kind" value="elementOnly"/>
@@ -2130,6 +2130,29 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="refersToDoc" eType="#//Doc"
         transient="true" unsettable="true" resolveProxies="false" eOpposite="#//Doc/ReferredByAgNSDesc"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AgNSDIdentification" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nsdVersion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="nsdVersion"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nsdRevision" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="nsdRevision"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nsdRelease" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="nsdRelease"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IRiseClipseConsole" instanceClassName="fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole"
       abstract="true" interface="true"/>

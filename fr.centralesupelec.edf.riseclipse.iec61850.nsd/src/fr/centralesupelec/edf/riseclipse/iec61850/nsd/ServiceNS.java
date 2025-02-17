@@ -42,7 +42,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
  * @model extendedMetaData="name='tServiceNS' kind='elementOnly'"
  * @generated
  */
-public interface ServiceNS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
+public interface ServiceNS extends Copyrighted, AgNSIdentification, AgNSDIdentification, AgUML, AgNSdesc {
     /**
      * Returns the value of the '<em><b>Changes</b></em>' containment reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getParentServiceNS <em>Parent Service NS</em>}'.

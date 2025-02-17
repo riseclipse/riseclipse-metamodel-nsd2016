@@ -40,6 +40,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgArray;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeTypeAndValues;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSDIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSdesc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceCondition;
@@ -528,6 +529,13 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     private EClass agNSdescEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass agNSDIdentificationEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -4370,6 +4378,46 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EClass getAgNSDIdentification() {
+        return agNSDIdentificationEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EAttribute getAgNSDIdentification_NsdVersion() {
+        return ( EAttribute ) agNSDIdentificationEClass.getEStructuralFeatures().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EAttribute getAgNSDIdentification_NsdRevision() {
+        return ( EAttribute ) agNSDIdentificationEClass.getEStructuralFeatures().get( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EAttribute getAgNSDIdentification_NsdRelease() {
+        return ( EAttribute ) agNSDIdentificationEClass.getEStructuralFeatures().get( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getIRiseClipseConsole() {
         return iRiseClipseConsoleEClass;
     }
@@ -4980,6 +5028,11 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEAttribute( agNSdescEClass, AG_NSDESC__DESC_ID );
         createEReference( agNSdescEClass, AG_NSDESC__REFERS_TO_DOC );
 
+        agNSDIdentificationEClass = createEClass( AG_NSD_IDENTIFICATION );
+        createEAttribute( agNSDIdentificationEClass, AG_NSD_IDENTIFICATION__NSD_VERSION );
+        createEAttribute( agNSDIdentificationEClass, AG_NSD_IDENTIFICATION__NSD_REVISION );
+        createEAttribute( agNSDIdentificationEClass, AG_NSD_IDENTIFICATION__NSD_RELEASE );
+
         iRiseClipseConsoleEClass = createEClass( IRISE_CLIPSE_CONSOLE );
 
         // Create enums
@@ -5044,6 +5097,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         abstractLNClassEClass.getESuperTypes().add( this.getAnyLNClass() );
         anyLNClassEClass.getESuperTypes().add( this.getTitledClass() );
         applicableServiceNSEClass.getESuperTypes().add( this.getCopyrighted() );
+        applicableServiceNSEClass.getESuperTypes().add( this.getAgNSDIdentification() );
         applicableServicesEClass.getESuperTypes().add( this.getNsdObject() );
         basicTypeEClass.getESuperTypes().add( this.getNsdObject() );
         basicTypesEClass.getESuperTypes().add( this.getNsdObject() );
@@ -5077,10 +5131,12 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         noticeEClass.getESuperTypes().add( this.getNsdObject() );
         nsEClass.getESuperTypes().add( this.getCopyrighted() );
         nsEClass.getESuperTypes().add( this.getAgNSIdentification() );
+        nsEClass.getESuperTypes().add( this.getAgNSDIdentification() );
         nsEClass.getESuperTypes().add( this.getAgUML() );
         nsEClass.getESuperTypes().add( this.getAgNSdesc() );
         nsDocEClass.getESuperTypes().add( this.getCopyrighted() );
         nsDocEClass.getESuperTypes().add( this.getAgNSIdentification() );
+        nsDocEClass.getESuperTypes().add( this.getAgNSDIdentification() );
         nsDocEClass.getESuperTypes().add( this.getAgUML() );
         presenceConditionEClass.getESuperTypes().add( this.getNsdObject() );
         presenceConditionsEClass.getESuperTypes().add( this.getNsdObject() );
@@ -5094,6 +5150,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         serviceDataAttributeEClass.getESuperTypes().add( this.getAgUnderlyingType() );
         serviceNSEClass.getESuperTypes().add( this.getCopyrighted() );
         serviceNSEClass.getESuperTypes().add( this.getAgNSIdentification() );
+        serviceNSEClass.getESuperTypes().add( this.getAgNSDIdentification() );
         serviceNSEClass.getESuperTypes().add( this.getAgUML() );
         serviceNSEClass.getESuperTypes().add( this.getAgNSdesc() );
         serviceNsUsageEClass.getESuperTypes().add( this.getNsdObject() );
@@ -6585,6 +6642,18 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEReference( getAgNSdesc_RefersToDoc(), this.getDoc(), this.getDoc_ReferredByAgNSDesc(), "refersToDoc", null,
                 0, 1, AgNSdesc.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        initEClass( agNSDIdentificationEClass, AgNSDIdentification.class, "AgNSDIdentification", IS_ABSTRACT,
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute( getAgNSDIdentification_NsdVersion(), ecorePackage.getEIntegerObject(), "nsdVersion", null, 0, 1,
+                AgNSDIdentification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getAgNSDIdentification_NsdRevision(), ecorePackage.getEString(), "nsdRevision", null, 0, 1,
+                AgNSDIdentification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getAgNSDIdentification_NsdRelease(), ecorePackage.getEIntegerObject(), "nsdRelease", null, 0, 1,
+                AgNSDIdentification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
 
         initEClass( iRiseClipseConsoleEClass, IRiseClipseConsole.class, "IRiseClipseConsole", IS_ABSTRACT, IS_INTERFACE,
                 !IS_GENERATED_INSTANCE_CLASS );
@@ -8176,6 +8245,24 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 new String[] {
                         "kind", "attribute",
                         "name", "descID"
+                } );
+        addAnnotation( getAgNSDIdentification_NsdVersion(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "nsdVersion"
+                } );
+        addAnnotation( getAgNSDIdentification_NsdRevision(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "nsdRevision"
+                } );
+        addAnnotation( getAgNSDIdentification_NsdRelease(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "nsdRelease"
                 } );
     }
 

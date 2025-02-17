@@ -45,6 +45,7 @@ import org.eclipse.ocl.pivot.utilities.ValueUtil;
 import org.eclipse.ocl.pivot.values.IntegerValue;
 import org.eclipse.ocl.pivot.values.TupleValue;
 
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSDIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUML;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
@@ -66,6 +67,9 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getId <em>Id</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getRevision <em>Revision</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getPublicationStage <em>Publication Stage</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getNsdVersion <em>Nsd Version</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getNsdRevision <em>Nsd Revision</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getNsdRelease <em>Nsd Release</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getUmlDate <em>Uml Date</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getUmlVersion <em>Uml Version</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSDocImpl#getDoc <em>Doc</em>}</li>
@@ -219,6 +223,93 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
      * @ordered
      */
     protected boolean publicationStageESet;
+
+    /**
+     * The default value of the '{@link #getNsdVersion() <em>Nsd Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNsdVersion()
+     * @generated
+     * @ordered
+     */
+    protected static final Integer NSD_VERSION_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getNsdVersion() <em>Nsd Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNsdVersion()
+     * @generated
+     * @ordered
+     */
+    protected Integer nsdVersion = NSD_VERSION_EDEFAULT;
+
+    /**
+     * This is true if the Nsd Version attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean nsdVersionESet;
+
+    /**
+     * The default value of the '{@link #getNsdRevision() <em>Nsd Revision</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNsdRevision()
+     * @generated
+     * @ordered
+     */
+    protected static final String NSD_REVISION_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getNsdRevision() <em>Nsd Revision</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNsdRevision()
+     * @generated
+     * @ordered
+     */
+    protected String nsdRevision = NSD_REVISION_EDEFAULT;
+
+    /**
+     * This is true if the Nsd Revision attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean nsdRevisionESet;
+
+    /**
+     * The default value of the '{@link #getNsdRelease() <em>Nsd Release</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNsdRelease()
+     * @generated
+     * @ordered
+     */
+    protected static final Integer NSD_RELEASE_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getNsdRelease() <em>Nsd Release</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNsdRelease()
+     * @generated
+     * @ordered
+     */
+    protected Integer nsdRelease = NSD_RELEASE_EDEFAULT;
+
+    /**
+     * This is true if the Nsd Release attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean nsdReleaseESet;
 
     /**
      * The default value of the '{@link #getUmlDate() <em>Uml Date</em>}' attribute.
@@ -733,6 +824,168 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
      * @generated
      */
     @Override
+    public Integer getNsdVersion() {
+        return nsdVersion;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setNsdVersion( Integer newNsdVersion ) {
+        Integer oldNsdVersion = nsdVersion;
+        nsdVersion = newNsdVersion;
+        boolean oldNsdVersionESet = nsdVersionESet;
+        nsdVersionESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS_DOC__NSD_VERSION, oldNsdVersion,
+                    nsdVersion, !oldNsdVersionESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetNsdVersion() {
+        Integer oldNsdVersion = nsdVersion;
+        boolean oldNsdVersionESet = nsdVersionESet;
+        nsdVersion = NSD_VERSION_EDEFAULT;
+        nsdVersionESet = false;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS_DOC__NSD_VERSION, oldNsdVersion,
+                    NSD_VERSION_EDEFAULT, oldNsdVersionESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetNsdVersion() {
+        return nsdVersionESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String getNsdRevision() {
+        return nsdRevision;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setNsdRevision( String newNsdRevision ) {
+        String oldNsdRevision = nsdRevision;
+        nsdRevision = newNsdRevision;
+        boolean oldNsdRevisionESet = nsdRevisionESet;
+        nsdRevisionESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS_DOC__NSD_REVISION, oldNsdRevision,
+                    nsdRevision, !oldNsdRevisionESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetNsdRevision() {
+        String oldNsdRevision = nsdRevision;
+        boolean oldNsdRevisionESet = nsdRevisionESet;
+        nsdRevision = NSD_REVISION_EDEFAULT;
+        nsdRevisionESet = false;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS_DOC__NSD_REVISION, oldNsdRevision,
+                    NSD_REVISION_EDEFAULT, oldNsdRevisionESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetNsdRevision() {
+        return nsdRevisionESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Integer getNsdRelease() {
+        return nsdRelease;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setNsdRelease( Integer newNsdRelease ) {
+        Integer oldNsdRelease = nsdRelease;
+        nsdRelease = newNsdRelease;
+        boolean oldNsdReleaseESet = nsdReleaseESet;
+        nsdReleaseESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS_DOC__NSD_RELEASE, oldNsdRelease,
+                    nsdRelease, !oldNsdReleaseESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetNsdRelease() {
+        Integer oldNsdRelease = nsdRelease;
+        boolean oldNsdReleaseESet = nsdReleaseESet;
+        nsdRelease = NSD_RELEASE_EDEFAULT;
+        nsdReleaseESet = false;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS_DOC__NSD_RELEASE, oldNsdRelease,
+                    NSD_RELEASE_EDEFAULT, oldNsdReleaseESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetNsdRelease() {
+        return nsdReleaseESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public Integer getRelease() {
         return release;
     }
@@ -1044,6 +1297,12 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
             return getRevision();
         case NsdPackage.NS_DOC__PUBLICATION_STAGE:
             return getPublicationStage();
+        case NsdPackage.NS_DOC__NSD_VERSION:
+            return getNsdVersion();
+        case NsdPackage.NS_DOC__NSD_REVISION:
+            return getNsdRevision();
+        case NsdPackage.NS_DOC__NSD_RELEASE:
+            return getNsdRelease();
         case NsdPackage.NS_DOC__UML_DATE:
             return getUmlDate();
         case NsdPackage.NS_DOC__UML_VERSION:
@@ -1079,6 +1338,15 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
             return;
         case NsdPackage.NS_DOC__PUBLICATION_STAGE:
             setPublicationStage( ( PubStage ) newValue );
+            return;
+        case NsdPackage.NS_DOC__NSD_VERSION:
+            setNsdVersion( ( Integer ) newValue );
+            return;
+        case NsdPackage.NS_DOC__NSD_REVISION:
+            setNsdRevision( ( String ) newValue );
+            return;
+        case NsdPackage.NS_DOC__NSD_RELEASE:
+            setNsdRelease( ( Integer ) newValue );
             return;
         case NsdPackage.NS_DOC__UML_DATE:
             setUmlDate( ( XMLGregorianCalendar ) newValue );
@@ -1120,6 +1388,15 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         case NsdPackage.NS_DOC__PUBLICATION_STAGE:
             unsetPublicationStage();
             return;
+        case NsdPackage.NS_DOC__NSD_VERSION:
+            unsetNsdVersion();
+            return;
+        case NsdPackage.NS_DOC__NSD_REVISION:
+            unsetNsdRevision();
+            return;
+        case NsdPackage.NS_DOC__NSD_RELEASE:
+            unsetNsdRelease();
+            return;
         case NsdPackage.NS_DOC__UML_DATE:
             unsetUmlDate();
             return;
@@ -1154,6 +1431,12 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
             return isSetRevision();
         case NsdPackage.NS_DOC__PUBLICATION_STAGE:
             return isSetPublicationStage();
+        case NsdPackage.NS_DOC__NSD_VERSION:
+            return isSetNsdVersion();
+        case NsdPackage.NS_DOC__NSD_REVISION:
+            return isSetNsdRevision();
+        case NsdPackage.NS_DOC__NSD_RELEASE:
+            return isSetNsdRelease();
         case NsdPackage.NS_DOC__UML_DATE:
             return isSetUmlDate();
         case NsdPackage.NS_DOC__UML_VERSION:
@@ -1185,6 +1468,18 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
                 return NsdPackage.AG_NS_IDENTIFICATION__REVISION;
             case NsdPackage.NS_DOC__PUBLICATION_STAGE:
                 return NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgNSDIdentification.class ) {
+            switch( derivedFeatureID ) {
+            case NsdPackage.NS_DOC__NSD_VERSION:
+                return NsdPackage.AG_NSD_IDENTIFICATION__NSD_VERSION;
+            case NsdPackage.NS_DOC__NSD_REVISION:
+                return NsdPackage.AG_NSD_IDENTIFICATION__NSD_REVISION;
+            case NsdPackage.NS_DOC__NSD_RELEASE:
+                return NsdPackage.AG_NSD_IDENTIFICATION__NSD_RELEASE;
             default:
                 return -1;
             }
@@ -1225,6 +1520,18 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
                 return -1;
             }
         }
+        if( baseClass == AgNSDIdentification.class ) {
+            switch( baseFeatureID ) {
+            case NsdPackage.AG_NSD_IDENTIFICATION__NSD_VERSION:
+                return NsdPackage.NS_DOC__NSD_VERSION;
+            case NsdPackage.AG_NSD_IDENTIFICATION__NSD_REVISION:
+                return NsdPackage.NS_DOC__NSD_REVISION;
+            case NsdPackage.AG_NSD_IDENTIFICATION__NSD_RELEASE:
+                return NsdPackage.NS_DOC__NSD_RELEASE;
+            default:
+                return -1;
+            }
+        }
         if( baseClass == AgUML.class ) {
             switch( baseFeatureID ) {
             case NsdPackage.AG_UML__UML_DATE:
@@ -1251,6 +1558,12 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
                 return NsdPackage.NS_DOC___ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP;
             case NsdPackage.AG_NS_IDENTIFICATION___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP:
                 return NsdPackage.NS_DOC___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgNSDIdentification.class ) {
+            switch( baseOperationID ) {
             default:
                 return -1;
             }
@@ -1329,6 +1642,27 @@ public class NSDocImpl extends CopyrightedImpl implements NSDoc {
         result.append( ", publicationStage: " );
         if( publicationStageESet ) {
             result.append( publicationStage );
+        }
+        else {
+            result.append( "<unset>" );
+        }
+        result.append( ", nsdVersion: " );
+        if( nsdVersionESet ) {
+            result.append( nsdVersion );
+        }
+        else {
+            result.append( "<unset>" );
+        }
+        result.append( ", nsdRevision: " );
+        if( nsdRevisionESet ) {
+            result.append( nsdRevision );
+        }
+        else {
+            result.append( "<unset>" );
+        }
+        result.append( ", nsdRelease: " );
+        if( nsdReleaseESet ) {
+            result.append( nsdRelease );
         }
         else {
             result.append( "<unset>" );

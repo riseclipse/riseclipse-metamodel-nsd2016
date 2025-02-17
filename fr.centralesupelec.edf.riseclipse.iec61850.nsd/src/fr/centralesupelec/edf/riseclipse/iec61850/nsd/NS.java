@@ -48,7 +48,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='tNS' kind='elementOnly'"
  * @generated
  */
-public interface NS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
+public interface NS extends Copyrighted, AgNSIdentification, AgNSDIdentification, AgUML, AgNSdesc {
     /**
      * Returns the value of the '<em><b>Changes</b></em>' containment reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getParentNS <em>Parent NS</em>}'.

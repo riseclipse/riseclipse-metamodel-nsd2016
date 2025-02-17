@@ -488,6 +488,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgNSdesc/descID"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//AgNSdesc/refersToDoc"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="nsd.ecore#//AgNSDIdentification">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgNSDIdentification/nsdVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgNSDIdentification/nsdRevision"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgNSDIdentification/nsdRelease"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="nsd.ecore#//IRiseClipseConsole"/>
   </genPackages>
 </genmodel:GenModel>

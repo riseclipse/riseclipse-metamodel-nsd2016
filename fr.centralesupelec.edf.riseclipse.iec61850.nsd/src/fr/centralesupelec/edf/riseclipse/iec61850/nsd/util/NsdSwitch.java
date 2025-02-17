@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -20,13 +20,73 @@
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.util;
 
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.*;
-
-import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
+
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgArray;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeTypeAndValues;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSDIdentification;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSdesc;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceCondition;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceConditionDerivedStatistics;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgTrgOp;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUML;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServiceNS;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServices;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicTypes;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDCs;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CopyrightNotice;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Copyrighted;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataSetMemberOf;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentRoot;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DocumentedClass;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClass;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.License;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Notice;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdObject;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDCs;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttributes;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceDataAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceParameter;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.TitledClass;
+import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 
 /**
  * <!-- begin-user-doc -->
@@ -88,476 +148,836 @@ public class NsdSwitch< T > extends Switch< T > {
         case NsdPackage.APPLIES_TO_TYPE: {
             AppliesToType appliesToType = ( AppliesToType ) theEObject;
             T result = caseAppliesToType( appliesToType );
-            if( result == null ) result = caseNsdObject( appliesToType );
-            if( result == null ) result = caseAgNSIdentification( appliesToType );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseNsdObject( appliesToType );
+            }
+            if( result == null ) {
+                result = caseAgNSIdentification( appliesToType );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.DEPENDS_ON: {
             DependsOn dependsOn = ( DependsOn ) theEObject;
             T result = caseDependsOn( dependsOn );
-            if( result == null ) result = caseNsdObject( dependsOn );
-            if( result == null ) result = caseAgNSIdentification( dependsOn );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseNsdObject( dependsOn );
+            }
+            if( result == null ) {
+                result = caseAgNSIdentification( dependsOn );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.DOCUMENT_ROOT: {
             DocumentRoot documentRoot = ( DocumentRoot ) theEObject;
             T result = caseDocumentRoot( documentRoot );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.SERVICE_TYPE: {
             ServiceType serviceType = ( ServiceType ) theEObject;
             T result = caseServiceType( serviceType );
-            if( result == null ) result = caseNsdObject( serviceType );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseNsdObject( serviceType );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.ABBREVIATION: {
             Abbreviation abbreviation = ( Abbreviation ) theEObject;
             T result = caseAbbreviation( abbreviation );
-            if( result == null ) result = caseNsdObject( abbreviation );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseNsdObject( abbreviation );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.ABBREVIATIONS: {
             Abbreviations abbreviations = ( Abbreviations ) theEObject;
             T result = caseAbbreviations( abbreviations );
-            if( result == null ) result = caseNsdObject( abbreviations );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseNsdObject( abbreviations );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.ABSTRACT_LN_CLASS: {
             AbstractLNClass abstractLNClass = ( AbstractLNClass ) theEObject;
             T result = caseAbstractLNClass( abstractLNClass );
-            if( result == null ) result = caseAnyLNClass( abstractLNClass );
-            if( result == null ) result = caseTitledClass( abstractLNClass );
-            if( result == null ) result = caseDocumentedClass( abstractLNClass );
-            if( result == null ) result = caseNsdObject( abstractLNClass );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseAnyLNClass( abstractLNClass );
+            }
+            if( result == null ) {
+                result = caseTitledClass( abstractLNClass );
+            }
+            if( result == null ) {
+                result = caseDocumentedClass( abstractLNClass );
+            }
+            if( result == null ) {
+                result = caseNsdObject( abstractLNClass );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.ANY_LN_CLASS: {
             AnyLNClass anyLNClass = ( AnyLNClass ) theEObject;
             T result = caseAnyLNClass( anyLNClass );
-            if( result == null ) result = caseTitledClass( anyLNClass );
-            if( result == null ) result = caseDocumentedClass( anyLNClass );
-            if( result == null ) result = caseNsdObject( anyLNClass );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseTitledClass( anyLNClass );
+            }
+            if( result == null ) {
+                result = caseDocumentedClass( anyLNClass );
+            }
+            if( result == null ) {
+                result = caseNsdObject( anyLNClass );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.APPLICABLE_SERVICE_NS: {
             ApplicableServiceNS applicableServiceNS = ( ApplicableServiceNS ) theEObject;
             T result = caseApplicableServiceNS( applicableServiceNS );
-            if( result == null ) result = caseCopyrighted( applicableServiceNS );
-            if( result == null ) result = caseNsdObject( applicableServiceNS );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseCopyrighted( applicableServiceNS );
+            }
+            if( result == null ) {
+                result = caseAgNSDIdentification( applicableServiceNS );
+            }
+            if( result == null ) {
+                result = caseNsdObject( applicableServiceNS );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.APPLICABLE_SERVICES: {
             ApplicableServices applicableServices = ( ApplicableServices ) theEObject;
             T result = caseApplicableServices( applicableServices );
-            if( result == null ) result = caseNsdObject( applicableServices );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseNsdObject( applicableServices );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.BASIC_TYPE: {
             BasicType basicType = ( BasicType ) theEObject;
             T result = caseBasicType( basicType );
-            if( result == null ) result = caseNsdObject( basicType );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseNsdObject( basicType );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.BASIC_TYPES: {
             BasicTypes basicTypes = ( BasicTypes ) theEObject;
             T result = caseBasicTypes( basicTypes );
-            if( result == null ) result = caseNsdObject( basicTypes );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseNsdObject( basicTypes );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.CDC: {
             CDC cdc = ( CDC ) theEObject;
             T result = caseCDC( cdc );
-            if( result == null ) result = caseTitledClass( cdc );
-            if( result == null ) result = caseDocumentedClass( cdc );
-            if( result == null ) result = caseNsdObject( cdc );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseTitledClass( cdc );
+            }
+            if( result == null ) {
+                result = caseDocumentedClass( cdc );
+            }
+            if( result == null ) {
+                result = caseNsdObject( cdc );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.CD_CS: {
             CDCs cdCs = ( CDCs ) theEObject;
             T result = caseCDCs( cdCs );
-            if( result == null ) result = caseNsdObject( cdCs );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseNsdObject( cdCs );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.CHANGES: {
             Changes changes = ( Changes ) theEObject;
             T result = caseChanges( changes );
-            if( result == null ) result = caseNsdObject( changes );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseNsdObject( changes );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.CONSTRUCTED_ATTRIBUTE: {
             ConstructedAttribute constructedAttribute = ( ConstructedAttribute ) theEObject;
             T result = caseConstructedAttribute( constructedAttribute );
-            if( result == null ) result = caseTitledClass( constructedAttribute );
-            if( result == null ) result = caseDocumentedClass( constructedAttribute );
-            if( result == null ) result = caseNsdObject( constructedAttribute );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseTitledClass( constructedAttribute );
+            }
+            if( result == null ) {
+                result = caseDocumentedClass( constructedAttribute );
+            }
+            if( result == null ) {
+                result = caseNsdObject( constructedAttribute );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.CONSTRUCTED_ATTRIBUTES: {
             ConstructedAttributes constructedAttributes = ( ConstructedAttributes ) theEObject;
             T result = caseConstructedAttributes( constructedAttributes );
-            if( result == null ) result = caseNsdObject( constructedAttributes );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseNsdObject( constructedAttributes );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.COPYRIGHTED: {
             Copyrighted copyrighted = ( Copyrighted ) theEObject;
             T result = caseCopyrighted( copyrighted );
-            if( result == null ) result = caseNsdObject( copyrighted );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseNsdObject( copyrighted );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.COPYRIGHT_NOTICE: {
             CopyrightNotice copyrightNotice = ( CopyrightNotice ) theEObject;
             T result = caseCopyrightNotice( copyrightNotice );
-            if( result == null ) result = caseNsdObject( copyrightNotice );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseNsdObject( copyrightNotice );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.DATA_ATTRIBUTE: {
             DataAttribute dataAttribute = ( DataAttribute ) theEObject;
             T result = caseDataAttribute( dataAttribute );
-            if( result == null ) result = caseDocumentedClass( dataAttribute );
-            if( result == null ) result = caseAgPresenceCondition( dataAttribute );
-            if( result == null ) result = caseAgArray( dataAttribute );
-            if( result == null ) result = caseAgTrgOp( dataAttribute );
-            if( result == null ) result = caseAgAttributeTypeAndValues( dataAttribute );
-            if( result == null ) result = caseNsdObject( dataAttribute );
-            if( result == null ) result = caseAgAttributeType( dataAttribute );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseDocumentedClass( dataAttribute );
+            }
+            if( result == null ) {
+                result = caseAgPresenceCondition( dataAttribute );
+            }
+            if( result == null ) {
+                result = caseAgArray( dataAttribute );
+            }
+            if( result == null ) {
+                result = caseAgTrgOp( dataAttribute );
+            }
+            if( result == null ) {
+                result = caseAgAttributeTypeAndValues( dataAttribute );
+            }
+            if( result == null ) {
+                result = caseNsdObject( dataAttribute );
+            }
+            if( result == null ) {
+                result = caseAgAttributeType( dataAttribute );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.DATA_OBJECT: {
             DataObject dataObject = ( DataObject ) theEObject;
             T result = caseDataObject( dataObject );
-            if( result == null ) result = caseDocumentedClass( dataObject );
-            if( result == null ) result = caseAgPresenceCondition( dataObject );
-            if( result == null ) result = caseAgPresenceConditionDerivedStatistics( dataObject );
-            if( result == null ) result = caseAgUnderlyingType( dataObject );
-            if( result == null ) result = caseNsdObject( dataObject );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseDocumentedClass( dataObject );
+            }
+            if( result == null ) {
+                result = caseAgPresenceCondition( dataObject );
+            }
+            if( result == null ) {
+                result = caseAgPresenceConditionDerivedStatistics( dataObject );
+            }
+            if( result == null ) {
+                result = caseAgUnderlyingType( dataObject );
+            }
+            if( result == null ) {
+                result = caseNsdObject( dataObject );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.DATA_SET_MEMBER_OF: {
             DataSetMemberOf dataSetMemberOf = ( DataSetMemberOf ) theEObject;
             T result = caseDataSetMemberOf( dataSetMemberOf );
-            if( result == null ) result = caseNsdObject( dataSetMemberOf );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseNsdObject( dataSetMemberOf );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.DOC: {
             Doc doc = ( Doc ) theEObject;
             T result = caseDoc( doc );
-            if( result == null ) result = caseNsdObject( doc );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseNsdObject( doc );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.DOCUMENTED_CLASS: {
             DocumentedClass documentedClass = ( DocumentedClass ) theEObject;
             T result = caseDocumentedClass( documentedClass );
-            if( result == null ) result = caseNsdObject( documentedClass );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseNsdObject( documentedClass );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.ENUMERATION: {
             Enumeration enumeration = ( Enumeration ) theEObject;
             T result = caseEnumeration( enumeration );
-            if( result == null ) result = caseTitledClass( enumeration );
-            if( result == null ) result = caseDocumentedClass( enumeration );
-            if( result == null ) result = caseNsdObject( enumeration );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseTitledClass( enumeration );
+            }
+            if( result == null ) {
+                result = caseDocumentedClass( enumeration );
+            }
+            if( result == null ) {
+                result = caseNsdObject( enumeration );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.ENUMERATIONS: {
             Enumerations enumerations = ( Enumerations ) theEObject;
             T result = caseEnumerations( enumerations );
-            if( result == null ) result = caseNsdObject( enumerations );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseNsdObject( enumerations );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.FUNCTIONAL_CONSTRAINT: {
             FunctionalConstraint functionalConstraint = ( FunctionalConstraint ) theEObject;
             T result = caseFunctionalConstraint( functionalConstraint );
-            if( result == null ) result = caseNsdObject( functionalConstraint );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseNsdObject( functionalConstraint );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.FUNCTIONAL_CONSTRAINTS: {
             FunctionalConstraints functionalConstraints = ( FunctionalConstraints ) theEObject;
             T result = caseFunctionalConstraints( functionalConstraints );
-            if( result == null ) result = caseNsdObject( functionalConstraints );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseNsdObject( functionalConstraints );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.LICENSE: {
             License license = ( License ) theEObject;
             T result = caseLicense( license );
-            if( result == null ) result = caseNsdObject( license );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseNsdObject( license );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.LITERAL: {
             Literal literal = ( Literal ) theEObject;
             T result = caseLiteral( literal );
-            if( result == null ) result = caseDocumentedClass( literal );
-            if( result == null ) result = caseNsdObject( literal );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseDocumentedClass( literal );
+            }
+            if( result == null ) {
+                result = caseNsdObject( literal );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.LN_CLASS: {
             LNClass lnClass = ( LNClass ) theEObject;
             T result = caseLNClass( lnClass );
-            if( result == null ) result = caseAnyLNClass( lnClass );
-            if( result == null ) result = caseTitledClass( lnClass );
-            if( result == null ) result = caseDocumentedClass( lnClass );
-            if( result == null ) result = caseNsdObject( lnClass );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseAnyLNClass( lnClass );
+            }
+            if( result == null ) {
+                result = caseTitledClass( lnClass );
+            }
+            if( result == null ) {
+                result = caseDocumentedClass( lnClass );
+            }
+            if( result == null ) {
+                result = caseNsdObject( lnClass );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.LN_CLASSES: {
             LNClasses lnClasses = ( LNClasses ) theEObject;
             T result = caseLNClasses( lnClasses );
-            if( result == null ) result = caseNsdObject( lnClasses );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseNsdObject( lnClasses );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.NOTICE: {
             Notice notice = ( Notice ) theEObject;
             T result = caseNotice( notice );
-            if( result == null ) result = caseNsdObject( notice );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseNsdObject( notice );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.NS: {
             NS ns = ( NS ) theEObject;
             T result = caseNS( ns );
-            if( result == null ) result = caseCopyrighted( ns );
-            if( result == null ) result = caseAgNSIdentification( ns );
-            if( result == null ) result = caseAgUML( ns );
-            if( result == null ) result = caseAgNSdesc( ns );
-            if( result == null ) result = caseNsdObject( ns );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseCopyrighted( ns );
+            }
+            if( result == null ) {
+                result = caseAgNSIdentification( ns );
+            }
+            if( result == null ) {
+                result = caseAgNSDIdentification( ns );
+            }
+            if( result == null ) {
+                result = caseAgUML( ns );
+            }
+            if( result == null ) {
+                result = caseAgNSdesc( ns );
+            }
+            if( result == null ) {
+                result = caseNsdObject( ns );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.NS_DOC: {
             NSDoc nsDoc = ( NSDoc ) theEObject;
             T result = caseNSDoc( nsDoc );
-            if( result == null ) result = caseCopyrighted( nsDoc );
-            if( result == null ) result = caseAgNSIdentification( nsDoc );
-            if( result == null ) result = caseAgUML( nsDoc );
-            if( result == null ) result = caseNsdObject( nsDoc );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseCopyrighted( nsDoc );
+            }
+            if( result == null ) {
+                result = caseAgNSIdentification( nsDoc );
+            }
+            if( result == null ) {
+                result = caseAgNSDIdentification( nsDoc );
+            }
+            if( result == null ) {
+                result = caseAgUML( nsDoc );
+            }
+            if( result == null ) {
+                result = caseNsdObject( nsDoc );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.PRESENCE_CONDITION: {
             PresenceCondition presenceCondition = ( PresenceCondition ) theEObject;
             T result = casePresenceCondition( presenceCondition );
-            if( result == null ) result = caseNsdObject( presenceCondition );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseNsdObject( presenceCondition );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.PRESENCE_CONDITIONS: {
             PresenceConditions presenceConditions = ( PresenceConditions ) theEObject;
             T result = casePresenceConditions( presenceConditions );
-            if( result == null ) result = caseNsdObject( presenceConditions );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseNsdObject( presenceConditions );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.SERVICE_CDC: {
             ServiceCDC serviceCDC = ( ServiceCDC ) theEObject;
             T result = caseServiceCDC( serviceCDC );
-            if( result == null ) result = caseNsdObject( serviceCDC );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseNsdObject( serviceCDC );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.SERVICE_CD_CS: {
             ServiceCDCs serviceCDCs = ( ServiceCDCs ) theEObject;
             T result = caseServiceCDCs( serviceCDCs );
-            if( result == null ) result = caseNsdObject( serviceCDCs );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseNsdObject( serviceCDCs );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTE: {
             ServiceConstructedAttribute serviceConstructedAttribute = ( ServiceConstructedAttribute ) theEObject;
             T result = caseServiceConstructedAttribute( serviceConstructedAttribute );
-            if( result == null ) result = caseConstructedAttribute( serviceConstructedAttribute );
-            if( result == null ) result = caseTitledClass( serviceConstructedAttribute );
-            if( result == null ) result = caseDocumentedClass( serviceConstructedAttribute );
-            if( result == null ) result = caseNsdObject( serviceConstructedAttribute );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseConstructedAttribute( serviceConstructedAttribute );
+            }
+            if( result == null ) {
+                result = caseTitledClass( serviceConstructedAttribute );
+            }
+            if( result == null ) {
+                result = caseDocumentedClass( serviceConstructedAttribute );
+            }
+            if( result == null ) {
+                result = caseNsdObject( serviceConstructedAttribute );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES: {
             ServiceConstructedAttributes serviceConstructedAttributes = ( ServiceConstructedAttributes ) theEObject;
             T result = caseServiceConstructedAttributes( serviceConstructedAttributes );
-            if( result == null ) result = caseNsdObject( serviceConstructedAttributes );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseNsdObject( serviceConstructedAttributes );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.SERVICE_DATA_ATTRIBUTE: {
             ServiceDataAttribute serviceDataAttribute = ( ServiceDataAttribute ) theEObject;
             T result = caseServiceDataAttribute( serviceDataAttribute );
-            if( result == null ) result = caseDocumentedClass( serviceDataAttribute );
-            if( result == null ) result = caseAgPresenceCondition( serviceDataAttribute );
-            if( result == null ) result = caseAgAttributeType( serviceDataAttribute );
-            if( result == null ) result = caseAgUnderlyingType( serviceDataAttribute );
-            if( result == null ) result = caseNsdObject( serviceDataAttribute );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseDocumentedClass( serviceDataAttribute );
+            }
+            if( result == null ) {
+                result = caseAgPresenceCondition( serviceDataAttribute );
+            }
+            if( result == null ) {
+                result = caseAgAttributeType( serviceDataAttribute );
+            }
+            if( result == null ) {
+                result = caseAgUnderlyingType( serviceDataAttribute );
+            }
+            if( result == null ) {
+                result = caseNsdObject( serviceDataAttribute );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.SERVICE_NS: {
             ServiceNS serviceNS = ( ServiceNS ) theEObject;
             T result = caseServiceNS( serviceNS );
-            if( result == null ) result = caseCopyrighted( serviceNS );
-            if( result == null ) result = caseAgNSIdentification( serviceNS );
-            if( result == null ) result = caseAgUML( serviceNS );
-            if( result == null ) result = caseAgNSdesc( serviceNS );
-            if( result == null ) result = caseNsdObject( serviceNS );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseCopyrighted( serviceNS );
+            }
+            if( result == null ) {
+                result = caseAgNSIdentification( serviceNS );
+            }
+            if( result == null ) {
+                result = caseAgNSDIdentification( serviceNS );
+            }
+            if( result == null ) {
+                result = caseAgUML( serviceNS );
+            }
+            if( result == null ) {
+                result = caseAgNSdesc( serviceNS );
+            }
+            if( result == null ) {
+                result = caseNsdObject( serviceNS );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.SERVICE_NS_USAGE: {
             ServiceNsUsage serviceNsUsage = ( ServiceNsUsage ) theEObject;
             T result = caseServiceNsUsage( serviceNsUsage );
-            if( result == null ) result = caseNsdObject( serviceNsUsage );
-            if( result == null ) result = caseAgNSIdentification( serviceNsUsage );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseNsdObject( serviceNsUsage );
+            }
+            if( result == null ) {
+                result = caseAgNSIdentification( serviceNsUsage );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.SERVICE_PARAMETER: {
             ServiceParameter serviceParameter = ( ServiceParameter ) theEObject;
             T result = caseServiceParameter( serviceParameter );
-            if( result == null ) result = caseDocumentedClass( serviceParameter );
-            if( result == null ) result = caseAgAttributeTypeAndValues( serviceParameter );
-            if( result == null ) result = caseNsdObject( serviceParameter );
-            if( result == null ) result = caseAgAttributeType( serviceParameter );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseDocumentedClass( serviceParameter );
+            }
+            if( result == null ) {
+                result = caseAgAttributeTypeAndValues( serviceParameter );
+            }
+            if( result == null ) {
+                result = caseNsdObject( serviceParameter );
+            }
+            if( result == null ) {
+                result = caseAgAttributeType( serviceParameter );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.SERVICE_TYPE_REALIZATIONS: {
             ServiceTypeRealizations serviceTypeRealizations = ( ServiceTypeRealizations ) theEObject;
             T result = caseServiceTypeRealizations( serviceTypeRealizations );
-            if( result == null ) result = caseNsdObject( serviceTypeRealizations );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseNsdObject( serviceTypeRealizations );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.SUB_DATA_ATTRIBUTE: {
             SubDataAttribute subDataAttribute = ( SubDataAttribute ) theEObject;
             T result = caseSubDataAttribute( subDataAttribute );
-            if( result == null ) result = caseDocumentedClass( subDataAttribute );
-            if( result == null ) result = caseAgPresenceCondition( subDataAttribute );
-            if( result == null ) result = caseAgArray( subDataAttribute );
-            if( result == null ) result = caseAgAttributeTypeAndValues( subDataAttribute );
-            if( result == null ) result = caseNsdObject( subDataAttribute );
-            if( result == null ) result = caseAgAttributeType( subDataAttribute );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseDocumentedClass( subDataAttribute );
+            }
+            if( result == null ) {
+                result = caseAgPresenceCondition( subDataAttribute );
+            }
+            if( result == null ) {
+                result = caseAgArray( subDataAttribute );
+            }
+            if( result == null ) {
+                result = caseAgAttributeTypeAndValues( subDataAttribute );
+            }
+            if( result == null ) {
+                result = caseNsdObject( subDataAttribute );
+            }
+            if( result == null ) {
+                result = caseAgAttributeType( subDataAttribute );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.SUB_DATA_OBJECT: {
             SubDataObject subDataObject = ( SubDataObject ) theEObject;
             T result = caseSubDataObject( subDataObject );
-            if( result == null ) result = caseDocumentedClass( subDataObject );
-            if( result == null ) result = caseAgPresenceCondition( subDataObject );
-            if( result == null ) result = caseAgArray( subDataObject );
-            if( result == null ) result = caseAgUnderlyingType( subDataObject );
-            if( result == null ) result = caseNsdObject( subDataObject );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseDocumentedClass( subDataObject );
+            }
+            if( result == null ) {
+                result = caseAgPresenceCondition( subDataObject );
+            }
+            if( result == null ) {
+                result = caseAgArray( subDataObject );
+            }
+            if( result == null ) {
+                result = caseAgUnderlyingType( subDataObject );
+            }
+            if( result == null ) {
+                result = caseNsdObject( subDataObject );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.TITLED_CLASS: {
             TitledClass titledClass = ( TitledClass ) theEObject;
             T result = caseTitledClass( titledClass );
-            if( result == null ) result = caseDocumentedClass( titledClass );
-            if( result == null ) result = caseNsdObject( titledClass );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseDocumentedClass( titledClass );
+            }
+            if( result == null ) {
+                result = caseNsdObject( titledClass );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.NSD_OBJECT: {
             NsdObject nsdObject = ( NsdObject ) theEObject;
             T result = caseNsdObject( nsdObject );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.AG_NS_IDENTIFICATION: {
             AgNSIdentification agNSIdentification = ( AgNSIdentification ) theEObject;
             T result = caseAgNSIdentification( agNSIdentification );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.AG_PRESENCE_CONDITION: {
             AgPresenceCondition agPresenceCondition = ( AgPresenceCondition ) theEObject;
             T result = caseAgPresenceCondition( agPresenceCondition );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.AG_PRESENCE_CONDITION_DERIVED_STATISTICS: {
             AgPresenceConditionDerivedStatistics agPresenceConditionDerivedStatistics = ( AgPresenceConditionDerivedStatistics ) theEObject;
             T result = caseAgPresenceConditionDerivedStatistics( agPresenceConditionDerivedStatistics );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.AG_ARRAY: {
             AgArray agArray = ( AgArray ) theEObject;
             T result = caseAgArray( agArray );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.AG_TRG_OP: {
             AgTrgOp agTrgOp = ( AgTrgOp ) theEObject;
             T result = caseAgTrgOp( agTrgOp );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.AG_ATTRIBUTE_TYPE: {
             AgAttributeType agAttributeType = ( AgAttributeType ) theEObject;
             T result = caseAgAttributeType( agAttributeType );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.AG_ATTRIBUTE_TYPE_AND_VALUES: {
             AgAttributeTypeAndValues agAttributeTypeAndValues = ( AgAttributeTypeAndValues ) theEObject;
             T result = caseAgAttributeTypeAndValues( agAttributeTypeAndValues );
-            if( result == null ) result = caseAgAttributeType( agAttributeTypeAndValues );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = caseAgAttributeType( agAttributeTypeAndValues );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.AG_UNDERLYING_TYPE: {
             AgUnderlyingType agUnderlyingType = ( AgUnderlyingType ) theEObject;
             T result = caseAgUnderlyingType( agUnderlyingType );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.AG_UML: {
             AgUML agUML = ( AgUML ) theEObject;
             T result = caseAgUML( agUML );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.AG_NSDESC: {
             AgNSdesc agNSdesc = ( AgNSdesc ) theEObject;
             T result = caseAgNSdesc( agNSdesc );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
+            return result;
+        }
+        case NsdPackage.AG_NSD_IDENTIFICATION: {
+            AgNSDIdentification agNSDIdentification = ( AgNSDIdentification ) theEObject;
+            T result = caseAgNSDIdentification( agNSDIdentification );
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         case NsdPackage.IRISE_CLIPSE_CONSOLE: {
             IRiseClipseConsole iRiseClipseConsole = ( IRiseClipseConsole ) theEObject;
             T result = caseIRiseClipseConsole( iRiseClipseConsole );
-            if( result == null ) result = defaultCase( theEObject );
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
             return result;
         }
         default:
@@ -1462,6 +1882,21 @@ public class NsdSwitch< T > extends Switch< T > {
      * @generated
      */
     public T caseAgNSdesc( AgNSdesc object ) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Ag NSD Identification</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Ag NSD Identification</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAgNSDIdentification( AgNSDIdentification object ) {
         return null;
     }
 
