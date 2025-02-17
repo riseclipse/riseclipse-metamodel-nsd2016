@@ -204,7 +204,7 @@ public interface CDC extends TitledClass {
      * @see #unsetEnumParameterized()
      * @see #setEnumParameterized(boolean)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCDC_EnumParameterized()
-     * @model default="false" unsettable="true" required="true"
+     * @model default="false" unsettable="true"
      *        extendedMetaData="kind='attribute' name='enumParameterized'"
      * @generated
      */
@@ -305,7 +305,7 @@ public interface CDC extends TitledClass {
      * @see #unsetStatistics()
      * @see #setStatistics(boolean)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCDC_Statistics()
-     * @model default="false" unsettable="true" required="true"
+     * @model default="false" unsettable="true"
      *        extendedMetaData="kind='attribute' name='statistics'"
      * @generated
      */
@@ -356,7 +356,7 @@ public interface CDC extends TitledClass {
      * @see #unsetTypeKindParameterized()
      * @see #setTypeKindParameterized(boolean)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCDC_TypeKindParameterized()
-     * @model default="false" unsettable="true" required="true"
+     * @model default="false" unsettable="true"
      *        extendedMetaData="kind='attribute' name='typeKindParameterized'"
      * @generated
      */

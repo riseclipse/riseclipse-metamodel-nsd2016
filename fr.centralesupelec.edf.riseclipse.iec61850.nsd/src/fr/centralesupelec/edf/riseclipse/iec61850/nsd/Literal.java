@@ -53,7 +53,7 @@ public interface Literal extends DocumentedClass {
      * @see #unsetLiteralVal()
      * @see #setLiteralVal(int)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getLiteral_LiteralVal()
-     * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Int" required="true"
+     * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Int"
      *        extendedMetaData="kind='attribute' name='literalVal'"
      * @generated
      */

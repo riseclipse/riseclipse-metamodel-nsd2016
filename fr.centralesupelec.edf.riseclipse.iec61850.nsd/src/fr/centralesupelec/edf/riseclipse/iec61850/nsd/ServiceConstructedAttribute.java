@@ -51,7 +51,7 @@ public interface ServiceConstructedAttribute extends ConstructedAttribute {
      * @see #unsetTypeKindParameterized()
      * @see #setTypeKindParameterized(boolean)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceConstructedAttribute_TypeKindParameterized()
-     * @model default="false" unsettable="true" required="true"
+     * @model default="false" unsettable="true"
      *        extendedMetaData="kind='attribute' name='typeKindParameterized'"
      * @generated
      */

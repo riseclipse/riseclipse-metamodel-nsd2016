@@ -51,7 +51,7 @@ public interface DocumentedClass extends NsdObject {
      * @see #unsetDeprecated()
      * @see #setDeprecated(boolean)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDocumentedClass_Deprecated()
-     * @model default="false" unsettable="true" required="true"
+     * @model default="false" unsettable="true"
      *        extendedMetaData="kind='attribute' name='deprecated'"
      * @generated
      */
@@ -152,7 +152,7 @@ public interface DocumentedClass extends NsdObject {
      * @see #unsetInformative()
      * @see #setInformative(boolean)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDocumentedClass_Informative()
-     * @model default="false" unsettable="true" required="true"
+     * @model default="false" unsettable="true"
      *        extendedMetaData="kind='attribute' name='informative'"
      * @generated
      */

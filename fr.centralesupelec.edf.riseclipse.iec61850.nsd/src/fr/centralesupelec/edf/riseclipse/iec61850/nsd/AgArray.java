@@ -56,7 +56,7 @@ public interface AgArray extends EObject {
      * @see #unsetIsArray()
      * @see #setIsArray(boolean)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgArray_IsArray()
-     * @model default="false" unsettable="true" required="true"
+     * @model default="false" unsettable="true"
      *        extendedMetaData="kind='attribute' name='isArray'"
      * @generated
      */
@@ -165,7 +165,7 @@ public interface AgArray extends EObject {
      * @see #unsetMinIndex()
      * @see #setMinIndex(long)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgArray_MinIndex()
-     * @model default="0" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.UnsignedInt" required="true"
+     * @model default="0" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.UnsignedInt"
      *        extendedMetaData="kind='attribute' name='minIndex'"
      * @generated
      */

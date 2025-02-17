@@ -179,6 +179,7 @@ public class NsdTables extends AbstractTables
 	public static final /*@NonInvalid*/ String STR_For_32_an_32_Enumeration_44_32_there_32_shall_32_not_32_be_32_two_32_Literal_32_sub_m_elements_32_0 = "For an Enumeration, there shall not be two Literal sub-elements with same literalVal.";
 	public static final /*@NonInvalid*/ String STR_The_32_abbreviation_32_attribute_32_is_32_required = "The abbreviation attribute is required";
 	public static final /*@NonInvalid*/ String STR_The_32_cb_32_attribute_32_is_32_required = "The cb attribute is required";
+	public static final /*@NonInvalid*/ String STR_The_32_cdc_32_attribute_32_is_32_required = "The cdc attribute is required";
 	public static final /*@NonInvalid*/ String STR_The_32_date_32_attribute_32_is_32_required = "The date attribute is required";
 	public static final /*@NonInvalid*/ String STR_The_32_fc_32_attribute_32_is_32_required = "The fc attribute is required";
 	public static final /*@NonInvalid*/ String STR_The_32_id_32_attribute_32_is_32_required = "The id attribute is required";

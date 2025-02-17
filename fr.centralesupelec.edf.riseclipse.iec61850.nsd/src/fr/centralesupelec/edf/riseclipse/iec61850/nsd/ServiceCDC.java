@@ -93,7 +93,7 @@ public interface ServiceCDC extends NsdObject {
      * @see #unsetCdc()
      * @see #setCdc(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceCDC_Cdc()
-     * @model unsettable="true" required="true"
+     * @model unsettable="true"
      *        extendedMetaData="kind='attribute' name='cdc'"
      * @generated
      */

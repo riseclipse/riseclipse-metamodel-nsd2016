@@ -55,7 +55,7 @@ public interface LNClass extends AnyLNClass {
      * @see #unsetCanHaveLOG()
      * @see #setCanHaveLOG(boolean)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getLNClass_CanHaveLOG()
-     * @model default="false" unsettable="true" required="true"
+     * @model default="false" unsettable="true"
      *        extendedMetaData="kind='attribute' name='canHaveLOG'"
      * @generated
      */
@@ -106,7 +106,7 @@ public interface LNClass extends AnyLNClass {
      * @see #unsetIsExtension()
      * @see #setIsExtension(boolean)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getLNClass_IsExtension()
-     * @model default="false" unsettable="true" required="true"
+     * @model default="false" unsettable="true"
      *        extendedMetaData="kind='attribute' name='isExtension'"
      * @generated
      */

@@ -55,7 +55,7 @@ public interface AgTrgOp extends EObject {
      * @see #unsetDchg()
      * @see #setDchg(boolean)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgTrgOp_Dchg()
-     * @model default="false" unsettable="true" required="true"
+     * @model default="false" unsettable="true"
      *        extendedMetaData="kind='attribute' name='dchg'"
      * @generated
      */
@@ -110,7 +110,7 @@ public interface AgTrgOp extends EObject {
      * @see #unsetDupd()
      * @see #setDupd(boolean)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgTrgOp_Dupd()
-     * @model default="false" unsettable="true" required="true"
+     * @model default="false" unsettable="true"
      *        extendedMetaData="kind='attribute' name='dupd'"
      * @generated
      */
@@ -165,7 +165,7 @@ public interface AgTrgOp extends EObject {
      * @see #unsetQchg()
      * @see #setQchg(boolean)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgTrgOp_Qchg()
-     * @model default="false" unsettable="true" required="true"
+     * @model default="false" unsettable="true"
      *        extendedMetaData="kind='attribute' name='qchg'"
      * @generated
      */

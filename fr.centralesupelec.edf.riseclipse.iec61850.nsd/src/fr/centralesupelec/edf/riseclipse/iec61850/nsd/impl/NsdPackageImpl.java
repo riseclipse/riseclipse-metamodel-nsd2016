@@ -5276,7 +5276,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEAttribute( getApplicableServiceNS_Date(), theXMLTypePackage.getDateTime(), "date", null, 0, 1,
                 ApplicableServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getApplicableServiceNS_Version(), theXMLTypePackage.getUnsignedInt(), "version", null, 1, 1,
+        initEAttribute( getApplicableServiceNS_Version(), theXMLTypePackage.getUnsignedInt(), "version", null, 0, 1,
                 ApplicableServiceNS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
 
@@ -5389,16 +5389,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 "serviceParameter", null, 0, 1, fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED );
-        initEAttribute( getCDC_EnumParameterized(), ecorePackage.getEBoolean(), "enumParameterized", "false", 1, 1,
+        initEAttribute( getCDC_EnumParameterized(), ecorePackage.getEBoolean(), "enumParameterized", "false", 0, 1,
                 fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getCDC_Name(), ecorePackage.getEString(), "name", null, 0, 1,
                 fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getCDC_Statistics(), ecorePackage.getEBoolean(), "statistics", "false", 1, 1,
+        initEAttribute( getCDC_Statistics(), ecorePackage.getEBoolean(), "statistics", "false", 0, 1,
                 fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getCDC_TypeKindParameterized(), ecorePackage.getEBoolean(), "typeKindParameterized", "false", 1,
+        initEAttribute( getCDC_TypeKindParameterized(), ecorePackage.getEBoolean(), "typeKindParameterized", "false", 0,
                 1, fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getCDC_Variant(), theXMLTypePackage.getToken(), "variant", null, 0, 1,
@@ -5639,7 +5639,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 IS_GENERATED_INSTANCE_CLASS );
         initEAttribute( getDataObject_Name(), ecorePackage.getEString(), "name", null, 0, 1, DataObject.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getDataObject_Transient(), ecorePackage.getEBoolean(), "transient", "false", 1, 1,
+        initEAttribute( getDataObject_Transient(), ecorePackage.getEBoolean(), "transient", "false", 0, 1,
                 DataObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getDataObject_Type(), ecorePackage.getEString(), "type", null, 0, 1, DataObject.class,
@@ -5765,13 +5765,13 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
 
         initEClass( documentedClassEClass, DocumentedClass.class, "DocumentedClass", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getDocumentedClass_Deprecated(), ecorePackage.getEBoolean(), "deprecated", "false", 1, 1,
+        initEAttribute( getDocumentedClass_Deprecated(), ecorePackage.getEBoolean(), "deprecated", "false", 0, 1,
                 DocumentedClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getDocumentedClass_DescID(), ecorePackage.getEString(), "descID", null, 0, 1,
                 DocumentedClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getDocumentedClass_Informative(), ecorePackage.getEBoolean(), "informative", "false", 1, 1,
+        initEAttribute( getDocumentedClass_Informative(), ecorePackage.getEBoolean(), "informative", "false", 0, 1,
                 DocumentedClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEReference( getDocumentedClass_RefersToDescDoc(), this.getDoc(), this.getDoc_ReferredByDocumentedClass(),
@@ -5937,7 +5937,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 IS_ORDERED );
 
         initEClass( literalEClass, Literal.class, "Literal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getLiteral_LiteralVal(), theXMLTypePackage.getInt(), "literalVal", null, 1, 1, Literal.class,
+        initEAttribute( getLiteral_LiteralVal(), theXMLTypePackage.getInt(), "literalVal", null, 0, 1, Literal.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getLiteral_Name(), ecorePackage.getEString(), "name", null, 0, 1, Literal.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
@@ -5966,9 +5966,9 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
 
         initEClass( lnClassEClass, LNClass.class, "LNClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getLNClass_CanHaveLOG(), ecorePackage.getEBoolean(), "canHaveLOG", "false", 1, 1, LNClass.class,
+        initEAttribute( getLNClass_CanHaveLOG(), ecorePackage.getEBoolean(), "canHaveLOG", "false", 0, 1, LNClass.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getLNClass_IsExtension(), ecorePackage.getEBoolean(), "isExtension", "false", 1, 1,
+        initEAttribute( getLNClass_IsExtension(), ecorePackage.getEBoolean(), "isExtension", "false", 0, 1,
                 LNClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getLNClass_Name(), ecorePackage.getEString(), "name", null, 0, 1, LNClass.class, !IS_TRANSIENT,
@@ -6174,7 +6174,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 this.getServiceDataAttribute_ParentServiceCDC(), "serviceDataAttribute", null, 0, -1, ServiceCDC.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
                 !IS_DERIVED, !IS_ORDERED );
-        initEAttribute( getServiceCDC_Cdc(), ecorePackage.getEString(), "cdc", null, 1, 1, ServiceCDC.class,
+        initEAttribute( getServiceCDC_Cdc(), ecorePackage.getEString(), "cdc", null, 0, 1, ServiceCDC.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getServiceCDC_Variant(), theXMLTypePackage.getToken(), "variant", null, 0, 1, ServiceCDC.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
@@ -6204,7 +6204,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEClass( serviceConstructedAttributeEClass, ServiceConstructedAttribute.class, "ServiceConstructedAttribute",
                 !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute( getServiceConstructedAttribute_TypeKindParameterized(), ecorePackage.getEBoolean(),
-                "typeKindParameterized", "false", 1, 1, ServiceConstructedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE,
+                "typeKindParameterized", "false", 0, 1, ServiceConstructedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEReference( getServiceConstructedAttribute_ParentServiceConstructedAttributes(),
                 this.getServiceConstructedAttributes(),
@@ -6500,23 +6500,23 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass( agArrayEClass, AgArray.class, "AgArray", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getAgArray_IsArray(), ecorePackage.getEBoolean(), "isArray", "false", 1, 1, AgArray.class,
+        initEAttribute( getAgArray_IsArray(), ecorePackage.getEBoolean(), "isArray", "false", 0, 1, AgArray.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getAgArray_MaxIndexAttribute(), ecorePackage.getEString(), "maxIndexAttribute", null, 0, 1,
                 AgArray.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getAgArray_MinIndex(), theXMLTypePackage.getUnsignedInt(), "minIndex", "0", 1, 1, AgArray.class,
+        initEAttribute( getAgArray_MinIndex(), theXMLTypePackage.getUnsignedInt(), "minIndex", "0", 0, 1, AgArray.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getAgArray_SizeAttribute(), ecorePackage.getEString(), "sizeAttribute", null, 0, 1,
                 AgArray.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
 
         initEClass( agTrgOpEClass, AgTrgOp.class, "AgTrgOp", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getAgTrgOp_Dchg(), ecorePackage.getEBoolean(), "dchg", "false", 1, 1, AgTrgOp.class,
+        initEAttribute( getAgTrgOp_Dchg(), ecorePackage.getEBoolean(), "dchg", "false", 0, 1, AgTrgOp.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getAgTrgOp_Dupd(), ecorePackage.getEBoolean(), "dupd", "false", 1, 1, AgTrgOp.class,
+        initEAttribute( getAgTrgOp_Dupd(), ecorePackage.getEBoolean(), "dupd", "false", 0, 1, AgTrgOp.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getAgTrgOp_Qchg(), ecorePackage.getEBoolean(), "qchg", "false", 1, 1, AgTrgOp.class,
+        initEAttribute( getAgTrgOp_Qchg(), ecorePackage.getEBoolean(), "qchg", "false", 0, 1, AgTrgOp.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass( agAttributeTypeEClass, AgAttributeType.class, "AgAttributeType", IS_ABSTRACT, !IS_INTERFACE,

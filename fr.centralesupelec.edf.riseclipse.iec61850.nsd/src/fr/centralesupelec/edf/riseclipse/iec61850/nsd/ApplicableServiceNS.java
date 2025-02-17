@@ -144,7 +144,7 @@ public interface ApplicableServiceNS extends Copyrighted {
      * @see #unsetVersion()
      * @see #setVersion(long)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getApplicableServiceNS_Version()
-     * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.UnsignedInt" required="true"
+     * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.UnsignedInt"
      *        extendedMetaData="kind='attribute' name='version'"
      * @generated
      */

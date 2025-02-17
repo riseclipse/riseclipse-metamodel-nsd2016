@@ -109,7 +109,7 @@ public interface DataObject
      * @see #unsetTransient()
      * @see #setTransient(boolean)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataObject_Transient()
-     * @model default="false" unsettable="true" required="true"
+     * @model default="false" unsettable="true"
      *        extendedMetaData="kind='attribute' name='transient'"
      * @generated
      */
