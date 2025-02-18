@@ -845,6 +845,11 @@
         <details key="documentation" value="The type of the data attribute is a constructed (composed) one."/>
       </eAnnotations>
     </eLiterals>
+    <eLiterals name="SCSM" value="3">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The type of the data attribute is defined by an SCSM ServiceTypeRealization."/>
+      </eAnnotations>
+    </eLiterals>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="DefinedAttributeTypeKindObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">

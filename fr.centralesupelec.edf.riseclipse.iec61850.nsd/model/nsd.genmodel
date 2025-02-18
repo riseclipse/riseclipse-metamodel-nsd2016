@@ -80,6 +80,7 @@
       <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//DefinedAttributeTypeKind/BASIC"/>
       <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//DefinedAttributeTypeKind/ENUMERATED"/>
       <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//DefinedAttributeTypeKind/CONSTRUCTED"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//DefinedAttributeTypeKind/SCSM"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="nsd.ecore#//LicenseKind">
       <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//LicenseKind/Standard"/>

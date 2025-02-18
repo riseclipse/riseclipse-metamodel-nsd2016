@@ -6901,6 +6901,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         addEEnumLiteral( definedAttributeTypeKindEEnum, DefinedAttributeTypeKind.BASIC );
         addEEnumLiteral( definedAttributeTypeKindEEnum, DefinedAttributeTypeKind.ENUMERATED );
         addEEnumLiteral( definedAttributeTypeKindEEnum, DefinedAttributeTypeKind.CONSTRUCTED );
+        addEEnumLiteral( definedAttributeTypeKindEEnum, DefinedAttributeTypeKind.SCSM );
 
         initEEnum( licenseKindEEnum, LicenseKind.class, "LicenseKind" );
         addEEnumLiteral( licenseKindEEnum, LicenseKind.STANDARD );

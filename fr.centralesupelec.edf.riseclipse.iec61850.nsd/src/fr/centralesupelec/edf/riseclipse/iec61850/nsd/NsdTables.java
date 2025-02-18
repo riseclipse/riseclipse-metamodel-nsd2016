@@ -6553,10 +6553,12 @@ public class NsdTables extends AbstractTables
 		public static final EcoreExecutorEnumerationLiteral _DefinedAttributeTypeKind__BASIC = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.DEFINED_ATTRIBUTE_TYPE_KIND.getEEnumLiteral("BASIC"), Types._DefinedAttributeTypeKind, 0);
 		public static final EcoreExecutorEnumerationLiteral _DefinedAttributeTypeKind__ENUMERATED = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.DEFINED_ATTRIBUTE_TYPE_KIND.getEEnumLiteral("ENUMERATED"), Types._DefinedAttributeTypeKind, 1);
 		public static final EcoreExecutorEnumerationLiteral _DefinedAttributeTypeKind__CONSTRUCTED = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.DEFINED_ATTRIBUTE_TYPE_KIND.getEEnumLiteral("CONSTRUCTED"), Types._DefinedAttributeTypeKind, 2);
+		public static final EcoreExecutorEnumerationLiteral _DefinedAttributeTypeKind__SCSM = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.DEFINED_ATTRIBUTE_TYPE_KIND.getEEnumLiteral("SCSM"), Types._DefinedAttributeTypeKind, 3);
 		private static final EcoreExecutorEnumerationLiteral /*@NonNull*/ [] _DefinedAttributeTypeKind = {
 			_DefinedAttributeTypeKind__BASIC,
 			_DefinedAttributeTypeKind__ENUMERATED,
-			_DefinedAttributeTypeKind__CONSTRUCTED
+			_DefinedAttributeTypeKind__CONSTRUCTED,
+			_DefinedAttributeTypeKind__SCSM
 		};
 
 		public static final EcoreExecutorEnumerationLiteral _LicenseKind__Standard = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.LICENSE_KIND.getEEnumLiteral("Standard"), Types._LicenseKind, 0);
