@@ -57,12 +57,13 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AppliesToTypeImpl#getRelease <em>Release</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AppliesToTypeImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AppliesToTypeImpl#getId <em>Id</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AppliesToTypeImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AppliesToTypeImpl#getRevision <em>Revision</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AppliesToTypeImpl#getRelease <em>Release</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AppliesToTypeImpl#getPublicationStage <em>Publication Stage</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AppliesToTypeImpl#getNamespaceType <em>Namespace Type</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AppliesToTypeImpl#isDeprecated <em>Deprecated</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AppliesToTypeImpl#getParentServiceNsUsage <em>Parent Service Ns Usage</em>}</li>
  * </ul>
  *
@@ -70,33 +71,33 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage;
  */
 public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
     /**
-     * The default value of the '{@link #getRelease() <em>Release</em>}' attribute.
+     * The default value of the '{@link #getId() <em>Id</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getRelease()
+     * @see #getId()
      * @generated
      * @ordered
      */
-    protected static final Integer RELEASE_EDEFAULT = Integer.valueOf( 1 );
+    protected static final String ID_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getRelease() <em>Release</em>}' attribute.
+     * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getRelease()
+     * @see #getId()
      * @generated
      * @ordered
      */
-    protected Integer release = RELEASE_EDEFAULT;
+    protected String id = ID_EDEFAULT;
 
     /**
-     * This is true if the Release attribute has been set.
+     * This is true if the Id attribute has been set.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    protected boolean releaseESet;
+    protected boolean idESet;
 
     /**
      * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
@@ -128,35 +129,6 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
     protected boolean versionESet;
 
     /**
-     * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getId()
-     * @generated
-     * @ordered
-     */
-    protected static final String ID_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getId()
-     * @generated
-     * @ordered
-     */
-    protected String id = ID_EDEFAULT;
-
-    /**
-     * This is true if the Id attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean idESet;
-
-    /**
      * The default value of the '{@link #getRevision() <em>Revision</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -184,6 +156,35 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
      * @ordered
      */
     protected boolean revisionESet;
+
+    /**
+     * The default value of the '{@link #getRelease() <em>Release</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRelease()
+     * @generated
+     * @ordered
+     */
+    protected static final int RELEASE_EDEFAULT = 1;
+
+    /**
+     * The cached value of the '{@link #getRelease() <em>Release</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRelease()
+     * @generated
+     * @ordered
+     */
+    protected int release = RELEASE_EDEFAULT;
+
+    /**
+     * This is true if the Release attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean releaseESet;
 
     /**
      * The default value of the '{@link #getPublicationStage() <em>Publication Stage</em>}' attribute.
@@ -244,6 +245,35 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
     protected boolean namespaceTypeESet;
 
     /**
+     * The default value of the '{@link #isDeprecated() <em>Deprecated</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isDeprecated()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean DEPRECATED_EDEFAULT = false;
+
+    /**
+     * The cached value of the '{@link #isDeprecated() <em>Deprecated</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isDeprecated()
+     * @generated
+     * @ordered
+     */
+    protected boolean deprecated = DEPRECATED_EDEFAULT;
+
+    /**
+     * This is true if the Deprecated attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean deprecatedESet;
+
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -268,7 +298,7 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
      * @generated
      */
     @Override
-    public Integer getRelease() {
+    public int getRelease() {
         return release;
     }
 
@@ -278,8 +308,8 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
      * @generated
      */
     @Override
-    public void setRelease( Integer newRelease ) {
-        Integer oldRelease = release;
+    public void setRelease( int newRelease ) {
+        int oldRelease = release;
         release = newRelease;
         boolean oldReleaseESet = releaseESet;
         releaseESet = true;
@@ -296,7 +326,7 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
      */
     @Override
     public void unsetRelease() {
-        Integer oldRelease = release;
+        int oldRelease = release;
         boolean oldReleaseESet = releaseESet;
         release = RELEASE_EDEFAULT;
         releaseESet = false;
@@ -592,6 +622,60 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
      * @generated
      */
     @Override
+    public boolean isDeprecated() {
+        return deprecated;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setDeprecated( boolean newDeprecated ) {
+        boolean oldDeprecated = deprecated;
+        deprecated = newDeprecated;
+        boolean oldDeprecatedESet = deprecatedESet;
+        deprecatedESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.APPLIES_TO_TYPE__DEPRECATED,
+                    oldDeprecated, deprecated, !oldDeprecatedESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetDeprecated() {
+        boolean oldDeprecated = deprecated;
+        boolean oldDeprecatedESet = deprecatedESet;
+        deprecated = DEPRECATED_EDEFAULT;
+        deprecatedESet = false;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.APPLIES_TO_TYPE__DEPRECATED,
+                    oldDeprecated, DEPRECATED_EDEFAULT, oldDeprecatedESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetDeprecated() {
+        return deprecatedESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public ServiceNsUsage getParentServiceNsUsage() {
         if( eContainerFeatureID() != NsdPackage.APPLIES_TO_TYPE__PARENT_SERVICE_NS_USAGE ) {
             return null;
@@ -827,18 +911,20 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
     @Override
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
-        case NsdPackage.APPLIES_TO_TYPE__RELEASE:
-            return getRelease();
-        case NsdPackage.APPLIES_TO_TYPE__VERSION:
-            return getVersion();
         case NsdPackage.APPLIES_TO_TYPE__ID:
             return getId();
+        case NsdPackage.APPLIES_TO_TYPE__VERSION:
+            return getVersion();
         case NsdPackage.APPLIES_TO_TYPE__REVISION:
             return getRevision();
+        case NsdPackage.APPLIES_TO_TYPE__RELEASE:
+            return getRelease();
         case NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE:
             return getPublicationStage();
         case NsdPackage.APPLIES_TO_TYPE__NAMESPACE_TYPE:
             return getNamespaceType();
+        case NsdPackage.APPLIES_TO_TYPE__DEPRECATED:
+            return isDeprecated();
         case NsdPackage.APPLIES_TO_TYPE__PARENT_SERVICE_NS_USAGE:
             return getParentServiceNsUsage();
         }
@@ -853,23 +939,26 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
     @Override
     public void eSet( int featureID, Object newValue ) {
         switch( featureID ) {
-        case NsdPackage.APPLIES_TO_TYPE__RELEASE:
-            setRelease( ( Integer ) newValue );
+        case NsdPackage.APPLIES_TO_TYPE__ID:
+            setId( ( String ) newValue );
             return;
         case NsdPackage.APPLIES_TO_TYPE__VERSION:
             setVersion( ( Integer ) newValue );
             return;
-        case NsdPackage.APPLIES_TO_TYPE__ID:
-            setId( ( String ) newValue );
-            return;
         case NsdPackage.APPLIES_TO_TYPE__REVISION:
             setRevision( ( String ) newValue );
+            return;
+        case NsdPackage.APPLIES_TO_TYPE__RELEASE:
+            setRelease( ( Integer ) newValue );
             return;
         case NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE:
             setPublicationStage( ( PubStage ) newValue );
             return;
         case NsdPackage.APPLIES_TO_TYPE__NAMESPACE_TYPE:
             setNamespaceType( ( NSType ) newValue );
+            return;
+        case NsdPackage.APPLIES_TO_TYPE__DEPRECATED:
+            setDeprecated( ( Boolean ) newValue );
             return;
         case NsdPackage.APPLIES_TO_TYPE__PARENT_SERVICE_NS_USAGE:
             setParentServiceNsUsage( ( ServiceNsUsage ) newValue );
@@ -886,23 +975,26 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
     @Override
     public void eUnset( int featureID ) {
         switch( featureID ) {
-        case NsdPackage.APPLIES_TO_TYPE__RELEASE:
-            unsetRelease();
+        case NsdPackage.APPLIES_TO_TYPE__ID:
+            unsetId();
             return;
         case NsdPackage.APPLIES_TO_TYPE__VERSION:
             unsetVersion();
             return;
-        case NsdPackage.APPLIES_TO_TYPE__ID:
-            unsetId();
-            return;
         case NsdPackage.APPLIES_TO_TYPE__REVISION:
             unsetRevision();
+            return;
+        case NsdPackage.APPLIES_TO_TYPE__RELEASE:
+            unsetRelease();
             return;
         case NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE:
             unsetPublicationStage();
             return;
         case NsdPackage.APPLIES_TO_TYPE__NAMESPACE_TYPE:
             unsetNamespaceType();
+            return;
+        case NsdPackage.APPLIES_TO_TYPE__DEPRECATED:
+            unsetDeprecated();
             return;
         case NsdPackage.APPLIES_TO_TYPE__PARENT_SERVICE_NS_USAGE:
             setParentServiceNsUsage( ( ServiceNsUsage ) null );
@@ -919,18 +1011,20 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
     @Override
     public boolean eIsSet( int featureID ) {
         switch( featureID ) {
-        case NsdPackage.APPLIES_TO_TYPE__RELEASE:
-            return isSetRelease();
-        case NsdPackage.APPLIES_TO_TYPE__VERSION:
-            return isSetVersion();
         case NsdPackage.APPLIES_TO_TYPE__ID:
             return isSetId();
+        case NsdPackage.APPLIES_TO_TYPE__VERSION:
+            return isSetVersion();
         case NsdPackage.APPLIES_TO_TYPE__REVISION:
             return isSetRevision();
+        case NsdPackage.APPLIES_TO_TYPE__RELEASE:
+            return isSetRelease();
         case NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE:
             return isSetPublicationStage();
         case NsdPackage.APPLIES_TO_TYPE__NAMESPACE_TYPE:
             return isSetNamespaceType();
+        case NsdPackage.APPLIES_TO_TYPE__DEPRECATED:
+            return isSetDeprecated();
         case NsdPackage.APPLIES_TO_TYPE__PARENT_SERVICE_NS_USAGE:
             return getParentServiceNsUsage() != null;
         }
@@ -946,18 +1040,20 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
     public int eBaseStructuralFeatureID( int derivedFeatureID, Class< ? > baseClass ) {
         if( baseClass == AgNSIdentification.class ) {
             switch( derivedFeatureID ) {
-            case NsdPackage.APPLIES_TO_TYPE__RELEASE:
-                return NsdPackage.AG_NS_IDENTIFICATION__RELEASE;
-            case NsdPackage.APPLIES_TO_TYPE__VERSION:
-                return NsdPackage.AG_NS_IDENTIFICATION__VERSION;
             case NsdPackage.APPLIES_TO_TYPE__ID:
                 return NsdPackage.AG_NS_IDENTIFICATION__ID;
+            case NsdPackage.APPLIES_TO_TYPE__VERSION:
+                return NsdPackage.AG_NS_IDENTIFICATION__VERSION;
             case NsdPackage.APPLIES_TO_TYPE__REVISION:
                 return NsdPackage.AG_NS_IDENTIFICATION__REVISION;
+            case NsdPackage.APPLIES_TO_TYPE__RELEASE:
+                return NsdPackage.AG_NS_IDENTIFICATION__RELEASE;
             case NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE:
                 return NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE;
             case NsdPackage.APPLIES_TO_TYPE__NAMESPACE_TYPE:
                 return NsdPackage.AG_NS_IDENTIFICATION__NAMESPACE_TYPE;
+            case NsdPackage.APPLIES_TO_TYPE__DEPRECATED:
+                return NsdPackage.AG_NS_IDENTIFICATION__DEPRECATED;
             default:
                 return -1;
             }
@@ -974,18 +1070,20 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
     public int eDerivedStructuralFeatureID( int baseFeatureID, Class< ? > baseClass ) {
         if( baseClass == AgNSIdentification.class ) {
             switch( baseFeatureID ) {
-            case NsdPackage.AG_NS_IDENTIFICATION__RELEASE:
-                return NsdPackage.APPLIES_TO_TYPE__RELEASE;
-            case NsdPackage.AG_NS_IDENTIFICATION__VERSION:
-                return NsdPackage.APPLIES_TO_TYPE__VERSION;
             case NsdPackage.AG_NS_IDENTIFICATION__ID:
                 return NsdPackage.APPLIES_TO_TYPE__ID;
+            case NsdPackage.AG_NS_IDENTIFICATION__VERSION:
+                return NsdPackage.APPLIES_TO_TYPE__VERSION;
             case NsdPackage.AG_NS_IDENTIFICATION__REVISION:
                 return NsdPackage.APPLIES_TO_TYPE__REVISION;
+            case NsdPackage.AG_NS_IDENTIFICATION__RELEASE:
+                return NsdPackage.APPLIES_TO_TYPE__RELEASE;
             case NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE:
                 return NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE;
             case NsdPackage.AG_NS_IDENTIFICATION__NAMESPACE_TYPE:
                 return NsdPackage.APPLIES_TO_TYPE__NAMESPACE_TYPE;
+            case NsdPackage.AG_NS_IDENTIFICATION__DEPRECATED:
+                return NsdPackage.APPLIES_TO_TYPE__DEPRECATED;
             default:
                 return -1;
             }
@@ -1044,9 +1142,9 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
         }
 
         StringBuilder result = new StringBuilder( super.toString() );
-        result.append( " (release: " );
-        if( releaseESet ) {
-            result.append( release );
+        result.append( " (id: " );
+        if( idESet ) {
+            result.append( id );
         }
         else {
             result.append( "<unset>" );
@@ -1058,16 +1156,16 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
         else {
             result.append( "<unset>" );
         }
-        result.append( ", id: " );
-        if( idESet ) {
-            result.append( id );
+        result.append( ", revision: " );
+        if( revisionESet ) {
+            result.append( revision );
         }
         else {
             result.append( "<unset>" );
         }
-        result.append( ", revision: " );
-        if( revisionESet ) {
-            result.append( revision );
+        result.append( ", release: " );
+        if( releaseESet ) {
+            result.append( release );
         }
         else {
             result.append( "<unset>" );
@@ -1082,6 +1180,13 @@ public class AppliesToTypeImpl extends NsdObjectImpl implements AppliesToType {
         result.append( ", namespaceType: " );
         if( namespaceTypeESet ) {
             result.append( namespaceType );
+        }
+        else {
+            result.append( "<unset>" );
+        }
+        result.append( ", deprecated: " );
+        if( deprecatedESet ) {
+            result.append( deprecated );
         }
         else {
             result.append( "<unset>" );

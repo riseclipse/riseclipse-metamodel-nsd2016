@@ -51,13 +51,13 @@ public interface Literal extends DocumentedClass {
      * @return the value of the '<em>Literal Val</em>' attribute.
      * @see #isSetLiteralVal()
      * @see #unsetLiteralVal()
-     * @see #setLiteralVal(int)
+     * @see #setLiteralVal(Integer)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getLiteral_LiteralVal()
-     * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Int"
+     * @model unsettable="true"
      *        extendedMetaData="kind='attribute' name='literalVal'"
      * @generated
      */
-    int getLiteralVal();
+    Integer getLiteralVal();
 
     /**
      * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal#getLiteralVal <em>Literal Val</em>}' attribute.
@@ -69,7 +69,7 @@ public interface Literal extends DocumentedClass {
      * @see #getLiteralVal()
      * @generated
      */
-    void setLiteralVal( int value );
+    void setLiteralVal( Integer value );
 
     /**
      * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal#getLiteralVal <em>Literal Val</em>}' attribute.
@@ -77,7 +77,7 @@ public interface Literal extends DocumentedClass {
      * <!-- end-user-doc -->
      * @see #isSetLiteralVal()
      * @see #getLiteralVal()
-     * @see #setLiteralVal(int)
+     * @see #setLiteralVal(Integer)
      * @generated
      */
     void unsetLiteralVal();
@@ -89,7 +89,7 @@ public interface Literal extends DocumentedClass {
      * @return whether the value of the '<em>Literal Val</em>' attribute is set.
      * @see #unsetLiteralVal()
      * @see #getLiteralVal()
-     * @see #setLiteralVal(int)
+     * @see #setLiteralVal(Integer)
      * @generated
      */
     boolean isSetLiteralVal();

@@ -71,7 +71,7 @@ public class LiteralImpl extends DocumentedClassImpl implements Literal {
      * @generated
      * @ordered
      */
-    protected static final int LITERAL_VAL_EDEFAULT = 0;
+    protected static final Integer LITERAL_VAL_EDEFAULT = null;
 
     /**
      * The cached value of the '{@link #getLiteralVal() <em>Literal Val</em>}' attribute.
@@ -81,7 +81,7 @@ public class LiteralImpl extends DocumentedClassImpl implements Literal {
      * @generated
      * @ordered
      */
-    protected int literalVal = LITERAL_VAL_EDEFAULT;
+    protected Integer literalVal = LITERAL_VAL_EDEFAULT;
 
     /**
      * This is true if the Literal Val attribute has been set.
@@ -146,7 +146,7 @@ public class LiteralImpl extends DocumentedClassImpl implements Literal {
      * @generated
      */
     @Override
-    public int getLiteralVal() {
+    public Integer getLiteralVal() {
         return literalVal;
     }
 
@@ -156,14 +156,15 @@ public class LiteralImpl extends DocumentedClassImpl implements Literal {
      * @generated
      */
     @Override
-    public void setLiteralVal( int newLiteralVal ) {
-        int oldLiteralVal = literalVal;
+    public void setLiteralVal( Integer newLiteralVal ) {
+        Integer oldLiteralVal = literalVal;
         literalVal = newLiteralVal;
         boolean oldLiteralValESet = literalValESet;
         literalValESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.LITERAL__LITERAL_VAL, oldLiteralVal,
                     literalVal, !oldLiteralValESet ) );
+        }
     }
 
     /**
@@ -173,13 +174,14 @@ public class LiteralImpl extends DocumentedClassImpl implements Literal {
      */
     @Override
     public void unsetLiteralVal() {
-        int oldLiteralVal = literalVal;
+        Integer oldLiteralVal = literalVal;
         boolean oldLiteralValESet = literalValESet;
         literalVal = LITERAL_VAL_EDEFAULT;
         literalValESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.LITERAL__LITERAL_VAL, oldLiteralVal,
                     LITERAL_VAL_EDEFAULT, oldLiteralValESet ) );
+        }
     }
 
     /**
@@ -213,9 +215,10 @@ public class LiteralImpl extends DocumentedClassImpl implements Literal {
         name = newName;
         boolean oldNameESet = nameESet;
         nameESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.LITERAL__NAME, oldName, name,
                     !oldNameESet ) );
+        }
     }
 
     /**
@@ -229,9 +232,10 @@ public class LiteralImpl extends DocumentedClassImpl implements Literal {
         boolean oldNameESet = nameESet;
         name = NAME_EDEFAULT;
         nameESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.LITERAL__NAME, oldName, NAME_EDEFAULT,
                     oldNameESet ) );
+        }
     }
 
     /**
@@ -251,7 +255,9 @@ public class LiteralImpl extends DocumentedClassImpl implements Literal {
      */
     @Override
     public Enumeration getParentEnumeration() {
-        if( eContainerFeatureID() != NsdPackage.LITERAL__PARENT_ENUMERATION ) return null;
+        if( eContainerFeatureID() != NsdPackage.LITERAL__PARENT_ENUMERATION ) {
+            return null;
+        }
         return ( Enumeration ) eInternalContainer();
     }
 
@@ -276,20 +282,26 @@ public class LiteralImpl extends DocumentedClassImpl implements Literal {
         if( newParentEnumeration != eInternalContainer()
                 || ( eContainerFeatureID() != NsdPackage.LITERAL__PARENT_ENUMERATION
                         && newParentEnumeration != null ) ) {
-            if( EcoreUtil.isAncestor( this, newParentEnumeration ) )
+            if( EcoreUtil.isAncestor( this, newParentEnumeration ) ) {
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            }
             NotificationChain msgs = null;
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newParentEnumeration != null )
+            }
+            if( newParentEnumeration != null ) {
                 msgs = ( ( InternalEObject ) newParentEnumeration ).eInverseAdd( this, NsdPackage.ENUMERATION__LITERAL,
                         Enumeration.class, msgs );
+            }
             msgs = basicSetParentEnumeration( newParentEnumeration, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
-        else if( eNotificationRequired() )
+        else if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.LITERAL__PARENT_ENUMERATION,
                     newParentEnumeration, newParentEnumeration ) );
+        }
     }
 
     /**
@@ -397,9 +409,22 @@ public class LiteralImpl extends DocumentedClassImpl implements Literal {
                 IF_le = true;
             }
             else {
+                final /*@NonInvalid*/ Integer literalVal = this.getLiteralVal();
+                final /*@NonInvalid*/ IntegerValue BOXED_literalVal = literalVal == null ? null
+                        : ValueUtil.integerValueOf( literalVal );
+                final /*@NonInvalid*/ boolean status = BOXED_literalVal != null;
+                /*@NonInvalid*/ Object IF_status;
+                if( status ) {
+                    IF_status = ValueUtil.TRUE_VALUE;
+                }
+                else {
+                    final /*@NonInvalid*/ TupleValue TUP_ = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                            NsdTables.STR_The_32_literalVal_32_attribute_32_is_32_required, status );
+                    IF_status = TUP_;
+                }
                 final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
                         .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
-                                context, ( Object ) null, severity_0, ValueUtil.TRUE_VALUE, NsdTables.INT_0 )
+                                context, ( Object ) null, severity_0, IF_status, NsdTables.INT_0 )
                         .booleanValue();
                 IF_le = logDiagnostic;
             }
@@ -419,8 +444,9 @@ public class LiteralImpl extends DocumentedClassImpl implements Literal {
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.LITERAL__PARENT_ENUMERATION:
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
+            }
             return basicSetParentEnumeration( ( Enumeration ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
@@ -559,19 +585,25 @@ public class LiteralImpl extends DocumentedClassImpl implements Literal {
      */
     @Override
     public String toString() {
-        if( eIsProxy() ) return super.toString();
+        if( eIsProxy() ) {
+            return super.toString();
+        }
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (literalVal: " );
-        if( literalValESet )
+        if( literalValESet ) {
             result.append( literalVal );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", name: " );
-        if( nameESet )
+        if( nameESet ) {
             result.append( name );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ')' );
         return result.toString();
     }

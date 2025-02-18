@@ -61,12 +61,13 @@ public class AppliesToTypeItemProvider extends NsdObjectItemProvider {
         if( itemPropertyDescriptors == null ) {
             super.getPropertyDescriptors( object );
 
-            addReleasePropertyDescriptor( object );
-            addVersionPropertyDescriptor( object );
             addIdPropertyDescriptor( object );
+            addVersionPropertyDescriptor( object );
             addRevisionPropertyDescriptor( object );
+            addReleasePropertyDescriptor( object );
             addPublicationStagePropertyDescriptor( object );
             addNamespaceTypePropertyDescriptor( object );
+            addDeprecatedPropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -88,7 +89,7 @@ public class AppliesToTypeItemProvider extends NsdObjectItemProvider {
                         true,
                         false,
                         false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
                         null,
                         null ) );
     }
@@ -204,6 +205,28 @@ public class AppliesToTypeItemProvider extends NsdObjectItemProvider {
     }
 
     /**
+     * This adds a property descriptor for the Deprecated feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addDeprecatedPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_AgNSIdentification_deprecated_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgNSIdentification_deprecated_feature",
+                                "_UI_AgNSIdentification_type" ),
+                        NsdPackage.Literals.AG_NS_IDENTIFICATION__DEPRECATED,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
      * This returns AppliesToType.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -239,12 +262,13 @@ public class AppliesToTypeItemProvider extends NsdObjectItemProvider {
         updateChildren( notification );
 
         switch( notification.getFeatureID( AppliesToType.class ) ) {
-        case NsdPackage.APPLIES_TO_TYPE__RELEASE:
-        case NsdPackage.APPLIES_TO_TYPE__VERSION:
         case NsdPackage.APPLIES_TO_TYPE__ID:
+        case NsdPackage.APPLIES_TO_TYPE__VERSION:
         case NsdPackage.APPLIES_TO_TYPE__REVISION:
+        case NsdPackage.APPLIES_TO_TYPE__RELEASE:
         case NsdPackage.APPLIES_TO_TYPE__PUBLICATION_STAGE:
         case NsdPackage.APPLIES_TO_TYPE__NAMESPACE_TYPE:
+        case NsdPackage.APPLIES_TO_TYPE__DEPRECATED:
             fireNotifyChanged( new ViewerNotification( notification, notification.getNotifier(), false, true ) );
             return;
         }

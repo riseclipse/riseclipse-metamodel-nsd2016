@@ -71,17 +71,19 @@ import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getRelease <em>Release</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getId <em>Id</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getRevision <em>Revision</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getRelease <em>Release</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getPublicationStage <em>Publication Stage</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getNamespaceType <em>Namespace Type</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#isDeprecated <em>Deprecated</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getNsdVersion <em>Nsd Version</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getNsdRevision <em>Nsd Revision</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getNsdRelease <em>Nsd Release</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getUmlDate <em>Uml Date</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getUmlVersion <em>Uml Version</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getAppVersion <em>App Version</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getDescID <em>Desc ID</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getRefersToDoc <em>Refers To Doc</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getChanges <em>Changes</em>}</li>
@@ -97,33 +99,33 @@ import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
  */
 public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
     /**
-     * The default value of the '{@link #getRelease() <em>Release</em>}' attribute.
+     * The default value of the '{@link #getId() <em>Id</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getRelease()
+     * @see #getId()
      * @generated
      * @ordered
      */
-    protected static final Integer RELEASE_EDEFAULT = Integer.valueOf( 1 );
+    protected static final String ID_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getRelease() <em>Release</em>}' attribute.
+     * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getRelease()
+     * @see #getId()
      * @generated
      * @ordered
      */
-    protected Integer release = RELEASE_EDEFAULT;
+    protected String id = ID_EDEFAULT;
 
     /**
-     * This is true if the Release attribute has been set.
+     * This is true if the Id attribute has been set.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    protected boolean releaseESet;
+    protected boolean idESet;
 
     /**
      * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
@@ -155,35 +157,6 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
     protected boolean versionESet;
 
     /**
-     * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getId()
-     * @generated
-     * @ordered
-     */
-    protected static final String ID_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getId()
-     * @generated
-     * @ordered
-     */
-    protected String id = ID_EDEFAULT;
-
-    /**
-     * This is true if the Id attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean idESet;
-
-    /**
      * The default value of the '{@link #getRevision() <em>Revision</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -211,6 +184,35 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
      * @ordered
      */
     protected boolean revisionESet;
+
+    /**
+     * The default value of the '{@link #getRelease() <em>Release</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRelease()
+     * @generated
+     * @ordered
+     */
+    protected static final int RELEASE_EDEFAULT = 1;
+
+    /**
+     * The cached value of the '{@link #getRelease() <em>Release</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRelease()
+     * @generated
+     * @ordered
+     */
+    protected int release = RELEASE_EDEFAULT;
+
+    /**
+     * This is true if the Release attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean releaseESet;
 
     /**
      * The default value of the '{@link #getPublicationStage() <em>Publication Stage</em>}' attribute.
@@ -269,6 +271,35 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
      * @ordered
      */
     protected boolean namespaceTypeESet;
+
+    /**
+     * The default value of the '{@link #isDeprecated() <em>Deprecated</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isDeprecated()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean DEPRECATED_EDEFAULT = false;
+
+    /**
+     * The cached value of the '{@link #isDeprecated() <em>Deprecated</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isDeprecated()
+     * @generated
+     * @ordered
+     */
+    protected boolean deprecated = DEPRECATED_EDEFAULT;
+
+    /**
+     * This is true if the Deprecated attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean deprecatedESet;
 
     /**
      * The default value of the '{@link #getNsdVersion() <em>Nsd Version</em>}' attribute.
@@ -414,6 +445,35 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
      * @ordered
      */
     protected boolean umlVersionESet;
+
+    /**
+     * The default value of the '{@link #getAppVersion() <em>App Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getAppVersion()
+     * @generated
+     * @ordered
+     */
+    protected static final String APP_VERSION_EDEFAULT = "\"\"";
+
+    /**
+     * The cached value of the '{@link #getAppVersion() <em>App Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getAppVersion()
+     * @generated
+     * @ordered
+     */
+    protected String appVersion = APP_VERSION_EDEFAULT;
+
+    /**
+     * This is true if the App Version attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean appVersionESet;
 
     /**
      * The default value of the '{@link #getDescID() <em>Desc ID</em>}' attribute.
@@ -1978,6 +2038,60 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
      * @generated
      */
     @Override
+    public boolean isDeprecated() {
+        return deprecated;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setDeprecated( boolean newDeprecated ) {
+        boolean oldDeprecated = deprecated;
+        deprecated = newDeprecated;
+        boolean oldDeprecatedESet = deprecatedESet;
+        deprecatedESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_NS__DEPRECATED, oldDeprecated,
+                    deprecated, !oldDeprecatedESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetDeprecated() {
+        boolean oldDeprecated = deprecated;
+        boolean oldDeprecatedESet = deprecatedESet;
+        deprecated = DEPRECATED_EDEFAULT;
+        deprecatedESet = false;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_NS__DEPRECATED, oldDeprecated,
+                    DEPRECATED_EDEFAULT, oldDeprecatedESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetDeprecated() {
+        return deprecatedESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public Integer getNsdVersion() {
         return nsdVersion;
     }
@@ -2140,7 +2254,7 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
      * @generated
      */
     @Override
-    public Integer getRelease() {
+    public int getRelease() {
         return release;
     }
 
@@ -2150,8 +2264,8 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
      * @generated
      */
     @Override
-    public void setRelease( Integer newRelease ) {
-        Integer oldRelease = release;
+    public void setRelease( int newRelease ) {
+        int oldRelease = release;
         release = newRelease;
         boolean oldReleaseESet = releaseESet;
         releaseESet = true;
@@ -2168,7 +2282,7 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
      */
     @Override
     public void unsetRelease() {
-        Integer oldRelease = release;
+        int oldRelease = release;
         boolean oldReleaseESet = releaseESet;
         release = RELEASE_EDEFAULT;
         releaseESet = false;
@@ -2356,6 +2470,60 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
      * @generated
      */
     @Override
+    public String getAppVersion() {
+        return appVersion;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setAppVersion( String newAppVersion ) {
+        String oldAppVersion = appVersion;
+        appVersion = newAppVersion;
+        boolean oldAppVersionESet = appVersionESet;
+        appVersionESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_NS__APP_VERSION, oldAppVersion,
+                    appVersion, !oldAppVersionESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetAppVersion() {
+        String oldAppVersion = appVersion;
+        boolean oldAppVersionESet = appVersionESet;
+        appVersion = APP_VERSION_EDEFAULT;
+        appVersionESet = false;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_NS__APP_VERSION, oldAppVersion,
+                    APP_VERSION_EDEFAULT, oldAppVersionESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetAppVersion() {
+        return appVersionESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.SERVICE_NS__REFERS_TO_DOC:
@@ -2500,18 +2668,20 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
     @Override
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
-        case NsdPackage.SERVICE_NS__RELEASE:
-            return getRelease();
-        case NsdPackage.SERVICE_NS__VERSION:
-            return getVersion();
         case NsdPackage.SERVICE_NS__ID:
             return getId();
+        case NsdPackage.SERVICE_NS__VERSION:
+            return getVersion();
         case NsdPackage.SERVICE_NS__REVISION:
             return getRevision();
+        case NsdPackage.SERVICE_NS__RELEASE:
+            return getRelease();
         case NsdPackage.SERVICE_NS__PUBLICATION_STAGE:
             return getPublicationStage();
         case NsdPackage.SERVICE_NS__NAMESPACE_TYPE:
             return getNamespaceType();
+        case NsdPackage.SERVICE_NS__DEPRECATED:
+            return isDeprecated();
         case NsdPackage.SERVICE_NS__NSD_VERSION:
             return getNsdVersion();
         case NsdPackage.SERVICE_NS__NSD_REVISION:
@@ -2522,6 +2692,8 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
             return getUmlDate();
         case NsdPackage.SERVICE_NS__UML_VERSION:
             return getUmlVersion();
+        case NsdPackage.SERVICE_NS__APP_VERSION:
+            return getAppVersion();
         case NsdPackage.SERVICE_NS__DESC_ID:
             return getDescID();
         case NsdPackage.SERVICE_NS__REFERS_TO_DOC:
@@ -2552,23 +2724,26 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
     @Override
     public void eSet( int featureID, Object newValue ) {
         switch( featureID ) {
-        case NsdPackage.SERVICE_NS__RELEASE:
-            setRelease( ( Integer ) newValue );
+        case NsdPackage.SERVICE_NS__ID:
+            setId( ( String ) newValue );
             return;
         case NsdPackage.SERVICE_NS__VERSION:
             setVersion( ( Integer ) newValue );
             return;
-        case NsdPackage.SERVICE_NS__ID:
-            setId( ( String ) newValue );
-            return;
         case NsdPackage.SERVICE_NS__REVISION:
             setRevision( ( String ) newValue );
+            return;
+        case NsdPackage.SERVICE_NS__RELEASE:
+            setRelease( ( Integer ) newValue );
             return;
         case NsdPackage.SERVICE_NS__PUBLICATION_STAGE:
             setPublicationStage( ( PubStage ) newValue );
             return;
         case NsdPackage.SERVICE_NS__NAMESPACE_TYPE:
             setNamespaceType( ( NSType ) newValue );
+            return;
+        case NsdPackage.SERVICE_NS__DEPRECATED:
+            setDeprecated( ( Boolean ) newValue );
             return;
         case NsdPackage.SERVICE_NS__NSD_VERSION:
             setNsdVersion( ( Integer ) newValue );
@@ -2584,6 +2759,9 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
             return;
         case NsdPackage.SERVICE_NS__UML_VERSION:
             setUmlVersion( ( String ) newValue );
+            return;
+        case NsdPackage.SERVICE_NS__APP_VERSION:
+            setAppVersion( ( String ) newValue );
             return;
         case NsdPackage.SERVICE_NS__DESC_ID:
             setDescID( ( String ) newValue );
@@ -2624,23 +2802,26 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
     @Override
     public void eUnset( int featureID ) {
         switch( featureID ) {
-        case NsdPackage.SERVICE_NS__RELEASE:
-            unsetRelease();
+        case NsdPackage.SERVICE_NS__ID:
+            unsetId();
             return;
         case NsdPackage.SERVICE_NS__VERSION:
             unsetVersion();
             return;
-        case NsdPackage.SERVICE_NS__ID:
-            unsetId();
-            return;
         case NsdPackage.SERVICE_NS__REVISION:
             unsetRevision();
+            return;
+        case NsdPackage.SERVICE_NS__RELEASE:
+            unsetRelease();
             return;
         case NsdPackage.SERVICE_NS__PUBLICATION_STAGE:
             unsetPublicationStage();
             return;
         case NsdPackage.SERVICE_NS__NAMESPACE_TYPE:
             unsetNamespaceType();
+            return;
+        case NsdPackage.SERVICE_NS__DEPRECATED:
+            unsetDeprecated();
             return;
         case NsdPackage.SERVICE_NS__NSD_VERSION:
             unsetNsdVersion();
@@ -2656,6 +2837,9 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
             return;
         case NsdPackage.SERVICE_NS__UML_VERSION:
             unsetUmlVersion();
+            return;
+        case NsdPackage.SERVICE_NS__APP_VERSION:
+            unsetAppVersion();
             return;
         case NsdPackage.SERVICE_NS__DESC_ID:
             unsetDescID();
@@ -2696,18 +2880,20 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
     @Override
     public boolean eIsSet( int featureID ) {
         switch( featureID ) {
-        case NsdPackage.SERVICE_NS__RELEASE:
-            return isSetRelease();
-        case NsdPackage.SERVICE_NS__VERSION:
-            return isSetVersion();
         case NsdPackage.SERVICE_NS__ID:
             return isSetId();
+        case NsdPackage.SERVICE_NS__VERSION:
+            return isSetVersion();
         case NsdPackage.SERVICE_NS__REVISION:
             return isSetRevision();
+        case NsdPackage.SERVICE_NS__RELEASE:
+            return isSetRelease();
         case NsdPackage.SERVICE_NS__PUBLICATION_STAGE:
             return isSetPublicationStage();
         case NsdPackage.SERVICE_NS__NAMESPACE_TYPE:
             return isSetNamespaceType();
+        case NsdPackage.SERVICE_NS__DEPRECATED:
+            return isSetDeprecated();
         case NsdPackage.SERVICE_NS__NSD_VERSION:
             return isSetNsdVersion();
         case NsdPackage.SERVICE_NS__NSD_REVISION:
@@ -2718,6 +2904,8 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
             return isSetUmlDate();
         case NsdPackage.SERVICE_NS__UML_VERSION:
             return isSetUmlVersion();
+        case NsdPackage.SERVICE_NS__APP_VERSION:
+            return isSetAppVersion();
         case NsdPackage.SERVICE_NS__DESC_ID:
             return isSetDescID();
         case NsdPackage.SERVICE_NS__REFERS_TO_DOC:
@@ -2749,18 +2937,20 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
     public int eBaseStructuralFeatureID( int derivedFeatureID, Class< ? > baseClass ) {
         if( baseClass == AgNSIdentification.class ) {
             switch( derivedFeatureID ) {
-            case NsdPackage.SERVICE_NS__RELEASE:
-                return NsdPackage.AG_NS_IDENTIFICATION__RELEASE;
-            case NsdPackage.SERVICE_NS__VERSION:
-                return NsdPackage.AG_NS_IDENTIFICATION__VERSION;
             case NsdPackage.SERVICE_NS__ID:
                 return NsdPackage.AG_NS_IDENTIFICATION__ID;
+            case NsdPackage.SERVICE_NS__VERSION:
+                return NsdPackage.AG_NS_IDENTIFICATION__VERSION;
             case NsdPackage.SERVICE_NS__REVISION:
                 return NsdPackage.AG_NS_IDENTIFICATION__REVISION;
+            case NsdPackage.SERVICE_NS__RELEASE:
+                return NsdPackage.AG_NS_IDENTIFICATION__RELEASE;
             case NsdPackage.SERVICE_NS__PUBLICATION_STAGE:
                 return NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE;
             case NsdPackage.SERVICE_NS__NAMESPACE_TYPE:
                 return NsdPackage.AG_NS_IDENTIFICATION__NAMESPACE_TYPE;
+            case NsdPackage.SERVICE_NS__DEPRECATED:
+                return NsdPackage.AG_NS_IDENTIFICATION__DEPRECATED;
             default:
                 return -1;
             }
@@ -2783,6 +2973,8 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
                 return NsdPackage.AG_UML__UML_DATE;
             case NsdPackage.SERVICE_NS__UML_VERSION:
                 return NsdPackage.AG_UML__UML_VERSION;
+            case NsdPackage.SERVICE_NS__APP_VERSION:
+                return NsdPackage.AG_UML__APP_VERSION;
             default:
                 return -1;
             }
@@ -2809,18 +3001,20 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
     public int eDerivedStructuralFeatureID( int baseFeatureID, Class< ? > baseClass ) {
         if( baseClass == AgNSIdentification.class ) {
             switch( baseFeatureID ) {
-            case NsdPackage.AG_NS_IDENTIFICATION__RELEASE:
-                return NsdPackage.SERVICE_NS__RELEASE;
-            case NsdPackage.AG_NS_IDENTIFICATION__VERSION:
-                return NsdPackage.SERVICE_NS__VERSION;
             case NsdPackage.AG_NS_IDENTIFICATION__ID:
                 return NsdPackage.SERVICE_NS__ID;
+            case NsdPackage.AG_NS_IDENTIFICATION__VERSION:
+                return NsdPackage.SERVICE_NS__VERSION;
             case NsdPackage.AG_NS_IDENTIFICATION__REVISION:
                 return NsdPackage.SERVICE_NS__REVISION;
+            case NsdPackage.AG_NS_IDENTIFICATION__RELEASE:
+                return NsdPackage.SERVICE_NS__RELEASE;
             case NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE:
                 return NsdPackage.SERVICE_NS__PUBLICATION_STAGE;
             case NsdPackage.AG_NS_IDENTIFICATION__NAMESPACE_TYPE:
                 return NsdPackage.SERVICE_NS__NAMESPACE_TYPE;
+            case NsdPackage.AG_NS_IDENTIFICATION__DEPRECATED:
+                return NsdPackage.SERVICE_NS__DEPRECATED;
             default:
                 return -1;
             }
@@ -2843,6 +3037,8 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
                 return NsdPackage.SERVICE_NS__UML_DATE;
             case NsdPackage.AG_UML__UML_VERSION:
                 return NsdPackage.SERVICE_NS__UML_VERSION;
+            case NsdPackage.AG_UML__APP_VERSION:
+                return NsdPackage.SERVICE_NS__APP_VERSION;
             default:
                 return -1;
             }
@@ -2929,9 +3125,9 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         }
 
         StringBuilder result = new StringBuilder( super.toString() );
-        result.append( " (release: " );
-        if( releaseESet ) {
-            result.append( release );
+        result.append( " (id: " );
+        if( idESet ) {
+            result.append( id );
         }
         else {
             result.append( "<unset>" );
@@ -2943,16 +3139,16 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         else {
             result.append( "<unset>" );
         }
-        result.append( ", id: " );
-        if( idESet ) {
-            result.append( id );
+        result.append( ", revision: " );
+        if( revisionESet ) {
+            result.append( revision );
         }
         else {
             result.append( "<unset>" );
         }
-        result.append( ", revision: " );
-        if( revisionESet ) {
-            result.append( revision );
+        result.append( ", release: " );
+        if( releaseESet ) {
+            result.append( release );
         }
         else {
             result.append( "<unset>" );
@@ -2967,6 +3163,13 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         result.append( ", namespaceType: " );
         if( namespaceTypeESet ) {
             result.append( namespaceType );
+        }
+        else {
+            result.append( "<unset>" );
+        }
+        result.append( ", deprecated: " );
+        if( deprecatedESet ) {
+            result.append( deprecated );
         }
         else {
             result.append( "<unset>" );
@@ -3002,6 +3205,13 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         result.append( ", umlVersion: " );
         if( umlVersionESet ) {
             result.append( umlVersion );
+        }
+        else {
+            result.append( "<unset>" );
+        }
+        result.append( ", appVersion: " );
+        if( appVersionESet ) {
+            result.append( appVersion );
         }
         else {
             result.append( "<unset>" );

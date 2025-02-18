@@ -45,10 +45,6 @@ public interface AgTrgOp extends EObject {
      * Returns the value of the '<em><b>Dchg</b></em>' attribute.
      * The default value is <code>"false"</code>.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Dchg</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Dchg</em>' attribute.
      * @see #isSetDchg()
@@ -100,10 +96,6 @@ public interface AgTrgOp extends EObject {
      * Returns the value of the '<em><b>Dupd</b></em>' attribute.
      * The default value is <code>"false"</code>.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Dupd</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Dupd</em>' attribute.
      * @see #isSetDupd()
@@ -155,10 +147,6 @@ public interface AgTrgOp extends EObject {
      * Returns the value of the '<em><b>Qchg</b></em>' attribute.
      * The default value is <code>"false"</code>.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Qchg</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Qchg</em>' attribute.
      * @see #isSetQchg()

@@ -98,6 +98,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceParameter;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealization;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject;
@@ -427,6 +428,13 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     private EClass serviceParameterEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass serviceTypeRealizationEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -1652,6 +1660,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EAttribute getChanges_MergedNamespaces() {
+        return ( EAttribute ) changesEClass.getEStructuralFeatures().get( 8 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EOperation getChanges__VersionAttributeRequired__DiagnosticChain_Map() {
         return changesEClass.getEOperations().get( 0 );
     }
@@ -1702,7 +1720,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getConstructedAttribute_ParentServiceTypeRealizations() {
+    public EReference getConstructedAttribute_ReferredByAttributeType() {
         return ( EReference ) constructedAttributeEClass.getEStructuralFeatures().get( 3 );
     }
 
@@ -1712,18 +1730,8 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
-    public EReference getConstructedAttribute_ReferredByAttributeType() {
-        return ( EReference ) constructedAttributeEClass.getEStructuralFeatures().get( 4 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public EReference getConstructedAttribute_ReferredByUnderlyingType() {
-        return ( EReference ) constructedAttributeEClass.getEStructuralFeatures().get( 5 );
+        return ( EReference ) constructedAttributeEClass.getEStructuralFeatures().get( 4 );
     }
 
     /**
@@ -3612,6 +3620,56 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EAttribute getServiceNsUsage_Id() {
+        return ( EAttribute ) serviceNsUsageEClass.getEStructuralFeatures().get( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EAttribute getServiceNsUsage_Version() {
+        return ( EAttribute ) serviceNsUsageEClass.getEStructuralFeatures().get( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EAttribute getServiceNsUsage_Revision() {
+        return ( EAttribute ) serviceNsUsageEClass.getEStructuralFeatures().get( 4 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getServiceNsUsage__IdAttributeRequired__DiagnosticChain_Map() {
+        return serviceNsUsageEClass.getEOperations().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getServiceNsUsage__VersionAttributeRequired__DiagnosticChain_Map() {
+        return serviceNsUsageEClass.getEOperations().get( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getServiceParameter() {
         return serviceParameterEClass;
     }
@@ -3644,6 +3702,46 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EOperation getServiceParameter__NameAttributeRequired__DiagnosticChain_Map() {
         return serviceParameterEClass.getEOperations().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EClass getServiceTypeRealization() {
+        return serviceTypeRealizationEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EAttribute getServiceTypeRealization_Realize() {
+        return ( EAttribute ) serviceTypeRealizationEClass.getEStructuralFeatures().get( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getServiceTypeRealization_ParentServiceTypeRealizations() {
+        return ( EReference ) serviceTypeRealizationEClass.getEStructuralFeatures().get( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getServiceTypeRealization__RealizeAttributeRequired__DiagnosticChain_Map() {
+        return serviceTypeRealizationEClass.getEOperations().get( 0 );
     }
 
     /**
@@ -3923,7 +4021,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      */
     @Override
     public EAttribute getAgNSIdentification_Release() {
-        return ( EAttribute ) agNSIdentificationEClass.getEStructuralFeatures().get( 0 );
+        return ( EAttribute ) agNSIdentificationEClass.getEStructuralFeatures().get( 3 );
     }
 
     /**
@@ -3943,7 +4041,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      */
     @Override
     public EAttribute getAgNSIdentification_Id() {
-        return ( EAttribute ) agNSIdentificationEClass.getEStructuralFeatures().get( 2 );
+        return ( EAttribute ) agNSIdentificationEClass.getEStructuralFeatures().get( 0 );
     }
 
     /**
@@ -3953,7 +4051,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      */
     @Override
     public EAttribute getAgNSIdentification_Revision() {
-        return ( EAttribute ) agNSIdentificationEClass.getEStructuralFeatures().get( 3 );
+        return ( EAttribute ) agNSIdentificationEClass.getEStructuralFeatures().get( 2 );
     }
 
     /**
@@ -3974,6 +4072,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EAttribute getAgNSIdentification_NamespaceType() {
         return ( EAttribute ) agNSIdentificationEClass.getEStructuralFeatures().get( 5 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EAttribute getAgNSIdentification_Deprecated() {
+        return ( EAttribute ) agNSIdentificationEClass.getEStructuralFeatures().get( 6 );
     }
 
     /**
@@ -4352,6 +4460,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
      * @generated
      */
     @Override
+    public EAttribute getAgUnderlyingType_UnderlyingControlType() {
+        return ( EAttribute ) agUnderlyingTypeEClass.getEStructuralFeatures().get( 5 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getAgUML() {
         return agUMLEClass;
     }
@@ -4374,6 +4492,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
     @Override
     public EAttribute getAgUML_UmlVersion() {
         return ( EAttribute ) agUMLEClass.getEStructuralFeatures().get( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EAttribute getAgUML_AppVersion() {
+        return ( EAttribute ) agUMLEClass.getEStructuralFeatures().get( 2 );
     }
 
     /**
@@ -4815,13 +4943,13 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEReference( changesEClass, CHANGES__PARENT_SERVICE_NS );
         createEAttribute( changesEClass, CHANGES__RELEASE );
         createEAttribute( changesEClass, CHANGES__VERSION );
+        createEAttribute( changesEClass, CHANGES__MERGED_NAMESPACES );
         createEOperation( changesEClass, CHANGES___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
 
         constructedAttributeEClass = createEClass( CONSTRUCTED_ATTRIBUTE );
         createEReference( constructedAttributeEClass, CONSTRUCTED_ATTRIBUTE__SUB_DATA_ATTRIBUTE );
         createEAttribute( constructedAttributeEClass, CONSTRUCTED_ATTRIBUTE__NAME );
         createEReference( constructedAttributeEClass, CONSTRUCTED_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTES );
-        createEReference( constructedAttributeEClass, CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_TYPE_REALIZATIONS );
         createEReference( constructedAttributeEClass, CONSTRUCTED_ATTRIBUTE__REFERRED_BY_ATTRIBUTE_TYPE );
         createEReference( constructedAttributeEClass, CONSTRUCTED_ATTRIBUTE__REFERRED_BY_UNDERLYING_TYPE );
         createEOperation( constructedAttributeEClass,
@@ -5051,11 +5179,22 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         serviceNsUsageEClass = createEClass( SERVICE_NS_USAGE );
         createEReference( serviceNsUsageEClass, SERVICE_NS_USAGE__APPLIES_TO );
         createEReference( serviceNsUsageEClass, SERVICE_NS_USAGE__PARENT_APPLICABLE_SERVICE_NS );
+        createEAttribute( serviceNsUsageEClass, SERVICE_NS_USAGE__ID );
+        createEAttribute( serviceNsUsageEClass, SERVICE_NS_USAGE__VERSION );
+        createEAttribute( serviceNsUsageEClass, SERVICE_NS_USAGE__REVISION );
+        createEOperation( serviceNsUsageEClass, SERVICE_NS_USAGE___ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
+        createEOperation( serviceNsUsageEClass, SERVICE_NS_USAGE___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
 
         serviceParameterEClass = createEClass( SERVICE_PARAMETER );
         createEAttribute( serviceParameterEClass, SERVICE_PARAMETER__NAME );
         createEReference( serviceParameterEClass, SERVICE_PARAMETER__PARENT_CDC );
         createEOperation( serviceParameterEClass, SERVICE_PARAMETER___NAME_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
+
+        serviceTypeRealizationEClass = createEClass( SERVICE_TYPE_REALIZATION );
+        createEAttribute( serviceTypeRealizationEClass, SERVICE_TYPE_REALIZATION__REALIZE );
+        createEReference( serviceTypeRealizationEClass, SERVICE_TYPE_REALIZATION__PARENT_SERVICE_TYPE_REALIZATIONS );
+        createEOperation( serviceTypeRealizationEClass,
+                SERVICE_TYPE_REALIZATION___REALIZE_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
 
         serviceTypeRealizationsEClass = createEClass( SERVICE_TYPE_REALIZATIONS );
         createEReference( serviceTypeRealizationsEClass, SERVICE_TYPE_REALIZATIONS__SERVICE_TYPE_REALIZATION );
@@ -5089,12 +5228,13 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEOperation( nsdObjectEClass, NSD_OBJECT___BUILD_EXPLICIT_LINKS__IRISECLIPSECONSOLE );
 
         agNSIdentificationEClass = createEClass( AG_NS_IDENTIFICATION );
-        createEAttribute( agNSIdentificationEClass, AG_NS_IDENTIFICATION__RELEASE );
-        createEAttribute( agNSIdentificationEClass, AG_NS_IDENTIFICATION__VERSION );
         createEAttribute( agNSIdentificationEClass, AG_NS_IDENTIFICATION__ID );
+        createEAttribute( agNSIdentificationEClass, AG_NS_IDENTIFICATION__VERSION );
         createEAttribute( agNSIdentificationEClass, AG_NS_IDENTIFICATION__REVISION );
+        createEAttribute( agNSIdentificationEClass, AG_NS_IDENTIFICATION__RELEASE );
         createEAttribute( agNSIdentificationEClass, AG_NS_IDENTIFICATION__PUBLICATION_STAGE );
         createEAttribute( agNSIdentificationEClass, AG_NS_IDENTIFICATION__NAMESPACE_TYPE );
+        createEAttribute( agNSIdentificationEClass, AG_NS_IDENTIFICATION__DEPRECATED );
         createEOperation( agNSIdentificationEClass, AG_NS_IDENTIFICATION___ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
         createEOperation( agNSIdentificationEClass,
                 AG_NS_IDENTIFICATION___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
@@ -5144,10 +5284,12 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         createEReference( agUnderlyingTypeEClass, AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_BASIC_TYPE );
         createEReference( agUnderlyingTypeEClass, AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE );
         createEReference( agUnderlyingTypeEClass, AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_ENUMERATION );
+        createEAttribute( agUnderlyingTypeEClass, AG_UNDERLYING_TYPE__UNDERLYING_CONTROL_TYPE );
 
         agUMLEClass = createEClass( AG_UML );
         createEAttribute( agUMLEClass, AG_UML__UML_DATE );
         createEAttribute( agUMLEClass, AG_UML__UML_VERSION );
+        createEAttribute( agUMLEClass, AG_UML__APP_VERSION );
 
         agNSdescEClass = createEClass( AG_NSDESC );
         createEAttribute( agNSdescEClass, AG_NSDESC__DESC_ID );
@@ -5289,9 +5431,9 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         serviceNSEClass.getESuperTypes().add( this.getAgUML() );
         serviceNSEClass.getESuperTypes().add( this.getAgNSdesc() );
         serviceNsUsageEClass.getESuperTypes().add( this.getNsdObject() );
-        serviceNsUsageEClass.getESuperTypes().add( this.getAgNSIdentification() );
         serviceParameterEClass.getESuperTypes().add( this.getDocumentedClass() );
         serviceParameterEClass.getESuperTypes().add( this.getAgAttributeTypeAndValues() );
+        serviceTypeRealizationEClass.getESuperTypes().add( this.getConstructedAttribute() );
         serviceTypeRealizationsEClass.getESuperTypes().add( this.getNsdObject() );
         subDataAttributeEClass.getESuperTypes().add( this.getDocumentedClass() );
         subDataAttributeEClass.getESuperTypes().add( this.getAgPresenceCondition() );
@@ -5665,10 +5807,13 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEReference( getChanges_ParentServiceNS(), this.getServiceNS(), this.getServiceNS_Changes(),
                 "parentServiceNS", null, 0, 1, Changes.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getChanges_Release(), ecorePackage.getEIntegerObject(), "release", "1", 0, 1, Changes.class,
+        initEAttribute( getChanges_Release(), ecorePackage.getEInt(), "release", "1", 0, 1, Changes.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getChanges_Version(), ecorePackage.getEIntegerObject(), "version", null, 0, 1, Changes.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getChanges_MergedNamespaces(), ecorePackage.getEString(), "mergedNamespaces", null, 0, 1,
+                Changes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
 
         op = initEOperation( getChanges__VersionAttributeRequired__DiagnosticChain_Map(), ecorePackage.getEBoolean(),
                 "versionAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
@@ -5691,10 +5836,6 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEReference( getConstructedAttribute_ParentConstructedAttributes(), this.getConstructedAttributes(),
                 this.getConstructedAttributes_ConstructedAttribute(), "parentConstructedAttributes", null, 0, 1,
-                ConstructedAttribute.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference( getConstructedAttribute_ParentServiceTypeRealizations(), this.getServiceTypeRealizations(),
-                this.getServiceTypeRealizations_ServiceTypeRealization(), "parentServiceTypeRealizations", null, 0, 1,
                 ConstructedAttribute.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEReference( getConstructedAttribute_ReferredByAttributeType(), this.getAgAttributeType(),
@@ -6129,8 +6270,9 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 IS_ORDERED );
 
         initEClass( literalEClass, Literal.class, "Literal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getLiteral_LiteralVal(), theXMLTypePackage.getInt(), "literalVal", null, 0, 1, Literal.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getLiteral_LiteralVal(), ecorePackage.getEIntegerObject(), "literalVal", null, 0, 1,
+                Literal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
         initEAttribute( getLiteral_Name(), ecorePackage.getEString(), "name", null, 0, 1, Literal.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEReference( getLiteral_ParentEnumeration(), this.getEnumeration(), this.getEnumeration_Literal(),
@@ -6491,6 +6633,34 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 this.getApplicableServiceNS_ServiceNsUsage(), "parentApplicableServiceNS", null, 0, 1,
                 ServiceNsUsage.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getServiceNsUsage_Id(), ecorePackage.getEString(), "id", null, 0, 1, ServiceNsUsage.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getServiceNsUsage_Version(), ecorePackage.getEIntegerObject(), "version", null, 0, 1,
+                ServiceNsUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getServiceNsUsage_Revision(), ecorePackage.getEString(), "revision", "A", 0, 1,
+                ServiceNsUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+
+        op = initEOperation( getServiceNsUsage__IdAttributeRequired__DiagnosticChain_Map(), ecorePackage.getEBoolean(),
+                "idAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
+
+        op = initEOperation( getServiceNsUsage__VersionAttributeRequired__DiagnosticChain_Map(),
+                ecorePackage.getEBoolean(), "versionAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
 
         initEClass( serviceParameterEClass, ServiceParameter.class, "ServiceParameter", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS );
@@ -6511,10 +6681,30 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         g1.getETypeArguments().add( g2 );
         addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
 
+        initEClass( serviceTypeRealizationEClass, ServiceTypeRealization.class, "ServiceTypeRealization", !IS_ABSTRACT,
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute( getServiceTypeRealization_Realize(), ecorePackage.getEString(), "realize", null, 0, 1,
+                ServiceTypeRealization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+                IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference( getServiceTypeRealization_ParentServiceTypeRealizations(), this.getServiceTypeRealizations(),
+                this.getServiceTypeRealizations_ServiceTypeRealization(), "parentServiceTypeRealizations", null, 0, 1,
+                ServiceTypeRealization.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        op = initEOperation( getServiceTypeRealization__RealizeAttributeRequired__DiagnosticChain_Map(),
+                ecorePackage.getEBoolean(), "realizeAttributeRequired", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter( op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED );
+        g1 = createEGenericType( ecorePackage.getEMap() );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        g2 = createEGenericType( ecorePackage.getEJavaObject() );
+        g1.getETypeArguments().add( g2 );
+        addEParameter( op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED );
+
         initEClass( serviceTypeRealizationsEClass, ServiceTypeRealizations.class, "ServiceTypeRealizations",
                 !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEReference( getServiceTypeRealizations_ServiceTypeRealization(), this.getConstructedAttribute(),
-                this.getConstructedAttribute_ParentServiceTypeRealizations(), "serviceTypeRealization", null, 0, -1,
+        initEReference( getServiceTypeRealizations_ServiceTypeRealization(), this.getServiceTypeRealization(),
+                this.getServiceTypeRealization_ParentServiceTypeRealizations(), "serviceTypeRealization", null, 0, -1,
                 ServiceTypeRealizations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
         initEReference( getServiceTypeRealizations_ParentServiceNS(), this.getServiceNS(),
@@ -6623,22 +6813,25 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
 
         initEClass( agNSIdentificationEClass, AgNSIdentification.class, "AgNSIdentification", IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute( getAgNSIdentification_Release(), ecorePackage.getEIntegerObject(), "release", "1", 0, 1,
+        initEAttribute( getAgNSIdentification_Id(), ecorePackage.getEString(), "id", null, 0, 1,
                 AgNSIdentification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getAgNSIdentification_Version(), ecorePackage.getEIntegerObject(), "version", null, 0, 1,
                 AgNSIdentification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getAgNSIdentification_Id(), ecorePackage.getEString(), "id", null, 0, 1,
+        initEAttribute( getAgNSIdentification_Revision(), ecorePackage.getEString(), "revision", "A", 0, 1,
                 AgNSIdentification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
-        initEAttribute( getAgNSIdentification_Revision(), ecorePackage.getEString(), "revision", "A", 0, 1,
+        initEAttribute( getAgNSIdentification_Release(), ecorePackage.getEInt(), "release", "1", 0, 1,
                 AgNSIdentification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getAgNSIdentification_PublicationStage(), this.getPubStage(), "publicationStage", "IS", 0, 1,
                 AgNSIdentification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
         initEAttribute( getAgNSIdentification_NamespaceType(), this.getNSType(), "namespaceType", "basic", 0, 1,
+                AgNSIdentification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getAgNSIdentification_Deprecated(), ecorePackage.getEBoolean(), "deprecated", "false", 0, 1,
                 AgNSIdentification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED );
 
@@ -6766,11 +6959,16 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 this.getEnumeration_ReferredByUnderlyingType(), "refersToUnderlyingEnumeration", null, 0, 1,
                 AgUnderlyingType.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getAgUnderlyingType_UnderlyingControlType(), ecorePackage.getEString(), "underlyingControlType",
+                null, 0, 1, AgUnderlyingType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
+                IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass( agUMLEClass, AgUML.class, "AgUML", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute( getAgUML_UmlDate(), theXMLTypePackage.getDateTime(), "umlDate", null, 0, 1, AgUML.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getAgUML_UmlVersion(), ecorePackage.getEString(), "umlVersion", null, 0, 1, AgUML.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute( getAgUML_AppVersion(), ecorePackage.getEString(), "appVersion", "\"\"", 0, 1, AgUML.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass( agNSdescEClass, AgNSdesc.class, "AgNSdesc", IS_ABSTRACT, !IS_INTERFACE,
@@ -7136,10 +7334,20 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 new String[] {
                         "constraints", "fcAttributeRequired"
                 } );
+        addAnnotation( serviceNsUsageEClass,
+                source,
+                new String[] {
+                        "constraints", "versionAttributeRequired"
+                } );
         addAnnotation( serviceParameterEClass,
                 source,
                 new String[] {
                         "constraints", "nameAttributeRequired"
+                } );
+        addAnnotation( serviceTypeRealizationEClass,
+                source,
+                new String[] {
+                        "constraints", "realizeAttributeRequired"
                 } );
         addAnnotation( subDataAttributeEClass,
                 source,
@@ -7529,6 +7737,12 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 new String[] {
                         "kind", "attribute",
                         "name", "version"
+                } );
+        addAnnotation( getChanges_MergedNamespaces(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "mergedNamespaces"
                 } );
         addAnnotation( constructedAttributeEClass,
                 source,
@@ -8206,6 +8420,24 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                         "name", "AppliesTo",
                         "namespace", "##targetNamespace"
                 } );
+        addAnnotation( getServiceNsUsage_Id(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "id"
+                } );
+        addAnnotation( getServiceNsUsage_Version(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "version"
+                } );
+        addAnnotation( getServiceNsUsage_Revision(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "revision"
+                } );
         addAnnotation( serviceParameterEClass,
                 source,
                 new String[] {
@@ -8217,6 +8449,18 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 new String[] {
                         "kind", "attribute",
                         "name", "name"
+                } );
+        addAnnotation( serviceTypeRealizationEClass,
+                source,
+                new String[] {
+                        "name", "tServiceTypeRealization",
+                        "kind", "elementOnly"
+                } );
+        addAnnotation( getServiceTypeRealization_Realize(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "realize"
                 } );
         addAnnotation( serviceTypeRealizationsEClass,
                 source,
@@ -8284,11 +8528,11 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                         "name", "tUndefinedAttributeTypeKind:Object",
                         "baseType", "tUndefinedAttributeTypeKind"
                 } );
-        addAnnotation( getAgNSIdentification_Release(),
+        addAnnotation( getAgNSIdentification_Id(),
                 source,
                 new String[] {
                         "kind", "attribute",
-                        "name", "release"
+                        "name", "id"
                 } );
         addAnnotation( getAgNSIdentification_Version(),
                 source,
@@ -8296,17 +8540,17 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                         "kind", "attribute",
                         "name", "version"
                 } );
-        addAnnotation( getAgNSIdentification_Id(),
-                source,
-                new String[] {
-                        "kind", "attribute",
-                        "name", "id"
-                } );
         addAnnotation( getAgNSIdentification_Revision(),
                 source,
                 new String[] {
                         "kind", "attribute",
                         "name", "revision"
+                } );
+        addAnnotation( getAgNSIdentification_Release(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "release"
                 } );
         addAnnotation( getAgNSIdentification_PublicationStage(),
                 source,
@@ -8319,6 +8563,12 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 new String[] {
                         "kind", "attribute",
                         "name", "namespaceType"
+                } );
+        addAnnotation( getAgNSIdentification_Deprecated(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "deprecated"
                 } );
         addAnnotation( getAgPresenceCondition_PresCond(),
                 source,
@@ -8440,6 +8690,12 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                         "kind", "attribute",
                         "name", "underlyingTypeKind"
                 } );
+        addAnnotation( getAgUnderlyingType_UnderlyingControlType(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "underlyingControlType"
+                } );
         addAnnotation( getAgUML_UmlDate(),
                 source,
                 new String[] {
@@ -8451,6 +8707,12 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                 new String[] {
                         "kind", "attribute",
                         "name", "umlVersion"
+                } );
+        addAnnotation( getAgUML_AppVersion(),
+                source,
+                new String[] {
+                        "kind", "attribute",
+                        "name", "appVersion"
                 } );
         addAnnotation( getAgNSdesc_DescID(),
                 source,
@@ -8760,11 +9022,29 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
                         "body",
                         "Tuple {\n\tmessage : String = \'The fc attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.fc <> null\n}.status"
                 } );
+        addAnnotation( getServiceNsUsage__IdAttributeRequired__DiagnosticChain_Map(),
+                source,
+                new String[] {
+                        "body",
+                        "Tuple {\n\tmessage : String = \'The id attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.id <> null\n}.status"
+                } );
+        addAnnotation( getServiceNsUsage__VersionAttributeRequired__DiagnosticChain_Map(),
+                source,
+                new String[] {
+                        "body",
+                        "Tuple {\n\tmessage : String = \'The version attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.version <> null\n}.status"
+                } );
         addAnnotation( getServiceParameter__NameAttributeRequired__DiagnosticChain_Map(),
                 source,
                 new String[] {
                         "body",
                         "Tuple {\n\tmessage : String = \'The name attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.name <> null\n}.status"
+                } );
+        addAnnotation( getServiceTypeRealization__RealizeAttributeRequired__DiagnosticChain_Map(),
+                source,
+                new String[] {
+                        "body",
+                        "Tuple {\n\tmessage : String = \'The realize attribute is required\',\n\tstatus : Boolean = \n\t\t\tself.realize <> null\n}.status"
                 } );
         addAnnotation( getSubDataAttribute__NameAttributeRequired__DiagnosticChain_Map(),
                 source,

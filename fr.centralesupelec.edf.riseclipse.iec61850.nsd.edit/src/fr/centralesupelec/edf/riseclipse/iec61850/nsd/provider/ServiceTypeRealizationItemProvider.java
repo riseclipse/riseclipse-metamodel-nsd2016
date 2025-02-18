@@ -1,23 +1,22 @@
-/*
-*************************************************************************
-**  Copyright (c) 2016-2021 CentraleSupélec & EDF.
-**  All rights reserved. This program and the accompanying materials
-**  are made available under the terms of the Eclipse Public License v2.0
-**  which accompanies this distribution, and is available at
-**  https://www.eclipse.org/legal/epl-v20.html
-**
-**  This file is part of the RiseClipse tool
-**
-**  Contributors:
-**      Computer Science Department, CentraleSupélec
-**      EDF R&D
-**  Contacts:
-**      dominique.marcadet@centralesupelec.fr
-**      aurelie.dehouck-neveu@edf.fr
-**  Web site:
-**      https://riseclipse.github.io/
-*************************************************************************
-*/
+/**
+ *  Copyright (c) 2016-2025 CentraleSupélec & EDF.
+ *  All rights reserved. This program and the accompanying materials
+ *  are made available under the terms of the Eclipse Public License v2.0
+ *  which accompanies this distribution, and is available at
+ *  https://www.eclipse.org/legal/epl-v20.html
+ *
+ *  This file is part of the RiseClipse tool
+ *
+ *  Contributors:
+ *      Computer Science Department, CentraleSupélec
+ *      EDF R&D
+ *  Contacts:
+ *      dominique.marcadet@centralesupelec.fr
+ *      aurelie.dehouck-neveu@edf.fr
+ *  Web site:
+ *      https://riseclipse.github.io/
+ *
+ */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.provider;
 
 import java.util.Collection;
@@ -30,23 +29,23 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealization;
 
 /**
- * This is the item provider adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal} object.
+ * This is the item provider adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealization} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class LiteralItemProvider extends DocumentedClassItemProvider {
+public class ServiceTypeRealizationItemProvider extends ConstructedAttributeItemProvider {
     /**
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public LiteralItemProvider( AdapterFactory adapterFactory ) {
+    public ServiceTypeRealizationItemProvider( AdapterFactory adapterFactory ) {
         super( adapterFactory );
     }
 
@@ -61,26 +60,25 @@ public class LiteralItemProvider extends DocumentedClassItemProvider {
         if( itemPropertyDescriptors == null ) {
             super.getPropertyDescriptors( object );
 
-            addLiteralValPropertyDescriptor( object );
-            addNamePropertyDescriptor( object );
+            addRealizePropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Literal Val feature.
+     * This adds a property descriptor for the Realize feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addLiteralValPropertyDescriptor( Object object ) {
+    protected void addRealizePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
                         getResourceLocator(),
-                        getString( "_UI_Literal_literalVal_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_Literal_literalVal_feature",
-                                "_UI_Literal_type" ),
-                        NsdPackage.Literals.LITERAL__LITERAL_VAL,
+                        getString( "_UI_ServiceTypeRealization_realize_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_ServiceTypeRealization_realize_feature",
+                                "_UI_ServiceTypeRealization_type" ),
+                        NsdPackage.Literals.SERVICE_TYPE_REALIZATION__REALIZE,
                         true,
                         false,
                         false,
@@ -90,36 +88,14 @@ public class LiteralItemProvider extends DocumentedClassItemProvider {
     }
 
     /**
-     * This adds a property descriptor for the Name feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addNamePropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add(
-                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString( "_UI_Literal_name_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_Literal_name_feature",
-                                "_UI_Literal_type" ),
-                        NsdPackage.Literals.LITERAL__NAME,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
-    }
-
-    /**
-     * This returns Literal.gif.
+     * This returns ServiceTypeRealization.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
     public Object getImage( Object object ) {
-        return overlayImage( object, getResourceLocator().getImage( "full/obj16/Literal" ) );
+        return overlayImage( object, getResourceLocator().getImage( "full/obj16/ServiceTypeRealization" ) );
     }
 
     /**
@@ -130,9 +106,9 @@ public class LiteralItemProvider extends DocumentedClassItemProvider {
      */
     @Override
     public String getText( Object object ) {
-        String label = ( ( Literal ) object ).getName();
-        return label == null || label.length() == 0 ? getString( "_UI_Literal_type" )
-                : getString( "_UI_Literal_type" ) + " " + label;
+        String label = ( ( ServiceTypeRealization ) object ).getName();
+        return label == null || label.length() == 0 ? getString( "_UI_ServiceTypeRealization_type" )
+                : getString( "_UI_ServiceTypeRealization_type" ) + " " + label;
     }
 
     /**
@@ -146,9 +122,8 @@ public class LiteralItemProvider extends DocumentedClassItemProvider {
     public void notifyChanged( Notification notification ) {
         updateChildren( notification );
 
-        switch( notification.getFeatureID( Literal.class ) ) {
-        case NsdPackage.LITERAL__LITERAL_VAL:
-        case NsdPackage.LITERAL__NAME:
+        switch( notification.getFeatureID( ServiceTypeRealization.class ) ) {
+        case NsdPackage.SERVICE_TYPE_REALIZATION__REALIZE:
             fireNotifyChanged( new ViewerNotification( notification, notification.getNotifier(), false, true ) );
             return;
         }

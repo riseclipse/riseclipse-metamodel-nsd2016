@@ -69,12 +69,13 @@ public class AgNSIdentificationItemProvider extends ItemProviderAdapter implemen
         if( itemPropertyDescriptors == null ) {
             super.getPropertyDescriptors( object );
 
-            addReleasePropertyDescriptor( object );
-            addVersionPropertyDescriptor( object );
             addIdPropertyDescriptor( object );
+            addVersionPropertyDescriptor( object );
             addRevisionPropertyDescriptor( object );
+            addReleasePropertyDescriptor( object );
             addPublicationStagePropertyDescriptor( object );
             addNamespaceTypePropertyDescriptor( object );
+            addDeprecatedPropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -96,7 +97,7 @@ public class AgNSIdentificationItemProvider extends ItemProviderAdapter implemen
                         true,
                         false,
                         false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
                         null,
                         null ) );
     }
@@ -212,6 +213,28 @@ public class AgNSIdentificationItemProvider extends ItemProviderAdapter implemen
     }
 
     /**
+     * This adds a property descriptor for the Deprecated feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addDeprecatedPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_AgNSIdentification_deprecated_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgNSIdentification_deprecated_feature",
+                                "_UI_AgNSIdentification_type" ),
+                        NsdPackage.Literals.AG_NS_IDENTIFICATION__DEPRECATED,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -236,12 +259,13 @@ public class AgNSIdentificationItemProvider extends ItemProviderAdapter implemen
         updateChildren( notification );
 
         switch( notification.getFeatureID( AgNSIdentification.class ) ) {
-        case NsdPackage.AG_NS_IDENTIFICATION__RELEASE:
-        case NsdPackage.AG_NS_IDENTIFICATION__VERSION:
         case NsdPackage.AG_NS_IDENTIFICATION__ID:
+        case NsdPackage.AG_NS_IDENTIFICATION__VERSION:
         case NsdPackage.AG_NS_IDENTIFICATION__REVISION:
+        case NsdPackage.AG_NS_IDENTIFICATION__RELEASE:
         case NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE:
         case NsdPackage.AG_NS_IDENTIFICATION__NAMESPACE_TYPE:
+        case NsdPackage.AG_NS_IDENTIFICATION__DEPRECATED:
             fireNotifyChanged( new ViewerNotification( notification, notification.getNotifier(), false, true ) );
             return;
         }

@@ -824,33 +824,6 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
      * @generated
      */
     @Override
-    public boolean isDchg() {
-        return dchg;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setDchg( boolean newDchg ) {
-        boolean oldDchg = dchg;
-        dchg = newDchg;
-        boolean oldDchgESet = dchgESet;
-        dchgESet = true;
-        if( eNotificationRequired() ) {
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__DCHG, oldDchg, dchg,
-                    !oldDchgESet ) );
-        }
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public void unsetDchg() {
         boolean oldDchg = dchg;
         boolean oldDchgESet = dchgESet;
@@ -870,6 +843,33 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     @Override
     public boolean isSetDchg() {
         return dchgESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isDupd() {
+        return dupd;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setDupd( boolean newDupd ) {
+        boolean oldDupd = dupd;
+        dupd = newDupd;
+        boolean oldDupdESet = dupdESet;
+        dupdESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__DUPD, oldDupd, dupd,
+                    !oldDupdESet ) );
+        }
     }
 
     /**
@@ -932,33 +932,6 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
      * @generated
      */
     @Override
-    public boolean isDupd() {
-        return dupd;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setDupd( boolean newDupd ) {
-        boolean oldDupd = dupd;
-        dupd = newDupd;
-        boolean oldDupdESet = dupdESet;
-        dupdESet = true;
-        if( eNotificationRequired() ) {
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__DUPD, oldDupd, dupd,
-                    !oldDupdESet ) );
-        }
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public void unsetDupd() {
         boolean oldDupd = dupd;
         boolean oldDupdESet = dupdESet;
@@ -978,6 +951,33 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     @Override
     public boolean isSetDupd() {
         return dupdESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isQchg() {
+        return qchg;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setQchg( boolean newQchg ) {
+        boolean oldQchg = qchg;
+        qchg = newQchg;
+        boolean oldQchgESet = qchgESet;
+        qchgESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__QCHG, oldQchg, qchg,
+                    !oldQchgESet ) );
+        }
     }
 
     /**
@@ -1032,33 +1032,6 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     @Override
     public boolean isSetFc() {
         return fcESet;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean isIsArray() {
-        return isArray;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setIsArray( boolean newIsArray ) {
-        boolean oldIsArray = isArray;
-        isArray = newIsArray;
-        boolean oldIsArrayESet = isArrayESet;
-        isArrayESet = true;
-        if( eNotificationRequired() ) {
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__IS_ARRAY, oldIsArray,
-                    isArray, !oldIsArrayESet ) );
-        }
     }
 
     /**
@@ -1708,8 +1681,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
      * @generated
      */
     @Override
-    public boolean isQchg() {
-        return qchg;
+    public boolean isIsArray() {
+        return isArray;
     }
 
     /**
@@ -1718,14 +1691,14 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
      * @generated
      */
     @Override
-    public void setQchg( boolean newQchg ) {
-        boolean oldQchg = qchg;
-        qchg = newQchg;
-        boolean oldQchgESet = qchgESet;
-        qchgESet = true;
+    public void setIsArray( boolean newIsArray ) {
+        boolean oldIsArray = isArray;
+        isArray = newIsArray;
+        boolean oldIsArrayESet = isArrayESet;
+        isArrayESet = true;
         if( eNotificationRequired() ) {
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__QCHG, oldQchg, qchg,
-                    !oldQchgESet ) );
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__IS_ARRAY, oldIsArray,
+                    isArray, !oldIsArrayESet ) );
         }
     }
 
@@ -1808,6 +1781,33 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     @Override
     public boolean isSetSizeAttribute() {
         return sizeAttributeESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isDchg() {
+        return dchg;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setDchg( boolean newDchg ) {
+        boolean oldDchg = dchg;
+        dchg = newDchg;
+        boolean oldDchgESet = dchgESet;
+        dchgESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__DCHG, oldDchg, dchg,
+                    !oldDchgESet ) );
+        }
     }
 
     /**

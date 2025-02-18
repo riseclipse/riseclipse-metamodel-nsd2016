@@ -44,13 +44,10 @@ import org.eclipse.ocl.pivot.utilities.ValueUtil;
 import org.eclipse.ocl.pivot.values.IntegerValue;
 import org.eclipse.ocl.pivot.values.TupleValue;
 
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServiceNS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage;
 
 /**
@@ -61,76 +58,25 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getRelease <em>Release</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getVersion <em>Version</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getId <em>Id</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getRevision <em>Revision</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getPublicationStage <em>Publication Stage</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getNamespaceType <em>Namespace Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getAppliesTo <em>Applies To</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getParentApplicableServiceNS <em>Parent Applicable Service NS</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getId <em>Id</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getVersion <em>Version</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNsUsageImpl#getRevision <em>Revision</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage {
     /**
-     * The default value of the '{@link #getRelease() <em>Release</em>}' attribute.
+     * The cached value of the '{@link #getAppliesTo() <em>Applies To</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getRelease()
+     * @see #getAppliesTo()
      * @generated
      * @ordered
      */
-    protected static final Integer RELEASE_EDEFAULT = Integer.valueOf( 1 );
-
-    /**
-     * The cached value of the '{@link #getRelease() <em>Release</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getRelease()
-     * @generated
-     * @ordered
-     */
-    protected Integer release = RELEASE_EDEFAULT;
-
-    /**
-     * This is true if the Release attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean releaseESet;
-
-    /**
-     * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getVersion()
-     * @generated
-     * @ordered
-     */
-    protected static final Integer VERSION_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getVersion()
-     * @generated
-     * @ordered
-     */
-    protected Integer version = VERSION_EDEFAULT;
-
-    /**
-     * This is true if the Version attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean versionESet;
+    protected EList< AppliesToType > appliesTo;
 
     /**
      * The default value of the '{@link #getId() <em>Id</em>}' attribute.
@@ -162,6 +108,35 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
     protected boolean idESet;
 
     /**
+     * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getVersion()
+     * @generated
+     * @ordered
+     */
+    protected static final Integer VERSION_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getVersion()
+     * @generated
+     * @ordered
+     */
+    protected Integer version = VERSION_EDEFAULT;
+
+    /**
+     * This is true if the Version attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean versionESet;
+
+    /**
      * The default value of the '{@link #getRevision() <em>Revision</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -191,74 +166,6 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
     protected boolean revisionESet;
 
     /**
-     * The default value of the '{@link #getPublicationStage() <em>Publication Stage</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getPublicationStage()
-     * @generated
-     * @ordered
-     */
-    protected static final PubStage PUBLICATION_STAGE_EDEFAULT = PubStage.IS;
-
-    /**
-     * The cached value of the '{@link #getPublicationStage() <em>Publication Stage</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getPublicationStage()
-     * @generated
-     * @ordered
-     */
-    protected PubStage publicationStage = PUBLICATION_STAGE_EDEFAULT;
-
-    /**
-     * This is true if the Publication Stage attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean publicationStageESet;
-
-    /**
-     * The default value of the '{@link #getNamespaceType() <em>Namespace Type</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getNamespaceType()
-     * @generated
-     * @ordered
-     */
-    protected static final NSType NAMESPACE_TYPE_EDEFAULT = NSType.BASIC;
-
-    /**
-     * The cached value of the '{@link #getNamespaceType() <em>Namespace Type</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getNamespaceType()
-     * @generated
-     * @ordered
-     */
-    protected NSType namespaceType = NAMESPACE_TYPE_EDEFAULT;
-
-    /**
-     * This is true if the Namespace Type attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean namespaceTypeESet;
-
-    /**
-     * The cached value of the '{@link #getAppliesTo() <em>Applies To</em>}' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getAppliesTo()
-     * @generated
-     * @ordered
-     */
-    protected EList< AppliesToType > appliesTo;
-
-    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -275,60 +182,6 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
     @Override
     protected EClass eStaticClass() {
         return NsdPackage.Literals.SERVICE_NS_USAGE;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Integer getRelease() {
-        return release;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setRelease( Integer newRelease ) {
-        Integer oldRelease = release;
-        release = newRelease;
-        boolean oldReleaseESet = releaseESet;
-        releaseESet = true;
-        if( eNotificationRequired() ) {
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_NS_USAGE__RELEASE, oldRelease,
-                    release, !oldReleaseESet ) );
-        }
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void unsetRelease() {
-        Integer oldRelease = release;
-        boolean oldReleaseESet = releaseESet;
-        release = RELEASE_EDEFAULT;
-        releaseESet = false;
-        if( eNotificationRequired() ) {
-            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_NS_USAGE__RELEASE, oldRelease,
-                    RELEASE_EDEFAULT, oldReleaseESet ) );
-        }
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean isSetRelease() {
-        return releaseESet;
     }
 
     /**
@@ -486,7 +339,7 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
      */
     @Override
     public boolean idAttributeRequired( final DiagnosticChain diagnostics, final Map< Object, Object > context ) {
-        final String constraintName = "AgNSIdentification::idAttributeRequired";
+        final String constraintName = "ServiceNsUsage::idAttributeRequired";
         try {
             /**
              *
@@ -511,7 +364,7 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
              */
             final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this );
             final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate( executor,
-                    NsdPackage.Literals.AG_NS_IDENTIFICATION___ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
+                    NsdPackage.Literals.SERVICE_NS_USAGE___ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
             final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
                     .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
             /*@NonInvalid*/ boolean IF_le;
@@ -550,7 +403,7 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
      */
     @Override
     public boolean versionAttributeRequired( final DiagnosticChain diagnostics, final Map< Object, Object > context ) {
-        final String constraintName = "AgNSIdentification::versionAttributeRequired";
+        final String constraintName = "ServiceNsUsage::versionAttributeRequired";
         try {
             /**
              *
@@ -575,7 +428,7 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
              */
             final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor( this );
             final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate( executor,
-                    NsdPackage.Literals.AG_NS_IDENTIFICATION___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
+                    NsdPackage.Literals.SERVICE_NS_USAGE___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP );
             final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
                     .evaluate( executor, severity_0, NsdTables.INT_0 ).booleanValue();
             /*@NonInvalid*/ boolean IF_le;
@@ -661,114 +514,6 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
     @Override
     public boolean isSetId() {
         return idESet;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public PubStage getPublicationStage() {
-        return publicationStage;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setPublicationStage( PubStage newPublicationStage ) {
-        PubStage oldPublicationStage = publicationStage;
-        publicationStage = newPublicationStage == null ? PUBLICATION_STAGE_EDEFAULT : newPublicationStage;
-        boolean oldPublicationStageESet = publicationStageESet;
-        publicationStageESet = true;
-        if( eNotificationRequired() ) {
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_NS_USAGE__PUBLICATION_STAGE,
-                    oldPublicationStage, publicationStage, !oldPublicationStageESet ) );
-        }
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void unsetPublicationStage() {
-        PubStage oldPublicationStage = publicationStage;
-        boolean oldPublicationStageESet = publicationStageESet;
-        publicationStage = PUBLICATION_STAGE_EDEFAULT;
-        publicationStageESet = false;
-        if( eNotificationRequired() ) {
-            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_NS_USAGE__PUBLICATION_STAGE,
-                    oldPublicationStage, PUBLICATION_STAGE_EDEFAULT, oldPublicationStageESet ) );
-        }
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean isSetPublicationStage() {
-        return publicationStageESet;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public NSType getNamespaceType() {
-        return namespaceType;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setNamespaceType( NSType newNamespaceType ) {
-        NSType oldNamespaceType = namespaceType;
-        namespaceType = newNamespaceType == null ? NAMESPACE_TYPE_EDEFAULT : newNamespaceType;
-        boolean oldNamespaceTypeESet = namespaceTypeESet;
-        namespaceTypeESet = true;
-        if( eNotificationRequired() ) {
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_NS_USAGE__NAMESPACE_TYPE,
-                    oldNamespaceType, namespaceType, !oldNamespaceTypeESet ) );
-        }
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void unsetNamespaceType() {
-        NSType oldNamespaceType = namespaceType;
-        boolean oldNamespaceTypeESet = namespaceTypeESet;
-        namespaceType = NAMESPACE_TYPE_EDEFAULT;
-        namespaceTypeESet = false;
-        if( eNotificationRequired() ) {
-            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_NS_USAGE__NAMESPACE_TYPE,
-                    oldNamespaceType, NAMESPACE_TYPE_EDEFAULT, oldNamespaceTypeESet ) );
-        }
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean isSetNamespaceType() {
-        return namespaceTypeESet;
     }
 
     /**
@@ -885,22 +630,16 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
     @Override
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
-        case NsdPackage.SERVICE_NS_USAGE__RELEASE:
-            return getRelease();
-        case NsdPackage.SERVICE_NS_USAGE__VERSION:
-            return getVersion();
-        case NsdPackage.SERVICE_NS_USAGE__ID:
-            return getId();
-        case NsdPackage.SERVICE_NS_USAGE__REVISION:
-            return getRevision();
-        case NsdPackage.SERVICE_NS_USAGE__PUBLICATION_STAGE:
-            return getPublicationStage();
-        case NsdPackage.SERVICE_NS_USAGE__NAMESPACE_TYPE:
-            return getNamespaceType();
         case NsdPackage.SERVICE_NS_USAGE__APPLIES_TO:
             return getAppliesTo();
         case NsdPackage.SERVICE_NS_USAGE__PARENT_APPLICABLE_SERVICE_NS:
             return getParentApplicableServiceNS();
+        case NsdPackage.SERVICE_NS_USAGE__ID:
+            return getId();
+        case NsdPackage.SERVICE_NS_USAGE__VERSION:
+            return getVersion();
+        case NsdPackage.SERVICE_NS_USAGE__REVISION:
+            return getRevision();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -914,30 +653,21 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
     @Override
     public void eSet( int featureID, Object newValue ) {
         switch( featureID ) {
-        case NsdPackage.SERVICE_NS_USAGE__RELEASE:
-            setRelease( ( Integer ) newValue );
-            return;
-        case NsdPackage.SERVICE_NS_USAGE__VERSION:
-            setVersion( ( Integer ) newValue );
-            return;
-        case NsdPackage.SERVICE_NS_USAGE__ID:
-            setId( ( String ) newValue );
-            return;
-        case NsdPackage.SERVICE_NS_USAGE__REVISION:
-            setRevision( ( String ) newValue );
-            return;
-        case NsdPackage.SERVICE_NS_USAGE__PUBLICATION_STAGE:
-            setPublicationStage( ( PubStage ) newValue );
-            return;
-        case NsdPackage.SERVICE_NS_USAGE__NAMESPACE_TYPE:
-            setNamespaceType( ( NSType ) newValue );
-            return;
         case NsdPackage.SERVICE_NS_USAGE__APPLIES_TO:
             getAppliesTo().clear();
             getAppliesTo().addAll( ( Collection< ? extends AppliesToType > ) newValue );
             return;
         case NsdPackage.SERVICE_NS_USAGE__PARENT_APPLICABLE_SERVICE_NS:
             setParentApplicableServiceNS( ( ApplicableServiceNS ) newValue );
+            return;
+        case NsdPackage.SERVICE_NS_USAGE__ID:
+            setId( ( String ) newValue );
+            return;
+        case NsdPackage.SERVICE_NS_USAGE__VERSION:
+            setVersion( ( Integer ) newValue );
+            return;
+        case NsdPackage.SERVICE_NS_USAGE__REVISION:
+            setRevision( ( String ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -951,29 +681,20 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
     @Override
     public void eUnset( int featureID ) {
         switch( featureID ) {
-        case NsdPackage.SERVICE_NS_USAGE__RELEASE:
-            unsetRelease();
-            return;
-        case NsdPackage.SERVICE_NS_USAGE__VERSION:
-            unsetVersion();
-            return;
-        case NsdPackage.SERVICE_NS_USAGE__ID:
-            unsetId();
-            return;
-        case NsdPackage.SERVICE_NS_USAGE__REVISION:
-            unsetRevision();
-            return;
-        case NsdPackage.SERVICE_NS_USAGE__PUBLICATION_STAGE:
-            unsetPublicationStage();
-            return;
-        case NsdPackage.SERVICE_NS_USAGE__NAMESPACE_TYPE:
-            unsetNamespaceType();
-            return;
         case NsdPackage.SERVICE_NS_USAGE__APPLIES_TO:
             unsetAppliesTo();
             return;
         case NsdPackage.SERVICE_NS_USAGE__PARENT_APPLICABLE_SERVICE_NS:
             setParentApplicableServiceNS( ( ApplicableServiceNS ) null );
+            return;
+        case NsdPackage.SERVICE_NS_USAGE__ID:
+            unsetId();
+            return;
+        case NsdPackage.SERVICE_NS_USAGE__VERSION:
+            unsetVersion();
+            return;
+        case NsdPackage.SERVICE_NS_USAGE__REVISION:
+            unsetRevision();
             return;
         }
         super.eUnset( featureID );
@@ -987,100 +708,18 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
     @Override
     public boolean eIsSet( int featureID ) {
         switch( featureID ) {
-        case NsdPackage.SERVICE_NS_USAGE__RELEASE:
-            return isSetRelease();
-        case NsdPackage.SERVICE_NS_USAGE__VERSION:
-            return isSetVersion();
-        case NsdPackage.SERVICE_NS_USAGE__ID:
-            return isSetId();
-        case NsdPackage.SERVICE_NS_USAGE__REVISION:
-            return isSetRevision();
-        case NsdPackage.SERVICE_NS_USAGE__PUBLICATION_STAGE:
-            return isSetPublicationStage();
-        case NsdPackage.SERVICE_NS_USAGE__NAMESPACE_TYPE:
-            return isSetNamespaceType();
         case NsdPackage.SERVICE_NS_USAGE__APPLIES_TO:
             return isSetAppliesTo();
         case NsdPackage.SERVICE_NS_USAGE__PARENT_APPLICABLE_SERVICE_NS:
             return getParentApplicableServiceNS() != null;
+        case NsdPackage.SERVICE_NS_USAGE__ID:
+            return isSetId();
+        case NsdPackage.SERVICE_NS_USAGE__VERSION:
+            return isSetVersion();
+        case NsdPackage.SERVICE_NS_USAGE__REVISION:
+            return isSetRevision();
         }
         return super.eIsSet( featureID );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public int eBaseStructuralFeatureID( int derivedFeatureID, Class< ? > baseClass ) {
-        if( baseClass == AgNSIdentification.class ) {
-            switch( derivedFeatureID ) {
-            case NsdPackage.SERVICE_NS_USAGE__RELEASE:
-                return NsdPackage.AG_NS_IDENTIFICATION__RELEASE;
-            case NsdPackage.SERVICE_NS_USAGE__VERSION:
-                return NsdPackage.AG_NS_IDENTIFICATION__VERSION;
-            case NsdPackage.SERVICE_NS_USAGE__ID:
-                return NsdPackage.AG_NS_IDENTIFICATION__ID;
-            case NsdPackage.SERVICE_NS_USAGE__REVISION:
-                return NsdPackage.AG_NS_IDENTIFICATION__REVISION;
-            case NsdPackage.SERVICE_NS_USAGE__PUBLICATION_STAGE:
-                return NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE;
-            case NsdPackage.SERVICE_NS_USAGE__NAMESPACE_TYPE:
-                return NsdPackage.AG_NS_IDENTIFICATION__NAMESPACE_TYPE;
-            default:
-                return -1;
-            }
-        }
-        return super.eBaseStructuralFeatureID( derivedFeatureID, baseClass );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public int eDerivedStructuralFeatureID( int baseFeatureID, Class< ? > baseClass ) {
-        if( baseClass == AgNSIdentification.class ) {
-            switch( baseFeatureID ) {
-            case NsdPackage.AG_NS_IDENTIFICATION__RELEASE:
-                return NsdPackage.SERVICE_NS_USAGE__RELEASE;
-            case NsdPackage.AG_NS_IDENTIFICATION__VERSION:
-                return NsdPackage.SERVICE_NS_USAGE__VERSION;
-            case NsdPackage.AG_NS_IDENTIFICATION__ID:
-                return NsdPackage.SERVICE_NS_USAGE__ID;
-            case NsdPackage.AG_NS_IDENTIFICATION__REVISION:
-                return NsdPackage.SERVICE_NS_USAGE__REVISION;
-            case NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE:
-                return NsdPackage.SERVICE_NS_USAGE__PUBLICATION_STAGE;
-            case NsdPackage.AG_NS_IDENTIFICATION__NAMESPACE_TYPE:
-                return NsdPackage.SERVICE_NS_USAGE__NAMESPACE_TYPE;
-            default:
-                return -1;
-            }
-        }
-        return super.eDerivedStructuralFeatureID( baseFeatureID, baseClass );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public int eDerivedOperationID( int baseOperationID, Class< ? > baseClass ) {
-        if( baseClass == AgNSIdentification.class ) {
-            switch( baseOperationID ) {
-            case NsdPackage.AG_NS_IDENTIFICATION___ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP:
-                return NsdPackage.SERVICE_NS_USAGE___ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP;
-            case NsdPackage.AG_NS_IDENTIFICATION___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP:
-                return NsdPackage.SERVICE_NS_USAGE___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP;
-            default:
-                return -1;
-            }
-        }
-        return super.eDerivedOperationID( baseOperationID, baseClass );
     }
 
     /**
@@ -1114,9 +753,9 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
         }
 
         StringBuilder result = new StringBuilder( super.toString() );
-        result.append( " (release: " );
-        if( releaseESet ) {
-            result.append( release );
+        result.append( " (id: " );
+        if( idESet ) {
+            result.append( id );
         }
         else {
             result.append( "<unset>" );
@@ -1128,30 +767,9 @@ public class ServiceNsUsageImpl extends NsdObjectImpl implements ServiceNsUsage 
         else {
             result.append( "<unset>" );
         }
-        result.append( ", id: " );
-        if( idESet ) {
-            result.append( id );
-        }
-        else {
-            result.append( "<unset>" );
-        }
         result.append( ", revision: " );
         if( revisionESet ) {
             result.append( revision );
-        }
-        else {
-            result.append( "<unset>" );
-        }
-        result.append( ", publicationStage: " );
-        if( publicationStageESet ) {
-            result.append( publicationStage );
-        }
-        else {
-            result.append( "<unset>" );
-        }
-        result.append( ", namespaceType: " );
-        if( namespaceTypeESet ) {
-            result.append( namespaceType );
         }
         else {
             result.append( "<unset>" );

@@ -65,6 +65,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ChangesImpl#getParentServiceNS <em>Parent Service NS</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ChangesImpl#getRelease <em>Release</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ChangesImpl#getVersion <em>Version</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ChangesImpl#getMergedNamespaces <em>Merged Namespaces</em>}</li>
  * </ul>
  *
  * @generated
@@ -194,7 +195,7 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
      * @generated
      * @ordered
      */
-    protected static final Integer RELEASE_EDEFAULT = Integer.valueOf( 1 );
+    protected static final int RELEASE_EDEFAULT = 1;
 
     /**
      * The cached value of the '{@link #getRelease() <em>Release</em>}' attribute.
@@ -204,7 +205,7 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
      * @generated
      * @ordered
      */
-    protected Integer release = RELEASE_EDEFAULT;
+    protected int release = RELEASE_EDEFAULT;
 
     /**
      * This is true if the Release attribute has been set.
@@ -243,6 +244,35 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
      * @ordered
      */
     protected boolean versionESet;
+
+    /**
+     * The default value of the '{@link #getMergedNamespaces() <em>Merged Namespaces</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getMergedNamespaces()
+     * @generated
+     * @ordered
+     */
+    protected static final String MERGED_NAMESPACES_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getMergedNamespaces() <em>Merged Namespaces</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getMergedNamespaces()
+     * @generated
+     * @ordered
+     */
+    protected String mergedNamespaces = MERGED_NAMESPACES_EDEFAULT;
+
+    /**
+     * This is true if the Merged Namespaces attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean mergedNamespacesESet;
 
     /**
      * <!-- begin-user-doc -->
@@ -284,9 +314,10 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
         changesID = newChangesID;
         boolean oldChangesIDESet = changesIDESet;
         changesIDESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CHANGES__CHANGES_ID, oldChangesID,
                     changesID, !oldChangesIDESet ) );
+        }
     }
 
     /**
@@ -300,9 +331,10 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
         boolean oldChangesIDESet = changesIDESet;
         changesID = CHANGES_ID_EDEFAULT;
         changesIDESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.CHANGES__CHANGES_ID, oldChangesID,
                     CHANGES_ID_EDEFAULT, oldChangesIDESet ) );
+        }
     }
 
     /**
@@ -336,9 +368,10 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
         date = newDate;
         boolean oldDateESet = dateESet;
         dateESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CHANGES__DATE, oldDate, date,
                     !oldDateESet ) );
+        }
     }
 
     /**
@@ -352,9 +385,10 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
         boolean oldDateESet = dateESet;
         date = DATE_EDEFAULT;
         dateESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.CHANGES__DATE, oldDate, DATE_EDEFAULT,
                     oldDateESet ) );
+        }
     }
 
     /**
@@ -388,9 +422,10 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
         revision = newRevision;
         boolean oldRevisionESet = revisionESet;
         revisionESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CHANGES__REVISION, oldRevision, revision,
                     !oldRevisionESet ) );
+        }
     }
 
     /**
@@ -404,9 +439,10 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
         boolean oldRevisionESet = revisionESet;
         revision = REVISION_EDEFAULT;
         revisionESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.CHANGES__REVISION, oldRevision,
                     REVISION_EDEFAULT, oldRevisionESet ) );
+        }
     }
 
     /**
@@ -440,9 +476,10 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
         tissues = newTissues;
         boolean oldTissuesESet = tissuesESet;
         tissuesESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CHANGES__TISSUES, oldTissues, tissues,
                     !oldTissuesESet ) );
+        }
     }
 
     /**
@@ -456,9 +493,10 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
         boolean oldTissuesESet = tissuesESet;
         tissues = TISSUES_EDEFAULT;
         tissuesESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.CHANGES__TISSUES, oldTissues,
                     TISSUES_EDEFAULT, oldTissuesESet ) );
+        }
     }
 
     /**
@@ -478,7 +516,9 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
      */
     @Override
     public NS getParentNS() {
-        if( eContainerFeatureID() != NsdPackage.CHANGES__PARENT_NS ) return null;
+        if( eContainerFeatureID() != NsdPackage.CHANGES__PARENT_NS ) {
+            return null;
+        }
         return ( NS ) eInternalContainer();
     }
 
@@ -501,19 +541,25 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
     public void setParentNS( NS newParentNS ) {
         if( newParentNS != eInternalContainer()
                 || ( eContainerFeatureID() != NsdPackage.CHANGES__PARENT_NS && newParentNS != null ) ) {
-            if( EcoreUtil.isAncestor( this, newParentNS ) )
+            if( EcoreUtil.isAncestor( this, newParentNS ) ) {
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            }
             NotificationChain msgs = null;
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newParentNS != null )
+            }
+            if( newParentNS != null ) {
                 msgs = ( ( InternalEObject ) newParentNS ).eInverseAdd( this, NsdPackage.NS__CHANGES, NS.class, msgs );
+            }
             msgs = basicSetParentNS( newParentNS, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
-        else if( eNotificationRequired() )
+        else if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CHANGES__PARENT_NS, newParentNS,
                     newParentNS ) );
+        }
     }
 
     /**
@@ -523,7 +569,9 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
      */
     @Override
     public ServiceNS getParentServiceNS() {
-        if( eContainerFeatureID() != NsdPackage.CHANGES__PARENT_SERVICE_NS ) return null;
+        if( eContainerFeatureID() != NsdPackage.CHANGES__PARENT_SERVICE_NS ) {
+            return null;
+        }
         return ( ServiceNS ) eInternalContainer();
     }
 
@@ -547,20 +595,26 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
     public void setParentServiceNS( ServiceNS newParentServiceNS ) {
         if( newParentServiceNS != eInternalContainer()
                 || ( eContainerFeatureID() != NsdPackage.CHANGES__PARENT_SERVICE_NS && newParentServiceNS != null ) ) {
-            if( EcoreUtil.isAncestor( this, newParentServiceNS ) )
+            if( EcoreUtil.isAncestor( this, newParentServiceNS ) ) {
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            }
             NotificationChain msgs = null;
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newParentServiceNS != null )
+            }
+            if( newParentServiceNS != null ) {
                 msgs = ( ( InternalEObject ) newParentServiceNS ).eInverseAdd( this, NsdPackage.SERVICE_NS__CHANGES,
                         ServiceNS.class, msgs );
+            }
             msgs = basicSetParentServiceNS( newParentServiceNS, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
-        else if( eNotificationRequired() )
+        else if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CHANGES__PARENT_SERVICE_NS,
                     newParentServiceNS, newParentServiceNS ) );
+        }
     }
 
     /**
@@ -569,7 +623,7 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
      * @generated
      */
     @Override
-    public Integer getRelease() {
+    public int getRelease() {
         return release;
     }
 
@@ -579,14 +633,15 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
      * @generated
      */
     @Override
-    public void setRelease( Integer newRelease ) {
-        Integer oldRelease = release;
+    public void setRelease( int newRelease ) {
+        int oldRelease = release;
         release = newRelease;
         boolean oldReleaseESet = releaseESet;
         releaseESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CHANGES__RELEASE, oldRelease, release,
                     !oldReleaseESet ) );
+        }
     }
 
     /**
@@ -596,13 +651,14 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
      */
     @Override
     public void unsetRelease() {
-        Integer oldRelease = release;
+        int oldRelease = release;
         boolean oldReleaseESet = releaseESet;
         release = RELEASE_EDEFAULT;
         releaseESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.CHANGES__RELEASE, oldRelease,
                     RELEASE_EDEFAULT, oldReleaseESet ) );
+        }
     }
 
     /**
@@ -636,9 +692,10 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
         version = newVersion;
         boolean oldVersionESet = versionESet;
         versionESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CHANGES__VERSION, oldVersion, version,
                     !oldVersionESet ) );
+        }
     }
 
     /**
@@ -652,9 +709,10 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
         boolean oldVersionESet = versionESet;
         version = VERSION_EDEFAULT;
         versionESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.CHANGES__VERSION, oldVersion,
                     VERSION_EDEFAULT, oldVersionESet ) );
+        }
     }
 
     /**
@@ -665,6 +723,60 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
     @Override
     public boolean isSetVersion() {
         return versionESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String getMergedNamespaces() {
+        return mergedNamespaces;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setMergedNamespaces( String newMergedNamespaces ) {
+        String oldMergedNamespaces = mergedNamespaces;
+        mergedNamespaces = newMergedNamespaces;
+        boolean oldMergedNamespacesESet = mergedNamespacesESet;
+        mergedNamespacesESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.CHANGES__MERGED_NAMESPACES,
+                    oldMergedNamespaces, mergedNamespaces, !oldMergedNamespacesESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetMergedNamespaces() {
+        String oldMergedNamespaces = mergedNamespaces;
+        boolean oldMergedNamespacesESet = mergedNamespacesESet;
+        mergedNamespaces = MERGED_NAMESPACES_EDEFAULT;
+        mergedNamespacesESet = false;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.CHANGES__MERGED_NAMESPACES,
+                    oldMergedNamespaces, MERGED_NAMESPACES_EDEFAULT, oldMergedNamespacesESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetMergedNamespaces() {
+        return mergedNamespacesESet;
     }
 
     /**
@@ -742,12 +854,14 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.CHANGES__PARENT_NS:
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
+            }
             return basicSetParentNS( ( NS ) otherEnd, msgs );
         case NsdPackage.CHANGES__PARENT_SERVICE_NS:
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
+            }
             return basicSetParentServiceNS( ( ServiceNS ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
@@ -809,6 +923,8 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
             return getRelease();
         case NsdPackage.CHANGES__VERSION:
             return getVersion();
+        case NsdPackage.CHANGES__MERGED_NAMESPACES:
+            return getMergedNamespaces();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -844,6 +960,9 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
             return;
         case NsdPackage.CHANGES__VERSION:
             setVersion( ( Integer ) newValue );
+            return;
+        case NsdPackage.CHANGES__MERGED_NAMESPACES:
+            setMergedNamespaces( ( String ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -881,6 +1000,9 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
         case NsdPackage.CHANGES__VERSION:
             unsetVersion();
             return;
+        case NsdPackage.CHANGES__MERGED_NAMESPACES:
+            unsetMergedNamespaces();
+            return;
         }
         super.eUnset( featureID );
     }
@@ -909,6 +1031,8 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
             return isSetRelease();
         case NsdPackage.CHANGES__VERSION:
             return isSetVersion();
+        case NsdPackage.CHANGES__MERGED_NAMESPACES:
+            return isSetMergedNamespaces();
         }
         return super.eIsSet( featureID );
     }
@@ -936,39 +1060,60 @@ public class ChangesImpl extends NsdObjectImpl implements Changes {
      */
     @Override
     public String toString() {
-        if( eIsProxy() ) return super.toString();
+        if( eIsProxy() ) {
+            return super.toString();
+        }
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (changesID: " );
-        if( changesIDESet )
+        if( changesIDESet ) {
             result.append( changesID );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", date: " );
-        if( dateESet )
+        if( dateESet ) {
             result.append( date );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", revision: " );
-        if( revisionESet )
+        if( revisionESet ) {
             result.append( revision );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", tissues: " );
-        if( tissuesESet )
+        if( tissuesESet ) {
             result.append( tissues );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", release: " );
-        if( releaseESet )
+        if( releaseESet ) {
             result.append( release );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", version: " );
-        if( versionESet )
+        if( versionESet ) {
             result.append( version );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
+        result.append( ", mergedNamespaces: " );
+        if( mergedNamespacesESet ) {
+            result.append( mergedNamespaces );
+        }
+        else {
+            result.append( "<unset>" );
+        }
         result.append( ')' );
         return result.toString();
     }

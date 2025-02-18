@@ -43,6 +43,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getParentServiceNS <em>Parent Service NS</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getRelease <em>Release</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getVersion <em>Version</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getMergedNamespaces <em>Merged Namespaces</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getChanges()
@@ -312,13 +313,13 @@ public interface Changes extends NsdObject {
      * @return the value of the '<em>Release</em>' attribute.
      * @see #isSetRelease()
      * @see #unsetRelease()
-     * @see #setRelease(Integer)
+     * @see #setRelease(int)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getChanges_Release()
      * @model default="1" unsettable="true"
      *        extendedMetaData="kind='attribute' name='release'"
      * @generated
      */
-    Integer getRelease();
+    int getRelease();
 
     /**
      * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getRelease <em>Release</em>}' attribute.
@@ -330,7 +331,7 @@ public interface Changes extends NsdObject {
      * @see #getRelease()
      * @generated
      */
-    void setRelease( Integer value );
+    void setRelease( int value );
 
     /**
      * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getRelease <em>Release</em>}' attribute.
@@ -338,7 +339,7 @@ public interface Changes extends NsdObject {
      * <!-- end-user-doc -->
      * @see #isSetRelease()
      * @see #getRelease()
-     * @see #setRelease(Integer)
+     * @see #setRelease(int)
      * @generated
      */
     void unsetRelease();
@@ -350,7 +351,7 @@ public interface Changes extends NsdObject {
      * @return whether the value of the '<em>Release</em>' attribute is set.
      * @see #unsetRelease()
      * @see #getRelease()
-     * @see #setRelease(Integer)
+     * @see #setRelease(int)
      * @generated
      */
     boolean isSetRelease();
@@ -408,6 +409,56 @@ public interface Changes extends NsdObject {
      * @generated
      */
     boolean isSetVersion();
+
+    /**
+     * Returns the value of the '<em><b>Merged Namespaces</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Merged Namespaces</em>' attribute.
+     * @see #isSetMergedNamespaces()
+     * @see #unsetMergedNamespaces()
+     * @see #setMergedNamespaces(String)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getChanges_MergedNamespaces()
+     * @model unsettable="true"
+     *        extendedMetaData="kind='attribute' name='mergedNamespaces'"
+     * @generated
+     */
+    String getMergedNamespaces();
+
+    /**
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getMergedNamespaces <em>Merged Namespaces</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Merged Namespaces</em>' attribute.
+     * @see #isSetMergedNamespaces()
+     * @see #unsetMergedNamespaces()
+     * @see #getMergedNamespaces()
+     * @generated
+     */
+    void setMergedNamespaces( String value );
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getMergedNamespaces <em>Merged Namespaces</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetMergedNamespaces()
+     * @see #getMergedNamespaces()
+     * @see #setMergedNamespaces(String)
+     * @generated
+     */
+    void unsetMergedNamespaces();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getMergedNamespaces <em>Merged Namespaces</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Merged Namespaces</em>' attribute is set.
+     * @see #unsetMergedNamespaces()
+     * @see #getMergedNamespaces()
+     * @see #setMergedNamespaces(String)
+     * @generated
+     */
+    boolean isSetMergedNamespaces();
 
     /**
      * <!-- begin-user-doc -->

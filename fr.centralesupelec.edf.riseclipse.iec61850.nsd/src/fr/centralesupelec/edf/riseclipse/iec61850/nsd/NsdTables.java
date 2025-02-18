@@ -145,6 +145,7 @@ public class NsdTables extends AbstractTables
 	public static final /*@NonInvalid*/ ClassId CLSSid_ServiceNsUsage = NsdTables.PACKid_http_c_s_s_www_iec_ch_s_61850_s_2016_s_NSD.getClassId("ServiceNsUsage", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_ServiceParameter = NsdTables.PACKid_http_c_s_s_www_iec_ch_s_61850_s_2016_s_NSD.getClassId("ServiceParameter", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_ServiceType = NsdTables.PACKid_http_c_s_s_www_iec_ch_s_61850_s_2016_s_NSD.getClassId("ServiceType", 0);
+	public static final /*@NonInvalid*/ ClassId CLSSid_ServiceTypeRealization = NsdTables.PACKid_http_c_s_s_www_iec_ch_s_61850_s_2016_s_NSD.getClassId("ServiceTypeRealization", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_ServiceTypeRealizations = NsdTables.PACKid_http_c_s_s_www_iec_ch_s_61850_s_2016_s_NSD.getClassId("ServiceTypeRealizations", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_SubDataAttribute = NsdTables.PACKid_http_c_s_s_www_iec_ch_s_61850_s_2016_s_NSD.getClassId("SubDataAttribute", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_SubDataObject = NsdTables.PACKid_http_c_s_s_www_iec_ch_s_61850_s_2016_s_NSD.getClassId("SubDataObject", 0);
@@ -156,7 +157,6 @@ public class NsdTables extends AbstractTables
 	public static final /*@NonInvalid*/ DataTypeId DATAid_EFeatureMapEntry = NsdTables.PACKid_http_c_s_s_www_eclipse_org_s_emf_s_2002_s_Ecore.getDataTypeId("EFeatureMapEntry", 0);
 	public static final /*@NonInvalid*/ DataTypeId DATAid_EInt = NsdTables.PACKid_http_c_s_s_www_eclipse_org_s_emf_s_2002_s_Ecore.getDataTypeId("EInt", 0);
 	public static final /*@NonInvalid*/ DataTypeId DATAid_EIntegerObject = NsdTables.PACKid_http_c_s_s_www_eclipse_org_s_emf_s_2002_s_Ecore.getDataTypeId("EIntegerObject", 0);
-	public static final /*@NonInvalid*/ DataTypeId DATAid_Int = NsdTables.PACKid_http_c_s_s_www_eclipse_org_s_emf_s_2003_s_XMLType.getDataTypeId("Int", 0);
 	public static final /*@NonInvalid*/ DataTypeId DATAid_Language = NsdTables.PACKid_http_c_s_s_www_eclipse_org_s_emf_s_2003_s_XMLType.getDataTypeId("Language", 0);
 	public static final /*@NonInvalid*/ DataTypeId DATAid_NormalizedString = NsdTables.PACKid_http_c_s_s_www_eclipse_org_s_emf_s_2003_s_XMLType.getDataTypeId("NormalizedString", 0);
 	public static final /*@NonInvalid*/ DataTypeId DATAid_Token = NsdTables.PACKid_http_c_s_s_www_eclipse_org_s_emf_s_2003_s_XMLType.getDataTypeId("Token", 0);
@@ -187,7 +187,9 @@ public class NsdTables extends AbstractTables
 	public static final /*@NonInvalid*/ String STR_The_32_fc_32_attribute_32_is_32_required = "The fc attribute is required";
 	public static final /*@NonInvalid*/ String STR_The_32_id_32_attribute_32_is_32_required = "The id attribute is required";
 	public static final /*@NonInvalid*/ String STR_The_32_lang_32_attribute_32_is_32_required = "The lang attribute is required";
+	public static final /*@NonInvalid*/ String STR_The_32_literalVal_32_attribute_32_is_32_required = "The literalVal attribute is required";
 	public static final /*@NonInvalid*/ String STR_The_32_name_32_attribute_32_is_32_required = "The name attribute is required";
+	public static final /*@NonInvalid*/ String STR_The_32_realize_32_attribute_32_is_32_required = "The realize attribute is required";
 	public static final /*@NonInvalid*/ String STR_The_32_titleID_32_attribute_32_is_32_required = "The titleID attribute is required";
 	public static final /*@NonInvalid*/ String STR_The_32_type_32_attribute_32_is_32_required = "The type attribute is required";
 	public static final /*@NonInvalid*/ String STR_The_32_version_32_attribute_32_is_32_required = "The version attribute is required";
@@ -229,6 +231,7 @@ public class NsdTables extends AbstractTables
 	public static final /*@NonInvalid*/ CollectionTypeId SET_CLSSid_ServiceDataAttribute = TypeId.SET.getSpecializedId(NsdTables.CLSSid_ServiceDataAttribute, true, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
 	public static final /*@NonInvalid*/ CollectionTypeId SET_CLSSid_ServiceNsUsage = TypeId.SET.getSpecializedId(NsdTables.CLSSid_ServiceNsUsage, true, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
 	public static final /*@NonInvalid*/ CollectionTypeId SET_CLSSid_ServiceType = TypeId.SET.getSpecializedId(NsdTables.CLSSid_ServiceType, true, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
+	public static final /*@NonInvalid*/ CollectionTypeId SET_CLSSid_ServiceTypeRealization = TypeId.SET.getSpecializedId(NsdTables.CLSSid_ServiceTypeRealization, true, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
 	public static final /*@NonInvalid*/ CollectionTypeId SET_CLSSid_SubDataAttribute = TypeId.SET.getSpecializedId(NsdTables.CLSSid_SubDataAttribute, true, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
 	public static final /*@NonInvalid*/ CollectionTypeId SET_CLSSid_SubDataObject = TypeId.SET.getSpecializedId(NsdTables.CLSSid_SubDataObject, true, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
 	public static final /*@NonInvalid*/ CollectionTypeId SET_CLSSid_TitledClass = TypeId.SET.getSpecializedId(NsdTables.CLSSid_TitledClass, true, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
@@ -334,6 +337,7 @@ public class NsdTables extends AbstractTables
 		public static final EcoreExecutorType _ServiceNsUsage = new EcoreExecutorType(NsdPackage.Literals.SERVICE_NS_USAGE, PACKAGE, 0);
 		public static final EcoreExecutorType _ServiceParameter = new EcoreExecutorType(NsdPackage.Literals.SERVICE_PARAMETER, PACKAGE, 0);
 		public static final EcoreExecutorType _ServiceType = new EcoreExecutorType(NsdPackage.Literals.SERVICE_TYPE, PACKAGE, 0);
+		public static final EcoreExecutorType _ServiceTypeRealization = new EcoreExecutorType(NsdPackage.Literals.SERVICE_TYPE_REALIZATION, PACKAGE, 0);
 		public static final EcoreExecutorType _ServiceTypeRealizations = new EcoreExecutorType(NsdPackage.Literals.SERVICE_TYPE_REALIZATIONS, PACKAGE, 0);
 		public static final EcoreExecutorType _SubDataAttribute = new EcoreExecutorType(NsdPackage.Literals.SUB_DATA_ATTRIBUTE, PACKAGE, 0);
 		public static final EcoreExecutorType _SubDataObject = new EcoreExecutorType(NsdPackage.Literals.SUB_DATA_OBJECT, PACKAGE, 0);
@@ -414,6 +418,7 @@ public class NsdTables extends AbstractTables
 			_ServiceNsUsage,
 			_ServiceParameter,
 			_ServiceType,
+			_ServiceTypeRealization,
 			_ServiceTypeRealizations,
 			_SubDataAttribute,
 			_SubDataObject,
@@ -821,7 +826,6 @@ public class NsdTables extends AbstractTables
 		private static final ExecutorFragment _ServiceNS__OclElement = new ExecutorFragment(Types._ServiceNS, OCLstdlibTables.Types._OclElement);
 		private static final ExecutorFragment _ServiceNS__ServiceNS = new ExecutorFragment(Types._ServiceNS, NsdTables.Types._ServiceNS);
 
-		private static final ExecutorFragment _ServiceNsUsage__AgNSIdentification = new ExecutorFragment(Types._ServiceNsUsage, NsdTables.Types._AgNSIdentification);
 		private static final ExecutorFragment _ServiceNsUsage__NsdObject = new ExecutorFragment(Types._ServiceNsUsage, NsdTables.Types._NsdObject);
 		private static final ExecutorFragment _ServiceNsUsage__OclAny = new ExecutorFragment(Types._ServiceNsUsage, OCLstdlibTables.Types._OclAny);
 		private static final ExecutorFragment _ServiceNsUsage__OclElement = new ExecutorFragment(Types._ServiceNsUsage, OCLstdlibTables.Types._OclElement);
@@ -839,6 +843,14 @@ public class NsdTables extends AbstractTables
 		private static final ExecutorFragment _ServiceType__OclAny = new ExecutorFragment(Types._ServiceType, OCLstdlibTables.Types._OclAny);
 		private static final ExecutorFragment _ServiceType__OclElement = new ExecutorFragment(Types._ServiceType, OCLstdlibTables.Types._OclElement);
 		private static final ExecutorFragment _ServiceType__ServiceType = new ExecutorFragment(Types._ServiceType, NsdTables.Types._ServiceType);
+
+		private static final ExecutorFragment _ServiceTypeRealization__ConstructedAttribute = new ExecutorFragment(Types._ServiceTypeRealization, NsdTables.Types._ConstructedAttribute);
+		private static final ExecutorFragment _ServiceTypeRealization__DocumentedClass = new ExecutorFragment(Types._ServiceTypeRealization, NsdTables.Types._DocumentedClass);
+		private static final ExecutorFragment _ServiceTypeRealization__NsdObject = new ExecutorFragment(Types._ServiceTypeRealization, NsdTables.Types._NsdObject);
+		private static final ExecutorFragment _ServiceTypeRealization__OclAny = new ExecutorFragment(Types._ServiceTypeRealization, OCLstdlibTables.Types._OclAny);
+		private static final ExecutorFragment _ServiceTypeRealization__OclElement = new ExecutorFragment(Types._ServiceTypeRealization, OCLstdlibTables.Types._OclElement);
+		private static final ExecutorFragment _ServiceTypeRealization__ServiceTypeRealization = new ExecutorFragment(Types._ServiceTypeRealization, NsdTables.Types._ServiceTypeRealization);
+		private static final ExecutorFragment _ServiceTypeRealization__TitledClass = new ExecutorFragment(Types._ServiceTypeRealization, NsdTables.Types._TitledClass);
 
 		private static final ExecutorFragment _ServiceTypeRealizations__NsdObject = new ExecutorFragment(Types._ServiceTypeRealizations, NsdTables.Types._NsdObject);
 		private static final ExecutorFragment _ServiceTypeRealizations__OclAny = new ExecutorFragment(Types._ServiceTypeRealizations, OCLstdlibTables.Types._OclAny);
@@ -996,12 +1008,13 @@ public class NsdTables extends AbstractTables
 		public static final ExecutorProperty _AgNSDIdentification__nsdRevision = new EcoreExecutorProperty(NsdPackage.Literals.AG_NSD_IDENTIFICATION__NSD_REVISION, Types._AgNSDIdentification, 1);
 		public static final ExecutorProperty _AgNSDIdentification__nsdVersion = new EcoreExecutorProperty(NsdPackage.Literals.AG_NSD_IDENTIFICATION__NSD_VERSION, Types._AgNSDIdentification, 2);
 
-		public static final ExecutorProperty _AgNSIdentification__id = new EcoreExecutorProperty(NsdPackage.Literals.AG_NS_IDENTIFICATION__ID, Types._AgNSIdentification, 0);
-		public static final ExecutorProperty _AgNSIdentification__namespaceType = new EcoreExecutorProperty(NsdPackage.Literals.AG_NS_IDENTIFICATION__NAMESPACE_TYPE, Types._AgNSIdentification, 1);
-		public static final ExecutorProperty _AgNSIdentification__publicationStage = new EcoreExecutorProperty(NsdPackage.Literals.AG_NS_IDENTIFICATION__PUBLICATION_STAGE, Types._AgNSIdentification, 2);
-		public static final ExecutorProperty _AgNSIdentification__release = new EcoreExecutorProperty(NsdPackage.Literals.AG_NS_IDENTIFICATION__RELEASE, Types._AgNSIdentification, 3);
-		public static final ExecutorProperty _AgNSIdentification__revision = new EcoreExecutorProperty(NsdPackage.Literals.AG_NS_IDENTIFICATION__REVISION, Types._AgNSIdentification, 4);
-		public static final ExecutorProperty _AgNSIdentification__version = new EcoreExecutorProperty(NsdPackage.Literals.AG_NS_IDENTIFICATION__VERSION, Types._AgNSIdentification, 5);
+		public static final ExecutorProperty _AgNSIdentification__deprecated = new EcoreExecutorProperty(NsdPackage.Literals.AG_NS_IDENTIFICATION__DEPRECATED, Types._AgNSIdentification, 0);
+		public static final ExecutorProperty _AgNSIdentification__id = new EcoreExecutorProperty(NsdPackage.Literals.AG_NS_IDENTIFICATION__ID, Types._AgNSIdentification, 1);
+		public static final ExecutorProperty _AgNSIdentification__namespaceType = new EcoreExecutorProperty(NsdPackage.Literals.AG_NS_IDENTIFICATION__NAMESPACE_TYPE, Types._AgNSIdentification, 2);
+		public static final ExecutorProperty _AgNSIdentification__publicationStage = new EcoreExecutorProperty(NsdPackage.Literals.AG_NS_IDENTIFICATION__PUBLICATION_STAGE, Types._AgNSIdentification, 3);
+		public static final ExecutorProperty _AgNSIdentification__release = new EcoreExecutorProperty(NsdPackage.Literals.AG_NS_IDENTIFICATION__RELEASE, Types._AgNSIdentification, 4);
+		public static final ExecutorProperty _AgNSIdentification__revision = new EcoreExecutorProperty(NsdPackage.Literals.AG_NS_IDENTIFICATION__REVISION, Types._AgNSIdentification, 5);
+		public static final ExecutorProperty _AgNSIdentification__version = new EcoreExecutorProperty(NsdPackage.Literals.AG_NS_IDENTIFICATION__VERSION, Types._AgNSIdentification, 6);
 
 		public static final ExecutorProperty _AgNSdesc__descID = new EcoreExecutorProperty(NsdPackage.Literals.AG_NSDESC__DESC_ID, Types._AgNSdesc, 0);
 		public static final ExecutorProperty _AgNSdesc__refersToDoc = new EcoreExecutorProperty(NsdPackage.Literals.AG_NSDESC__REFERS_TO_DOC, Types._AgNSdesc, 1);
@@ -1020,14 +1033,16 @@ public class NsdTables extends AbstractTables
 		public static final ExecutorProperty _AgTrgOp__dupd = new EcoreExecutorProperty(NsdPackage.Literals.AG_TRG_OP__DUPD, Types._AgTrgOp, 1);
 		public static final ExecutorProperty _AgTrgOp__qchg = new EcoreExecutorProperty(NsdPackage.Literals.AG_TRG_OP__QCHG, Types._AgTrgOp, 2);
 
-		public static final ExecutorProperty _AgUML__umlDate = new EcoreExecutorProperty(NsdPackage.Literals.AG_UML__UML_DATE, Types._AgUML, 0);
-		public static final ExecutorProperty _AgUML__umlVersion = new EcoreExecutorProperty(NsdPackage.Literals.AG_UML__UML_VERSION, Types._AgUML, 1);
+		public static final ExecutorProperty _AgUML__appVersion = new EcoreExecutorProperty(NsdPackage.Literals.AG_UML__APP_VERSION, Types._AgUML, 0);
+		public static final ExecutorProperty _AgUML__umlDate = new EcoreExecutorProperty(NsdPackage.Literals.AG_UML__UML_DATE, Types._AgUML, 1);
+		public static final ExecutorProperty _AgUML__umlVersion = new EcoreExecutorProperty(NsdPackage.Literals.AG_UML__UML_VERSION, Types._AgUML, 2);
 
 		public static final ExecutorProperty _AgUnderlyingType__refersToUnderlyingBasicType = new EcoreExecutorProperty(NsdPackage.Literals.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_BASIC_TYPE, Types._AgUnderlyingType, 0);
 		public static final ExecutorProperty _AgUnderlyingType__refersToUnderlyingConstructedAttribute = new EcoreExecutorProperty(NsdPackage.Literals.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE, Types._AgUnderlyingType, 1);
 		public static final ExecutorProperty _AgUnderlyingType__refersToUnderlyingEnumeration = new EcoreExecutorProperty(NsdPackage.Literals.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_ENUMERATION, Types._AgUnderlyingType, 2);
-		public static final ExecutorProperty _AgUnderlyingType__underlyingType = new EcoreExecutorProperty(NsdPackage.Literals.AG_UNDERLYING_TYPE__UNDERLYING_TYPE, Types._AgUnderlyingType, 3);
-		public static final ExecutorProperty _AgUnderlyingType__underlyingTypeKind = new EcoreExecutorProperty(NsdPackage.Literals.AG_UNDERLYING_TYPE__UNDERLYING_TYPE_KIND, Types._AgUnderlyingType, 4);
+		public static final ExecutorProperty _AgUnderlyingType__underlyingControlType = new EcoreExecutorProperty(NsdPackage.Literals.AG_UNDERLYING_TYPE__UNDERLYING_CONTROL_TYPE, Types._AgUnderlyingType, 3);
+		public static final ExecutorProperty _AgUnderlyingType__underlyingType = new EcoreExecutorProperty(NsdPackage.Literals.AG_UNDERLYING_TYPE__UNDERLYING_TYPE, Types._AgUnderlyingType, 4);
+		public static final ExecutorProperty _AgUnderlyingType__underlyingTypeKind = new EcoreExecutorProperty(NsdPackage.Literals.AG_UNDERLYING_TYPE__UNDERLYING_TYPE_KIND, Types._AgUnderlyingType, 5);
 
 		public static final ExecutorProperty _AnyLNClass__base = new EcoreExecutorProperty(NsdPackage.Literals.ANY_LN_CLASS__BASE, Types._AnyLNClass, 0);
 		public static final ExecutorProperty _AnyLNClass__dataObject = new EcoreExecutorProperty(NsdPackage.Literals.ANY_LN_CLASS__DATA_OBJECT, Types._AnyLNClass, 1);
@@ -1072,19 +1087,19 @@ public class NsdTables extends AbstractTables
 
 		public static final ExecutorProperty _Changes__changesID = new EcoreExecutorProperty(NsdPackage.Literals.CHANGES__CHANGES_ID, Types._Changes, 0);
 		public static final ExecutorProperty _Changes__date = new EcoreExecutorProperty(NsdPackage.Literals.CHANGES__DATE, Types._Changes, 1);
-		public static final ExecutorProperty _Changes__parentNS = new EcoreExecutorProperty(NsdPackage.Literals.CHANGES__PARENT_NS, Types._Changes, 2);
-		public static final ExecutorProperty _Changes__parentServiceNS = new EcoreExecutorProperty(NsdPackage.Literals.CHANGES__PARENT_SERVICE_NS, Types._Changes, 3);
-		public static final ExecutorProperty _Changes__release = new EcoreExecutorProperty(NsdPackage.Literals.CHANGES__RELEASE, Types._Changes, 4);
-		public static final ExecutorProperty _Changes__revision = new EcoreExecutorProperty(NsdPackage.Literals.CHANGES__REVISION, Types._Changes, 5);
-		public static final ExecutorProperty _Changes__tissues = new EcoreExecutorProperty(NsdPackage.Literals.CHANGES__TISSUES, Types._Changes, 6);
-		public static final ExecutorProperty _Changes__version = new EcoreExecutorProperty(NsdPackage.Literals.CHANGES__VERSION, Types._Changes, 7);
+		public static final ExecutorProperty _Changes__mergedNamespaces = new EcoreExecutorProperty(NsdPackage.Literals.CHANGES__MERGED_NAMESPACES, Types._Changes, 2);
+		public static final ExecutorProperty _Changes__parentNS = new EcoreExecutorProperty(NsdPackage.Literals.CHANGES__PARENT_NS, Types._Changes, 3);
+		public static final ExecutorProperty _Changes__parentServiceNS = new EcoreExecutorProperty(NsdPackage.Literals.CHANGES__PARENT_SERVICE_NS, Types._Changes, 4);
+		public static final ExecutorProperty _Changes__release = new EcoreExecutorProperty(NsdPackage.Literals.CHANGES__RELEASE, Types._Changes, 5);
+		public static final ExecutorProperty _Changes__revision = new EcoreExecutorProperty(NsdPackage.Literals.CHANGES__REVISION, Types._Changes, 6);
+		public static final ExecutorProperty _Changes__tissues = new EcoreExecutorProperty(NsdPackage.Literals.CHANGES__TISSUES, Types._Changes, 7);
+		public static final ExecutorProperty _Changes__version = new EcoreExecutorProperty(NsdPackage.Literals.CHANGES__VERSION, Types._Changes, 8);
 
 		public static final ExecutorProperty _ConstructedAttribute__name = new EcoreExecutorProperty(NsdPackage.Literals.CONSTRUCTED_ATTRIBUTE__NAME, Types._ConstructedAttribute, 0);
 		public static final ExecutorProperty _ConstructedAttribute__parentConstructedAttributes = new EcoreExecutorProperty(NsdPackage.Literals.CONSTRUCTED_ATTRIBUTE__PARENT_CONSTRUCTED_ATTRIBUTES, Types._ConstructedAttribute, 1);
-		public static final ExecutorProperty _ConstructedAttribute__parentServiceTypeRealizations = new EcoreExecutorProperty(NsdPackage.Literals.CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_TYPE_REALIZATIONS, Types._ConstructedAttribute, 2);
-		public static final ExecutorProperty _ConstructedAttribute__referredByAttributeType = new EcoreExecutorProperty(NsdPackage.Literals.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_ATTRIBUTE_TYPE, Types._ConstructedAttribute, 3);
-		public static final ExecutorProperty _ConstructedAttribute__referredByUnderlyingType = new EcoreExecutorProperty(NsdPackage.Literals.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_UNDERLYING_TYPE, Types._ConstructedAttribute, 4);
-		public static final ExecutorProperty _ConstructedAttribute__subDataAttribute = new EcoreExecutorProperty(NsdPackage.Literals.CONSTRUCTED_ATTRIBUTE__SUB_DATA_ATTRIBUTE, Types._ConstructedAttribute, 5);
+		public static final ExecutorProperty _ConstructedAttribute__referredByAttributeType = new EcoreExecutorProperty(NsdPackage.Literals.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_ATTRIBUTE_TYPE, Types._ConstructedAttribute, 2);
+		public static final ExecutorProperty _ConstructedAttribute__referredByUnderlyingType = new EcoreExecutorProperty(NsdPackage.Literals.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_UNDERLYING_TYPE, Types._ConstructedAttribute, 3);
+		public static final ExecutorProperty _ConstructedAttribute__subDataAttribute = new EcoreExecutorProperty(NsdPackage.Literals.CONSTRUCTED_ATTRIBUTE__SUB_DATA_ATTRIBUTE, Types._ConstructedAttribute, 4);
 
 		public static final ExecutorProperty _ConstructedAttributes__constructedAttribute = new EcoreExecutorProperty(NsdPackage.Literals.CONSTRUCTED_ATTRIBUTES__CONSTRUCTED_ATTRIBUTE, Types._ConstructedAttributes, 0);
 		public static final ExecutorProperty _ConstructedAttributes__parentNS = new EcoreExecutorProperty(NsdPackage.Literals.CONSTRUCTED_ATTRIBUTES__PARENT_NS, Types._ConstructedAttributes, 1);
@@ -1263,13 +1278,19 @@ public class NsdTables extends AbstractTables
 		public static final ExecutorProperty _ServiceNS__DocumentRoot__serviceNS = new ExecutorPropertyWithImplementation("DocumentRoot", Types._ServiceNS, 7, new EcoreLibraryOppositeProperty(NsdPackage.Literals.DOCUMENT_ROOT__SERVICE_NS));
 
 		public static final ExecutorProperty _ServiceNsUsage__appliesTo = new EcoreExecutorProperty(NsdPackage.Literals.SERVICE_NS_USAGE__APPLIES_TO, Types._ServiceNsUsage, 0);
-		public static final ExecutorProperty _ServiceNsUsage__parentApplicableServiceNS = new EcoreExecutorProperty(NsdPackage.Literals.SERVICE_NS_USAGE__PARENT_APPLICABLE_SERVICE_NS, Types._ServiceNsUsage, 1);
+		public static final ExecutorProperty _ServiceNsUsage__id = new EcoreExecutorProperty(NsdPackage.Literals.SERVICE_NS_USAGE__ID, Types._ServiceNsUsage, 1);
+		public static final ExecutorProperty _ServiceNsUsage__parentApplicableServiceNS = new EcoreExecutorProperty(NsdPackage.Literals.SERVICE_NS_USAGE__PARENT_APPLICABLE_SERVICE_NS, Types._ServiceNsUsage, 2);
+		public static final ExecutorProperty _ServiceNsUsage__revision = new EcoreExecutorProperty(NsdPackage.Literals.SERVICE_NS_USAGE__REVISION, Types._ServiceNsUsage, 3);
+		public static final ExecutorProperty _ServiceNsUsage__version = new EcoreExecutorProperty(NsdPackage.Literals.SERVICE_NS_USAGE__VERSION, Types._ServiceNsUsage, 4);
 
 		public static final ExecutorProperty _ServiceParameter__name = new EcoreExecutorProperty(NsdPackage.Literals.SERVICE_PARAMETER__NAME, Types._ServiceParameter, 0);
 		public static final ExecutorProperty _ServiceParameter__parentCDC = new EcoreExecutorProperty(NsdPackage.Literals.SERVICE_PARAMETER__PARENT_CDC, Types._ServiceParameter, 1);
 
 		public static final ExecutorProperty _ServiceType__name = new EcoreExecutorProperty(NsdPackage.Literals.SERVICE_TYPE__NAME, Types._ServiceType, 0);
 		public static final ExecutorProperty _ServiceType__parentApplicableServices = new EcoreExecutorProperty(NsdPackage.Literals.SERVICE_TYPE__PARENT_APPLICABLE_SERVICES, Types._ServiceType, 1);
+
+		public static final ExecutorProperty _ServiceTypeRealization__parentServiceTypeRealizations = new EcoreExecutorProperty(NsdPackage.Literals.SERVICE_TYPE_REALIZATION__PARENT_SERVICE_TYPE_REALIZATIONS, Types._ServiceTypeRealization, 0);
+		public static final ExecutorProperty _ServiceTypeRealization__realize = new EcoreExecutorProperty(NsdPackage.Literals.SERVICE_TYPE_REALIZATION__REALIZE, Types._ServiceTypeRealization, 1);
 
 		public static final ExecutorProperty _ServiceTypeRealizations__parentServiceNS = new EcoreExecutorProperty(NsdPackage.Literals.SERVICE_TYPE_REALIZATIONS__PARENT_SERVICE_NS, Types._ServiceTypeRealizations, 0);
 		public static final ExecutorProperty _ServiceTypeRealizations__serviceTypeRealization = new EcoreExecutorProperty(NsdPackage.Literals.SERVICE_TYPE_REALIZATIONS__SERVICE_TYPE_REALIZATION, Types._ServiceTypeRealizations, 1);
@@ -1963,11 +1984,10 @@ public class NsdTables extends AbstractTables
 			{
 				Fragments._ServiceNsUsage__OclAny /* 0 */,
 				Fragments._ServiceNsUsage__OclElement /* 1 */,
-				Fragments._ServiceNsUsage__AgNSIdentification /* 2 */,
 				Fragments._ServiceNsUsage__NsdObject /* 2 */,
 				Fragments._ServiceNsUsage__ServiceNsUsage /* 3 */
 			};
-		private static final int /*@NonNull*/ [] __ServiceNsUsage = { 1,1,2,1 };
+		private static final int /*@NonNull*/ [] __ServiceNsUsage = { 1,1,1,1 };
 
 		private static final ExecutorFragment /*@NonNull*/ [] _ServiceParameter =
 			{
@@ -1989,6 +2009,18 @@ public class NsdTables extends AbstractTables
 				Fragments._ServiceType__ServiceType /* 3 */
 			};
 		private static final int /*@NonNull*/ [] __ServiceType = { 1,1,1,1 };
+
+		private static final ExecutorFragment /*@NonNull*/ [] _ServiceTypeRealization =
+			{
+				Fragments._ServiceTypeRealization__OclAny /* 0 */,
+				Fragments._ServiceTypeRealization__OclElement /* 1 */,
+				Fragments._ServiceTypeRealization__NsdObject /* 2 */,
+				Fragments._ServiceTypeRealization__DocumentedClass /* 3 */,
+				Fragments._ServiceTypeRealization__TitledClass /* 4 */,
+				Fragments._ServiceTypeRealization__ConstructedAttribute /* 5 */,
+				Fragments._ServiceTypeRealization__ServiceTypeRealization /* 6 */
+			};
+		private static final int /*@NonNull*/ [] __ServiceTypeRealization = { 1,1,1,1,1,1,1 };
 
 		private static final ExecutorFragment /*@NonNull*/ [] _ServiceTypeRealizations =
 			{
@@ -2129,6 +2161,7 @@ public class NsdTables extends AbstractTables
 			Types._ServiceNsUsage.initFragments(_ServiceNsUsage, __ServiceNsUsage);
 			Types._ServiceParameter.initFragments(_ServiceParameter, __ServiceParameter);
 			Types._ServiceType.initFragments(_ServiceType, __ServiceType);
+			Types._ServiceTypeRealization.initFragments(_ServiceTypeRealization, __ServiceTypeRealization);
 			Types._ServiceTypeRealizations.initFragments(_ServiceTypeRealizations, __ServiceTypeRealizations);
 			Types._SubDataAttribute.initFragments(_SubDataAttribute, __SubDataAttribute);
 			Types._SubDataObject.initFragments(_SubDataObject, __SubDataObject);
@@ -4575,7 +4608,6 @@ public class NsdTables extends AbstractTables
 		};
 
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceNsUsage__ServiceNsUsage = {};
-		private static final ExecutorOperation /*@NonNull*/ [] _ServiceNsUsage__AgNSIdentification = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceNsUsage__NsdObject = {
 			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
 		};
@@ -4685,6 +4717,45 @@ public class NsdTables extends AbstractTables
 			OCLstdlibTables.Operations._OclElement__oclModelType /* oclModelType() */,
 			OCLstdlibTables.Operations._OclElement__oclModelTypes /* oclModelTypes() */
 		};
+
+		private static final ExecutorOperation /*@NonNull*/ [] _ServiceTypeRealization__ServiceTypeRealization = {};
+		private static final ExecutorOperation /*@NonNull*/ [] _ServiceTypeRealization__ConstructedAttribute = {};
+		private static final ExecutorOperation /*@NonNull*/ [] _ServiceTypeRealization__DocumentedClass = {};
+		private static final ExecutorOperation /*@NonNull*/ [] _ServiceTypeRealization__NsdObject = {
+			NsdTables.Operations._NsdObject__buildExplicitLinks /* buildExplicitLinks(IRiseClipseConsole[?]) */
+		};
+		private static final ExecutorOperation /*@NonNull*/ [] _ServiceTypeRealization__OclAny = {
+			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
+			OCLstdlibTables.Operations._OclAny___eq_ /* _'='(OclSelf[?]) */,
+			OCLstdlibTables.Operations._OclAny__oclAsSet /* oclAsSet() */,
+			OCLstdlibTables.Operations._OclAny__oclAsType /* oclAsType(TT)(TT[1]) */,
+			OCLstdlibTables.Operations._OclAny__oclIsInState /* oclIsInState(OclState[?]) */,
+			OCLstdlibTables.Operations._OclAny__oclIsInvalid /* oclIsInvalid() */,
+			OCLstdlibTables.Operations._OclAny__oclIsKindOf /* oclIsKindOf(OclType[1]) */,
+			OCLstdlibTables.Operations._OclAny__oclIsNew /* oclIsNew() */,
+			OCLstdlibTables.Operations._OclAny__oclIsTypeOf /* oclIsTypeOf(OclType[1]) */,
+			OCLstdlibTables.Operations._OclAny__oclIsUndefined /* oclIsUndefined() */,
+			OCLstdlibTables.Operations._OclAny__0_oclLog /* oclLog() */,
+			OCLstdlibTables.Operations._OclAny__1_oclLog /* oclLog(String[1]) */,
+			OCLstdlibTables.Operations._OclAny__oclType /* oclType() */,
+			OCLstdlibTables.Operations._OclAny__oclTypes /* oclTypes() */,
+			OCLstdlibTables.Operations._OclAny__toString /* toString() */
+		};
+		private static final ExecutorOperation /*@NonNull*/ [] _ServiceTypeRealization__OclElement = {
+			OCLstdlibTables.Operations._OclElement__allInstances /* allInstances(Integer[1]) */,
+			OCLstdlibTables.Operations._OclElement__oclAsModelType /* oclAsModelType(TT)(TT[1]) */,
+			OCLstdlibTables.Operations._OclElement__0_oclBase /* oclBase() */,
+			OCLstdlibTables.Operations._OclElement__1_oclBase /* oclBase(OclType[1]) */,
+			OCLstdlibTables.Operations._OclElement__oclContainer /* oclContainer() */,
+			OCLstdlibTables.Operations._OclElement__oclContents /* oclContents() */,
+			OCLstdlibTables.Operations._OclElement__oclExtension /* oclExtension(OclStereotype[1]) */,
+			OCLstdlibTables.Operations._OclElement__0_oclExtensions /* oclExtensions() */,
+			OCLstdlibTables.Operations._OclElement__1_oclExtensions /* oclExtensions(OclStereotype[1]) */,
+			OCLstdlibTables.Operations._OclElement__oclIsModelKindOf /* oclIsModelKindOf(OclType[1]) */,
+			OCLstdlibTables.Operations._OclElement__oclModelType /* oclModelType() */,
+			OCLstdlibTables.Operations._OclElement__oclModelTypes /* oclModelTypes() */
+		};
+		private static final ExecutorOperation /*@NonNull*/ [] _ServiceTypeRealization__TitledClass = {};
 
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceTypeRealizations__ServiceTypeRealizations = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _ServiceTypeRealizations__NsdObject = {
@@ -5278,7 +5349,6 @@ public class NsdTables extends AbstractTables
 			Fragments._ServiceNS__OclElement.initOperations(_ServiceNS__OclElement);
 			Fragments._ServiceNS__ServiceNS.initOperations(_ServiceNS__ServiceNS);
 
-			Fragments._ServiceNsUsage__AgNSIdentification.initOperations(_ServiceNsUsage__AgNSIdentification);
 			Fragments._ServiceNsUsage__NsdObject.initOperations(_ServiceNsUsage__NsdObject);
 			Fragments._ServiceNsUsage__OclAny.initOperations(_ServiceNsUsage__OclAny);
 			Fragments._ServiceNsUsage__OclElement.initOperations(_ServiceNsUsage__OclElement);
@@ -5296,6 +5366,14 @@ public class NsdTables extends AbstractTables
 			Fragments._ServiceType__OclAny.initOperations(_ServiceType__OclAny);
 			Fragments._ServiceType__OclElement.initOperations(_ServiceType__OclElement);
 			Fragments._ServiceType__ServiceType.initOperations(_ServiceType__ServiceType);
+
+			Fragments._ServiceTypeRealization__ConstructedAttribute.initOperations(_ServiceTypeRealization__ConstructedAttribute);
+			Fragments._ServiceTypeRealization__DocumentedClass.initOperations(_ServiceTypeRealization__DocumentedClass);
+			Fragments._ServiceTypeRealization__NsdObject.initOperations(_ServiceTypeRealization__NsdObject);
+			Fragments._ServiceTypeRealization__OclAny.initOperations(_ServiceTypeRealization__OclAny);
+			Fragments._ServiceTypeRealization__OclElement.initOperations(_ServiceTypeRealization__OclElement);
+			Fragments._ServiceTypeRealization__ServiceTypeRealization.initOperations(_ServiceTypeRealization__ServiceTypeRealization);
+			Fragments._ServiceTypeRealization__TitledClass.initOperations(_ServiceTypeRealization__TitledClass);
 
 			Fragments._ServiceTypeRealizations__NsdObject.initOperations(_ServiceTypeRealizations__NsdObject);
 			Fragments._ServiceTypeRealizations__OclAny.initOperations(_ServiceTypeRealizations__OclAny);
@@ -5451,6 +5529,7 @@ public class NsdTables extends AbstractTables
 		};
 
 		private static final ExecutorProperty /*@NonNull*/ [] _AgNSIdentification = {
+			NsdTables.Properties._AgNSIdentification__deprecated,
 			NsdTables.Properties._AgNSIdentification__id,
 			NsdTables.Properties._AgNSIdentification__namespaceType,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
@@ -5495,6 +5574,7 @@ public class NsdTables extends AbstractTables
 		};
 
 		private static final ExecutorProperty /*@NonNull*/ [] _AgUML = {
+			NsdTables.Properties._AgUML__appVersion,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents,
 			NsdTables.Properties._AgUML__umlDate,
@@ -5507,6 +5587,7 @@ public class NsdTables extends AbstractTables
 			NsdTables.Properties._AgUnderlyingType__refersToUnderlyingBasicType,
 			NsdTables.Properties._AgUnderlyingType__refersToUnderlyingConstructedAttribute,
 			NsdTables.Properties._AgUnderlyingType__refersToUnderlyingEnumeration,
+			NsdTables.Properties._AgUnderlyingType__underlyingControlType,
 			NsdTables.Properties._AgUnderlyingType__underlyingType,
 			NsdTables.Properties._AgUnderlyingType__underlyingTypeKind
 		};
@@ -5552,6 +5633,7 @@ public class NsdTables extends AbstractTables
 		};
 
 		private static final ExecutorProperty /*@NonNull*/ [] _AppliesToType = {
+			NsdTables.Properties._AgNSIdentification__deprecated,
 			NsdTables.Properties._NsdObject__explicitLinksBuilt,
 			NsdTables.Properties._AgNSIdentification__id,
 			NsdTables.Properties._NsdObject__lineNumber,
@@ -5635,6 +5717,7 @@ public class NsdTables extends AbstractTables
 			NsdTables.Properties._Changes__date,
 			NsdTables.Properties._NsdObject__explicitLinksBuilt,
 			NsdTables.Properties._NsdObject__lineNumber,
+			NsdTables.Properties._Changes__mergedNamespaces,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents,
 			NsdTables.Properties._Changes__parentNS,
@@ -5655,7 +5738,6 @@ public class NsdTables extends AbstractTables
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents,
 			NsdTables.Properties._ConstructedAttribute__parentConstructedAttributes,
-			NsdTables.Properties._ConstructedAttribute__parentServiceTypeRealizations,
 			NsdTables.Properties._ConstructedAttribute__referredByAttributeType,
 			NsdTables.Properties._ConstructedAttribute__referredByUnderlyingType,
 			NsdTables.Properties._DocumentedClass__refersToDescDoc,
@@ -5759,6 +5841,7 @@ public class NsdTables extends AbstractTables
 			NsdTables.Properties._AgUnderlyingType__refersToUnderlyingEnumeration,
 			NsdTables.Properties._DataObject__transient,
 			NsdTables.Properties._DataObject__type,
+			NsdTables.Properties._AgUnderlyingType__underlyingControlType,
 			NsdTables.Properties._AgUnderlyingType__underlyingType,
 			NsdTables.Properties._AgUnderlyingType__underlyingTypeKind
 		};
@@ -5962,12 +6045,14 @@ public class NsdTables extends AbstractTables
 
 		private static final ExecutorProperty /*@NonNull*/ [] _NS = {
 			NsdTables.Properties._NS__abbreviations,
+			NsdTables.Properties._AgUML__appVersion,
 			NsdTables.Properties._NS__basicTypes,
 			NsdTables.Properties._NS__cDCs,
 			NsdTables.Properties._NS__changes,
 			NsdTables.Properties._NS__constructedAttributes,
 			NsdTables.Properties._Copyrighted__copyright,
 			NsdTables.Properties._NS__dependsOn,
+			NsdTables.Properties._AgNSIdentification__deprecated,
 			NsdTables.Properties._AgNSdesc__descID,
 			NsdTables.Properties._NS__enumerations,
 			NsdTables.Properties._NsdObject__explicitLinksBuilt,
@@ -5998,7 +6083,9 @@ public class NsdTables extends AbstractTables
 		};
 
 		private static final ExecutorProperty /*@NonNull*/ [] _NSDoc = {
+			NsdTables.Properties._AgUML__appVersion,
 			NsdTables.Properties._Copyrighted__copyright,
+			NsdTables.Properties._AgNSIdentification__deprecated,
 			NsdTables.Properties._NSDoc__doc,
 			NsdTables.Properties._NsdObject__explicitLinksBuilt,
 			NsdTables.Properties._AgNSIdentification__id,
@@ -6107,7 +6194,6 @@ public class NsdTables extends AbstractTables
 			NsdTables.Properties._ServiceConstructedAttribute__parameterizedSubDataAttributeNames,
 			NsdTables.Properties._ConstructedAttribute__parentConstructedAttributes,
 			NsdTables.Properties._ServiceConstructedAttribute__parentServiceConstructedAttributes,
-			NsdTables.Properties._ConstructedAttribute__parentServiceTypeRealizations,
 			NsdTables.Properties._ConstructedAttribute__referredByAttributeType,
 			NsdTables.Properties._ConstructedAttribute__referredByUnderlyingType,
 			NsdTables.Properties._DocumentedClass__refersToDescDoc,
@@ -6150,14 +6236,17 @@ public class NsdTables extends AbstractTables
 			NsdTables.Properties._AgUnderlyingType__refersToUnderlyingEnumeration,
 			NsdTables.Properties._AgAttributeType__type,
 			NsdTables.Properties._AgAttributeType__typeKind,
+			NsdTables.Properties._AgUnderlyingType__underlyingControlType,
 			NsdTables.Properties._AgUnderlyingType__underlyingType,
 			NsdTables.Properties._AgUnderlyingType__underlyingTypeKind
 		};
 
 		private static final ExecutorProperty /*@NonNull*/ [] _ServiceNS = {
 			NsdTables.Properties._ServiceNS__abbreviations,
+			NsdTables.Properties._AgUML__appVersion,
 			NsdTables.Properties._ServiceNS__changes,
 			NsdTables.Properties._Copyrighted__copyright,
+			NsdTables.Properties._AgNSIdentification__deprecated,
 			NsdTables.Properties._AgNSdesc__descID,
 			NsdTables.Properties._NsdObject__explicitLinksBuilt,
 			NsdTables.Properties._ServiceNS__functionalConstraints,
@@ -6185,16 +6274,13 @@ public class NsdTables extends AbstractTables
 		private static final ExecutorProperty /*@NonNull*/ [] _ServiceNsUsage = {
 			NsdTables.Properties._ServiceNsUsage__appliesTo,
 			NsdTables.Properties._NsdObject__explicitLinksBuilt,
-			NsdTables.Properties._AgNSIdentification__id,
+			NsdTables.Properties._ServiceNsUsage__id,
 			NsdTables.Properties._NsdObject__lineNumber,
-			NsdTables.Properties._AgNSIdentification__namespaceType,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents,
 			NsdTables.Properties._ServiceNsUsage__parentApplicableServiceNS,
-			NsdTables.Properties._AgNSIdentification__publicationStage,
-			NsdTables.Properties._AgNSIdentification__release,
-			NsdTables.Properties._AgNSIdentification__revision,
-			NsdTables.Properties._AgNSIdentification__version
+			NsdTables.Properties._ServiceNsUsage__revision,
+			NsdTables.Properties._ServiceNsUsage__version
 		};
 
 		private static final ExecutorProperty /*@NonNull*/ [] _ServiceParameter = {
@@ -6225,6 +6311,26 @@ public class NsdTables extends AbstractTables
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents,
 			NsdTables.Properties._ServiceType__parentApplicableServices
+		};
+
+		private static final ExecutorProperty /*@NonNull*/ [] _ServiceTypeRealization = {
+			NsdTables.Properties._DocumentedClass__deprecated,
+			NsdTables.Properties._DocumentedClass__descID,
+			NsdTables.Properties._NsdObject__explicitLinksBuilt,
+			NsdTables.Properties._DocumentedClass__informative,
+			NsdTables.Properties._NsdObject__lineNumber,
+			NsdTables.Properties._ConstructedAttribute__name,
+			OCLstdlibTables.Properties._OclElement__oclContainer,
+			OCLstdlibTables.Properties._OclElement__oclContents,
+			NsdTables.Properties._ConstructedAttribute__parentConstructedAttributes,
+			NsdTables.Properties._ServiceTypeRealization__parentServiceTypeRealizations,
+			NsdTables.Properties._ServiceTypeRealization__realize,
+			NsdTables.Properties._ConstructedAttribute__referredByAttributeType,
+			NsdTables.Properties._ConstructedAttribute__referredByUnderlyingType,
+			NsdTables.Properties._DocumentedClass__refersToDescDoc,
+			NsdTables.Properties._TitledClass__refersToTitleDoc,
+			NsdTables.Properties._ConstructedAttribute__subDataAttribute,
+			NsdTables.Properties._TitledClass__titleID
 		};
 
 		private static final ExecutorProperty /*@NonNull*/ [] _ServiceTypeRealizations = {
@@ -6293,6 +6399,7 @@ public class NsdTables extends AbstractTables
 			NsdTables.Properties._AgUnderlyingType__refersToUnderlyingEnumeration,
 			NsdTables.Properties._AgArray__sizeAttribute,
 			NsdTables.Properties._SubDataObject__type,
+			NsdTables.Properties._AgUnderlyingType__underlyingControlType,
 			NsdTables.Properties._AgUnderlyingType__underlyingType,
 			NsdTables.Properties._AgUnderlyingType__underlyingTypeKind
 		};
@@ -6393,6 +6500,7 @@ public class NsdTables extends AbstractTables
 			Fragments._ServiceNsUsage__ServiceNsUsage.initProperties(_ServiceNsUsage);
 			Fragments._ServiceParameter__ServiceParameter.initProperties(_ServiceParameter);
 			Fragments._ServiceType__ServiceType.initProperties(_ServiceType);
+			Fragments._ServiceTypeRealization__ServiceTypeRealization.initProperties(_ServiceTypeRealization);
 			Fragments._ServiceTypeRealizations__ServiceTypeRealizations.initProperties(_ServiceTypeRealizations);
 			Fragments._SubDataAttribute__SubDataAttribute.initProperties(_SubDataAttribute);
 			Fragments._SubDataObject__SubDataObject.initProperties(_SubDataObject);

@@ -75,16 +75,16 @@ public enum DefinedAttributeTypeKind implements Enumerator {
      */
     CONSTRUCTED( 2, "CONSTRUCTED", "CONSTRUCTED" ),
     /**
-    * The '<em><b>SCSM</b></em>' literal object.
-    * <!-- begin-user-doc -->
+     * The '<em><b>SCSM</b></em>' literal object.
+     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * <!-- begin-model-doc -->
-    * The type of the data attribute is defined by an SCSM ServiceTypeRealization.
-    * <!-- end-model-doc -->
-    * @see #SCSM_VALUE
-    * @generated
-    * @ordered
-    */
+     * <!-- begin-model-doc -->
+     * The type of the data attribute is defined by an SCSM ServiceTypeRealization.
+     * <!-- end-model-doc -->
+     * @see #SCSM_VALUE
+     * @generated
+     * @ordered
+     */
     SCSM( 3, "SCSM", "SCSM" );
 
     /**

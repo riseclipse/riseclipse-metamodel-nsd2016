@@ -80,6 +80,7 @@ import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getRefersToUnderlyingBasicType <em>Refers To Underlying Basic Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getRefersToUnderlyingConstructedAttribute <em>Refers To Underlying Constructed Attribute</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getRefersToUnderlyingEnumeration <em>Refers To Underlying Enumeration</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getUnderlyingControlType <em>Underlying Control Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getType <em>Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.SubDataObjectImpl#getParentCDC <em>Parent CDC</em>}</li>
@@ -430,6 +431,35 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
     protected boolean refersToUnderlyingEnumerationESet;
 
     /**
+     * The default value of the '{@link #getUnderlyingControlType() <em>Underlying Control Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getUnderlyingControlType()
+     * @generated
+     * @ordered
+     */
+    protected static final String UNDERLYING_CONTROL_TYPE_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getUnderlyingControlType() <em>Underlying Control Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getUnderlyingControlType()
+     * @generated
+     * @ordered
+     */
+    protected String underlyingControlType = UNDERLYING_CONTROL_TYPE_EDEFAULT;
+
+    /**
+     * This is true if the Underlying Control Type attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean underlyingControlTypeESet;
+
+    /**
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -580,33 +610,6 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
     @Override
     protected EClass eStaticClass() {
         return NsdPackage.Literals.SUB_DATA_OBJECT;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean isIsArray() {
-        return isArray;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setIsArray( boolean newIsArray ) {
-        boolean oldIsArray = isArray;
-        isArray = newIsArray;
-        boolean oldIsArrayESet = isArrayESet;
-        isArrayESet = true;
-        if( eNotificationRequired() ) {
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SUB_DATA_OBJECT__IS_ARRAY, oldIsArray,
-                    isArray, !oldIsArrayESet ) );
-        }
     }
 
     /**
@@ -1086,6 +1089,33 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
     @Override
     public boolean isSetRefersToPresCondArgsDoc() {
         return refersToPresCondArgsDocESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isIsArray() {
+        return isArray;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setIsArray( boolean newIsArray ) {
+        boolean oldIsArray = isArray;
+        isArray = newIsArray;
+        boolean oldIsArrayESet = isArrayESet;
+        isArrayESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SUB_DATA_OBJECT__IS_ARRAY, oldIsArray,
+                    isArray, !oldIsArrayESet ) );
+        }
     }
 
     /**
@@ -1748,6 +1778,61 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
     @Override
     public boolean isSetRefersToUnderlyingEnumeration() {
         return refersToUnderlyingEnumerationESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String getUnderlyingControlType() {
+        return underlyingControlType;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setUnderlyingControlType( String newUnderlyingControlType ) {
+        String oldUnderlyingControlType = underlyingControlType;
+        underlyingControlType = newUnderlyingControlType;
+        boolean oldUnderlyingControlTypeESet = underlyingControlTypeESet;
+        underlyingControlTypeESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SUB_DATA_OBJECT__UNDERLYING_CONTROL_TYPE,
+                    oldUnderlyingControlType, underlyingControlType, !oldUnderlyingControlTypeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetUnderlyingControlType() {
+        String oldUnderlyingControlType = underlyingControlType;
+        boolean oldUnderlyingControlTypeESet = underlyingControlTypeESet;
+        underlyingControlType = UNDERLYING_CONTROL_TYPE_EDEFAULT;
+        underlyingControlTypeESet = false;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.SUB_DATA_OBJECT__UNDERLYING_CONTROL_TYPE, oldUnderlyingControlType,
+                    UNDERLYING_CONTROL_TYPE_EDEFAULT, oldUnderlyingControlTypeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetUnderlyingControlType() {
+        return underlyingControlTypeESet;
     }
 
     /**
@@ -2541,6 +2626,8 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
             return getRefersToUnderlyingConstructedAttribute();
         case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_ENUMERATION:
             return getRefersToUnderlyingEnumeration();
+        case NsdPackage.SUB_DATA_OBJECT__UNDERLYING_CONTROL_TYPE:
+            return getUnderlyingControlType();
         case NsdPackage.SUB_DATA_OBJECT__NAME:
             return getName();
         case NsdPackage.SUB_DATA_OBJECT__TYPE:
@@ -2605,6 +2692,9 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
             return;
         case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_ENUMERATION:
             setRefersToUnderlyingEnumeration( ( Enumeration ) newValue );
+            return;
+        case NsdPackage.SUB_DATA_OBJECT__UNDERLYING_CONTROL_TYPE:
+            setUnderlyingControlType( ( String ) newValue );
             return;
         case NsdPackage.SUB_DATA_OBJECT__NAME:
             setName( ( String ) newValue );
@@ -2678,6 +2768,9 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
         case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_ENUMERATION:
             unsetRefersToUnderlyingEnumeration();
             return;
+        case NsdPackage.SUB_DATA_OBJECT__UNDERLYING_CONTROL_TYPE:
+            unsetUnderlyingControlType();
+            return;
         case NsdPackage.SUB_DATA_OBJECT__NAME:
             unsetName();
             return;
@@ -2737,6 +2830,8 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
             return isSetRefersToUnderlyingConstructedAttribute();
         case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_ENUMERATION:
             return isSetRefersToUnderlyingEnumeration();
+        case NsdPackage.SUB_DATA_OBJECT__UNDERLYING_CONTROL_TYPE:
+            return isSetUnderlyingControlType();
         case NsdPackage.SUB_DATA_OBJECT__NAME:
             return isSetName();
         case NsdPackage.SUB_DATA_OBJECT__TYPE:
@@ -2802,6 +2897,8 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                 return NsdPackage.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE;
             case NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_ENUMERATION:
                 return NsdPackage.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_ENUMERATION;
+            case NsdPackage.SUB_DATA_OBJECT__UNDERLYING_CONTROL_TYPE:
+                return NsdPackage.AG_UNDERLYING_TYPE__UNDERLYING_CONTROL_TYPE;
             default:
                 return -1;
             }
@@ -2856,6 +2953,8 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
                 return NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE;
             case NsdPackage.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_ENUMERATION:
                 return NsdPackage.SUB_DATA_OBJECT__REFERS_TO_UNDERLYING_ENUMERATION;
+            case NsdPackage.AG_UNDERLYING_TYPE__UNDERLYING_CONTROL_TYPE:
+                return NsdPackage.SUB_DATA_OBJECT__UNDERLYING_CONTROL_TYPE;
             default:
                 return -1;
             }
@@ -2953,6 +3052,13 @@ public class SubDataObjectImpl extends DocumentedClassImpl implements SubDataObj
         result.append( ", underlyingTypeKind: " );
         if( underlyingTypeKindESet ) {
             result.append( underlyingTypeKind );
+        }
+        else {
+            result.append( "<unset>" );
+        }
+        result.append( ", underlyingControlType: " );
+        if( underlyingControlTypeESet ) {
+            result.append( underlyingControlType );
         }
         else {
             result.append( "<unset>" );

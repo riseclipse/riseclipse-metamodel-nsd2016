@@ -63,17 +63,19 @@ public class ServiceNSItemProvider extends CopyrightedItemProvider {
         if( itemPropertyDescriptors == null ) {
             super.getPropertyDescriptors( object );
 
-            addReleasePropertyDescriptor( object );
-            addVersionPropertyDescriptor( object );
             addIdPropertyDescriptor( object );
+            addVersionPropertyDescriptor( object );
             addRevisionPropertyDescriptor( object );
+            addReleasePropertyDescriptor( object );
             addPublicationStagePropertyDescriptor( object );
             addNamespaceTypePropertyDescriptor( object );
+            addDeprecatedPropertyDescriptor( object );
             addNsdVersionPropertyDescriptor( object );
             addNsdRevisionPropertyDescriptor( object );
             addNsdReleasePropertyDescriptor( object );
             addUmlDatePropertyDescriptor( object );
             addUmlVersionPropertyDescriptor( object );
+            addAppVersionPropertyDescriptor( object );
             addDescIDPropertyDescriptor( object );
             addRefersToDocPropertyDescriptor( object );
         }
@@ -191,6 +193,28 @@ public class ServiceNSItemProvider extends CopyrightedItemProvider {
     }
 
     /**
+     * This adds a property descriptor for the Deprecated feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addDeprecatedPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_AgNSIdentification_deprecated_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgNSIdentification_deprecated_feature",
+                                "_UI_AgNSIdentification_type" ),
+                        NsdPackage.Literals.AG_NS_IDENTIFICATION__DEPRECATED,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
      * This adds a property descriptor for the Nsd Version feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -273,7 +297,7 @@ public class ServiceNSItemProvider extends CopyrightedItemProvider {
                         true,
                         false,
                         false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
                         null,
                         null ) );
     }
@@ -336,6 +360,28 @@ public class ServiceNSItemProvider extends CopyrightedItemProvider {
                         getString( "_UI_PropertyDescriptor_description", "_UI_AgUML_umlVersion_feature",
                                 "_UI_AgUML_type" ),
                         NsdPackage.Literals.AG_UML__UML_VERSION,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the App Version feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addAppVersionPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_AgUML_appVersion_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgUML_appVersion_feature",
+                                "_UI_AgUML_type" ),
+                        NsdPackage.Literals.AG_UML__APP_VERSION,
                         true,
                         false,
                         false,
@@ -438,17 +484,19 @@ public class ServiceNSItemProvider extends CopyrightedItemProvider {
         updateChildren( notification );
 
         switch( notification.getFeatureID( ServiceNS.class ) ) {
-        case NsdPackage.SERVICE_NS__RELEASE:
-        case NsdPackage.SERVICE_NS__VERSION:
         case NsdPackage.SERVICE_NS__ID:
+        case NsdPackage.SERVICE_NS__VERSION:
         case NsdPackage.SERVICE_NS__REVISION:
+        case NsdPackage.SERVICE_NS__RELEASE:
         case NsdPackage.SERVICE_NS__PUBLICATION_STAGE:
         case NsdPackage.SERVICE_NS__NAMESPACE_TYPE:
+        case NsdPackage.SERVICE_NS__DEPRECATED:
         case NsdPackage.SERVICE_NS__NSD_VERSION:
         case NsdPackage.SERVICE_NS__NSD_REVISION:
         case NsdPackage.SERVICE_NS__NSD_RELEASE:
         case NsdPackage.SERVICE_NS__UML_DATE:
         case NsdPackage.SERVICE_NS__UML_VERSION:
+        case NsdPackage.SERVICE_NS__APP_VERSION:
         case NsdPackage.SERVICE_NS__DESC_ID:
             fireNotifyChanged( new ViewerNotification( notification, notification.getNotifier(), false, true ) );
             return;

@@ -81,6 +81,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceParameter;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealization;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject;
@@ -216,6 +217,8 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
             return createServiceNsUsage();
         case NsdPackage.SERVICE_PARAMETER:
             return createServiceParameter();
+        case NsdPackage.SERVICE_TYPE_REALIZATION:
+            return createServiceTypeRealization();
         case NsdPackage.SERVICE_TYPE_REALIZATIONS:
             return createServiceTypeRealizations();
         case NsdPackage.SUB_DATA_ATTRIBUTE:
@@ -786,6 +789,17 @@ public class NsdFactoryImpl extends EFactoryImpl implements NsdFactory {
     public ServiceParameter createServiceParameter() {
         ServiceParameterImpl serviceParameter = new ServiceParameterImpl();
         return serviceParameter;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public ServiceTypeRealization createServiceTypeRealization() {
+        ServiceTypeRealizationImpl serviceTypeRealization = new ServiceTypeRealizationImpl();
+        return serviceTypeRealization;
     }
 
     /**

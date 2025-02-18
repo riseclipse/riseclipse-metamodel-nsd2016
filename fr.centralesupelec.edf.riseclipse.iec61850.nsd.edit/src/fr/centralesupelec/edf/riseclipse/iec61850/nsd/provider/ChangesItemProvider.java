@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -20,9 +20,6 @@
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.provider;
 
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -32,6 +29,9 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
 /**
  * This is the item provider adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes} object.
@@ -67,6 +67,7 @@ public class ChangesItemProvider extends NsdObjectItemProvider {
             addTissuesPropertyDescriptor( object );
             addReleasePropertyDescriptor( object );
             addVersionPropertyDescriptor( object );
+            addMergedNamespacesPropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -176,7 +177,7 @@ public class ChangesItemProvider extends NsdObjectItemProvider {
                         true,
                         false,
                         false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
                         null,
                         null ) );
     }
@@ -204,6 +205,28 @@ public class ChangesItemProvider extends NsdObjectItemProvider {
     }
 
     /**
+     * This adds a property descriptor for the Merged Namespaces feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addMergedNamespacesPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_Changes_mergedNamespaces_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_Changes_mergedNamespaces_feature",
+                                "_UI_Changes_type" ),
+                        NsdPackage.Literals.CHANGES__MERGED_NAMESPACES,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
      * This returns Changes.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -222,8 +245,9 @@ public class ChangesItemProvider extends NsdObjectItemProvider {
      */
     @Override
     public String getText( Object object ) {
-        Changes changes = ( Changes ) object;
-        return getString( "_UI_Changes_type" ) + " " + changes.getLineNumber();
+        String label = ( ( Changes ) object ).getMergedNamespaces();
+        return label == null || label.length() == 0 ? getString( "_UI_Changes_type" )
+                : getString( "_UI_Changes_type" ) + " " + label;
     }
 
     /**
@@ -244,6 +268,7 @@ public class ChangesItemProvider extends NsdObjectItemProvider {
         case NsdPackage.CHANGES__TISSUES:
         case NsdPackage.CHANGES__RELEASE:
         case NsdPackage.CHANGES__VERSION:
+        case NsdPackage.CHANGES__MERGED_NAMESPACES:
             fireNotifyChanged( new ViewerNotification( notification, notification.getNotifier(), false, true ) );
             return;
         }

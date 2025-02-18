@@ -647,33 +647,6 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
      * @generated
      */
     @Override
-    public boolean isIsArray() {
-        return isArray;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setIsArray( boolean newIsArray ) {
-        boolean oldIsArray = isArray;
-        isArray = newIsArray;
-        boolean oldIsArrayESet = isArrayESet;
-        isArrayESet = true;
-        if( eNotificationRequired() ) {
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SUB_DATA_ATTRIBUTE__IS_ARRAY, oldIsArray,
-                    isArray, !oldIsArrayESet ) );
-        }
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public void unsetIsArray() {
         boolean oldIsArray = isArray;
         boolean oldIsArrayESet = isArrayESet;
@@ -1312,6 +1285,33 @@ public class SubDataAttributeImpl extends DocumentedClassImpl implements SubData
     @Override
     public boolean isSetRefersToPresCondArgsDoc() {
         return refersToPresCondArgsDocESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isIsArray() {
+        return isArray;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setIsArray( boolean newIsArray ) {
+        boolean oldIsArray = isArray;
+        isArray = newIsArray;
+        boolean oldIsArrayESet = isArrayESet;
+        isArrayESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SUB_DATA_ATTRIBUTE__IS_ARRAY, oldIsArray,
+                    isArray, !oldIsArrayESet ) );
+        }
     }
 
     /**

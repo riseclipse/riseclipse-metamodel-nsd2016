@@ -83,6 +83,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceParameter;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealization;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject;
@@ -773,9 +774,6 @@ public class NsdSwitch< T > extends Switch< T > {
                 result = caseNsdObject( serviceNsUsage );
             }
             if( result == null ) {
-                result = caseAgNSIdentification( serviceNsUsage );
-            }
-            if( result == null ) {
                 result = defaultCase( theEObject );
             }
             return result;
@@ -794,6 +792,26 @@ public class NsdSwitch< T > extends Switch< T > {
             }
             if( result == null ) {
                 result = caseAgAttributeType( serviceParameter );
+            }
+            if( result == null ) {
+                result = defaultCase( theEObject );
+            }
+            return result;
+        }
+        case NsdPackage.SERVICE_TYPE_REALIZATION: {
+            ServiceTypeRealization serviceTypeRealization = ( ServiceTypeRealization ) theEObject;
+            T result = caseServiceTypeRealization( serviceTypeRealization );
+            if( result == null ) {
+                result = caseConstructedAttribute( serviceTypeRealization );
+            }
+            if( result == null ) {
+                result = caseTitledClass( serviceTypeRealization );
+            }
+            if( result == null ) {
+                result = caseDocumentedClass( serviceTypeRealization );
+            }
+            if( result == null ) {
+                result = caseNsdObject( serviceTypeRealization );
             }
             if( result == null ) {
                 result = defaultCase( theEObject );
@@ -1666,6 +1684,21 @@ public class NsdSwitch< T > extends Switch< T > {
      * @generated
      */
     public T caseServiceParameter( ServiceParameter object ) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Service Type Realization</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Service Type Realization</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseServiceTypeRealization( ServiceTypeRealization object ) {
         return null;
     }
 

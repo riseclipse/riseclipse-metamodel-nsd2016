@@ -34,12 +34,13 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification#getRelease <em>Release</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification#getVersion <em>Version</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification#getId <em>Id</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification#getVersion <em>Version</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification#getRevision <em>Revision</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification#getRelease <em>Release</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification#getPublicationStage <em>Publication Stage</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification#getNamespaceType <em>Namespace Type</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification#isDeprecated <em>Deprecated</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgNSIdentification()
@@ -60,13 +61,13 @@ public interface AgNSIdentification extends EObject {
      * @return the value of the '<em>Release</em>' attribute.
      * @see #isSetRelease()
      * @see #unsetRelease()
-     * @see #setRelease(Integer)
+     * @see #setRelease(int)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgNSIdentification_Release()
      * @model default="1" unsettable="true"
      *        extendedMetaData="kind='attribute' name='release'"
      * @generated
      */
-    Integer getRelease();
+    int getRelease();
 
     /**
      * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification#getRelease <em>Release</em>}' attribute.
@@ -78,7 +79,7 @@ public interface AgNSIdentification extends EObject {
      * @see #getRelease()
      * @generated
      */
-    void setRelease( Integer value );
+    void setRelease( int value );
 
     /**
      * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification#getRelease <em>Release</em>}' attribute.
@@ -86,7 +87,7 @@ public interface AgNSIdentification extends EObject {
      * <!-- end-user-doc -->
      * @see #isSetRelease()
      * @see #getRelease()
-     * @see #setRelease(Integer)
+     * @see #setRelease(int)
      * @generated
      */
     void unsetRelease();
@@ -98,7 +99,7 @@ public interface AgNSIdentification extends EObject {
      * @return whether the value of the '<em>Release</em>' attribute is set.
      * @see #unsetRelease()
      * @see #getRelease()
-     * @see #setRelease(Integer)
+     * @see #setRelease(int)
      * @generated
      */
     boolean isSetRelease();
@@ -377,6 +378,57 @@ public interface AgNSIdentification extends EObject {
      * @generated
      */
     boolean isSetNamespaceType();
+
+    /**
+     * Returns the value of the '<em><b>Deprecated</b></em>' attribute.
+     * The default value is <code>"false"</code>.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Deprecated</em>' attribute.
+     * @see #isSetDeprecated()
+     * @see #unsetDeprecated()
+     * @see #setDeprecated(boolean)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgNSIdentification_Deprecated()
+     * @model default="false" unsettable="true"
+     *        extendedMetaData="kind='attribute' name='deprecated'"
+     * @generated
+     */
+    boolean isDeprecated();
+
+    /**
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification#isDeprecated <em>Deprecated</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Deprecated</em>' attribute.
+     * @see #isSetDeprecated()
+     * @see #unsetDeprecated()
+     * @see #isDeprecated()
+     * @generated
+     */
+    void setDeprecated( boolean value );
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification#isDeprecated <em>Deprecated</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetDeprecated()
+     * @see #isDeprecated()
+     * @see #setDeprecated(boolean)
+     * @generated
+     */
+    void unsetDeprecated();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification#isDeprecated <em>Deprecated</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Deprecated</em>' attribute is set.
+     * @see #unsetDeprecated()
+     * @see #isDeprecated()
+     * @see #setDeprecated(boolean)
+     * @generated
+     */
+    boolean isSetDeprecated();
 
     /**
      * <!-- begin-user-doc -->

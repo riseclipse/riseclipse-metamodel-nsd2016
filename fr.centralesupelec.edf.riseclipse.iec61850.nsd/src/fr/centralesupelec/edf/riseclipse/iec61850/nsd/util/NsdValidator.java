@@ -97,6 +97,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceParameter;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealization;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject;
@@ -451,12 +452,36 @@ public class NsdValidator extends EObjectValidator {
     public static final int SERVICE_DATA_ATTRIBUTE__FC_ATTRIBUTE_REQUIRED = 40;
 
     /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Id Attribute Required' of 'Service Ns Usage'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int SERVICE_NS_USAGE__ID_ATTRIBUTE_REQUIRED = 41;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Version Attribute Required' of 'Service Ns Usage'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int SERVICE_NS_USAGE__VERSION_ATTRIBUTE_REQUIRED = 42;
+
+    /**
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Name Attribute Required' of 'Service Parameter'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final int SERVICE_PARAMETER__NAME_ATTRIBUTE_REQUIRED = 41;
+    public static final int SERVICE_PARAMETER__NAME_ATTRIBUTE_REQUIRED = 43;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Realize Attribute Required' of 'Service Type Realization'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int SERVICE_TYPE_REALIZATION__REALIZE_ATTRIBUTE_REQUIRED = 44;
 
     /**
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Name Attribute Required' of 'Sub Data Attribute'.
@@ -464,7 +489,7 @@ public class NsdValidator extends EObjectValidator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final int SUB_DATA_ATTRIBUTE__NAME_ATTRIBUTE_REQUIRED = 42;
+    public static final int SUB_DATA_ATTRIBUTE__NAME_ATTRIBUTE_REQUIRED = 45;
 
     /**
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Name Attribute Required' of 'Sub Data Object'.
@@ -472,7 +497,7 @@ public class NsdValidator extends EObjectValidator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final int SUB_DATA_OBJECT__NAME_ATTRIBUTE_REQUIRED = 43;
+    public static final int SUB_DATA_OBJECT__NAME_ATTRIBUTE_REQUIRED = 46;
 
     /**
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Type Attribute Required' of 'Sub Data Object'.
@@ -480,7 +505,7 @@ public class NsdValidator extends EObjectValidator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final int SUB_DATA_OBJECT__TYPE_ATTRIBUTE_REQUIRED = 44;
+    public static final int SUB_DATA_OBJECT__TYPE_ATTRIBUTE_REQUIRED = 47;
 
     /**
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Title ID Attribute Required' of 'Titled Class'.
@@ -488,7 +513,7 @@ public class NsdValidator extends EObjectValidator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final int TITLED_CLASS__TITLE_ID_ATTRIBUTE_REQUIRED = 45;
+    public static final int TITLED_CLASS__TITLE_ID_ATTRIBUTE_REQUIRED = 48;
 
     /**
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Id Attribute Required' of 'Ag NS Identification'.
@@ -496,7 +521,7 @@ public class NsdValidator extends EObjectValidator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final int AG_NS_IDENTIFICATION__ID_ATTRIBUTE_REQUIRED = 46;
+    public static final int AG_NS_IDENTIFICATION__ID_ATTRIBUTE_REQUIRED = 49;
 
     /**
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Version Attribute Required' of 'Ag NS Identification'.
@@ -504,7 +529,7 @@ public class NsdValidator extends EObjectValidator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final int AG_NS_IDENTIFICATION__VERSION_ATTRIBUTE_REQUIRED = 47;
+    public static final int AG_NS_IDENTIFICATION__VERSION_ATTRIBUTE_REQUIRED = 50;
 
     /**
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Id Attribute Required' of 'Ag Depends On'.
@@ -512,7 +537,7 @@ public class NsdValidator extends EObjectValidator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final int AG_DEPENDS_ON__ID_ATTRIBUTE_REQUIRED = 48;
+    public static final int AG_DEPENDS_ON__ID_ATTRIBUTE_REQUIRED = 51;
 
     /**
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Version Attribute Required' of 'Ag Depends On'.
@@ -520,7 +545,7 @@ public class NsdValidator extends EObjectValidator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final int AG_DEPENDS_ON__VERSION_ATTRIBUTE_REQUIRED = 49;
+    public static final int AG_DEPENDS_ON__VERSION_ATTRIBUTE_REQUIRED = 52;
 
     /**
      * A constant with a fixed name that can be used as the base value for additional hand written constants.
@@ -528,7 +553,7 @@ public class NsdValidator extends EObjectValidator {
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 49;
+    private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 52;
 
     /**
      * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
@@ -659,6 +684,8 @@ public class NsdValidator extends EObjectValidator {
             return validateServiceNsUsage( ( ServiceNsUsage ) value, diagnostics, context );
         case NsdPackage.SERVICE_PARAMETER:
             return validateServiceParameter( ( ServiceParameter ) value, diagnostics, context );
+        case NsdPackage.SERVICE_TYPE_REALIZATION:
+            return validateServiceTypeRealization( ( ServiceTypeRealization ) value, diagnostics, context );
         case NsdPackage.SERVICE_TYPE_REALIZATIONS:
             return validateServiceTypeRealizations( ( ServiceTypeRealizations ) value, diagnostics, context );
         case NsdPackage.SUB_DATA_ATTRIBUTE:
@@ -2661,12 +2688,34 @@ public class NsdValidator extends EObjectValidator {
             result &= validate_EveryMapEntryUnique( serviceNsUsage, diagnostics, context );
         }
         if( result || diagnostics != null ) {
-            result &= validateAgNSIdentification_versionAttributeRequired( serviceNsUsage, diagnostics, context );
+            result &= validateServiceNsUsage_versionAttributeRequired( serviceNsUsage, diagnostics, context );
         }
         if( result || diagnostics != null ) {
-            result &= validateAgNSIdentification_idAttributeRequired( serviceNsUsage, diagnostics, context );
+            result &= validateServiceNsUsage_idAttributeRequired( serviceNsUsage, diagnostics, context );
         }
         return result;
+    }
+
+    /**
+     * Validates the versionAttributeRequired constraint of '<em>Service Ns Usage</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateServiceNsUsage_versionAttributeRequired( ServiceNsUsage serviceNsUsage,
+            DiagnosticChain diagnostics, Map< Object, Object > context ) {
+        return serviceNsUsage.versionAttributeRequired( diagnostics, context );
+    }
+
+    /**
+     * Validates the idAttributeRequired constraint of '<em>Service Ns Usage</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateServiceNsUsage_idAttributeRequired( ServiceNsUsage serviceNsUsage,
+            DiagnosticChain diagnostics, Map< Object, Object > context ) {
+        return serviceNsUsage.idAttributeRequired( diagnostics, context );
     }
 
     /**
@@ -2716,6 +2765,68 @@ public class NsdValidator extends EObjectValidator {
     public boolean validateServiceParameter_nameAttributeRequired( ServiceParameter serviceParameter,
             DiagnosticChain diagnostics, Map< Object, Object > context ) {
         return serviceParameter.nameAttributeRequired( diagnostics, context );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateServiceTypeRealization( ServiceTypeRealization serviceTypeRealization,
+            DiagnosticChain diagnostics, Map< Object, Object > context ) {
+        if( !validate_NoCircularContainment( serviceTypeRealization, diagnostics, context ) ) {
+            return false;
+        }
+        boolean result = validate_EveryMultiplicityConforms( serviceTypeRealization, diagnostics, context );
+        if( result || diagnostics != null ) {
+            result &= validate_EveryDataValueConforms( serviceTypeRealization, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryReferenceIsContained( serviceTypeRealization, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryBidirectionalReferenceIsPaired( serviceTypeRealization, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryProxyResolves( serviceTypeRealization, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( serviceTypeRealization, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryKeyUnique( serviceTypeRealization, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryMapEntryUnique( serviceTypeRealization, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validateTitledClass_titleIDAttributeRequired( serviceTypeRealization, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validateConstructedAttribute_nameAttributeRequired( serviceTypeRealization, diagnostics,
+                    context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validateConstructedAttribute_uniqueSubDataAttribute( serviceTypeRealization, diagnostics,
+                    context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validateServiceTypeRealization_realizeAttributeRequired( serviceTypeRealization, diagnostics,
+                    context );
+        }
+        return result;
+    }
+
+    /**
+     * Validates the realizeAttributeRequired constraint of '<em>Service Type Realization</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateServiceTypeRealization_realizeAttributeRequired(
+            ServiceTypeRealization serviceTypeRealization, DiagnosticChain diagnostics,
+            Map< Object, Object > context ) {
+        return serviceTypeRealization.realizeAttributeRequired( diagnostics, context );
     }
 
     /**
