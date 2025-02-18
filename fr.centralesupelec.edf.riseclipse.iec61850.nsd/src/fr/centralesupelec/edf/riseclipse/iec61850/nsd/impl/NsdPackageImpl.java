@@ -6909,14 +6909,31 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
 
         initEEnum( pubStageEEnum, PubStage.class, "PubStage" );
         addEEnumLiteral( pubStageEEnum, PubStage.WD );
+        addEEnumLiteral( pubStageEEnum, PubStage.DRAFT_DC );
+        addEEnumLiteral( pubStageEEnum, PubStage.DC );
+        addEEnumLiteral( pubStageEEnum, PubStage.DRAFT_DC2 );
+        addEEnumLiteral( pubStageEEnum, PubStage.DC2 );
+        addEEnumLiteral( pubStageEEnum, PubStage.DRAFT_CD );
         addEEnumLiteral( pubStageEEnum, PubStage.CD );
+        addEEnumLiteral( pubStageEEnum, PubStage.DRAFT_CD2 );
+        addEEnumLiteral( pubStageEEnum, PubStage.CD2 );
+        addEEnumLiteral( pubStageEEnum, PubStage.DRAFT_CD3 );
+        addEEnumLiteral( pubStageEEnum, PubStage.CD3 );
+        addEEnumLiteral( pubStageEEnum, PubStage.DRAFT_CDV );
         addEEnumLiteral( pubStageEEnum, PubStage.CDV );
+        addEEnumLiteral( pubStageEEnum, PubStage.DRAFT_DTS );
         addEEnumLiteral( pubStageEEnum, PubStage.DTS );
+        addEEnumLiteral( pubStageEEnum, PubStage.DRAFT_DTR );
         addEEnumLiteral( pubStageEEnum, PubStage.DTR );
+        addEEnumLiteral( pubStageEEnum, PubStage.DRAFT_FDIS );
         addEEnumLiteral( pubStageEEnum, PubStage.FDIS );
+        addEEnumLiteral( pubStageEEnum, PubStage.DRAFT_TS );
         addEEnumLiteral( pubStageEEnum, PubStage.TS );
+        addEEnumLiteral( pubStageEEnum, PubStage.DRAFT_TR );
         addEEnumLiteral( pubStageEEnum, PubStage.TR );
+        addEEnumLiteral( pubStageEEnum, PubStage.DRAFT_IS );
         addEEnumLiteral( pubStageEEnum, PubStage.IS );
+        addEEnumLiteral( pubStageEEnum, PubStage.PAS );
 
         initEEnum( undefinedAttributeTypeKindEEnum, UndefinedAttributeTypeKind.class, "UndefinedAttributeTypeKind" );
         addEEnumLiteral( undefinedAttributeTypeKindEEnum, UndefinedAttributeTypeKind.UNDEFINED );

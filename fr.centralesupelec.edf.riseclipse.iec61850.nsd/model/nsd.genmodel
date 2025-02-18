@@ -88,14 +88,31 @@
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="nsd.ecore#//PubStage">
       <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/WD"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/draftDC"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/DC"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/draftDC2"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/DC2"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/draftCD"/>
       <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/CD"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/draftCD2"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/CD2"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/draftCD3"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/CD3"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/draftCDV"/>
       <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/CDV"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/draftDTS"/>
       <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/DTS"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/draftDTR"/>
       <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/DTR"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/draftFDIS"/>
       <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/FDIS"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/draftTS"/>
       <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/TS"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/draftTR"/>
       <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/TR"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/draftIS"/>
       <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/IS"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/PAS"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="nsd.ecore#//UndefinedAttributeTypeKind">
       <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//UndefinedAttributeTypeKind/undefined"/>

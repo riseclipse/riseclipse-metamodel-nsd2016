@@ -1475,6 +1475,9 @@
         transient="true" unsettable="true" resolveProxies="false" eOpposite="#//ServiceNS/presenceConditions"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="PubStage">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Publication stage of the namespace."/>
+    </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="tPubStage"/>
     </eAnnotations>
@@ -1483,44 +1486,129 @@
         <details key="documentation" value="Working Draft"/>
       </eAnnotations>
     </eLiterals>
-    <eLiterals name="CD" value="1">
+    <eLiterals name="draftDC" value="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Draft for comment (Internal draft)"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="DC" value="2">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Draft for comment"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="draftDC2" value="3">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Draft for comment 2 (Internal draft)"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="DC2" value="4">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Draft for comment 2"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="draftCD" value="5">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Committee Draft (Internal draft)"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="CD" value="6">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Committee Draft"/>
       </eAnnotations>
     </eLiterals>
-    <eLiterals name="CDV" value="2">
+    <eLiterals name="draftCD2" value="7">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Committee Draft 2 (Internal draft)"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="CD2" value="8">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Committee Draft 2"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="draftCD3" value="9">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Committee Draft 3 (Internal draft)"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="CD3" value="10">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Committee Draft 3"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="draftCDV" value="11">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Committee Draft for Vote (internal draft)"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="CDV" value="12">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Committee Draft for Vote"/>
       </eAnnotations>
     </eLiterals>
-    <eLiterals name="DTS" value="3">
+    <eLiterals name="draftDTS" value="13">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Draft Technical Specification (internal draft)"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="DTS" value="14">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Draft Technical Specification"/>
       </eAnnotations>
     </eLiterals>
-    <eLiterals name="DTR" value="4">
+    <eLiterals name="draftDTR" value="15">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Draft Technical Report (internal draft)"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="DTR" value="16">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Draft Technical Report"/>
       </eAnnotations>
     </eLiterals>
-    <eLiterals name="FDIS" value="5">
+    <eLiterals name="draftFDIS" value="17">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Final Draft International Standard (internal draft)"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="FDIS" value="18">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Final Draft International Standard"/>
       </eAnnotations>
     </eLiterals>
-    <eLiterals name="TS" value="6">
+    <eLiterals name="draftTS" value="19">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Technical Specification (internal draft)"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="TS" value="20">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Technical Specification"/>
       </eAnnotations>
     </eLiterals>
-    <eLiterals name="TR" value="7">
+    <eLiterals name="draftTR" value="21">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Technical Report (internal draft)"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="TR" value="22">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Technical Report"/>
       </eAnnotations>
     </eLiterals>
-    <eLiterals name="IS" value="8">
+    <eLiterals name="draftIS" value="23">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="International Standard (internal draft)"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="IS" value="24">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="International Standard"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="PAS" value="25">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Publicly Available Specification"/>
       </eAnnotations>
     </eLiterals>
   </eClassifiers>

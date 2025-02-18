@@ -6591,24 +6591,58 @@ public class NsdTables extends AbstractTables
 		};
 
 		public static final EcoreExecutorEnumerationLiteral _PubStage__WD = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("WD"), Types._PubStage, 0);
-		public static final EcoreExecutorEnumerationLiteral _PubStage__CD = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("CD"), Types._PubStage, 1);
-		public static final EcoreExecutorEnumerationLiteral _PubStage__CDV = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("CDV"), Types._PubStage, 2);
-		public static final EcoreExecutorEnumerationLiteral _PubStage__DTS = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("DTS"), Types._PubStage, 3);
-		public static final EcoreExecutorEnumerationLiteral _PubStage__DTR = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("DTR"), Types._PubStage, 4);
-		public static final EcoreExecutorEnumerationLiteral _PubStage__FDIS = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("FDIS"), Types._PubStage, 5);
-		public static final EcoreExecutorEnumerationLiteral _PubStage__TS = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("TS"), Types._PubStage, 6);
-		public static final EcoreExecutorEnumerationLiteral _PubStage__TR = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("TR"), Types._PubStage, 7);
-		public static final EcoreExecutorEnumerationLiteral _PubStage__IS = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("IS"), Types._PubStage, 8);
+		public static final EcoreExecutorEnumerationLiteral _PubStage__draftDC = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("draftDC"), Types._PubStage, 1);
+		public static final EcoreExecutorEnumerationLiteral _PubStage__DC = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("DC"), Types._PubStage, 2);
+		public static final EcoreExecutorEnumerationLiteral _PubStage__draftDC2 = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("draftDC2"), Types._PubStage, 3);
+		public static final EcoreExecutorEnumerationLiteral _PubStage__DC2 = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("DC2"), Types._PubStage, 4);
+		public static final EcoreExecutorEnumerationLiteral _PubStage__draftCD = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("draftCD"), Types._PubStage, 5);
+		public static final EcoreExecutorEnumerationLiteral _PubStage__CD = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("CD"), Types._PubStage, 6);
+		public static final EcoreExecutorEnumerationLiteral _PubStage__draftCD2 = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("draftCD2"), Types._PubStage, 7);
+		public static final EcoreExecutorEnumerationLiteral _PubStage__CD2 = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("CD2"), Types._PubStage, 8);
+		public static final EcoreExecutorEnumerationLiteral _PubStage__draftCD3 = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("draftCD3"), Types._PubStage, 9);
+		public static final EcoreExecutorEnumerationLiteral _PubStage__CD3 = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("CD3"), Types._PubStage, 10);
+		public static final EcoreExecutorEnumerationLiteral _PubStage__draftCDV = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("draftCDV"), Types._PubStage, 11);
+		public static final EcoreExecutorEnumerationLiteral _PubStage__CDV = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("CDV"), Types._PubStage, 12);
+		public static final EcoreExecutorEnumerationLiteral _PubStage__draftDTS = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("draftDTS"), Types._PubStage, 13);
+		public static final EcoreExecutorEnumerationLiteral _PubStage__DTS = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("DTS"), Types._PubStage, 14);
+		public static final EcoreExecutorEnumerationLiteral _PubStage__draftDTR = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("draftDTR"), Types._PubStage, 15);
+		public static final EcoreExecutorEnumerationLiteral _PubStage__DTR = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("DTR"), Types._PubStage, 16);
+		public static final EcoreExecutorEnumerationLiteral _PubStage__draftFDIS = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("draftFDIS"), Types._PubStage, 17);
+		public static final EcoreExecutorEnumerationLiteral _PubStage__FDIS = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("FDIS"), Types._PubStage, 18);
+		public static final EcoreExecutorEnumerationLiteral _PubStage__draftTS = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("draftTS"), Types._PubStage, 19);
+		public static final EcoreExecutorEnumerationLiteral _PubStage__TS = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("TS"), Types._PubStage, 20);
+		public static final EcoreExecutorEnumerationLiteral _PubStage__draftTR = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("draftTR"), Types._PubStage, 21);
+		public static final EcoreExecutorEnumerationLiteral _PubStage__TR = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("TR"), Types._PubStage, 22);
+		public static final EcoreExecutorEnumerationLiteral _PubStage__draftIS = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("draftIS"), Types._PubStage, 23);
+		public static final EcoreExecutorEnumerationLiteral _PubStage__IS = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("IS"), Types._PubStage, 24);
+		public static final EcoreExecutorEnumerationLiteral _PubStage__PAS = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.PUB_STAGE.getEEnumLiteral("PAS"), Types._PubStage, 25);
 		private static final EcoreExecutorEnumerationLiteral /*@NonNull*/ [] _PubStage = {
 			_PubStage__WD,
+			_PubStage__draftDC,
+			_PubStage__DC,
+			_PubStage__draftDC2,
+			_PubStage__DC2,
+			_PubStage__draftCD,
 			_PubStage__CD,
+			_PubStage__draftCD2,
+			_PubStage__CD2,
+			_PubStage__draftCD3,
+			_PubStage__CD3,
+			_PubStage__draftCDV,
 			_PubStage__CDV,
+			_PubStage__draftDTS,
 			_PubStage__DTS,
+			_PubStage__draftDTR,
 			_PubStage__DTR,
+			_PubStage__draftFDIS,
 			_PubStage__FDIS,
+			_PubStage__draftTS,
 			_PubStage__TS,
+			_PubStage__draftTR,
 			_PubStage__TR,
-			_PubStage__IS
+			_PubStage__draftIS,
+			_PubStage__IS,
+			_PubStage__PAS
 		};
 
 		public static final EcoreExecutorEnumerationLiteral _UndefinedAttributeTypeKind__undefined = new EcoreExecutorEnumerationLiteral(NsdPackage.Literals.UNDEFINED_ATTRIBUTE_TYPE_KIND.getEEnumLiteral("undefined"), Types._UndefinedAttributeTypeKind, 0);
