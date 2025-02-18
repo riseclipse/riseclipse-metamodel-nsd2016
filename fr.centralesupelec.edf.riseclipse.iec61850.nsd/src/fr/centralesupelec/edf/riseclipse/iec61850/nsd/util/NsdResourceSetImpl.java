@@ -77,6 +77,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealization;
 import fr.centralesupelec.edf.riseclipse.util.AbstractRiseClipseConsole;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 import fr.centralesupelec.edf.riseclipse.util.RiseClipseMetamodel;
@@ -360,9 +361,11 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         
         if( serviceNS.getServiceTypeRealizations() != null ) {
             // A ServiceTypeRealization gives a new definition to an existing (only basic ? never constructed ?) type
-            for( ConstructedAttribute typeRealization : serviceNS.getServiceTypeRealizations().getServiceTypeRealization() ) {
+            for( ServiceTypeRealization typeRealization : serviceNS.getServiceTypeRealizations().getServiceTypeRealization() ) {
+                // With NSD.xsd 2017B5, the realized type is in an attribute realize
+                String realized = typeRealization.getRealize() != null ? typeRealization.getRealize() : typeRealization.getName();
                 console.info( NSD_SETUP_CATEGORY, 0,
-                              "Service NS: apply new definition for type ", typeRealization.getName() );
+                              "Service NS: apply new definition for type ", realized );
                 // move a copy in the applyTo resource so that it appears as belonging to the namespace of this resource
                 if( applyToNs.getConstructedAttributes() == null ) {
                     applyToNs.setConstructedAttributes( NsdFactory.eINSTANCE.createConstructedAttributes() );
@@ -373,7 +376,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                 copy.getSubDataAttribute().stream().forEach( sda -> sda.setFilename( typeRealization.getFilename() ));
                 applyToNs.getConstructedAttributes().getConstructedAttribute().add( copy );
                 copy.buildExplicitLinks( console );
-                BasicType basic = findBasicType( typeRealization.getName(), applyToNsId, true );
+                BasicType basic = findBasicType( realized, applyToNsId, true );
                 if( basic != null ) {
                     // Avoid ConcurrentModificationException
                     List< AgAttributeType > atts = basic
@@ -391,7 +394,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                 }
                 else {
                     console.warning( NSD_SETUP_CATEGORY, 0,
-                                     "BasicType ", typeRealization.getName(), " not found for TypeRealization" );
+                                     "BasicType ", realized, " not found for TypeRealization" );
                 }
             }
         }

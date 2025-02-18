@@ -2792,12 +2792,6 @@ public class ServiceDataAttributeImpl extends DocumentedClassImpl implements Ser
                                     + NsIdentification.of( getRefersToUnderlyingConstructedAttribute()
                                             .getParentConstructedAttributes().getParentNS() );
                         }
-                        else if( getRefersToUnderlyingConstructedAttribute()
-                                .getParentServiceTypeRealizations() != null ) {
-                            foundWhere = "ServiceNS \""
-                                    + NsIdentification.of( getRefersToUnderlyingConstructedAttribute()
-                                            .getParentServiceTypeRealizations().getParentServiceNS() );
-                        }
                         console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                                 messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") found in ",
                                 foundWhere, "\"" );

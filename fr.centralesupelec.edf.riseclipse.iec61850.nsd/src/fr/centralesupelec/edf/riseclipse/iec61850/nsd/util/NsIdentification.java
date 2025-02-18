@@ -24,6 +24,7 @@ import java.util.HashMap;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgDependsOn;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage;
 
 /*
  * Identify a namespace
@@ -96,6 +97,10 @@ public class NsIdentification {
 
     public static NsIdentification of( AgDependsOn dependsOn ) {
         return of( dependsOn.getId(), dependsOn.getVersion(), dependsOn.getRevision() );
+    }
+
+    public static NsIdentification of( ServiceNsUsage serviceNsUsage ) {
+        return of( serviceNsUsage.getId(), serviceNsUsage.getVersion(), serviceNsUsage.getRevision() );
     }
 
     public String getId() {

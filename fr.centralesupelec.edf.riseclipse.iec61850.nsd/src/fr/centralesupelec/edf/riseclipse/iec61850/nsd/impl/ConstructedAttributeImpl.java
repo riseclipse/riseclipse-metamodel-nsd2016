@@ -51,7 +51,6 @@ import org.eclipse.ocl.pivot.values.SetValue.Accumulator;
 import org.eclipse.ocl.pivot.values.TupleValue;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes;
@@ -750,14 +749,7 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
 
     @Override
     public NsIdentification getNsIdentification() {
-        AgNSIdentification ns = null;
-        if( getParentConstructedAttributes() != null ) {
-            ns = getParentConstructedAttributes().getParentNS();
-        }
-        else if( getParentServiceTypeRealizations() != null ) {
-            ns = getParentServiceTypeRealizations().getParentServiceNS();
-        }
-        return NsIdentification.of( ns );
+        return NsIdentification.of( getParentConstructedAttributes().getParentNS() );
     }
 
 } //ConstructedAttributeImpl

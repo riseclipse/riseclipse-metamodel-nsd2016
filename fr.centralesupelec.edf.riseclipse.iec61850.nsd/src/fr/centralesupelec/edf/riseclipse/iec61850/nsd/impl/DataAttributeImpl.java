@@ -4106,12 +4106,6 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                                             .getParentConstructedAttributes().getParentNS() )
                                     + "\"";
                         }
-                        else if( getRefersToConstructedAttribute().getParentServiceTypeRealizations() != null ) {
-                            foundWhere = "ServiceNS \""
-                                    + NsIdentification.of( getRefersToConstructedAttribute()
-                                            .getParentServiceTypeRealizations().getParentServiceNS() )
-                                    + "\"";
-                        }
                         console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                                 messagePrefix, "ConstructedAttribute (name: ", getType(), ") found in ",
                                 foundWhere, ")" );

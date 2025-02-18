@@ -3304,9 +3304,9 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                                     .getParentNS().getId();
                 }
                 else if( getRefersToUnderlyingConstructedAttribute()
-                        .getParentServiceTypeRealizations() != null ) {
+                        .getParentConstructedAttributes() != null ) {
                     foundWhere = "ServiceNS \"" + getRefersToUnderlyingConstructedAttribute()
-                            .getParentServiceTypeRealizations().getParentServiceNS().getId();
+                            .getParentConstructedAttributes().getParentNS().getId();
                 }
                 console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                         messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") found in ",
