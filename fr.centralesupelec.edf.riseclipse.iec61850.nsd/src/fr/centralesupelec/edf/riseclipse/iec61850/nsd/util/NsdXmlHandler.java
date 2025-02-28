@@ -52,7 +52,7 @@ public class NsdXmlHandler extends SAXXMLHandler {
     protected void reportUnknownFeature( String prefix, String name, boolean isElement, EObject peekObject,
             String value ) {
         AbstractRiseClipseConsole.getConsole().warning(
-            XML_HANDLER_CATEGORY, getLineNumber(),
+            XML_HANDLER_CATEGORY, getLocation().substring( getLocation().lastIndexOf( '/' ) + 1 ), getLineNumber(),
             "The ", ( isElement ? "element " : "attribute " ), name, " is unknown and ignored" );
     }
 
