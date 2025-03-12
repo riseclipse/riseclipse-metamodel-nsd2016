@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -20,25 +20,22 @@
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealization;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations;
 
 /**
  * <!-- begin-user-doc -->
@@ -63,7 +60,7 @@ public class ServiceTypeRealizationsImpl extends NsdObjectImpl implements Servic
      * @generated
      * @ordered
      */
-    protected EList< ConstructedAttribute > serviceTypeRealization;
+    protected EList< ServiceTypeRealization > serviceTypeRealization;
 
     /**
      * <!-- begin-user-doc -->
@@ -90,11 +87,11 @@ public class ServiceTypeRealizationsImpl extends NsdObjectImpl implements Servic
      * @generated
      */
     @Override
-    public EList< ConstructedAttribute > getServiceTypeRealization() {
+    public EList< ServiceTypeRealization > getServiceTypeRealization() {
         if( serviceTypeRealization == null ) {
-            serviceTypeRealization = new EObjectContainmentWithInverseEList.Unsettable< ConstructedAttribute >(
-                    ConstructedAttribute.class, this, NsdPackage.SERVICE_TYPE_REALIZATIONS__SERVICE_TYPE_REALIZATION,
-                    NsdPackage.CONSTRUCTED_ATTRIBUTE__PARENT_SERVICE_TYPE_REALIZATIONS );
+            serviceTypeRealization = new EObjectContainmentWithInverseEList.Unsettable< >(
+                    ServiceTypeRealization.class, this, NsdPackage.SERVICE_TYPE_REALIZATIONS__SERVICE_TYPE_REALIZATION,
+                    NsdPackage.SERVICE_TYPE_REALIZATION__PARENT_SERVICE_TYPE_REALIZATIONS );
         }
         return serviceTypeRealization;
     }
@@ -106,7 +103,9 @@ public class ServiceTypeRealizationsImpl extends NsdObjectImpl implements Servic
      */
     @Override
     public void unsetServiceTypeRealization() {
-        if( serviceTypeRealization != null ) ( ( InternalEList.Unsettable< ? > ) serviceTypeRealization ).unset();
+        if( serviceTypeRealization != null ) {
+            ( ( InternalEList.Unsettable< ? > ) serviceTypeRealization ).unset();
+        }
     }
 
     /**
@@ -126,7 +125,9 @@ public class ServiceTypeRealizationsImpl extends NsdObjectImpl implements Servic
      */
     @Override
     public ServiceNS getParentServiceNS() {
-        if( eContainerFeatureID() != NsdPackage.SERVICE_TYPE_REALIZATIONS__PARENT_SERVICE_NS ) return null;
+        if( eContainerFeatureID() != NsdPackage.SERVICE_TYPE_REALIZATIONS__PARENT_SERVICE_NS ) {
+            return null;
+        }
         return ( ServiceNS ) eInternalContainer();
     }
 
@@ -151,20 +152,26 @@ public class ServiceTypeRealizationsImpl extends NsdObjectImpl implements Servic
         if( newParentServiceNS != eInternalContainer()
                 || ( eContainerFeatureID() != NsdPackage.SERVICE_TYPE_REALIZATIONS__PARENT_SERVICE_NS
                         && newParentServiceNS != null ) ) {
-            if( EcoreUtil.isAncestor( this, newParentServiceNS ) )
+            if( EcoreUtil.isAncestor( this, newParentServiceNS ) ) {
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            }
             NotificationChain msgs = null;
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newParentServiceNS != null )
+            }
+            if( newParentServiceNS != null ) {
                 msgs = ( ( InternalEObject ) newParentServiceNS ).eInverseAdd( this,
                         NsdPackage.SERVICE_NS__SERVICE_TYPE_REALIZATIONS, ServiceNS.class, msgs );
+            }
             msgs = basicSetParentServiceNS( newParentServiceNS, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
-        else if( eNotificationRequired() )
+        else if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET,
                     NsdPackage.SERVICE_TYPE_REALIZATIONS__PARENT_SERVICE_NS, newParentServiceNS, newParentServiceNS ) );
+        }
     }
 
     /**
@@ -180,8 +187,9 @@ public class ServiceTypeRealizationsImpl extends NsdObjectImpl implements Servic
             return ( ( InternalEList< InternalEObject > ) ( InternalEList< ? > ) getServiceTypeRealization() )
                     .basicAdd( otherEnd, msgs );
         case NsdPackage.SERVICE_TYPE_REALIZATIONS__PARENT_SERVICE_NS:
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
+            }
             return basicSetParentServiceNS( ( ServiceNS ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
@@ -245,7 +253,7 @@ public class ServiceTypeRealizationsImpl extends NsdObjectImpl implements Servic
         switch( featureID ) {
         case NsdPackage.SERVICE_TYPE_REALIZATIONS__SERVICE_TYPE_REALIZATION:
             getServiceTypeRealization().clear();
-            getServiceTypeRealization().addAll( ( Collection< ? extends ConstructedAttribute > ) newValue );
+            getServiceTypeRealization().addAll( ( Collection< ? extends ServiceTypeRealization > ) newValue );
             return;
         case NsdPackage.SERVICE_TYPE_REALIZATIONS__PARENT_SERVICE_NS:
             setParentServiceNS( ( ServiceNS ) newValue );

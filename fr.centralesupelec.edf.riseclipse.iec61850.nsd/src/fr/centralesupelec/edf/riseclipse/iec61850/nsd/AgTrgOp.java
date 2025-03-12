@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -45,17 +45,13 @@ public interface AgTrgOp extends EObject {
      * Returns the value of the '<em><b>Dchg</b></em>' attribute.
      * The default value is <code>"false"</code>.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Dchg</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Dchg</em>' attribute.
      * @see #isSetDchg()
      * @see #unsetDchg()
      * @see #setDchg(boolean)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgTrgOp_Dchg()
-     * @model default="false" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+     * @model default="false" unsettable="true"
      *        extendedMetaData="kind='attribute' name='dchg'"
      * @generated
      */
@@ -100,17 +96,13 @@ public interface AgTrgOp extends EObject {
      * Returns the value of the '<em><b>Dupd</b></em>' attribute.
      * The default value is <code>"false"</code>.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Dupd</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Dupd</em>' attribute.
      * @see #isSetDupd()
      * @see #unsetDupd()
      * @see #setDupd(boolean)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgTrgOp_Dupd()
-     * @model default="false" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+     * @model default="false" unsettable="true"
      *        extendedMetaData="kind='attribute' name='dupd'"
      * @generated
      */
@@ -155,17 +147,13 @@ public interface AgTrgOp extends EObject {
      * Returns the value of the '<em><b>Qchg</b></em>' attribute.
      * The default value is <code>"false"</code>.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Qchg</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Qchg</em>' attribute.
      * @see #isSetQchg()
      * @see #unsetQchg()
      * @see #setQchg(boolean)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgTrgOp_Qchg()
-     * @model default="false" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+     * @model default="false" unsettable="true"
      *        extendedMetaData="kind='attribute' name='qchg'"
      * @generated
      */

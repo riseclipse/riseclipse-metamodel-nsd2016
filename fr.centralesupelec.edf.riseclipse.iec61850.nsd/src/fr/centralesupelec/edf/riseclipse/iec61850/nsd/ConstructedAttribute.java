@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -37,7 +37,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getSubDataAttribute <em>Sub Data Attribute</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getName <em>Name</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getParentConstructedAttributes <em>Parent Constructed Attributes</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getParentServiceTypeRealizations <em>Parent Service Type Realizations</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getReferredByAttributeType <em>Referred By Attribute Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getReferredByUnderlyingType <em>Referred By Underlying Type</em>}</li>
  * </ul>
@@ -149,7 +148,7 @@ public interface ConstructedAttribute extends TitledClass {
      * @see #setParentConstructedAttributes(ConstructedAttributes)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getConstructedAttribute_ParentConstructedAttributes()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes#getConstructedAttribute
-     * @model opposite="constructedAttribute" resolveProxies="false" unsettable="true" ordered="false"
+     * @model opposite="constructedAttribute" resolveProxies="false" unsettable="true"
      * @generated
      */
     ConstructedAttributes getParentConstructedAttributes();
@@ -163,30 +162,6 @@ public interface ConstructedAttribute extends TitledClass {
      * @generated
      */
     void setParentConstructedAttributes( ConstructedAttributes value );
-
-    /**
-     * Returns the value of the '<em><b>Parent Service Type Realizations</b></em>' container reference.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations#getServiceTypeRealization <em>Service Type Realization</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Parent Service Type Realizations</em>' container reference.
-     * @see #setParentServiceTypeRealizations(ServiceTypeRealizations)
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getConstructedAttribute_ParentServiceTypeRealizations()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations#getServiceTypeRealization
-     * @model opposite="serviceTypeRealization" resolveProxies="false" unsettable="true" ordered="false"
-     * @generated
-     */
-    ServiceTypeRealizations getParentServiceTypeRealizations();
-
-    /**
-     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getParentServiceTypeRealizations <em>Parent Service Type Realizations</em>}' container reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Parent Service Type Realizations</em>' container reference.
-     * @see #getParentServiceTypeRealizations()
-     * @generated
-     */
-    void setParentServiceTypeRealizations( ServiceTypeRealizations value );
 
     /**
      * Returns the value of the '<em><b>Referred By Attribute Type</b></em>' reference list.

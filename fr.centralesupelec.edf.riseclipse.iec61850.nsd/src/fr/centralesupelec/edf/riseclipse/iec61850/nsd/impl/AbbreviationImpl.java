@@ -184,9 +184,10 @@ public class AbbreviationImpl extends NsdObjectImpl implements Abbreviation {
         descID = newDescID;
         boolean oldDescIDESet = descIDESet;
         descIDESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.ABBREVIATION__DESC_ID, oldDescID, descID,
                     !oldDescIDESet ) );
+        }
     }
 
     /**
@@ -200,9 +201,10 @@ public class AbbreviationImpl extends NsdObjectImpl implements Abbreviation {
         boolean oldDescIDESet = descIDESet;
         descID = DESC_ID_EDEFAULT;
         descIDESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.ABBREVIATION__DESC_ID, oldDescID,
                     DESC_ID_EDEFAULT, oldDescIDESet ) );
+        }
     }
 
     /**
@@ -236,9 +238,10 @@ public class AbbreviationImpl extends NsdObjectImpl implements Abbreviation {
         name = newName;
         boolean oldNameESet = nameESet;
         nameESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.ABBREVIATION__NAME, oldName, name,
                     !oldNameESet ) );
+        }
     }
 
     /**
@@ -252,9 +255,10 @@ public class AbbreviationImpl extends NsdObjectImpl implements Abbreviation {
         boolean oldNameESet = nameESet;
         name = NAME_EDEFAULT;
         nameESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.ABBREVIATION__NAME, oldName,
                     NAME_EDEFAULT, oldNameESet ) );
+        }
     }
 
     /**
@@ -274,7 +278,9 @@ public class AbbreviationImpl extends NsdObjectImpl implements Abbreviation {
      */
     @Override
     public Abbreviations getParentAbbreviations() {
-        if( eContainerFeatureID() != NsdPackage.ABBREVIATION__PARENT_ABBREVIATIONS ) return null;
+        if( eContainerFeatureID() != NsdPackage.ABBREVIATION__PARENT_ABBREVIATIONS ) {
+            return null;
+        }
         return ( Abbreviations ) eInternalContainer();
     }
 
@@ -300,20 +306,26 @@ public class AbbreviationImpl extends NsdObjectImpl implements Abbreviation {
         if( newParentAbbreviations != eInternalContainer()
                 || ( eContainerFeatureID() != NsdPackage.ABBREVIATION__PARENT_ABBREVIATIONS
                         && newParentAbbreviations != null ) ) {
-            if( EcoreUtil.isAncestor( this, newParentAbbreviations ) )
+            if( EcoreUtil.isAncestor( this, newParentAbbreviations ) ) {
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            }
             NotificationChain msgs = null;
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newParentAbbreviations != null )
+            }
+            if( newParentAbbreviations != null ) {
                 msgs = ( ( InternalEObject ) newParentAbbreviations ).eInverseAdd( this,
                         NsdPackage.ABBREVIATIONS__ABBREVIATION, Abbreviations.class, msgs );
+            }
             msgs = basicSetParentAbbreviations( newParentAbbreviations, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
-        else if( eNotificationRequired() )
+        else if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.ABBREVIATION__PARENT_ABBREVIATIONS,
                     newParentAbbreviations, newParentAbbreviations ) );
+        }
     }
 
     /**
@@ -339,10 +351,12 @@ public class AbbreviationImpl extends NsdObjectImpl implements Abbreviation {
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.ABBREVIATION__REFERS_TO_DOC, oldRefersToDoc, newRefersToDoc, !oldRefersToDocESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -356,21 +370,26 @@ public class AbbreviationImpl extends NsdObjectImpl implements Abbreviation {
     public void setRefersToDoc( Doc newRefersToDoc ) {
         if( newRefersToDoc != refersToDoc ) {
             NotificationChain msgs = null;
-            if( refersToDoc != null )
+            if( refersToDoc != null ) {
                 msgs = ( ( InternalEObject ) refersToDoc ).eInverseRemove( this,
                         NsdPackage.DOC__REFERRED_BY_ABBREVIATION, Doc.class, msgs );
-            if( newRefersToDoc != null )
+            }
+            if( newRefersToDoc != null ) {
                 msgs = ( ( InternalEObject ) newRefersToDoc ).eInverseAdd( this,
                         NsdPackage.DOC__REFERRED_BY_ABBREVIATION, Doc.class, msgs );
+            }
             msgs = basicSetRefersToDoc( newRefersToDoc, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToDocESet = refersToDocESet;
             refersToDocESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.ABBREVIATION__REFERS_TO_DOC,
                         newRefersToDoc, newRefersToDoc, !oldRefersToDocESet ) );
+            }
         }
     }
 
@@ -387,10 +406,12 @@ public class AbbreviationImpl extends NsdObjectImpl implements Abbreviation {
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.ABBREVIATION__REFERS_TO_DOC, oldRefersToDoc, null, oldRefersToDocESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -407,14 +428,17 @@ public class AbbreviationImpl extends NsdObjectImpl implements Abbreviation {
             msgs = ( ( InternalEObject ) refersToDoc ).eInverseRemove( this, NsdPackage.DOC__REFERRED_BY_ABBREVIATION,
                     Doc.class, msgs );
             msgs = basicUnsetRefersToDoc( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToDocESet = refersToDocESet;
             refersToDocESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.ABBREVIATION__REFERS_TO_DOC, null,
                         null, oldRefersToDocESet ) );
+            }
         }
     }
 
@@ -501,13 +525,15 @@ public class AbbreviationImpl extends NsdObjectImpl implements Abbreviation {
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.ABBREVIATION__PARENT_ABBREVIATIONS:
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
+            }
             return basicSetParentAbbreviations( ( Abbreviations ) otherEnd, msgs );
         case NsdPackage.ABBREVIATION__REFERS_TO_DOC:
-            if( refersToDoc != null )
+            if( refersToDoc != null ) {
                 msgs = ( ( InternalEObject ) refersToDoc ).eInverseRemove( this,
                         NsdPackage.DOC__REFERRED_BY_ABBREVIATION, Doc.class, msgs );
+            }
             return basicSetRefersToDoc( ( Doc ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
@@ -655,34 +681,45 @@ public class AbbreviationImpl extends NsdObjectImpl implements Abbreviation {
      */
     @Override
     public String toString() {
-        if( eIsProxy() ) return super.toString();
+        if( eIsProxy() ) {
+            return super.toString();
+        }
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (descID: " );
-        if( descIDESet )
+        if( descIDESet ) {
             result.append( descID );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", name: " );
-        if( nameESet )
+        if( nameESet ) {
             result.append( name );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ')' );
         return result.toString();
     }
 
     @Override
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
-        console.debug( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), "AbbreviationImpl.buildExplicitLinks()" );
+        console.debug( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                "AbbreviationImpl.buildExplicitLinks()" );
 
-        if( super.buildExplicitLinks( console ) ) return true;
+        if( super.buildExplicitLinks( console ) ) {
+            return true;
+        }
 
         if( isSetDescID() ) {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
                 Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() )
                         .findDoc( NsIdentification.of( getParentAbbreviations().getParentNS() ), getDescID() );
-                if( doc != null ) setRefersToDoc( doc );
+                if( doc != null ) {
+                    setRefersToDoc( doc );
+                }
             }
         }
 

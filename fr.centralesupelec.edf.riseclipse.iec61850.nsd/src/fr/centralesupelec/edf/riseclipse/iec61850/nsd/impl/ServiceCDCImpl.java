@@ -42,6 +42,7 @@ import org.eclipse.ocl.pivot.library.string.CGStringLogDiagnosticOperation;
 import org.eclipse.ocl.pivot.utilities.PivotUtil;
 import org.eclipse.ocl.pivot.utilities.ValueUtil;
 import org.eclipse.ocl.pivot.values.IntegerValue;
+import org.eclipse.ocl.pivot.values.TupleValue;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
@@ -394,9 +395,20 @@ public class ServiceCDCImpl extends NsdObjectImpl implements ServiceCDC {
                 IF_le = true;
             }
             else {
+                final /*@NonInvalid*/ String cdc = this.getCdc();
+                final /*@NonInvalid*/ boolean status = cdc != null;
+                /*@NonInvalid*/ Object IF_status;
+                if( status ) {
+                    IF_status = ValueUtil.TRUE_VALUE;
+                }
+                else {
+                    final /*@NonInvalid*/ TupleValue TUP_ = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                            NsdTables.STR_The_32_cdc_32_attribute_32_is_32_required, status );
+                    IF_status = TUP_;
+                }
                 final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
                         .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
-                                context, ( Object ) null, severity_0, ValueUtil.TRUE_VALUE, NsdTables.INT_0 )
+                                context, ( Object ) null, severity_0, IF_status, NsdTables.INT_0 )
                         .booleanValue();
                 IF_le = logDiagnostic;
             }

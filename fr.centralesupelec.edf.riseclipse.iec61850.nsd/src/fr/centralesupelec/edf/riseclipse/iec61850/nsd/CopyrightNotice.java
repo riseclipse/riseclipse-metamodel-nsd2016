@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -50,7 +50,7 @@ public interface CopyrightNotice extends NsdObject {
      * @see #setNotice(Notice)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCopyrightNotice_Notice()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Notice#getParentCopyrightNotice
-     * @model opposite="parentCopyrightNotice" containment="true" unsettable="true" ordered="false"
+     * @model opposite="parentCopyrightNotice" containment="true" unsettable="true"
      *        extendedMetaData="kind='element' name='Notice' namespace='##targetNamespace'"
      * @generated
      */
@@ -102,7 +102,7 @@ public interface CopyrightNotice extends NsdObject {
      * @see #setLicense(License)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCopyrightNotice_License()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.License#getParentCopyrightNotice
-     * @model opposite="parentCopyrightNotice" containment="true" unsettable="true" ordered="false"
+     * @model opposite="parentCopyrightNotice" containment="true" unsettable="true"
      *        extendedMetaData="kind='element' name='License' namespace='##targetNamespace'"
      * @generated
      */
@@ -152,7 +152,7 @@ public interface CopyrightNotice extends NsdObject {
      * @see #setParentCopyrighted(Copyrighted)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCopyrightNotice_ParentCopyrighted()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Copyrighted#getCopyright
-     * @model opposite="copyright" resolveProxies="false" unsettable="true" ordered="false"
+     * @model opposite="copyright" resolveProxies="false" unsettable="true"
      * @generated
      */
     Copyrighted getParentCopyrighted();

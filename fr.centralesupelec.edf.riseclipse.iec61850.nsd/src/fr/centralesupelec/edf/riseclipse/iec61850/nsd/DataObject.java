@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -109,7 +109,7 @@ public interface DataObject
      * @see #unsetTransient()
      * @see #setTransient(boolean)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataObject_Transient()
-     * @model default="false" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+     * @model default="false" unsettable="true"
      *        extendedMetaData="kind='attribute' name='transient'"
      * @generated
      */
@@ -209,7 +209,7 @@ public interface DataObject
      * @see #setParentAnyLNClass(AnyLNClass)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataObject_ParentAnyLNClass()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass#getDataObject
-     * @model opposite="dataObject" resolveProxies="false" unsettable="true" ordered="false"
+     * @model opposite="dataObject" resolveProxies="false" unsettable="true"
      * @generated
      */
     AnyLNClass getParentAnyLNClass();
@@ -239,7 +239,7 @@ public interface DataObject
      * @see #setRefersToCDC(CDC)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataObject_RefersToCDC()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getReferredByDataObject
-     * @model opposite="referredByDataObject" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @model opposite="referredByDataObject" resolveProxies="false" unsettable="true" transient="true"
      * @generated
      */
     CDC getRefersToCDC();
@@ -294,7 +294,7 @@ public interface DataObject
      * @see #setRefersToPresenceCondition(PresenceCondition)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataObject_RefersToPresenceCondition()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getReferredByDataObject
-     * @model opposite="referredByDataObject" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @model opposite="referredByDataObject" resolveProxies="false" unsettable="true" transient="true"
      * @generated
      */
     PresenceCondition getRefersToPresenceCondition();
@@ -349,7 +349,7 @@ public interface DataObject
      * @see #setRefersToPresenceConditionDerivedStatistics(PresenceCondition)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataObject_RefersToPresenceConditionDerivedStatistics()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getReferredByDataObjectForDerivedStatistics
-     * @model opposite="referredByDataObjectForDerivedStatistics" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @model opposite="referredByDataObjectForDerivedStatistics" resolveProxies="false" unsettable="true" transient="true"
      * @generated
      */
     PresenceCondition getRefersToPresenceConditionDerivedStatistics();

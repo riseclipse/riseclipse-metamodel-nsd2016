@@ -40,6 +40,7 @@ import org.eclipse.ocl.pivot.values.IntegerValue;
 import org.eclipse.ocl.pivot.values.TupleValue;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage;
@@ -52,44 +53,46 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PubStage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AgNSIdentificationImpl#getRelease <em>Release</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AgNSIdentificationImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AgNSIdentificationImpl#getId <em>Id</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AgNSIdentificationImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AgNSIdentificationImpl#getRevision <em>Revision</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AgNSIdentificationImpl#getRelease <em>Release</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AgNSIdentificationImpl#getPublicationStage <em>Publication Stage</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AgNSIdentificationImpl#getNamespaceType <em>Namespace Type</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AgNSIdentificationImpl#isDeprecated <em>Deprecated</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class AgNSIdentificationImpl extends MinimalEObjectImpl.Container implements AgNSIdentification {
     /**
-     * The default value of the '{@link #getRelease() <em>Release</em>}' attribute.
+     * The default value of the '{@link #getId() <em>Id</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getRelease()
+     * @see #getId()
      * @generated
      * @ordered
      */
-    protected static final Integer RELEASE_EDEFAULT = Integer.valueOf( 1 );
+    protected static final String ID_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getRelease() <em>Release</em>}' attribute.
+     * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getRelease()
+     * @see #getId()
      * @generated
      * @ordered
      */
-    protected Integer release = RELEASE_EDEFAULT;
+    protected String id = ID_EDEFAULT;
 
     /**
-     * This is true if the Release attribute has been set.
+     * This is true if the Id attribute has been set.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    protected boolean releaseESet;
+    protected boolean idESet;
 
     /**
      * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
@@ -121,35 +124,6 @@ public abstract class AgNSIdentificationImpl extends MinimalEObjectImpl.Containe
     protected boolean versionESet;
 
     /**
-     * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getId()
-     * @generated
-     * @ordered
-     */
-    protected static final String ID_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getId()
-     * @generated
-     * @ordered
-     */
-    protected String id = ID_EDEFAULT;
-
-    /**
-     * This is true if the Id attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean idESet;
-
-    /**
      * The default value of the '{@link #getRevision() <em>Revision</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -177,6 +151,35 @@ public abstract class AgNSIdentificationImpl extends MinimalEObjectImpl.Containe
      * @ordered
      */
     protected boolean revisionESet;
+
+    /**
+     * The default value of the '{@link #getRelease() <em>Release</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRelease()
+     * @generated
+     * @ordered
+     */
+    protected static final int RELEASE_EDEFAULT = 1;
+
+    /**
+     * The cached value of the '{@link #getRelease() <em>Release</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRelease()
+     * @generated
+     * @ordered
+     */
+    protected int release = RELEASE_EDEFAULT;
+
+    /**
+     * This is true if the Release attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean releaseESet;
 
     /**
      * The default value of the '{@link #getPublicationStage() <em>Publication Stage</em>}' attribute.
@@ -208,6 +211,64 @@ public abstract class AgNSIdentificationImpl extends MinimalEObjectImpl.Containe
     protected boolean publicationStageESet;
 
     /**
+     * The default value of the '{@link #getNamespaceType() <em>Namespace Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNamespaceType()
+     * @generated
+     * @ordered
+     */
+    protected static final NSType NAMESPACE_TYPE_EDEFAULT = NSType.BASIC;
+
+    /**
+     * The cached value of the '{@link #getNamespaceType() <em>Namespace Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNamespaceType()
+     * @generated
+     * @ordered
+     */
+    protected NSType namespaceType = NAMESPACE_TYPE_EDEFAULT;
+
+    /**
+     * This is true if the Namespace Type attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean namespaceTypeESet;
+
+    /**
+     * The default value of the '{@link #isDeprecated() <em>Deprecated</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isDeprecated()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean DEPRECATED_EDEFAULT = false;
+
+    /**
+     * The cached value of the '{@link #isDeprecated() <em>Deprecated</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isDeprecated()
+     * @generated
+     * @ordered
+     */
+    protected boolean deprecated = DEPRECATED_EDEFAULT;
+
+    /**
+     * This is true if the Deprecated attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean deprecatedESet;
+
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -232,7 +293,7 @@ public abstract class AgNSIdentificationImpl extends MinimalEObjectImpl.Containe
      * @generated
      */
     @Override
-    public Integer getRelease() {
+    public int getRelease() {
         return release;
     }
 
@@ -242,14 +303,15 @@ public abstract class AgNSIdentificationImpl extends MinimalEObjectImpl.Containe
      * @generated
      */
     @Override
-    public void setRelease( Integer newRelease ) {
-        Integer oldRelease = release;
+    public void setRelease( int newRelease ) {
+        int oldRelease = release;
         release = newRelease;
         boolean oldReleaseESet = releaseESet;
         releaseESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_NS_IDENTIFICATION__RELEASE,
                     oldRelease, release, !oldReleaseESet ) );
+        }
     }
 
     /**
@@ -259,13 +321,14 @@ public abstract class AgNSIdentificationImpl extends MinimalEObjectImpl.Containe
      */
     @Override
     public void unsetRelease() {
-        Integer oldRelease = release;
+        int oldRelease = release;
         boolean oldReleaseESet = releaseESet;
         release = RELEASE_EDEFAULT;
         releaseESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_NS_IDENTIFICATION__RELEASE,
                     oldRelease, RELEASE_EDEFAULT, oldReleaseESet ) );
+        }
     }
 
     /**
@@ -299,9 +362,10 @@ public abstract class AgNSIdentificationImpl extends MinimalEObjectImpl.Containe
         version = newVersion;
         boolean oldVersionESet = versionESet;
         versionESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_NS_IDENTIFICATION__VERSION,
                     oldVersion, version, !oldVersionESet ) );
+        }
     }
 
     /**
@@ -315,9 +379,10 @@ public abstract class AgNSIdentificationImpl extends MinimalEObjectImpl.Containe
         boolean oldVersionESet = versionESet;
         version = VERSION_EDEFAULT;
         versionESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_NS_IDENTIFICATION__VERSION,
                     oldVersion, VERSION_EDEFAULT, oldVersionESet ) );
+        }
     }
 
     /**
@@ -351,9 +416,10 @@ public abstract class AgNSIdentificationImpl extends MinimalEObjectImpl.Containe
         id = newId;
         boolean oldIdESet = idESet;
         idESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_NS_IDENTIFICATION__ID, oldId, id,
                     !oldIdESet ) );
+        }
     }
 
     /**
@@ -367,9 +433,10 @@ public abstract class AgNSIdentificationImpl extends MinimalEObjectImpl.Containe
         boolean oldIdESet = idESet;
         id = ID_EDEFAULT;
         idESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_NS_IDENTIFICATION__ID, oldId,
                     ID_EDEFAULT, oldIdESet ) );
+        }
     }
 
     /**
@@ -403,9 +470,10 @@ public abstract class AgNSIdentificationImpl extends MinimalEObjectImpl.Containe
         revision = newRevision;
         boolean oldRevisionESet = revisionESet;
         revisionESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_NS_IDENTIFICATION__REVISION,
                     oldRevision, revision, !oldRevisionESet ) );
+        }
     }
 
     /**
@@ -419,9 +487,10 @@ public abstract class AgNSIdentificationImpl extends MinimalEObjectImpl.Containe
         boolean oldRevisionESet = revisionESet;
         revision = REVISION_EDEFAULT;
         revisionESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_NS_IDENTIFICATION__REVISION,
                     oldRevision, REVISION_EDEFAULT, oldRevisionESet ) );
+        }
     }
 
     /**
@@ -455,9 +524,10 @@ public abstract class AgNSIdentificationImpl extends MinimalEObjectImpl.Containe
         publicationStage = newPublicationStage == null ? PUBLICATION_STAGE_EDEFAULT : newPublicationStage;
         boolean oldPublicationStageESet = publicationStageESet;
         publicationStageESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE,
                     oldPublicationStage, publicationStage, !oldPublicationStageESet ) );
+        }
     }
 
     /**
@@ -471,10 +541,11 @@ public abstract class AgNSIdentificationImpl extends MinimalEObjectImpl.Containe
         boolean oldPublicationStageESet = publicationStageESet;
         publicationStage = PUBLICATION_STAGE_EDEFAULT;
         publicationStageESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE, oldPublicationStage, PUBLICATION_STAGE_EDEFAULT,
                     oldPublicationStageESet ) );
+        }
     }
 
     /**
@@ -485,6 +556,114 @@ public abstract class AgNSIdentificationImpl extends MinimalEObjectImpl.Containe
     @Override
     public boolean isSetPublicationStage() {
         return publicationStageESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NSType getNamespaceType() {
+        return namespaceType;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setNamespaceType( NSType newNamespaceType ) {
+        NSType oldNamespaceType = namespaceType;
+        namespaceType = newNamespaceType == null ? NAMESPACE_TYPE_EDEFAULT : newNamespaceType;
+        boolean oldNamespaceTypeESet = namespaceTypeESet;
+        namespaceTypeESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_NS_IDENTIFICATION__NAMESPACE_TYPE,
+                    oldNamespaceType, namespaceType, !oldNamespaceTypeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetNamespaceType() {
+        NSType oldNamespaceType = namespaceType;
+        boolean oldNamespaceTypeESet = namespaceTypeESet;
+        namespaceType = NAMESPACE_TYPE_EDEFAULT;
+        namespaceTypeESet = false;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_NS_IDENTIFICATION__NAMESPACE_TYPE,
+                    oldNamespaceType, NAMESPACE_TYPE_EDEFAULT, oldNamespaceTypeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetNamespaceType() {
+        return namespaceTypeESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isDeprecated() {
+        return deprecated;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setDeprecated( boolean newDeprecated ) {
+        boolean oldDeprecated = deprecated;
+        deprecated = newDeprecated;
+        boolean oldDeprecatedESet = deprecatedESet;
+        deprecatedESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_NS_IDENTIFICATION__DEPRECATED,
+                    oldDeprecated, deprecated, !oldDeprecatedESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetDeprecated() {
+        boolean oldDeprecated = deprecated;
+        boolean oldDeprecatedESet = deprecatedESet;
+        deprecated = DEPRECATED_EDEFAULT;
+        deprecatedESet = false;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_NS_IDENTIFICATION__DEPRECATED,
+                    oldDeprecated, DEPRECATED_EDEFAULT, oldDeprecatedESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetDeprecated() {
+        return deprecatedESet;
     }
 
     /**
@@ -625,16 +804,20 @@ public abstract class AgNSIdentificationImpl extends MinimalEObjectImpl.Containe
     @Override
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
-        case NsdPackage.AG_NS_IDENTIFICATION__RELEASE:
-            return getRelease();
-        case NsdPackage.AG_NS_IDENTIFICATION__VERSION:
-            return getVersion();
         case NsdPackage.AG_NS_IDENTIFICATION__ID:
             return getId();
+        case NsdPackage.AG_NS_IDENTIFICATION__VERSION:
+            return getVersion();
         case NsdPackage.AG_NS_IDENTIFICATION__REVISION:
             return getRevision();
+        case NsdPackage.AG_NS_IDENTIFICATION__RELEASE:
+            return getRelease();
         case NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE:
             return getPublicationStage();
+        case NsdPackage.AG_NS_IDENTIFICATION__NAMESPACE_TYPE:
+            return getNamespaceType();
+        case NsdPackage.AG_NS_IDENTIFICATION__DEPRECATED:
+            return isDeprecated();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -647,20 +830,26 @@ public abstract class AgNSIdentificationImpl extends MinimalEObjectImpl.Containe
     @Override
     public void eSet( int featureID, Object newValue ) {
         switch( featureID ) {
-        case NsdPackage.AG_NS_IDENTIFICATION__RELEASE:
-            setRelease( ( Integer ) newValue );
+        case NsdPackage.AG_NS_IDENTIFICATION__ID:
+            setId( ( String ) newValue );
             return;
         case NsdPackage.AG_NS_IDENTIFICATION__VERSION:
             setVersion( ( Integer ) newValue );
             return;
-        case NsdPackage.AG_NS_IDENTIFICATION__ID:
-            setId( ( String ) newValue );
-            return;
         case NsdPackage.AG_NS_IDENTIFICATION__REVISION:
             setRevision( ( String ) newValue );
             return;
+        case NsdPackage.AG_NS_IDENTIFICATION__RELEASE:
+            setRelease( ( Integer ) newValue );
+            return;
         case NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE:
             setPublicationStage( ( PubStage ) newValue );
+            return;
+        case NsdPackage.AG_NS_IDENTIFICATION__NAMESPACE_TYPE:
+            setNamespaceType( ( NSType ) newValue );
+            return;
+        case NsdPackage.AG_NS_IDENTIFICATION__DEPRECATED:
+            setDeprecated( ( Boolean ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -674,20 +863,26 @@ public abstract class AgNSIdentificationImpl extends MinimalEObjectImpl.Containe
     @Override
     public void eUnset( int featureID ) {
         switch( featureID ) {
-        case NsdPackage.AG_NS_IDENTIFICATION__RELEASE:
-            unsetRelease();
+        case NsdPackage.AG_NS_IDENTIFICATION__ID:
+            unsetId();
             return;
         case NsdPackage.AG_NS_IDENTIFICATION__VERSION:
             unsetVersion();
             return;
-        case NsdPackage.AG_NS_IDENTIFICATION__ID:
-            unsetId();
-            return;
         case NsdPackage.AG_NS_IDENTIFICATION__REVISION:
             unsetRevision();
             return;
+        case NsdPackage.AG_NS_IDENTIFICATION__RELEASE:
+            unsetRelease();
+            return;
         case NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE:
             unsetPublicationStage();
+            return;
+        case NsdPackage.AG_NS_IDENTIFICATION__NAMESPACE_TYPE:
+            unsetNamespaceType();
+            return;
+        case NsdPackage.AG_NS_IDENTIFICATION__DEPRECATED:
+            unsetDeprecated();
             return;
         }
         super.eUnset( featureID );
@@ -701,16 +896,20 @@ public abstract class AgNSIdentificationImpl extends MinimalEObjectImpl.Containe
     @Override
     public boolean eIsSet( int featureID ) {
         switch( featureID ) {
-        case NsdPackage.AG_NS_IDENTIFICATION__RELEASE:
-            return isSetRelease();
-        case NsdPackage.AG_NS_IDENTIFICATION__VERSION:
-            return isSetVersion();
         case NsdPackage.AG_NS_IDENTIFICATION__ID:
             return isSetId();
+        case NsdPackage.AG_NS_IDENTIFICATION__VERSION:
+            return isSetVersion();
         case NsdPackage.AG_NS_IDENTIFICATION__REVISION:
             return isSetRevision();
+        case NsdPackage.AG_NS_IDENTIFICATION__RELEASE:
+            return isSetRelease();
         case NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE:
             return isSetPublicationStage();
+        case NsdPackage.AG_NS_IDENTIFICATION__NAMESPACE_TYPE:
+            return isSetNamespaceType();
+        case NsdPackage.AG_NS_IDENTIFICATION__DEPRECATED:
+            return isSetDeprecated();
         }
         return super.eIsSet( featureID );
     }
@@ -741,34 +940,60 @@ public abstract class AgNSIdentificationImpl extends MinimalEObjectImpl.Containe
      */
     @Override
     public String toString() {
-        if( eIsProxy() ) return super.toString();
+        if( eIsProxy() ) {
+            return super.toString();
+        }
 
         StringBuilder result = new StringBuilder( super.toString() );
-        result.append( " (release: " );
-        if( releaseESet )
-            result.append( release );
-        else
-            result.append( "<unset>" );
-        result.append( ", version: " );
-        if( versionESet )
-            result.append( version );
-        else
-            result.append( "<unset>" );
-        result.append( ", id: " );
-        if( idESet )
+        result.append( " (id: " );
+        if( idESet ) {
             result.append( id );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
+        result.append( ", version: " );
+        if( versionESet ) {
+            result.append( version );
+        }
+        else {
+            result.append( "<unset>" );
+        }
         result.append( ", revision: " );
-        if( revisionESet )
+        if( revisionESet ) {
             result.append( revision );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
+        result.append( ", release: " );
+        if( releaseESet ) {
+            result.append( release );
+        }
+        else {
+            result.append( "<unset>" );
+        }
         result.append( ", publicationStage: " );
-        if( publicationStageESet )
+        if( publicationStageESet ) {
             result.append( publicationStage );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
+        result.append( ", namespaceType: " );
+        if( namespaceTypeESet ) {
+            result.append( namespaceType );
+        }
+        else {
+            result.append( "<unset>" );
+        }
+        result.append( ", deprecated: " );
+        if( deprecatedESet ) {
+            result.append( deprecated );
+        }
+        else {
+            result.append( "<unset>" );
+        }
         result.append( ')' );
         return result.toString();
     }

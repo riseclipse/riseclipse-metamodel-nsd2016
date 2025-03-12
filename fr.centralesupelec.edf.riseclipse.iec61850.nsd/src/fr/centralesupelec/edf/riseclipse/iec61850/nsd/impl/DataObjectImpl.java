@@ -81,6 +81,7 @@ import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getRefersToUnderlyingBasicType <em>Refers To Underlying Basic Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getRefersToUnderlyingConstructedAttribute <em>Refers To Underlying Constructed Attribute</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getRefersToUnderlyingEnumeration <em>Refers To Underlying Enumeration</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getUnderlyingControlType <em>Underlying Control Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#isTransient <em>Transient</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.DataObjectImpl#getType <em>Type</em>}</li>
@@ -421,6 +422,35 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     protected boolean refersToUnderlyingEnumerationESet;
 
     /**
+     * The default value of the '{@link #getUnderlyingControlType() <em>Underlying Control Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getUnderlyingControlType()
+     * @generated
+     * @ordered
+     */
+    protected static final String UNDERLYING_CONTROL_TYPE_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getUnderlyingControlType() <em>Underlying Control Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getUnderlyingControlType()
+     * @generated
+     * @ordered
+     */
+    protected String underlyingControlType = UNDERLYING_CONTROL_TYPE_EDEFAULT;
+
+    /**
+     * This is true if the Underlying Control Type attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean underlyingControlTypeESet;
+
+    /**
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -604,9 +634,10 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         dsPresCond = newDsPresCond;
         boolean oldDsPresCondESet = dsPresCondESet;
         dsPresCondESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_OBJECT__DS_PRES_COND, oldDsPresCond,
                     dsPresCond, !oldDsPresCondESet ) );
+        }
     }
 
     /**
@@ -620,9 +651,10 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         boolean oldDsPresCondESet = dsPresCondESet;
         dsPresCond = DS_PRES_COND_EDEFAULT;
         dsPresCondESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DATA_OBJECT__DS_PRES_COND,
                     oldDsPresCond, DS_PRES_COND_EDEFAULT, oldDsPresCondESet ) );
+        }
     }
 
     /**
@@ -656,9 +688,10 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         dsPresCondArgs = newDsPresCondArgs;
         boolean oldDsPresCondArgsESet = dsPresCondArgsESet;
         dsPresCondArgsESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS,
                     oldDsPresCondArgs, dsPresCondArgs, !oldDsPresCondArgsESet ) );
+        }
     }
 
     /**
@@ -672,9 +705,10 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         boolean oldDsPresCondArgsESet = dsPresCondArgsESet;
         dsPresCondArgs = DS_PRES_COND_ARGS_EDEFAULT;
         dsPresCondArgsESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS,
                     oldDsPresCondArgs, DS_PRES_COND_ARGS_EDEFAULT, oldDsPresCondArgsESet ) );
+        }
     }
 
     /**
@@ -708,9 +742,10 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         dsPresCondArgsID = newDsPresCondArgsID;
         boolean oldDsPresCondArgsIDESet = dsPresCondArgsIDESet;
         dsPresCondArgsIDESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS_ID,
                     oldDsPresCondArgsID, dsPresCondArgsID, !oldDsPresCondArgsIDESet ) );
+        }
     }
 
     /**
@@ -724,9 +759,10 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         boolean oldDsPresCondArgsIDESet = dsPresCondArgsIDESet;
         dsPresCondArgsID = DS_PRES_COND_ARGS_ID_EDEFAULT;
         dsPresCondArgsIDESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DATA_OBJECT__DS_PRES_COND_ARGS_ID,
                     oldDsPresCondArgsID, DS_PRES_COND_ARGS_ID_EDEFAULT, oldDsPresCondArgsIDESet ) );
+        }
     }
 
     /**
@@ -764,10 +800,12 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.DATA_OBJECT__REFERS_TO_DS_PRES_COND_ARGS_DOC, oldRefersToDsPresCondArgsDoc,
                     newRefersToDsPresCondArgsDoc, !oldRefersToDsPresCondArgsDocESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -781,22 +819,27 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     public void setRefersToDsPresCondArgsDoc( Doc newRefersToDsPresCondArgsDoc ) {
         if( newRefersToDsPresCondArgsDoc != refersToDsPresCondArgsDoc ) {
             NotificationChain msgs = null;
-            if( refersToDsPresCondArgsDoc != null )
+            if( refersToDsPresCondArgsDoc != null ) {
                 msgs = ( ( InternalEObject ) refersToDsPresCondArgsDoc ).eInverseRemove( this,
                         NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION_DERIVED_STATISTICS, Doc.class, msgs );
-            if( newRefersToDsPresCondArgsDoc != null )
+            }
+            if( newRefersToDsPresCondArgsDoc != null ) {
                 msgs = ( ( InternalEObject ) newRefersToDsPresCondArgsDoc ).eInverseAdd( this,
                         NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION_DERIVED_STATISTICS, Doc.class, msgs );
+            }
             msgs = basicSetRefersToDsPresCondArgsDoc( newRefersToDsPresCondArgsDoc, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToDsPresCondArgsDocESet = refersToDsPresCondArgsDocESet;
             refersToDsPresCondArgsDocESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET,
                         NsdPackage.DATA_OBJECT__REFERS_TO_DS_PRES_COND_ARGS_DOC, newRefersToDsPresCondArgsDoc,
                         newRefersToDsPresCondArgsDoc, !oldRefersToDsPresCondArgsDocESet ) );
+            }
         }
     }
 
@@ -814,10 +857,12 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.DATA_OBJECT__REFERS_TO_DS_PRES_COND_ARGS_DOC, oldRefersToDsPresCondArgsDoc, null,
                     oldRefersToDsPresCondArgsDocESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -834,15 +879,18 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             msgs = ( ( InternalEObject ) refersToDsPresCondArgsDoc ).eInverseRemove( this,
                     NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION_DERIVED_STATISTICS, Doc.class, msgs );
             msgs = basicUnsetRefersToDsPresCondArgsDoc( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToDsPresCondArgsDocESet = refersToDsPresCondArgsDocESet;
             refersToDsPresCondArgsDocESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET,
                         NsdPackage.DATA_OBJECT__REFERS_TO_DS_PRES_COND_ARGS_DOC, null, null,
                         oldRefersToDsPresCondArgsDocESet ) );
+            }
         }
     }
 
@@ -877,9 +925,10 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         name = newName;
         boolean oldNameESet = nameESet;
         nameESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_OBJECT__NAME, oldName, name,
                     !oldNameESet ) );
+        }
     }
 
     /**
@@ -893,9 +942,10 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         boolean oldNameESet = nameESet;
         name = NAME_EDEFAULT;
         nameESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DATA_OBJECT__NAME, oldName,
                     NAME_EDEFAULT, oldNameESet ) );
+        }
     }
 
     /**
@@ -906,6 +956,33 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     @Override
     public boolean isSetName() {
         return nameESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isTransient() {
+        return transient_;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setTransient( boolean newTransient ) {
+        boolean oldTransient = transient_;
+        transient_ = newTransient;
+        boolean oldTransientESet = transientESet;
+        transientESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_OBJECT__TRANSIENT, oldTransient,
+                    transient_, !oldTransientESet ) );
+        }
     }
 
     /**
@@ -929,9 +1006,10 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         presCond = newPresCond;
         boolean oldPresCondESet = presCondESet;
         presCondESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_OBJECT__PRES_COND, oldPresCond,
                     presCond, !oldPresCondESet ) );
+        }
     }
 
     /**
@@ -945,9 +1023,10 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         boolean oldPresCondESet = presCondESet;
         presCond = PRES_COND_EDEFAULT;
         presCondESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DATA_OBJECT__PRES_COND, oldPresCond,
                     PRES_COND_EDEFAULT, oldPresCondESet ) );
+        }
     }
 
     /**
@@ -981,9 +1060,10 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         presCondArgs = newPresCondArgs;
         boolean oldPresCondArgsESet = presCondArgsESet;
         presCondArgsESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_OBJECT__PRES_COND_ARGS,
                     oldPresCondArgs, presCondArgs, !oldPresCondArgsESet ) );
+        }
     }
 
     /**
@@ -997,9 +1077,10 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         boolean oldPresCondArgsESet = presCondArgsESet;
         presCondArgs = PRES_COND_ARGS_EDEFAULT;
         presCondArgsESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DATA_OBJECT__PRES_COND_ARGS,
                     oldPresCondArgs, PRES_COND_ARGS_EDEFAULT, oldPresCondArgsESet ) );
+        }
     }
 
     /**
@@ -1033,9 +1114,10 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         presCondArgsID = newPresCondArgsID;
         boolean oldPresCondArgsIDESet = presCondArgsIDESet;
         presCondArgsIDESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_OBJECT__PRES_COND_ARGS_ID,
                     oldPresCondArgsID, presCondArgsID, !oldPresCondArgsIDESet ) );
+        }
     }
 
     /**
@@ -1049,9 +1131,10 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         boolean oldPresCondArgsIDESet = presCondArgsIDESet;
         presCondArgsID = PRES_COND_ARGS_ID_EDEFAULT;
         presCondArgsIDESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DATA_OBJECT__PRES_COND_ARGS_ID,
                     oldPresCondArgsID, PRES_COND_ARGS_ID_EDEFAULT, oldPresCondArgsIDESet ) );
+        }
     }
 
     /**
@@ -1088,10 +1171,12 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.DATA_OBJECT__REFERS_TO_PRES_COND_ARGS_DOC, oldRefersToPresCondArgsDoc,
                     newRefersToPresCondArgsDoc, !oldRefersToPresCondArgsDocESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1105,22 +1190,27 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     public void setRefersToPresCondArgsDoc( Doc newRefersToPresCondArgsDoc ) {
         if( newRefersToPresCondArgsDoc != refersToPresCondArgsDoc ) {
             NotificationChain msgs = null;
-            if( refersToPresCondArgsDoc != null )
+            if( refersToPresCondArgsDoc != null ) {
                 msgs = ( ( InternalEObject ) refersToPresCondArgsDoc ).eInverseRemove( this,
                         NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION, Doc.class, msgs );
-            if( newRefersToPresCondArgsDoc != null )
+            }
+            if( newRefersToPresCondArgsDoc != null ) {
                 msgs = ( ( InternalEObject ) newRefersToPresCondArgsDoc ).eInverseAdd( this,
                         NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION, Doc.class, msgs );
+            }
             msgs = basicSetRefersToPresCondArgsDoc( newRefersToPresCondArgsDoc, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToPresCondArgsDocESet = refersToPresCondArgsDocESet;
             refersToPresCondArgsDocESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET,
                         NsdPackage.DATA_OBJECT__REFERS_TO_PRES_COND_ARGS_DOC, newRefersToPresCondArgsDoc,
                         newRefersToPresCondArgsDoc, !oldRefersToPresCondArgsDocESet ) );
+            }
         }
     }
 
@@ -1138,10 +1228,12 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.DATA_OBJECT__REFERS_TO_PRES_COND_ARGS_DOC, oldRefersToPresCondArgsDoc, null,
                     oldRefersToPresCondArgsDocESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1158,15 +1250,18 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             msgs = ( ( InternalEObject ) refersToPresCondArgsDoc ).eInverseRemove( this,
                     NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION, Doc.class, msgs );
             msgs = basicUnsetRefersToPresCondArgsDoc( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToPresCondArgsDocESet = refersToPresCondArgsDocESet;
             refersToPresCondArgsDocESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET,
                         NsdPackage.DATA_OBJECT__REFERS_TO_PRES_COND_ARGS_DOC, null, null,
                         oldRefersToPresCondArgsDocESet ) );
+            }
         }
     }
 
@@ -1186,40 +1281,15 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
      * @generated
      */
     @Override
-    public boolean isTransient() {
-        return transient_;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setTransient( boolean newTransient ) {
-        boolean oldTransient = transient_;
-        transient_ = newTransient;
-        boolean oldTransientESet = transientESet;
-        transientESet = true;
-        if( eNotificationRequired() )
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_OBJECT__TRANSIENT, oldTransient,
-                    transient_, !oldTransientESet ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public void unsetTransient() {
         boolean oldTransient = transient_;
         boolean oldTransientESet = transientESet;
         transient_ = TRANSIENT_EDEFAULT;
         transientESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DATA_OBJECT__TRANSIENT, oldTransient,
                     TRANSIENT_EDEFAULT, oldTransientESet ) );
+        }
     }
 
     /**
@@ -1253,9 +1323,10 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         type = newType;
         boolean oldTypeESet = typeESet;
         typeESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_OBJECT__TYPE, oldType, type,
                     !oldTypeESet ) );
+        }
     }
 
     /**
@@ -1269,9 +1340,10 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         boolean oldTypeESet = typeESet;
         type = TYPE_EDEFAULT;
         typeESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DATA_OBJECT__TYPE, oldType,
                     TYPE_EDEFAULT, oldTypeESet ) );
+        }
     }
 
     /**
@@ -1291,7 +1363,9 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
      */
     @Override
     public AnyLNClass getParentAnyLNClass() {
-        if( eContainerFeatureID() != NsdPackage.DATA_OBJECT__PARENT_ANY_LN_CLASS ) return null;
+        if( eContainerFeatureID() != NsdPackage.DATA_OBJECT__PARENT_ANY_LN_CLASS ) {
+            return null;
+        }
         return ( AnyLNClass ) eInternalContainer();
     }
 
@@ -1316,20 +1390,26 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         if( newParentAnyLNClass != eInternalContainer()
                 || ( eContainerFeatureID() != NsdPackage.DATA_OBJECT__PARENT_ANY_LN_CLASS
                         && newParentAnyLNClass != null ) ) {
-            if( EcoreUtil.isAncestor( this, newParentAnyLNClass ) )
+            if( EcoreUtil.isAncestor( this, newParentAnyLNClass ) ) {
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            }
             NotificationChain msgs = null;
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newParentAnyLNClass != null )
+            }
+            if( newParentAnyLNClass != null ) {
                 msgs = ( ( InternalEObject ) newParentAnyLNClass ).eInverseAdd( this,
                         NsdPackage.ANY_LN_CLASS__DATA_OBJECT, AnyLNClass.class, msgs );
+            }
             msgs = basicSetParentAnyLNClass( newParentAnyLNClass, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
-        else if( eNotificationRequired() )
+        else if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_OBJECT__PARENT_ANY_LN_CLASS,
                     newParentAnyLNClass, newParentAnyLNClass ) );
+        }
     }
 
     /**
@@ -1353,9 +1433,10 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         underlyingType = newUnderlyingType;
         boolean oldUnderlyingTypeESet = underlyingTypeESet;
         underlyingTypeESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_OBJECT__UNDERLYING_TYPE,
                     oldUnderlyingType, underlyingType, !oldUnderlyingTypeESet ) );
+        }
     }
 
     /**
@@ -1369,9 +1450,10 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         boolean oldUnderlyingTypeESet = underlyingTypeESet;
         underlyingType = UNDERLYING_TYPE_EDEFAULT;
         underlyingTypeESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DATA_OBJECT__UNDERLYING_TYPE,
                     oldUnderlyingType, UNDERLYING_TYPE_EDEFAULT, oldUnderlyingTypeESet ) );
+        }
     }
 
     /**
@@ -1405,9 +1487,10 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         underlyingTypeKind = newUnderlyingTypeKind == null ? UNDERLYING_TYPE_KIND_EDEFAULT : newUnderlyingTypeKind;
         boolean oldUnderlyingTypeKindESet = underlyingTypeKindESet;
         underlyingTypeKindESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_OBJECT__UNDERLYING_TYPE_KIND,
                     oldUnderlyingTypeKind, underlyingTypeKind, !oldUnderlyingTypeKindESet ) );
+        }
     }
 
     /**
@@ -1421,9 +1504,10 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         boolean oldUnderlyingTypeKindESet = underlyingTypeKindESet;
         underlyingTypeKind = UNDERLYING_TYPE_KIND_EDEFAULT;
         underlyingTypeKindESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DATA_OBJECT__UNDERLYING_TYPE_KIND,
                     oldUnderlyingTypeKind, UNDERLYING_TYPE_KIND_EDEFAULT, oldUnderlyingTypeKindESet ) );
+        }
     }
 
     /**
@@ -1461,10 +1545,12 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.DATA_OBJECT__REFERS_TO_UNDERLYING_BASIC_TYPE, oldRefersToUnderlyingBasicType,
                     newRefersToUnderlyingBasicType, !oldRefersToUnderlyingBasicTypeESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1478,22 +1564,27 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     public void setRefersToUnderlyingBasicType( BasicType newRefersToUnderlyingBasicType ) {
         if( newRefersToUnderlyingBasicType != refersToUnderlyingBasicType ) {
             NotificationChain msgs = null;
-            if( refersToUnderlyingBasicType != null )
+            if( refersToUnderlyingBasicType != null ) {
                 msgs = ( ( InternalEObject ) refersToUnderlyingBasicType ).eInverseRemove( this,
                         NsdPackage.BASIC_TYPE__REFERRED_BY_UNDERLYING_TYPE, BasicType.class, msgs );
-            if( newRefersToUnderlyingBasicType != null )
+            }
+            if( newRefersToUnderlyingBasicType != null ) {
                 msgs = ( ( InternalEObject ) newRefersToUnderlyingBasicType ).eInverseAdd( this,
                         NsdPackage.BASIC_TYPE__REFERRED_BY_UNDERLYING_TYPE, BasicType.class, msgs );
+            }
             msgs = basicSetRefersToUnderlyingBasicType( newRefersToUnderlyingBasicType, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToUnderlyingBasicTypeESet = refersToUnderlyingBasicTypeESet;
             refersToUnderlyingBasicTypeESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET,
                         NsdPackage.DATA_OBJECT__REFERS_TO_UNDERLYING_BASIC_TYPE, newRefersToUnderlyingBasicType,
                         newRefersToUnderlyingBasicType, !oldRefersToUnderlyingBasicTypeESet ) );
+            }
         }
     }
 
@@ -1511,10 +1602,12 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.DATA_OBJECT__REFERS_TO_UNDERLYING_BASIC_TYPE, oldRefersToUnderlyingBasicType, null,
                     oldRefersToUnderlyingBasicTypeESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1531,15 +1624,18 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             msgs = ( ( InternalEObject ) refersToUnderlyingBasicType ).eInverseRemove( this,
                     NsdPackage.BASIC_TYPE__REFERRED_BY_UNDERLYING_TYPE, BasicType.class, msgs );
             msgs = basicUnsetRefersToUnderlyingBasicType( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToUnderlyingBasicTypeESet = refersToUnderlyingBasicTypeESet;
             refersToUnderlyingBasicTypeESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET,
                         NsdPackage.DATA_OBJECT__REFERS_TO_UNDERLYING_BASIC_TYPE, null, null,
                         oldRefersToUnderlyingBasicTypeESet ) );
+            }
         }
     }
 
@@ -1579,10 +1675,12 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                     NsdPackage.DATA_OBJECT__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE,
                     oldRefersToUnderlyingConstructedAttribute, newRefersToUnderlyingConstructedAttribute,
                     !oldRefersToUnderlyingConstructedAttributeESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1597,25 +1695,30 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             ConstructedAttribute newRefersToUnderlyingConstructedAttribute ) {
         if( newRefersToUnderlyingConstructedAttribute != refersToUnderlyingConstructedAttribute ) {
             NotificationChain msgs = null;
-            if( refersToUnderlyingConstructedAttribute != null )
+            if( refersToUnderlyingConstructedAttribute != null ) {
                 msgs = ( ( InternalEObject ) refersToUnderlyingConstructedAttribute ).eInverseRemove( this,
                         NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_UNDERLYING_TYPE, ConstructedAttribute.class,
                         msgs );
-            if( newRefersToUnderlyingConstructedAttribute != null )
+            }
+            if( newRefersToUnderlyingConstructedAttribute != null ) {
                 msgs = ( ( InternalEObject ) newRefersToUnderlyingConstructedAttribute ).eInverseAdd( this,
                         NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_UNDERLYING_TYPE, ConstructedAttribute.class,
                         msgs );
+            }
             msgs = basicSetRefersToUnderlyingConstructedAttribute( newRefersToUnderlyingConstructedAttribute, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToUnderlyingConstructedAttributeESet = refersToUnderlyingConstructedAttributeESet;
             refersToUnderlyingConstructedAttributeESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET,
                         NsdPackage.DATA_OBJECT__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE,
                         newRefersToUnderlyingConstructedAttribute, newRefersToUnderlyingConstructedAttribute,
                         !oldRefersToUnderlyingConstructedAttributeESet ) );
+            }
         }
     }
 
@@ -1633,10 +1736,12 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.DATA_OBJECT__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE,
                     oldRefersToUnderlyingConstructedAttribute, null, oldRefersToUnderlyingConstructedAttributeESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1653,15 +1758,18 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             msgs = ( ( InternalEObject ) refersToUnderlyingConstructedAttribute ).eInverseRemove( this,
                     NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_UNDERLYING_TYPE, ConstructedAttribute.class, msgs );
             msgs = basicUnsetRefersToUnderlyingConstructedAttribute( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToUnderlyingConstructedAttributeESet = refersToUnderlyingConstructedAttributeESet;
             refersToUnderlyingConstructedAttributeESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET,
                         NsdPackage.DATA_OBJECT__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE, null, null,
                         oldRefersToUnderlyingConstructedAttributeESet ) );
+            }
         }
     }
 
@@ -1700,10 +1808,12 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.DATA_OBJECT__REFERS_TO_UNDERLYING_ENUMERATION, oldRefersToUnderlyingEnumeration,
                     newRefersToUnderlyingEnumeration, !oldRefersToUnderlyingEnumerationESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1717,22 +1827,27 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     public void setRefersToUnderlyingEnumeration( Enumeration newRefersToUnderlyingEnumeration ) {
         if( newRefersToUnderlyingEnumeration != refersToUnderlyingEnumeration ) {
             NotificationChain msgs = null;
-            if( refersToUnderlyingEnumeration != null )
+            if( refersToUnderlyingEnumeration != null ) {
                 msgs = ( ( InternalEObject ) refersToUnderlyingEnumeration ).eInverseRemove( this,
                         NsdPackage.ENUMERATION__REFERRED_BY_UNDERLYING_TYPE, Enumeration.class, msgs );
-            if( newRefersToUnderlyingEnumeration != null )
+            }
+            if( newRefersToUnderlyingEnumeration != null ) {
                 msgs = ( ( InternalEObject ) newRefersToUnderlyingEnumeration ).eInverseAdd( this,
                         NsdPackage.ENUMERATION__REFERRED_BY_UNDERLYING_TYPE, Enumeration.class, msgs );
+            }
             msgs = basicSetRefersToUnderlyingEnumeration( newRefersToUnderlyingEnumeration, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToUnderlyingEnumerationESet = refersToUnderlyingEnumerationESet;
             refersToUnderlyingEnumerationESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET,
                         NsdPackage.DATA_OBJECT__REFERS_TO_UNDERLYING_ENUMERATION, newRefersToUnderlyingEnumeration,
                         newRefersToUnderlyingEnumeration, !oldRefersToUnderlyingEnumerationESet ) );
+            }
         }
     }
 
@@ -1750,10 +1865,12 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.DATA_OBJECT__REFERS_TO_UNDERLYING_ENUMERATION, oldRefersToUnderlyingEnumeration, null,
                     oldRefersToUnderlyingEnumerationESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1770,15 +1887,18 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             msgs = ( ( InternalEObject ) refersToUnderlyingEnumeration ).eInverseRemove( this,
                     NsdPackage.ENUMERATION__REFERRED_BY_UNDERLYING_TYPE, Enumeration.class, msgs );
             msgs = basicUnsetRefersToUnderlyingEnumeration( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToUnderlyingEnumerationESet = refersToUnderlyingEnumerationESet;
             refersToUnderlyingEnumerationESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET,
                         NsdPackage.DATA_OBJECT__REFERS_TO_UNDERLYING_ENUMERATION, null, null,
                         oldRefersToUnderlyingEnumerationESet ) );
+            }
         }
     }
 
@@ -1790,6 +1910,60 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     @Override
     public boolean isSetRefersToUnderlyingEnumeration() {
         return refersToUnderlyingEnumerationESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String getUnderlyingControlType() {
+        return underlyingControlType;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setUnderlyingControlType( String newUnderlyingControlType ) {
+        String oldUnderlyingControlType = underlyingControlType;
+        underlyingControlType = newUnderlyingControlType;
+        boolean oldUnderlyingControlTypeESet = underlyingControlTypeESet;
+        underlyingControlTypeESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_OBJECT__UNDERLYING_CONTROL_TYPE,
+                    oldUnderlyingControlType, underlyingControlType, !oldUnderlyingControlTypeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetUnderlyingControlType() {
+        String oldUnderlyingControlType = underlyingControlType;
+        boolean oldUnderlyingControlTypeESet = underlyingControlTypeESet;
+        underlyingControlType = UNDERLYING_CONTROL_TYPE_EDEFAULT;
+        underlyingControlTypeESet = false;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DATA_OBJECT__UNDERLYING_CONTROL_TYPE,
+                    oldUnderlyingControlType, UNDERLYING_CONTROL_TYPE_EDEFAULT, oldUnderlyingControlTypeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetUnderlyingControlType() {
+        return underlyingControlTypeESet;
     }
 
     /**
@@ -1815,10 +1989,12 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.DATA_OBJECT__REFERS_TO_CDC, oldRefersToCDC, newRefersToCDC, !oldRefersToCDCESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1832,21 +2008,26 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     public void setRefersToCDC( CDC newRefersToCDC ) {
         if( newRefersToCDC != refersToCDC ) {
             NotificationChain msgs = null;
-            if( refersToCDC != null )
+            if( refersToCDC != null ) {
                 msgs = ( ( InternalEObject ) refersToCDC ).eInverseRemove( this,
                         NsdPackage.CDC__REFERRED_BY_DATA_OBJECT, CDC.class, msgs );
-            if( newRefersToCDC != null )
+            }
+            if( newRefersToCDC != null ) {
                 msgs = ( ( InternalEObject ) newRefersToCDC ).eInverseAdd( this,
                         NsdPackage.CDC__REFERRED_BY_DATA_OBJECT, CDC.class, msgs );
+            }
             msgs = basicSetRefersToCDC( newRefersToCDC, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToCDCESet = refersToCDCESet;
             refersToCDCESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_OBJECT__REFERS_TO_CDC,
                         newRefersToCDC, newRefersToCDC, !oldRefersToCDCESet ) );
+            }
         }
     }
 
@@ -1863,10 +2044,12 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.DATA_OBJECT__REFERS_TO_CDC, oldRefersToCDC, null, oldRefersToCDCESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1883,14 +2066,17 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             msgs = ( ( InternalEObject ) refersToCDC ).eInverseRemove( this, NsdPackage.CDC__REFERRED_BY_DATA_OBJECT,
                     CDC.class, msgs );
             msgs = basicUnsetRefersToCDC( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToCDCESet = refersToCDCESet;
             refersToCDCESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.DATA_OBJECT__REFERS_TO_CDC, null,
                         null, oldRefersToCDCESet ) );
+            }
         }
     }
 
@@ -1929,10 +2115,12 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION, oldRefersToPresenceCondition,
                     newRefersToPresenceCondition, !oldRefersToPresenceConditionESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1946,22 +2134,27 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     public void setRefersToPresenceCondition( PresenceCondition newRefersToPresenceCondition ) {
         if( newRefersToPresenceCondition != refersToPresenceCondition ) {
             NotificationChain msgs = null;
-            if( refersToPresenceCondition != null )
+            if( refersToPresenceCondition != null ) {
                 msgs = ( ( InternalEObject ) refersToPresenceCondition ).eInverseRemove( this,
                         NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT, PresenceCondition.class, msgs );
-            if( newRefersToPresenceCondition != null )
+            }
+            if( newRefersToPresenceCondition != null ) {
                 msgs = ( ( InternalEObject ) newRefersToPresenceCondition ).eInverseAdd( this,
                         NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT, PresenceCondition.class, msgs );
+            }
             msgs = basicSetRefersToPresenceCondition( newRefersToPresenceCondition, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToPresenceConditionESet = refersToPresenceConditionESet;
             refersToPresenceConditionESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET,
                         NsdPackage.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION, newRefersToPresenceCondition,
                         newRefersToPresenceCondition, !oldRefersToPresenceConditionESet ) );
+            }
         }
     }
 
@@ -1979,10 +2172,12 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION, oldRefersToPresenceCondition, null,
                     oldRefersToPresenceConditionESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1999,15 +2194,18 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             msgs = ( ( InternalEObject ) refersToPresenceCondition ).eInverseRemove( this,
                     NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT, PresenceCondition.class, msgs );
             msgs = basicUnsetRefersToPresenceCondition( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToPresenceConditionESet = refersToPresenceConditionESet;
             refersToPresenceConditionESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET,
                         NsdPackage.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION, null, null,
                         oldRefersToPresenceConditionESet ) );
+            }
         }
     }
 
@@ -2047,10 +2245,12 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                     NsdPackage.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION_DERIVED_STATISTICS,
                     oldRefersToPresenceConditionDerivedStatistics, newRefersToPresenceConditionDerivedStatistics,
                     !oldRefersToPresenceConditionDerivedStatisticsESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -2065,26 +2265,31 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             PresenceCondition newRefersToPresenceConditionDerivedStatistics ) {
         if( newRefersToPresenceConditionDerivedStatistics != refersToPresenceConditionDerivedStatistics ) {
             NotificationChain msgs = null;
-            if( refersToPresenceConditionDerivedStatistics != null )
+            if( refersToPresenceConditionDerivedStatistics != null ) {
                 msgs = ( ( InternalEObject ) refersToPresenceConditionDerivedStatistics ).eInverseRemove( this,
                         NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT_FOR_DERIVED_STATISTICS,
                         PresenceCondition.class, msgs );
-            if( newRefersToPresenceConditionDerivedStatistics != null )
+            }
+            if( newRefersToPresenceConditionDerivedStatistics != null ) {
                 msgs = ( ( InternalEObject ) newRefersToPresenceConditionDerivedStatistics ).eInverseAdd( this,
                         NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT_FOR_DERIVED_STATISTICS,
                         PresenceCondition.class, msgs );
+            }
             msgs = basicSetRefersToPresenceConditionDerivedStatistics( newRefersToPresenceConditionDerivedStatistics,
                     msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToPresenceConditionDerivedStatisticsESet = refersToPresenceConditionDerivedStatisticsESet;
             refersToPresenceConditionDerivedStatisticsESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET,
                         NsdPackage.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION_DERIVED_STATISTICS,
                         newRefersToPresenceConditionDerivedStatistics, newRefersToPresenceConditionDerivedStatistics,
                         !oldRefersToPresenceConditionDerivedStatisticsESet ) );
+            }
         }
     }
 
@@ -2103,10 +2308,12 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                     NsdPackage.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION_DERIVED_STATISTICS,
                     oldRefersToPresenceConditionDerivedStatistics, null,
                     oldRefersToPresenceConditionDerivedStatisticsESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -2124,15 +2331,18 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                     NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT_FOR_DERIVED_STATISTICS,
                     PresenceCondition.class, msgs );
             msgs = basicUnsetRefersToPresenceConditionDerivedStatistics( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToPresenceConditionDerivedStatisticsESet = refersToPresenceConditionDerivedStatisticsESet;
             refersToPresenceConditionDerivedStatisticsESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET,
                         NsdPackage.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION_DERIVED_STATISTICS, null, null,
                         oldRefersToPresenceConditionDerivedStatisticsESet ) );
+            }
         }
     }
 
@@ -2283,50 +2493,59 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.DATA_OBJECT__REFERS_TO_PRES_COND_ARGS_DOC:
-            if( refersToPresCondArgsDoc != null )
+            if( refersToPresCondArgsDoc != null ) {
                 msgs = ( ( InternalEObject ) refersToPresCondArgsDoc ).eInverseRemove( this,
                         NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION, Doc.class, msgs );
+            }
             return basicSetRefersToPresCondArgsDoc( ( Doc ) otherEnd, msgs );
         case NsdPackage.DATA_OBJECT__REFERS_TO_DS_PRES_COND_ARGS_DOC:
-            if( refersToDsPresCondArgsDoc != null )
+            if( refersToDsPresCondArgsDoc != null ) {
                 msgs = ( ( InternalEObject ) refersToDsPresCondArgsDoc ).eInverseRemove( this,
                         NsdPackage.DOC__REFERRED_BY_AG_PRESENCE_CONDITION_DERIVED_STATISTICS, Doc.class, msgs );
+            }
             return basicSetRefersToDsPresCondArgsDoc( ( Doc ) otherEnd, msgs );
         case NsdPackage.DATA_OBJECT__REFERS_TO_UNDERLYING_BASIC_TYPE:
-            if( refersToUnderlyingBasicType != null )
+            if( refersToUnderlyingBasicType != null ) {
                 msgs = ( ( InternalEObject ) refersToUnderlyingBasicType ).eInverseRemove( this,
                         NsdPackage.BASIC_TYPE__REFERRED_BY_UNDERLYING_TYPE, BasicType.class, msgs );
+            }
             return basicSetRefersToUnderlyingBasicType( ( BasicType ) otherEnd, msgs );
         case NsdPackage.DATA_OBJECT__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE:
-            if( refersToUnderlyingConstructedAttribute != null )
+            if( refersToUnderlyingConstructedAttribute != null ) {
                 msgs = ( ( InternalEObject ) refersToUnderlyingConstructedAttribute ).eInverseRemove( this,
                         NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_UNDERLYING_TYPE, ConstructedAttribute.class,
                         msgs );
+            }
             return basicSetRefersToUnderlyingConstructedAttribute( ( ConstructedAttribute ) otherEnd, msgs );
         case NsdPackage.DATA_OBJECT__REFERS_TO_UNDERLYING_ENUMERATION:
-            if( refersToUnderlyingEnumeration != null )
+            if( refersToUnderlyingEnumeration != null ) {
                 msgs = ( ( InternalEObject ) refersToUnderlyingEnumeration ).eInverseRemove( this,
                         NsdPackage.ENUMERATION__REFERRED_BY_UNDERLYING_TYPE, Enumeration.class, msgs );
+            }
             return basicSetRefersToUnderlyingEnumeration( ( Enumeration ) otherEnd, msgs );
         case NsdPackage.DATA_OBJECT__PARENT_ANY_LN_CLASS:
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
+            }
             return basicSetParentAnyLNClass( ( AnyLNClass ) otherEnd, msgs );
         case NsdPackage.DATA_OBJECT__REFERS_TO_CDC:
-            if( refersToCDC != null )
+            if( refersToCDC != null ) {
                 msgs = ( ( InternalEObject ) refersToCDC ).eInverseRemove( this,
                         NsdPackage.CDC__REFERRED_BY_DATA_OBJECT, CDC.class, msgs );
+            }
             return basicSetRefersToCDC( ( CDC ) otherEnd, msgs );
         case NsdPackage.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION:
-            if( refersToPresenceCondition != null )
+            if( refersToPresenceCondition != null ) {
                 msgs = ( ( InternalEObject ) refersToPresenceCondition ).eInverseRemove( this,
                         NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT, PresenceCondition.class, msgs );
+            }
             return basicSetRefersToPresenceCondition( ( PresenceCondition ) otherEnd, msgs );
         case NsdPackage.DATA_OBJECT__REFERS_TO_PRESENCE_CONDITION_DERIVED_STATISTICS:
-            if( refersToPresenceConditionDerivedStatistics != null )
+            if( refersToPresenceConditionDerivedStatistics != null ) {
                 msgs = ( ( InternalEObject ) refersToPresenceConditionDerivedStatistics ).eInverseRemove( this,
                         NsdPackage.PRESENCE_CONDITION__REFERRED_BY_DATA_OBJECT_FOR_DERIVED_STATISTICS,
                         PresenceCondition.class, msgs );
+            }
             return basicSetRefersToPresenceConditionDerivedStatistics( ( PresenceCondition ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
@@ -2411,6 +2630,8 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             return getRefersToUnderlyingConstructedAttribute();
         case NsdPackage.DATA_OBJECT__REFERS_TO_UNDERLYING_ENUMERATION:
             return getRefersToUnderlyingEnumeration();
+        case NsdPackage.DATA_OBJECT__UNDERLYING_CONTROL_TYPE:
+            return getUnderlyingControlType();
         case NsdPackage.DATA_OBJECT__NAME:
             return getName();
         case NsdPackage.DATA_OBJECT__TRANSIENT:
@@ -2475,6 +2696,9 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             return;
         case NsdPackage.DATA_OBJECT__REFERS_TO_UNDERLYING_ENUMERATION:
             setRefersToUnderlyingEnumeration( ( Enumeration ) newValue );
+            return;
+        case NsdPackage.DATA_OBJECT__UNDERLYING_CONTROL_TYPE:
+            setUnderlyingControlType( ( String ) newValue );
             return;
         case NsdPackage.DATA_OBJECT__NAME:
             setName( ( String ) newValue );
@@ -2548,6 +2772,9 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         case NsdPackage.DATA_OBJECT__REFERS_TO_UNDERLYING_ENUMERATION:
             unsetRefersToUnderlyingEnumeration();
             return;
+        case NsdPackage.DATA_OBJECT__UNDERLYING_CONTROL_TYPE:
+            unsetUnderlyingControlType();
+            return;
         case NsdPackage.DATA_OBJECT__NAME:
             unsetName();
             return;
@@ -2607,6 +2834,8 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             return isSetRefersToUnderlyingConstructedAttribute();
         case NsdPackage.DATA_OBJECT__REFERS_TO_UNDERLYING_ENUMERATION:
             return isSetRefersToUnderlyingEnumeration();
+        case NsdPackage.DATA_OBJECT__UNDERLYING_CONTROL_TYPE:
+            return isSetUnderlyingControlType();
         case NsdPackage.DATA_OBJECT__NAME:
             return isSetName();
         case NsdPackage.DATA_OBJECT__TRANSIENT:
@@ -2672,6 +2901,8 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                 return NsdPackage.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE;
             case NsdPackage.DATA_OBJECT__REFERS_TO_UNDERLYING_ENUMERATION:
                 return NsdPackage.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_ENUMERATION;
+            case NsdPackage.DATA_OBJECT__UNDERLYING_CONTROL_TYPE:
+                return NsdPackage.AG_UNDERLYING_TYPE__UNDERLYING_CONTROL_TYPE;
             default:
                 return -1;
             }
@@ -2726,6 +2957,8 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                 return NsdPackage.DATA_OBJECT__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE;
             case NsdPackage.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_ENUMERATION:
                 return NsdPackage.DATA_OBJECT__REFERS_TO_UNDERLYING_ENUMERATION;
+            case NsdPackage.AG_UNDERLYING_TYPE__UNDERLYING_CONTROL_TYPE:
+                return NsdPackage.DATA_OBJECT__UNDERLYING_CONTROL_TYPE;
             default:
                 return -1;
             }
@@ -2759,64 +2992,95 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
      */
     @Override
     public String toString() {
-        if( eIsProxy() ) return super.toString();
+        if( eIsProxy() ) {
+            return super.toString();
+        }
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (presCond: " );
-        if( presCondESet )
+        if( presCondESet ) {
             result.append( presCond );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", presCondArgs: " );
-        if( presCondArgsESet )
+        if( presCondArgsESet ) {
             result.append( presCondArgs );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", presCondArgsID: " );
-        if( presCondArgsIDESet )
+        if( presCondArgsIDESet ) {
             result.append( presCondArgsID );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", dsPresCond: " );
-        if( dsPresCondESet )
+        if( dsPresCondESet ) {
             result.append( dsPresCond );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", dsPresCondArgs: " );
-        if( dsPresCondArgsESet )
+        if( dsPresCondArgsESet ) {
             result.append( dsPresCondArgs );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", dsPresCondArgsID: " );
-        if( dsPresCondArgsIDESet )
+        if( dsPresCondArgsIDESet ) {
             result.append( dsPresCondArgsID );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", underlyingType: " );
-        if( underlyingTypeESet )
+        if( underlyingTypeESet ) {
             result.append( underlyingType );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", underlyingTypeKind: " );
-        if( underlyingTypeKindESet )
+        if( underlyingTypeKindESet ) {
             result.append( underlyingTypeKind );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
+        result.append( ", underlyingControlType: " );
+        if( underlyingControlTypeESet ) {
+            result.append( underlyingControlType );
+        }
+        else {
+            result.append( "<unset>" );
+        }
         result.append( ", name: " );
-        if( nameESet )
+        if( nameESet ) {
             result.append( name );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", transient: " );
-        if( transientESet )
+        if( transientESet ) {
             result.append( transient_ );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", type: " );
-        if( typeESet )
+        if( typeESet ) {
             result.append( type );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ')' );
         return result.toString();
     }
@@ -2833,10 +3097,14 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         console.debug( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), "DataObjectImpl.buildExplicitLinks(): ",
                        getName(), " in LNClass ", getParentAnyLNClass().getName() );
 
-        if( super.buildExplicitLinks( console ) ) return true;
+        if( super.buildExplicitLinks( console ) ) {
+            return true;
+        }
 
         NsdResourceSetImpl rs = getResourceSet();
-        if( rs == null ) return false;
+        if( rs == null ) {
+            return false;
+        }
 
         String messagePrefix = "while resolving link from DataObject (name: " + getName() + "): ";
 
@@ -2929,7 +3197,9 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
                 Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getNsIdentification(),
                         getPresCondArgsID() );
-                if( doc != null ) setRefersToPresCondArgsDoc( doc );
+                if( doc != null ) {
+                    setRefersToPresCondArgsDoc( doc );
+                }
             }
         }
 
@@ -2937,7 +3207,9 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
                 Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getNsIdentification(),
                         getDsPresCondArgsID() );
-                if( doc != null ) setRefersToDsPresCondArgsDoc( doc );
+                if( doc != null ) {
+                    setRefersToDsPresCondArgsDoc( doc );
+                }
             }
         }
 
@@ -3008,7 +3280,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             }
         }
         */
-        
+
         if( isSetUnderlyingType() ) {
             boolean found = false;
             BasicType foundBT = rs.findBasicType( getUnderlyingType(), getNsIdentification(), true );
@@ -3019,7 +3291,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                         messagePrefix, "BasicType (name: ", getUnderlyingType(), ") found in NS \"",
                         NsIdentification.of( getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS() ), "\"" );
             }
-            
+
             ConstructedAttribute foundCA = rs.findConstructedAttribute( getUnderlyingType(),
                     getNsIdentification(), true );
             if( foundCA != null ) {
@@ -3031,16 +3303,11 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                             + getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes()
                                     .getParentNS().getId();
                 }
-                else if( getRefersToUnderlyingConstructedAttribute()
-                        .getParentServiceTypeRealizations() != null ) {
-                    foundWhere = "ServiceNS \"" + getRefersToUnderlyingConstructedAttribute()
-                            .getParentServiceTypeRealizations().getParentServiceNS().getId();
-                }
                 console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                         messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") found in ",
                         foundWhere, "\"" );
             }
-            
+
             Enumeration foundEn = rs.findEnumeration( getUnderlyingType(), getNsIdentification(), true );
             if( foundEn != null ) {
                 setRefersToUnderlyingEnumeration( foundEn );
@@ -3049,7 +3316,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                         messagePrefix, "Enumeration (name: ", getUnderlyingType(), ") found in NS \"",
                         NsIdentification.of( getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS() ), "\"" );
             }
-            
+
             if( ! found ) {
                 // IEC 61850-7-7
                 // It exists also a specific case for parameterized enumeration where the enumeration will be
@@ -3084,6 +3351,25 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         NS ns = getResourceSet().getNS( nsIdentification );
         if( usedCDC.isTypeKindParameterized() ) {
             if( isSetUnderlyingType() && isSetUnderlyingTypeKind() ) {
+                // New with NSD.xsd (2017B5) : underlyingType may have been defined in a .snsd file and
+                // not may have not been found before
+                if( ! isSetRefersToUnderlyingConstructedAttribute() ) {
+                    ConstructedAttribute foundCA = getResourceSet().findConstructedAttribute( getUnderlyingType(),
+                            getNsIdentification(), true );
+                    if( foundCA != null ) {
+                        setRefersToUnderlyingConstructedAttribute( foundCA );
+                        String foundWhere = "???";
+                        if( getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes() != null ) {
+                            foundWhere = "NS \""
+                                    + getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes()
+                                            .getParentNS().getId();
+                        }
+                        console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") found in ",
+                                foundWhere, "\"" );
+                    }                    
+                }
+                
                 // Two namespaces are concerned: the one of the CDC and the one of the underlyingType
                 // To be sure to find the validators, we will use the more general one
                 // Correction after mail from Aurélie 9 February 2024, point 11

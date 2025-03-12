@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -38,6 +38,8 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgArray;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeTypeAndValues;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgDependsOn;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSDIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSdesc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgPresenceCondition;
@@ -77,7 +79,9 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.License;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LicenseKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Literal;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDependencyType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSDoc;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Notice;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdObject;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
@@ -93,6 +97,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceParameter;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealization;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataObject;
@@ -447,12 +452,36 @@ public class NsdValidator extends EObjectValidator {
     public static final int SERVICE_DATA_ATTRIBUTE__FC_ATTRIBUTE_REQUIRED = 40;
 
     /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Id Attribute Required' of 'Service Ns Usage'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int SERVICE_NS_USAGE__ID_ATTRIBUTE_REQUIRED = 41;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Version Attribute Required' of 'Service Ns Usage'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int SERVICE_NS_USAGE__VERSION_ATTRIBUTE_REQUIRED = 42;
+
+    /**
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Name Attribute Required' of 'Service Parameter'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final int SERVICE_PARAMETER__NAME_ATTRIBUTE_REQUIRED = 41;
+    public static final int SERVICE_PARAMETER__NAME_ATTRIBUTE_REQUIRED = 43;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Realize Attribute Required' of 'Service Type Realization'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int SERVICE_TYPE_REALIZATION__REALIZE_ATTRIBUTE_REQUIRED = 44;
 
     /**
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Name Attribute Required' of 'Sub Data Attribute'.
@@ -460,7 +489,7 @@ public class NsdValidator extends EObjectValidator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final int SUB_DATA_ATTRIBUTE__NAME_ATTRIBUTE_REQUIRED = 42;
+    public static final int SUB_DATA_ATTRIBUTE__NAME_ATTRIBUTE_REQUIRED = 45;
 
     /**
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Name Attribute Required' of 'Sub Data Object'.
@@ -468,7 +497,7 @@ public class NsdValidator extends EObjectValidator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final int SUB_DATA_OBJECT__NAME_ATTRIBUTE_REQUIRED = 43;
+    public static final int SUB_DATA_OBJECT__NAME_ATTRIBUTE_REQUIRED = 46;
 
     /**
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Type Attribute Required' of 'Sub Data Object'.
@@ -476,7 +505,7 @@ public class NsdValidator extends EObjectValidator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final int SUB_DATA_OBJECT__TYPE_ATTRIBUTE_REQUIRED = 44;
+    public static final int SUB_DATA_OBJECT__TYPE_ATTRIBUTE_REQUIRED = 47;
 
     /**
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Title ID Attribute Required' of 'Titled Class'.
@@ -484,7 +513,7 @@ public class NsdValidator extends EObjectValidator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final int TITLED_CLASS__TITLE_ID_ATTRIBUTE_REQUIRED = 45;
+    public static final int TITLED_CLASS__TITLE_ID_ATTRIBUTE_REQUIRED = 48;
 
     /**
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Id Attribute Required' of 'Ag NS Identification'.
@@ -492,7 +521,7 @@ public class NsdValidator extends EObjectValidator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final int AG_NS_IDENTIFICATION__ID_ATTRIBUTE_REQUIRED = 46;
+    public static final int AG_NS_IDENTIFICATION__ID_ATTRIBUTE_REQUIRED = 49;
 
     /**
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Version Attribute Required' of 'Ag NS Identification'.
@@ -500,7 +529,23 @@ public class NsdValidator extends EObjectValidator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final int AG_NS_IDENTIFICATION__VERSION_ATTRIBUTE_REQUIRED = 47;
+    public static final int AG_NS_IDENTIFICATION__VERSION_ATTRIBUTE_REQUIRED = 50;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Id Attribute Required' of 'Ag Depends On'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int AG_DEPENDS_ON__ID_ATTRIBUTE_REQUIRED = 51;
+
+    /**
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Version Attribute Required' of 'Ag Depends On'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final int AG_DEPENDS_ON__VERSION_ATTRIBUTE_REQUIRED = 52;
 
     /**
      * A constant with a fixed name that can be used as the base value for additional hand written constants.
@@ -508,7 +553,7 @@ public class NsdValidator extends EObjectValidator {
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 47;
+    private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 52;
 
     /**
      * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
@@ -639,6 +684,8 @@ public class NsdValidator extends EObjectValidator {
             return validateServiceNsUsage( ( ServiceNsUsage ) value, diagnostics, context );
         case NsdPackage.SERVICE_PARAMETER:
             return validateServiceParameter( ( ServiceParameter ) value, diagnostics, context );
+        case NsdPackage.SERVICE_TYPE_REALIZATION:
+            return validateServiceTypeRealization( ( ServiceTypeRealization ) value, diagnostics, context );
         case NsdPackage.SERVICE_TYPE_REALIZATIONS:
             return validateServiceTypeRealizations( ( ServiceTypeRealizations ) value, diagnostics, context );
         case NsdPackage.SUB_DATA_ATTRIBUTE:
@@ -670,6 +717,10 @@ public class NsdValidator extends EObjectValidator {
             return validateAgUML( ( AgUML ) value, diagnostics, context );
         case NsdPackage.AG_NSDESC:
             return validateAgNSdesc( ( AgNSdesc ) value, diagnostics, context );
+        case NsdPackage.AG_NSD_IDENTIFICATION:
+            return validateAgNSDIdentification( ( AgNSDIdentification ) value, diagnostics, context );
+        case NsdPackage.AG_DEPENDS_ON:
+            return validateAgDependsOn( ( AgDependsOn ) value, diagnostics, context );
         case NsdPackage.IRISE_CLIPSE_CONSOLE:
             return validateIRiseClipseConsole( ( IRiseClipseConsole ) value, diagnostics, context );
         case NsdPackage.ACSI_SERVICES_KIND:
@@ -684,6 +735,10 @@ public class NsdValidator extends EObjectValidator {
             return validatePubStage( ( PubStage ) value, diagnostics, context );
         case NsdPackage.UNDEFINED_ATTRIBUTE_TYPE_KIND:
             return validateUndefinedAttributeTypeKind( ( UndefinedAttributeTypeKind ) value, diagnostics, context );
+        case NsdPackage.NS_TYPE:
+            return validateNSType( ( NSType ) value, diagnostics, context );
+        case NsdPackage.NS_DEPENDENCY_TYPE:
+            return validateNSDependencyType( ( NSDependencyType ) value, diagnostics, context );
         case NsdPackage.ACSI_SERVICES_KIND_OBJECT:
             return validateACSIServicesKindObject( ( ACSIServicesKind ) value, diagnostics, context );
         case NsdPackage.ATTRIBUTE_TYPE_KIND:
@@ -711,24 +766,37 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateAppliesToType( AppliesToType appliesToType, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( appliesToType, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( appliesToType, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( appliesToType, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
             result &= validate_EveryDataValueConforms( appliesToType, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryReferenceIsContained( appliesToType, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( appliesToType, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryProxyResolves( appliesToType, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( appliesToType, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( appliesToType, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( appliesToType, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryKeyUnique( appliesToType, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryMapEntryUnique( appliesToType, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateAgNSIdentification_versionAttributeRequired( appliesToType, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateAgNSIdentification_idAttributeRequired( appliesToType, diagnostics, context );
+        }
         return result;
     }
 
@@ -739,22 +807,37 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateDependsOn( DependsOn dependsOn, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( dependsOn, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( dependsOn, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( dependsOn, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
             result &= validate_EveryDataValueConforms( dependsOn, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryReferenceIsContained( dependsOn, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( dependsOn, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryProxyResolves( dependsOn, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( dependsOn, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( dependsOn, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryMapEntryUnique( dependsOn, diagnostics, context );
-        if( result || diagnostics != null )
-            result &= validateAgNSIdentification_versionAttributeRequired( dependsOn, diagnostics, context );
-        if( result || diagnostics != null )
-            result &= validateAgNSIdentification_idAttributeRequired( dependsOn, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryProxyResolves( dependsOn, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( dependsOn, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryKeyUnique( dependsOn, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryMapEntryUnique( dependsOn, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validateAgDependsOn_versionAttributeRequired( dependsOn, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validateAgDependsOn_idAttributeRequired( dependsOn, diagnostics, context );
+        }
         return result;
     }
 
@@ -775,20 +858,34 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateServiceType( ServiceType serviceType, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( serviceType, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( serviceType, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( serviceType, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
             result &= validate_EveryDataValueConforms( serviceType, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryReferenceIsContained( serviceType, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( serviceType, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryProxyResolves( serviceType, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( serviceType, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( serviceType, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryMapEntryUnique( serviceType, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryProxyResolves( serviceType, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( serviceType, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryKeyUnique( serviceType, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryMapEntryUnique( serviceType, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validateServiceType_nameAttributeRequired( serviceType, diagnostics, context );
+        }
         return result;
     }
 
@@ -810,21 +907,34 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateAbbreviation( Abbreviation abbreviation, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( abbreviation, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( abbreviation, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( abbreviation, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
             result &= validate_EveryDataValueConforms( abbreviation, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryReferenceIsContained( abbreviation, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( abbreviation, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryProxyResolves( abbreviation, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( abbreviation, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( abbreviation, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryProxyResolves( abbreviation, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( abbreviation, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryKeyUnique( abbreviation, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryMapEntryUnique( abbreviation, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateAbbreviation_nameAttributeRequired( abbreviation, diagnostics, context );
+        }
         return result;
     }
 
@@ -846,22 +956,34 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateAbbreviations( Abbreviations abbreviations, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( abbreviations, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( abbreviations, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( abbreviations, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
             result &= validate_EveryDataValueConforms( abbreviations, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryReferenceIsContained( abbreviations, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( abbreviations, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryProxyResolves( abbreviations, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( abbreviations, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( abbreviations, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( abbreviations, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryKeyUnique( abbreviations, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryMapEntryUnique( abbreviations, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateAbbreviations_uniqueAbbreviation( abbreviations, diagnostics, context );
+        }
         return result;
     }
 
@@ -883,26 +1005,40 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateAbstractLNClass( AbstractLNClass abstractLNClass, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( abstractLNClass, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( abstractLNClass, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( abstractLNClass, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
             result &= validate_EveryDataValueConforms( abstractLNClass, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryReferenceIsContained( abstractLNClass, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( abstractLNClass, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryProxyResolves( abstractLNClass, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( abstractLNClass, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( abstractLNClass, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( abstractLNClass, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryKeyUnique( abstractLNClass, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryMapEntryUnique( abstractLNClass, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateTitledClass_titleIDAttributeRequired( abstractLNClass, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateAnyLNClass_uniqueDataObject( abstractLNClass, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateAbstractLNClass_nameAttributeRequired( abstractLNClass, diagnostics, context );
+        }
         return result;
     }
 
@@ -924,22 +1060,37 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateAnyLNClass( AnyLNClass anyLNClass, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( anyLNClass, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( anyLNClass, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( anyLNClass, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
             result &= validate_EveryDataValueConforms( anyLNClass, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryReferenceIsContained( anyLNClass, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( anyLNClass, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryProxyResolves( anyLNClass, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( anyLNClass, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( anyLNClass, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryMapEntryUnique( anyLNClass, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryProxyResolves( anyLNClass, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( anyLNClass, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryKeyUnique( anyLNClass, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryMapEntryUnique( anyLNClass, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validateTitledClass_titleIDAttributeRequired( anyLNClass, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateAnyLNClass_uniqueDataObject( anyLNClass, diagnostics, context );
+        }
         return result;
     }
 
@@ -961,25 +1112,37 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateApplicableServiceNS( ApplicableServiceNS applicableServiceNS, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( applicableServiceNS, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( applicableServiceNS, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( applicableServiceNS, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
             result &= validate_EveryDataValueConforms( applicableServiceNS, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryReferenceIsContained( applicableServiceNS, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( applicableServiceNS, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryProxyResolves( applicableServiceNS, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( applicableServiceNS, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( applicableServiceNS, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryKeyUnique( applicableServiceNS, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryMapEntryUnique( applicableServiceNS, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateApplicableServiceNS_dateAttributeRequired( applicableServiceNS, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateApplicableServiceNS_versionAttributeRequired( applicableServiceNS, diagnostics, context );
+        }
         return result;
     }
 
@@ -1012,25 +1175,37 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateApplicableServices( ApplicableServices applicableServices, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( applicableServices, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( applicableServices, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( applicableServices, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
             result &= validate_EveryDataValueConforms( applicableServices, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryReferenceIsContained( applicableServices, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( applicableServices, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryProxyResolves( applicableServices, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( applicableServices, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( applicableServices, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryKeyUnique( applicableServices, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryMapEntryUnique( applicableServices, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateApplicableServices_uniqueService( applicableServices, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateApplicableServices_uniqueDataSetMemberOf( applicableServices, diagnostics, context );
+        }
         return result;
     }
 
@@ -1063,20 +1238,34 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateBasicType( BasicType basicType, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( basicType, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( basicType, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( basicType, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
             result &= validate_EveryDataValueConforms( basicType, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryReferenceIsContained( basicType, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( basicType, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryProxyResolves( basicType, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( basicType, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( basicType, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryMapEntryUnique( basicType, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryProxyResolves( basicType, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( basicType, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryKeyUnique( basicType, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryMapEntryUnique( basicType, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validateBasicType_nameAttributeRequired( basicType, diagnostics, context );
+        }
         return result;
     }
 
@@ -1107,20 +1296,40 @@ public class NsdValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateCDC( CDC cdc, DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( cdc, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( cdc, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( cdc, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryDataValueConforms( cdc, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryReferenceIsContained( cdc, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
+            result &= validate_EveryDataValueConforms( cdc, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryReferenceIsContained( cdc, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( cdc, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryProxyResolves( cdc, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( cdc, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( cdc, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryMapEntryUnique( cdc, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryProxyResolves( cdc, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( cdc, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryKeyUnique( cdc, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryMapEntryUnique( cdc, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validateTitledClass_titleIDAttributeRequired( cdc, diagnostics, context );
-        if( result || diagnostics != null ) result &= validateCDC_nameAttributeRequired( cdc, diagnostics, context );
-        if( result || diagnostics != null ) result &= validateCDC_uniqueCDCChild( cdc, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validateCDC_nameAttributeRequired( cdc, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validateCDC_uniqueCDCChild( cdc, diagnostics, context );
+        }
         return result;
     }
 
@@ -1151,17 +1360,34 @@ public class NsdValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateCDCs( CDCs cdCs, DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( cdCs, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( cdCs, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( cdCs, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryDataValueConforms( cdCs, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryReferenceIsContained( cdCs, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
+            result &= validate_EveryDataValueConforms( cdCs, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryReferenceIsContained( cdCs, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( cdCs, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryProxyResolves( cdCs, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( cdCs, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( cdCs, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryMapEntryUnique( cdCs, diagnostics, context );
-        if( result || diagnostics != null ) result &= validateCDCs_uniqueCDC( cdCs, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryProxyResolves( cdCs, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( cdCs, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryKeyUnique( cdCs, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryMapEntryUnique( cdCs, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validateCDCs_uniqueCDC( cdCs, diagnostics, context );
+        }
         return result;
     }
 
@@ -1181,19 +1407,34 @@ public class NsdValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateChanges( Changes changes, DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( changes, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( changes, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( changes, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryDataValueConforms( changes, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
+            result &= validate_EveryDataValueConforms( changes, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryReferenceIsContained( changes, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( changes, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryProxyResolves( changes, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( changes, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( changes, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryMapEntryUnique( changes, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryProxyResolves( changes, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( changes, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryKeyUnique( changes, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryMapEntryUnique( changes, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validateChanges_versionAttributeRequired( changes, diagnostics, context );
+        }
         return result;
     }
 
@@ -1215,27 +1456,40 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateConstructedAttribute( ConstructedAttribute constructedAttribute, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( constructedAttribute, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( constructedAttribute, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( constructedAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
             result &= validate_EveryDataValueConforms( constructedAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryReferenceIsContained( constructedAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( constructedAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryProxyResolves( constructedAttribute, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( constructedAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( constructedAttribute, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryKeyUnique( constructedAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryMapEntryUnique( constructedAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateTitledClass_titleIDAttributeRequired( constructedAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateConstructedAttribute_nameAttributeRequired( constructedAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateConstructedAttribute_uniqueSubDataAttribute( constructedAttribute, diagnostics, context );
+        }
         return result;
     }
 
@@ -1268,24 +1522,35 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateConstructedAttributes( ConstructedAttributes constructedAttributes,
             DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( constructedAttributes, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( constructedAttributes, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( constructedAttributes, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
             result &= validate_EveryDataValueConforms( constructedAttributes, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryReferenceIsContained( constructedAttributes, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( constructedAttributes, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryProxyResolves( constructedAttributes, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( constructedAttributes, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( constructedAttributes, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryKeyUnique( constructedAttributes, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryMapEntryUnique( constructedAttributes, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateConstructedAttributes_uniqueConstructedAttribute( constructedAttributes, diagnostics,
                     context );
+        }
         return result;
     }
 
@@ -1327,24 +1592,37 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateDataAttribute( DataAttribute dataAttribute, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( dataAttribute, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( dataAttribute, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( dataAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
             result &= validate_EveryDataValueConforms( dataAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryReferenceIsContained( dataAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( dataAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryProxyResolves( dataAttribute, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( dataAttribute, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( dataAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( dataAttribute, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryKeyUnique( dataAttribute, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryMapEntryUnique( dataAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateDataAttribute_fcAttributeRequired( dataAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateDataAttribute_nameAttributeRequired( dataAttribute, diagnostics, context );
+        }
         return result;
     }
 
@@ -1377,22 +1655,37 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateDataObject( DataObject dataObject, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( dataObject, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( dataObject, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( dataObject, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
             result &= validate_EveryDataValueConforms( dataObject, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryReferenceIsContained( dataObject, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( dataObject, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryProxyResolves( dataObject, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( dataObject, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( dataObject, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryMapEntryUnique( dataObject, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryProxyResolves( dataObject, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( dataObject, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryKeyUnique( dataObject, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryMapEntryUnique( dataObject, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validateDataObject_typeAttributeRequired( dataObject, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateDataObject_nameAttributeRequired( dataObject, diagnostics, context );
+        }
         return result;
     }
 
@@ -1425,22 +1718,34 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateDataSetMemberOf( DataSetMemberOf dataSetMemberOf, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( dataSetMemberOf, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( dataSetMemberOf, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( dataSetMemberOf, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
             result &= validate_EveryDataValueConforms( dataSetMemberOf, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryReferenceIsContained( dataSetMemberOf, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( dataSetMemberOf, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryProxyResolves( dataSetMemberOf, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( dataSetMemberOf, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( dataSetMemberOf, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( dataSetMemberOf, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryKeyUnique( dataSetMemberOf, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryMapEntryUnique( dataSetMemberOf, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateDataSetMemberOf_cbAttributeRequired( dataSetMemberOf, diagnostics, context );
+        }
         return result;
     }
 
@@ -1461,17 +1766,34 @@ public class NsdValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateDoc( Doc doc, DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( doc, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( doc, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( doc, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryDataValueConforms( doc, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryReferenceIsContained( doc, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
+            result &= validate_EveryDataValueConforms( doc, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryReferenceIsContained( doc, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( doc, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryProxyResolves( doc, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( doc, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( doc, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryMapEntryUnique( doc, diagnostics, context );
-        if( result || diagnostics != null ) result &= validateDoc_idAttributeRequired( doc, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryProxyResolves( doc, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( doc, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryKeyUnique( doc, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryMapEntryUnique( doc, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validateDoc_idAttributeRequired( doc, diagnostics, context );
+        }
         return result;
     }
 
@@ -1503,26 +1825,43 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateEnumeration( Enumeration enumeration, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( enumeration, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( enumeration, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( enumeration, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
             result &= validate_EveryDataValueConforms( enumeration, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryReferenceIsContained( enumeration, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( enumeration, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryProxyResolves( enumeration, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( enumeration, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( enumeration, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryMapEntryUnique( enumeration, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryProxyResolves( enumeration, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( enumeration, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryKeyUnique( enumeration, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryMapEntryUnique( enumeration, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validateTitledClass_titleIDAttributeRequired( enumeration, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateEnumeration_nameAttributeRequired( enumeration, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateEnumeration_uniqueLiteralName( enumeration, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateEnumeration_uniqueLiteralVal( enumeration, diagnostics, context );
+        }
         return result;
     }
 
@@ -1566,21 +1905,34 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateEnumerations( Enumerations enumerations, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( enumerations, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( enumerations, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( enumerations, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
             result &= validate_EveryDataValueConforms( enumerations, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryReferenceIsContained( enumerations, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( enumerations, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryProxyResolves( enumerations, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( enumerations, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( enumerations, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryProxyResolves( enumerations, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( enumerations, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryKeyUnique( enumerations, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryMapEntryUnique( enumerations, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateEnumerations_uniqueEnumeration( enumerations, diagnostics, context );
+        }
         return result;
     }
 
@@ -1602,24 +1954,35 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateFunctionalConstraint( FunctionalConstraint functionalConstraint, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( functionalConstraint, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( functionalConstraint, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( functionalConstraint, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
             result &= validate_EveryDataValueConforms( functionalConstraint, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryReferenceIsContained( functionalConstraint, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( functionalConstraint, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryProxyResolves( functionalConstraint, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( functionalConstraint, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( functionalConstraint, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryKeyUnique( functionalConstraint, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryMapEntryUnique( functionalConstraint, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateFunctionalConstraint_abbreviationAttributeRequired( functionalConstraint, diagnostics,
                     context );
+        }
         return result;
     }
 
@@ -1641,24 +2004,35 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateFunctionalConstraints( FunctionalConstraints functionalConstraints,
             DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( functionalConstraints, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( functionalConstraints, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( functionalConstraints, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
             result &= validate_EveryDataValueConforms( functionalConstraints, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryReferenceIsContained( functionalConstraints, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( functionalConstraints, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryProxyResolves( functionalConstraints, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( functionalConstraints, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( functionalConstraints, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryKeyUnique( functionalConstraints, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryMapEntryUnique( functionalConstraints, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateFunctionalConstraints_uniqueFunctionalConstraint( functionalConstraints, diagnostics,
                     context );
+        }
         return result;
     }
 
@@ -1688,21 +2062,37 @@ public class NsdValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateLiteral( Literal literal, DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( literal, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( literal, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( literal, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryDataValueConforms( literal, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
+            result &= validate_EveryDataValueConforms( literal, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryReferenceIsContained( literal, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( literal, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryProxyResolves( literal, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( literal, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( literal, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryMapEntryUnique( literal, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryProxyResolves( literal, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( literal, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryKeyUnique( literal, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryMapEntryUnique( literal, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validateLiteral_literalValAttributeRequired( literal, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateLiteral_nameAttributeRequired( literal, diagnostics, context );
+        }
         return result;
     }
 
@@ -1734,23 +2124,40 @@ public class NsdValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateLNClass( LNClass lnClass, DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( lnClass, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( lnClass, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( lnClass, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryDataValueConforms( lnClass, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
+            result &= validate_EveryDataValueConforms( lnClass, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryReferenceIsContained( lnClass, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( lnClass, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryProxyResolves( lnClass, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( lnClass, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( lnClass, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryMapEntryUnique( lnClass, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryProxyResolves( lnClass, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( lnClass, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryKeyUnique( lnClass, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryMapEntryUnique( lnClass, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validateTitledClass_titleIDAttributeRequired( lnClass, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateAnyLNClass_uniqueDataObject( lnClass, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateLNClass_nameAttributeRequired( lnClass, diagnostics, context );
+        }
         return result;
     }
 
@@ -1772,22 +2179,37 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateLNClasses( LNClasses lnClasses, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( lnClasses, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( lnClasses, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( lnClasses, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
             result &= validate_EveryDataValueConforms( lnClasses, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryReferenceIsContained( lnClasses, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( lnClasses, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryProxyResolves( lnClasses, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( lnClasses, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( lnClasses, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryMapEntryUnique( lnClasses, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryProxyResolves( lnClasses, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( lnClasses, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryKeyUnique( lnClasses, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryMapEntryUnique( lnClasses, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validateLNClasses_uniqueAbstractLNClass( lnClasses, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateLNClasses_uniqueLNClass( lnClasses, diagnostics, context );
+        }
         return result;
     }
 
@@ -1828,20 +2250,37 @@ public class NsdValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateNS( NS ns, DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( ns, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( ns, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( ns, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryDataValueConforms( ns, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryReferenceIsContained( ns, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
+            result &= validate_EveryDataValueConforms( ns, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryReferenceIsContained( ns, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( ns, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryProxyResolves( ns, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( ns, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( ns, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryMapEntryUnique( ns, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryProxyResolves( ns, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( ns, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryKeyUnique( ns, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryMapEntryUnique( ns, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validateAgNSIdentification_versionAttributeRequired( ns, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateAgNSIdentification_idAttributeRequired( ns, diagnostics, context );
+        }
         return result;
     }
 
@@ -1851,22 +2290,40 @@ public class NsdValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateNSDoc( NSDoc nsDoc, DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( nsDoc, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( nsDoc, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( nsDoc, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryDataValueConforms( nsDoc, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryReferenceIsContained( nsDoc, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
+            result &= validate_EveryDataValueConforms( nsDoc, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryReferenceIsContained( nsDoc, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( nsDoc, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryProxyResolves( nsDoc, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( nsDoc, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( nsDoc, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryMapEntryUnique( nsDoc, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryProxyResolves( nsDoc, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( nsDoc, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryKeyUnique( nsDoc, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryMapEntryUnique( nsDoc, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validateAgNSIdentification_versionAttributeRequired( nsDoc, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateAgNSIdentification_idAttributeRequired( nsDoc, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateNSDoc_langAttributeRequired( nsDoc, diagnostics, context );
+        }
         return result;
     }
 
@@ -1888,23 +2345,34 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validatePresenceCondition( PresenceCondition presenceCondition, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( presenceCondition, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( presenceCondition, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( presenceCondition, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
             result &= validate_EveryDataValueConforms( presenceCondition, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryReferenceIsContained( presenceCondition, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( presenceCondition, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryProxyResolves( presenceCondition, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( presenceCondition, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( presenceCondition, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryKeyUnique( presenceCondition, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryMapEntryUnique( presenceCondition, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validatePresenceCondition_nameAttributeRequired( presenceCondition, diagnostics, context );
+        }
         return result;
     }
 
@@ -1926,23 +2394,34 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validatePresenceConditions( PresenceConditions presenceConditions, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( presenceConditions, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( presenceConditions, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( presenceConditions, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
             result &= validate_EveryDataValueConforms( presenceConditions, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryReferenceIsContained( presenceConditions, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( presenceConditions, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryProxyResolves( presenceConditions, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( presenceConditions, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( presenceConditions, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryKeyUnique( presenceConditions, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryMapEntryUnique( presenceConditions, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validatePresenceConditions_uniquePresenceCondition( presenceConditions, diagnostics, context );
+        }
         return result;
     }
 
@@ -1964,20 +2443,34 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateServiceCDC( ServiceCDC serviceCDC, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( serviceCDC, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( serviceCDC, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( serviceCDC, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
             result &= validate_EveryDataValueConforms( serviceCDC, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryReferenceIsContained( serviceCDC, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( serviceCDC, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryProxyResolves( serviceCDC, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( serviceCDC, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( serviceCDC, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryMapEntryUnique( serviceCDC, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryProxyResolves( serviceCDC, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( serviceCDC, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryKeyUnique( serviceCDC, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryMapEntryUnique( serviceCDC, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validateServiceCDC_cdcAttributeRequired( serviceCDC, diagnostics, context );
+        }
         return result;
     }
 
@@ -2009,30 +2502,42 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateServiceConstructedAttribute( ServiceConstructedAttribute serviceConstructedAttribute,
             DiagnosticChain diagnostics, Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( serviceConstructedAttribute, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( serviceConstructedAttribute, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( serviceConstructedAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
             result &= validate_EveryDataValueConforms( serviceConstructedAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryReferenceIsContained( serviceConstructedAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( serviceConstructedAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryProxyResolves( serviceConstructedAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_UniqueID( serviceConstructedAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryKeyUnique( serviceConstructedAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryMapEntryUnique( serviceConstructedAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateTitledClass_titleIDAttributeRequired( serviceConstructedAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateConstructedAttribute_nameAttributeRequired( serviceConstructedAttribute, diagnostics,
                     context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateConstructedAttribute_uniqueSubDataAttribute( serviceConstructedAttribute, diagnostics,
                     context );
+        }
         return result;
     }
 
@@ -2053,25 +2558,37 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateServiceDataAttribute( ServiceDataAttribute serviceDataAttribute, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( serviceDataAttribute, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( serviceDataAttribute, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( serviceDataAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
             result &= validate_EveryDataValueConforms( serviceDataAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryReferenceIsContained( serviceDataAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( serviceDataAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryProxyResolves( serviceDataAttribute, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( serviceDataAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( serviceDataAttribute, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryKeyUnique( serviceDataAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryMapEntryUnique( serviceDataAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateServiceDataAttribute_fcAttributeRequired( serviceDataAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateServiceDataAttribute_nameAttributeRequired( serviceDataAttribute, diagnostics, context );
+        }
         return result;
     }
 
@@ -2104,22 +2621,37 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateServiceNS( ServiceNS serviceNS, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( serviceNS, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( serviceNS, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( serviceNS, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
             result &= validate_EveryDataValueConforms( serviceNS, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryReferenceIsContained( serviceNS, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( serviceNS, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryProxyResolves( serviceNS, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( serviceNS, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( serviceNS, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryMapEntryUnique( serviceNS, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryProxyResolves( serviceNS, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( serviceNS, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryKeyUnique( serviceNS, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryMapEntryUnique( serviceNS, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validateAgNSIdentification_versionAttributeRequired( serviceNS, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateAgNSIdentification_idAttributeRequired( serviceNS, diagnostics, context );
+        }
         return result;
     }
 
@@ -2130,25 +2662,60 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateServiceNsUsage( ServiceNsUsage serviceNsUsage, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( serviceNsUsage, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( serviceNsUsage, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( serviceNsUsage, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
             result &= validate_EveryDataValueConforms( serviceNsUsage, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryReferenceIsContained( serviceNsUsage, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( serviceNsUsage, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryProxyResolves( serviceNsUsage, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( serviceNsUsage, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( serviceNsUsage, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( serviceNsUsage, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryKeyUnique( serviceNsUsage, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryMapEntryUnique( serviceNsUsage, diagnostics, context );
-        if( result || diagnostics != null )
-            result &= validateAgNSIdentification_versionAttributeRequired( serviceNsUsage, diagnostics, context );
-        if( result || diagnostics != null )
-            result &= validateAgNSIdentification_idAttributeRequired( serviceNsUsage, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validateServiceNsUsage_versionAttributeRequired( serviceNsUsage, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validateServiceNsUsage_idAttributeRequired( serviceNsUsage, diagnostics, context );
+        }
         return result;
+    }
+
+    /**
+     * Validates the versionAttributeRequired constraint of '<em>Service Ns Usage</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateServiceNsUsage_versionAttributeRequired( ServiceNsUsage serviceNsUsage,
+            DiagnosticChain diagnostics, Map< Object, Object > context ) {
+        return serviceNsUsage.versionAttributeRequired( diagnostics, context );
+    }
+
+    /**
+     * Validates the idAttributeRequired constraint of '<em>Service Ns Usage</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateServiceNsUsage_idAttributeRequired( ServiceNsUsage serviceNsUsage,
+            DiagnosticChain diagnostics, Map< Object, Object > context ) {
+        return serviceNsUsage.idAttributeRequired( diagnostics, context );
     }
 
     /**
@@ -2158,22 +2725,34 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateServiceParameter( ServiceParameter serviceParameter, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( serviceParameter, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( serviceParameter, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( serviceParameter, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
             result &= validate_EveryDataValueConforms( serviceParameter, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryReferenceIsContained( serviceParameter, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( serviceParameter, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryProxyResolves( serviceParameter, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( serviceParameter, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( serviceParameter, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( serviceParameter, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryKeyUnique( serviceParameter, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryMapEntryUnique( serviceParameter, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateServiceParameter_nameAttributeRequired( serviceParameter, diagnostics, context );
+        }
         return result;
     }
 
@@ -2193,6 +2772,68 @@ public class NsdValidator extends EObjectValidator {
      * <!-- end-user-doc -->
      * @generated
      */
+    public boolean validateServiceTypeRealization( ServiceTypeRealization serviceTypeRealization,
+            DiagnosticChain diagnostics, Map< Object, Object > context ) {
+        if( !validate_NoCircularContainment( serviceTypeRealization, diagnostics, context ) ) {
+            return false;
+        }
+        boolean result = validate_EveryMultiplicityConforms( serviceTypeRealization, diagnostics, context );
+        if( result || diagnostics != null ) {
+            result &= validate_EveryDataValueConforms( serviceTypeRealization, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryReferenceIsContained( serviceTypeRealization, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryBidirectionalReferenceIsPaired( serviceTypeRealization, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryProxyResolves( serviceTypeRealization, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( serviceTypeRealization, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryKeyUnique( serviceTypeRealization, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryMapEntryUnique( serviceTypeRealization, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validateTitledClass_titleIDAttributeRequired( serviceTypeRealization, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validateConstructedAttribute_nameAttributeRequired( serviceTypeRealization, diagnostics,
+                    context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validateConstructedAttribute_uniqueSubDataAttribute( serviceTypeRealization, diagnostics,
+                    context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validateServiceTypeRealization_realizeAttributeRequired( serviceTypeRealization, diagnostics,
+                    context );
+        }
+        return result;
+    }
+
+    /**
+     * Validates the realizeAttributeRequired constraint of '<em>Service Type Realization</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateServiceTypeRealization_realizeAttributeRequired(
+            ServiceTypeRealization serviceTypeRealization, DiagnosticChain diagnostics,
+            Map< Object, Object > context ) {
+        return serviceTypeRealization.realizeAttributeRequired( diagnostics, context );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public boolean validateServiceTypeRealizations( ServiceTypeRealizations serviceTypeRealizations,
             DiagnosticChain diagnostics, Map< Object, Object > context ) {
         return validate_EveryDefaultConstraint( serviceTypeRealizations, diagnostics, context );
@@ -2205,22 +2846,34 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateSubDataAttribute( SubDataAttribute subDataAttribute, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( subDataAttribute, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( subDataAttribute, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( subDataAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
             result &= validate_EveryDataValueConforms( subDataAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryReferenceIsContained( subDataAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( subDataAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryProxyResolves( subDataAttribute, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( subDataAttribute, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( subDataAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( subDataAttribute, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryKeyUnique( subDataAttribute, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryMapEntryUnique( subDataAttribute, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateSubDataAttribute_nameAttributeRequired( subDataAttribute, diagnostics, context );
+        }
         return result;
     }
 
@@ -2242,24 +2895,37 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateSubDataObject( SubDataObject subDataObject, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( subDataObject, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( subDataObject, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( subDataObject, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
             result &= validate_EveryDataValueConforms( subDataObject, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryReferenceIsContained( subDataObject, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( subDataObject, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryProxyResolves( subDataObject, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( subDataObject, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( subDataObject, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( subDataObject, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryKeyUnique( subDataObject, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryMapEntryUnique( subDataObject, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateSubDataObject_typeAttributeRequired( subDataObject, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateSubDataObject_nameAttributeRequired( subDataObject, diagnostics, context );
+        }
         return result;
     }
 
@@ -2292,20 +2958,34 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateTitledClass( TitledClass titledClass, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( titledClass, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( titledClass, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( titledClass, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
             result &= validate_EveryDataValueConforms( titledClass, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryReferenceIsContained( titledClass, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( titledClass, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryProxyResolves( titledClass, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( titledClass, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryKeyUnique( titledClass, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_EveryMapEntryUnique( titledClass, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryProxyResolves( titledClass, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( titledClass, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryKeyUnique( titledClass, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryMapEntryUnique( titledClass, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validateTitledClass_titleIDAttributeRequired( titledClass, diagnostics, context );
+        }
         return result;
     }
 
@@ -2337,25 +3017,37 @@ public class NsdValidator extends EObjectValidator {
      */
     public boolean validateAgNSIdentification( AgNSIdentification agNSIdentification, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
-        if( !validate_NoCircularContainment( agNSIdentification, diagnostics, context ) ) return false;
+        if( !validate_NoCircularContainment( agNSIdentification, diagnostics, context ) ) {
+            return false;
+        }
         boolean result = validate_EveryMultiplicityConforms( agNSIdentification, diagnostics, context );
-        if( result || diagnostics != null )
+        if( result || diagnostics != null ) {
             result &= validate_EveryDataValueConforms( agNSIdentification, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryReferenceIsContained( agNSIdentification, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryBidirectionalReferenceIsPaired( agNSIdentification, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryProxyResolves( agNSIdentification, diagnostics, context );
-        if( result || diagnostics != null ) result &= validate_UniqueID( agNSIdentification, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( agNSIdentification, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryKeyUnique( agNSIdentification, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validate_EveryMapEntryUnique( agNSIdentification, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateAgNSIdentification_versionAttributeRequired( agNSIdentification, diagnostics, context );
-        if( result || diagnostics != null )
+        }
+        if( result || diagnostics != null ) {
             result &= validateAgNSIdentification_idAttributeRequired( agNSIdentification, diagnostics, context );
+        }
         return result;
     }
 
@@ -2473,6 +3165,79 @@ public class NsdValidator extends EObjectValidator {
      * <!-- end-user-doc -->
      * @generated
      */
+    public boolean validateAgNSDIdentification( AgNSDIdentification agNSDIdentification, DiagnosticChain diagnostics,
+            Map< Object, Object > context ) {
+        return validate_EveryDefaultConstraint( agNSDIdentification, diagnostics, context );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateAgDependsOn( AgDependsOn agDependsOn, DiagnosticChain diagnostics,
+            Map< Object, Object > context ) {
+        if( !validate_NoCircularContainment( agDependsOn, diagnostics, context ) ) {
+            return false;
+        }
+        boolean result = validate_EveryMultiplicityConforms( agDependsOn, diagnostics, context );
+        if( result || diagnostics != null ) {
+            result &= validate_EveryDataValueConforms( agDependsOn, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryReferenceIsContained( agDependsOn, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryBidirectionalReferenceIsPaired( agDependsOn, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryProxyResolves( agDependsOn, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_UniqueID( agDependsOn, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryKeyUnique( agDependsOn, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validate_EveryMapEntryUnique( agDependsOn, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validateAgDependsOn_versionAttributeRequired( agDependsOn, diagnostics, context );
+        }
+        if( result || diagnostics != null ) {
+            result &= validateAgDependsOn_idAttributeRequired( agDependsOn, diagnostics, context );
+        }
+        return result;
+    }
+
+    /**
+     * Validates the versionAttributeRequired constraint of '<em>Ag Depends On</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateAgDependsOn_versionAttributeRequired( AgDependsOn agDependsOn, DiagnosticChain diagnostics,
+            Map< Object, Object > context ) {
+        return agDependsOn.versionAttributeRequired( diagnostics, context );
+    }
+
+    /**
+     * Validates the idAttributeRequired constraint of '<em>Ag Depends On</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateAgDependsOn_idAttributeRequired( AgDependsOn agDependsOn, DiagnosticChain diagnostics,
+            Map< Object, Object > context ) {
+        return agDependsOn.idAttributeRequired( diagnostics, context );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public boolean validateIRiseClipseConsole( IRiseClipseConsole iRiseClipseConsole, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
         return validate_EveryDefaultConstraint( ( EObject ) iRiseClipseConsole, diagnostics, context );
@@ -2541,6 +3306,25 @@ public class NsdValidator extends EObjectValidator {
      * <!-- end-user-doc -->
      * @generated
      */
+    public boolean validateNSType( NSType nsType, DiagnosticChain diagnostics, Map< Object, Object > context ) {
+        return true;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateNSDependencyType( NSDependencyType nsDependencyType, DiagnosticChain diagnostics,
+            Map< Object, Object > context ) {
+        return true;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public boolean validateACSIServicesKindObject( ACSIServicesKind acsiServicesKindObject, DiagnosticChain diagnostics,
             Map< Object, Object > context ) {
         return true;
@@ -2569,13 +3353,15 @@ public class NsdValidator extends EObjectValidator {
             BasicDiagnostic tempDiagnostics = new BasicDiagnostic();
             if( NsdPackage.Literals.DEFINED_ATTRIBUTE_TYPE_KIND.isInstance( attributeTypeKind ) ) {
                 if( validateDefinedAttributeTypeKind( ( DefinedAttributeTypeKind ) attributeTypeKind, tempDiagnostics,
-                        context ) )
+                        context ) ) {
                     return true;
+                }
             }
             if( NsdPackage.Literals.UNDEFINED_ATTRIBUTE_TYPE_KIND.isInstance( attributeTypeKind ) ) {
                 if( validateUndefinedAttributeTypeKind( ( UndefinedAttributeTypeKind ) attributeTypeKind,
-                        tempDiagnostics, context ) )
+                        tempDiagnostics, context ) ) {
                     return true;
+                }
             }
             for( Diagnostic diagnostic : tempDiagnostics.getChildren() ) {
                 diagnostics.add( diagnostic );
@@ -2583,13 +3369,15 @@ public class NsdValidator extends EObjectValidator {
         }
         else {
             if( NsdPackage.Literals.DEFINED_ATTRIBUTE_TYPE_KIND.isInstance( attributeTypeKind ) ) {
-                if( validateDefinedAttributeTypeKind( ( DefinedAttributeTypeKind ) attributeTypeKind, null, context ) )
+                if( validateDefinedAttributeTypeKind( ( DefinedAttributeTypeKind ) attributeTypeKind, null, context ) ) {
                     return true;
+                }
             }
             if( NsdPackage.Literals.UNDEFINED_ATTRIBUTE_TYPE_KIND.isInstance( attributeTypeKind ) ) {
                 if( validateUndefinedAttributeTypeKind( ( UndefinedAttributeTypeKind ) attributeTypeKind, null,
-                        context ) )
+                        context ) ) {
                     return true;
+                }
             }
         }
         return false;

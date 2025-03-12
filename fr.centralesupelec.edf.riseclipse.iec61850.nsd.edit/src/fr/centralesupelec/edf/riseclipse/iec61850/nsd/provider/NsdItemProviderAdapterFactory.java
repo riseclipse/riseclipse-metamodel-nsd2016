@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -20,15 +20,12 @@
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.provider;
 
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdAdapterFactory;
-
 import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
@@ -40,6 +37,8 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.util.NsdAdapterFactory;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.
@@ -74,7 +73,7 @@ public class NsdItemProviderAdapterFactory extends NsdAdapterFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    protected Collection< Object > supportedTypes = new ArrayList< Object >();
+    protected Collection< Object > supportedTypes = new ArrayList< >();
 
     /**
      * This constructs an instance.
@@ -1080,6 +1079,29 @@ public class NsdItemProviderAdapterFactory extends NsdAdapterFactory
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealization} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ServiceTypeRealizationItemProvider serviceTypeRealizationItemProvider;
+
+    /**
+     * This creates an adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealization}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createServiceTypeRealizationAdapter() {
+        if( serviceTypeRealizationItemProvider == null ) {
+            serviceTypeRealizationItemProvider = new ServiceTypeRealizationItemProvider( this );
+        }
+
+        return serviceTypeRealizationItemProvider;
+    }
+
+    /**
      * This keeps track of the one adapter used for all {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1246,59 +1268,154 @@ public class NsdItemProviderAdapterFactory extends NsdAdapterFactory
     }
 
     /**
-     * This disposes all of the item providers created by this factory. 
+     * This disposes all of the item providers created by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
     public void dispose() {
-        if( appliesToTypeItemProvider != null ) appliesToTypeItemProvider.dispose();
-        if( dependsOnItemProvider != null ) dependsOnItemProvider.dispose();
-        if( documentRootItemProvider != null ) documentRootItemProvider.dispose();
-        if( serviceTypeItemProvider != null ) serviceTypeItemProvider.dispose();
-        if( abbreviationItemProvider != null ) abbreviationItemProvider.dispose();
-        if( abbreviationsItemProvider != null ) abbreviationsItemProvider.dispose();
-        if( abstractLNClassItemProvider != null ) abstractLNClassItemProvider.dispose();
-        if( applicableServiceNSItemProvider != null ) applicableServiceNSItemProvider.dispose();
-        if( applicableServicesItemProvider != null ) applicableServicesItemProvider.dispose();
-        if( basicTypeItemProvider != null ) basicTypeItemProvider.dispose();
-        if( basicTypesItemProvider != null ) basicTypesItemProvider.dispose();
-        if( cdcItemProvider != null ) cdcItemProvider.dispose();
-        if( cdCsItemProvider != null ) cdCsItemProvider.dispose();
-        if( changesItemProvider != null ) changesItemProvider.dispose();
-        if( constructedAttributeItemProvider != null ) constructedAttributeItemProvider.dispose();
-        if( constructedAttributesItemProvider != null ) constructedAttributesItemProvider.dispose();
-        if( copyrightedItemProvider != null ) copyrightedItemProvider.dispose();
-        if( copyrightNoticeItemProvider != null ) copyrightNoticeItemProvider.dispose();
-        if( dataAttributeItemProvider != null ) dataAttributeItemProvider.dispose();
-        if( dataObjectItemProvider != null ) dataObjectItemProvider.dispose();
-        if( dataSetMemberOfItemProvider != null ) dataSetMemberOfItemProvider.dispose();
-        if( docItemProvider != null ) docItemProvider.dispose();
-        if( enumerationItemProvider != null ) enumerationItemProvider.dispose();
-        if( enumerationsItemProvider != null ) enumerationsItemProvider.dispose();
-        if( functionalConstraintItemProvider != null ) functionalConstraintItemProvider.dispose();
-        if( functionalConstraintsItemProvider != null ) functionalConstraintsItemProvider.dispose();
-        if( licenseItemProvider != null ) licenseItemProvider.dispose();
-        if( literalItemProvider != null ) literalItemProvider.dispose();
-        if( lnClassItemProvider != null ) lnClassItemProvider.dispose();
-        if( lnClassesItemProvider != null ) lnClassesItemProvider.dispose();
-        if( noticeItemProvider != null ) noticeItemProvider.dispose();
-        if( nsItemProvider != null ) nsItemProvider.dispose();
-        if( nsDocItemProvider != null ) nsDocItemProvider.dispose();
-        if( presenceConditionItemProvider != null ) presenceConditionItemProvider.dispose();
-        if( presenceConditionsItemProvider != null ) presenceConditionsItemProvider.dispose();
-        if( serviceCDCItemProvider != null ) serviceCDCItemProvider.dispose();
-        if( serviceCDCsItemProvider != null ) serviceCDCsItemProvider.dispose();
-        if( serviceConstructedAttributeItemProvider != null ) serviceConstructedAttributeItemProvider.dispose();
-        if( serviceConstructedAttributesItemProvider != null ) serviceConstructedAttributesItemProvider.dispose();
-        if( serviceDataAttributeItemProvider != null ) serviceDataAttributeItemProvider.dispose();
-        if( serviceNSItemProvider != null ) serviceNSItemProvider.dispose();
-        if( serviceNsUsageItemProvider != null ) serviceNsUsageItemProvider.dispose();
-        if( serviceParameterItemProvider != null ) serviceParameterItemProvider.dispose();
-        if( serviceTypeRealizationsItemProvider != null ) serviceTypeRealizationsItemProvider.dispose();
-        if( subDataAttributeItemProvider != null ) subDataAttributeItemProvider.dispose();
-        if( subDataObjectItemProvider != null ) subDataObjectItemProvider.dispose();
+        if( appliesToTypeItemProvider != null ) {
+            appliesToTypeItemProvider.dispose();
+        }
+        if( dependsOnItemProvider != null ) {
+            dependsOnItemProvider.dispose();
+        }
+        if( documentRootItemProvider != null ) {
+            documentRootItemProvider.dispose();
+        }
+        if( serviceTypeItemProvider != null ) {
+            serviceTypeItemProvider.dispose();
+        }
+        if( abbreviationItemProvider != null ) {
+            abbreviationItemProvider.dispose();
+        }
+        if( abbreviationsItemProvider != null ) {
+            abbreviationsItemProvider.dispose();
+        }
+        if( abstractLNClassItemProvider != null ) {
+            abstractLNClassItemProvider.dispose();
+        }
+        if( applicableServiceNSItemProvider != null ) {
+            applicableServiceNSItemProvider.dispose();
+        }
+        if( applicableServicesItemProvider != null ) {
+            applicableServicesItemProvider.dispose();
+        }
+        if( basicTypeItemProvider != null ) {
+            basicTypeItemProvider.dispose();
+        }
+        if( basicTypesItemProvider != null ) {
+            basicTypesItemProvider.dispose();
+        }
+        if( cdcItemProvider != null ) {
+            cdcItemProvider.dispose();
+        }
+        if( cdCsItemProvider != null ) {
+            cdCsItemProvider.dispose();
+        }
+        if( changesItemProvider != null ) {
+            changesItemProvider.dispose();
+        }
+        if( constructedAttributeItemProvider != null ) {
+            constructedAttributeItemProvider.dispose();
+        }
+        if( constructedAttributesItemProvider != null ) {
+            constructedAttributesItemProvider.dispose();
+        }
+        if( copyrightedItemProvider != null ) {
+            copyrightedItemProvider.dispose();
+        }
+        if( copyrightNoticeItemProvider != null ) {
+            copyrightNoticeItemProvider.dispose();
+        }
+        if( dataAttributeItemProvider != null ) {
+            dataAttributeItemProvider.dispose();
+        }
+        if( dataObjectItemProvider != null ) {
+            dataObjectItemProvider.dispose();
+        }
+        if( dataSetMemberOfItemProvider != null ) {
+            dataSetMemberOfItemProvider.dispose();
+        }
+        if( docItemProvider != null ) {
+            docItemProvider.dispose();
+        }
+        if( enumerationItemProvider != null ) {
+            enumerationItemProvider.dispose();
+        }
+        if( enumerationsItemProvider != null ) {
+            enumerationsItemProvider.dispose();
+        }
+        if( functionalConstraintItemProvider != null ) {
+            functionalConstraintItemProvider.dispose();
+        }
+        if( functionalConstraintsItemProvider != null ) {
+            functionalConstraintsItemProvider.dispose();
+        }
+        if( licenseItemProvider != null ) {
+            licenseItemProvider.dispose();
+        }
+        if( literalItemProvider != null ) {
+            literalItemProvider.dispose();
+        }
+        if( lnClassItemProvider != null ) {
+            lnClassItemProvider.dispose();
+        }
+        if( lnClassesItemProvider != null ) {
+            lnClassesItemProvider.dispose();
+        }
+        if( noticeItemProvider != null ) {
+            noticeItemProvider.dispose();
+        }
+        if( nsItemProvider != null ) {
+            nsItemProvider.dispose();
+        }
+        if( nsDocItemProvider != null ) {
+            nsDocItemProvider.dispose();
+        }
+        if( presenceConditionItemProvider != null ) {
+            presenceConditionItemProvider.dispose();
+        }
+        if( presenceConditionsItemProvider != null ) {
+            presenceConditionsItemProvider.dispose();
+        }
+        if( serviceCDCItemProvider != null ) {
+            serviceCDCItemProvider.dispose();
+        }
+        if( serviceCDCsItemProvider != null ) {
+            serviceCDCsItemProvider.dispose();
+        }
+        if( serviceConstructedAttributeItemProvider != null ) {
+            serviceConstructedAttributeItemProvider.dispose();
+        }
+        if( serviceConstructedAttributesItemProvider != null ) {
+            serviceConstructedAttributesItemProvider.dispose();
+        }
+        if( serviceDataAttributeItemProvider != null ) {
+            serviceDataAttributeItemProvider.dispose();
+        }
+        if( serviceNSItemProvider != null ) {
+            serviceNSItemProvider.dispose();
+        }
+        if( serviceNsUsageItemProvider != null ) {
+            serviceNsUsageItemProvider.dispose();
+        }
+        if( serviceParameterItemProvider != null ) {
+            serviceParameterItemProvider.dispose();
+        }
+        if( serviceTypeRealizationItemProvider != null ) {
+            serviceTypeRealizationItemProvider.dispose();
+        }
+        if( serviceTypeRealizationsItemProvider != null ) {
+            serviceTypeRealizationsItemProvider.dispose();
+        }
+        if( subDataAttributeItemProvider != null ) {
+            subDataAttributeItemProvider.dispose();
+        }
+        if( subDataObjectItemProvider != null ) {
+            subDataObjectItemProvider.dispose();
+        }
     }
 
 }

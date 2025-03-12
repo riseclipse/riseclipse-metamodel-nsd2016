@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -154,7 +154,7 @@ public interface Abbreviation extends NsdObject {
      * @see #setParentAbbreviations(Abbreviations)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAbbreviation_ParentAbbreviations()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations#getAbbreviation
-     * @model opposite="abbreviation" resolveProxies="false" unsettable="true" transient="false" ordered="false"
+     * @model opposite="abbreviation" resolveProxies="false" unsettable="true" transient="false"
      * @generated
      */
     Abbreviations getParentAbbreviations();
@@ -180,7 +180,7 @@ public interface Abbreviation extends NsdObject {
      * @see #setRefersToDoc(Doc)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAbbreviation_RefersToDoc()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByAbbreviation
-     * @model opposite="referredByAbbreviation" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @model opposite="referredByAbbreviation" resolveProxies="false" unsettable="true" transient="true"
      * @generated
      */
     Doc getRefersToDoc();

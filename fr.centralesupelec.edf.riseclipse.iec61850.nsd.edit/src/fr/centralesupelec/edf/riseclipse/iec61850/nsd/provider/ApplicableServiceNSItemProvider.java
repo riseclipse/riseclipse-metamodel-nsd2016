@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -20,21 +20,20 @@
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.provider;
 
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServiceNS;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
-
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServiceNS;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
 /**
  * This is the item provider adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServiceNS} object.
@@ -64,10 +63,79 @@ public class ApplicableServiceNSItemProvider extends CopyrightedItemProvider {
         if( itemPropertyDescriptors == null ) {
             super.getPropertyDescriptors( object );
 
+            addNsdVersionPropertyDescriptor( object );
+            addNsdRevisionPropertyDescriptor( object );
+            addNsdReleasePropertyDescriptor( object );
             addDatePropertyDescriptor( object );
             addVersionPropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
+    }
+
+    /**
+     * This adds a property descriptor for the Nsd Version feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addNsdVersionPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_AgNSDIdentification_nsdVersion_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgNSDIdentification_nsdVersion_feature",
+                                "_UI_AgNSDIdentification_type" ),
+                        NsdPackage.Literals.AG_NSD_IDENTIFICATION__NSD_VERSION,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Nsd Revision feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addNsdRevisionPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_AgNSDIdentification_nsdRevision_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgNSDIdentification_nsdRevision_feature",
+                                "_UI_AgNSDIdentification_type" ),
+                        NsdPackage.Literals.AG_NSD_IDENTIFICATION__NSD_REVISION,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Nsd Release feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addNsdReleasePropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_AgNSDIdentification_nsdRelease_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgNSDIdentification_nsdRelease_feature",
+                                "_UI_AgNSDIdentification_type" ),
+                        NsdPackage.Literals.AG_NSD_IDENTIFICATION__NSD_RELEASE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -179,6 +247,9 @@ public class ApplicableServiceNSItemProvider extends CopyrightedItemProvider {
         updateChildren( notification );
 
         switch( notification.getFeatureID( ApplicableServiceNS.class ) ) {
+        case NsdPackage.APPLICABLE_SERVICE_NS__NSD_VERSION:
+        case NsdPackage.APPLICABLE_SERVICE_NS__NSD_REVISION:
+        case NsdPackage.APPLICABLE_SERVICE_NS__NSD_RELEASE:
         case NsdPackage.APPLICABLE_SERVICE_NS__DATE:
         case NsdPackage.APPLICABLE_SERVICE_NS__VERSION:
             fireNotifyChanged( new ViewerNotification( notification, notification.getNotifier(), false, true ) );

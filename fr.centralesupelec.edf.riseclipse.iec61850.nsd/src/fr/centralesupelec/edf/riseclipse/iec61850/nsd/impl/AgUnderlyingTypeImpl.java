@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -20,21 +20,19 @@
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
-
-import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,6 +47,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AgUnderlyingTypeImpl#getRefersToUnderlyingBasicType <em>Refers To Underlying Basic Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AgUnderlyingTypeImpl#getRefersToUnderlyingConstructedAttribute <em>Refers To Underlying Constructed Attribute</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AgUnderlyingTypeImpl#getRefersToUnderlyingEnumeration <em>Refers To Underlying Enumeration</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AgUnderlyingTypeImpl#getUnderlyingControlType <em>Underlying Control Type</em>}</li>
  * </ul>
  *
  * @generated
@@ -170,6 +169,35 @@ public abstract class AgUnderlyingTypeImpl extends MinimalEObjectImpl.Container 
     protected boolean refersToUnderlyingEnumerationESet;
 
     /**
+     * The default value of the '{@link #getUnderlyingControlType() <em>Underlying Control Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getUnderlyingControlType()
+     * @generated
+     * @ordered
+     */
+    protected static final String UNDERLYING_CONTROL_TYPE_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getUnderlyingControlType() <em>Underlying Control Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getUnderlyingControlType()
+     * @generated
+     * @ordered
+     */
+    protected String underlyingControlType = UNDERLYING_CONTROL_TYPE_EDEFAULT;
+
+    /**
+     * This is true if the Underlying Control Type attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean underlyingControlTypeESet;
+
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -209,9 +237,10 @@ public abstract class AgUnderlyingTypeImpl extends MinimalEObjectImpl.Container 
         underlyingType = newUnderlyingType;
         boolean oldUnderlyingTypeESet = underlyingTypeESet;
         underlyingTypeESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_UNDERLYING_TYPE__UNDERLYING_TYPE,
                     oldUnderlyingType, underlyingType, !oldUnderlyingTypeESet ) );
+        }
     }
 
     /**
@@ -225,9 +254,10 @@ public abstract class AgUnderlyingTypeImpl extends MinimalEObjectImpl.Container 
         boolean oldUnderlyingTypeESet = underlyingTypeESet;
         underlyingType = UNDERLYING_TYPE_EDEFAULT;
         underlyingTypeESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_UNDERLYING_TYPE__UNDERLYING_TYPE,
                     oldUnderlyingType, UNDERLYING_TYPE_EDEFAULT, oldUnderlyingTypeESet ) );
+        }
     }
 
     /**
@@ -261,9 +291,10 @@ public abstract class AgUnderlyingTypeImpl extends MinimalEObjectImpl.Container 
         underlyingTypeKind = newUnderlyingTypeKind == null ? UNDERLYING_TYPE_KIND_EDEFAULT : newUnderlyingTypeKind;
         boolean oldUnderlyingTypeKindESet = underlyingTypeKindESet;
         underlyingTypeKindESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_UNDERLYING_TYPE__UNDERLYING_TYPE_KIND,
                     oldUnderlyingTypeKind, underlyingTypeKind, !oldUnderlyingTypeKindESet ) );
+        }
     }
 
     /**
@@ -277,10 +308,11 @@ public abstract class AgUnderlyingTypeImpl extends MinimalEObjectImpl.Container 
         boolean oldUnderlyingTypeKindESet = underlyingTypeKindESet;
         underlyingTypeKind = UNDERLYING_TYPE_KIND_EDEFAULT;
         underlyingTypeKindESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.AG_UNDERLYING_TYPE__UNDERLYING_TYPE_KIND, oldUnderlyingTypeKind,
                     UNDERLYING_TYPE_KIND_EDEFAULT, oldUnderlyingTypeKindESet ) );
+        }
     }
 
     /**
@@ -318,10 +350,12 @@ public abstract class AgUnderlyingTypeImpl extends MinimalEObjectImpl.Container 
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_BASIC_TYPE, oldRefersToUnderlyingBasicType,
                     newRefersToUnderlyingBasicType, !oldRefersToUnderlyingBasicTypeESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -335,22 +369,27 @@ public abstract class AgUnderlyingTypeImpl extends MinimalEObjectImpl.Container 
     public void setRefersToUnderlyingBasicType( BasicType newRefersToUnderlyingBasicType ) {
         if( newRefersToUnderlyingBasicType != refersToUnderlyingBasicType ) {
             NotificationChain msgs = null;
-            if( refersToUnderlyingBasicType != null )
+            if( refersToUnderlyingBasicType != null ) {
                 msgs = ( ( InternalEObject ) refersToUnderlyingBasicType ).eInverseRemove( this,
                         NsdPackage.BASIC_TYPE__REFERRED_BY_UNDERLYING_TYPE, BasicType.class, msgs );
-            if( newRefersToUnderlyingBasicType != null )
+            }
+            if( newRefersToUnderlyingBasicType != null ) {
                 msgs = ( ( InternalEObject ) newRefersToUnderlyingBasicType ).eInverseAdd( this,
                         NsdPackage.BASIC_TYPE__REFERRED_BY_UNDERLYING_TYPE, BasicType.class, msgs );
+            }
             msgs = basicSetRefersToUnderlyingBasicType( newRefersToUnderlyingBasicType, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToUnderlyingBasicTypeESet = refersToUnderlyingBasicTypeESet;
             refersToUnderlyingBasicTypeESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET,
                         NsdPackage.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_BASIC_TYPE, newRefersToUnderlyingBasicType,
                         newRefersToUnderlyingBasicType, !oldRefersToUnderlyingBasicTypeESet ) );
+            }
         }
     }
 
@@ -368,10 +407,12 @@ public abstract class AgUnderlyingTypeImpl extends MinimalEObjectImpl.Container 
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_BASIC_TYPE, oldRefersToUnderlyingBasicType,
                     null, oldRefersToUnderlyingBasicTypeESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -388,15 +429,18 @@ public abstract class AgUnderlyingTypeImpl extends MinimalEObjectImpl.Container 
             msgs = ( ( InternalEObject ) refersToUnderlyingBasicType ).eInverseRemove( this,
                     NsdPackage.BASIC_TYPE__REFERRED_BY_UNDERLYING_TYPE, BasicType.class, msgs );
             msgs = basicUnsetRefersToUnderlyingBasicType( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToUnderlyingBasicTypeESet = refersToUnderlyingBasicTypeESet;
             refersToUnderlyingBasicTypeESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET,
                         NsdPackage.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_BASIC_TYPE, null, null,
                         oldRefersToUnderlyingBasicTypeESet ) );
+            }
         }
     }
 
@@ -436,10 +480,12 @@ public abstract class AgUnderlyingTypeImpl extends MinimalEObjectImpl.Container 
                     NsdPackage.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE,
                     oldRefersToUnderlyingConstructedAttribute, newRefersToUnderlyingConstructedAttribute,
                     !oldRefersToUnderlyingConstructedAttributeESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -454,25 +500,30 @@ public abstract class AgUnderlyingTypeImpl extends MinimalEObjectImpl.Container 
             ConstructedAttribute newRefersToUnderlyingConstructedAttribute ) {
         if( newRefersToUnderlyingConstructedAttribute != refersToUnderlyingConstructedAttribute ) {
             NotificationChain msgs = null;
-            if( refersToUnderlyingConstructedAttribute != null )
+            if( refersToUnderlyingConstructedAttribute != null ) {
                 msgs = ( ( InternalEObject ) refersToUnderlyingConstructedAttribute ).eInverseRemove( this,
                         NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_UNDERLYING_TYPE, ConstructedAttribute.class,
                         msgs );
-            if( newRefersToUnderlyingConstructedAttribute != null )
+            }
+            if( newRefersToUnderlyingConstructedAttribute != null ) {
                 msgs = ( ( InternalEObject ) newRefersToUnderlyingConstructedAttribute ).eInverseAdd( this,
                         NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_UNDERLYING_TYPE, ConstructedAttribute.class,
                         msgs );
+            }
             msgs = basicSetRefersToUnderlyingConstructedAttribute( newRefersToUnderlyingConstructedAttribute, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToUnderlyingConstructedAttributeESet = refersToUnderlyingConstructedAttributeESet;
             refersToUnderlyingConstructedAttributeESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET,
                         NsdPackage.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE,
                         newRefersToUnderlyingConstructedAttribute, newRefersToUnderlyingConstructedAttribute,
                         !oldRefersToUnderlyingConstructedAttributeESet ) );
+            }
         }
     }
 
@@ -490,10 +541,12 @@ public abstract class AgUnderlyingTypeImpl extends MinimalEObjectImpl.Container 
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE,
                     oldRefersToUnderlyingConstructedAttribute, null, oldRefersToUnderlyingConstructedAttributeESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -510,15 +563,18 @@ public abstract class AgUnderlyingTypeImpl extends MinimalEObjectImpl.Container 
             msgs = ( ( InternalEObject ) refersToUnderlyingConstructedAttribute ).eInverseRemove( this,
                     NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_UNDERLYING_TYPE, ConstructedAttribute.class, msgs );
             msgs = basicUnsetRefersToUnderlyingConstructedAttribute( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToUnderlyingConstructedAttributeESet = refersToUnderlyingConstructedAttributeESet;
             refersToUnderlyingConstructedAttributeESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET,
                         NsdPackage.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE, null, null,
                         oldRefersToUnderlyingConstructedAttributeESet ) );
+            }
         }
     }
 
@@ -557,10 +613,12 @@ public abstract class AgUnderlyingTypeImpl extends MinimalEObjectImpl.Container 
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_ENUMERATION, oldRefersToUnderlyingEnumeration,
                     newRefersToUnderlyingEnumeration, !oldRefersToUnderlyingEnumerationESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -574,23 +632,28 @@ public abstract class AgUnderlyingTypeImpl extends MinimalEObjectImpl.Container 
     public void setRefersToUnderlyingEnumeration( Enumeration newRefersToUnderlyingEnumeration ) {
         if( newRefersToUnderlyingEnumeration != refersToUnderlyingEnumeration ) {
             NotificationChain msgs = null;
-            if( refersToUnderlyingEnumeration != null )
+            if( refersToUnderlyingEnumeration != null ) {
                 msgs = ( ( InternalEObject ) refersToUnderlyingEnumeration ).eInverseRemove( this,
                         NsdPackage.ENUMERATION__REFERRED_BY_UNDERLYING_TYPE, Enumeration.class, msgs );
-            if( newRefersToUnderlyingEnumeration != null )
+            }
+            if( newRefersToUnderlyingEnumeration != null ) {
                 msgs = ( ( InternalEObject ) newRefersToUnderlyingEnumeration ).eInverseAdd( this,
                         NsdPackage.ENUMERATION__REFERRED_BY_UNDERLYING_TYPE, Enumeration.class, msgs );
+            }
             msgs = basicSetRefersToUnderlyingEnumeration( newRefersToUnderlyingEnumeration, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToUnderlyingEnumerationESet = refersToUnderlyingEnumerationESet;
             refersToUnderlyingEnumerationESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET,
                         NsdPackage.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_ENUMERATION,
                         newRefersToUnderlyingEnumeration, newRefersToUnderlyingEnumeration,
                         !oldRefersToUnderlyingEnumerationESet ) );
+            }
         }
     }
 
@@ -608,10 +671,12 @@ public abstract class AgUnderlyingTypeImpl extends MinimalEObjectImpl.Container 
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_ENUMERATION, oldRefersToUnderlyingEnumeration,
                     null, oldRefersToUnderlyingEnumerationESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -628,15 +693,18 @@ public abstract class AgUnderlyingTypeImpl extends MinimalEObjectImpl.Container 
             msgs = ( ( InternalEObject ) refersToUnderlyingEnumeration ).eInverseRemove( this,
                     NsdPackage.ENUMERATION__REFERRED_BY_UNDERLYING_TYPE, Enumeration.class, msgs );
             msgs = basicUnsetRefersToUnderlyingEnumeration( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToUnderlyingEnumerationESet = refersToUnderlyingEnumerationESet;
             refersToUnderlyingEnumerationESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET,
                         NsdPackage.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_ENUMERATION, null, null,
                         oldRefersToUnderlyingEnumerationESet ) );
+            }
         }
     }
 
@@ -656,23 +724,82 @@ public abstract class AgUnderlyingTypeImpl extends MinimalEObjectImpl.Container 
      * @generated
      */
     @Override
+    public String getUnderlyingControlType() {
+        return underlyingControlType;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setUnderlyingControlType( String newUnderlyingControlType ) {
+        String oldUnderlyingControlType = underlyingControlType;
+        underlyingControlType = newUnderlyingControlType;
+        boolean oldUnderlyingControlTypeESet = underlyingControlTypeESet;
+        underlyingControlTypeESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET,
+                    NsdPackage.AG_UNDERLYING_TYPE__UNDERLYING_CONTROL_TYPE, oldUnderlyingControlType,
+                    underlyingControlType, !oldUnderlyingControlTypeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetUnderlyingControlType() {
+        String oldUnderlyingControlType = underlyingControlType;
+        boolean oldUnderlyingControlTypeESet = underlyingControlTypeESet;
+        underlyingControlType = UNDERLYING_CONTROL_TYPE_EDEFAULT;
+        underlyingControlTypeESet = false;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.UNSET,
+                    NsdPackage.AG_UNDERLYING_TYPE__UNDERLYING_CONTROL_TYPE, oldUnderlyingControlType,
+                    UNDERLYING_CONTROL_TYPE_EDEFAULT, oldUnderlyingControlTypeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetUnderlyingControlType() {
+        return underlyingControlTypeESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_BASIC_TYPE:
-            if( refersToUnderlyingBasicType != null )
+            if( refersToUnderlyingBasicType != null ) {
                 msgs = ( ( InternalEObject ) refersToUnderlyingBasicType ).eInverseRemove( this,
                         NsdPackage.BASIC_TYPE__REFERRED_BY_UNDERLYING_TYPE, BasicType.class, msgs );
+            }
             return basicSetRefersToUnderlyingBasicType( ( BasicType ) otherEnd, msgs );
         case NsdPackage.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_CONSTRUCTED_ATTRIBUTE:
-            if( refersToUnderlyingConstructedAttribute != null )
+            if( refersToUnderlyingConstructedAttribute != null ) {
                 msgs = ( ( InternalEObject ) refersToUnderlyingConstructedAttribute ).eInverseRemove( this,
                         NsdPackage.CONSTRUCTED_ATTRIBUTE__REFERRED_BY_UNDERLYING_TYPE, ConstructedAttribute.class,
                         msgs );
+            }
             return basicSetRefersToUnderlyingConstructedAttribute( ( ConstructedAttribute ) otherEnd, msgs );
         case NsdPackage.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_ENUMERATION:
-            if( refersToUnderlyingEnumeration != null )
+            if( refersToUnderlyingEnumeration != null ) {
                 msgs = ( ( InternalEObject ) refersToUnderlyingEnumeration ).eInverseRemove( this,
                         NsdPackage.ENUMERATION__REFERRED_BY_UNDERLYING_TYPE, Enumeration.class, msgs );
+            }
             return basicSetRefersToUnderlyingEnumeration( ( Enumeration ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
@@ -714,6 +841,8 @@ public abstract class AgUnderlyingTypeImpl extends MinimalEObjectImpl.Container 
             return getRefersToUnderlyingConstructedAttribute();
         case NsdPackage.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_ENUMERATION:
             return getRefersToUnderlyingEnumeration();
+        case NsdPackage.AG_UNDERLYING_TYPE__UNDERLYING_CONTROL_TYPE:
+            return getUnderlyingControlType();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -740,6 +869,9 @@ public abstract class AgUnderlyingTypeImpl extends MinimalEObjectImpl.Container 
             return;
         case NsdPackage.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_ENUMERATION:
             setRefersToUnderlyingEnumeration( ( Enumeration ) newValue );
+            return;
+        case NsdPackage.AG_UNDERLYING_TYPE__UNDERLYING_CONTROL_TYPE:
+            setUnderlyingControlType( ( String ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -768,6 +900,9 @@ public abstract class AgUnderlyingTypeImpl extends MinimalEObjectImpl.Container 
         case NsdPackage.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_ENUMERATION:
             unsetRefersToUnderlyingEnumeration();
             return;
+        case NsdPackage.AG_UNDERLYING_TYPE__UNDERLYING_CONTROL_TYPE:
+            unsetUnderlyingControlType();
+            return;
         }
         super.eUnset( featureID );
     }
@@ -790,6 +925,8 @@ public abstract class AgUnderlyingTypeImpl extends MinimalEObjectImpl.Container 
             return isSetRefersToUnderlyingConstructedAttribute();
         case NsdPackage.AG_UNDERLYING_TYPE__REFERS_TO_UNDERLYING_ENUMERATION:
             return isSetRefersToUnderlyingEnumeration();
+        case NsdPackage.AG_UNDERLYING_TYPE__UNDERLYING_CONTROL_TYPE:
+            return isSetUnderlyingControlType();
         }
         return super.eIsSet( featureID );
     }
@@ -801,19 +938,32 @@ public abstract class AgUnderlyingTypeImpl extends MinimalEObjectImpl.Container 
      */
     @Override
     public String toString() {
-        if( eIsProxy() ) return super.toString();
+        if( eIsProxy() ) {
+            return super.toString();
+        }
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (underlyingType: " );
-        if( underlyingTypeESet )
+        if( underlyingTypeESet ) {
             result.append( underlyingType );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", underlyingTypeKind: " );
-        if( underlyingTypeKindESet )
+        if( underlyingTypeKindESet ) {
             result.append( underlyingTypeKind );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
+        result.append( ", underlyingControlType: " );
+        if( underlyingControlTypeESet ) {
+            result.append( underlyingControlType );
+        }
+        else {
+            result.append( "<unset>" );
+        }
         result.append( ')' );
         return result.toString();
     }

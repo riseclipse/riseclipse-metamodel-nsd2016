@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText=" Copyright (c) 2016-2024 CentraleSupélec &amp; EDF.&#xA; All rights reserved. This program and the accompanying materials&#xA; are made available under the terms of the Eclipse Public License v2.0&#xA; which accompanies this distribution, and is available at&#xA; https://www.eclipse.org/legal/epl-v20.html&#xA;&#xA; This file is part of the RiseClipse tool&#xA; &#xA; Contributors:&#xA;     Computer Science Department, CentraleSupélec&#xA;     EDF R&amp;D&#xA; Contacts:&#xA;     dominique.marcadet@centralesupelec.fr&#xA;     aurelie.dehouck-neveu@edf.fr&#xA; Web site:&#xA;     https://riseclipse.github.io/&#xA;"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText=" Copyright (c) 2016-2025 CentraleSupélec &amp; EDF.&#xA; All rights reserved. This program and the accompanying materials&#xA; are made available under the terms of the Eclipse Public License v2.0&#xA; which accompanies this distribution, and is available at&#xA; https://www.eclipse.org/legal/epl-v20.html&#xA;&#xA; This file is part of the RiseClipse tool&#xA; &#xA; Contributors:&#xA;     Computer Science Department, CentraleSupélec&#xA;     EDF R&amp;D&#xA; Contacts:&#xA;     dominique.marcadet@centralesupelec.fr&#xA;     aurelie.dehouck-neveu@edf.fr&#xA; Web site:&#xA;     https://riseclipse.github.io/&#xA;"
     modelDirectory="/fr.centralesupelec.edf.riseclipse.iec61850.nsd/src" modelPluginID="fr.centralesupelec.edf.riseclipse.iec61850.nsd"
     modelName="NSD" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    codeFormatting="true" importerID="org.eclipse.xsd.ecore.importer" complianceLevel="17.0"
-    copyrightFields="false" runtimeVersion="2.36" operationReflection="true" importOrganizing="true"
-    cleanup="true" eclipsePlatformVersion="2023-12">
+    codeFormatting="true" importerID="org.eclipse.xsd.ecore.importer" complianceLevel="21.0"
+    copyrightFields="false" runtimeVersion="2.40" operationReflection="true" importOrganizing="true"
+    cleanup="true" eclipsePlatformVersion="2024-12">
   <genPackages prefix="Nsd" basePackage="fr.centralesupelec.edf.riseclipse.iec61850"
       resource="XML" disposableProviderFactory="true" fileExtensions="nsd,snsd,nsdoc"
       ecorePackage="nsd.ecore#/" documentation="">
@@ -80,6 +80,7 @@
       <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//DefinedAttributeTypeKind/BASIC"/>
       <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//DefinedAttributeTypeKind/ENUMERATED"/>
       <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//DefinedAttributeTypeKind/CONSTRUCTED"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//DefinedAttributeTypeKind/SCSM"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="nsd.ecore#//LicenseKind">
       <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//LicenseKind/Standard"/>
@@ -88,17 +89,46 @@
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="nsd.ecore#//PubStage">
       <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/WD"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/draftDC"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/DC"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/draftDC2"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/DC2"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/draftCD"/>
       <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/CD"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/draftCD2"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/CD2"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/draftCD3"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/CD3"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/draftCDV"/>
       <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/CDV"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/draftDTS"/>
       <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/DTS"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/draftDTR"/>
       <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/DTR"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/draftFDIS"/>
       <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/FDIS"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/draftTS"/>
       <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/TS"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/draftTR"/>
       <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/TR"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/draftIS"/>
       <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/IS"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//PubStage/PAS"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="nsd.ecore#//UndefinedAttributeTypeKind">
       <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//UndefinedAttributeTypeKind/undefined"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="nsd.ecore#//NSType">
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//NSType/basic"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//NSType/domain"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//NSType/transitional"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//NSType/product"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//NSType/private"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="nsd.ecore#//NSDependencyType">
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//NSDependencyType/dependsOn"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//NSDependencyType/includes"/>
+      <genEnumLiterals ecoreEnumLiteral="nsd.ecore#//NSDependencyType/extends"/>
     </genEnums>
     <genDataTypes ecoreDataType="nsd.ecore#//ACSIServicesKindObject"/>
     <genDataTypes ecoreDataType="nsd.ecore#//AttributeTypeKind"/>
@@ -199,12 +229,12 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//Changes/parentServiceNS"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//Changes/release"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//Changes/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//Changes/mergedNamespaces"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//ConstructedAttribute">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//ConstructedAttribute/subDataAttribute"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//ConstructedAttribute/name"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//ConstructedAttribute/parentConstructedAttributes"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//ConstructedAttribute/parentServiceTypeRealizations"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//ConstructedAttribute/referredByAttributeType"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//ConstructedAttribute/referredByUnderlyingType"/>
     </genClasses>
@@ -397,10 +427,17 @@
     <genClasses ecoreClass="nsd.ecore#//ServiceNsUsage">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//ServiceNsUsage/appliesTo"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//ServiceNsUsage/parentApplicableServiceNS"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//ServiceNsUsage/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//ServiceNsUsage/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//ServiceNsUsage/revision"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//ServiceParameter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//ServiceParameter/name"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//ServiceParameter/parentCDC"/>
+    </genClasses>
+    <genClasses ecoreClass="nsd.ecore#//ServiceTypeRealization">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//ServiceTypeRealization/realize"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nsd.ecore#//ServiceTypeRealization/parentServiceTypeRealizations"/>
     </genClasses>
     <genClasses ecoreClass="nsd.ecore#//ServiceTypeRealizations">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nsd.ecore#//ServiceTypeRealizations/serviceTypeRealization"/>
@@ -432,11 +469,13 @@
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="nsd.ecore#//AgNSIdentification">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgNSIdentification/release"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgNSIdentification/version"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgNSIdentification/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgNSIdentification/version"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgNSIdentification/revision"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgNSIdentification/release"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgNSIdentification/publicationStage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgNSIdentification/namespaceType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgNSIdentification/deprecated"/>
     </genClasses>
     <genClasses image="false" ecoreClass="nsd.ecore#//AgPresenceCondition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgPresenceCondition/presCond"/>
@@ -479,14 +518,27 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//AgUnderlyingType/refersToUnderlyingBasicType"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//AgUnderlyingType/refersToUnderlyingConstructedAttribute"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//AgUnderlyingType/refersToUnderlyingEnumeration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgUnderlyingType/underlyingControlType"/>
     </genClasses>
     <genClasses image="false" ecoreClass="nsd.ecore#//AgUML">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgUML/umlDate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgUML/umlVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgUML/appVersion"/>
     </genClasses>
     <genClasses image="false" ecoreClass="nsd.ecore#//AgNSdesc">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgNSdesc/descID"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nsd.ecore#//AgNSdesc/refersToDoc"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="nsd.ecore#//AgNSDIdentification">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgNSDIdentification/nsdVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgNSDIdentification/nsdRevision"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgNSDIdentification/nsdRelease"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="nsd.ecore#//AgDependsOn">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgDependsOn/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgDependsOn/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgDependsOn/revision"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nsd.ecore#//AgDependsOn/dependencyType"/>
     </genClasses>
     <genClasses image="false" ecoreClass="nsd.ecore#//IRiseClipseConsole"/>
   </genPackages>

@@ -43,12 +43,14 @@ import org.eclipse.ocl.pivot.values.IntegerValue;
 import org.eclipse.ocl.pivot.values.TupleValue;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSDIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSdesc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUML;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions;
@@ -69,13 +71,19 @@ import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getRelease <em>Release</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getId <em>Id</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getRevision <em>Revision</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getRelease <em>Release</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getPublicationStage <em>Publication Stage</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getNamespaceType <em>Namespace Type</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#isDeprecated <em>Deprecated</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getNsdVersion <em>Nsd Version</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getNsdRevision <em>Nsd Revision</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getNsdRelease <em>Nsd Release</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getUmlDate <em>Uml Date</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getUmlVersion <em>Uml Version</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getAppVersion <em>App Version</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getDescID <em>Desc ID</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getRefersToDoc <em>Refers To Doc</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.ServiceNSImpl#getChanges <em>Changes</em>}</li>
@@ -91,33 +99,33 @@ import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
  */
 public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
     /**
-     * The default value of the '{@link #getRelease() <em>Release</em>}' attribute.
+     * The default value of the '{@link #getId() <em>Id</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getRelease()
+     * @see #getId()
      * @generated
      * @ordered
      */
-    protected static final Integer RELEASE_EDEFAULT = Integer.valueOf( 1 );
+    protected static final String ID_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getRelease() <em>Release</em>}' attribute.
+     * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getRelease()
+     * @see #getId()
      * @generated
      * @ordered
      */
-    protected Integer release = RELEASE_EDEFAULT;
+    protected String id = ID_EDEFAULT;
 
     /**
-     * This is true if the Release attribute has been set.
+     * This is true if the Id attribute has been set.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    protected boolean releaseESet;
+    protected boolean idESet;
 
     /**
      * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
@@ -149,35 +157,6 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
     protected boolean versionESet;
 
     /**
-     * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getId()
-     * @generated
-     * @ordered
-     */
-    protected static final String ID_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getId()
-     * @generated
-     * @ordered
-     */
-    protected String id = ID_EDEFAULT;
-
-    /**
-     * This is true if the Id attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean idESet;
-
-    /**
      * The default value of the '{@link #getRevision() <em>Revision</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -207,6 +186,35 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
     protected boolean revisionESet;
 
     /**
+     * The default value of the '{@link #getRelease() <em>Release</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRelease()
+     * @generated
+     * @ordered
+     */
+    protected static final int RELEASE_EDEFAULT = 1;
+
+    /**
+     * The cached value of the '{@link #getRelease() <em>Release</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRelease()
+     * @generated
+     * @ordered
+     */
+    protected int release = RELEASE_EDEFAULT;
+
+    /**
+     * This is true if the Release attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean releaseESet;
+
+    /**
      * The default value of the '{@link #getPublicationStage() <em>Publication Stage</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -234,6 +242,151 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
      * @ordered
      */
     protected boolean publicationStageESet;
+
+    /**
+     * The default value of the '{@link #getNamespaceType() <em>Namespace Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNamespaceType()
+     * @generated
+     * @ordered
+     */
+    protected static final NSType NAMESPACE_TYPE_EDEFAULT = NSType.BASIC;
+
+    /**
+     * The cached value of the '{@link #getNamespaceType() <em>Namespace Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNamespaceType()
+     * @generated
+     * @ordered
+     */
+    protected NSType namespaceType = NAMESPACE_TYPE_EDEFAULT;
+
+    /**
+     * This is true if the Namespace Type attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean namespaceTypeESet;
+
+    /**
+     * The default value of the '{@link #isDeprecated() <em>Deprecated</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isDeprecated()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean DEPRECATED_EDEFAULT = false;
+
+    /**
+     * The cached value of the '{@link #isDeprecated() <em>Deprecated</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isDeprecated()
+     * @generated
+     * @ordered
+     */
+    protected boolean deprecated = DEPRECATED_EDEFAULT;
+
+    /**
+     * This is true if the Deprecated attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean deprecatedESet;
+
+    /**
+     * The default value of the '{@link #getNsdVersion() <em>Nsd Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNsdVersion()
+     * @generated
+     * @ordered
+     */
+    protected static final Integer NSD_VERSION_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getNsdVersion() <em>Nsd Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNsdVersion()
+     * @generated
+     * @ordered
+     */
+    protected Integer nsdVersion = NSD_VERSION_EDEFAULT;
+
+    /**
+     * This is true if the Nsd Version attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean nsdVersionESet;
+
+    /**
+     * The default value of the '{@link #getNsdRevision() <em>Nsd Revision</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNsdRevision()
+     * @generated
+     * @ordered
+     */
+    protected static final String NSD_REVISION_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getNsdRevision() <em>Nsd Revision</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNsdRevision()
+     * @generated
+     * @ordered
+     */
+    protected String nsdRevision = NSD_REVISION_EDEFAULT;
+
+    /**
+     * This is true if the Nsd Revision attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean nsdRevisionESet;
+
+    /**
+     * The default value of the '{@link #getNsdRelease() <em>Nsd Release</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNsdRelease()
+     * @generated
+     * @ordered
+     */
+    protected static final Integer NSD_RELEASE_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getNsdRelease() <em>Nsd Release</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNsdRelease()
+     * @generated
+     * @ordered
+     */
+    protected Integer nsdRelease = NSD_RELEASE_EDEFAULT;
+
+    /**
+     * This is true if the Nsd Release attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean nsdReleaseESet;
 
     /**
      * The default value of the '{@link #getUmlDate() <em>Uml Date</em>}' attribute.
@@ -292,6 +445,35 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
      * @ordered
      */
     protected boolean umlVersionESet;
+
+    /**
+     * The default value of the '{@link #getAppVersion() <em>App Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getAppVersion()
+     * @generated
+     * @ordered
+     */
+    protected static final String APP_VERSION_EDEFAULT = "\"\"";
+
+    /**
+     * The cached value of the '{@link #getAppVersion() <em>App Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getAppVersion()
+     * @generated
+     * @ordered
+     */
+    protected String appVersion = APP_VERSION_EDEFAULT;
+
+    /**
+     * This is true if the App Version attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean appVersionESet;
 
     /**
      * The default value of the '{@link #getDescID() <em>Desc ID</em>}' attribute.
@@ -516,10 +698,12 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.SERVICE_NS__CHANGES, oldChanges, newChanges, !oldChangesESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -533,21 +717,26 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
     public void setChanges( Changes newChanges ) {
         if( newChanges != changes ) {
             NotificationChain msgs = null;
-            if( changes != null )
+            if( changes != null ) {
                 msgs = ( ( InternalEObject ) changes ).eInverseRemove( this, NsdPackage.CHANGES__PARENT_SERVICE_NS,
                         Changes.class, msgs );
-            if( newChanges != null )
+            }
+            if( newChanges != null ) {
                 msgs = ( ( InternalEObject ) newChanges ).eInverseAdd( this, NsdPackage.CHANGES__PARENT_SERVICE_NS,
                         Changes.class, msgs );
+            }
             msgs = basicSetChanges( newChanges, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldChangesESet = changesESet;
             changesESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_NS__CHANGES, newChanges,
                         newChanges, !oldChangesESet ) );
+            }
         }
     }
 
@@ -564,10 +753,12 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.SERVICE_NS__CHANGES, oldChanges, null, oldChangesESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -584,14 +775,17 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
             msgs = ( ( InternalEObject ) changes ).eInverseRemove( this, NsdPackage.CHANGES__PARENT_SERVICE_NS,
                     Changes.class, msgs );
             msgs = basicUnsetChanges( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldChangesESet = changesESet;
             changesESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_NS__CHANGES, null, null,
                         oldChangesESet ) );
+            }
         }
     }
 
@@ -630,10 +824,12 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.SERVICE_NS__FUNCTIONAL_CONSTRAINTS, oldFunctionalConstraints, newFunctionalConstraints,
                     !oldFunctionalConstraintsESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -647,21 +843,26 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
     public void setFunctionalConstraints( FunctionalConstraints newFunctionalConstraints ) {
         if( newFunctionalConstraints != functionalConstraints ) {
             NotificationChain msgs = null;
-            if( functionalConstraints != null )
+            if( functionalConstraints != null ) {
                 msgs = ( ( InternalEObject ) functionalConstraints ).eInverseRemove( this,
                         NsdPackage.FUNCTIONAL_CONSTRAINTS__PARENT_SERVICE_NS, FunctionalConstraints.class, msgs );
-            if( newFunctionalConstraints != null )
+            }
+            if( newFunctionalConstraints != null ) {
                 msgs = ( ( InternalEObject ) newFunctionalConstraints ).eInverseAdd( this,
                         NsdPackage.FUNCTIONAL_CONSTRAINTS__PARENT_SERVICE_NS, FunctionalConstraints.class, msgs );
+            }
             msgs = basicSetFunctionalConstraints( newFunctionalConstraints, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldFunctionalConstraintsESet = functionalConstraintsESet;
             functionalConstraintsESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_NS__FUNCTIONAL_CONSTRAINTS,
                         newFunctionalConstraints, newFunctionalConstraints, !oldFunctionalConstraintsESet ) );
+            }
         }
     }
 
@@ -679,10 +880,12 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.SERVICE_NS__FUNCTIONAL_CONSTRAINTS, oldFunctionalConstraints, null,
                     oldFunctionalConstraintsESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -699,14 +902,17 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
             msgs = ( ( InternalEObject ) functionalConstraints ).eInverseRemove( this,
                     NsdPackage.FUNCTIONAL_CONSTRAINTS__PARENT_SERVICE_NS, FunctionalConstraints.class, msgs );
             msgs = basicUnsetFunctionalConstraints( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldFunctionalConstraintsESet = functionalConstraintsESet;
             functionalConstraintsESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_NS__FUNCTIONAL_CONSTRAINTS,
                         null, null, oldFunctionalConstraintsESet ) );
+            }
         }
     }
 
@@ -745,10 +951,12 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.SERVICE_NS__PRESENCE_CONDITIONS, oldPresenceConditions, newPresenceConditions,
                     !oldPresenceConditionsESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -762,21 +970,26 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
     public void setPresenceConditions( PresenceConditions newPresenceConditions ) {
         if( newPresenceConditions != presenceConditions ) {
             NotificationChain msgs = null;
-            if( presenceConditions != null )
+            if( presenceConditions != null ) {
                 msgs = ( ( InternalEObject ) presenceConditions ).eInverseRemove( this,
                         NsdPackage.PRESENCE_CONDITIONS__PARENT_SERVICE_NS, PresenceConditions.class, msgs );
-            if( newPresenceConditions != null )
+            }
+            if( newPresenceConditions != null ) {
                 msgs = ( ( InternalEObject ) newPresenceConditions ).eInverseAdd( this,
                         NsdPackage.PRESENCE_CONDITIONS__PARENT_SERVICE_NS, PresenceConditions.class, msgs );
+            }
             msgs = basicSetPresenceConditions( newPresenceConditions, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldPresenceConditionsESet = presenceConditionsESet;
             presenceConditionsESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_NS__PRESENCE_CONDITIONS,
                         newPresenceConditions, newPresenceConditions, !oldPresenceConditionsESet ) );
+            }
         }
     }
 
@@ -794,10 +1007,12 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.SERVICE_NS__PRESENCE_CONDITIONS, oldPresenceConditions, null,
                     oldPresenceConditionsESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -814,14 +1029,17 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
             msgs = ( ( InternalEObject ) presenceConditions ).eInverseRemove( this,
                     NsdPackage.PRESENCE_CONDITIONS__PARENT_SERVICE_NS, PresenceConditions.class, msgs );
             msgs = basicUnsetPresenceConditions( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldPresenceConditionsESet = presenceConditionsESet;
             presenceConditionsESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_NS__PRESENCE_CONDITIONS,
                         null, null, oldPresenceConditionsESet ) );
+            }
         }
     }
 
@@ -858,10 +1076,12 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.SERVICE_NS__ABBREVIATIONS, oldAbbreviations, newAbbreviations, !oldAbbreviationsESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -875,21 +1095,26 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
     public void setAbbreviations( Abbreviations newAbbreviations ) {
         if( newAbbreviations != abbreviations ) {
             NotificationChain msgs = null;
-            if( abbreviations != null )
+            if( abbreviations != null ) {
                 msgs = ( ( InternalEObject ) abbreviations ).eInverseRemove( this,
                         NsdPackage.ABBREVIATIONS__PARENT_SERVICE_NS, Abbreviations.class, msgs );
-            if( newAbbreviations != null )
+            }
+            if( newAbbreviations != null ) {
                 msgs = ( ( InternalEObject ) newAbbreviations ).eInverseAdd( this,
                         NsdPackage.ABBREVIATIONS__PARENT_SERVICE_NS, Abbreviations.class, msgs );
+            }
             msgs = basicSetAbbreviations( newAbbreviations, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldAbbreviationsESet = abbreviationsESet;
             abbreviationsESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_NS__ABBREVIATIONS,
                         newAbbreviations, newAbbreviations, !oldAbbreviationsESet ) );
+            }
         }
     }
 
@@ -906,10 +1131,12 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.SERVICE_NS__ABBREVIATIONS, oldAbbreviations, null, oldAbbreviationsESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -926,14 +1153,17 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
             msgs = ( ( InternalEObject ) abbreviations ).eInverseRemove( this,
                     NsdPackage.ABBREVIATIONS__PARENT_SERVICE_NS, Abbreviations.class, msgs );
             msgs = basicUnsetAbbreviations( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldAbbreviationsESet = abbreviationsESet;
             abbreviationsESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_NS__ABBREVIATIONS, null,
                         null, oldAbbreviationsESet ) );
+            }
         }
     }
 
@@ -972,10 +1202,12 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.SERVICE_NS__SERVICE_TYPE_REALIZATIONS, oldServiceTypeRealizations,
                     newServiceTypeRealizations, !oldServiceTypeRealizationsESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -989,22 +1221,27 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
     public void setServiceTypeRealizations( ServiceTypeRealizations newServiceTypeRealizations ) {
         if( newServiceTypeRealizations != serviceTypeRealizations ) {
             NotificationChain msgs = null;
-            if( serviceTypeRealizations != null )
+            if( serviceTypeRealizations != null ) {
                 msgs = ( ( InternalEObject ) serviceTypeRealizations ).eInverseRemove( this,
                         NsdPackage.SERVICE_TYPE_REALIZATIONS__PARENT_SERVICE_NS, ServiceTypeRealizations.class, msgs );
-            if( newServiceTypeRealizations != null )
+            }
+            if( newServiceTypeRealizations != null ) {
                 msgs = ( ( InternalEObject ) newServiceTypeRealizations ).eInverseAdd( this,
                         NsdPackage.SERVICE_TYPE_REALIZATIONS__PARENT_SERVICE_NS, ServiceTypeRealizations.class, msgs );
+            }
             msgs = basicSetServiceTypeRealizations( newServiceTypeRealizations, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldServiceTypeRealizationsESet = serviceTypeRealizationsESet;
             serviceTypeRealizationsESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET,
                         NsdPackage.SERVICE_NS__SERVICE_TYPE_REALIZATIONS, newServiceTypeRealizations,
                         newServiceTypeRealizations, !oldServiceTypeRealizationsESet ) );
+            }
         }
     }
 
@@ -1022,10 +1259,12 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.SERVICE_NS__SERVICE_TYPE_REALIZATIONS, oldServiceTypeRealizations, null,
                     oldServiceTypeRealizationsESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1042,15 +1281,18 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
             msgs = ( ( InternalEObject ) serviceTypeRealizations ).eInverseRemove( this,
                     NsdPackage.SERVICE_TYPE_REALIZATIONS__PARENT_SERVICE_NS, ServiceTypeRealizations.class, msgs );
             msgs = basicUnsetServiceTypeRealizations( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldServiceTypeRealizationsESet = serviceTypeRealizationsESet;
             serviceTypeRealizationsESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET,
                         NsdPackage.SERVICE_NS__SERVICE_TYPE_REALIZATIONS, null, null,
                         oldServiceTypeRealizationsESet ) );
+            }
         }
     }
 
@@ -1089,10 +1331,12 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.SERVICE_NS__SERVICE_CONSTRUCTED_ATTRIBUTES, oldServiceConstructedAttributes,
                     newServiceConstructedAttributes, !oldServiceConstructedAttributesESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1106,24 +1350,29 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
     public void setServiceConstructedAttributes( ServiceConstructedAttributes newServiceConstructedAttributes ) {
         if( newServiceConstructedAttributes != serviceConstructedAttributes ) {
             NotificationChain msgs = null;
-            if( serviceConstructedAttributes != null )
+            if( serviceConstructedAttributes != null ) {
                 msgs = ( ( InternalEObject ) serviceConstructedAttributes ).eInverseRemove( this,
                         NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__PARENT_SERVICE_NS,
                         ServiceConstructedAttributes.class, msgs );
-            if( newServiceConstructedAttributes != null )
+            }
+            if( newServiceConstructedAttributes != null ) {
                 msgs = ( ( InternalEObject ) newServiceConstructedAttributes ).eInverseAdd( this,
                         NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__PARENT_SERVICE_NS,
                         ServiceConstructedAttributes.class, msgs );
+            }
             msgs = basicSetServiceConstructedAttributes( newServiceConstructedAttributes, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldServiceConstructedAttributesESet = serviceConstructedAttributesESet;
             serviceConstructedAttributesESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET,
                         NsdPackage.SERVICE_NS__SERVICE_CONSTRUCTED_ATTRIBUTES, newServiceConstructedAttributes,
                         newServiceConstructedAttributes, !oldServiceConstructedAttributesESet ) );
+            }
         }
     }
 
@@ -1141,10 +1390,12 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.SERVICE_NS__SERVICE_CONSTRUCTED_ATTRIBUTES, oldServiceConstructedAttributes, null,
                     oldServiceConstructedAttributesESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1162,15 +1413,18 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
                     NsdPackage.SERVICE_CONSTRUCTED_ATTRIBUTES__PARENT_SERVICE_NS, ServiceConstructedAttributes.class,
                     msgs );
             msgs = basicUnsetServiceConstructedAttributes( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldServiceConstructedAttributesESet = serviceConstructedAttributesESet;
             serviceConstructedAttributesESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET,
                         NsdPackage.SERVICE_NS__SERVICE_CONSTRUCTED_ATTRIBUTES, null, null,
                         oldServiceConstructedAttributesESet ) );
+            }
         }
     }
 
@@ -1207,10 +1461,12 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.SERVICE_NS__SERVICE_CD_CS, oldServiceCDCs, newServiceCDCs, !oldServiceCDCsESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1224,21 +1480,26 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
     public void setServiceCDCs( ServiceCDCs newServiceCDCs ) {
         if( newServiceCDCs != serviceCDCs ) {
             NotificationChain msgs = null;
-            if( serviceCDCs != null )
+            if( serviceCDCs != null ) {
                 msgs = ( ( InternalEObject ) serviceCDCs ).eInverseRemove( this,
                         NsdPackage.SERVICE_CD_CS__PARENT_SERVICE_NS, ServiceCDCs.class, msgs );
-            if( newServiceCDCs != null )
+            }
+            if( newServiceCDCs != null ) {
                 msgs = ( ( InternalEObject ) newServiceCDCs ).eInverseAdd( this,
                         NsdPackage.SERVICE_CD_CS__PARENT_SERVICE_NS, ServiceCDCs.class, msgs );
+            }
             msgs = basicSetServiceCDCs( newServiceCDCs, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldServiceCDCsESet = serviceCDCsESet;
             serviceCDCsESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_NS__SERVICE_CD_CS,
                         newServiceCDCs, newServiceCDCs, !oldServiceCDCsESet ) );
+            }
         }
     }
 
@@ -1255,10 +1516,12 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.SERVICE_NS__SERVICE_CD_CS, oldServiceCDCs, null, oldServiceCDCsESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1275,14 +1538,17 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
             msgs = ( ( InternalEObject ) serviceCDCs ).eInverseRemove( this,
                     NsdPackage.SERVICE_CD_CS__PARENT_SERVICE_NS, ServiceCDCs.class, msgs );
             msgs = basicUnsetServiceCDCs( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldServiceCDCsESet = serviceCDCsESet;
             serviceCDCsESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_NS__SERVICE_CD_CS, null,
                         null, oldServiceCDCsESet ) );
+            }
         }
     }
 
@@ -1447,9 +1713,10 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         descID = newDescID;
         boolean oldDescIDESet = descIDESet;
         descIDESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_NS__DESC_ID, oldDescID, descID,
                     !oldDescIDESet ) );
+        }
     }
 
     /**
@@ -1463,9 +1730,10 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         boolean oldDescIDESet = descIDESet;
         descID = DESC_ID_EDEFAULT;
         descIDESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_NS__DESC_ID, oldDescID,
                     DESC_ID_EDEFAULT, oldDescIDESet ) );
+        }
     }
 
     /**
@@ -1501,10 +1769,12 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.SET,
                     NsdPackage.SERVICE_NS__REFERS_TO_DOC, oldRefersToDoc, newRefersToDoc, !oldRefersToDocESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1518,21 +1788,26 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
     public void setRefersToDoc( Doc newRefersToDoc ) {
         if( newRefersToDoc != refersToDoc ) {
             NotificationChain msgs = null;
-            if( refersToDoc != null )
+            if( refersToDoc != null ) {
                 msgs = ( ( InternalEObject ) refersToDoc ).eInverseRemove( this, NsdPackage.DOC__REFERRED_BY_AG_NS_DESC,
                         Doc.class, msgs );
-            if( newRefersToDoc != null )
+            }
+            if( newRefersToDoc != null ) {
                 msgs = ( ( InternalEObject ) newRefersToDoc ).eInverseAdd( this, NsdPackage.DOC__REFERRED_BY_AG_NS_DESC,
                         Doc.class, msgs );
+            }
             msgs = basicSetRefersToDoc( newRefersToDoc, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToDocESet = refersToDocESet;
             refersToDocESet = true;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_NS__REFERS_TO_DOC,
                         newRefersToDoc, newRefersToDoc, !oldRefersToDocESet ) );
+            }
         }
     }
 
@@ -1549,10 +1824,12 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         if( eNotificationRequired() ) {
             ENotificationImpl notification = new ENotificationImpl( this, Notification.UNSET,
                     NsdPackage.SERVICE_NS__REFERS_TO_DOC, oldRefersToDoc, null, oldRefersToDocESet );
-            if( msgs == null )
+            if( msgs == null ) {
                 msgs = notification;
-            else
+            }
+            else {
                 msgs.add( notification );
+            }
         }
         return msgs;
     }
@@ -1569,14 +1846,17 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
             msgs = ( ( InternalEObject ) refersToDoc ).eInverseRemove( this, NsdPackage.DOC__REFERRED_BY_AG_NS_DESC,
                     Doc.class, msgs );
             msgs = basicUnsetRefersToDoc( msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
         else {
             boolean oldRefersToDocESet = refersToDocESet;
             refersToDocESet = false;
-            if( eNotificationRequired() )
+            if( eNotificationRequired() ) {
                 eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_NS__REFERS_TO_DOC, null,
                         null, oldRefersToDocESet ) );
+            }
         }
     }
 
@@ -1611,9 +1891,10 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         id = newId;
         boolean oldIdESet = idESet;
         idESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_NS__ID, oldId, id,
                     !oldIdESet ) );
+        }
     }
 
     /**
@@ -1627,9 +1908,10 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         boolean oldIdESet = idESet;
         id = ID_EDEFAULT;
         idESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_NS__ID, oldId, ID_EDEFAULT,
                     oldIdESet ) );
+        }
     }
 
     /**
@@ -1663,9 +1945,10 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         publicationStage = newPublicationStage == null ? PUBLICATION_STAGE_EDEFAULT : newPublicationStage;
         boolean oldPublicationStageESet = publicationStageESet;
         publicationStageESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_NS__PUBLICATION_STAGE,
                     oldPublicationStage, publicationStage, !oldPublicationStageESet ) );
+        }
     }
 
     /**
@@ -1679,9 +1962,10 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         boolean oldPublicationStageESet = publicationStageESet;
         publicationStage = PUBLICATION_STAGE_EDEFAULT;
         publicationStageESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_NS__PUBLICATION_STAGE,
                     oldPublicationStage, PUBLICATION_STAGE_EDEFAULT, oldPublicationStageESet ) );
+        }
     }
 
     /**
@@ -1700,7 +1984,277 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
      * @generated
      */
     @Override
-    public Integer getRelease() {
+    public NSType getNamespaceType() {
+        return namespaceType;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setNamespaceType( NSType newNamespaceType ) {
+        NSType oldNamespaceType = namespaceType;
+        namespaceType = newNamespaceType == null ? NAMESPACE_TYPE_EDEFAULT : newNamespaceType;
+        boolean oldNamespaceTypeESet = namespaceTypeESet;
+        namespaceTypeESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_NS__NAMESPACE_TYPE,
+                    oldNamespaceType, namespaceType, !oldNamespaceTypeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetNamespaceType() {
+        NSType oldNamespaceType = namespaceType;
+        boolean oldNamespaceTypeESet = namespaceTypeESet;
+        namespaceType = NAMESPACE_TYPE_EDEFAULT;
+        namespaceTypeESet = false;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_NS__NAMESPACE_TYPE,
+                    oldNamespaceType, NAMESPACE_TYPE_EDEFAULT, oldNamespaceTypeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetNamespaceType() {
+        return namespaceTypeESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isDeprecated() {
+        return deprecated;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setDeprecated( boolean newDeprecated ) {
+        boolean oldDeprecated = deprecated;
+        deprecated = newDeprecated;
+        boolean oldDeprecatedESet = deprecatedESet;
+        deprecatedESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_NS__DEPRECATED, oldDeprecated,
+                    deprecated, !oldDeprecatedESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetDeprecated() {
+        boolean oldDeprecated = deprecated;
+        boolean oldDeprecatedESet = deprecatedESet;
+        deprecated = DEPRECATED_EDEFAULT;
+        deprecatedESet = false;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_NS__DEPRECATED, oldDeprecated,
+                    DEPRECATED_EDEFAULT, oldDeprecatedESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetDeprecated() {
+        return deprecatedESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Integer getNsdVersion() {
+        return nsdVersion;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setNsdVersion( Integer newNsdVersion ) {
+        Integer oldNsdVersion = nsdVersion;
+        nsdVersion = newNsdVersion;
+        boolean oldNsdVersionESet = nsdVersionESet;
+        nsdVersionESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_NS__NSD_VERSION, oldNsdVersion,
+                    nsdVersion, !oldNsdVersionESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetNsdVersion() {
+        Integer oldNsdVersion = nsdVersion;
+        boolean oldNsdVersionESet = nsdVersionESet;
+        nsdVersion = NSD_VERSION_EDEFAULT;
+        nsdVersionESet = false;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_NS__NSD_VERSION, oldNsdVersion,
+                    NSD_VERSION_EDEFAULT, oldNsdVersionESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetNsdVersion() {
+        return nsdVersionESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String getNsdRevision() {
+        return nsdRevision;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setNsdRevision( String newNsdRevision ) {
+        String oldNsdRevision = nsdRevision;
+        nsdRevision = newNsdRevision;
+        boolean oldNsdRevisionESet = nsdRevisionESet;
+        nsdRevisionESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_NS__NSD_REVISION, oldNsdRevision,
+                    nsdRevision, !oldNsdRevisionESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetNsdRevision() {
+        String oldNsdRevision = nsdRevision;
+        boolean oldNsdRevisionESet = nsdRevisionESet;
+        nsdRevision = NSD_REVISION_EDEFAULT;
+        nsdRevisionESet = false;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_NS__NSD_REVISION,
+                    oldNsdRevision, NSD_REVISION_EDEFAULT, oldNsdRevisionESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetNsdRevision() {
+        return nsdRevisionESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Integer getNsdRelease() {
+        return nsdRelease;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setNsdRelease( Integer newNsdRelease ) {
+        Integer oldNsdRelease = nsdRelease;
+        nsdRelease = newNsdRelease;
+        boolean oldNsdReleaseESet = nsdReleaseESet;
+        nsdReleaseESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_NS__NSD_RELEASE, oldNsdRelease,
+                    nsdRelease, !oldNsdReleaseESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetNsdRelease() {
+        Integer oldNsdRelease = nsdRelease;
+        boolean oldNsdReleaseESet = nsdReleaseESet;
+        nsdRelease = NSD_RELEASE_EDEFAULT;
+        nsdReleaseESet = false;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_NS__NSD_RELEASE, oldNsdRelease,
+                    NSD_RELEASE_EDEFAULT, oldNsdReleaseESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetNsdRelease() {
+        return nsdReleaseESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public int getRelease() {
         return release;
     }
 
@@ -1710,14 +2264,15 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
      * @generated
      */
     @Override
-    public void setRelease( Integer newRelease ) {
-        Integer oldRelease = release;
+    public void setRelease( int newRelease ) {
+        int oldRelease = release;
         release = newRelease;
         boolean oldReleaseESet = releaseESet;
         releaseESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_NS__RELEASE, oldRelease, release,
                     !oldReleaseESet ) );
+        }
     }
 
     /**
@@ -1727,13 +2282,14 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
      */
     @Override
     public void unsetRelease() {
-        Integer oldRelease = release;
+        int oldRelease = release;
         boolean oldReleaseESet = releaseESet;
         release = RELEASE_EDEFAULT;
         releaseESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_NS__RELEASE, oldRelease,
                     RELEASE_EDEFAULT, oldReleaseESet ) );
+        }
     }
 
     /**
@@ -1767,9 +2323,10 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         revision = newRevision;
         boolean oldRevisionESet = revisionESet;
         revisionESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_NS__REVISION, oldRevision,
                     revision, !oldRevisionESet ) );
+        }
     }
 
     /**
@@ -1783,9 +2340,10 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         boolean oldRevisionESet = revisionESet;
         revision = REVISION_EDEFAULT;
         revisionESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_NS__REVISION, oldRevision,
                     REVISION_EDEFAULT, oldRevisionESet ) );
+        }
     }
 
     /**
@@ -1819,9 +2377,10 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         umlDate = newUmlDate;
         boolean oldUmlDateESet = umlDateESet;
         umlDateESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_NS__UML_DATE, oldUmlDate,
                     umlDate, !oldUmlDateESet ) );
+        }
     }
 
     /**
@@ -1835,9 +2394,10 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         boolean oldUmlDateESet = umlDateESet;
         umlDate = UML_DATE_EDEFAULT;
         umlDateESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_NS__UML_DATE, oldUmlDate,
                     UML_DATE_EDEFAULT, oldUmlDateESet ) );
+        }
     }
 
     /**
@@ -1871,9 +2431,10 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         umlVersion = newUmlVersion;
         boolean oldUmlVersionESet = umlVersionESet;
         umlVersionESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_NS__UML_VERSION, oldUmlVersion,
                     umlVersion, !oldUmlVersionESet ) );
+        }
     }
 
     /**
@@ -1887,9 +2448,10 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         boolean oldUmlVersionESet = umlVersionESet;
         umlVersion = UML_VERSION_EDEFAULT;
         umlVersionESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_NS__UML_VERSION, oldUmlVersion,
                     UML_VERSION_EDEFAULT, oldUmlVersionESet ) );
+        }
     }
 
     /**
@@ -1908,47 +2470,109 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
      * @generated
      */
     @Override
+    public String getAppVersion() {
+        return appVersion;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setAppVersion( String newAppVersion ) {
+        String oldAppVersion = appVersion;
+        appVersion = newAppVersion;
+        boolean oldAppVersionESet = appVersionESet;
+        appVersionESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_NS__APP_VERSION, oldAppVersion,
+                    appVersion, !oldAppVersionESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetAppVersion() {
+        String oldAppVersion = appVersion;
+        boolean oldAppVersionESet = appVersionESet;
+        appVersion = APP_VERSION_EDEFAULT;
+        appVersionESet = false;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_NS__APP_VERSION, oldAppVersion,
+                    APP_VERSION_EDEFAULT, oldAppVersionESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetAppVersion() {
+        return appVersionESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.SERVICE_NS__REFERS_TO_DOC:
-            if( refersToDoc != null )
+            if( refersToDoc != null ) {
                 msgs = ( ( InternalEObject ) refersToDoc ).eInverseRemove( this, NsdPackage.DOC__REFERRED_BY_AG_NS_DESC,
                         Doc.class, msgs );
+            }
             return basicSetRefersToDoc( ( Doc ) otherEnd, msgs );
         case NsdPackage.SERVICE_NS__CHANGES:
-            if( changes != null )
+            if( changes != null ) {
                 msgs = ( ( InternalEObject ) changes ).eInverseRemove( this,
                         EOPPOSITE_FEATURE_BASE - NsdPackage.SERVICE_NS__CHANGES, null, msgs );
+            }
             return basicSetChanges( ( Changes ) otherEnd, msgs );
         case NsdPackage.SERVICE_NS__FUNCTIONAL_CONSTRAINTS:
-            if( functionalConstraints != null )
+            if( functionalConstraints != null ) {
                 msgs = ( ( InternalEObject ) functionalConstraints ).eInverseRemove( this,
                         EOPPOSITE_FEATURE_BASE - NsdPackage.SERVICE_NS__FUNCTIONAL_CONSTRAINTS, null, msgs );
+            }
             return basicSetFunctionalConstraints( ( FunctionalConstraints ) otherEnd, msgs );
         case NsdPackage.SERVICE_NS__PRESENCE_CONDITIONS:
-            if( presenceConditions != null )
+            if( presenceConditions != null ) {
                 msgs = ( ( InternalEObject ) presenceConditions ).eInverseRemove( this,
                         EOPPOSITE_FEATURE_BASE - NsdPackage.SERVICE_NS__PRESENCE_CONDITIONS, null, msgs );
+            }
             return basicSetPresenceConditions( ( PresenceConditions ) otherEnd, msgs );
         case NsdPackage.SERVICE_NS__ABBREVIATIONS:
-            if( abbreviations != null )
+            if( abbreviations != null ) {
                 msgs = ( ( InternalEObject ) abbreviations ).eInverseRemove( this,
                         EOPPOSITE_FEATURE_BASE - NsdPackage.SERVICE_NS__ABBREVIATIONS, null, msgs );
+            }
             return basicSetAbbreviations( ( Abbreviations ) otherEnd, msgs );
         case NsdPackage.SERVICE_NS__SERVICE_TYPE_REALIZATIONS:
-            if( serviceTypeRealizations != null )
+            if( serviceTypeRealizations != null ) {
                 msgs = ( ( InternalEObject ) serviceTypeRealizations ).eInverseRemove( this,
                         EOPPOSITE_FEATURE_BASE - NsdPackage.SERVICE_NS__SERVICE_TYPE_REALIZATIONS, null, msgs );
+            }
             return basicSetServiceTypeRealizations( ( ServiceTypeRealizations ) otherEnd, msgs );
         case NsdPackage.SERVICE_NS__SERVICE_CONSTRUCTED_ATTRIBUTES:
-            if( serviceConstructedAttributes != null )
+            if( serviceConstructedAttributes != null ) {
                 msgs = ( ( InternalEObject ) serviceConstructedAttributes ).eInverseRemove( this,
                         EOPPOSITE_FEATURE_BASE - NsdPackage.SERVICE_NS__SERVICE_CONSTRUCTED_ATTRIBUTES, null, msgs );
+            }
             return basicSetServiceConstructedAttributes( ( ServiceConstructedAttributes ) otherEnd, msgs );
         case NsdPackage.SERVICE_NS__SERVICE_CD_CS:
-            if( serviceCDCs != null )
+            if( serviceCDCs != null ) {
                 msgs = ( ( InternalEObject ) serviceCDCs ).eInverseRemove( this,
                         EOPPOSITE_FEATURE_BASE - NsdPackage.SERVICE_NS__SERVICE_CD_CS, null, msgs );
+            }
             return basicSetServiceCDCs( ( ServiceCDCs ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
@@ -1975,9 +2599,10 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         version = newVersion;
         boolean oldVersionESet = versionESet;
         versionESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.SERVICE_NS__VERSION, oldVersion, version,
                     !oldVersionESet ) );
+        }
     }
 
     /**
@@ -1991,9 +2616,10 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
         boolean oldVersionESet = versionESet;
         version = VERSION_EDEFAULT;
         versionESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.SERVICE_NS__VERSION, oldVersion,
                     VERSION_EDEFAULT, oldVersionESet ) );
+        }
     }
 
     /**
@@ -2042,20 +2668,32 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
     @Override
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
-        case NsdPackage.SERVICE_NS__RELEASE:
-            return getRelease();
-        case NsdPackage.SERVICE_NS__VERSION:
-            return getVersion();
         case NsdPackage.SERVICE_NS__ID:
             return getId();
+        case NsdPackage.SERVICE_NS__VERSION:
+            return getVersion();
         case NsdPackage.SERVICE_NS__REVISION:
             return getRevision();
+        case NsdPackage.SERVICE_NS__RELEASE:
+            return getRelease();
         case NsdPackage.SERVICE_NS__PUBLICATION_STAGE:
             return getPublicationStage();
+        case NsdPackage.SERVICE_NS__NAMESPACE_TYPE:
+            return getNamespaceType();
+        case NsdPackage.SERVICE_NS__DEPRECATED:
+            return isDeprecated();
+        case NsdPackage.SERVICE_NS__NSD_VERSION:
+            return getNsdVersion();
+        case NsdPackage.SERVICE_NS__NSD_REVISION:
+            return getNsdRevision();
+        case NsdPackage.SERVICE_NS__NSD_RELEASE:
+            return getNsdRelease();
         case NsdPackage.SERVICE_NS__UML_DATE:
             return getUmlDate();
         case NsdPackage.SERVICE_NS__UML_VERSION:
             return getUmlVersion();
+        case NsdPackage.SERVICE_NS__APP_VERSION:
+            return getAppVersion();
         case NsdPackage.SERVICE_NS__DESC_ID:
             return getDescID();
         case NsdPackage.SERVICE_NS__REFERS_TO_DOC:
@@ -2086,26 +2724,44 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
     @Override
     public void eSet( int featureID, Object newValue ) {
         switch( featureID ) {
-        case NsdPackage.SERVICE_NS__RELEASE:
-            setRelease( ( Integer ) newValue );
+        case NsdPackage.SERVICE_NS__ID:
+            setId( ( String ) newValue );
             return;
         case NsdPackage.SERVICE_NS__VERSION:
             setVersion( ( Integer ) newValue );
             return;
-        case NsdPackage.SERVICE_NS__ID:
-            setId( ( String ) newValue );
-            return;
         case NsdPackage.SERVICE_NS__REVISION:
             setRevision( ( String ) newValue );
             return;
+        case NsdPackage.SERVICE_NS__RELEASE:
+            setRelease( ( Integer ) newValue );
+            return;
         case NsdPackage.SERVICE_NS__PUBLICATION_STAGE:
             setPublicationStage( ( PubStage ) newValue );
+            return;
+        case NsdPackage.SERVICE_NS__NAMESPACE_TYPE:
+            setNamespaceType( ( NSType ) newValue );
+            return;
+        case NsdPackage.SERVICE_NS__DEPRECATED:
+            setDeprecated( ( Boolean ) newValue );
+            return;
+        case NsdPackage.SERVICE_NS__NSD_VERSION:
+            setNsdVersion( ( Integer ) newValue );
+            return;
+        case NsdPackage.SERVICE_NS__NSD_REVISION:
+            setNsdRevision( ( String ) newValue );
+            return;
+        case NsdPackage.SERVICE_NS__NSD_RELEASE:
+            setNsdRelease( ( Integer ) newValue );
             return;
         case NsdPackage.SERVICE_NS__UML_DATE:
             setUmlDate( ( XMLGregorianCalendar ) newValue );
             return;
         case NsdPackage.SERVICE_NS__UML_VERSION:
             setUmlVersion( ( String ) newValue );
+            return;
+        case NsdPackage.SERVICE_NS__APP_VERSION:
+            setAppVersion( ( String ) newValue );
             return;
         case NsdPackage.SERVICE_NS__DESC_ID:
             setDescID( ( String ) newValue );
@@ -2146,26 +2802,44 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
     @Override
     public void eUnset( int featureID ) {
         switch( featureID ) {
-        case NsdPackage.SERVICE_NS__RELEASE:
-            unsetRelease();
+        case NsdPackage.SERVICE_NS__ID:
+            unsetId();
             return;
         case NsdPackage.SERVICE_NS__VERSION:
             unsetVersion();
             return;
-        case NsdPackage.SERVICE_NS__ID:
-            unsetId();
-            return;
         case NsdPackage.SERVICE_NS__REVISION:
             unsetRevision();
             return;
+        case NsdPackage.SERVICE_NS__RELEASE:
+            unsetRelease();
+            return;
         case NsdPackage.SERVICE_NS__PUBLICATION_STAGE:
             unsetPublicationStage();
+            return;
+        case NsdPackage.SERVICE_NS__NAMESPACE_TYPE:
+            unsetNamespaceType();
+            return;
+        case NsdPackage.SERVICE_NS__DEPRECATED:
+            unsetDeprecated();
+            return;
+        case NsdPackage.SERVICE_NS__NSD_VERSION:
+            unsetNsdVersion();
+            return;
+        case NsdPackage.SERVICE_NS__NSD_REVISION:
+            unsetNsdRevision();
+            return;
+        case NsdPackage.SERVICE_NS__NSD_RELEASE:
+            unsetNsdRelease();
             return;
         case NsdPackage.SERVICE_NS__UML_DATE:
             unsetUmlDate();
             return;
         case NsdPackage.SERVICE_NS__UML_VERSION:
             unsetUmlVersion();
+            return;
+        case NsdPackage.SERVICE_NS__APP_VERSION:
+            unsetAppVersion();
             return;
         case NsdPackage.SERVICE_NS__DESC_ID:
             unsetDescID();
@@ -2206,20 +2880,32 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
     @Override
     public boolean eIsSet( int featureID ) {
         switch( featureID ) {
-        case NsdPackage.SERVICE_NS__RELEASE:
-            return isSetRelease();
-        case NsdPackage.SERVICE_NS__VERSION:
-            return isSetVersion();
         case NsdPackage.SERVICE_NS__ID:
             return isSetId();
+        case NsdPackage.SERVICE_NS__VERSION:
+            return isSetVersion();
         case NsdPackage.SERVICE_NS__REVISION:
             return isSetRevision();
+        case NsdPackage.SERVICE_NS__RELEASE:
+            return isSetRelease();
         case NsdPackage.SERVICE_NS__PUBLICATION_STAGE:
             return isSetPublicationStage();
+        case NsdPackage.SERVICE_NS__NAMESPACE_TYPE:
+            return isSetNamespaceType();
+        case NsdPackage.SERVICE_NS__DEPRECATED:
+            return isSetDeprecated();
+        case NsdPackage.SERVICE_NS__NSD_VERSION:
+            return isSetNsdVersion();
+        case NsdPackage.SERVICE_NS__NSD_REVISION:
+            return isSetNsdRevision();
+        case NsdPackage.SERVICE_NS__NSD_RELEASE:
+            return isSetNsdRelease();
         case NsdPackage.SERVICE_NS__UML_DATE:
             return isSetUmlDate();
         case NsdPackage.SERVICE_NS__UML_VERSION:
             return isSetUmlVersion();
+        case NsdPackage.SERVICE_NS__APP_VERSION:
+            return isSetAppVersion();
         case NsdPackage.SERVICE_NS__DESC_ID:
             return isSetDescID();
         case NsdPackage.SERVICE_NS__REFERS_TO_DOC:
@@ -2251,16 +2937,32 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
     public int eBaseStructuralFeatureID( int derivedFeatureID, Class< ? > baseClass ) {
         if( baseClass == AgNSIdentification.class ) {
             switch( derivedFeatureID ) {
-            case NsdPackage.SERVICE_NS__RELEASE:
-                return NsdPackage.AG_NS_IDENTIFICATION__RELEASE;
-            case NsdPackage.SERVICE_NS__VERSION:
-                return NsdPackage.AG_NS_IDENTIFICATION__VERSION;
             case NsdPackage.SERVICE_NS__ID:
                 return NsdPackage.AG_NS_IDENTIFICATION__ID;
+            case NsdPackage.SERVICE_NS__VERSION:
+                return NsdPackage.AG_NS_IDENTIFICATION__VERSION;
             case NsdPackage.SERVICE_NS__REVISION:
                 return NsdPackage.AG_NS_IDENTIFICATION__REVISION;
+            case NsdPackage.SERVICE_NS__RELEASE:
+                return NsdPackage.AG_NS_IDENTIFICATION__RELEASE;
             case NsdPackage.SERVICE_NS__PUBLICATION_STAGE:
                 return NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE;
+            case NsdPackage.SERVICE_NS__NAMESPACE_TYPE:
+                return NsdPackage.AG_NS_IDENTIFICATION__NAMESPACE_TYPE;
+            case NsdPackage.SERVICE_NS__DEPRECATED:
+                return NsdPackage.AG_NS_IDENTIFICATION__DEPRECATED;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgNSDIdentification.class ) {
+            switch( derivedFeatureID ) {
+            case NsdPackage.SERVICE_NS__NSD_VERSION:
+                return NsdPackage.AG_NSD_IDENTIFICATION__NSD_VERSION;
+            case NsdPackage.SERVICE_NS__NSD_REVISION:
+                return NsdPackage.AG_NSD_IDENTIFICATION__NSD_REVISION;
+            case NsdPackage.SERVICE_NS__NSD_RELEASE:
+                return NsdPackage.AG_NSD_IDENTIFICATION__NSD_RELEASE;
             default:
                 return -1;
             }
@@ -2271,6 +2973,8 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
                 return NsdPackage.AG_UML__UML_DATE;
             case NsdPackage.SERVICE_NS__UML_VERSION:
                 return NsdPackage.AG_UML__UML_VERSION;
+            case NsdPackage.SERVICE_NS__APP_VERSION:
+                return NsdPackage.AG_UML__APP_VERSION;
             default:
                 return -1;
             }
@@ -2297,16 +3001,32 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
     public int eDerivedStructuralFeatureID( int baseFeatureID, Class< ? > baseClass ) {
         if( baseClass == AgNSIdentification.class ) {
             switch( baseFeatureID ) {
-            case NsdPackage.AG_NS_IDENTIFICATION__RELEASE:
-                return NsdPackage.SERVICE_NS__RELEASE;
-            case NsdPackage.AG_NS_IDENTIFICATION__VERSION:
-                return NsdPackage.SERVICE_NS__VERSION;
             case NsdPackage.AG_NS_IDENTIFICATION__ID:
                 return NsdPackage.SERVICE_NS__ID;
+            case NsdPackage.AG_NS_IDENTIFICATION__VERSION:
+                return NsdPackage.SERVICE_NS__VERSION;
             case NsdPackage.AG_NS_IDENTIFICATION__REVISION:
                 return NsdPackage.SERVICE_NS__REVISION;
+            case NsdPackage.AG_NS_IDENTIFICATION__RELEASE:
+                return NsdPackage.SERVICE_NS__RELEASE;
             case NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE:
                 return NsdPackage.SERVICE_NS__PUBLICATION_STAGE;
+            case NsdPackage.AG_NS_IDENTIFICATION__NAMESPACE_TYPE:
+                return NsdPackage.SERVICE_NS__NAMESPACE_TYPE;
+            case NsdPackage.AG_NS_IDENTIFICATION__DEPRECATED:
+                return NsdPackage.SERVICE_NS__DEPRECATED;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgNSDIdentification.class ) {
+            switch( baseFeatureID ) {
+            case NsdPackage.AG_NSD_IDENTIFICATION__NSD_VERSION:
+                return NsdPackage.SERVICE_NS__NSD_VERSION;
+            case NsdPackage.AG_NSD_IDENTIFICATION__NSD_REVISION:
+                return NsdPackage.SERVICE_NS__NSD_REVISION;
+            case NsdPackage.AG_NSD_IDENTIFICATION__NSD_RELEASE:
+                return NsdPackage.SERVICE_NS__NSD_RELEASE;
             default:
                 return -1;
             }
@@ -2317,6 +3037,8 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
                 return NsdPackage.SERVICE_NS__UML_DATE;
             case NsdPackage.AG_UML__UML_VERSION:
                 return NsdPackage.SERVICE_NS__UML_VERSION;
+            case NsdPackage.AG_UML__APP_VERSION:
+                return NsdPackage.SERVICE_NS__APP_VERSION;
             default:
                 return -1;
             }
@@ -2347,6 +3069,12 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
                 return NsdPackage.SERVICE_NS___ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP;
             case NsdPackage.AG_NS_IDENTIFICATION___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP:
                 return NsdPackage.SERVICE_NS___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgNSDIdentification.class ) {
+            switch( baseOperationID ) {
             default:
                 return -1;
             }
@@ -2392,49 +3120,109 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
      */
     @Override
     public String toString() {
-        if( eIsProxy() ) return super.toString();
+        if( eIsProxy() ) {
+            return super.toString();
+        }
 
         StringBuilder result = new StringBuilder( super.toString() );
-        result.append( " (release: " );
-        if( releaseESet )
-            result.append( release );
-        else
-            result.append( "<unset>" );
-        result.append( ", version: " );
-        if( versionESet )
-            result.append( version );
-        else
-            result.append( "<unset>" );
-        result.append( ", id: " );
-        if( idESet )
+        result.append( " (id: " );
+        if( idESet ) {
             result.append( id );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
+        result.append( ", version: " );
+        if( versionESet ) {
+            result.append( version );
+        }
+        else {
+            result.append( "<unset>" );
+        }
         result.append( ", revision: " );
-        if( revisionESet )
+        if( revisionESet ) {
             result.append( revision );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
+        result.append( ", release: " );
+        if( releaseESet ) {
+            result.append( release );
+        }
+        else {
+            result.append( "<unset>" );
+        }
         result.append( ", publicationStage: " );
-        if( publicationStageESet )
+        if( publicationStageESet ) {
             result.append( publicationStage );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
+        result.append( ", namespaceType: " );
+        if( namespaceTypeESet ) {
+            result.append( namespaceType );
+        }
+        else {
+            result.append( "<unset>" );
+        }
+        result.append( ", deprecated: " );
+        if( deprecatedESet ) {
+            result.append( deprecated );
+        }
+        else {
+            result.append( "<unset>" );
+        }
+        result.append( ", nsdVersion: " );
+        if( nsdVersionESet ) {
+            result.append( nsdVersion );
+        }
+        else {
+            result.append( "<unset>" );
+        }
+        result.append( ", nsdRevision: " );
+        if( nsdRevisionESet ) {
+            result.append( nsdRevision );
+        }
+        else {
+            result.append( "<unset>" );
+        }
+        result.append( ", nsdRelease: " );
+        if( nsdReleaseESet ) {
+            result.append( nsdRelease );
+        }
+        else {
+            result.append( "<unset>" );
+        }
         result.append( ", umlDate: " );
-        if( umlDateESet )
+        if( umlDateESet ) {
             result.append( umlDate );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", umlVersion: " );
-        if( umlVersionESet )
+        if( umlVersionESet ) {
             result.append( umlVersion );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
+        result.append( ", appVersion: " );
+        if( appVersionESet ) {
+            result.append( appVersion );
+        }
+        else {
+            result.append( "<unset>" );
+        }
         result.append( ", descID: " );
-        if( descIDESet )
+        if( descIDESet ) {
             result.append( descID );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ')' );
         return result.toString();
     }
@@ -2443,13 +3231,17 @@ public class ServiceNSImpl extends CopyrightedImpl implements ServiceNS {
     public boolean buildExplicitLinks( IRiseClipseConsole console ) {
         console.debug( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), "ServiceNSImpl.buildExplicitLinks()" );
 
-        if( super.buildExplicitLinks( console ) ) return true;
+        if( super.buildExplicitLinks( console ) ) {
+            return true;
+        }
 
         if( isSetDescID() ) {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
                 Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() )
                         .findDoc( NsIdentification.of( this ), getDescID() );
-                if( doc != null ) setRefersToDoc( doc );
+                if( doc != null ) {
+                    setRefersToDoc( doc );
+                }
             }
         }
 

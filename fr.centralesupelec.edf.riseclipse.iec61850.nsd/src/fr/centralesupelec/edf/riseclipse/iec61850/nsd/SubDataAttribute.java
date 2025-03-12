@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -103,7 +103,7 @@ public interface SubDataAttribute extends DocumentedClass, AgPresenceCondition, 
      * @see #setParentConstructedAttribute(ConstructedAttribute)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getSubDataAttribute_ParentConstructedAttribute()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getSubDataAttribute
-     * @model opposite="subDataAttribute" resolveProxies="false" unsettable="true" ordered="false"
+     * @model opposite="subDataAttribute" resolveProxies="false" unsettable="true"
      * @generated
      */
     ConstructedAttribute getParentConstructedAttribute();
@@ -133,7 +133,7 @@ public interface SubDataAttribute extends DocumentedClass, AgPresenceCondition, 
      * @see #setRefersToPresenceCondition(PresenceCondition)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getSubDataAttribute_RefersToPresenceCondition()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getReferredBySubDataAttribute
-     * @model opposite="referredBySubDataAttribute" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @model opposite="referredBySubDataAttribute" resolveProxies="false" unsettable="true" transient="true"
      * @generated
      */
     PresenceCondition getRefersToPresenceCondition();

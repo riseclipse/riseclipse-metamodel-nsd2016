@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -201,7 +201,7 @@ public interface Enumeration extends TitledClass {
      * @see #setParentEnumerations(Enumerations)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getEnumeration_ParentEnumerations()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations#getEnumeration
-     * @model opposite="enumeration" resolveProxies="false" unsettable="true" ordered="false"
+     * @model opposite="enumeration" resolveProxies="false" unsettable="true"
      * @generated
      */
     Enumerations getParentEnumerations();
@@ -231,7 +231,7 @@ public interface Enumeration extends TitledClass {
      * @see #setRefersToBaseEnumeration(Enumeration)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getEnumeration_RefersToBaseEnumeration()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getReferredByEnumerationAsBase
-     * @model opposite="referredByEnumerationAsBase" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @model opposite="referredByEnumerationAsBase" resolveProxies="false" unsettable="true" transient="true"
      * @generated
      */
     Enumeration getRefersToBaseEnumeration();

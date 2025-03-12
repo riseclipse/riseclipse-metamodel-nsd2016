@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -20,15 +20,13 @@
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgArray;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgArray;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -203,9 +201,10 @@ public abstract class AgArrayImpl extends MinimalEObjectImpl.Container implement
         isArray = newIsArray;
         boolean oldIsArrayESet = isArrayESet;
         isArrayESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_ARRAY__IS_ARRAY, oldIsArray, isArray,
                     !oldIsArrayESet ) );
+        }
     }
 
     /**
@@ -219,9 +218,10 @@ public abstract class AgArrayImpl extends MinimalEObjectImpl.Container implement
         boolean oldIsArrayESet = isArrayESet;
         isArray = IS_ARRAY_EDEFAULT;
         isArrayESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_ARRAY__IS_ARRAY, oldIsArray,
                     IS_ARRAY_EDEFAULT, oldIsArrayESet ) );
+        }
     }
 
     /**
@@ -255,9 +255,10 @@ public abstract class AgArrayImpl extends MinimalEObjectImpl.Container implement
         maxIndexAttribute = newMaxIndexAttribute;
         boolean oldMaxIndexAttributeESet = maxIndexAttributeESet;
         maxIndexAttributeESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_ARRAY__MAX_INDEX_ATTRIBUTE,
                     oldMaxIndexAttribute, maxIndexAttribute, !oldMaxIndexAttributeESet ) );
+        }
     }
 
     /**
@@ -271,9 +272,10 @@ public abstract class AgArrayImpl extends MinimalEObjectImpl.Container implement
         boolean oldMaxIndexAttributeESet = maxIndexAttributeESet;
         maxIndexAttribute = MAX_INDEX_ATTRIBUTE_EDEFAULT;
         maxIndexAttributeESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_ARRAY__MAX_INDEX_ATTRIBUTE,
                     oldMaxIndexAttribute, MAX_INDEX_ATTRIBUTE_EDEFAULT, oldMaxIndexAttributeESet ) );
+        }
     }
 
     /**
@@ -307,9 +309,10 @@ public abstract class AgArrayImpl extends MinimalEObjectImpl.Container implement
         minIndex = newMinIndex;
         boolean oldMinIndexESet = minIndexESet;
         minIndexESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_ARRAY__MIN_INDEX, oldMinIndex,
                     minIndex, !oldMinIndexESet ) );
+        }
     }
 
     /**
@@ -323,9 +326,10 @@ public abstract class AgArrayImpl extends MinimalEObjectImpl.Container implement
         boolean oldMinIndexESet = minIndexESet;
         minIndex = MIN_INDEX_EDEFAULT;
         minIndexESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_ARRAY__MIN_INDEX, oldMinIndex,
                     MIN_INDEX_EDEFAULT, oldMinIndexESet ) );
+        }
     }
 
     /**
@@ -359,9 +363,10 @@ public abstract class AgArrayImpl extends MinimalEObjectImpl.Container implement
         sizeAttribute = newSizeAttribute;
         boolean oldSizeAttributeESet = sizeAttributeESet;
         sizeAttributeESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_ARRAY__SIZE_ATTRIBUTE,
                     oldSizeAttribute, sizeAttribute, !oldSizeAttributeESet ) );
+        }
     }
 
     /**
@@ -375,9 +380,10 @@ public abstract class AgArrayImpl extends MinimalEObjectImpl.Container implement
         boolean oldSizeAttributeESet = sizeAttributeESet;
         sizeAttribute = SIZE_ATTRIBUTE_EDEFAULT;
         sizeAttributeESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_ARRAY__SIZE_ATTRIBUTE,
                     oldSizeAttribute, SIZE_ATTRIBUTE_EDEFAULT, oldSizeAttributeESet ) );
+        }
     }
 
     /**
@@ -485,29 +491,39 @@ public abstract class AgArrayImpl extends MinimalEObjectImpl.Container implement
      */
     @Override
     public String toString() {
-        if( eIsProxy() ) return super.toString();
+        if( eIsProxy() ) {
+            return super.toString();
+        }
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (isArray: " );
-        if( isArrayESet )
+        if( isArrayESet ) {
             result.append( isArray );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", maxIndexAttribute: " );
-        if( maxIndexAttributeESet )
+        if( maxIndexAttributeESet ) {
             result.append( maxIndexAttribute );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", minIndex: " );
-        if( minIndexESet )
+        if( minIndexESet ) {
             result.append( minIndex );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", sizeAttribute: " );
-        if( sizeAttributeESet )
+        if( sizeAttributeESet ) {
             result.append( sizeAttribute );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ')' );
         return result.toString();
     }
