@@ -3303,11 +3303,6 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                             + getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes()
                                     .getParentNS().getId();
                 }
-                else if( getRefersToUnderlyingConstructedAttribute()
-                        .getParentConstructedAttributes() != null ) {
-                    foundWhere = "ServiceNS \"" + getRefersToUnderlyingConstructedAttribute()
-                            .getParentConstructedAttributes().getParentNS().getId();
-                }
                 console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                         messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") found in ",
                         foundWhere, "\"" );
@@ -3356,6 +3351,25 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
         NS ns = getResourceSet().getNS( nsIdentification );
         if( usedCDC.isTypeKindParameterized() ) {
             if( isSetUnderlyingType() && isSetUnderlyingTypeKind() ) {
+                // New with NSD.xsd (2017B5) : underlyingType may have been defined in a .snsd file and
+                // not may have not been found before
+                if( ! isSetRefersToUnderlyingConstructedAttribute() ) {
+                    ConstructedAttribute foundCA = getResourceSet().findConstructedAttribute( getUnderlyingType(),
+                            getNsIdentification(), true );
+                    if( foundCA != null ) {
+                        setRefersToUnderlyingConstructedAttribute( foundCA );
+                        String foundWhere = "???";
+                        if( getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes() != null ) {
+                            foundWhere = "NS \""
+                                    + getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes()
+                                            .getParentNS().getId();
+                        }
+                        console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") found in ",
+                                foundWhere, "\"" );
+                    }                    
+                }
+                
                 // Two namespaces are concerned: the one of the CDC and the one of the underlyingType
                 // To be sure to find the validators, we will use the more general one
                 // Correction after mail from Aurélie 9 February 2024, point 11
