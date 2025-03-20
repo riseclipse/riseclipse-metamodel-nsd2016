@@ -48,11 +48,13 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AnyLNClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttributes;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataObject;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DefinedAttributeTypeKind;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition;
@@ -3195,8 +3197,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
 
         if( isSetPresCondArgsID() ) {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
-                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getNsIdentification(),
-                        getPresCondArgsID() );
+                Doc doc = (( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getNsIdentification(), getPresCondArgsID() );
                 if( doc != null ) {
                     setRefersToPresCondArgsDoc( doc );
                 }
@@ -3205,8 +3206,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
 
         if( isSetDsPresCondArgsID() ) {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
-                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getNsIdentification(),
-                        getDsPresCondArgsID() );
+                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getNsIdentification(), getDsPresCondArgsID() );
                 if( doc != null ) {
                     setRefersToDsPresCondArgsDoc( doc );
                 }
@@ -3291,30 +3291,55 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                         messagePrefix, "BasicType (name: ", getUnderlyingType(), ") found in NS \"",
                         NsIdentification.of( getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS() ), "\"" );
             }
-
-            ConstructedAttribute foundCA = rs.findConstructedAttribute( getUnderlyingType(),
-                    getNsIdentification(), true );
-            if( foundCA != null ) {
-                setRefersToUnderlyingConstructedAttribute( foundCA );
-                found = true;
-                String foundWhere = "???";
-                if( getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes() != null ) {
-                    foundWhere = "NS \""
-                            + getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes()
-                                    .getParentNS().getId();
+            // if underlyingTypeKind is SCSM, underlyingType is defined in a snsd file which will be handled
+            // later in NsdResourceSetImpl.applyServiceNs()
+            // A BasicType with the given name is looked for, so we create it now
+            else if(( foundBT == null ) && ( DefinedAttributeTypeKind.SCSM.equals( getUnderlyingTypeKind() ))) {
+                foundBT = NsdFactory.eINSTANCE.createBasicType();
+                foundBT.setName( getUnderlyingType() );
+                foundBT.setFilename( getFilename() );
+                foundBT.setLineNumber( getLineNumber() );
+                
+                // DataObject is in 7.4, snsd will be apply to 7-3, so this basic type must not be put
+                // 7-4 to be found
+                // We put it at the root NS
+                NS ns = getParentAnyLNClass().getParentLNClasses().getParentNS();
+                while(( ns.getDependsOn() != null ) && ( ns.getDependsOn().getRefersToNS() != null )) {
+                    ns = ns.getDependsOn().getRefersToNS();
                 }
+                if( ns.getBasicTypes() == null ) {
+                    ns.setBasicTypes( NsdFactory.eINSTANCE.createBasicTypes() );
+                }
+                ns.getBasicTypes().getBasicType().add( foundBT );
                 console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                        messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") found in ",
-                        foundWhere, "\"" );
+                        messagePrefix, "Creating BasicType (name: ", getUnderlyingType(), ") in NS \"",
+                        NsIdentification.of( ns ), "\", it should be replaced later by a ServiceTypeRealization" );
             }
 
-            Enumeration foundEn = rs.findEnumeration( getUnderlyingType(), getNsIdentification(), true );
-            if( foundEn != null ) {
-                setRefersToUnderlyingEnumeration( foundEn );
-                found = true;
-                console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                        messagePrefix, "Enumeration (name: ", getUnderlyingType(), ") found in NS \"",
-                        NsIdentification.of( getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS() ), "\"" );
+            if( ! found ) {
+                ConstructedAttribute foundCA = rs.findConstructedAttribute( getUnderlyingType(), getNsIdentification(), true );
+                if( foundCA != null ) {
+                    setRefersToUnderlyingConstructedAttribute( foundCA );
+                    found = true;
+                    String foundWhere = "???";
+                    ConstructedAttributes parentConstructedAttributes = getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes();
+                    if( parentConstructedAttributes != null ) {
+                        foundWhere = "NS \"" + parentConstructedAttributes.getParentNS().getId();
+                    }
+                    console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                            messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") found in ", foundWhere, "\"" );
+                }
+            }
+
+            if( ! found ) {
+                Enumeration foundEn = rs.findEnumeration( getUnderlyingType(), getNsIdentification(), true );
+                if( foundEn != null ) {
+                    setRefersToUnderlyingEnumeration( foundEn );
+                    found = true;
+                    console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                            messagePrefix, "Enumeration (name: ", getUnderlyingType(), ") found in NS \"",
+                            NsIdentification.of( getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS() ), "\"" );
+                }
             }
 
             if( ! found ) {
@@ -3353,21 +3378,18 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             if( isSetUnderlyingType() && isSetUnderlyingTypeKind() ) {
                 // New with NSD.xsd (2017B5) : underlyingType may have been defined in a .snsd file and
                 // not may have not been found before
+                ConstructedAttributes parentConstructedAttributes = getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes();
                 if( ! isSetRefersToUnderlyingConstructedAttribute() ) {
-                    ConstructedAttribute foundCA = getResourceSet().findConstructedAttribute( getUnderlyingType(),
-                            getNsIdentification(), true );
+                    ConstructedAttribute foundCA = getResourceSet().findConstructedAttribute( getUnderlyingType(), getNsIdentification(), true );
                     if( foundCA != null ) {
                         setRefersToUnderlyingConstructedAttribute( foundCA );
                         String foundWhere = "???";
-                        if( getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes() != null ) {
-                            foundWhere = "NS \""
-                                    + getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes()
-                                            .getParentNS().getId();
+                        if( parentConstructedAttributes != null ) {
+                            foundWhere = "NS \"" + parentConstructedAttributes.getParentNS().getId();
                         }
                         console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                                messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") found in ",
-                                foundWhere, "\"" );
-                    }                    
+                                messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") found in ", foundWhere, "\"" );
+                    }
                 }
                 
                 // Two namespaces are concerned: the one of the CDC and the one of the underlyingType
@@ -3378,13 +3400,12 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                     underlyingTypeNs = getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS();
                 }
                 else if( getRefersToUnderlyingConstructedAttribute() != null ) {
-                    underlyingTypeNs = getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes().getParentNS();
+                    underlyingTypeNs = parentConstructedAttributes.getParentNS();
                 }
-                if(( underlyingTypeNs != null && ( NsIdentification.of( underlyingTypeNs ).dependsOn( nsIdentification )))) {
+                if(( underlyingTypeNs != null ) && NsIdentification.of( underlyingTypeNs ).dependsOn( nsIdentification )) {
                     ns = underlyingTypeNs;
                 }
-                usedCDC = ( ( CDCImpl ) usedCDC ).getParameterizedCDC( getUnderlyingTypeKind(),
-                        getUnderlyingType(), ns, console );
+                usedCDC = (( CDCImpl ) usedCDC ).getParameterizedCDC( getUnderlyingTypeKind(), getUnderlyingType(), ns, console );
             }
             else {
                 console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
@@ -3398,7 +3419,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                 if( getRefersToUnderlyingEnumeration() != null ) {
                     underlyingTypeNs = getRefersToUnderlyingEnumeration().getParentEnumerations().getParentNS();
                 }
-                if(( underlyingTypeNs != null && ( NsIdentification.of( underlyingTypeNs ).dependsOn( nsIdentification )))) {
+                if(( underlyingTypeNs != null ) && NsIdentification.of( underlyingTypeNs ).dependsOn( nsIdentification )) {
                     ns = underlyingTypeNs;
                 }
                 usedCDC = (( CDCImpl ) usedCDC ).getParameterizedCDC( DefinedAttributeTypeKind.ENUMERATED, getUnderlyingType(), ns, console );

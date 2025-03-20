@@ -49,6 +49,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServiceNS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType;
@@ -365,7 +366,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                 // With NSD.xsd 2017B5, the realized type is in an attribute realize
                 String realized = typeRealization.getRealize() != null ? typeRealization.getRealize() : typeRealization.getName();
                 console.notice( NSD_SETUP_CATEGORY, 0,
-                              "Service NS: apply new definition for type ", realized );
+                              "Service NS: apply new definition for type ", realized, " with name ", typeRealization.getName() );
                 // move a copy in the applyTo resource so that it appears as belonging to the namespace of this resource
                 if( applyToNs.getConstructedAttributes() == null ) {
                     applyToNs.setConstructedAttributes( NsdFactory.eINSTANCE.createConstructedAttributes() );
@@ -376,19 +377,32 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                 copy.getSubDataAttribute().stream().forEach( sda -> sda.setFilename( typeRealization.getFilename() ));
                 applyToNs.getConstructedAttributes().getConstructedAttribute().add( copy );
                 copy.buildExplicitLinks( console );
-                BasicType basic = findBasicType( realized, applyToNsId, true );
+                BasicType basic = findBasicType( typeRealization.getName(), applyToNsId, true );
                 if( basic != null ) {
                     // Avoid ConcurrentModificationException
-                    List< AgAttributeType > atts = basic
+                    List< AgAttributeType > atts1 = basic
                             .getReferredByAttributeType()
                             .stream()
                             .collect( Collectors.toList() );
-                    for( AgAttributeType att : atts ) {
+                    for( AgAttributeType att : atts1 ) {
                         att.unsetRefersToBasicType();
                         console.notice( NSD_SETUP_CATEGORY, 0,
-                                        "Service NS: using TypeRealization ",  basic.getName(), " to attribute ", att.getType() );
-                        att.setRefersToConstructedAttribute( typeRealization );
+                                        "Service NS: using TypeRealization ",  basic.getName(), " for attribute ", att.getType() );
+                        att.setRefersToConstructedAttribute( copy );
                     }
+
+                    // SCSM in 2017B5: the underlying type is defines in a snsd file
+                    List< AgUnderlyingType > atts2 = basic
+                            .getReferredByUnderlyingType()
+                            .stream()
+                            .collect( Collectors.toList() );
+                    for( AgUnderlyingType att : atts2 ) {
+                        att.unsetRefersToUnderlyingBasicType();
+                        console.notice( NSD_SETUP_CATEGORY, 0,
+                                        "Service NS: using TypeRealization for underlying type ", att.getUnderlyingType() );
+                        att.setRefersToUnderlyingConstructedAttribute( copy );
+                    }
+
                     // If we keep it, a validator will be built for it and given back instead of the one for the new constructed type
                     removeBasicType( basic, applyToNsId );
                 }
