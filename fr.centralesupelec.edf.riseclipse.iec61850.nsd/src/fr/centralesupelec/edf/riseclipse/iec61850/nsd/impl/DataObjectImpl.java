@@ -3378,12 +3378,12 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
             if( isSetUnderlyingType() && isSetUnderlyingTypeKind() ) {
                 // New with NSD.xsd (2017B5) : underlyingType may have been defined in a .snsd file and
                 // not may have not been found before
-                ConstructedAttributes parentConstructedAttributes = getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes();
                 if( ! isSetRefersToUnderlyingConstructedAttribute() ) {
                     ConstructedAttribute foundCA = getResourceSet().findConstructedAttribute( getUnderlyingType(), getNsIdentification(), true );
                     if( foundCA != null ) {
                         setRefersToUnderlyingConstructedAttribute( foundCA );
                         String foundWhere = "???";
+                        ConstructedAttributes parentConstructedAttributes = getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes();
                         if( parentConstructedAttributes != null ) {
                             foundWhere = "NS \"" + parentConstructedAttributes.getParentNS().getId();
                         }
@@ -3400,6 +3400,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                     underlyingTypeNs = getRefersToUnderlyingBasicType().getParentBasicTypes().getParentNS();
                 }
                 else if( getRefersToUnderlyingConstructedAttribute() != null ) {
+                    ConstructedAttributes parentConstructedAttributes = getRefersToUnderlyingConstructedAttribute().getParentConstructedAttributes();
                     underlyingTypeNs = parentConstructedAttributes.getParentNS();
                 }
                 if(( underlyingTypeNs != null ) && NsIdentification.of( underlyingTypeNs ).dependsOn( nsIdentification )) {
