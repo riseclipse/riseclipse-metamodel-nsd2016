@@ -245,17 +245,33 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                 
                 ServiceNS serviceNSResource = serviceNSResources.get( serviceNsId );
                 if( serviceNSResource != null ) {
-                    if( serviceNSResource.getRelease() != serviceNsId.getRelease() ) {
-                        console.warning( NSD_SETUP_CATEGORY, 0,
-                                         "While processing ApplicableServiceNS \"", appNS.eResource().getURI().lastSegment(), "\", ",
-                                         "while processing ServiceNsUsage \"", serviceNsId, "\", ",
-                                         "the ServiceNS found has a release of ", serviceNSResource.getRelease(),
-                                         " which is not the one expected (", serviceNsId.getRelease(), ") by the ServiceNSUsage" );
-                    }
+                    // serviceNSResource.getRelease() is int
+                    // serviceNsId.getRelease() is Integer
+                    // But in NSD2017B5, no more release in ServiceNsUsage
+//                    if( serviceNSResource.getRelease() != serviceNsId.getRelease().intValue() ) {
+//                        console.warning( NSD_SETUP_CATEGORY, 0,
+//                                         "While processing ApplicableServiceNS \"", appNS.eResource().getURI().lastSegment(), "\", ",
+//                                         "while processing ServiceNsUsage \"", serviceNsId, "\", ",
+//                                         "the ServiceNS found has a release of ", serviceNSResource.getRelease(),
+//                                         " which is not the one expected (", serviceNsId.getRelease(), ") by the ServiceNSUsage" );
+//                    }
                     boolean applied = false;
                     for( AppliesToType applyTo : serviceNsUsage.getAppliesTo() ) {
                         NsIdentification applyToNsId = NsIdentification.of( applyTo );
-                        
+                        // Let's say we have <AppliesTo id="IEC 61850-7-3" version="2007" revision="B" release="3"/>
+                        // Before, we have loaded IEC_61850-7-3_2007B5.nsd
+                        // Instances of NsIdentification are unique without taking into account release
+                        // We will have applyToNsId.getRelease() == 5, which is not right!
+                        // applyTo.getRelease() is int
+                        // applyToNsId.getRelease() is Integer
+                        if( applyTo.getRelease() != applyToNsId.getRelease().intValue() ) {
+                            console.warning( NSD_SETUP_CATEGORY, 0,
+                                    "While processing ApplicableServiceNS \"", appNS.eResource().getURI().lastSegment(), "\", ",
+                                    "while processing ServiceNsUsage \"", serviceNsId, "\", ",
+                                    "the NS found has a release of ", applyToNsId.getRelease(),
+                                    " which is not the one expected (", applyTo.getRelease(), ") by the ServiceNSUsage" );
+                            continue;
+                        }
                         NS applyToNs = getNS( applyToNsId );
                         if( applyToNs == null ) {
                             console.warning( NSD_SETUP_CATEGORY, 0,
@@ -264,13 +280,16 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                                              "the NS ", applyToNsId, " is unknown" );
                             continue;
                         }
-                        if( applyToNs.getRelease() != applyToNsId.getRelease() ) {
-                            console.warning( NSD_SETUP_CATEGORY, 0,
-                                             "While processing ApplicableServiceNS \"", appNS.eResource().getURI().lastSegment(), "\", ",
-                                             "while processing ServiceNsUsage \"", serviceNsId, "\", ",
-                                             "the NS found has a release of ", applyToNs.getRelease(),
-                                             " which is not the one expected (", applyToNsId.getRelease(), ") by the ServiceNSUsage" );
-                        }
+                        // applyToNs.getRelease() is int
+                        // applyToNsId.getRelease() is Integer
+                        // See before: this test will never fail
+//                        if( applyToNs.getRelease() != applyToNsId.getRelease().intValue() ) {
+//                            console.warning( NSD_SETUP_CATEGORY, 0,
+//                                             "While processing ApplicableServiceNS \"", appNS.eResource().getURI().lastSegment(), "\", ",
+//                                             "while processing ServiceNsUsage \"", serviceNsId, "\", ",
+//                                             "the NS found has a release of ", applyToNs.getRelease(),
+//                                             " which is not the one expected (", applyToNsId.getRelease(), ") by the ServiceNSUsage" );
+//                        }
                         if( nsModified.contains( applyToNs )) {
                             console.warning( NSD_SETUP_CATEGORY, 0, 
                                              "A ServiceNS has already been applied to NS with id ", applyToNsId,
