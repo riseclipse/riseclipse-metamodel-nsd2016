@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -35,6 +35,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUML#getUmlDate <em>Uml Date</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUML#getUmlVersion <em>Uml Version</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUML#getAppVersion <em>App Version</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgUML()
@@ -149,5 +150,56 @@ public interface AgUML extends EObject {
      * @generated
      */
     boolean isSetUmlVersion();
+
+    /**
+     * Returns the value of the '<em><b>App Version</b></em>' attribute.
+     * The default value is <code>"\"\""</code>.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>App Version</em>' attribute.
+     * @see #isSetAppVersion()
+     * @see #unsetAppVersion()
+     * @see #setAppVersion(String)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgUML_AppVersion()
+     * @model default="\"\"" unsettable="true"
+     *        extendedMetaData="kind='attribute' name='appVersion'"
+     * @generated
+     */
+    String getAppVersion();
+
+    /**
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUML#getAppVersion <em>App Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>App Version</em>' attribute.
+     * @see #isSetAppVersion()
+     * @see #unsetAppVersion()
+     * @see #getAppVersion()
+     * @generated
+     */
+    void setAppVersion( String value );
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUML#getAppVersion <em>App Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetAppVersion()
+     * @see #getAppVersion()
+     * @see #setAppVersion(String)
+     * @generated
+     */
+    void unsetAppVersion();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUML#getAppVersion <em>App Version</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>App Version</em>' attribute is set.
+     * @see #unsetAppVersion()
+     * @see #getAppVersion()
+     * @see #setAppVersion(String)
+     * @generated
+     */
+    boolean isSetAppVersion();
 
 } // AgUML

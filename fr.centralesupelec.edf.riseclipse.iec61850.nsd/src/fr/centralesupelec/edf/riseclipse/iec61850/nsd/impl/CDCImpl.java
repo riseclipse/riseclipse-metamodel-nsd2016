@@ -1484,7 +1484,7 @@ public class CDCImpl extends TitledClassImpl implements CDC {
         }
 
         NsIdentificationName key = NsIdentificationName.of( getNsIdentification(), getName() );
-        Map< NsIdentificationName, HashMap< String, CDC >> parameterizedCDCs = getResourceSet().getparameterizedCDCMap();
+        Map< NsIdentificationName, HashMap< String, CDC >> parameterizedCDCs = getResourceSet().getParameterizedCDCMap();
         if( ! parameterizedCDCs.containsKey( key)) {
             parameterizedCDCs.put( key,  new HashMap<>() );
         }
@@ -1517,10 +1517,10 @@ public class CDCImpl extends TitledClassImpl implements CDC {
             parameterizedCDC.buildExplicitLinks( console );
 
             parameterizedCDCs.get( key ).put( underlyingType, parameterizedCDC );
-            
-            console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+
+            console.notice( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
                     "CDC ", getName(), " parameterized with ", underlyingType, " has been added to namespace ", ns.getId() );
-                    
+
         }
 
         return parameterizedCDCs.get( key ).get( underlyingType );
@@ -1532,7 +1532,7 @@ public class CDCImpl extends TitledClassImpl implements CDC {
 
     public String getUnderlyingType() {
         NsIdentificationName key = NsIdentificationName.of( getNsIdentification(), getName() );
-        Map< NsIdentificationName, HashMap< String, CDC >> parameterizedCDCs = getResourceSet().getparameterizedCDCMap();
+        Map< NsIdentificationName, HashMap< String, CDC >> parameterizedCDCs = getResourceSet().getParameterizedCDCMap();
         if( ! parameterizedCDCs.containsKey( key ) ) {
             return null;
         }

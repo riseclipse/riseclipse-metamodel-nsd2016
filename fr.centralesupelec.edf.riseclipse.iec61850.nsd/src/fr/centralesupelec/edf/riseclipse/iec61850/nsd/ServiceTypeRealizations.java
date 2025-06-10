@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -42,20 +42,20 @@ import org.eclipse.emf.common.util.EList;
 public interface ServiceTypeRealizations extends NsdObject {
     /**
      * Returns the value of the '<em><b>Service Type Realization</b></em>' containment reference list.
-     * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute}.
-     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getParentServiceTypeRealizations <em>Parent Service Type Realizations</em>}'.
+     * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealization}.
+     * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealization#getParentServiceTypeRealizations <em>Parent Service Type Realizations</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the value of the '<em>Service Type Realization</em>' containment reference list.
      * @see #isSetServiceTypeRealization()
      * @see #unsetServiceTypeRealization()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceTypeRealizations_ServiceTypeRealization()
-     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getParentServiceTypeRealizations
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealization#getParentServiceTypeRealizations
      * @model opposite="parentServiceTypeRealizations" containment="true" unsettable="true" ordered="false"
      *        extendedMetaData="kind='element' name='ServiceTypeRealization' namespace='##targetNamespace'"
      * @generated
      */
-    EList< ConstructedAttribute > getServiceTypeRealization();
+    EList< ServiceTypeRealization > getServiceTypeRealization();
 
     /**
      * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations#getServiceTypeRealization <em>Service Type Realization</em>}' containment reference list.
@@ -87,7 +87,7 @@ public interface ServiceTypeRealizations extends NsdObject {
      * @see #setParentServiceNS(ServiceNS)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceTypeRealizations_ParentServiceNS()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS#getServiceTypeRealizations
-     * @model opposite="serviceTypeRealizations" resolveProxies="false" unsettable="true" ordered="false"
+     * @model opposite="serviceTypeRealizations" resolveProxies="false" unsettable="true"
      * @generated
      */
     ServiceNS getParentServiceNS();

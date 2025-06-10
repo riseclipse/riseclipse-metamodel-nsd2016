@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -43,7 +43,7 @@ import org.eclipse.emf.common.util.EList;
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='langAttributeRequired'"
  * @generated
  */
-public interface NSDoc extends Copyrighted, AgNSIdentification, AgUML {
+public interface NSDoc extends Copyrighted, AgNSIdentification, AgNSDIdentification, AgUML {
     /**
      * Returns the value of the '<em><b>Doc</b></em>' containment reference list.
      * The list contents are of type {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc}.

@@ -46,6 +46,7 @@ import org.eclipse.ocl.pivot.values.IntegerValue;
 import org.eclipse.ocl.pivot.values.TupleValue;
 
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSDIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSIdentification;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgNSdesc;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUML;
@@ -59,6 +60,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumerations;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.LNClasses;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NSType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdTables;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions;
@@ -75,13 +77,19 @@ import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSImpl#getRelease <em>Release</em>}</li>
- *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSImpl#getId <em>Id</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSImpl#getRevision <em>Revision</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSImpl#getRelease <em>Release</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSImpl#getPublicationStage <em>Publication Stage</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSImpl#getNamespaceType <em>Namespace Type</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSImpl#isDeprecated <em>Deprecated</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSImpl#getNsdVersion <em>Nsd Version</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSImpl#getNsdRevision <em>Nsd Revision</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSImpl#getNsdRelease <em>Nsd Release</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSImpl#getUmlDate <em>Uml Date</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSImpl#getUmlVersion <em>Uml Version</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSImpl#getAppVersion <em>App Version</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSImpl#getDescID <em>Desc ID</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSImpl#getRefersToDoc <em>Refers To Doc</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.NSImpl#getChanges <em>Changes</em>}</li>
@@ -101,33 +109,33 @@ import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
  */
 public class NSImpl extends CopyrightedImpl implements NS {
     /**
-     * The default value of the '{@link #getRelease() <em>Release</em>}' attribute.
+     * The default value of the '{@link #getId() <em>Id</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getRelease()
+     * @see #getId()
      * @generated
      * @ordered
      */
-    protected static final Integer RELEASE_EDEFAULT = Integer.valueOf( 1 );
+    protected static final String ID_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getRelease() <em>Release</em>}' attribute.
+     * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getRelease()
+     * @see #getId()
      * @generated
      * @ordered
      */
-    protected Integer release = RELEASE_EDEFAULT;
+    protected String id = ID_EDEFAULT;
 
     /**
-     * This is true if the Release attribute has been set.
+     * This is true if the Id attribute has been set.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    protected boolean releaseESet;
+    protected boolean idESet;
 
     /**
      * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
@@ -159,35 +167,6 @@ public class NSImpl extends CopyrightedImpl implements NS {
     protected boolean versionESet;
 
     /**
-     * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getId()
-     * @generated
-     * @ordered
-     */
-    protected static final String ID_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getId()
-     * @generated
-     * @ordered
-     */
-    protected String id = ID_EDEFAULT;
-
-    /**
-     * This is true if the Id attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean idESet;
-
-    /**
      * The default value of the '{@link #getRevision() <em>Revision</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -217,6 +196,35 @@ public class NSImpl extends CopyrightedImpl implements NS {
     protected boolean revisionESet;
 
     /**
+     * The default value of the '{@link #getRelease() <em>Release</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRelease()
+     * @generated
+     * @ordered
+     */
+    protected static final int RELEASE_EDEFAULT = 1;
+
+    /**
+     * The cached value of the '{@link #getRelease() <em>Release</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRelease()
+     * @generated
+     * @ordered
+     */
+    protected int release = RELEASE_EDEFAULT;
+
+    /**
+     * This is true if the Release attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean releaseESet;
+
+    /**
      * The default value of the '{@link #getPublicationStage() <em>Publication Stage</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -244,6 +252,151 @@ public class NSImpl extends CopyrightedImpl implements NS {
      * @ordered
      */
     protected boolean publicationStageESet;
+
+    /**
+     * The default value of the '{@link #getNamespaceType() <em>Namespace Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNamespaceType()
+     * @generated
+     * @ordered
+     */
+    protected static final NSType NAMESPACE_TYPE_EDEFAULT = NSType.BASIC;
+
+    /**
+     * The cached value of the '{@link #getNamespaceType() <em>Namespace Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNamespaceType()
+     * @generated
+     * @ordered
+     */
+    protected NSType namespaceType = NAMESPACE_TYPE_EDEFAULT;
+
+    /**
+     * This is true if the Namespace Type attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean namespaceTypeESet;
+
+    /**
+     * The default value of the '{@link #isDeprecated() <em>Deprecated</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isDeprecated()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean DEPRECATED_EDEFAULT = false;
+
+    /**
+     * The cached value of the '{@link #isDeprecated() <em>Deprecated</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isDeprecated()
+     * @generated
+     * @ordered
+     */
+    protected boolean deprecated = DEPRECATED_EDEFAULT;
+
+    /**
+     * This is true if the Deprecated attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean deprecatedESet;
+
+    /**
+     * The default value of the '{@link #getNsdVersion() <em>Nsd Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNsdVersion()
+     * @generated
+     * @ordered
+     */
+    protected static final Integer NSD_VERSION_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getNsdVersion() <em>Nsd Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNsdVersion()
+     * @generated
+     * @ordered
+     */
+    protected Integer nsdVersion = NSD_VERSION_EDEFAULT;
+
+    /**
+     * This is true if the Nsd Version attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean nsdVersionESet;
+
+    /**
+     * The default value of the '{@link #getNsdRevision() <em>Nsd Revision</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNsdRevision()
+     * @generated
+     * @ordered
+     */
+    protected static final String NSD_REVISION_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getNsdRevision() <em>Nsd Revision</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNsdRevision()
+     * @generated
+     * @ordered
+     */
+    protected String nsdRevision = NSD_REVISION_EDEFAULT;
+
+    /**
+     * This is true if the Nsd Revision attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean nsdRevisionESet;
+
+    /**
+     * The default value of the '{@link #getNsdRelease() <em>Nsd Release</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNsdRelease()
+     * @generated
+     * @ordered
+     */
+    protected static final Integer NSD_RELEASE_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getNsdRelease() <em>Nsd Release</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNsdRelease()
+     * @generated
+     * @ordered
+     */
+    protected Integer nsdRelease = NSD_RELEASE_EDEFAULT;
+
+    /**
+     * This is true if the Nsd Release attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean nsdReleaseESet;
 
     /**
      * The default value of the '{@link #getUmlDate() <em>Uml Date</em>}' attribute.
@@ -302,6 +455,35 @@ public class NSImpl extends CopyrightedImpl implements NS {
      * @ordered
      */
     protected boolean umlVersionESet;
+
+    /**
+     * The default value of the '{@link #getAppVersion() <em>App Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getAppVersion()
+     * @generated
+     * @ordered
+     */
+    protected static final String APP_VERSION_EDEFAULT = "\"\"";
+
+    /**
+     * The cached value of the '{@link #getAppVersion() <em>App Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getAppVersion()
+     * @generated
+     * @ordered
+     */
+    protected String appVersion = APP_VERSION_EDEFAULT;
+
+    /**
+     * This is true if the App Version attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean appVersionESet;
 
     /**
      * The default value of the '{@link #getDescID() <em>Desc ID</em>}' attribute.
@@ -2274,7 +2456,277 @@ public class NSImpl extends CopyrightedImpl implements NS {
      * @generated
      */
     @Override
-    public Integer getRelease() {
+    public NSType getNamespaceType() {
+        return namespaceType;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setNamespaceType( NSType newNamespaceType ) {
+        NSType oldNamespaceType = namespaceType;
+        namespaceType = newNamespaceType == null ? NAMESPACE_TYPE_EDEFAULT : newNamespaceType;
+        boolean oldNamespaceTypeESet = namespaceTypeESet;
+        namespaceTypeESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS__NAMESPACE_TYPE, oldNamespaceType,
+                    namespaceType, !oldNamespaceTypeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetNamespaceType() {
+        NSType oldNamespaceType = namespaceType;
+        boolean oldNamespaceTypeESet = namespaceTypeESet;
+        namespaceType = NAMESPACE_TYPE_EDEFAULT;
+        namespaceTypeESet = false;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS__NAMESPACE_TYPE, oldNamespaceType,
+                    NAMESPACE_TYPE_EDEFAULT, oldNamespaceTypeESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetNamespaceType() {
+        return namespaceTypeESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isDeprecated() {
+        return deprecated;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setDeprecated( boolean newDeprecated ) {
+        boolean oldDeprecated = deprecated;
+        deprecated = newDeprecated;
+        boolean oldDeprecatedESet = deprecatedESet;
+        deprecatedESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS__DEPRECATED, oldDeprecated,
+                    deprecated, !oldDeprecatedESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetDeprecated() {
+        boolean oldDeprecated = deprecated;
+        boolean oldDeprecatedESet = deprecatedESet;
+        deprecated = DEPRECATED_EDEFAULT;
+        deprecatedESet = false;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS__DEPRECATED, oldDeprecated,
+                    DEPRECATED_EDEFAULT, oldDeprecatedESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetDeprecated() {
+        return deprecatedESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Integer getNsdVersion() {
+        return nsdVersion;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setNsdVersion( Integer newNsdVersion ) {
+        Integer oldNsdVersion = nsdVersion;
+        nsdVersion = newNsdVersion;
+        boolean oldNsdVersionESet = nsdVersionESet;
+        nsdVersionESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS__NSD_VERSION, oldNsdVersion,
+                    nsdVersion, !oldNsdVersionESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetNsdVersion() {
+        Integer oldNsdVersion = nsdVersion;
+        boolean oldNsdVersionESet = nsdVersionESet;
+        nsdVersion = NSD_VERSION_EDEFAULT;
+        nsdVersionESet = false;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS__NSD_VERSION, oldNsdVersion,
+                    NSD_VERSION_EDEFAULT, oldNsdVersionESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetNsdVersion() {
+        return nsdVersionESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String getNsdRevision() {
+        return nsdRevision;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setNsdRevision( String newNsdRevision ) {
+        String oldNsdRevision = nsdRevision;
+        nsdRevision = newNsdRevision;
+        boolean oldNsdRevisionESet = nsdRevisionESet;
+        nsdRevisionESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS__NSD_REVISION, oldNsdRevision,
+                    nsdRevision, !oldNsdRevisionESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetNsdRevision() {
+        String oldNsdRevision = nsdRevision;
+        boolean oldNsdRevisionESet = nsdRevisionESet;
+        nsdRevision = NSD_REVISION_EDEFAULT;
+        nsdRevisionESet = false;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS__NSD_REVISION, oldNsdRevision,
+                    NSD_REVISION_EDEFAULT, oldNsdRevisionESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetNsdRevision() {
+        return nsdRevisionESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Integer getNsdRelease() {
+        return nsdRelease;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setNsdRelease( Integer newNsdRelease ) {
+        Integer oldNsdRelease = nsdRelease;
+        nsdRelease = newNsdRelease;
+        boolean oldNsdReleaseESet = nsdReleaseESet;
+        nsdReleaseESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS__NSD_RELEASE, oldNsdRelease,
+                    nsdRelease, !oldNsdReleaseESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetNsdRelease() {
+        Integer oldNsdRelease = nsdRelease;
+        boolean oldNsdReleaseESet = nsdReleaseESet;
+        nsdRelease = NSD_RELEASE_EDEFAULT;
+        nsdReleaseESet = false;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS__NSD_RELEASE, oldNsdRelease,
+                    NSD_RELEASE_EDEFAULT, oldNsdReleaseESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetNsdRelease() {
+        return nsdReleaseESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public int getRelease() {
         return release;
     }
 
@@ -2284,8 +2736,8 @@ public class NSImpl extends CopyrightedImpl implements NS {
      * @generated
      */
     @Override
-    public void setRelease( Integer newRelease ) {
-        Integer oldRelease = release;
+    public void setRelease( int newRelease ) {
+        int oldRelease = release;
         release = newRelease;
         boolean oldReleaseESet = releaseESet;
         releaseESet = true;
@@ -2302,7 +2754,7 @@ public class NSImpl extends CopyrightedImpl implements NS {
      */
     @Override
     public void unsetRelease() {
-        Integer oldRelease = release;
+        int oldRelease = release;
         boolean oldReleaseESet = releaseESet;
         release = RELEASE_EDEFAULT;
         releaseESet = false;
@@ -2489,6 +2941,60 @@ public class NSImpl extends CopyrightedImpl implements NS {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
+    public String getAppVersion() {
+        return appVersion;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setAppVersion( String newAppVersion ) {
+        String oldAppVersion = appVersion;
+        appVersion = newAppVersion;
+        boolean oldAppVersionESet = appVersionESet;
+        appVersionESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.NS__APP_VERSION, oldAppVersion,
+                    appVersion, !oldAppVersionESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetAppVersion() {
+        String oldAppVersion = appVersion;
+        boolean oldAppVersionESet = appVersionESet;
+        appVersion = APP_VERSION_EDEFAULT;
+        appVersionESet = false;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.NS__APP_VERSION, oldAppVersion,
+                    APP_VERSION_EDEFAULT, oldAppVersionESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetAppVersion() {
+        return appVersionESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @SuppressWarnings( "unchecked" )
     @Override
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
@@ -2664,20 +3170,32 @@ public class NSImpl extends CopyrightedImpl implements NS {
     @Override
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
-        case NsdPackage.NS__RELEASE:
-            return getRelease();
-        case NsdPackage.NS__VERSION:
-            return getVersion();
         case NsdPackage.NS__ID:
             return getId();
+        case NsdPackage.NS__VERSION:
+            return getVersion();
         case NsdPackage.NS__REVISION:
             return getRevision();
+        case NsdPackage.NS__RELEASE:
+            return getRelease();
         case NsdPackage.NS__PUBLICATION_STAGE:
             return getPublicationStage();
+        case NsdPackage.NS__NAMESPACE_TYPE:
+            return getNamespaceType();
+        case NsdPackage.NS__DEPRECATED:
+            return isDeprecated();
+        case NsdPackage.NS__NSD_VERSION:
+            return getNsdVersion();
+        case NsdPackage.NS__NSD_REVISION:
+            return getNsdRevision();
+        case NsdPackage.NS__NSD_RELEASE:
+            return getNsdRelease();
         case NsdPackage.NS__UML_DATE:
             return getUmlDate();
         case NsdPackage.NS__UML_VERSION:
             return getUmlVersion();
+        case NsdPackage.NS__APP_VERSION:
+            return getAppVersion();
         case NsdPackage.NS__DESC_ID:
             return getDescID();
         case NsdPackage.NS__REFERS_TO_DOC:
@@ -2717,26 +3235,44 @@ public class NSImpl extends CopyrightedImpl implements NS {
     @Override
     public void eSet( int featureID, Object newValue ) {
         switch( featureID ) {
-        case NsdPackage.NS__RELEASE:
-            setRelease( ( Integer ) newValue );
+        case NsdPackage.NS__ID:
+            setId( ( String ) newValue );
             return;
         case NsdPackage.NS__VERSION:
             setVersion( ( Integer ) newValue );
             return;
-        case NsdPackage.NS__ID:
-            setId( ( String ) newValue );
-            return;
         case NsdPackage.NS__REVISION:
             setRevision( ( String ) newValue );
             return;
+        case NsdPackage.NS__RELEASE:
+            setRelease( ( Integer ) newValue );
+            return;
         case NsdPackage.NS__PUBLICATION_STAGE:
             setPublicationStage( ( PubStage ) newValue );
+            return;
+        case NsdPackage.NS__NAMESPACE_TYPE:
+            setNamespaceType( ( NSType ) newValue );
+            return;
+        case NsdPackage.NS__DEPRECATED:
+            setDeprecated( ( Boolean ) newValue );
+            return;
+        case NsdPackage.NS__NSD_VERSION:
+            setNsdVersion( ( Integer ) newValue );
+            return;
+        case NsdPackage.NS__NSD_REVISION:
+            setNsdRevision( ( String ) newValue );
+            return;
+        case NsdPackage.NS__NSD_RELEASE:
+            setNsdRelease( ( Integer ) newValue );
             return;
         case NsdPackage.NS__UML_DATE:
             setUmlDate( ( XMLGregorianCalendar ) newValue );
             return;
         case NsdPackage.NS__UML_VERSION:
             setUmlVersion( ( String ) newValue );
+            return;
+        case NsdPackage.NS__APP_VERSION:
+            setAppVersion( ( String ) newValue );
             return;
         case NsdPackage.NS__DESC_ID:
             setDescID( ( String ) newValue );
@@ -2790,26 +3326,44 @@ public class NSImpl extends CopyrightedImpl implements NS {
     @Override
     public void eUnset( int featureID ) {
         switch( featureID ) {
-        case NsdPackage.NS__RELEASE:
-            unsetRelease();
+        case NsdPackage.NS__ID:
+            unsetId();
             return;
         case NsdPackage.NS__VERSION:
             unsetVersion();
             return;
-        case NsdPackage.NS__ID:
-            unsetId();
-            return;
         case NsdPackage.NS__REVISION:
             unsetRevision();
             return;
+        case NsdPackage.NS__RELEASE:
+            unsetRelease();
+            return;
         case NsdPackage.NS__PUBLICATION_STAGE:
             unsetPublicationStage();
+            return;
+        case NsdPackage.NS__NAMESPACE_TYPE:
+            unsetNamespaceType();
+            return;
+        case NsdPackage.NS__DEPRECATED:
+            unsetDeprecated();
+            return;
+        case NsdPackage.NS__NSD_VERSION:
+            unsetNsdVersion();
+            return;
+        case NsdPackage.NS__NSD_REVISION:
+            unsetNsdRevision();
+            return;
+        case NsdPackage.NS__NSD_RELEASE:
+            unsetNsdRelease();
             return;
         case NsdPackage.NS__UML_DATE:
             unsetUmlDate();
             return;
         case NsdPackage.NS__UML_VERSION:
             unsetUmlVersion();
+            return;
+        case NsdPackage.NS__APP_VERSION:
+            unsetAppVersion();
             return;
         case NsdPackage.NS__DESC_ID:
             unsetDescID();
@@ -2862,20 +3416,32 @@ public class NSImpl extends CopyrightedImpl implements NS {
     @Override
     public boolean eIsSet( int featureID ) {
         switch( featureID ) {
-        case NsdPackage.NS__RELEASE:
-            return isSetRelease();
-        case NsdPackage.NS__VERSION:
-            return isSetVersion();
         case NsdPackage.NS__ID:
             return isSetId();
+        case NsdPackage.NS__VERSION:
+            return isSetVersion();
         case NsdPackage.NS__REVISION:
             return isSetRevision();
+        case NsdPackage.NS__RELEASE:
+            return isSetRelease();
         case NsdPackage.NS__PUBLICATION_STAGE:
             return isSetPublicationStage();
+        case NsdPackage.NS__NAMESPACE_TYPE:
+            return isSetNamespaceType();
+        case NsdPackage.NS__DEPRECATED:
+            return isSetDeprecated();
+        case NsdPackage.NS__NSD_VERSION:
+            return isSetNsdVersion();
+        case NsdPackage.NS__NSD_REVISION:
+            return isSetNsdRevision();
+        case NsdPackage.NS__NSD_RELEASE:
+            return isSetNsdRelease();
         case NsdPackage.NS__UML_DATE:
             return isSetUmlDate();
         case NsdPackage.NS__UML_VERSION:
             return isSetUmlVersion();
+        case NsdPackage.NS__APP_VERSION:
+            return isSetAppVersion();
         case NsdPackage.NS__DESC_ID:
             return isSetDescID();
         case NsdPackage.NS__REFERS_TO_DOC:
@@ -2915,16 +3481,32 @@ public class NSImpl extends CopyrightedImpl implements NS {
     public int eBaseStructuralFeatureID( int derivedFeatureID, Class< ? > baseClass ) {
         if( baseClass == AgNSIdentification.class ) {
             switch( derivedFeatureID ) {
-            case NsdPackage.NS__RELEASE:
-                return NsdPackage.AG_NS_IDENTIFICATION__RELEASE;
-            case NsdPackage.NS__VERSION:
-                return NsdPackage.AG_NS_IDENTIFICATION__VERSION;
             case NsdPackage.NS__ID:
                 return NsdPackage.AG_NS_IDENTIFICATION__ID;
+            case NsdPackage.NS__VERSION:
+                return NsdPackage.AG_NS_IDENTIFICATION__VERSION;
             case NsdPackage.NS__REVISION:
                 return NsdPackage.AG_NS_IDENTIFICATION__REVISION;
+            case NsdPackage.NS__RELEASE:
+                return NsdPackage.AG_NS_IDENTIFICATION__RELEASE;
             case NsdPackage.NS__PUBLICATION_STAGE:
                 return NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE;
+            case NsdPackage.NS__NAMESPACE_TYPE:
+                return NsdPackage.AG_NS_IDENTIFICATION__NAMESPACE_TYPE;
+            case NsdPackage.NS__DEPRECATED:
+                return NsdPackage.AG_NS_IDENTIFICATION__DEPRECATED;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgNSDIdentification.class ) {
+            switch( derivedFeatureID ) {
+            case NsdPackage.NS__NSD_VERSION:
+                return NsdPackage.AG_NSD_IDENTIFICATION__NSD_VERSION;
+            case NsdPackage.NS__NSD_REVISION:
+                return NsdPackage.AG_NSD_IDENTIFICATION__NSD_REVISION;
+            case NsdPackage.NS__NSD_RELEASE:
+                return NsdPackage.AG_NSD_IDENTIFICATION__NSD_RELEASE;
             default:
                 return -1;
             }
@@ -2935,6 +3517,8 @@ public class NSImpl extends CopyrightedImpl implements NS {
                 return NsdPackage.AG_UML__UML_DATE;
             case NsdPackage.NS__UML_VERSION:
                 return NsdPackage.AG_UML__UML_VERSION;
+            case NsdPackage.NS__APP_VERSION:
+                return NsdPackage.AG_UML__APP_VERSION;
             default:
                 return -1;
             }
@@ -2961,16 +3545,32 @@ public class NSImpl extends CopyrightedImpl implements NS {
     public int eDerivedStructuralFeatureID( int baseFeatureID, Class< ? > baseClass ) {
         if( baseClass == AgNSIdentification.class ) {
             switch( baseFeatureID ) {
-            case NsdPackage.AG_NS_IDENTIFICATION__RELEASE:
-                return NsdPackage.NS__RELEASE;
-            case NsdPackage.AG_NS_IDENTIFICATION__VERSION:
-                return NsdPackage.NS__VERSION;
             case NsdPackage.AG_NS_IDENTIFICATION__ID:
                 return NsdPackage.NS__ID;
+            case NsdPackage.AG_NS_IDENTIFICATION__VERSION:
+                return NsdPackage.NS__VERSION;
             case NsdPackage.AG_NS_IDENTIFICATION__REVISION:
                 return NsdPackage.NS__REVISION;
+            case NsdPackage.AG_NS_IDENTIFICATION__RELEASE:
+                return NsdPackage.NS__RELEASE;
             case NsdPackage.AG_NS_IDENTIFICATION__PUBLICATION_STAGE:
                 return NsdPackage.NS__PUBLICATION_STAGE;
+            case NsdPackage.AG_NS_IDENTIFICATION__NAMESPACE_TYPE:
+                return NsdPackage.NS__NAMESPACE_TYPE;
+            case NsdPackage.AG_NS_IDENTIFICATION__DEPRECATED:
+                return NsdPackage.NS__DEPRECATED;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgNSDIdentification.class ) {
+            switch( baseFeatureID ) {
+            case NsdPackage.AG_NSD_IDENTIFICATION__NSD_VERSION:
+                return NsdPackage.NS__NSD_VERSION;
+            case NsdPackage.AG_NSD_IDENTIFICATION__NSD_REVISION:
+                return NsdPackage.NS__NSD_REVISION;
+            case NsdPackage.AG_NSD_IDENTIFICATION__NSD_RELEASE:
+                return NsdPackage.NS__NSD_RELEASE;
             default:
                 return -1;
             }
@@ -2981,6 +3581,8 @@ public class NSImpl extends CopyrightedImpl implements NS {
                 return NsdPackage.NS__UML_DATE;
             case NsdPackage.AG_UML__UML_VERSION:
                 return NsdPackage.NS__UML_VERSION;
+            case NsdPackage.AG_UML__APP_VERSION:
+                return NsdPackage.NS__APP_VERSION;
             default:
                 return -1;
             }
@@ -3011,6 +3613,12 @@ public class NSImpl extends CopyrightedImpl implements NS {
                 return NsdPackage.NS___ID_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP;
             case NsdPackage.AG_NS_IDENTIFICATION___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP:
                 return NsdPackage.NS___VERSION_ATTRIBUTE_REQUIRED__DIAGNOSTICCHAIN_MAP;
+            default:
+                return -1;
+            }
+        }
+        if( baseClass == AgNSDIdentification.class ) {
+            switch( baseOperationID ) {
             default:
                 return -1;
             }
@@ -3061,9 +3669,9 @@ public class NSImpl extends CopyrightedImpl implements NS {
         }
 
         StringBuilder result = new StringBuilder( super.toString() );
-        result.append( " (release: " );
-        if( releaseESet ) {
-            result.append( release );
+        result.append( " (id: " );
+        if( idESet ) {
+            result.append( id );
         }
         else {
             result.append( "<unset>" );
@@ -3075,13 +3683,6 @@ public class NSImpl extends CopyrightedImpl implements NS {
         else {
             result.append( "<unset>" );
         }
-        result.append( ", id: " );
-        if( idESet ) {
-            result.append( id );
-        }
-        else {
-            result.append( "<unset>" );
-        }
         result.append( ", revision: " );
         if( revisionESet ) {
             result.append( revision );
@@ -3089,9 +3690,51 @@ public class NSImpl extends CopyrightedImpl implements NS {
         else {
             result.append( "<unset>" );
         }
+        result.append( ", release: " );
+        if( releaseESet ) {
+            result.append( release );
+        }
+        else {
+            result.append( "<unset>" );
+        }
         result.append( ", publicationStage: " );
         if( publicationStageESet ) {
             result.append( publicationStage );
+        }
+        else {
+            result.append( "<unset>" );
+        }
+        result.append( ", namespaceType: " );
+        if( namespaceTypeESet ) {
+            result.append( namespaceType );
+        }
+        else {
+            result.append( "<unset>" );
+        }
+        result.append( ", deprecated: " );
+        if( deprecatedESet ) {
+            result.append( deprecated );
+        }
+        else {
+            result.append( "<unset>" );
+        }
+        result.append( ", nsdVersion: " );
+        if( nsdVersionESet ) {
+            result.append( nsdVersion );
+        }
+        else {
+            result.append( "<unset>" );
+        }
+        result.append( ", nsdRevision: " );
+        if( nsdRevisionESet ) {
+            result.append( nsdRevision );
+        }
+        else {
+            result.append( "<unset>" );
+        }
+        result.append( ", nsdRelease: " );
+        if( nsdReleaseESet ) {
+            result.append( nsdRelease );
         }
         else {
             result.append( "<unset>" );
@@ -3106,6 +3749,13 @@ public class NSImpl extends CopyrightedImpl implements NS {
         result.append( ", umlVersion: " );
         if( umlVersionESet ) {
             result.append( umlVersion );
+        }
+        else {
+            result.append( "<unset>" );
+        }
+        result.append( ", appVersion: " );
+        if( appVersionESet ) {
+            result.append( appVersion );
         }
         else {
             result.append( "<unset>" );

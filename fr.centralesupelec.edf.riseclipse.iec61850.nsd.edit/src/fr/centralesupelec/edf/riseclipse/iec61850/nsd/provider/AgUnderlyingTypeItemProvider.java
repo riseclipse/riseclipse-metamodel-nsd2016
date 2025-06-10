@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -20,17 +20,12 @@
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.provider;
 
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -41,6 +36,9 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
 /**
  * This is the item provider adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType} object.
@@ -76,6 +74,7 @@ public class AgUnderlyingTypeItemProvider extends ItemProviderAdapter implements
             addRefersToUnderlyingBasicTypePropertyDescriptor( object );
             addRefersToUnderlyingConstructedAttributePropertyDescriptor( object );
             addRefersToUnderlyingEnumerationPropertyDescriptor( object );
+            addUnderlyingControlTypePropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -192,6 +191,28 @@ public class AgUnderlyingTypeItemProvider extends ItemProviderAdapter implements
     }
 
     /**
+     * This adds a property descriptor for the Underlying Control Type feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addUnderlyingControlTypePropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_AgUnderlyingType_underlyingControlType_feature" ),
+                        getString( "_UI_PropertyDescriptor_description",
+                                "_UI_AgUnderlyingType_underlyingControlType_feature", "_UI_AgUnderlyingType_type" ),
+                        NsdPackage.Literals.AG_UNDERLYING_TYPE__UNDERLYING_CONTROL_TYPE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -218,6 +239,7 @@ public class AgUnderlyingTypeItemProvider extends ItemProviderAdapter implements
         switch( notification.getFeatureID( AgUnderlyingType.class ) ) {
         case NsdPackage.AG_UNDERLYING_TYPE__UNDERLYING_TYPE:
         case NsdPackage.AG_UNDERLYING_TYPE__UNDERLYING_TYPE_KIND:
+        case NsdPackage.AG_UNDERLYING_TYPE__UNDERLYING_CONTROL_TYPE:
             fireNotifyChanged( new ViewerNotification( notification, notification.getNotifier(), false, true ) );
             return;
         }

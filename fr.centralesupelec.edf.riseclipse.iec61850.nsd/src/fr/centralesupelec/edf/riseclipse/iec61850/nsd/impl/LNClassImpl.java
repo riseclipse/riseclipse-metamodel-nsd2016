@@ -193,9 +193,10 @@ public class LNClassImpl extends AnyLNClassImpl implements LNClass {
         canHaveLOG = newCanHaveLOG;
         boolean oldCanHaveLOGESet = canHaveLOGESet;
         canHaveLOGESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.LN_CLASS__CAN_HAVE_LOG, oldCanHaveLOG,
                     canHaveLOG, !oldCanHaveLOGESet ) );
+        }
     }
 
     /**
@@ -209,9 +210,10 @@ public class LNClassImpl extends AnyLNClassImpl implements LNClass {
         boolean oldCanHaveLOGESet = canHaveLOGESet;
         canHaveLOG = CAN_HAVE_LOG_EDEFAULT;
         canHaveLOGESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.LN_CLASS__CAN_HAVE_LOG, oldCanHaveLOG,
                     CAN_HAVE_LOG_EDEFAULT, oldCanHaveLOGESet ) );
+        }
     }
 
     /**
@@ -245,9 +247,10 @@ public class LNClassImpl extends AnyLNClassImpl implements LNClass {
         isExtension = newIsExtension;
         boolean oldIsExtensionESet = isExtensionESet;
         isExtensionESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.LN_CLASS__IS_EXTENSION, oldIsExtension,
                     isExtension, !oldIsExtensionESet ) );
+        }
     }
 
     /**
@@ -261,9 +264,10 @@ public class LNClassImpl extends AnyLNClassImpl implements LNClass {
         boolean oldIsExtensionESet = isExtensionESet;
         isExtension = IS_EXTENSION_EDEFAULT;
         isExtensionESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.LN_CLASS__IS_EXTENSION, oldIsExtension,
                     IS_EXTENSION_EDEFAULT, oldIsExtensionESet ) );
+        }
     }
 
     /**
@@ -297,9 +301,10 @@ public class LNClassImpl extends AnyLNClassImpl implements LNClass {
         name = newName;
         boolean oldNameESet = nameESet;
         nameESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.LN_CLASS__NAME, oldName, name,
                     !oldNameESet ) );
+        }
     }
 
     /**
@@ -313,9 +318,10 @@ public class LNClassImpl extends AnyLNClassImpl implements LNClass {
         boolean oldNameESet = nameESet;
         name = NAME_EDEFAULT;
         nameESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.LN_CLASS__NAME, oldName, NAME_EDEFAULT,
                     oldNameESet ) );
+        }
     }
 
     /**
@@ -335,7 +341,9 @@ public class LNClassImpl extends AnyLNClassImpl implements LNClass {
      */
     @Override
     public LNClasses getParentLNClasses() {
-        if( eContainerFeatureID() != NsdPackage.LN_CLASS__PARENT_LN_CLASSES ) return null;
+        if( eContainerFeatureID() != NsdPackage.LN_CLASS__PARENT_LN_CLASSES ) {
+            return null;
+        }
         return ( LNClasses ) eInternalContainer();
     }
 
@@ -359,20 +367,26 @@ public class LNClassImpl extends AnyLNClassImpl implements LNClass {
     public void setParentLNClasses( LNClasses newParentLNClasses ) {
         if( newParentLNClasses != eInternalContainer()
                 || ( eContainerFeatureID() != NsdPackage.LN_CLASS__PARENT_LN_CLASSES && newParentLNClasses != null ) ) {
-            if( EcoreUtil.isAncestor( this, newParentLNClasses ) )
+            if( EcoreUtil.isAncestor( this, newParentLNClasses ) ) {
                 throw new IllegalArgumentException( "Recursive containment not allowed for " + toString() );
+            }
             NotificationChain msgs = null;
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
-            if( newParentLNClasses != null )
+            }
+            if( newParentLNClasses != null ) {
                 msgs = ( ( InternalEObject ) newParentLNClasses ).eInverseAdd( this, NsdPackage.LN_CLASSES__LN_CLASS,
                         LNClasses.class, msgs );
+            }
             msgs = basicSetParentLNClasses( newParentLNClasses, msgs );
-            if( msgs != null ) msgs.dispatch();
+            if( msgs != null ) {
+                msgs.dispatch();
+            }
         }
-        else if( eNotificationRequired() )
+        else if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.LN_CLASS__PARENT_LN_CLASSES,
                     newParentLNClasses, newParentLNClasses ) );
+        }
     }
 
     /**
@@ -448,8 +462,9 @@ public class LNClassImpl extends AnyLNClassImpl implements LNClass {
     public NotificationChain eInverseAdd( InternalEObject otherEnd, int featureID, NotificationChain msgs ) {
         switch( featureID ) {
         case NsdPackage.LN_CLASS__PARENT_LN_CLASSES:
-            if( eInternalContainer() != null )
+            if( eInternalContainer() != null ) {
                 msgs = eBasicRemoveFromContainer( msgs );
+            }
             return basicSetParentLNClasses( ( LNClasses ) otherEnd, msgs );
         }
         return super.eInverseAdd( otherEnd, featureID, msgs );
@@ -594,31 +609,40 @@ public class LNClassImpl extends AnyLNClassImpl implements LNClass {
      */
     @Override
     public String toString() {
-        if( eIsProxy() ) return super.toString();
+        if( eIsProxy() ) {
+            return super.toString();
+        }
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (canHaveLOG: " );
-        if( canHaveLOGESet )
+        if( canHaveLOGESet ) {
             result.append( canHaveLOG );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", isExtension: " );
-        if( isExtensionESet )
+        if( isExtensionESet ) {
             result.append( isExtension );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", name: " );
-        if( nameESet )
+        if( nameESet ) {
             result.append( name );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ')' );
         return result.toString();
     }
 
     public void addDataObjectsFromExtendedLNClass( IRiseClipseConsole console ) {
-        console.debug( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(), "LNClassImpl.addDataObjectsFromExtendedLNClass() for: ",
-                       getName(), " in namespace \"", getNsIdentification(), "\"" );
+        console.debug( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                "LNClassImpl.addDataObjectsFromExtendedLNClass() for: ",
+                getName(), " in namespace \"", getNsIdentification(), "\"" );
 
         AnyLNClass lnClass = getResourceSet().findLNClass( getName(), getNsIdentification().getDependsOn(), true );
         if( lnClass == null ) {
@@ -633,9 +657,11 @@ public class LNClassImpl extends AnyLNClassImpl implements LNClass {
                 // for example to change its presence condition
                 // See mail 9 February 2024 from Aurélie
                 boolean alreadyPresent = getDataObject()
-                    .stream()
-                    .anyMatch( d -> d.getName().equals( do_.getName() ));
-                if( alreadyPresent ) continue;
+                        .stream()
+                        .anyMatch( d -> d.getName().equals( do_.getName() ) );
+                if( alreadyPresent ) {
+                    continue;
+                }
                 DataObject copy = EcoreUtil.copy( do_ );
                 getDataObject().add( copy );
                 // filename not copied

@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -93,7 +93,7 @@ public interface ServiceCDC extends NsdObject {
      * @see #unsetCdc()
      * @see #setCdc(String)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceCDC_Cdc()
-     * @model unsettable="true" required="true"
+     * @model unsettable="true"
      *        extendedMetaData="kind='attribute' name='cdc'"
      * @generated
      */
@@ -193,7 +193,7 @@ public interface ServiceCDC extends NsdObject {
      * @see #setParentServiceCDCs(ServiceCDCs)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceCDC_ParentServiceCDCs()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDCs#getServiceCDC
-     * @model opposite="serviceCDC" resolveProxies="false" unsettable="true" ordered="false"
+     * @model opposite="serviceCDC" resolveProxies="false" unsettable="true"
      * @generated
      */
     ServiceCDCs getParentServiceCDCs();

@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -42,7 +42,7 @@ package fr.centralesupelec.edf.riseclipse.iec61850.nsd;
  * @model extendedMetaData="name='tServiceNS' kind='elementOnly'"
  * @generated
  */
-public interface ServiceNS extends Copyrighted, AgNSIdentification, AgUML, AgNSdesc {
+public interface ServiceNS extends Copyrighted, AgNSIdentification, AgNSDIdentification, AgUML, AgNSdesc {
     /**
      * Returns the value of the '<em><b>Changes</b></em>' containment reference.
      * It is bidirectional and its opposite is '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getParentServiceNS <em>Parent Service NS</em>}'.
@@ -54,7 +54,7 @@ public interface ServiceNS extends Copyrighted, AgNSIdentification, AgUML, AgNSd
      * @see #setChanges(Changes)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceNS_Changes()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Changes#getParentServiceNS
-     * @model opposite="parentServiceNS" containment="true" unsettable="true" ordered="false"
+     * @model opposite="parentServiceNS" containment="true" unsettable="true"
      *        extendedMetaData="kind='element' name='Changes' namespace='##targetNamespace'"
      * @generated
      */
@@ -106,7 +106,7 @@ public interface ServiceNS extends Copyrighted, AgNSIdentification, AgUML, AgNSd
      * @see #setFunctionalConstraints(FunctionalConstraints)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceNS_FunctionalConstraints()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraints#getParentServiceNS
-     * @model opposite="parentServiceNS" containment="true" unsettable="true" ordered="false"
+     * @model opposite="parentServiceNS" containment="true" unsettable="true"
      *        extendedMetaData="kind='element' name='FunctionalConstraints' namespace='##targetNamespace'"
      * @generated
      */
@@ -158,7 +158,7 @@ public interface ServiceNS extends Copyrighted, AgNSIdentification, AgUML, AgNSd
      * @see #setPresenceConditions(PresenceConditions)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceNS_PresenceConditions()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions#getParentServiceNS
-     * @model opposite="parentServiceNS" containment="true" unsettable="true" ordered="false"
+     * @model opposite="parentServiceNS" containment="true" unsettable="true"
      *        extendedMetaData="kind='element' name='PresenceConditions' namespace='##targetNamespace'"
      * @generated
      */
@@ -210,7 +210,7 @@ public interface ServiceNS extends Copyrighted, AgNSIdentification, AgUML, AgNSd
      * @see #setAbbreviations(Abbreviations)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceNS_Abbreviations()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations#getParentServiceNS
-     * @model opposite="parentServiceNS" containment="true" unsettable="true" ordered="false"
+     * @model opposite="parentServiceNS" containment="true" unsettable="true"
      *        extendedMetaData="kind='element' name='Abbreviations' namespace='##targetNamespace'"
      * @generated
      */
@@ -262,7 +262,7 @@ public interface ServiceNS extends Copyrighted, AgNSIdentification, AgUML, AgNSd
      * @see #setServiceTypeRealizations(ServiceTypeRealizations)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceNS_ServiceTypeRealizations()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealizations#getParentServiceNS
-     * @model opposite="parentServiceNS" containment="true" unsettable="true" ordered="false"
+     * @model opposite="parentServiceNS" containment="true" unsettable="true"
      *        extendedMetaData="kind='element' name='ServiceTypeRealizations' namespace='##targetNamespace'"
      * @generated
      */
@@ -314,7 +314,7 @@ public interface ServiceNS extends Copyrighted, AgNSIdentification, AgUML, AgNSd
      * @see #setServiceConstructedAttributes(ServiceConstructedAttributes)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceNS_ServiceConstructedAttributes()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttributes#getParentServiceNS
-     * @model opposite="parentServiceNS" containment="true" unsettable="true" ordered="false"
+     * @model opposite="parentServiceNS" containment="true" unsettable="true"
      *        extendedMetaData="kind='element' name='ServiceConstructedAttributes' namespace='##targetNamespace'"
      * @generated
      */
@@ -366,7 +366,7 @@ public interface ServiceNS extends Copyrighted, AgNSIdentification, AgUML, AgNSd
      * @see #setServiceCDCs(ServiceCDCs)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getServiceNS_ServiceCDCs()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDCs#getParentServiceNS
-     * @model opposite="parentServiceNS" containment="true" unsettable="true" ordered="false"
+     * @model opposite="parentServiceNS" containment="true" unsettable="true"
      *        extendedMetaData="kind='element' name='ServiceCDCs' namespace='##targetNamespace'"
      * @generated
      */

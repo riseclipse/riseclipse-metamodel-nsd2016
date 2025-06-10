@@ -49,6 +49,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviation;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.Abbreviations;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AbstractLNClass;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgAttributeType;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ApplicableServiceNS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AppliesToType;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType;
@@ -77,6 +78,7 @@ import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceCDC;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceConstructedAttribute;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNS;
 import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceTypeRealization;
 import fr.centralesupelec.edf.riseclipse.util.AbstractRiseClipseConsole;
 import fr.centralesupelec.edf.riseclipse.util.IRiseClipseConsole;
 import fr.centralesupelec.edf.riseclipse.util.RiseClipseMetamodel;
@@ -103,7 +105,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
     // Use only type as key; not typeKind
     private Map< NsIdentificationName, HashMap< String, CDC >> parameterizedCDCs = new IdentityHashMap<>();
 
-    public Map< NsIdentificationName, HashMap< String, CDC >> getparameterizedCDCMap() {
+    public Map< NsIdentificationName, HashMap< String, CDC >> getParameterizedCDCMap() {
         return parameterizedCDCs;
     }
 
@@ -243,17 +245,33 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                 
                 ServiceNS serviceNSResource = serviceNSResources.get( serviceNsId );
                 if( serviceNSResource != null ) {
-                    if( serviceNSResource.getRelease() != serviceNsId.getRelease() ) {
-                        console.warning( NSD_SETUP_CATEGORY, 0,
-                                         "While processing ApplicableServiceNS \"", appNS.eResource().getURI().lastSegment(), "\", ",
-                                         "while processing ServiceNsUsage \"", serviceNsId, "\", ",
-                                         "the ServiceNS found has a release of ", serviceNSResource.getRelease(),
-                                         " which is not the one expected (", serviceNsId.getRelease(), ") by the ServiceNSUsage" );
-                    }
+                    // serviceNSResource.getRelease() is int
+                    // serviceNsId.getRelease() is Integer
+                    // But in NSD2017B5, no more release in ServiceNsUsage
+//                    if( serviceNSResource.getRelease() != serviceNsId.getRelease().intValue() ) {
+//                        console.warning( NSD_SETUP_CATEGORY, 0,
+//                                         "While processing ApplicableServiceNS \"", appNS.eResource().getURI().lastSegment(), "\", ",
+//                                         "while processing ServiceNsUsage \"", serviceNsId, "\", ",
+//                                         "the ServiceNS found has a release of ", serviceNSResource.getRelease(),
+//                                         " which is not the one expected (", serviceNsId.getRelease(), ") by the ServiceNSUsage" );
+//                    }
                     boolean applied = false;
                     for( AppliesToType applyTo : serviceNsUsage.getAppliesTo() ) {
                         NsIdentification applyToNsId = NsIdentification.of( applyTo );
-                        
+                        // Let's say we have <AppliesTo id="IEC 61850-7-3" version="2007" revision="B" release="3"/>
+                        // Before, we have loaded IEC_61850-7-3_2007B5.nsd
+                        // Instances of NsIdentification are unique without taking into account release
+                        // We will have applyToNsId.getRelease() == 5, which is not right!
+                        // applyTo.getRelease() is int
+                        // applyToNsId.getRelease() is Integer
+                        if( applyTo.getRelease() != applyToNsId.getRelease().intValue() ) {
+                            console.warning( NSD_SETUP_CATEGORY, 0,
+                                    "While processing ApplicableServiceNS \"", appNS.eResource().getURI().lastSegment(), "\", ",
+                                    "while processing ServiceNsUsage \"", serviceNsId, "\", ",
+                                    "the NS found has a release of ", applyToNsId.getRelease(),
+                                    " which is not the one expected (", applyTo.getRelease(), ") by the ServiceNSUsage" );
+                            continue;
+                        }
                         NS applyToNs = getNS( applyToNsId );
                         if( applyToNs == null ) {
                             console.warning( NSD_SETUP_CATEGORY, 0,
@@ -262,13 +280,16 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                                              "the NS ", applyToNsId, " is unknown" );
                             continue;
                         }
-                        if( applyToNs.getRelease() != applyToNsId.getRelease() ) {
-                            console.warning( NSD_SETUP_CATEGORY, 0,
-                                             "While processing ApplicableServiceNS \"", appNS.eResource().getURI().lastSegment(), "\", ",
-                                             "while processing ServiceNsUsage \"", serviceNsId, "\", ",
-                                             "the NS found has a release of ", applyToNs.getRelease(),
-                                             " which is not the one expected (", applyToNsId.getRelease(), ") by the ServiceNSUsage" );
-                        }
+                        // applyToNs.getRelease() is int
+                        // applyToNsId.getRelease() is Integer
+                        // See before: this test will never fail
+//                        if( applyToNs.getRelease() != applyToNsId.getRelease().intValue() ) {
+//                            console.warning( NSD_SETUP_CATEGORY, 0,
+//                                             "While processing ApplicableServiceNS \"", appNS.eResource().getURI().lastSegment(), "\", ",
+//                                             "while processing ServiceNsUsage \"", serviceNsId, "\", ",
+//                                             "the NS found has a release of ", applyToNs.getRelease(),
+//                                             " which is not the one expected (", applyToNsId.getRelease(), ") by the ServiceNSUsage" );
+//                        }
                         if( nsModified.contains( applyToNs )) {
                             console.warning( NSD_SETUP_CATEGORY, 0, 
                                              "A ServiceNS has already been applied to NS with id ", applyToNsId,
@@ -315,7 +336,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         
         if( serviceNS.getAbbreviations() != null ) {
             for( Abbreviation abbreviation : serviceNS.getAbbreviations().getAbbreviation() ) {
-                console.info( NSD_SETUP_CATEGORY, 0,
+                console.notice( NSD_SETUP_CATEGORY, 0,
                                 "Service NS: adding new abbreviation ", abbreviation.getName() );
                 if( applyToNs.getAbbreviations() == null ) {
                     applyToNs.setAbbreviations( NsdFactory.eINSTANCE.createAbbreviations() );
@@ -330,7 +351,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         
         if( serviceNS.getFunctionalConstraints() != null ) {
             for( FunctionalConstraint functionalConstraint : serviceNS.getFunctionalConstraints().getFunctionalConstraint() ) {
-                console.info( NSD_SETUP_CATEGORY, 0,
+                console.notice( NSD_SETUP_CATEGORY, 0,
                                 "Service NS: adding new functional constraint ", functionalConstraint.getAbbreviation() );
                 if( applyToNs.getFunctionalConstraints() == null ) {
                     applyToNs.setFunctionalConstraints( NsdFactory.eINSTANCE.createFunctionalConstraints() );
@@ -345,7 +366,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         
         if( serviceNS.getPresenceConditions() != null ) {
             for( PresenceCondition presenceCondition : serviceNS.getPresenceConditions().getPresenceCondition() ) {
-                console.info( NSD_SETUP_CATEGORY, 0,
+                console.notice( NSD_SETUP_CATEGORY, 0,
                                 "Service NS: adding new presence condition ", presenceCondition.getName() );
                 if( applyToNs.getPresenceConditions() == null ) {
                     applyToNs.setPresenceConditions( NsdFactory.eINSTANCE.createPresenceConditions() );
@@ -360,9 +381,11 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
         
         if( serviceNS.getServiceTypeRealizations() != null ) {
             // A ServiceTypeRealization gives a new definition to an existing (only basic ? never constructed ?) type
-            for( ConstructedAttribute typeRealization : serviceNS.getServiceTypeRealizations().getServiceTypeRealization() ) {
-                console.info( NSD_SETUP_CATEGORY, 0,
-                              "Service NS: apply new definition for type ", typeRealization.getName() );
+            for( ServiceTypeRealization typeRealization : serviceNS.getServiceTypeRealizations().getServiceTypeRealization() ) {
+                // With NSD.xsd 2017B5, the realized type is in an attribute realize
+                String realized = typeRealization.getRealize() != null ? typeRealization.getRealize() : typeRealization.getName();
+                console.notice( NSD_SETUP_CATEGORY, 0,
+                              "Service NS: apply new definition for type ", realized, " with name ", typeRealization.getName() );
                 // move a copy in the applyTo resource so that it appears as belonging to the namespace of this resource
                 if( applyToNs.getConstructedAttributes() == null ) {
                     applyToNs.setConstructedAttributes( NsdFactory.eINSTANCE.createConstructedAttributes() );
@@ -376,22 +399,35 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                 BasicType basic = findBasicType( typeRealization.getName(), applyToNsId, true );
                 if( basic != null ) {
                     // Avoid ConcurrentModificationException
-                    List< AgAttributeType > atts = basic
+                    List< AgAttributeType > atts1 = basic
                             .getReferredByAttributeType()
                             .stream()
                             .collect( Collectors.toList() );
-                    for( AgAttributeType att : atts ) {
+                    for( AgAttributeType att : atts1 ) {
                         att.unsetRefersToBasicType();
-                        console.info( NSD_SETUP_CATEGORY, 0,
-                                        "Service NS: using TypeRealization ",  basic.getName(), " to attribute ", att.getType() );
-                        att.setRefersToConstructedAttribute( typeRealization );
+                        console.notice( NSD_SETUP_CATEGORY, 0,
+                                        "Service NS: using TypeRealization ",  basic.getName(), " for attribute ", att.getType() );
+                        att.setRefersToConstructedAttribute( copy );
                     }
+
+                    // SCSM in 2017B5: the underlying type is defines in a snsd file
+                    List< AgUnderlyingType > atts2 = basic
+                            .getReferredByUnderlyingType()
+                            .stream()
+                            .collect( Collectors.toList() );
+                    for( AgUnderlyingType att : atts2 ) {
+                        att.unsetRefersToUnderlyingBasicType();
+                        console.notice( NSD_SETUP_CATEGORY, 0,
+                                        "Service NS: using TypeRealization for underlying type ", att.getUnderlyingType() );
+                        att.setRefersToUnderlyingConstructedAttribute( copy );
+                    }
+
                     // If we keep it, a validator will be built for it and given back instead of the one for the new constructed type
                     removeBasicType( basic, applyToNsId );
                 }
                 else {
                     console.warning( NSD_SETUP_CATEGORY, 0,
-                                     "BasicType ", typeRealization.getName(), " not found for TypeRealization" );
+                                     "BasicType ", realized, " not found for TypeRealization" );
                 }
             }
         }
@@ -400,7 +436,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
             // A ServiceConstructedAttribute defines new ConstructedAttribute:
             // they are taken into account in getConstructedAttributeStream()
             for( ServiceConstructedAttribute serviceConstructedAttribute : serviceNS.getServiceConstructedAttributes().getServiceConstructedAttribute() ) {
-                console.info( NSD_SETUP_CATEGORY, 0,
+                console.notice( NSD_SETUP_CATEGORY, 0,
                                 "Service NS: Adding ConstructedAttribute ", serviceConstructedAttribute.getName(), " to NS ", applyToNsId );
                 if( applyToNs.getConstructedAttributes() == null ) {
                     applyToNs.setConstructedAttributes( NsdFactory.eINSTANCE.createConstructedAttributes() );
@@ -425,7 +461,7 @@ public class NsdResourceSetImpl extends AbstractRiseClipseResourceSet {
                         .stream()
                         .forEach( att -> {
                             DataAttribute da = (( ServiceDataAttributeImpl ) att ).toDataAttribute( cdc, console );
-                            console.info( NSD_SETUP_CATEGORY, 0,
+                            console.notice( NSD_SETUP_CATEGORY, 0,
                                             "Service NS: Adding DataAttribute ", da.getName(), " to CDC ", cdc.getName() );
                         });
                     });

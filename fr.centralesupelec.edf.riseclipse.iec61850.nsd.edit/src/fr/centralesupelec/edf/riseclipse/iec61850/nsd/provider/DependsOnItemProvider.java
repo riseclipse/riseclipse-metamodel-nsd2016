@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -20,8 +20,6 @@
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.provider;
 
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -31,6 +29,9 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
 /**
  * This is the item provider adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.DependsOn} object.
@@ -60,36 +61,13 @@ public class DependsOnItemProvider extends NsdObjectItemProvider {
         if( itemPropertyDescriptors == null ) {
             super.getPropertyDescriptors( object );
 
-            addReleasePropertyDescriptor( object );
-            addVersionPropertyDescriptor( object );
             addIdPropertyDescriptor( object );
+            addVersionPropertyDescriptor( object );
             addRevisionPropertyDescriptor( object );
-            addPublicationStagePropertyDescriptor( object );
+            addDependencyTypePropertyDescriptor( object );
             addRefersToNSPropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
-    }
-
-    /**
-     * This adds a property descriptor for the Release feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addReleasePropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add(
-                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString( "_UI_AgNSIdentification_release_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_AgNSIdentification_release_feature",
-                                "_UI_AgNSIdentification_type" ),
-                        NsdPackage.Literals.AG_NS_IDENTIFICATION__RELEASE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
     }
 
     /**
@@ -102,10 +80,10 @@ public class DependsOnItemProvider extends NsdObjectItemProvider {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
                         getResourceLocator(),
-                        getString( "_UI_AgNSIdentification_version_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_AgNSIdentification_version_feature",
-                                "_UI_AgNSIdentification_type" ),
-                        NsdPackage.Literals.AG_NS_IDENTIFICATION__VERSION,
+                        getString( "_UI_AgDependsOn_version_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgDependsOn_version_feature",
+                                "_UI_AgDependsOn_type" ),
+                        NsdPackage.Literals.AG_DEPENDS_ON__VERSION,
                         true,
                         false,
                         false,
@@ -124,10 +102,10 @@ public class DependsOnItemProvider extends NsdObjectItemProvider {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
                         getResourceLocator(),
-                        getString( "_UI_AgNSIdentification_id_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_AgNSIdentification_id_feature",
-                                "_UI_AgNSIdentification_type" ),
-                        NsdPackage.Literals.AG_NS_IDENTIFICATION__ID,
+                        getString( "_UI_AgDependsOn_id_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgDependsOn_id_feature",
+                                "_UI_AgDependsOn_type" ),
+                        NsdPackage.Literals.AG_DEPENDS_ON__ID,
                         true,
                         false,
                         false,
@@ -146,10 +124,10 @@ public class DependsOnItemProvider extends NsdObjectItemProvider {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
                         getResourceLocator(),
-                        getString( "_UI_AgNSIdentification_revision_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_AgNSIdentification_revision_feature",
-                                "_UI_AgNSIdentification_type" ),
-                        NsdPackage.Literals.AG_NS_IDENTIFICATION__REVISION,
+                        getString( "_UI_AgDependsOn_revision_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgDependsOn_revision_feature",
+                                "_UI_AgDependsOn_type" ),
+                        NsdPackage.Literals.AG_DEPENDS_ON__REVISION,
                         true,
                         false,
                         false,
@@ -159,19 +137,19 @@ public class DependsOnItemProvider extends NsdObjectItemProvider {
     }
 
     /**
-     * This adds a property descriptor for the Publication Stage feature.
+     * This adds a property descriptor for the Dependency Type feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addPublicationStagePropertyDescriptor( Object object ) {
+    protected void addDependencyTypePropertyDescriptor( Object object ) {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
                         getResourceLocator(),
-                        getString( "_UI_AgNSIdentification_publicationStage_feature" ),
-                        getString( "_UI_PropertyDescriptor_description",
-                                "_UI_AgNSIdentification_publicationStage_feature", "_UI_AgNSIdentification_type" ),
-                        NsdPackage.Literals.AG_NS_IDENTIFICATION__PUBLICATION_STAGE,
+                        getString( "_UI_AgDependsOn_dependencyType_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgDependsOn_dependencyType_feature",
+                                "_UI_AgDependsOn_type" ),
+                        NsdPackage.Literals.AG_DEPENDS_ON__DEPENDENCY_TYPE,
                         true,
                         false,
                         false,
@@ -238,11 +216,10 @@ public class DependsOnItemProvider extends NsdObjectItemProvider {
         updateChildren( notification );
 
         switch( notification.getFeatureID( DependsOn.class ) ) {
-        case NsdPackage.DEPENDS_ON__RELEASE:
-        case NsdPackage.DEPENDS_ON__VERSION:
         case NsdPackage.DEPENDS_ON__ID:
+        case NsdPackage.DEPENDS_ON__VERSION:
         case NsdPackage.DEPENDS_ON__REVISION:
-        case NsdPackage.DEPENDS_ON__PUBLICATION_STAGE:
+        case NsdPackage.DEPENDS_ON__DEPENDENCY_TYPE:
             fireNotifyChanged( new ViewerNotification( notification, notification.getNotifier(), false, true ) );
             return;
         }

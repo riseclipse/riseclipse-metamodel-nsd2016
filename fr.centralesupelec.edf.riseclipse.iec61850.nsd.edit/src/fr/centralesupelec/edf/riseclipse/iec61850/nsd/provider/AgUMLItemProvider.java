@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -20,9 +20,6 @@
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.provider;
 
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUML;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -30,9 +27,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -43,6 +38,9 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUML;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
 /**
  * This is the item provider adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUML} object.
@@ -75,6 +73,7 @@ public class AgUMLItemProvider extends ItemProviderAdapter implements IEditingDo
 
             addUmlDatePropertyDescriptor( object );
             addUmlVersionPropertyDescriptor( object );
+            addAppVersionPropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
     }
@@ -124,6 +123,28 @@ public class AgUMLItemProvider extends ItemProviderAdapter implements IEditingDo
     }
 
     /**
+     * This adds a property descriptor for the App Version feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addAppVersionPropertyDescriptor( Object object ) {
+        itemPropertyDescriptors.add(
+                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString( "_UI_AgUML_appVersion_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_AgUML_appVersion_feature",
+                                "_UI_AgUML_type" ),
+                        NsdPackage.Literals.AG_UML__APP_VERSION,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -151,6 +172,7 @@ public class AgUMLItemProvider extends ItemProviderAdapter implements IEditingDo
         switch( notification.getFeatureID( AgUML.class ) ) {
         case NsdPackage.AG_UML__UML_DATE:
         case NsdPackage.AG_UML__UML_VERSION:
+        case NsdPackage.AG_UML__APP_VERSION:
             fireNotifyChanged( new ViewerNotification( notification, notification.getNotifier(), false, true ) );
             return;
         }

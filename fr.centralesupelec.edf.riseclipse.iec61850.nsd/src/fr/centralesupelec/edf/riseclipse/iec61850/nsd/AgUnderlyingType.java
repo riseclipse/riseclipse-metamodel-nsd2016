@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -36,6 +36,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType#getRefersToUnderlyingBasicType <em>Refers To Underlying Basic Type</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType#getRefersToUnderlyingConstructedAttribute <em>Refers To Underlying Constructed Attribute</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType#getRefersToUnderlyingEnumeration <em>Refers To Underlying Enumeration</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType#getUnderlyingControlType <em>Underlying Control Type</em>}</li>
  * </ul>
  *
  * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgUnderlyingType()
@@ -165,7 +166,7 @@ public interface AgUnderlyingType extends EObject {
      * @see #setRefersToUnderlyingBasicType(BasicType)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgUnderlyingType_RefersToUnderlyingBasicType()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.BasicType#getReferredByUnderlyingType
-     * @model opposite="referredByUnderlyingType" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @model opposite="referredByUnderlyingType" resolveProxies="false" unsettable="true" transient="true"
      * @generated
      */
     BasicType getRefersToUnderlyingBasicType();
@@ -216,7 +217,7 @@ public interface AgUnderlyingType extends EObject {
      * @see #setRefersToUnderlyingConstructedAttribute(ConstructedAttribute)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgUnderlyingType_RefersToUnderlyingConstructedAttribute()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.ConstructedAttribute#getReferredByUnderlyingType
-     * @model opposite="referredByUnderlyingType" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @model opposite="referredByUnderlyingType" resolveProxies="false" unsettable="true" transient="true"
      * @generated
      */
     ConstructedAttribute getRefersToUnderlyingConstructedAttribute();
@@ -267,7 +268,7 @@ public interface AgUnderlyingType extends EObject {
      * @see #setRefersToUnderlyingEnumeration(Enumeration)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgUnderlyingType_RefersToUnderlyingEnumeration()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Enumeration#getReferredByUnderlyingType
-     * @model opposite="referredByUnderlyingType" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @model opposite="referredByUnderlyingType" resolveProxies="false" unsettable="true" transient="true"
      * @generated
      */
     Enumeration getRefersToUnderlyingEnumeration();
@@ -306,5 +307,55 @@ public interface AgUnderlyingType extends EObject {
      * @generated
      */
     boolean isSetRefersToUnderlyingEnumeration();
+
+    /**
+     * Returns the value of the '<em><b>Underlying Control Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Underlying Control Type</em>' attribute.
+     * @see #isSetUnderlyingControlType()
+     * @see #unsetUnderlyingControlType()
+     * @see #setUnderlyingControlType(String)
+     * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getAgUnderlyingType_UnderlyingControlType()
+     * @model unsettable="true"
+     *        extendedMetaData="kind='attribute' name='underlyingControlType'"
+     * @generated
+     */
+    String getUnderlyingControlType();
+
+    /**
+     * Sets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType#getUnderlyingControlType <em>Underlying Control Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Underlying Control Type</em>' attribute.
+     * @see #isSetUnderlyingControlType()
+     * @see #unsetUnderlyingControlType()
+     * @see #getUnderlyingControlType()
+     * @generated
+     */
+    void setUnderlyingControlType( String value );
+
+    /**
+     * Unsets the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType#getUnderlyingControlType <em>Underlying Control Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetUnderlyingControlType()
+     * @see #getUnderlyingControlType()
+     * @see #setUnderlyingControlType(String)
+     * @generated
+     */
+    void unsetUnderlyingControlType();
+
+    /**
+     * Returns whether the value of the '{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUnderlyingType#getUnderlyingControlType <em>Underlying Control Type</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Underlying Control Type</em>' attribute is set.
+     * @see #unsetUnderlyingControlType()
+     * @see #getUnderlyingControlType()
+     * @see #setUnderlyingControlType(String)
+     * @generated
+     */
+    boolean isSetUnderlyingControlType();
 
 } // AgUnderlyingType

@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -91,7 +91,7 @@ public interface CDCs extends NsdObject {
      * @see #setParentNS(NS)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCDCs_ParentNS()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NS#getCDCs
-     * @model opposite="cDCs" resolveProxies="false" unsettable="true" ordered="false"
+     * @model opposite="cDCs" resolveProxies="false" unsettable="true"
      * @generated
      */
     NS getParentNS();

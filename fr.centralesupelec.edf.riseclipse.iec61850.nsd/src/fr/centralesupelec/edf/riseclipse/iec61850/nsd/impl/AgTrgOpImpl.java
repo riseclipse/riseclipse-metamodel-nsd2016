@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -20,15 +20,13 @@
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgTrgOp;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgTrgOp;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -173,9 +171,10 @@ public abstract class AgTrgOpImpl extends MinimalEObjectImpl.Container implement
         dchg = newDchg;
         boolean oldDchgESet = dchgESet;
         dchgESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_TRG_OP__DCHG, oldDchg, dchg,
                     !oldDchgESet ) );
+        }
     }
 
     /**
@@ -189,9 +188,10 @@ public abstract class AgTrgOpImpl extends MinimalEObjectImpl.Container implement
         boolean oldDchgESet = dchgESet;
         dchg = DCHG_EDEFAULT;
         dchgESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_TRG_OP__DCHG, oldDchg,
                     DCHG_EDEFAULT, oldDchgESet ) );
+        }
     }
 
     /**
@@ -225,9 +225,10 @@ public abstract class AgTrgOpImpl extends MinimalEObjectImpl.Container implement
         dupd = newDupd;
         boolean oldDupdESet = dupdESet;
         dupdESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_TRG_OP__DUPD, oldDupd, dupd,
                     !oldDupdESet ) );
+        }
     }
 
     /**
@@ -241,9 +242,10 @@ public abstract class AgTrgOpImpl extends MinimalEObjectImpl.Container implement
         boolean oldDupdESet = dupdESet;
         dupd = DUPD_EDEFAULT;
         dupdESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_TRG_OP__DUPD, oldDupd,
                     DUPD_EDEFAULT, oldDupdESet ) );
+        }
     }
 
     /**
@@ -277,9 +279,10 @@ public abstract class AgTrgOpImpl extends MinimalEObjectImpl.Container implement
         qchg = newQchg;
         boolean oldQchgESet = qchgESet;
         qchgESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_TRG_OP__QCHG, oldQchg, qchg,
                     !oldQchgESet ) );
+        }
     }
 
     /**
@@ -293,9 +296,10 @@ public abstract class AgTrgOpImpl extends MinimalEObjectImpl.Container implement
         boolean oldQchgESet = qchgESet;
         qchg = QCHG_EDEFAULT;
         qchgESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_TRG_OP__QCHG, oldQchg,
                     QCHG_EDEFAULT, oldQchgESet ) );
+        }
     }
 
     /**
@@ -393,24 +397,32 @@ public abstract class AgTrgOpImpl extends MinimalEObjectImpl.Container implement
      */
     @Override
     public String toString() {
-        if( eIsProxy() ) return super.toString();
+        if( eIsProxy() ) {
+            return super.toString();
+        }
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (dchg: " );
-        if( dchgESet )
+        if( dchgESet ) {
             result.append( dchg );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", dupd: " );
-        if( dupdESet )
+        if( dupdESet ) {
             result.append( dupd );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", qchg: " );
-        if( qchgESet )
+        if( qchgESet ) {
             result.append( qchg );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ')' );
         return result.toString();
     }

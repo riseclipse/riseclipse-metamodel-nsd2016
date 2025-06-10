@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -163,7 +163,7 @@ public interface DataAttribute
      * @see #setParentCDC(CDC)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_ParentCDC()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC#getDataAttribute
-     * @model opposite="dataAttribute" resolveProxies="false" unsettable="true" ordered="false"
+     * @model opposite="dataAttribute" resolveProxies="false" unsettable="true"
      * @generated
      */
     CDC getParentCDC();
@@ -275,7 +275,7 @@ public interface DataAttribute
      * @see #setRefersToFunctionalConstraint(FunctionalConstraint)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_RefersToFunctionalConstraint()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.FunctionalConstraint#getReferredByDataAttribute
-     * @model opposite="referredByDataAttribute" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @model opposite="referredByDataAttribute" resolveProxies="false" unsettable="true" transient="true"
      * @generated
      */
     FunctionalConstraint getRefersToFunctionalConstraint();
@@ -330,7 +330,7 @@ public interface DataAttribute
      * @see #setRefersToPresenceCondition(PresenceCondition)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_RefersToPresenceCondition()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceCondition#getReferredByDataAttribute
-     * @model opposite="referredByDataAttribute" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @model opposite="referredByDataAttribute" resolveProxies="false" unsettable="true" transient="true"
      * @generated
      */
     PresenceCondition getRefersToPresenceCondition();
@@ -385,7 +385,7 @@ public interface DataAttribute
      * @see #setRefersToSizeAttribute(DataAttribute)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_RefersToSizeAttribute()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredByDataAttributeAsSizeAttribute
-     * @model opposite="referredByDataAttributeAsSizeAttribute" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @model opposite="referredByDataAttributeAsSizeAttribute" resolveProxies="false" unsettable="true" transient="true"
      * @generated
      */
     DataAttribute getRefersToSizeAttribute();
@@ -440,7 +440,7 @@ public interface DataAttribute
      * @see #setRefersToMaxIndexAttribute(DataAttribute)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDataAttribute_RefersToMaxIndexAttribute()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getReferredByDataAttributeAsMaxIndexAttribute
-     * @model opposite="referredByDataAttributeAsMaxIndexAttribute" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @model opposite="referredByDataAttributeAsMaxIndexAttribute" resolveProxies="false" unsettable="true" transient="true"
      * @generated
      */
     DataAttribute getRefersToMaxIndexAttribute();

@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -51,7 +51,7 @@ public interface DocumentedClass extends NsdObject {
      * @see #unsetDeprecated()
      * @see #setDeprecated(boolean)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDocumentedClass_Deprecated()
-     * @model default="false" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+     * @model default="false" unsettable="true"
      *        extendedMetaData="kind='attribute' name='deprecated'"
      * @generated
      */
@@ -152,7 +152,7 @@ public interface DocumentedClass extends NsdObject {
      * @see #unsetInformative()
      * @see #setInformative(boolean)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDocumentedClass_Informative()
-     * @model default="false" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+     * @model default="false" unsettable="true"
      *        extendedMetaData="kind='attribute' name='informative'"
      * @generated
      */
@@ -204,7 +204,7 @@ public interface DocumentedClass extends NsdObject {
      * @see #setRefersToDescDoc(Doc)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getDocumentedClass_RefersToDescDoc()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByDocumentedClass
-     * @model opposite="referredByDocumentedClass" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @model opposite="referredByDocumentedClass" resolveProxies="false" unsettable="true" transient="true"
      * @generated
      */
     Doc getRefersToDescDoc();

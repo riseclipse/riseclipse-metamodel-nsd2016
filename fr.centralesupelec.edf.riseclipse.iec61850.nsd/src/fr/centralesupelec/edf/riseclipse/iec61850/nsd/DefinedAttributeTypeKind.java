@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -73,7 +73,19 @@ public enum DefinedAttributeTypeKind implements Enumerator {
      * @generated
      * @ordered
      */
-    CONSTRUCTED( 2, "CONSTRUCTED", "CONSTRUCTED" );
+    CONSTRUCTED( 2, "CONSTRUCTED", "CONSTRUCTED" ),
+    /**
+     * The '<em><b>SCSM</b></em>' literal object.
+     * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * The type of the data attribute is defined by an SCSM ServiceTypeRealization.
+     * <!-- end-model-doc -->
+     * @see #SCSM_VALUE
+     * @generated
+     * @ordered
+     */
+    SCSM( 3, "SCSM", "SCSM" );
 
     /**
      * The '<em><b>BASIC</b></em>' literal value.
@@ -118,6 +130,20 @@ public enum DefinedAttributeTypeKind implements Enumerator {
     public static final int CONSTRUCTED_VALUE = 2;
 
     /**
+     * The '<em><b>SCSM</b></em>' literal value.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * The type of the data attribute is defined by an SCSM ServiceTypeRealization.
+     * <!-- end-model-doc -->
+     * @see #SCSM
+     * @model
+     * @generated
+     * @ordered
+     */
+    public static final int SCSM_VALUE = 3;
+
+    /**
      * An array of all the '<em><b>Defined Attribute Type Kind</b></em>' enumerators.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -127,6 +153,7 @@ public enum DefinedAttributeTypeKind implements Enumerator {
             BASIC,
             ENUMERATED,
             CONSTRUCTED,
+            SCSM,
     };
 
     /**
@@ -147,8 +174,7 @@ public enum DefinedAttributeTypeKind implements Enumerator {
      * @generated
      */
     public static DefinedAttributeTypeKind get( String literal ) {
-        for( int i = 0; i < VALUES_ARRAY.length; ++i ) {
-            DefinedAttributeTypeKind result = VALUES_ARRAY[i];
+        for( DefinedAttributeTypeKind result : VALUES_ARRAY ) {
             if( result.toString().equals( literal ) ) {
                 return result;
             }
@@ -165,8 +191,7 @@ public enum DefinedAttributeTypeKind implements Enumerator {
      * @generated
      */
     public static DefinedAttributeTypeKind getByName( String name ) {
-        for( int i = 0; i < VALUES_ARRAY.length; ++i ) {
-            DefinedAttributeTypeKind result = VALUES_ARRAY[i];
+        for( DefinedAttributeTypeKind result : VALUES_ARRAY ) {
             if( result.getName().equals( name ) ) {
                 return result;
             }
@@ -190,6 +215,8 @@ public enum DefinedAttributeTypeKind implements Enumerator {
             return ENUMERATED;
         case CONSTRUCTED_VALUE:
             return CONSTRUCTED;
+        case SCSM_VALUE:
+            return SCSM;
         }
         return null;
     }

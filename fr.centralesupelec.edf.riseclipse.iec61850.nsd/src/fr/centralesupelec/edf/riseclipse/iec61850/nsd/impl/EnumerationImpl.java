@@ -800,46 +800,54 @@ public class EnumerationImpl extends TitledClassImpl implements Enumeration {
                 IF_le = true;
             }
             else {
-                final /*@NonInvalid*/ List< Literal > literal = this.getLiteral();
-                final /*@NonInvalid*/ SetValue BOXED_literal = idResolver.createSetOfAll( NsdTables.SET_CLSSid_Literal,
-                        literal );
-                /*@Thrown*/ Accumulator accumulator = ValueUtil
-                        .createSetAccumulatorValue( NsdTables.SET_CLSSid_Literal );
-                Iterator< Object > ITERATOR_l = BOXED_literal.iterator();
-                /*@NonInvalid*/ boolean status;
-                while( true ) {
-                    if( !ITERATOR_l.hasNext() ) {
-                        status = true;
-                        break;
+                /*@Caught*/ Object CAUGHT_IF_status;
+                try {
+                    final /*@NonInvalid*/ List< Literal > literal = this.getLiteral();
+                    final /*@NonInvalid*/ SetValue BOXED_literal = idResolver
+                            .createSetOfAll( NsdTables.SET_CLSSid_Literal, literal );
+                    /*@Thrown*/ Accumulator accumulator = ValueUtil
+                            .createSetAccumulatorValue( NsdTables.SET_CLSSid_Literal );
+                    Iterator< Object > ITERATOR_l = BOXED_literal.iterator();
+                    /*@Thrown*/ boolean status;
+                    while( true ) {
+                        if( !ITERATOR_l.hasNext() ) {
+                            status = true;
+                            break;
+                        }
+                        /*@NonInvalid*/ Literal l = ( Literal ) ITERATOR_l.next();
+                        /**
+                         * l.literalVal
+                         */
+                        final /*@NonInvalid*/ Integer literalVal = l.getLiteralVal();
+                        final /*@NonInvalid*/ IntegerValue BOXED_literalVal = literalVal == null ? null
+                                : ValueUtil.integerValueOf( literalVal );
+                        //
+                        if( accumulator.includes( BOXED_literalVal ) == ValueUtil.TRUE_VALUE ) {
+                            status = false;
+                            break; // Abort after second find
+                        }
+                        else {
+                            accumulator.add( BOXED_literalVal );
+                        }
                     }
-                    /*@NonInvalid*/ Literal l = ( Literal ) ITERATOR_l.next();
-                    /**
-                     * l.literalVal
-                     */
-                    final /*@NonInvalid*/ int literalVal = l.getLiteralVal();
-                    final /*@NonInvalid*/ IntegerValue BOXED_literalVal = ValueUtil.integerValueOf( literalVal );
-                    //
-                    if( accumulator.includes( BOXED_literalVal ) == ValueUtil.TRUE_VALUE ) {
-                        status = false;
-                        break; // Abort after second find
+                    /*@Thrown*/ Object IF_status;
+                    if( status ) {
+                        IF_status = ValueUtil.TRUE_VALUE;
                     }
                     else {
-                        accumulator.add( BOXED_literalVal );
+                        final /*@Thrown*/ TupleValue TUP_ = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
+                                NsdTables.STR_For_32_an_32_Enumeration_44_32_there_32_shall_32_not_32_be_32_two_32_Literal_32_sub_m_elements_32_0,
+                                status );
+                        IF_status = TUP_;
                     }
+                    CAUGHT_IF_status = IF_status;
                 }
-                /*@NonInvalid*/ Object IF_status;
-                if( status ) {
-                    IF_status = ValueUtil.TRUE_VALUE;
-                }
-                else {
-                    final /*@NonInvalid*/ TupleValue TUP_ = ValueUtil.createTupleOfEach( NsdTables.TUPLid_,
-                            NsdTables.STR_For_32_an_32_Enumeration_44_32_there_32_shall_32_not_32_be_32_two_32_Literal_32_sub_m_elements_32_0,
-                            status );
-                    IF_status = TUP_;
+                catch( Exception e ) {
+                    CAUGHT_IF_status = ValueUtil.createInvalidValue( e );
                 }
                 final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE
                         .evaluate( executor, TypeId.BOOLEAN, constraintName, this, ( Object ) null, diagnostics,
-                                context, ( Object ) null, severity_0, IF_status, NsdTables.INT_0 )
+                                context, ( Object ) null, severity_0, CAUGHT_IF_status, NsdTables.INT_0 )
                         .booleanValue();
                 IF_le = logDiagnostic;
             }

@@ -824,33 +824,6 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
      * @generated
      */
     @Override
-    public boolean isDchg() {
-        return dchg;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setDchg( boolean newDchg ) {
-        boolean oldDchg = dchg;
-        dchg = newDchg;
-        boolean oldDchgESet = dchgESet;
-        dchgESet = true;
-        if( eNotificationRequired() ) {
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__DCHG, oldDchg, dchg,
-                    !oldDchgESet ) );
-        }
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public void unsetDchg() {
         boolean oldDchg = dchg;
         boolean oldDchgESet = dchgESet;
@@ -870,6 +843,33 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     @Override
     public boolean isSetDchg() {
         return dchgESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isDupd() {
+        return dupd;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setDupd( boolean newDupd ) {
+        boolean oldDupd = dupd;
+        dupd = newDupd;
+        boolean oldDupdESet = dupdESet;
+        dupdESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__DUPD, oldDupd, dupd,
+                    !oldDupdESet ) );
+        }
     }
 
     /**
@@ -932,33 +932,6 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
      * @generated
      */
     @Override
-    public boolean isDupd() {
-        return dupd;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setDupd( boolean newDupd ) {
-        boolean oldDupd = dupd;
-        dupd = newDupd;
-        boolean oldDupdESet = dupdESet;
-        dupdESet = true;
-        if( eNotificationRequired() ) {
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__DUPD, oldDupd, dupd,
-                    !oldDupdESet ) );
-        }
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public void unsetDupd() {
         boolean oldDupd = dupd;
         boolean oldDupdESet = dupdESet;
@@ -978,6 +951,33 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     @Override
     public boolean isSetDupd() {
         return dupdESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isQchg() {
+        return qchg;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setQchg( boolean newQchg ) {
+        boolean oldQchg = qchg;
+        qchg = newQchg;
+        boolean oldQchgESet = qchgESet;
+        qchgESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__QCHG, oldQchg, qchg,
+                    !oldQchgESet ) );
+        }
     }
 
     /**
@@ -1032,33 +1032,6 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     @Override
     public boolean isSetFc() {
         return fcESet;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean isIsArray() {
-        return isArray;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setIsArray( boolean newIsArray ) {
-        boolean oldIsArray = isArray;
-        isArray = newIsArray;
-        boolean oldIsArrayESet = isArrayESet;
-        isArrayESet = true;
-        if( eNotificationRequired() ) {
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__IS_ARRAY, oldIsArray,
-                    isArray, !oldIsArrayESet ) );
-        }
     }
 
     /**
@@ -1708,8 +1681,8 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
      * @generated
      */
     @Override
-    public boolean isQchg() {
-        return qchg;
+    public boolean isIsArray() {
+        return isArray;
     }
 
     /**
@@ -1718,14 +1691,14 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
      * @generated
      */
     @Override
-    public void setQchg( boolean newQchg ) {
-        boolean oldQchg = qchg;
-        qchg = newQchg;
-        boolean oldQchgESet = qchgESet;
-        qchgESet = true;
+    public void setIsArray( boolean newIsArray ) {
+        boolean oldIsArray = isArray;
+        isArray = newIsArray;
+        boolean oldIsArrayESet = isArrayESet;
+        isArrayESet = true;
         if( eNotificationRequired() ) {
-            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__QCHG, oldQchg, qchg,
-                    !oldQchgESet ) );
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__IS_ARRAY, oldIsArray,
+                    isArray, !oldIsArrayESet ) );
         }
     }
 
@@ -1808,6 +1781,33 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
     @Override
     public boolean isSetSizeAttribute() {
         return sizeAttributeESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isDchg() {
+        return dchg;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setDchg( boolean newDchg ) {
+        boolean oldDchg = dchg;
+        dchg = newDchg;
+        boolean oldDchgESet = dchgESet;
+        dchgESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.DATA_ATTRIBUTE__DCHG, oldDchg, dchg,
+                    !oldDchgESet ) );
+        }
     }
 
     /**
@@ -3944,27 +3944,24 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
 
             if( foundFC == null ) {
                 console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                        messagePrefix, "FunctionalConstraint (abbreviation: ", getFc(), ") not found" );
+                                 messagePrefix, "FunctionalConstraint (abbreviation: ", getFc(), ") not found" );
             }
             else {
                 setRefersToFunctionalConstraint( foundFC );
                 String foundWhere = "(???";
                 if( getRefersToFunctionalConstraint().getParentFunctionalConstraints().getParentNS() != null ) {
                     foundWhere = "NS \""
-                            + NsIdentification.of(
-                                    getRefersToFunctionalConstraint().getParentFunctionalConstraints().getParentNS() )
+                            + NsIdentification.of( getRefersToFunctionalConstraint().getParentFunctionalConstraints().getParentNS() )
                             + "\"";
                 }
                 else if( getRefersToFunctionalConstraint().getParentFunctionalConstraints()
                         .getParentServiceNS() != null ) {
                     foundWhere = "ServiceNS \""
-                            + NsIdentification.of( getRefersToFunctionalConstraint().getParentFunctionalConstraints()
-                                    .getParentServiceNS() )
+                            + NsIdentification.of( getRefersToFunctionalConstraint().getParentFunctionalConstraints().getParentServiceNS() )
                             + "\"";
                 }
                 console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                        messagePrefix, "FunctionalConstraint (abbreviation: ", getFc(), ") found in ",
-                        foundWhere, ")" );
+                              messagePrefix, "FunctionalConstraint (abbreviation: ", getFc(), ") found in ", foundWhere, ")" );
             }
         }
 
@@ -3973,26 +3970,23 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
 
             if( foundPC == null ) {
                 console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                        messagePrefix, "PresenceCondition (name: ", getPresCond(), ") not found" );
+                                 messagePrefix, "PresenceCondition (name: ", getPresCond(), ") not found" );
             }
             else {
                 setRefersToPresenceCondition( foundPC );
                 String foundWhere = "(???";
                 if( getRefersToPresenceCondition().getParentPresenceConditions().getParentNS() != null ) {
                     foundWhere = "NS \""
-                            + NsIdentification.of(
-                                    getRefersToPresenceCondition().getParentPresenceConditions().getParentNS() )
+                            + NsIdentification.of( getRefersToPresenceCondition().getParentPresenceConditions().getParentNS() )
                             + "\"";
                 }
                 else if( getRefersToPresenceCondition().getParentPresenceConditions().getParentServiceNS() != null ) {
                     foundWhere = "ServiceNS \""
-                            + NsIdentification.of(
-                                    getRefersToPresenceCondition().getParentPresenceConditions().getParentServiceNS() )
+                            + NsIdentification.of( getRefersToPresenceCondition().getParentPresenceConditions().getParentServiceNS() )
                             + "\"";
                 }
                 console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                        messagePrefix, "PresenceCondition (name: ", getPresCond(), ") found in ",
-                        foundWhere, ")" );
+                              messagePrefix, "PresenceCondition (name: ", getPresCond(), ") found in ", foundWhere, ")" );
             }
         }
 
@@ -4006,11 +4000,11 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
 
             if( isSetRefersToSizeAttribute() ) {
                 console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                        messagePrefix, "DataAttribute (name: ", getSizeAttribute(), ") found" );
+                              messagePrefix, "DataAttribute (name: ", getSizeAttribute(), ") found" );
             }
             else {
                 console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                        messagePrefix, "DataAttribute (name: ", getSizeAttribute(), ") not found" );
+                                 messagePrefix, "DataAttribute (name: ", getSizeAttribute(), ") not found" );
             }
         }
 
@@ -4024,13 +4018,11 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
 
             if( isSetRefersToMaxIndexAttribute() ) {
                 console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                        messagePrefix, "DataAttribute (name: ",
-                        getMaxIndexAttribute(), ") found" );
+                              messagePrefix, "DataAttribute (name: ", getMaxIndexAttribute(), ") found" );
             }
             else {
                 console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                        messagePrefix, "DataAttribute (name: ",
-                        getMaxIndexAttribute(), ") not found" );
+                                 messagePrefix, "DataAttribute (name: ", getMaxIndexAttribute(), ") not found" );
             }
         }
 
@@ -4048,22 +4040,21 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
 
                     if( foundBT == null ) {
                         console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                                messagePrefix, "BasicType (name: ", getType(), ") not found" );
+                                         messagePrefix, "BasicType (name: ", getType(), ") not found" );
                     }
                     else {
                         setRefersToBasicType( foundBT );
                         console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                                messagePrefix, "BasicType (name: ", getType(), ") found in NS \"",
-                                NsIdentification.of( getRefersToBasicType().getParentBasicTypes().getParentNS() ), "\"" );
+                                      messagePrefix, "BasicType (name: ", getType(), ") found in NS \"",
+                                      NsIdentification.of( getRefersToBasicType().getParentBasicTypes().getParentNS() ), "\"" );
                     }
                     break;
                 case DefinedAttributeTypeKind.CONSTRUCTED_VALUE:
-                    ConstructedAttribute foundCA = rs.findConstructedAttribute( getType(), getNsIdentification(),
-                            true );
+                    ConstructedAttribute foundCA = rs.findConstructedAttribute( getType(), getNsIdentification(), true );
 
                     if( foundCA == null ) {
                         console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                                messagePrefix, "ConstructedAttribute (name: ", getType(), ") not found" );
+                                         messagePrefix, "ConstructedAttribute (name: ", getType(), ") not found" );
                     }
                     else {
                         if( foundCA instanceof ServiceConstructedAttribute ) {
@@ -4072,28 +4063,24 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                                 if( underlyingType != null ) {
                                     // The parameterized SCA must be put in the same namespace than
                                     // this DataAttribute so that underlyingType is found
-                                    sca = ( ( ServiceConstructedAttributeImpl ) sca )
-                                            .getParameterizedServiceConstructedAttribute( underlyingTypeKind,
-                                                    underlyingType, getNsIdentification(), console );
+                                    sca = (( ServiceConstructedAttributeImpl ) sca )
+                                            .getParameterizedServiceConstructedAttribute( underlyingTypeKind, underlyingType, getNsIdentification(), console );
                                 }
                                 else if(( DefinedAttributeTypeKind.ENUMERATED.equals( underlyingTypeKind ) && getParentCDC().isEnumParameterized() )) {
                                     if((( CDCImpl ) getParentCDC() ).getUnderlyingType() != null ) {
-                                        sca = ( ( ServiceConstructedAttributeImpl ) sca )
-                                                .getParameterizedServiceConstructedAttribute( underlyingTypeKind,
-                                                        (( CDCImpl ) getParentCDC() ).getUnderlyingType(), getNsIdentification(), console );
+                                        sca = (( ServiceConstructedAttributeImpl ) sca )
+                                                .getParameterizedServiceConstructedAttribute( underlyingTypeKind, (( CDCImpl ) getParentCDC() ).getUnderlyingType(), getNsIdentification(), console );
                                     }
                                     else {
                                         // This is not a problem if is is added to a CDC which is parameterized
                                         console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                                                messagePrefix, "ServiceConstructedAttribute (name: ", getType(),
-                                                ") is typeKindParameterized but no underlyingType" );
+                                                      messagePrefix, "ServiceConstructedAttribute (name: ", getType(), ") is typeKindParameterized but no underlyingType" );
                                     }
                                 }
                                 else {
                                     // This is not a problem if is is added to a CDC which is parameterized
                                     console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                                            messagePrefix, "ServiceConstructedAttribute (name: ", getType(),
-                                            ") is typeKindParameterized but no underlyingTypeKind" );
+                                                  messagePrefix, "ServiceConstructedAttribute (name: ", getType(), ") is typeKindParameterized but no underlyingTypeKind" );
                                 }
                             }
                             foundCA = sca;
@@ -4102,19 +4089,11 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                         String foundWhere = "(???";
                         if( getRefersToConstructedAttribute().getParentConstructedAttributes() != null ) {
                             foundWhere = "NS \""
-                                    + NsIdentification.of( getRefersToConstructedAttribute()
-                                            .getParentConstructedAttributes().getParentNS() )
-                                    + "\"";
-                        }
-                        else if( getRefersToConstructedAttribute().getParentServiceTypeRealizations() != null ) {
-                            foundWhere = "ServiceNS \""
-                                    + NsIdentification.of( getRefersToConstructedAttribute()
-                                            .getParentServiceTypeRealizations().getParentServiceNS() )
+                                    + NsIdentification.of( getRefersToConstructedAttribute().getParentConstructedAttributes().getParentNS() )
                                     + "\"";
                         }
                         console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                                messagePrefix, "ConstructedAttribute (name: ", getType(), ") found in ",
-                                foundWhere, ")" );
+                                      messagePrefix, "ConstructedAttribute (name: ", getType(), ") found in ", foundWhere, ")" );
                     }
                     break;
                 case DefinedAttributeTypeKind.ENUMERATED_VALUE:
@@ -4124,16 +4103,16 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                     // keyword “EnumDA”.
                     if( ! "EnumDA".equals( getType() )) {
                         Enumeration foundEn = rs.findEnumeration( getType(), getNsIdentification(), true );
-    
+
                         if( foundEn == null ) {
                             console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                                    messagePrefix, "Enumeration (name: ", getType(), ") not found" );
+                                             messagePrefix, "Enumeration (name: ", getType(), ") not found" );
                         }
                         else {
                             setRefersToEnumeration( foundEn );
                             console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                                    messagePrefix, "Enumeration (name: ", getType(), ") found in NS \"",
-                                    NsIdentification.of( getRefersToEnumeration().getParentEnumerations().getParentNS() ), "\"" );
+                                          messagePrefix, "Enumeration (name: ", getType(), ") found in NS \"",
+                                          NsIdentification.of( getRefersToEnumeration().getParentEnumerations().getParentNS() ), "\"" );
                         }
                     }
                     else {
@@ -4144,22 +4123,36 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
             }
             else {
                 // type for ENUMERATED may be missing if CDC has enumParameterized="true"
-                if( ( getTypeKind().getValue() == DefinedAttributeTypeKind.ENUMERATED_VALUE ) ) {
+                if(( getTypeKind().getValue() == DefinedAttributeTypeKind.ENUMERATED_VALUE )) {
                     if( getParentCDC().isEnumParameterized() ) {
                         console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                                messagePrefix, "type is missing for ", getTypeKind(),
-                                " but enumParameterized in parent CDC is true" );
+                                      messagePrefix, "type is missing for ", getTypeKind(),
+                                      " but enumParameterized in parent CDC is true" );
                         getParentCDC().getParameterizedDataAttributeNames().add( getName() );
                     }
                     else {
                         console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                                messagePrefix, "type is missing for ", getTypeKind(),
-                                " and enumParameterized in parent CDC is false" );
+                                         messagePrefix, "type is missing for ", getTypeKind(),
+                                         " and enumParameterized in parent CDC is false" );
+                    }
+                }
+                // type is missing if for SCSM 
+                else if(( getTypeKind().getValue() == DefinedAttributeTypeKind.SCSM_VALUE )) {
+                    if( getParentCDC().isTypeKindParameterized() ) {
+                        console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                      messagePrefix, "type is missing for ", getTypeKind(),
+                                      " but typeKindParameterized in parent CDC is true" );
+                        getParentCDC().getParameterizedDataAttributeNames().add( getName() );
+                    }
+                    else {
+                        console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
+                                         messagePrefix, "type is missing for ", getTypeKind(),
+                                         " and typeKindParameterized in parent CDC is false" );
                     }
                 }
                 else {
                     console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                            messagePrefix, "type is missing for ", getTypeKind() );
+                                     messagePrefix, "type is missing for ", getTypeKind() );
                 }
             }
         }
@@ -4167,25 +4160,24 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
             // type may be missing if CDC has typeKindParameterized="true"
             if( getParentCDC().isTypeKindParameterized() ) {
                 console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                        messagePrefix, "type is missing for ", getTypeKind(),
-                        " but typeKindParameterized in parent CDC is true" );
+                              messagePrefix, "type is missing for ", getTypeKind(),
+                              " but typeKindParameterized in parent CDC is true" );
                 getParentCDC().getParameterizedDataAttributeNames().add( getName() );
             }
             else {
                 console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                        messagePrefix, "typeKind is ", getTypeKind(),
-                        " and typeKindParameterized in parent CDC is false" );
+                                 messagePrefix, "typeKind is ", getTypeKind(),
+                                 " and typeKindParameterized in parent CDC is false" );
             }
         }
         else {
             console.warning( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),
-                    messagePrefix, "typeKind is missing" );
+                             messagePrefix, "typeKind is missing" );
         }
 
         if( isSetPresCondArgsID() ) {
             if( this.eResource().getResourceSet() instanceof NsdResourceSetImpl ) {
-                Doc doc = ( ( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getNsIdentification(),
-                        getPresCondArgsID() );
+                Doc doc = (( NsdResourceSetImpl ) this.eResource().getResourceSet() ).findDoc( getNsIdentification(), getPresCondArgsID() );
                 if( doc != null ) {
                     setRefersToPresCondArgsDoc( doc );
                 }

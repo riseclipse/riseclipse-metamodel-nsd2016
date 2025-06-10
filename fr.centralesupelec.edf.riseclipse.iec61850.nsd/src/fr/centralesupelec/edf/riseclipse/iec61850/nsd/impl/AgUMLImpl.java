@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -20,17 +20,15 @@
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl;
 
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUML;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
-
 import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.AgUML;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,6 +40,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AgUMLImpl#getUmlDate <em>Uml Date</em>}</li>
  *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AgUMLImpl#getUmlVersion <em>Uml Version</em>}</li>
+ *   <li>{@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.impl.AgUMLImpl#getAppVersion <em>App Version</em>}</li>
  * </ul>
  *
  * @generated
@@ -106,6 +105,35 @@ public abstract class AgUMLImpl extends MinimalEObjectImpl.Container implements 
     protected boolean umlVersionESet;
 
     /**
+     * The default value of the '{@link #getAppVersion() <em>App Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getAppVersion()
+     * @generated
+     * @ordered
+     */
+    protected static final String APP_VERSION_EDEFAULT = "\"\"";
+
+    /**
+     * The cached value of the '{@link #getAppVersion() <em>App Version</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getAppVersion()
+     * @generated
+     * @ordered
+     */
+    protected String appVersion = APP_VERSION_EDEFAULT;
+
+    /**
+     * This is true if the App Version attribute has been set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    protected boolean appVersionESet;
+
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -145,9 +173,10 @@ public abstract class AgUMLImpl extends MinimalEObjectImpl.Container implements 
         umlDate = newUmlDate;
         boolean oldUmlDateESet = umlDateESet;
         umlDateESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_UML__UML_DATE, oldUmlDate, umlDate,
                     !oldUmlDateESet ) );
+        }
     }
 
     /**
@@ -161,9 +190,10 @@ public abstract class AgUMLImpl extends MinimalEObjectImpl.Container implements 
         boolean oldUmlDateESet = umlDateESet;
         umlDate = UML_DATE_EDEFAULT;
         umlDateESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_UML__UML_DATE, oldUmlDate,
                     UML_DATE_EDEFAULT, oldUmlDateESet ) );
+        }
     }
 
     /**
@@ -197,9 +227,10 @@ public abstract class AgUMLImpl extends MinimalEObjectImpl.Container implements 
         umlVersion = newUmlVersion;
         boolean oldUmlVersionESet = umlVersionESet;
         umlVersionESet = true;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_UML__UML_VERSION, oldUmlVersion,
                     umlVersion, !oldUmlVersionESet ) );
+        }
     }
 
     /**
@@ -213,9 +244,10 @@ public abstract class AgUMLImpl extends MinimalEObjectImpl.Container implements 
         boolean oldUmlVersionESet = umlVersionESet;
         umlVersion = UML_VERSION_EDEFAULT;
         umlVersionESet = false;
-        if( eNotificationRequired() )
+        if( eNotificationRequired() ) {
             eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_UML__UML_VERSION, oldUmlVersion,
                     UML_VERSION_EDEFAULT, oldUmlVersionESet ) );
+        }
     }
 
     /**
@@ -234,12 +266,68 @@ public abstract class AgUMLImpl extends MinimalEObjectImpl.Container implements 
      * @generated
      */
     @Override
+    public String getAppVersion() {
+        return appVersion;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setAppVersion( String newAppVersion ) {
+        String oldAppVersion = appVersion;
+        appVersion = newAppVersion;
+        boolean oldAppVersionESet = appVersionESet;
+        appVersionESet = true;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.SET, NsdPackage.AG_UML__APP_VERSION, oldAppVersion,
+                    appVersion, !oldAppVersionESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void unsetAppVersion() {
+        String oldAppVersion = appVersion;
+        boolean oldAppVersionESet = appVersionESet;
+        appVersion = APP_VERSION_EDEFAULT;
+        appVersionESet = false;
+        if( eNotificationRequired() ) {
+            eNotify( new ENotificationImpl( this, Notification.UNSET, NsdPackage.AG_UML__APP_VERSION, oldAppVersion,
+                    APP_VERSION_EDEFAULT, oldAppVersionESet ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isSetAppVersion() {
+        return appVersionESet;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public Object eGet( int featureID, boolean resolve, boolean coreType ) {
         switch( featureID ) {
         case NsdPackage.AG_UML__UML_DATE:
             return getUmlDate();
         case NsdPackage.AG_UML__UML_VERSION:
             return getUmlVersion();
+        case NsdPackage.AG_UML__APP_VERSION:
+            return getAppVersion();
         }
         return super.eGet( featureID, resolve, coreType );
     }
@@ -257,6 +345,9 @@ public abstract class AgUMLImpl extends MinimalEObjectImpl.Container implements 
             return;
         case NsdPackage.AG_UML__UML_VERSION:
             setUmlVersion( ( String ) newValue );
+            return;
+        case NsdPackage.AG_UML__APP_VERSION:
+            setAppVersion( ( String ) newValue );
             return;
         }
         super.eSet( featureID, newValue );
@@ -276,6 +367,9 @@ public abstract class AgUMLImpl extends MinimalEObjectImpl.Container implements 
         case NsdPackage.AG_UML__UML_VERSION:
             unsetUmlVersion();
             return;
+        case NsdPackage.AG_UML__APP_VERSION:
+            unsetAppVersion();
+            return;
         }
         super.eUnset( featureID );
     }
@@ -292,6 +386,8 @@ public abstract class AgUMLImpl extends MinimalEObjectImpl.Container implements 
             return isSetUmlDate();
         case NsdPackage.AG_UML__UML_VERSION:
             return isSetUmlVersion();
+        case NsdPackage.AG_UML__APP_VERSION:
+            return isSetAppVersion();
         }
         return super.eIsSet( featureID );
     }
@@ -303,19 +399,32 @@ public abstract class AgUMLImpl extends MinimalEObjectImpl.Container implements 
      */
     @Override
     public String toString() {
-        if( eIsProxy() ) return super.toString();
+        if( eIsProxy() ) {
+            return super.toString();
+        }
 
         StringBuilder result = new StringBuilder( super.toString() );
         result.append( " (umlDate: " );
-        if( umlDateESet )
+        if( umlDateESet ) {
             result.append( umlDate );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
         result.append( ", umlVersion: " );
-        if( umlVersionESet )
+        if( umlVersionESet ) {
             result.append( umlVersion );
-        else
+        }
+        else {
             result.append( "<unset>" );
+        }
+        result.append( ", appVersion: " );
+        if( appVersionESet ) {
+            result.append( appVersion );
+        }
+        else {
+            result.append( "<unset>" );
+        }
         result.append( ')' );
         return result.toString();
     }

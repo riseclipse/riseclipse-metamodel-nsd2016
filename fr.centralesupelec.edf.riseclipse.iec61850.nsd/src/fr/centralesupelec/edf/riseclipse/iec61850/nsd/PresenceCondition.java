@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -263,7 +263,7 @@ public interface PresenceCondition extends NsdObject {
      * @see #setParentPresenceConditions(PresenceConditions)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getPresenceCondition_ParentPresenceConditions()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.PresenceConditions#getPresenceCondition
-     * @model opposite="presenceCondition" resolveProxies="false" unsettable="true" ordered="false"
+     * @model opposite="presenceCondition" resolveProxies="false" unsettable="true"
      * @generated
      */
     PresenceConditions getParentPresenceConditions();
@@ -494,7 +494,7 @@ public interface PresenceCondition extends NsdObject {
      * @see #setRefersToDescDoc(Doc)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getPresenceCondition_RefersToDescDoc()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByPresenceConditionAsDesc
-     * @model opposite="referredByPresenceConditionAsDesc" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @model opposite="referredByPresenceConditionAsDesc" resolveProxies="false" unsettable="true" transient="true"
      * @generated
      */
     Doc getRefersToDescDoc();
@@ -545,7 +545,7 @@ public interface PresenceCondition extends NsdObject {
      * @see #setRefersToTitleDoc(Doc)
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getPresenceCondition_RefersToTitleDoc()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.Doc#getReferredByPresenceConditionAsTitle
-     * @model opposite="referredByPresenceConditionAsTitle" resolveProxies="false" unsettable="true" transient="true" ordered="false"
+     * @model opposite="referredByPresenceConditionAsTitle" resolveProxies="false" unsettable="true" transient="true"
      * @generated
      */
     Doc getRefersToTitleDoc();

@@ -5,9 +5,9 @@
 **  are made available under the terms of the Eclipse Public License v2.0
 **  which accompanies this distribution, and is available at
 **  https://www.eclipse.org/legal/epl-v20.html
-** 
+**
 **  This file is part of the RiseClipse tool
-**  
+**
 **  Contributors:
 **      Computer Science Department, CentraleSupélec
 **      EDF R&D
@@ -20,21 +20,20 @@
 */
 package fr.centralesupelec.edf.riseclipse.iec61850.nsd.provider;
 
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
-import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdFactory;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage;
+import fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage;
 
 /**
  * This is the item provider adapter for a {@link fr.centralesupelec.edf.riseclipse.iec61850.nsd.ServiceNsUsage} object.
@@ -64,35 +63,11 @@ public class ServiceNsUsageItemProvider extends NsdObjectItemProvider {
         if( itemPropertyDescriptors == null ) {
             super.getPropertyDescriptors( object );
 
-            addReleasePropertyDescriptor( object );
-            addVersionPropertyDescriptor( object );
             addIdPropertyDescriptor( object );
+            addVersionPropertyDescriptor( object );
             addRevisionPropertyDescriptor( object );
-            addPublicationStagePropertyDescriptor( object );
         }
         return itemPropertyDescriptors;
-    }
-
-    /**
-     * This adds a property descriptor for the Release feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addReleasePropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add(
-                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString( "_UI_AgNSIdentification_release_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_AgNSIdentification_release_feature",
-                                "_UI_AgNSIdentification_type" ),
-                        NsdPackage.Literals.AG_NS_IDENTIFICATION__RELEASE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
     }
 
     /**
@@ -105,10 +80,10 @@ public class ServiceNsUsageItemProvider extends NsdObjectItemProvider {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
                         getResourceLocator(),
-                        getString( "_UI_AgNSIdentification_version_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_AgNSIdentification_version_feature",
-                                "_UI_AgNSIdentification_type" ),
-                        NsdPackage.Literals.AG_NS_IDENTIFICATION__VERSION,
+                        getString( "_UI_ServiceNsUsage_version_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_ServiceNsUsage_version_feature",
+                                "_UI_ServiceNsUsage_type" ),
+                        NsdPackage.Literals.SERVICE_NS_USAGE__VERSION,
                         true,
                         false,
                         false,
@@ -127,32 +102,10 @@ public class ServiceNsUsageItemProvider extends NsdObjectItemProvider {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
                         getResourceLocator(),
-                        getString( "_UI_AgNSIdentification_id_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_AgNSIdentification_id_feature",
-                                "_UI_AgNSIdentification_type" ),
-                        NsdPackage.Literals.AG_NS_IDENTIFICATION__ID,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
-    }
-
-    /**
-     * This adds a property descriptor for the Publication Stage feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addPublicationStagePropertyDescriptor( Object object ) {
-        itemPropertyDescriptors.add(
-                createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString( "_UI_AgNSIdentification_publicationStage_feature" ),
-                        getString( "_UI_PropertyDescriptor_description",
-                                "_UI_AgNSIdentification_publicationStage_feature", "_UI_AgNSIdentification_type" ),
-                        NsdPackage.Literals.AG_NS_IDENTIFICATION__PUBLICATION_STAGE,
+                        getString( "_UI_ServiceNsUsage_id_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_ServiceNsUsage_id_feature",
+                                "_UI_ServiceNsUsage_type" ),
+                        NsdPackage.Literals.SERVICE_NS_USAGE__ID,
                         true,
                         false,
                         false,
@@ -171,10 +124,10 @@ public class ServiceNsUsageItemProvider extends NsdObjectItemProvider {
         itemPropertyDescriptors.add(
                 createItemPropertyDescriptor( ( ( ComposeableAdapterFactory ) adapterFactory ).getRootAdapterFactory(),
                         getResourceLocator(),
-                        getString( "_UI_AgNSIdentification_revision_feature" ),
-                        getString( "_UI_PropertyDescriptor_description", "_UI_AgNSIdentification_revision_feature",
-                                "_UI_AgNSIdentification_type" ),
-                        NsdPackage.Literals.AG_NS_IDENTIFICATION__REVISION,
+                        getString( "_UI_ServiceNsUsage_revision_feature" ),
+                        getString( "_UI_PropertyDescriptor_description", "_UI_ServiceNsUsage_revision_feature",
+                                "_UI_ServiceNsUsage_type" ),
+                        NsdPackage.Literals.SERVICE_NS_USAGE__REVISION,
                         true,
                         false,
                         false,
@@ -249,11 +202,9 @@ public class ServiceNsUsageItemProvider extends NsdObjectItemProvider {
         updateChildren( notification );
 
         switch( notification.getFeatureID( ServiceNsUsage.class ) ) {
-        case NsdPackage.SERVICE_NS_USAGE__RELEASE:
-        case NsdPackage.SERVICE_NS_USAGE__VERSION:
         case NsdPackage.SERVICE_NS_USAGE__ID:
+        case NsdPackage.SERVICE_NS_USAGE__VERSION:
         case NsdPackage.SERVICE_NS_USAGE__REVISION:
-        case NsdPackage.SERVICE_NS_USAGE__PUBLICATION_STAGE:
             fireNotifyChanged( new ViewerNotification( notification, notification.getNotifier(), false, true ) );
             return;
         case NsdPackage.SERVICE_NS_USAGE__APPLIES_TO:
