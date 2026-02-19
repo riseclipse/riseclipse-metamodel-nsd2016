@@ -46,7 +46,7 @@ import org.eclipse.ocl.pivot.library.string.CGStringLogDiagnosticOperation;
 import org.eclipse.ocl.pivot.utilities.PivotUtil;
 import org.eclipse.ocl.pivot.utilities.ValueUtil;
 import org.eclipse.ocl.pivot.values.IntegerValue;
-import org.eclipse.ocl.pivot.values.SetValue;
+import org.eclipse.ocl.pivot.values.OrderedSetValue;
 import org.eclipse.ocl.pivot.values.SetValue.Accumulator;
 import org.eclipse.ocl.pivot.values.TupleValue;
 
@@ -424,10 +424,10 @@ public class ConstructedAttributeImpl extends TitledClassImpl implements Constru
                 /*@Caught*/ Object CAUGHT_IF_status;
                 try {
                     final /*@NonInvalid*/ List< SubDataAttribute > subDataAttribute = this.getSubDataAttribute();
-                    final /*@NonInvalid*/ SetValue BOXED_subDataAttribute = idResolver
-                            .createSetOfAll( NsdTables.SET_CLSSid_SubDataAttribute, subDataAttribute );
+                    final /*@NonInvalid*/ OrderedSetValue BOXED_subDataAttribute = idResolver
+                            .createOrderedSetOfAll( NsdTables.ORD_CLSSid_SubDataAttribute, subDataAttribute );
                     /*@Thrown*/ Accumulator accumulator = ValueUtil
-                            .createSetAccumulatorValue( NsdTables.SET_CLSSid_SubDataAttribute );
+                            .createSetAccumulatorValue( NsdTables.ORD_CLSSid_SubDataAttribute );
                     Iterator< Object > ITERATOR_s = BOXED_subDataAttribute.iterator();
                     /*@Thrown*/ boolean status;
                     while( true ) {

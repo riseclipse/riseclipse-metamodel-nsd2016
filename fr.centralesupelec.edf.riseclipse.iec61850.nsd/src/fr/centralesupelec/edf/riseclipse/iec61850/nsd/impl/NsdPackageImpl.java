@@ -5718,7 +5718,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEReference( getCDC_DataAttribute(), this.getDataAttribute(), this.getDataAttribute_ParentCDC(),
                 "dataAttribute", null, 0, -1, fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                !IS_ORDERED );
+                IS_ORDERED );
         initEReference( getCDC_ServiceParameter(), this.getServiceParameter(), this.getServiceParameter_ParentCDC(),
                 "serviceParameter", null, 0, 1, fr.centralesupelec.edf.riseclipse.iec61850.nsd.CDC.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
@@ -5830,7 +5830,7 @@ public class NsdPackageImpl extends EPackageImpl implements NsdPackage {
         initEReference( getConstructedAttribute_SubDataAttribute(), this.getSubDataAttribute(),
                 this.getSubDataAttribute_ParentConstructedAttribute(), "subDataAttribute", null, 0, -1,
                 ConstructedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
+                !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute( getConstructedAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1,
                 ConstructedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
