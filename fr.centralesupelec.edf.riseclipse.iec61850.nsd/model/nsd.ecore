@@ -460,9 +460,9 @@
         <details key="namespace" value="##targetNamespace"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dataAttribute" ordered="false"
-        upperBound="-1" eType="#//DataAttribute" unsettable="true" containment="true"
-        resolveProxies="false" eOpposite="#//DataAttribute/parentCDC">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataAttribute" upperBound="-1"
+        eType="#//DataAttribute" unsettable="true" containment="true" resolveProxies="false"
+        eOpposite="#//DataAttribute/parentCDC">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="DataAttribute"/>
@@ -625,9 +625,9 @@
       <details key="uniqueSubDataAttribute" value="Tuple {&#xA;&#x9;message : String = 'For a ConstructedAttribute, there shall not be two SubDataAttribute sub-elements with same name.',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.subDataAttribute->isUnique( s : SubDataAttribute | s.name )&#xA;}.status"/>
       <details key="nameAttributeRequired" value="Tuple {&#xA;&#x9;message : String = 'The name attribute is required',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.name &lt;> null&#xA;}.status"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="subDataAttribute" ordered="false"
-        upperBound="-1" eType="#//SubDataAttribute" unsettable="true" containment="true"
-        resolveProxies="false" eOpposite="#//SubDataAttribute/parentConstructedAttribute">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subDataAttribute" upperBound="-1"
+        eType="#//SubDataAttribute" unsettable="true" containment="true" resolveProxies="false"
+        eOpposite="#//SubDataAttribute/parentConstructedAttribute">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="SubDataAttribute"/>

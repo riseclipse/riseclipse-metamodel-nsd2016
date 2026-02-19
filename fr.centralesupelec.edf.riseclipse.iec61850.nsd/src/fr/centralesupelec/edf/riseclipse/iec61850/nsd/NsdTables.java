@@ -172,6 +172,7 @@ public class NsdTables extends AbstractTables
 	public static final /*@NonInvalid*/ MapTypeId MAP_PRIMid_String_PRIMid_String = TypeId.MAP.getSpecializedId(TypeId.STRING, TypeId.STRING, false, false);
 	public static final /*@NonInvalid*/ TuplePartId PARTid_ = IdManager.getTuplePartId(0, "message", TypeId.STRING);
 	public static final /*@NonInvalid*/ TuplePartId PARTid__0 = IdManager.getTuplePartId(1, "status", TypeId.BOOLEAN);
+	public static final /*@NonInvalid*/ CollectionTypeId SEQ_PRIMid_String = TypeId.SEQUENCE.getSpecializedId(TypeId.STRING, false, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
 	public static final /*@NonInvalid*/ CollectionTypeId SET_PRIMid_String = TypeId.SET.getSpecializedId(TypeId.STRING, true, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
 	public static final /*@NonInvalid*/ String STR_For_32_a_32_CDC_44_32_there_32_shall_32_not_32_be_32_two_32_sub_m_elements_32_o_SubDataObject_32_or = "For a CDC, there shall not be two sub-elements (SubDataObject or DataAttribute) with same name.";
 	public static final /*@NonInvalid*/ String STR_For_32_a_32_ConstructedAttribute_44_32_there_32_shall_32_not_32_be_32_two_32_SubDataAttrib = "For a ConstructedAttribute, there shall not be two SubDataAttribute sub-elements with same name.";
@@ -201,7 +202,9 @@ public class NsdTables extends AbstractTables
 	public static final /*@NonInvalid*/ String STR_Within_32_an_32_NS_44_32_there_32_shall_32_not_32_be_32_two_32_ConstructedAttribute_32_sub_m_el = "Within an NS, there shall not be two ConstructedAttribute sub-elements with same name.";
 	public static final /*@NonInvalid*/ String STR_Within_32_an_32_NS_44_32_there_32_shall_32_not_32_be_32_two_32_Enumeration_32_sub_m_elements_32_wi = "Within an NS, there shall not be two Enumeration sub-elements with same name.";
 	public static final /*@NonInvalid*/ String STR_Within_32_an_32_NS_44_32_there_32_shall_32_not_32_be_32_two_32_LNClass_32_sub_m_elements_32_with_32_s = "Within an NS, there shall not be two LNClass sub-elements with same name.";
+	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_DataAttribute = TypeId.ORDERED_SET.getSpecializedId(NsdTables.CLSSid_DataAttribute, true, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
 	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_Enumeration = TypeId.ORDERED_SET.getSpecializedId(NsdTables.CLSSid_Enumeration, true, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
+	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_SubDataAttribute = TypeId.ORDERED_SET.getSpecializedId(NsdTables.CLSSid_SubDataAttribute, true, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
 	public static final /*@NonInvalid*/ CollectionTypeId SEQ_DATAid_EFeatureMapEntry = TypeId.SEQUENCE.getSpecializedId(NsdTables.DATAid_EFeatureMapEntry, true, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
 	public static final /*@NonInvalid*/ CollectionTypeId SET_CLSSid_Abbreviation = TypeId.SET.getSpecializedId(NsdTables.CLSSid_Abbreviation, true, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
 	public static final /*@NonInvalid*/ CollectionTypeId SET_CLSSid_AbstractLNClass = TypeId.SET.getSpecializedId(NsdTables.CLSSid_AbstractLNClass, true, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);

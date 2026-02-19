@@ -3299,7 +3299,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                 foundBT.setName( getUnderlyingType() );
                 foundBT.setFilename( getFilename() );
                 foundBT.setLineNumber( getLineNumber() );
-                
+
                 // DataObject is in 7.4, snsd will be apply to 7-3, so this basic type must not be put
                 // 7-4 to be found
                 // We put it at the root NS
@@ -3391,7 +3391,7 @@ public class DataObjectImpl extends DocumentedClassImpl implements DataObject {
                                 messagePrefix, "ConstructedAttribute (name: ", getUnderlyingType(), ") found in ", foundWhere, "\"" );
                     }
                 }
-                
+
                 // Two namespaces are concerned: the one of the CDC and the one of the underlyingType
                 // To be sure to find the validators, we will use the more general one
                 // Correction after mail from Aurélie 9 February 2024, point 11

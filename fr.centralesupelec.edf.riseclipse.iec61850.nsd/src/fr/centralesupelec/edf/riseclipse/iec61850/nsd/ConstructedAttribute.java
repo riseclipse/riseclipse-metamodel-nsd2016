@@ -62,7 +62,7 @@ public interface ConstructedAttribute extends TitledClass {
      * @see #unsetSubDataAttribute()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getConstructedAttribute_SubDataAttribute()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.SubDataAttribute#getParentConstructedAttribute
-     * @model opposite="parentConstructedAttribute" containment="true" unsettable="true" ordered="false"
+     * @model opposite="parentConstructedAttribute" containment="true" unsettable="true"
      *        extendedMetaData="kind='element' name='SubDataAttribute' namespace='##targetNamespace'"
      * @generated
      */

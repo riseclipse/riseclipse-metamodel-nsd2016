@@ -55,6 +55,8 @@ import org.eclipse.ocl.pivot.values.BagValue;
 import org.eclipse.ocl.pivot.values.BagValue.Accumulator;
 import org.eclipse.ocl.pivot.values.IntegerValue;
 import org.eclipse.ocl.pivot.values.InvalidValueException;
+import org.eclipse.ocl.pivot.values.OrderedSetValue;
+import org.eclipse.ocl.pivot.values.SequenceValue;
 import org.eclipse.ocl.pivot.values.SetValue;
 import org.eclipse.ocl.pivot.values.TupleValue;
 
@@ -1028,12 +1030,12 @@ public class CDCImpl extends TitledClassImpl implements CDC {
                         accumulator.add( name );
                     }
                     final /*@NonInvalid*/ List< DataAttribute > dataAttribute = this.getDataAttribute();
-                    final /*@NonInvalid*/ SetValue BOXED_dataAttribute = idResolver
-                            .createSetOfAll( NsdTables.SET_CLSSid_DataAttribute, dataAttribute );
-                    /*@Thrown*/ Accumulator accumulator_0 = ValueUtil
-                            .createBagAccumulatorValue( NsdTables.BAG_PRIMid_String );
+                    final /*@NonInvalid*/ OrderedSetValue BOXED_dataAttribute = idResolver
+                            .createOrderedSetOfAll( NsdTables.ORD_CLSSid_DataAttribute, dataAttribute );
+                    /*@Thrown*/ org.eclipse.ocl.pivot.values.SequenceValue.Accumulator accumulator_0 = ValueUtil
+                            .createSequenceAccumulatorValue( NsdTables.SEQ_PRIMid_String );
                     Iterator< Object > ITERATOR__1_0 = BOXED_dataAttribute.iterator();
-                    /*@Thrown*/ BagValue collect_0;
+                    /*@Thrown*/ SequenceValue collect_0;
                     while( true ) {
                         if( !ITERATOR__1_0.hasNext() ) {
                             collect_0 = accumulator_0;
