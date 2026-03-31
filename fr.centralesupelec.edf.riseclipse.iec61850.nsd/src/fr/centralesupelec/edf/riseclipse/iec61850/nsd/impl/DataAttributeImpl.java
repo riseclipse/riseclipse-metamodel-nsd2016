@@ -4136,7 +4136,7 @@ public class DataAttributeImpl extends DocumentedClassImpl implements DataAttrib
                                          " and enumParameterized in parent CDC is false" );
                     }
                 }
-                // type is missing if for SCSM 
+                // type is missing if for SCSM
                 else if(( getTypeKind().getValue() == DefinedAttributeTypeKind.SCSM_VALUE )) {
                     if( getParentCDC().isTypeKindParameterized() ) {
                         console.info( EXPLICIT_LINK_CATEGORY, getFilename(), getLineNumber(),

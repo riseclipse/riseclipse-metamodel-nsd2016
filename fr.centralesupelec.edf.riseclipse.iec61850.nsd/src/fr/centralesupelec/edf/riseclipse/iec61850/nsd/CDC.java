@@ -111,7 +111,7 @@ public interface CDC extends TitledClass {
      * @see #unsetDataAttribute()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.NsdPackage#getCDC_DataAttribute()
      * @see fr.centralesupelec.edf.riseclipse.iec61850.nsd.DataAttribute#getParentCDC
-     * @model opposite="parentCDC" containment="true" unsettable="true" ordered="false"
+     * @model opposite="parentCDC" containment="true" unsettable="true"
      *        extendedMetaData="kind='element' name='DataAttribute' namespace='##targetNamespace'"
      * @generated
      */
